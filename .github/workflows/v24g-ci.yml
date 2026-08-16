@@ -2,14 +2,17 @@ name: V24G CI
 
 on:
   push:
-    branches: [v24g-ci]
+    branches: [v24g-ci, v24g-part4-work]
     paths:
       - 'src/analytics/historical_backtest_readiness.py'
       - 'src/analytics/historical_backtest_readiness_db.py'
+      - 'src/analytics/historical_backtest_readiness_cli.py'
+      - 'scripts/audit_historical_backtest_readiness.py'
       - 'tests/test_historical_backtest_readiness.py'
       - 'tests/test_historical_backtest_readiness_contract.py'
       - 'tests/test_historical_backtest_readiness_db.py'
       - 'tests/test_historical_backtest_readiness_db_live.py'
+      - 'tests/test_historical_backtest_readiness_cli.py'
       - '.github/workflows/v24g-ci.yml'
 
 permissions:
@@ -57,46 +60,53 @@ jobs:
           tests/test_historical_backtest_readiness_contract.py
           tests/test_historical_backtest_readiness_db.py
           tests/test_historical_backtest_readiness_db_live.py
-      - name: V24-G Python mutations — four guards must die
+          tests/test_historical_backtest_readiness_cli.py
+      - name: V24-G Python mutations — readiness guards must die
         shell: bash
         run: |
           set -euo pipefail
           cp src/analytics/historical_backtest_readiness.py /tmp/readiness.orig
+          cp src/analytics/historical_backtest_readiness_cli.py /tmp/readiness_cli.orig
           run_mutation() {
-            name="$1"
-            testnode="$2"
-            python - "$name" <<'PY'
+            file="$1"
+            name="$2"
+            testnode="$3"
+            python - "$file" "$name" <<'PY'
           from pathlib import Path
           import sys
-          name=sys.argv[1]
-          p=Path('src/analytics/historical_backtest_readiness.py')
-          s=Path('/tmp/readiness.orig').read_text()
+          file=sys.argv[1]
+          name=sys.argv[2]
+          p=Path(file)
+          original=Path('/tmp/readiness_cli.orig' if file.endswith('_cli.py') else '/tmp/readiness.orig').read_text()
           mutations={
             'ready_ignores_findings': ('return self.checked_months == self.expected_months and self.findings.empty', 'return self.checked_months == self.expected_months'),
             'price_guard_removed': ('if missing or duplicates or invalid:', 'if False:'),
             'naive_cutoff_accepted': ('if pd.isna(ts) or ts.tzinfo is None or ts.utcoffset() is None:\n        return None', 'if False:\n        return None'),
             'authority_finding_removed': ('findings.append(("*", None, "TOTAL_RASYO", "AUTHORITY_INVALID", str(exc)))', 'pass'),
+            'not_ready_returns_zero': ('exit_code = READY_EXIT_CODE if snapshot.report.ready else NOT_READY_EXIT_CODE', 'exit_code = READY_EXIT_CODE'),
           }
           old,new=mutations[name]
-          if s.count(old) != 1:
-              raise SystemExit(f'{name}: anchor count={s.count(old)}, expected 1')
-          p.write_text(s.replace(old,new,1))
+          if original.count(old) != 1:
+              raise SystemExit(f'{name}: anchor count={original.count(old)}, expected 1')
+          p.write_text(original.replace(old,new,1))
           PY
             if PYTHONDONTWRITEBYTECODE=1 python -m pytest -q "$testnode"; then
               echo "$name mutation SURVIVED"
-              cp /tmp/readiness.orig src/analytics/historical_backtest_readiness.py
               exit 1
             else
               echo "$name mutation KILLED"
             fi
             cp /tmp/readiness.orig src/analytics/historical_backtest_readiness.py
+            cp /tmp/readiness_cli.orig src/analytics/historical_backtest_readiness_cli.py
             find src -name '__pycache__' -type d -prune -exec rm -rf {} + || true
           }
-          run_mutation ready_ignores_findings tests/test_historical_backtest_readiness.py::test_missing_price_is_reported_without_stopping_later_months
-          run_mutation price_guard_removed tests/test_historical_backtest_readiness.py::test_missing_price_is_reported_without_stopping_later_months
-          run_mutation naive_cutoff_accepted tests/test_historical_backtest_readiness.py::test_naive_cutoff_is_reported
-          run_mutation authority_finding_removed tests/test_historical_backtest_readiness.py::test_invalid_authority_is_global_finding_not_silent_fallback
+          run_mutation src/analytics/historical_backtest_readiness.py ready_ignores_findings tests/test_historical_backtest_readiness.py::test_missing_price_is_reported_without_stopping_later_months
+          run_mutation src/analytics/historical_backtest_readiness.py price_guard_removed tests/test_historical_backtest_readiness.py::test_missing_price_is_reported_without_stopping_later_months
+          run_mutation src/analytics/historical_backtest_readiness.py naive_cutoff_accepted tests/test_historical_backtest_readiness.py::test_naive_cutoff_is_reported
+          run_mutation src/analytics/historical_backtest_readiness.py authority_finding_removed tests/test_historical_backtest_readiness.py::test_invalid_authority_is_global_finding_not_silent_fallback
+          run_mutation src/analytics/historical_backtest_readiness_cli.py not_ready_returns_zero tests/test_historical_backtest_readiness_cli.py::test_not_ready_returns_three_and_preserves_full_finding
           cmp -s src/analytics/historical_backtest_readiness.py /tmp/readiness.orig
+          cmp -s src/analytics/historical_backtest_readiness_cli.py /tmp/readiness_cli.orig
       - name: Full regression
         run: python -m pytest -q
       - name: BANK v4.7 regression
