@@ -51,6 +51,7 @@ migrate:
 	psql -f sql/038_total_rasyo_restate_hardening.sql
 	psql -f sql/039_restate_pit_reconciliation.sql
 	psql -f sql/040_historical_universe_membership.sql
+	psql -f sql/041_historical_universe_truncate_guard.sql
 
 fill-sector-group:
 	psql -f sql/004_fill_sector_group.sql
