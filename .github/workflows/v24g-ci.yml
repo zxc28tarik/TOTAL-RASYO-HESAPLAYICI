@@ -1,0 +1,94 @@
+name: V24G CI
+
+on:
+  push:
+    branches: [v24g-ci]
+    paths:
+      - 'src/analytics/historical_backtest_readiness.py'
+      - 'tests/test_historical_backtest_readiness.py'
+      - '.github/workflows/v24g-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: total_rasyo_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres -d total_rasyo_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: localhost
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: total_rasyo_test
+      TOTAL_RASYO_TEST_DSN: postgresql://postgres:postgres@localhost:5432/total_rasyo_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Apply schema
+        run: make core migrate
+      - name: V24-G targeted contract
+        run: python -m pytest -q tests/test_historical_backtest_readiness.py
+      - name: V24-G Python mutations — four guards must die
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/analytics/historical_backtest_readiness.py /tmp/readiness.orig
+          run_mutation() {
+            name="$1"
+            testnode="$2"
+            python - "$name" <<'PY'
+          from pathlib import Path
+          import sys
+          name=sys.argv[1]
+          p=Path('src/analytics/historical_backtest_readiness.py')
+          s=Path('/tmp/readiness.orig').read_text()
+          mutations={
+            'ready_ignores_findings': ('return self.checked_months == self.expected_months and self.findings.empty', 'return self.checked_months == self.expected_months'),
+            'price_guard_removed': ('if missing or duplicates or invalid:', 'if False:'),
+            'naive_cutoff_accepted': ('if ts.tzinfo is None or ts.utcoffset() is None:\n        return None', 'if False:\n        return None'),
+            'authority_finding_removed': ('findings.append(("*", None, "TOTAL_RASYO", "AUTHORITY_INVALID", str(exc)))', 'pass'),
+          }
+          old,new=mutations[name]
+          if s.count(old) != 1:
+              raise SystemExit(f'{name}: anchor count={s.count(old)}, expected 1')
+          p.write_text(s.replace(old,new,1))
+          PY
+            if PYTHONDONTWRITEBYTECODE=1 python -m pytest -q "$testnode"; then
+              echo "$name mutation SURVIVED"
+              cp /tmp/readiness.orig src/analytics/historical_backtest_readiness.py
+              exit 1
+            else
+              echo "$name mutation KILLED"
+            fi
+            cp /tmp/readiness.orig src/analytics/historical_backtest_readiness.py
+            find src -name '__pycache__' -type d -prune -exec rm -rf {} + || true
+          }
+          run_mutation ready_ignores_findings tests/test_historical_backtest_readiness.py::test_missing_price_is_reported_without_stopping_later_months
+          run_mutation price_guard_removed tests/test_historical_backtest_readiness.py::test_missing_price_is_reported_without_stopping_later_months
+          run_mutation naive_cutoff_accepted tests/test_historical_backtest_readiness.py::test_naive_cutoff_is_reported
+          run_mutation authority_finding_removed tests/test_historical_backtest_readiness.py::test_invalid_authority_is_global_finding_not_silent_fallback
+          cmp -s src/analytics/historical_backtest_readiness.py /tmp/readiness.orig
+      - name: Full regression
+        run: python -m pytest -q
+      - name: BANK v4.7 regression
+        run: make test-bank-v47
