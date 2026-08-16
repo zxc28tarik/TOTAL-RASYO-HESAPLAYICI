@@ -14,7 +14,9 @@ from src.ingest.historical_backtest_schedules import (
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Load audited wage or PIT cutoff schedule CSV rows; no historical defaults are inferred."
+    )
     parser.add_argument("--kind", required=True, choices=("wage", "cutoff"))
     parser.add_argument("--file", required=True)
     args = parser.parse_args()
