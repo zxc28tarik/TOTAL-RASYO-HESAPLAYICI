@@ -167,6 +167,7 @@ def test_naive_execution_at_is_not_silently_accepted():
     """V24-F registry semantics require timezone-aware execution_at when the field is supplied."""
     f = list(_frames())
     f[4] = f[4].copy()
+    f[4]["execution_at"] = f[4]["execution_at"].astype(object)
     f[4].loc[0, "execution_at"] = pd.Timestamp("2022-01-03 10:00:00")
     report = _audit(tuple(f))
     hit = report.findings[
