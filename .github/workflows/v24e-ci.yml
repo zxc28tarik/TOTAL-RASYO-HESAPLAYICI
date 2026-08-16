@@ -69,7 +69,7 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
-          import os, subprocess, sys
+          import os, shutil, subprocess, sys
 
           mod = Path('src/analytics/historical_backtest_db.py')
           original = mod.read_text(encoding='utf-8')
@@ -88,9 +88,10 @@ jobs:
                   if original.count(old) != 1:
                       raise SystemExit(f'{name}: mutation target count={original.count(old)}, expected 1')
                   mod.write_text(original.replace(old, new, 1), encoding='utf-8')
+                  shutil.rmtree(Path('src/analytics/__pycache__'), ignore_errors=True)
                   cp = subprocess.run(
-                      [sys.executable, '-m', 'pytest', '-q', f'tests/test_historical_backtest_db.py::{test}'],
-                      env={**os.environ, 'PYTHONPATH': '.'}, text=True,
+                      [sys.executable, '-B', '-m', 'pytest', '-q', f'tests/test_historical_backtest_db.py::{test}'],
+                      env={**os.environ, 'PYTHONPATH': '.', 'PYTHONDONTWRITEBYTECODE': '1'}, text=True,
                   )
                   if cp.returncode == 0:
                       raise SystemExit(f'{name} mutation SURVIVED')
