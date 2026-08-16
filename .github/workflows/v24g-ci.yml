@@ -2,7 +2,7 @@ name: V24G CI
 
 on:
   push:
-    branches: [v24g-ci, v24g-part4-work]
+    branches: [v24g-ci]
     paths:
       - 'src/analytics/historical_backtest_readiness.py'
       - 'src/analytics/historical_backtest_readiness_db.py'
