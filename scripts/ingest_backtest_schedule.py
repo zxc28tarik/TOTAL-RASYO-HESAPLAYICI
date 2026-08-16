@@ -38,3 +38,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+# V24-F temporary CI rerun marker; remove before merge.
