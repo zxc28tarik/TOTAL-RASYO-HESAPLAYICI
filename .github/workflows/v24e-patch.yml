@@ -1,0 +1,57 @@
+name: V24E Patch Migration Chain
+
+on:
+  push:
+    branches: [v24e-ci]
+    paths:
+      - '.github/workflows/v24e-patch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v24e-ci
+          fetch-depth: 0
+      - name: Add migration 041 and update audit count
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          make = Path('Makefile')
+          s = make.read_text(encoding='utf-8')
+          old = '\tpsql -f sql/040_historical_universe_membership.sql\n'
+          new = old + '\tpsql -f sql/041_historical_universe_truncate_guard.sql\n'
+          if s.count(old) != 1:
+              raise SystemExit(f'Makefile 040 count={s.count(old)}, expected 1')
+          if '041_historical_universe_truncate_guard.sql' not in s:
+              s = s.replace(old, new, 1)
+          make.write_text(s, encoding='utf-8')
+
+          audit = Path('tests/test_audit_evidence_metadata.py')
+          s = audit.read_text(encoding='utf-8')
+          old_count = 'assert len(calisan) == 35, f"schema migration sayisi {len(calisan)}"'
+          new_count = 'assert len(calisan) == 36, f"schema migration sayisi {len(calisan)}"'
+          if old_count not in s:
+              raise SystemExit('35-migration audit assertion not found')
+          s = s.replace(old_count, new_count, 1)
+          old_tail = '                 "040_historical_universe_membership.sql"):'
+          new_tail = '                 "040_historical_universe_membership.sql",\n                 "041_historical_universe_truncate_guard.sql"):'
+          if old_tail not in s:
+              raise SystemExit('040 audit tuple tail not found')
+          s = s.replace(old_tail, new_tail, 1)
+          audit.write_text(s, encoding='utf-8')
+          PY
+          git diff --check
+          git diff -- Makefile tests/test_audit_evidence_metadata.py
+      - name: Commit patch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Makefile tests/test_audit_evidence_metadata.py
+          git commit -m 'V24-E add migration 041 to schema chain'
+          git push origin HEAD:v24e-ci
