@@ -1,0 +1,23 @@
+{
+  "total": 4,
+  "passed": 4,
+  "failed": 0,
+  "scenarios": [
+    {
+      "senaryo": "1_m2_nedenli_INCOMPLETE_gercek_zincir",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "2_view_hukum_kaynagi_degil",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "3_pit_eksik_gercek_zincir",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "4_idempotent_replay_gercek_zincir",
+      "durum": "PASS"
+    }
+  ]
+}

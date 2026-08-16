@@ -1,0 +1,52 @@
+{
+  "total": 15000,
+  "passed": 15000,
+  "failed": 0,
+  "by_type": {
+    "tam_basarili": {
+      "gecti": 3000,
+      "kaldi": 0
+    },
+    "tek_motor_cokmesi": {
+      "gecti": 2000,
+      "kaldi": 0
+    },
+    "coklu_motor_cokmesi": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "eksik_modul_kombinasyonu": {
+      "gecti": 2000,
+      "kaldi": 0
+    },
+    "zaman_kesimi_ve_satir_butunlugu": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "yonlendirme_catismasi": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "yeniden_calisma": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "sira_degismezligi": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "kalicilik_hata_enjeksiyonu": {
+      "gecti": 750,
+      "kaldi": 0
+    },
+    "sinir_deger_ve_config_bypass": {
+      "gecti": 750,
+      "kaldi": 0
+    },
+    "karma_yuk": {
+      "gecti": 1000,
+      "kaldi": 0
+    }
+  },
+  "failures": []
+}

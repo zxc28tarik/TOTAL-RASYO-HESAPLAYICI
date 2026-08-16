@@ -1,0 +1,3 @@
+ticker,period_end,version_tag,version_sequence,published_at,source_disclosure_id,roe_ttm,bvps,payout_sus
+FIXBNK,2025-06-30,ORIGINAL,1,2025-08-08T10:00:00+03:00,KAP-DEMO-001,0.2809,21.24,0.25
+FIXBNK,2025-06-30,RESTATED,2,2025-08-08T17:00:00+03:00,KAP-DEMO-002,0.2400,21.24,0.25

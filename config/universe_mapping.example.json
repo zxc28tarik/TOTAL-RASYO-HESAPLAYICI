@@ -1,0 +1,8 @@
+{
+  "EKGYO": {"sector_index_code":"XGMYO","company_name":"Emlak Konut GYO"},
+  "TRGYO": {"sector_index_code":"XGMYO","company_name":"Torunlar GYO"},
+  "ASELS": {"sector_index_code":"XUTEK","company_name":"Aselsan"},
+  "THYAO": {"sector_index_code":"XULAS","company_name":"Turkish Airlines"},
+  "GARAN": {"sector_index_code":"XBANK","company_name":"Garanti BBVA"},
+  "SAHOL": {"sector_index_code":"XHOLD","company_name":"Sabancı Holding"}
+}

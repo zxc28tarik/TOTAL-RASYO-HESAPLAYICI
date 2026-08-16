@@ -1,0 +1,36 @@
+TOTAL RASYO — NONBANK SEMANTİK ÇEKİRDEK V13 SON DOĞRULAMA
+Tarih: 2026-08-05
+
+KAPSAM
+- Merkezi sektör yönlendirme
+- XUMAL -> FINANCIAL düzeltmesi
+- Semantic fact -> şirket dönemsel finansalları
+- Takvim-duyarlı YTD / lag4q / sum4q / ttm
+- Point-in-time CORE rasyo hattı
+- CLI, migration ve öz denetim
+
+DOĞRULAMA
+- pytest -q: 478 passed
+- BANK v4.7: 277 passed, 1 xfailed
+- self_audit_nonbank_core.py: 12.000/12.000 PASS
+- self_audit_mkk_suite_sync.py: 13.000/13.000 PASS
+- kontrolsüz exception: 0
+- sessiz bozuk kabul: 0
+
+NONBANK ÖZ DENETİM DAĞILIMI
+- geçerli şirket türetimi: 3.000
+- eksik çeyrek koruması: 2.000
+- kontrollü bozuk fact reddi: 2.000
+- sektör yönlendirme: 2.000
+- takvim-duyarlı rasyo: 2.000
+- runtime config bypass reddi: 1.000
+
+ÖNEMLİ SINIR
+Örnek nonbank XBRL mapping'i resmî MKK payload'ı ile doğrulanmış değildir.
+V13 ortak finansal ve CORE rasyo katmanıdır; sektörlere özel M2 değerleme
+motorlarını tamamlamaz.
+
+GIT COMMIT HARİTASI
+3aa9ece  feat: add nonbank semantic core and sector routing
+327485c  feat: add point-in-time nonbank core ratio pipeline
+00949e2  test: audit nonbank core and record v13 handoff

@@ -1,0 +1,56 @@
+TOTAL RASYO — BANK ENTEGRASYONU SON DOGRULAMA
+Tarih: 2026-08-04
+Git HEAD: a709e91 (bu dosyanin commit'i bir sonraki commit olacak)
+
+1) Entegrasyon testleri
+Komut: PYTHONPATH=. python -m pytest -q tests
+Sonuc: 82 passed in 0.32s
+Exit code: 0
+
+2) Saf BANK v4.7 motoru
+Komut: PYTHONPATH=$PWD/src/analytics/bank_v47 python -m pytest -q vendor/v47_roe_belirsizlik
+Sonuc: 277 passed, 1 xfailed in 0.73s
+Exit code: 0
+
+3) Birinci oz denetim
+Komut: PYTHONPATH=. python scripts/self_audit_bank_integration.py
+Sonuc:
+- canonical_valid: 5000
+- canonical_controlled_reject: 15000
+- vconf_valid: 63
+- vconf_controlled_reject: 19937
+- SQL mutasyonlari: 4/4 yakalandi
+- uncontrolled_exceptions: 0
+- BNK1 V_mid: 6.893445618909122
+- BNK1 v_conf: 0.8
+Exit code: 0
+
+4) Ikinci oz denetim
+Komut: PYTHONPATH=. python scripts/self_audit_bank_batch.py
+Sonuc:
+- assumption_valid: 5337
+- assumption_controlled_reject: 14663
+- m2_valid: 108
+- m2_controlled_reject: 19892
+- shadow_valid: 80
+- shadow_controlled_reject: 320
+- kaynak/SQL mutasyonlari: 3/3 yakalandi
+- uncontrolled_exceptions: 0
+- BNK1 V_mid: 6.893445618909122
+Exit code: 0
+
+5) Derleme ve yama temizligi
+Komut: python -m compileall -q src scripts tests
+Exit code: 0
+Komut: git diff --check
+Exit code: 0
+
+6) Canli PostgreSQL kabul kosusu
+Komut: PYTHONPATH=. python scripts/run_postgres_bank_acceptance.py
+Sonuc: CALISTIRILAMADI — ortamda psql bulunmuyor.
+Beklenen sert hata:
+RuntimeError: psql baslatilamadi: FileNotFoundError: [Errno 2] No such file or directory: 'psql'
+Exit code: 1
+
+Bu hata bir test basarisi degildir; yalniz kabul kosucusunun altyapi yokken sessizce
+skip etmedigini kanitlar. PostgreSQL 16 canli kabul kosusu hala harici ortamda yapilmalidir.

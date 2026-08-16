@@ -1,0 +1,59 @@
+{
+  "total": 13,
+  "passed": 13,
+  "failed": 0,
+  "scenarios": [
+    {
+      "senaryo": "1_direct_basarili",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "2_eski_m1_yeni_m2_yasak",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "3_peer_propagation",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "4_peer_exit",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "5_minimum_peer_crossing",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "6_ttm_loss",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "7_atomik_grup_veto",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "8_pit_history_korunur",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "9_restate_pit_viewina_sizmaz",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "10a_kapsam_disi_kaynak",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "10b_cash_flow_bos_plan",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "11_idempotent_replay",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "12_kismi_readiness",
+      "durum": "PASS"
+    }
+  ]
+}

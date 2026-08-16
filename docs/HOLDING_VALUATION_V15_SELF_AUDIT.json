@@ -1,0 +1,13 @@
+{
+  "batch_contract": 1000,
+  "config_bypass_rejected": 1500,
+  "controlled_insufficient": 2500,
+  "ingest_boundary_rejected": 1500,
+  "order_invariance": 2000,
+  "scenario_count": 15000,
+  "silent_bad_acceptance": 0,
+  "snapshot_bypass_rejected": 1500,
+  "status": "PASS",
+  "uncontrolled_exception": 0,
+  "valid_valuation": 5000
+}

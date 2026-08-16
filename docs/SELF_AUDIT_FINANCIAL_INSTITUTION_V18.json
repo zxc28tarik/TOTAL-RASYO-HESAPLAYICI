@@ -1,0 +1,14 @@
+{
+  "bypass_rejection": 500,
+  "controlled_exception": 500,
+  "controlled_insufficient": 2500,
+  "orchestration_isolation": 2000,
+  "order_invariance": 2000,
+  "persistence_contract": 1500,
+  "scenario_count": 15000,
+  "silent_bad_acceptance": 0,
+  "stale_or_profile_rejection": 2500,
+  "status": "PASS",
+  "uncontrolled_exception": 0,
+  "valid_valuation": 4000
+}

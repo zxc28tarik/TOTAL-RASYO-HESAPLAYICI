@@ -1,0 +1,12 @@
+# Desteklenen pandas alt siniri 2.2'dir ve testler 2.2.x ALTINDA DA
+# gecmelidir. Testler belirli bir pandas surumunun fiziksel eksik-deger
+# temsilini (None / NaN / pd.NA) zorunlu kilamaz; bkz.
+# tests/test_sector_routing_missing_values.py
+numpy>=1.26
+pandas>=2.2
+psycopg2-binary>=2.9
+requests>=2.31
+yfinance>=0.2.36
+python-dotenv>=1.0
+
+beautifulsoup4>=4.12

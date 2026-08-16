@@ -1,0 +1,29 @@
+V15 HOLDING FINAL VERIFICATION
+Date: 2026-08-05
+
+Python integration tests: 597 passed
+BANK v4.7 tests: 277 passed, 1 xfailed
+Holding self-audit: 15,000 / 15,000 PASS
+Uncontrolled exceptions: 0
+Silent bad-data acceptance: 0
+
+Additional verified invariants:
+- point-in-time NAV publication cutoff
+- deterministic NAV version selection
+- leave-one-out peer discounts
+- stale NAV/price fail-closed
+- currency and share_basis fail-closed
+- authoritative atomic rerun clears stale success on rejection
+- report profile/version/config SHA checked before transaction
+- dry-run NAV example works without PostgreSQL
+
+Not externally verified:
+- live PostgreSQL 16 migration
+- real holding NAV feed
+- corporate-action/share-basis adapter
+- real BIST calibration
+
+Git commits before final map:
+1761166 feat: add holding NAV discount valuation engine
+a3db574 feat: integrate holding batch, M2 and atomic persistence
+5611b86 test: audit holding valuation and record V15 handoff

@@ -1,0 +1,11 @@
+{
+  "tickers": {
+    "THYAO": "THYAO.IS",
+    "ASELS": "ASELS.IS"
+  },
+  "indices": {
+    "XU100": "XU100.IS",
+    "XBANK": "XBANK.IS",
+    "XHOLD": "XHOLD.IS"
+  }
+}

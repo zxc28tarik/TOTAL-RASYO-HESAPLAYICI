@@ -1,0 +1,63 @@
+{
+  "per_ticker": {
+    "AKBNK": {
+      "bank_metrics_derived": 8,
+      "disclosures_used": 12,
+      "payout_defaulted": false,
+      "raw_facts_extracted": 48,
+      "sector_sample_size": 2,
+      "semantic_facts_mapped": 48
+    },
+    "GARAN": {
+      "bank_metrics_derived": 8,
+      "disclosures_used": 12,
+      "payout_defaulted": true,
+      "raw_facts_extracted": 36,
+      "sector_sample_size": 2,
+      "semantic_facts_mapped": 36
+    },
+    "YKBNK": {
+      "bank_metrics_derived": 8,
+      "disclosures_used": 13,
+      "payout_defaulted": false,
+      "raw_facts_extracted": 52,
+      "sector_sample_size": 2,
+      "semantic_facts_mapped": 52
+    }
+  },
+  "ranking": [
+    {
+      "decision": "AL",
+      "m2_score": 0.74,
+      "rank": 1,
+      "ticker": "YKBNK",
+      "total_rasyo_100": 70.66,
+      "v_conf": 0.8,
+      "valuation_status": "OK"
+    },
+    {
+      "decision": "IZLE",
+      "m2_score": 0.7309019897241714,
+      "rank": 2,
+      "ticker": "AKBNK",
+      "total_rasyo_100": 66.69607958896687,
+      "v_conf": 0.8,
+      "valuation_status": "OK"
+    },
+    {
+      "decision": "IZLE",
+      "m2_score": 0.668,
+      "rank": 3,
+      "ticker": "GARAN",
+      "total_rasyo_100": 65.98,
+      "v_conf": 0.5599999999999999,
+      "valuation_status": "OK"
+    }
+  ],
+  "rejected_count": 0,
+  "requested_count": 3,
+  "result_count": 3,
+  "sector_scale_eligible_count": 3,
+  "status": "COMPLETE",
+  "valuation_ok_count": 3
+}

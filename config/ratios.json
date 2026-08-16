@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "version": "perfect-1.1",
+    "notes": ["30+ ratios (CORE + VAL). BANK/HOLDING selection via sectors.json."]
+  },
+  "ratios": {
+    "CURRENT_RATIO": {"pillar":"LIQ","core_or_val":"CORE","type":"BAND","formula":"current_assets / current_liabilities","na_if":["current_liabilities is null","current_liabilities <= 0","current_assets is null"],"band":{"low":1.5,"high":2.5}},
+    "QUICK_RATIO": {"pillar":"LIQ","core_or_val":"CORE","type":"BAND","formula":"(current_assets - inventory) / current_liabilities","na_if":["current_liabilities is null","current_liabilities <= 0","current_assets is null","inventory is null"],"band":{"low":1.0,"high":2.0}},
+    "CASH_RATIO": {"pillar":"LIQ","core_or_val":"CORE","type":"BAND","formula":"(cash_and_eq + st_investments) / current_liabilities","na_if":["current_liabilities is null","current_liabilities <= 0","cash_and_eq is null","st_investments is null"],"band":{"low":0.2,"high":0.8}},
+    "OCF_TO_CL": {"pillar":"LIQ","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"cfo / current_liabilities","na_if":["current_liabilities is null","current_liabilities <= 0","cfo is null"]},
+    "DEBT_TO_EQUITY": {"pillar":"LEV","core_or_val":"CORE","type":"LOWER_BETTER","formula":"(debt_st + debt_lt) / total_equity","na_if":["total_equity is null","total_equity <= 0","(debt_st is null and debt_lt is null)"]},
+    "DEBT_TO_CAPITAL": {"pillar":"LEV","core_or_val":"CORE","type":"LOWER_BETTER","formula":"(debt_st + debt_lt) / ((debt_st + debt_lt) + total_equity)","na_if":["total_equity is null","total_equity <= 0","(debt_st is null and debt_lt is null)"]},
+    "NET_DEBT_TO_EQUITY_PROXY": {"pillar":"LEV","core_or_val":"CORE","type":"LOWER_BETTER","formula":"((debt_st + debt_lt) - (cash_and_eq + st_investments)) / total_equity","na_if":["total_equity is null","total_equity <= 0","(debt_st is null and debt_lt is null)","cash_and_eq is null","st_investments is null"]},
+    "INTEREST_COVERAGE": {"pillar":"LEV","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"ebit / interest_exp","na_if":["interest_exp is null","interest_exp <= 0","ebit is null"]},
+    "CFO_TO_NET_INCOME": {"pillar":"CASH","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"cfo / net_income","na_if":["net_income is null","net_income == 0","cfo is null"]},
+    "ACCRUALS_TO_ASSETS_PROXY": {"pillar":"CASH","core_or_val":"CORE","type":"LOWER_BETTER","formula":"(net_income - cfo) / avg(total_assets)","na_if":["avg(total_assets) is null","avg(total_assets) <= 0","net_income is null","cfo is null"]},
+    "CFO_MARGIN": {"pillar":"CASH","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"cfo / revenue","na_if":["revenue is null","revenue <= 0","cfo is null"]},
+    "FCF_MARGIN_PROXY": {"pillar":"CASH","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"(cfo - abs(capex)) / revenue","na_if":["revenue is null","revenue <= 0","cfo is null","capex is null"]},
+    "GROSS_MARGIN": {"pillar":"PROFIT","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"gross_profit / revenue","na_if":["revenue is null","revenue <= 0","gross_profit is null"]},
+    "OPERATING_MARGIN": {"pillar":"PROFIT","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"ebit / revenue","na_if":["revenue is null","revenue <= 0","ebit is null"]},
+    "NET_MARGIN": {"pillar":"PROFIT","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"net_income / revenue","na_if":["revenue is null","revenue <= 0","net_income is null"]},
+    "ROA": {"pillar":"PROFIT","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"net_income / avg(total_assets)","na_if":["avg(total_assets) is null","avg(total_assets) <= 0","net_income is null"]},
+    "ROE": {"pillar":"PROFIT","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"net_income / avg(total_equity)","na_if":["avg(total_equity) is null","avg(total_equity) <= 0","net_income is null"]},
+    "ROIC_PROXY": {"pillar":"PROFIT","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"ebit / (avg(total_assets) - avg(current_liabilities))","na_if":["avg(total_assets) is null","avg(current_liabilities) is null","(avg(total_assets) - avg(current_liabilities)) <= 0","ebit is null"]},
+    "ASSET_TURNOVER": {"pillar":"EFF","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"revenue / avg(total_assets)","na_if":["avg(total_assets) is null","avg(total_assets) <= 0","revenue is null"]},
+    "DSO_DAYS": {"pillar":"EFF","core_or_val":"CORE","type":"LOWER_BETTER","formula":"(receivables / revenue) * days_in_period()","na_if":["revenue is null","revenue <= 0","receivables is null"]},
+    "DIO_DAYS": {"pillar":"EFF","core_or_val":"CORE","type":"LOWER_BETTER","formula":"(inventory / cogs) * days_in_period()","na_if":["cogs is null","cogs <= 0","inventory is null"]},
+    "DPO_DAYS_PROXY": {"pillar":"EFF","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"(debt_st / cogs) * days_in_period()","na_if":["cogs is null","cogs <= 0","debt_st is null"]},
+    "CCC_DAYS_PROXY": {"pillar":"EFF","core_or_val":"CORE","type":"LOWER_BETTER","formula":"DSO_DAYS + DIO_DAYS - DPO_DAYS_PROXY","na_if":["DSO_DAYS is null","DIO_DAYS is null","DPO_DAYS_PROXY is null"]},
+    "REVENUE_YOY_GROWTH": {"pillar":"GROWTH","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"(revenue - lag4q(revenue)) / abs(lag4q(revenue))","na_if":["lag4q(revenue) is null","lag4q(revenue) == 0","revenue is null"]},
+    "EBIT_YOY_GROWTH": {"pillar":"GROWTH","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"(ebit - lag4q(ebit)) / abs(lag4q(ebit))","na_if":["lag4q(ebit) is null","lag4q(ebit) == 0","ebit is null"]},
+    "NET_INCOME_YOY_GROWTH": {"pillar":"GROWTH","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"(net_income - lag4q(net_income)) / abs(lag4q(net_income))","na_if":["lag4q(net_income) is null","lag4q(net_income) == 0","net_income is null"]},
+    "CFO_YOY_GROWTH": {"pillar":"GROWTH","core_or_val":"CORE","type":"HIGHER_BETTER","formula":"(cfo - lag4q(cfo)) / abs(lag4q(cfo))","na_if":["lag4q(cfo) is null","lag4q(cfo) == 0","cfo is null"]},
+    "MARKET_CAP_PROXY": {"pillar":"VAL","core_or_val":"VAL","type":"HIGHER_BETTER","formula":"price * shares_out","na_if":["price is null","price <= 0","shares_out is null","shares_out <= 0"]},
+    "PE_TTM": {"pillar":"VAL","core_or_val":"VAL","type":"LOWER_BETTER","formula":"(price * shares_out) / sum4q(net_income)","na_if":["price is null","price <= 0","shares_out is null","shares_out <= 0","sum4q(net_income) is null","sum4q(net_income) <= 0"]},
+    "PB": {"pillar":"VAL","core_or_val":"VAL","type":"LOWER_BETTER","formula":"(price * shares_out) / total_equity","na_if":["price is null","price <= 0","shares_out is null","shares_out <= 0","total_equity is null","total_equity <= 0"]},
+    "PS_TTM": {"pillar":"VAL","core_or_val":"VAL","type":"LOWER_BETTER","formula":"(price * shares_out) / sum4q(revenue)","na_if":["price is null","price <= 0","shares_out is null","shares_out <= 0","sum4q(revenue) is null","sum4q(revenue) <= 0"]},
+    "EV_PROXY": {"pillar":"VAL","core_or_val":"VAL","type":"HIGHER_BETTER","formula":"max((price * shares_out) + (debt_st + debt_lt) - (cash_and_eq + st_investments), 0)","na_if":["price is null","price <= 0","shares_out is null","shares_out <= 0","(debt_st is null and debt_lt is null)","cash_and_eq is null","st_investments is null"]},
+    "EV_EBIT_TTM": {"pillar":"VAL","core_or_val":"VAL","type":"LOWER_BETTER","formula":"EV_PROXY / sum4q(ebit)","na_if":["EV_PROXY is null","sum4q(ebit) is null","sum4q(ebit) <= 0"]}
+  }
+}

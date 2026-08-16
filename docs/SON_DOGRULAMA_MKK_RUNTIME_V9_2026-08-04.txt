@@ -1,0 +1,44 @@
+TOTAL RASYO — MKK CANLI RUNTIME V9 SON DOGRULAMA
+Tarih: 2026-08-04
+
+KOD KAPSAMI
+- Canli config placeholder ve parametre cakisma kapilari
+- Endpoint/auth/JSON probe komutu
+- Retry-After ve minimum request interval
+- Response/page/item boyut sinirlari
+- JSON sonluluk ve anahtar tipi kapilari
+- Invalid item karantinasi
+- Sync run izleri ve checkpoint ilerletmeme
+- Checkpoint overlap/resume ve pencere siniri
+- Urun bazli source_name ayrimi
+- Runtime migration 019
+
+TESTLER
+pytest -q
+371 passed
+
+make test-bank-v47
+277 passed, 1 xfailed
+
+python scripts/self_audit_mkk_runtime.py
+17.500 senaryo
+0 kontrolsuz exception
+0 sessiz bozuk kabul
+
+CANLI ORTAM SINIRI
+- psql/PostgreSQL 16 yok
+- DNS nedeniyle apt depolarina erisim yok
+- Gercek MKK endpoint ve API key yok
+- Bu nedenle canli provider/migration sonucu iddia edilmez
+
+GIT CEKIRDEK COMMITLERI
+3474823 feat: harden live MKK KAP runtime sync
+d72d8eb test: audit MKK runtime checkpoints and quarantine
+62cc37a docs: record MKK runtime v9 handoff
+
+KAPANIS CLI HATA SOZLESMESI
+- Placeholder config exit code 1
+- Traceback yok
+- Tek satir kontrollu hata mesaji
+- Nihai entegrasyon testi: 371 passed
+91d3ecb fix: make MKK runtime CLI failures concise

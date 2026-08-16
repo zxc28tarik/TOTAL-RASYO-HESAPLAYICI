@@ -1,0 +1,73 @@
+{
+  "total": 15000,
+  "passed": 15000,
+  "failed": 0,
+  "distribution": {
+    "tam_pit_missing": 1500,
+    "tam_restate_incomplete": 2000,
+    "karma_incomplete_pass": 1500,
+    "value_changed_yalniz": 1500,
+    "decision_changed_yalniz": 1500,
+    "ikisi_birlikte": 1000,
+    "bulgu_yok_pass": 1500,
+    "kucuk_ondalik_farki": 1000,
+    "karma_coklu_ticker": 2000,
+    "idempotency_sha_sozlesmesi": 1500
+  },
+  "planned_distribution": {
+    "tam_pit_missing": 1500,
+    "tam_restate_incomplete": 2000,
+    "karma_incomplete_pass": 1500,
+    "value_changed_yalniz": 1500,
+    "decision_changed_yalniz": 1500,
+    "ikisi_birlikte": 1000,
+    "bulgu_yok_pass": 1500,
+    "kucuk_ondalik_farki": 1000,
+    "karma_coklu_ticker": 2000,
+    "idempotency_sha_sozlesmesi": 1500
+  },
+  "is_full_run": true,
+  "by_type": {
+    "tam_pit_missing": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "tam_restate_incomplete": {
+      "gecti": 2000,
+      "kaldi": 0
+    },
+    "karma_incomplete_pass": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "value_changed_yalniz": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "decision_changed_yalniz": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "ikisi_birlikte": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "bulgu_yok_pass": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "kucuk_ondalik_farki": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "karma_coklu_ticker": {
+      "gecti": 2000,
+      "kaldi": 0
+    },
+    "idempotency_sha_sozlesmesi": {
+      "gecti": 1500,
+      "kaldi": 0
+    }
+  },
+  "failures": []
+}

@@ -1,0 +1,51 @@
+TOTAL RASYO — KAP BANK E2E V5 SON DOĞRULAMA
+Tarih: 2026-08-04
+
+Kod/test komutları:
+- pytest -q
+  Sonuç: 276 passed
+- make test-bank-v47
+  Sonuç: 277 passed, 1 xfailed
+- PYTHONPATH=. python scripts/self_audit_kap_bank_e2e.py
+  Sonuç:
+    valid_total_rasyo_cases: 10000
+    valid_kap_bank_end_to_end_cases: 500
+    controlled_invalid_rejections: 9000
+    point_in_time_and_missing_quarter_checks: 1000
+    total_scenarios: 20500
+    uncontrolled_or_silent_failures: 0
+- PYTHONPATH=. python scripts/self_audit_bank_integration.py
+  Sonuç:
+    canonical_valid: 5000
+    canonical_controlled_reject: 15000
+    vconf combinations: 20000
+    SQL mutations: 4/4 caught
+    uncontrolled_exceptions: 0
+    BNK1 V_mid: 6.893445618909122
+    BNK1 v_conf: 0.8
+
+Yeni üretim parçaları:
+- Resmî KAP BANK semantic mapping v1
+- Issued capital / açık nominal pay değeri ile shares fallback
+- Ortak sıkı Total Rasyo skoru
+- Kayıpsız ham KAP → BANK → M2 → Total Rasyo saf E2E çalıştırıcısı
+- Disclosure/config lineage çıktısı
+- Depo kökünden yeniden üretilebilir pytest/Makefile sözleşmesi
+
+Bu turda kapatılan gerçek açıklar:
+1. numpy.bool_ Total Rasyo alanında 0/1 kabulü
+2. karışık tipli fazla anahtarlarda sorted TypeError
+3. aynı disclosure ID + aynı payload + farklı yayın kimliği sessiz dedup
+4. E2E payload SHA bütünlüğünün doğrulanmaması
+5. düz pytest'in import yoluna bağlı kırılması
+
+Dış doğrulama sınırı:
+- Canlı MKK API anahtarı/ürün endpoint'i yoktur.
+- Gerçek MKK BANK JSON payload'ı yoktur.
+- Bu ortamda canlı PostgreSQL 16 yoktur.
+- Dolayısıyla canlı sağlayıcı ve canlı DB doğrulaması iddia edilmez.
+
+V5 commit haritası:
+- ceb599f feat: add official KAP BANK XBRL mapping
+- e8cb4cf feat: run KAP BANK analysis through Total Rasyo
+- 622b9f2 test: self-audit KAP BANK end-to-end flow

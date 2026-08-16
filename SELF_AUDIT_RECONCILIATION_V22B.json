@@ -1,0 +1,85 @@
+{
+  "total": 15000,
+  "passed": 15000,
+  "failed": 0,
+  "distribution": {
+    "tam_temiz_pass": 1500,
+    "missing_module": 1500,
+    "total_stale_only": 1500,
+    "lineage_stale_only": 1500,
+    "total_ve_lineage_birlikte": 1500,
+    "identity_known_false_cesitli": 1000,
+    "m2_ozel_durum": 1000,
+    "incomplete_kanit_yok": 1000,
+    "fully_verified_sinir": 1500,
+    "idempotency_sha_sozlesmesi": 1000,
+    "look_ahead_siniri": 1000,
+    "karma_coklu_modul": 1000
+  },
+  "planned_distribution": {
+    "tam_temiz_pass": 1500,
+    "missing_module": 1500,
+    "total_stale_only": 1500,
+    "lineage_stale_only": 1500,
+    "total_ve_lineage_birlikte": 1500,
+    "identity_known_false_cesitli": 1000,
+    "m2_ozel_durum": 1000,
+    "incomplete_kanit_yok": 1000,
+    "fully_verified_sinir": 1500,
+    "idempotency_sha_sozlesmesi": 1000,
+    "look_ahead_siniri": 1000,
+    "karma_coklu_modul": 1000
+  },
+  "is_full_run": true,
+  "by_type": {
+    "tam_temiz_pass": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "missing_module": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "total_stale_only": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "lineage_stale_only": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "total_ve_lineage_birlikte": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "identity_known_false_cesitli": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "m2_ozel_durum": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "incomplete_kanit_yok": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "fully_verified_sinir": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "idempotency_sha_sozlesmesi": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "look_ahead_siniri": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "karma_coklu_modul": {
+      "gecti": 1000,
+      "kaldi": 0
+    }
+  },
+  "failures": []
+}

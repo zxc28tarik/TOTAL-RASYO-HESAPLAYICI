@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "controlled_capture_reject": 1500,
+    "controlled_plan_reject": 2000,
+    "controlled_suite_reject": 1000,
+    "silent_accept": 0,
+    "uncontrolled": 0,
+    "valid_capture": 1500,
+    "valid_suite_plan": 4000
+  },
+  "scenario_count": 10000,
+  "status": "PASS"
+}

@@ -1,0 +1,31 @@
+TOTAL RASYO — GYO DEGERLEME V16 SON DOGRULAMA
+Tarih: 2026-08-05
+
+Beklenen final kanit:
+- Entegrasyon: 637 passed
+- Saf BANK: 277 passed, 1 xfailed
+- GYO self-audit: 15.000 / 15.000 PASS
+- Beklenmeyen exception: 0
+- Sessiz bozuk veri kabulü: 0
+
+Ana ekler:
+- GYO PD/NAD saf motoru
+- Kaynak/SHA tasiyan dogrudan veya turetilmis NAD alimi
+- Point-in-time, leave-one-out batch ve M2
+- Otoritatif/atomik PostgreSQL kaliciligi
+- GYO CLI ve Make hedefleri
+- GYO migration ve SQL duplicate-column taramasi
+
+V16 ek regresyon:
+- sql/023_holding_nav_valuation.sql icindeki yinelenen share_basis kaldirildi.
+- Python valuation_rows tuple sayisi SQL INSERT kolon sayisiyla testte kilitlendi.
+
+Dis dogrulama siniri:
+- Canli PostgreSQL 16 kosusu yapilmadi.
+- Gercek SPK/KAP GYO NAD payload adaptoru yok.
+- Gercek BIST GYO kalibrasyonu yapilmadi.
+
+V16 commit haritasi:
+- c59ae4c  saf GYO PD/NAD motoru ve NAD alim sozlesmesi
+- 33e5ab6  batch, M2, PostgreSQL, CLI ve migration regresyonu
+- f0945a6  15.000 senaryolu oz-denetim ve devir belgeleri

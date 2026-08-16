@@ -1,0 +1,55 @@
+{
+  "config_sha256": "e4299bd2e2b81d592e0d66a79632647570f222c3381a1ad2a55a1f7114f01066",
+  "contract_lock_version": 1,
+  "endpoint": {
+    "api_key_header": "X-API-Key",
+    "host": "corporate_actions.example.invalid",
+    "method": "GET",
+    "path": "/registered/corporate_actions"
+  },
+  "request_contract": {
+    "cursor_param": "cursor",
+    "end_param": "endAt",
+    "page_size": 100,
+    "page_size_param": "pageSize",
+    "start_param": "startAt",
+    "static_param_keys": []
+  },
+  "response_contract": {
+    "fields": {
+      "disclosure_id": "id",
+      "published_at": "publishedAt",
+      "ticker": "ticker"
+    },
+    "items_path": "data.items",
+    "next_cursor_path": "data.nextCursor"
+  },
+  "sample_sha256": "a3df85734641ffc12bad5333804bc43a531ce06b2878c592817d9e8eed3c01d4",
+  "sample_validation": {
+    "checked_at": "2026-08-05T02:00:00+00:00",
+    "config_sha256": "e4299bd2e2b81d592e0d66a79632647570f222c3381a1ad2a55a1f7114f01066",
+    "duplicate_ids": 0,
+    "endpoint_host": "corporate_actions.example.invalid",
+    "endpoint_path": "/registered/corporate_actions",
+    "first_disclosure_id": "SYN-2",
+    "items_seen": 1,
+    "items_validated": 1,
+    "last_disclosure_id": "SYN-2",
+    "live_ready": false,
+    "live_ready_error": "MKK KAP API config ornek/placeholder degerler iceriyor; resmi urun dokumanindaki endpoint ve header ile doldurulmali",
+    "max_published_at": "2026-08-05T01:00:00+03:00",
+    "method": "GET",
+    "min_published_at": "2026-08-05T01:00:00+03:00",
+    "next_cursor_present": false,
+    "optional_field_coverage": {
+      "company_id": 0,
+      "notification_type": 0,
+      "source_url": 0,
+      "subject": 0,
+      "ticker": 1
+    },
+    "sample_sha256": "a3df85734641ffc12bad5333804bc43a531ce06b2878c592817d9e8eed3c01d4",
+    "source_name": "MKK_KAP_CORPORATE_ACTIONS"
+  },
+  "source_name": "MKK_KAP_CORPORATE_ACTIONS"
+}

@@ -1,0 +1,3 @@
+scope_type,scope_code,effective_at,coe,macro_cap,risk_free_rate,tier_cap,payout_missing_factor,band_width_shadow_mode,max_halfwidth,source,metadata
+BANK,BANK,2026-01-01T00:00:00+03:00,0.3705,0.140135,0.30,0.80,0.70,true,0.80,MANUAL_DEMO,"{}"
+TICKER,FIXBNK,2026-02-01T00:00:00+03:00,0.3650,0.140135,0.30,0.80,0.70,true,0.80,TICKER_OVERRIDE,"{}"

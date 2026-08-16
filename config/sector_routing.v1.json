@@ -1,0 +1,19 @@
+{
+  "routing_profile": "TOTAL_RASYO_SECTOR_ROUTING",
+  "routing_version": 1,
+  "default_family": "NONFIN",
+  "index_to_family": {
+    "XBANK": "BANK",
+    "XHOLD": "HOLDING",
+    "XGMYO": "GYO",
+    "XUMAL": "FINANCIAL"
+  },
+  "ticker_overrides": {},
+  "sector_code_to_family": {
+    "FACTORING": "FINANCIAL",
+    "LEASING": "FINANCIAL",
+    "CONSUMER_FINANCE": "FINANCIAL",
+    "NON_LIFE": "INSURANCE",
+    "LIFE_PENSION": "INSURANCE"
+  }
+}

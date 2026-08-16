@@ -1,0 +1,45 @@
+TOTAL RASYO — KAP BANK PERSISTENCE V7 SON DOGRULAMA
+Tarih: 2026-08-04
+
+KOD / TEST
+- pytest -q: 307 passed
+- saf BANK motoru: 277 passed, 1 xfailed
+- persistence audit: 10.166 senaryo
+  - valid_reports: 1001
+  - controlled_invalid_reports: 9065
+  - injected_database_failures: 100
+  - uncontrolled_exceptions: 0
+  - silent_invalid_accepts: 0
+- KAP BANK batch audit: 2.600/2.600 PASS
+- KAP BANK E2E audit: 20.500 senaryo, 0 failure
+- BANK integration audit:
+  - canonical_valid: 5000
+  - canonical_controlled_reject: 15000
+  - vconf_valid: 63
+  - vconf_controlled_reject: 19937
+  - SQL mutations: 4/4 caught
+  - uncontrolled_exceptions: 0
+
+REGRESYON
+- BNK1 V_mid: 6.893445618909122
+- BNK1 v_conf: 0.8
+
+YENI KANIT
+- Batch raporu tek transaction ile valuation, M2, module score, ranking ve ret yazar.
+- Aynı run idempotenttir; stale success bu kez ret olursa temizlenir.
+- Eski intraday run daha yeni module score'u silemez/overwrite edemez.
+- UTC ve +03:00 ile ifade edilen ayni analiz ani ayni run_key üretir.
+- M2 score_inputs, Total Rasyo contribution/veto/decision zinciri DB öncesi doğrulanır.
+- Günlük son ranking view/CLI ile okunabilir.
+
+POSTGRESQL
+- scripts/run_postgres_bank_acceptance.py çağrıldı.
+- Ortamda psql bulunmadı.
+- exit_code=1; RuntimeError(FileNotFoundError) ile sert kırıldı.
+- Skip veya sahte PASS oluşmadı.
+- Canlı PostgreSQL 16 migration/persistence doğrulaması halen dış doğrulamadır.
+
+V7 COMMIT HARITASI
+- d496041 feat: persist KAP BANK batch results atomically
+- 217e79d feat: add intraday-safe BANK ranking workflow
+- f29d45e test: audit KAP BANK persistence and record v7 handoff

@@ -1,0 +1,31 @@
+{
+  "total": 6,
+  "passed": 6,
+  "failed": 0,
+  "scenarios": [
+    {
+      "senaryo": "1_uctan_uca_temiz_PASS",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "2_daha_sonra_gelen_duzeltme_TOTAL_STALE",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "3_look_ahead_korumasi",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "4_kimlik_degisimi_LINEAGE_STALE",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "5_snapshot_yoksa_INCOMPLETE",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "6_m2_lineage_hicbir_zaman",
+      "durum": "PASS"
+    }
+  ]
+}

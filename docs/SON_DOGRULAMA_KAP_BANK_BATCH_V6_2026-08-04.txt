@@ -1,0 +1,43 @@
+TOTAL RASYO — KAP BANK BATCH V6 SON DOĞRULAMA
+Tarih: 2026-08-04
+
+KOD KAPSAMI
+- Ham KAP bildirimlerinden çoklu BANK hazırlama
+- Leave-one-out sektör belirsizlik tabanı
+- BANK değerleme -> M2 -> Total Rasyo toplu sıralama
+- JSONL/context dosya sınırı ve veritabanı gerektirmeyen CLI
+- PostgreSQL 16 kabul çalıştırıcısı sürüm kapısı, timeout ve fixture temizliği
+
+TEST SONUÇLARI
+- Python entegrasyon testleri: 292 passed
+- Saf BANK v4.7 motoru: 277 passed, 1 xfailed
+- Önceki KAP BANK E2E öz denetimi: 20.500 senaryo, 0 kontrolsüz/sessiz hata
+- Yeni KAP BANK batch öz denetimi: 2.600 senaryo, 0 hata
+
+DONDURULMUŞ SENTETİK BATCH REFERANSI
+1. YKBNK — Total Rasyo 70.66 — AL — M2 0.74 — v_conf 0.80
+2. AKBNK — Total Rasyo 66.69607958896687 — İZLE — M2 0.7309019897241714 — v_conf 0.80
+3. GARAN — Total Rasyo 65.98 — İZLE — M2 0.668 — v_conf 0.56
+
+Bu sıralama gerçek yatırım sonucu değildir. Resmî etiket sözleşmelerini kullanan
+sentetik entegrasyon corpus'unun değişmez kabul sonucudur.
+
+ÖZ DENETİMDE BULUNAN YENİ HATALAR
+1. Değerleme tanılarındaki set alanı CLI JSON raporunu kırıyordu.
+2. Batch global disclosure kimliği, yapılandırılmış disclosure_id değerinde
+   kontrollü ret yerine TypeError üretebiliyordu.
+3. Restatement seçimi ROE/V_mid'i değiştirirken s_valuation doyumu nedeniyle
+   M2/Total aynı kalabiliyor; bu nedenle lineage ve ara ürün testi zorunlu.
+4. PostgreSQL fixture kısmen uygulanırken hata oluşursa temizlik bayrağı geç
+   set ediliyordu; best-effort cleanup artık kök hatayı maskelemeden çalışıyor.
+
+POSTGRESQL CANLI KOŞU
+- Bu ortamda psql/PostgreSQL 16 yok.
+- Çalıştırıcı dönüş kodu: 1
+- Beklenen şekilde sert kırıldı; skip veya sahte PASS üretmedi.
+- Canlı PostgreSQL 16'da ayrıca çalıştırılmalıdır.
+
+COMMITLER
+- d05815e feat: evaluate KAP BANK universe in one batch
+- 913eaf4 feat: add reproducible KAP BANK batch preview
+- bdb3ab7 test: harden batch and PostgreSQL acceptance

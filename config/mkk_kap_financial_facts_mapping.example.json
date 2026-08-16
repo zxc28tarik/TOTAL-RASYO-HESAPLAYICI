@@ -1,0 +1,21 @@
+{
+  "_warning": "JSON yollari MKK API Portal'da kayit olunan resmi finansal tablo urununun dokumanina gore doldurulmalidir.",
+  "mapping_profile": "MKK_KAP_FINANCIAL_FACTS",
+  "mapping_version": 1,
+  "facts_path": "financialStatement.facts",
+  "version_tag_path": "financialStatement.versionTag",
+  "version_sequence_path": "financialStatement.versionSequence",
+  "dimensions_path": "dimensions",
+  "default_unit_scale": 1,
+  "default_currency": "TRY",
+  "default_statement_scope": "CONSOLIDATED",
+  "fields": {
+    "fact_code": "code",
+    "value": "value",
+    "period_start": "periodStart",
+    "period_end": "periodEnd",
+    "currency": "currency",
+    "unit_scale": "unitScale",
+    "statement_scope": "statementScope"
+  }
+}

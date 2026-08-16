@@ -1,0 +1,79 @@
+{
+  "total": 15000,
+  "passed": 15000,
+  "failed": 0,
+  "distribution": {
+    "kume_buyukluk_cesitliligi": 2000,
+    "yalniz_missing": 1500,
+    "yalniz_unexpected": 1500,
+    "yalniz_stale": 1500,
+    "karma_missing_unexpected_stale": 2000,
+    "pending_incomplete": 1000,
+    "bos_expected_veya_actual": 1000,
+    "yanlis_orkestratör_kimligi": 1000,
+    "stale_check_performed_sozlesmesi": 1000,
+    "idempotent_replay_sozlesmesi": 1500,
+    "immutability_sozlesmesi": 1000
+  },
+  "planned_distribution": {
+    "kume_buyukluk_cesitliligi": 2000,
+    "yalniz_missing": 1500,
+    "yalniz_unexpected": 1500,
+    "yalniz_stale": 1500,
+    "karma_missing_unexpected_stale": 2000,
+    "pending_incomplete": 1000,
+    "bos_expected_veya_actual": 1000,
+    "yanlis_orkestratör_kimligi": 1000,
+    "stale_check_performed_sozlesmesi": 1000,
+    "idempotent_replay_sozlesmesi": 1500,
+    "immutability_sozlesmesi": 1000
+  },
+  "is_full_run": true,
+  "by_type": {
+    "kume_buyukluk_cesitliligi": {
+      "gecti": 2000,
+      "kaldi": 0
+    },
+    "yalniz_missing": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "yalniz_unexpected": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "yalniz_stale": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "karma_missing_unexpected_stale": {
+      "gecti": 2000,
+      "kaldi": 0
+    },
+    "pending_incomplete": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "bos_expected_veya_actual": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "yanlis_orkestratör_kimligi": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "stale_check_performed_sozlesmesi": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "idempotent_replay_sozlesmesi": {
+      "gecti": 1500,
+      "kaldi": 0
+    },
+    "immutability_sozlesmesi": {
+      "gecti": 1000,
+      "kaldi": 0
+    }
+  },
+  "failures": []
+}

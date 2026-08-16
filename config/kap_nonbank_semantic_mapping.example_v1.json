@@ -1,0 +1,65 @@
+{
+  "mapping_profile": "KAP_NONBANK_IFRS_EXAMPLE",
+  "mapping_version": 1,
+  "sector_family": "NONFIN",
+  "fields": {
+    "REVENUE": {
+      "source_codes": ["IFRS-FULL_REVENUE"],
+      "nature": "YTD",
+      "period_start_policy": "REQUIRED",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "currency": "TRY"
+    },
+    "COST_OF_SALES": {
+      "source_codes": ["IFRS-FULL_COSTOFSALES"],
+      "nature": "YTD",
+      "sign": "ABS",
+      "period_start_policy": "REQUIRED",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "currency": "TRY"
+    },
+    "GROSS_PROFIT": {
+      "source_codes": ["IFRS-FULL_GROSSPROFIT"],
+      "nature": "YTD",
+      "period_start_policy": "REQUIRED",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "currency": "TRY"
+    },
+    "OPERATING_PROFIT": {
+      "source_codes": ["IFRS-FULL_PROFITLOSSFROMOPERATINGACTIVITIES"],
+      "nature": "YTD",
+      "period_start_policy": "REQUIRED",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "currency": "TRY"
+    },
+    "NET_INCOME": {
+      "source_codes": ["IFRS-FULL_PROFITLOSSATTRIBUTABLETOOWNERSOFPARENT", "IFRS-FULL_PROFITLOSS"],
+      "nature": "YTD",
+      "period_start_policy": "REQUIRED",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "currency": "TRY"
+    },
+    "FINANCE_COSTS": {
+      "source_codes": ["IFRS-FULL_FINANCECOSTS"],
+      "nature": "YTD",
+      "sign": "ABS",
+      "period_start_policy": "REQUIRED",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "currency": "TRY"
+    },
+    "TOTAL_ASSETS": {"source_codes": ["IFRS-FULL_ASSETS"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"},
+    "TOTAL_EQUITY": {"source_codes": ["IFRS-FULL_EQUITY"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"},
+    "CURRENT_ASSETS": {"source_codes": ["IFRS-FULL_CURRENTASSETS"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"},
+    "CURRENT_LIABILITIES": {"source_codes": ["IFRS-FULL_CURRENTLIABILITIES"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"},
+    "CASH_AND_EQUIVALENTS": {"source_codes": ["IFRS-FULL_CASHANDCASHEQUIVALENTS"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"},
+    "SHORT_TERM_INVESTMENTS": {"source_codes": ["IFRS-FULL_OTHERCURRENTFINANCIALASSETS"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"},
+    "TRADE_RECEIVABLES": {"source_codes": ["IFRS-FULL_CURRENTTRADERECEIVABLES"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"},
+    "INVENTORY": {"source_codes": ["IFRS-FULL_INVENTORIES"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"},
+    "SHORT_TERM_BORROWINGS": {"source_codes": ["IFRS-FULL_CURRENTBORROWINGS"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"},
+    "LONG_TERM_BORROWINGS": {"source_codes": ["IFRS-FULL_NONCURRENTBORROWINGS"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"},
+    "CASH_FLOW_FROM_OPERATIONS": {"source_codes": ["IFRS-FULL_CASHFLOWSFROMUSEDINOPERATIONS"], "nature": "YTD", "period_start_policy": "REQUIRED", "currency": "TRY"},
+    "CAPEX": {"source_codes": ["IFRS-FULL_PURCHASEOFPROPERTYPLANTANDEQUIPMENT"], "nature": "YTD", "sign": "ABS", "period_start_policy": "REQUIRED", "currency": "TRY"},
+    "SHARES_OUT": {"source_codes": ["IFRS-FULL_NUMBEROFSHARESOUTSTANDING"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN"},
+    "ISSUED_CAPITAL": {"source_codes": ["IFRS-FULL_ISSUEDCAPITAL"], "nature": "INSTANT", "period_start_policy": "FORBIDDEN", "currency": "TRY"}
+  }
+}

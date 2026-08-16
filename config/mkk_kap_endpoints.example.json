@@ -1,0 +1,32 @@
+{
+  "_warning": "Bu dosya calisan bir endpoint uydurmaz. base_url, path, api_key_header ve alan yollari MKK API Portal'da kayit olunan KAP urununun resmi dokumanindan doldurulmalidir.",
+  "base_url": "https://API-PORTAL-URUN-BASE-URL.example.invalid",
+  "api_key_header": "RESMI_DOKUMANDAKI_API_KEY_HEADER",
+  "path": "/RESMI_KAP_URUN_PATH",
+  "method": "GET",
+  "items_path": "data.items",
+  "next_cursor_path": "data.nextCursor",
+  "cursor_param": "cursor",
+  "start_param": "startAt",
+  "end_param": "endAt",
+  "page_size_param": "pageSize",
+  "page_size": 100,
+  "timeout_seconds": 30,
+  "max_retries": 3,
+  "max_future_skew_seconds": 300,
+  "static_params": {},
+  "fields": {
+    "disclosure_id": "id",
+    "published_at": "publishedAt",
+    "ticker": "company.ticker",
+    "company_id": "company.id",
+    "notification_type": "notificationType",
+    "subject": "subject",
+    "source_url": "url"
+  },
+  "source_name": "MKK_KAP_API",
+  "min_request_interval_seconds": 0.25,
+  "max_retry_after_seconds": 60,
+  "max_response_bytes": 25000000,
+  "max_item_payload_bytes": 5000000
+}

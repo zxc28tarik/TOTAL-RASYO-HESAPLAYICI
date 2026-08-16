@@ -1,0 +1,62 @@
+{
+  "AKBNK": {
+    "current_price": 7.0,
+    "good_count_ge8": 8,
+    "other_module_scores": {
+      "Ek1": 0.8,
+      "Ek4": 0.55,
+      "Ek9": 0.65,
+      "M1": 0.62,
+      "M3": 0.6
+    },
+    "price_trade_date": "2026-05-15",
+    "valuation_inputs": {
+      "band_width_shadow_mode": true,
+      "coe": 0.15,
+      "macro_cap": 0.08,
+      "max_halfwidth": 0.8,
+      "payout_missing_factor": 0.7,
+      "tier_cap": 0.8
+    }
+  },
+  "GARAN": {
+    "current_price": 8.0,
+    "good_count_ge8": 8,
+    "other_module_scores": {
+      "Ek1": 0.8,
+      "Ek4": 0.55,
+      "Ek9": 0.65,
+      "M1": 0.72,
+      "M3": 0.6
+    },
+    "price_trade_date": "2026-05-15",
+    "valuation_inputs": {
+      "band_width_shadow_mode": true,
+      "coe": 0.15,
+      "macro_cap": 0.08,
+      "max_halfwidth": 0.8,
+      "payout_missing_factor": 0.7,
+      "tier_cap": 0.8
+    }
+  },
+  "YKBNK": {
+    "current_price": 9.0,
+    "good_count_ge8": 8,
+    "other_module_scores": {
+      "Ek1": 0.8,
+      "Ek4": 0.55,
+      "Ek9": 0.65,
+      "M1": 0.82,
+      "M3": 0.6
+    },
+    "price_trade_date": "2026-05-15",
+    "valuation_inputs": {
+      "band_width_shadow_mode": true,
+      "coe": 0.15,
+      "macro_cap": 0.08,
+      "max_halfwidth": 0.8,
+      "payout_missing_factor": 0.7,
+      "tier_cap": 0.8
+    }
+  }
+}

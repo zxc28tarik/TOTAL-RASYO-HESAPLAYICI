@@ -1,0 +1,16 @@
+{
+  "derivation_profile": "BANK_METRICS_FROM_KAP_V1",
+  "derivation_version": 1,
+  "semantic_profile": "BANK_CORE_EXAMPLE",
+  "semantic_version": 1,
+  "total_equity_field": "TOTAL_EQUITY",
+  "shares_out_field": "SHARES_OUT",
+  "net_income_field": "NET_INCOME",
+  "payout_ratio_field": "PAYOUT_RATIO",
+  "dividends_paid_field": "DIVIDENDS_PAID",
+  "currency": "TRY",
+  "target_periods": 8,
+  "history_periods": 12,
+  "roe_formula": "TTM_NET_INCOME_OVER_ENDPOINT_AVERAGE_EQUITY",
+  "payout_policy": "DIRECT_THEN_TTM_DIVIDENDS"
+}

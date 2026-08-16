@@ -1,0 +1,67 @@
+TOTAL RASYO — KAP BANK DB WORKFLOW V8 SON DOĞRULAMA
+Tarih: 2026-08-04 (Europe/Istanbul)
+
+KAPSAM
+- PostgreSQL raw.kap_disclosures üzerinden dosyasız BANK batch okuma
+- raw.kap_financial_facts point-in-time ortak anchor
+- point-in-time COE/makro/rf varsayımı
+- piyasa kapanış kesimli fiyat
+- analiz saatini aşmayan, azami yaş kontrollü M1/M3/Ek modül bağlamı
+- requested/prepared/result evreni ayrımı ve leave-one-out sektör örneklemi
+- mevcut V7 atomik kalıcılık/ranking hattına bağlanma
+- SQL point-in-time indeks migration'ı 018
+- CLI run-kap-bank-db
+
+TEST SONUÇLARI
+pytest -q
+324 passed
+
+make test-bank-v47
+277 passed, 1 xfailed
+
+V8 DB workflow audit
+scenario_count              10500
+validated_scenarios         10500
+valid_order_mutations       500
+controlled_module_rejections 5000
+controlled_raw_rejections   4000
+missing_context_runs        1000
+uncontrolled_exceptions     0
+silent_invalid_accepts      0
+
+YENİDEN ÇALIŞTIRILAN ESKİ DENETİMLER
+V7 persistence              10166, uncontrolled=0, silent=0
+V6 batch                    2600, failures=0
+V5 KAP E2E                  20500, uncontrolled_or_silent=0
+
+SENTETİK DB UÇTAN UCA REFERANSI
+- 37 KAP bildirimi dosya okuyucu kullanılmadan fake DB cursor'larından okundu.
+- Altı sorgu aşaması: aktif evren, anchor, raw disclosure, assumptions, price,
+  module context.
+- Ranking: YKBNK 70.66 → AKBNK 66.70 → GARAN 65.98.
+- Bu sentetik kabul corpus'udur; gerçek yatırım sonucu değildir.
+
+ÖZ DENETİMDE KAPATILANLAR
+1. Bağlamı eksik bankanın sektör örnekleminden gereksiz çıkarılması.
+2. Varsayım/fiyat/diğer modül lineage'ının DB iş akışı sonucunda eksik kalması.
+3. Python/NumPy bool değerlerinin modül skor veya good_count olarak geçebilmesi.
+4. Hafta sonu/tatil analizinde son işlem günü bağlamının kaybolması.
+5. Tek ticker için tekrarlanan module context satırının sessiz ezilmesi.
+6. V8 ve önceki audit script'lerinin doğrudan çalıştırmada repo import yoluna
+   bağlı olması.
+
+CANLI POSTGRESQL SINIRI
+python scripts/run_postgres_bank_acceptance.py
+exit code: 1
+neden: psql bulunamadi (FileNotFoundError)
+Davranış: sert hata; skip veya sahte başarı yok.
+Bu dosya canlı PostgreSQL 16 migration/transaction kanıtı değildir.
+
+REGRESYON
+BNK1 V_mid  = 6.893445618909122
+BNK1 v_conf = 0.8
+
+V8 COMMIT HARİTASI
+c5f06ba feat: evaluate BANK universe from raw KAP database
+d0db678 feat: add raw KAP BANK database CLI and indexes
+207e2eb docs: record raw KAP BANK database v8 handoff

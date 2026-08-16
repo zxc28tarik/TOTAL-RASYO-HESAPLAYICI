@@ -1,0 +1,55 @@
+{
+  "config_sha256": "e3f05d55aa50e82bb8689a4c4c2d26886d3ea99f84fa0014752d6e29e3bdc4e1",
+  "contract_lock_version": 1,
+  "endpoint": {
+    "api_key_header": "X-API-Key",
+    "host": "financial_disclosures.example.invalid",
+    "method": "GET",
+    "path": "/registered/financial_disclosures"
+  },
+  "request_contract": {
+    "cursor_param": "cursor",
+    "end_param": "endAt",
+    "page_size": 100,
+    "page_size_param": "pageSize",
+    "start_param": "startAt",
+    "static_param_keys": []
+  },
+  "response_contract": {
+    "fields": {
+      "disclosure_id": "id",
+      "published_at": "publishedAt",
+      "ticker": "ticker"
+    },
+    "items_path": "data.items",
+    "next_cursor_path": "data.nextCursor"
+  },
+  "sample_sha256": "a615d08d1fd8e006fcb73c5a497f15a26ef84729bf025c411ffd033ffb23dace",
+  "sample_validation": {
+    "checked_at": "2026-08-05T02:00:00+00:00",
+    "config_sha256": "e3f05d55aa50e82bb8689a4c4c2d26886d3ea99f84fa0014752d6e29e3bdc4e1",
+    "duplicate_ids": 0,
+    "endpoint_host": "financial_disclosures.example.invalid",
+    "endpoint_path": "/registered/financial_disclosures",
+    "first_disclosure_id": "SYN-1",
+    "items_seen": 1,
+    "items_validated": 1,
+    "last_disclosure_id": "SYN-1",
+    "live_ready": false,
+    "live_ready_error": "MKK KAP API config ornek/placeholder degerler iceriyor; resmi urun dokumanindaki endpoint ve header ile doldurulmali",
+    "max_published_at": "2026-08-05T01:00:00+03:00",
+    "method": "GET",
+    "min_published_at": "2026-08-05T01:00:00+03:00",
+    "next_cursor_present": false,
+    "optional_field_coverage": {
+      "company_id": 0,
+      "notification_type": 0,
+      "source_url": 0,
+      "subject": 0,
+      "ticker": 1
+    },
+    "sample_sha256": "a615d08d1fd8e006fcb73c5a497f15a26ef84729bf025c411ffd033ffb23dace",
+    "source_name": "MKK_KAP_FINANCIALS"
+  },
+  "source_name": "MKK_KAP_FINANCIALS"
+}

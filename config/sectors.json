@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "version": "perfect-1.2-sector-routing"
+  },
+  "index_to_group": {
+    "XBANK": "BANK",
+    "XUMAL": "FINANCIAL",
+    "XHOLD": "HOLDING",
+    "*": "NONFIN",
+    "XGMYO": "GYO"
+  },
+  "sector_policies": {
+    "BANK": {
+      "allowed_ratios": [
+        "DEBT_TO_EQUITY",
+        "DEBT_TO_CAPITAL",
+        "INTEREST_COVERAGE",
+        "NET_DEBT_TO_EQUITY_PROXY",
+        "ROA",
+        "ROE",
+        "REVENUE_YOY_GROWTH",
+        "EBIT_YOY_GROWTH",
+        "CFO_TO_NET_INCOME",
+        "ACCRUALS_TO_ASSETS_PROXY"
+      ],
+      "pillar_weights_override": {
+        "LIQ": 0.0,
+        "LEV": 0.35,
+        "CASH": 0.1,
+        "PROFIT": 0.4,
+        "EFF": 0.0,
+        "GROWTH": 0.15
+      },
+      "ratio_weights_override": {
+        "ROE": 1.3,
+        "ROA": 1.1,
+        "DEBT_TO_CAPITAL": 1.2,
+        "INTEREST_COVERAGE": 1.1
+      }
+    },
+    "HOLDING": {
+      "allowed_ratios": [
+        "CURRENT_RATIO",
+        "QUICK_RATIO",
+        "DEBT_TO_EQUITY",
+        "DEBT_TO_CAPITAL",
+        "NET_DEBT_TO_EQUITY_PROXY",
+        "INTEREST_COVERAGE",
+        "OPERATING_MARGIN",
+        "NET_MARGIN",
+        "ROE",
+        "ROA",
+        "ROIC_PROXY",
+        "ASSET_TURNOVER",
+        "REVENUE_YOY_GROWTH",
+        "EBIT_YOY_GROWTH",
+        "CFO_MARGIN",
+        "FCF_MARGIN_PROXY"
+      ],
+      "pillar_weights_override": {
+        "LIQ": 0.1,
+        "LEV": 0.25,
+        "CASH": 0.1,
+        "PROFIT": 0.3,
+        "EFF": 0.05,
+        "GROWTH": 0.2
+      },
+      "ratio_weights_override": {
+        "NET_DEBT_TO_EQUITY_PROXY": 1.15,
+        "ROIC_PROXY": 1.1,
+        "EBIT_YOY_GROWTH": 1.1
+      }
+    },
+    "NONFIN": {
+      "allowed_ratios": [
+        "CURRENT_RATIO",
+        "QUICK_RATIO",
+        "CASH_RATIO",
+        "OCF_TO_CL",
+        "DEBT_TO_EQUITY",
+        "DEBT_TO_CAPITAL",
+        "INTEREST_COVERAGE",
+        "NET_DEBT_TO_EQUITY_PROXY",
+        "CFO_TO_NET_INCOME",
+        "ACCRUALS_TO_ASSETS_PROXY",
+        "CFO_MARGIN",
+        "FCF_MARGIN_PROXY",
+        "GROSS_MARGIN",
+        "OPERATING_MARGIN",
+        "NET_MARGIN",
+        "ROA",
+        "ROE",
+        "ROIC_PROXY",
+        "ASSET_TURNOVER",
+        "DSO_DAYS",
+        "DIO_DAYS",
+        "CCC_DAYS_PROXY",
+        "REVENUE_YOY_GROWTH",
+        "EBIT_YOY_GROWTH",
+        "NET_INCOME_YOY_GROWTH",
+        "CFO_YOY_GROWTH"
+      ],
+      "pillar_weights_override": {
+        "LIQ": 0.12,
+        "LEV": 0.18,
+        "CASH": 0.2,
+        "PROFIT": 0.3,
+        "EFF": 0.1,
+        "GROWTH": 0.1
+      },
+      "ratio_weights_override": {
+        "ROIC_PROXY": 1.2,
+        "CFO_TO_NET_INCOME": 1.1,
+        "ACCRUALS_TO_ASSETS_PROXY": 1.1,
+        "INTEREST_COVERAGE": 1.05
+      }
+    },
+    "FINANCIAL": {
+      "allowed_ratios": [
+        "DEBT_TO_EQUITY",
+        "DEBT_TO_CAPITAL",
+        "INTEREST_COVERAGE",
+        "NET_DEBT_TO_EQUITY_PROXY",
+        "ROA",
+        "ROE",
+        "REVENUE_YOY_GROWTH",
+        "EBIT_YOY_GROWTH",
+        "CFO_TO_NET_INCOME",
+        "ACCRUALS_TO_ASSETS_PROXY"
+      ],
+      "pillar_weights_override": {
+        "LIQ": 0.0,
+        "LEV": 0.3,
+        "CASH": 0.15,
+        "PROFIT": 0.4,
+        "EFF": 0.0,
+        "GROWTH": 0.15
+      },
+      "ratio_weights_override": {
+        "ROE": 1.2,
+        "ROA": 1.1,
+        "INTEREST_COVERAGE": 1.05
+      }
+    },
+    "GYO": {
+      "allowed_ratios": [
+        "CURRENT_RATIO",
+        "DEBT_TO_EQUITY",
+        "DEBT_TO_CAPITAL",
+        "NET_DEBT_TO_EQUITY_PROXY",
+        "INTEREST_COVERAGE",
+        "OPERATING_MARGIN",
+        "NET_MARGIN",
+        "ROE",
+        "ROA",
+        "ASSET_TURNOVER",
+        "REVENUE_YOY_GROWTH",
+        "EBIT_YOY_GROWTH",
+        "CFO_MARGIN",
+        "FCF_MARGIN_PROXY"
+      ],
+      "pillar_weights_override": {
+        "LIQ": 0.1,
+        "LEV": 0.25,
+        "CASH": 0.15,
+        "PROFIT": 0.3,
+        "EFF": 0.05,
+        "GROWTH": 0.15
+      },
+      "ratio_weights_override": {
+        "NET_DEBT_TO_EQUITY_PROXY": 1.15,
+        "ROA": 1.1
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+TOTAL RASYO — MKK SUITE V11 SON DOĞRULAMA
+Tarih: 2026-08-05
+
+Python entegrasyon testleri : 408 passed
+Saf BANK motoru             : 277 passed, 1 xfailed
+V11 suite öz denetimi       : 10.000 / 10.000 PASS
+V10 onboarding denetimi     : 14.000 / 14.000 PASS
+V9 runtime denetimi         : 17.500 / 17.500 PASS
+Kontrolsüz exception        : 0
+Sessiz bozuk veri kabulü    : 0
+
+Yeni komutlar:
+- capture-mkk-sample
+- validate-mkk-suite
+- plan-mkk-suite-backfill
+
+Yeni güvenlik değişmezleri:
+- API key ve request header değerleri capture dosyalarına yazılmaz.
+- Sample ve metadata 0600 izinle çift halinde kurulur.
+- Overwrite açık değilse mevcut dosyalar değişmez.
+- Kurulum hatasında eski çift geri yüklenir.
+- Config/sample/contract-lock SHA zinciri her ürün için doğrulanır.
+- source_name + stream_name suite içinde benzersizdir.
+- Bozuk global plan parametresi ürün override'ları olsa da reddedilir.
+- Suite toplam backfill planı 100.000 pencereyle sınırlıdır.
+
+Dış doğrulama:
+Gerçek MKK endpoint/API key, yetkili ürün cevabı ve çalışan PostgreSQL 16 bu
+ortamda bulunmadığı için canlı sağlayıcı veya canlı migration başarısı iddia
+edilmemiştir.
+
+Git commit haritası:
+26ece80  feat: add secure MKK sample capture and product suites
+14b0bf4  test: audit multi-product MKK onboarding
+6bbd8c5  docs: record MKK suite v11 handoff

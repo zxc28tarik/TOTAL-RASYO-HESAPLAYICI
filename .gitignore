@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+outputs/*.csv
+.env
+
+# Runtime-generated onboarding artifacts
+data/mkk_contract.lock.json
+data/mkk_backfill_plan.json
+data/mkk_suite_backfill_plan.json
+private/

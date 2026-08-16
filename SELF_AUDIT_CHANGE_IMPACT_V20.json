@@ -1,0 +1,129 @@
+{
+  "total": 15000,
+  "passed": 15000,
+  "failed": 0,
+  "distribution": {
+    "dogrudan_bilanco": 1600,
+    "gelir_tablosu_ttm": 1600,
+    "nakit_akim": 500,
+    "sekiz_donem_penceresi": 1000,
+    "latest_only_alan": 1000,
+    "off_by_one_sinirlari": 1100,
+    "ttm_loss": 800,
+    "peer_statistic": 1100,
+    "peer_eligibility_enter_exit": 1100,
+    "leave_one_out": 800,
+    "minimum_peer_count": 500,
+    "carpan_bazli_nonfin": 500,
+    "bank_peer_yok": 400,
+    "holding_gyo_tetiklenmez": 400,
+    "atomik_grup": 500,
+    "pit_restate_ayrimi": 400,
+    "plan_idempotency": 400,
+    "readiness": 900,
+    "karma_coklu_fact": 400
+  },
+  "planned_distribution": {
+    "dogrudan_bilanco": 1600,
+    "gelir_tablosu_ttm": 1600,
+    "nakit_akim": 500,
+    "sekiz_donem_penceresi": 1000,
+    "latest_only_alan": 1000,
+    "off_by_one_sinirlari": 1100,
+    "ttm_loss": 800,
+    "peer_statistic": 1100,
+    "peer_eligibility_enter_exit": 1100,
+    "leave_one_out": 800,
+    "minimum_peer_count": 500,
+    "carpan_bazli_nonfin": 500,
+    "bank_peer_yok": 400,
+    "holding_gyo_tetiklenmez": 400,
+    "atomik_grup": 500,
+    "pit_restate_ayrimi": 400,
+    "plan_idempotency": 400,
+    "readiness": 900,
+    "karma_coklu_fact": 400
+  },
+  "is_full_run": true,
+  "by_type": {
+    "dogrudan_bilanco": {
+      "gecti": 1600,
+      "kaldi": 0
+    },
+    "gelir_tablosu_ttm": {
+      "gecti": 1600,
+      "kaldi": 0
+    },
+    "nakit_akim": {
+      "gecti": 500,
+      "kaldi": 0
+    },
+    "sekiz_donem_penceresi": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "latest_only_alan": {
+      "gecti": 1000,
+      "kaldi": 0
+    },
+    "off_by_one_sinirlari": {
+      "gecti": 1100,
+      "kaldi": 0
+    },
+    "ttm_loss": {
+      "gecti": 800,
+      "kaldi": 0
+    },
+    "peer_statistic": {
+      "gecti": 1100,
+      "kaldi": 0
+    },
+    "peer_eligibility_enter_exit": {
+      "gecti": 1100,
+      "kaldi": 0
+    },
+    "leave_one_out": {
+      "gecti": 800,
+      "kaldi": 0
+    },
+    "minimum_peer_count": {
+      "gecti": 500,
+      "kaldi": 0
+    },
+    "carpan_bazli_nonfin": {
+      "gecti": 500,
+      "kaldi": 0
+    },
+    "bank_peer_yok": {
+      "gecti": 400,
+      "kaldi": 0
+    },
+    "holding_gyo_tetiklenmez": {
+      "gecti": 400,
+      "kaldi": 0
+    },
+    "atomik_grup": {
+      "gecti": 500,
+      "kaldi": 0
+    },
+    "pit_restate_ayrimi": {
+      "gecti": 400,
+      "kaldi": 0
+    },
+    "plan_idempotency": {
+      "gecti": 400,
+      "kaldi": 0
+    },
+    "readiness": {
+      "gecti": 900,
+      "kaldi": 0
+    },
+    "karma_coklu_fact": {
+      "gecti": 400,
+      "kaldi": 0
+    }
+  },
+  "registry_sha256": "7f341cee3eda5ae3feef7313ccaa93fa95bd3fb55c7c6ab3a310d92f25b0f7be",
+  "detector_version": 1,
+  "failures": []
+}

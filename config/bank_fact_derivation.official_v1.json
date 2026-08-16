@@ -1,0 +1,18 @@
+{
+  "derivation_profile": "BANK_METRICS_KAP_TFRS_V1",
+  "derivation_version": 1,
+  "semantic_profile": "KAP_TFRS_BANK_V1",
+  "semantic_version": 1,
+  "total_equity_field": "TOTAL_EQUITY",
+  "shares_out_field": null,
+  "issued_capital_field": "ISSUED_CAPITAL",
+  "share_nominal_value": "1",
+  "net_income_field": "NET_INCOME",
+  "payout_ratio_field": null,
+  "dividends_paid_field": "DIVIDENDS_PAID",
+  "currency": "TRY",
+  "target_periods": 8,
+  "history_periods": 12,
+  "roe_formula": "TTM_NET_INCOME_OVER_ENDPOINT_AVERAGE_EQUITY",
+  "payout_policy": "DIRECT_THEN_TTM_DIVIDENDS"
+}

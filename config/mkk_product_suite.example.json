@@ -1,0 +1,18 @@
+{
+  "_warning": "Bu bir şablondur. Her ürünün config, sample ve contract_lock dosyaları yalnız MKK API Portal resmî ürün dokümanı ve yetkili örnek cevabı kullanılarak hazırlanmalıdır.",
+  "suite_name": "TOTAL_RASYO_MKK_KAP_PRODUCTS",
+  "suite_version": 1,
+  "products": [
+    {
+      "product_name": "kap_financial_disclosures",
+      "config": "mkk_kap_financials.json",
+      "sample": "../private/mkk_kap_financials.sample.json",
+      "contract_lock": "../private/mkk_kap_financials.contract.lock.json",
+      "api_key_env": "MKK_API_KEY",
+      "stream_name": "financial_disclosures",
+      "enabled": true,
+      "max_window_hours": 24,
+      "overlap_seconds": 300
+    }
+  ]
+}

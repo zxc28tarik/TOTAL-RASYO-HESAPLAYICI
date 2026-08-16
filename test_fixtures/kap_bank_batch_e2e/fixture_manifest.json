@@ -1,0 +1,15 @@
+{
+  "analysis_at": "2026-05-15T20:00:00+03:00",
+  "anchor_period_end": "2026-03-31",
+  "disclosure_count": 37,
+  "tickers": [
+    "AKBNK",
+    "GARAN",
+    "YKBNK"
+  ],
+  "variants": {
+    "AKBNK": "CONSOLIDATED + preferred parent-owner profit + dividends",
+    "GARAN": "SOLO + fallback ProfitLoss + payout missing",
+    "YKBNK": "CONSOLIDATED + one historical RESTATED period"
+  }
+}

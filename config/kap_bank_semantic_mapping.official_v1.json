@@ -1,0 +1,39 @@
+{
+  "mapping_profile": "KAP_TFRS_BANK_V1",
+  "mapping_version": 1,
+  "sector_family": "BANK",
+  "fields": {
+    "TOTAL_EQUITY": {
+      "source_codes": ["ifrs-full_Equity"],
+      "nature": "INSTANT",
+      "currency": "TRY",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "period_start_policy": "ANY"
+    },
+    "ISSUED_CAPITAL": {
+      "source_codes": ["ifrs-full_IssuedCapital"],
+      "nature": "INSTANT",
+      "currency": "TRY",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "period_start_policy": "ANY"
+    },
+    "NET_INCOME": {
+      "source_codes": [
+        "ifrs-full_ProfitLossAttributableToOwnersOfParent",
+        "ifrs-full_ProfitLoss"
+      ],
+      "nature": "YTD",
+      "currency": "TRY",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "period_start_policy": "REQUIRED"
+    },
+    "DIVIDENDS_PAID": {
+      "source_codes": ["ifrs-full_DividendsPaid"],
+      "nature": "YTD",
+      "sign": "ABS",
+      "currency": "TRY",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "period_start_policy": "REQUIRED"
+    }
+  }
+}

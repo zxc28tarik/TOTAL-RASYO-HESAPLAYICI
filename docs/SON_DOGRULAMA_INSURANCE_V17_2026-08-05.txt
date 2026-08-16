@@ -1,0 +1,21 @@
+TOTAL RASYO — V17 SIGORTA DEGERLEME SON DOGRULAMA
+Tarih: 2026-08-05 (Europe/Istanbul)
+
+Entegrasyon testleri (self-audit testi dahil): 689 passed
+Saf BANK motoru: 277 passed, 1 xfailed
+Sigorta degerleme oz denetimi: 15.000 / 15.000 PASS
+Kontrolsuz exception: 0
+Sessiz bozuk veri kabulu: 0
+
+Kuru ornek alimi:
+python -m src.app.cli ingest-insurance-metrics --file data/insurance_metrics.example.jsonl --no-persist
+Sonuc: OK, row_count=1, persisted=false
+
+Canli PostgreSQL 16: Bu ortamda psql bulunmadigi icin calistirilmadi.
+Gercek KAP sigorta adaptoru: Henuz dis bagimlilik.
+Gercek BIST kalibrasyonu: Henuz dis bagimlilik.
+
+Commitler:
+36792ac  Saf sigorta motoru ve metrik sozlesmesi
+1886a5c  Batch, CLI, PostgreSQL ve M2 baglantisi
+f723feb  Oz denetim ve V17 devir belgeleri

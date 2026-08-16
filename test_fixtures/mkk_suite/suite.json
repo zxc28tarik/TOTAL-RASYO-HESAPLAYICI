@@ -1,0 +1,29 @@
+{
+  "suite_name": "SYNTHETIC_MKK_KAP_SUITE",
+  "suite_version": 1,
+  "products": [
+    {
+      "product_name": "financial_disclosures",
+      "config": "financial_disclosures.config.json",
+      "sample": "financial_disclosures.sample.json",
+      "contract_lock": "financial_disclosures.lock.json",
+      "api_key_env": "MKK_API_KEY",
+      "stream_name": "financials",
+      "enabled": true,
+      "max_window_hours": 12,
+      "overlap_seconds": 300
+    },
+    {
+      "product_name": "corporate_actions",
+      "config": "corporate_actions.config.json",
+      "sample": "corporate_actions.sample.json",
+      "contract_lock": "corporate_actions.lock.json",
+      "api_key_env": "MKK_API_KEY",
+      "stream_name": "corporate_actions",
+      "enabled": true,
+      "max_window_hours": 24,
+      "overlap_seconds": 300
+    }
+  ],
+  "_warning": "Sentetik kabul fixture; live_ready=false beklenir."
+}

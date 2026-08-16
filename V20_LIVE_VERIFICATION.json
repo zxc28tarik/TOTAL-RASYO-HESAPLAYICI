@@ -1,0 +1,292 @@
+{
+  "total": 56,
+  "passed": 56,
+  "checks": [
+    {
+      "name": "impact plan commit edildi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "plan entry'leri commit edildi",
+      "ok": true,
+      "detail": "6 kayit"
+    },
+    {
+      "name": "application run commit edildi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "lineage commit edildi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Total Rasyo sonucu commit edildi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "plan -> application -> orchestrator zinciri ID ile izlenebiliyor",
+      "ok": true,
+      "detail": "plan=9bee212a83fb orch=LIVE-2-sonra"
+    },
+    {
+      "name": "baslangic OK",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "basari -> yetersiz otoritatif",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "eski basarili skora FALLBACK yok",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "eski karar temizlendi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "yetersiz -> basari otoritatif",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "eski ret nedeni temizlendi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "A DIRECT",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "B/C PEER_PROPAGATED",
+      "ok": true,
+      "detail": "['PEER1', 'PEER2']"
+    },
+    {
+      "name": "A kendisine PEER_PROPAGATED ALMIYOR",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "ELIGIBILITY_EXIT canli gorunuyor",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "MIN_PEER_COUNT_CROSSING canli gorunuyor",
+      "ok": true,
+      "detail": "['ELIGIBILITY_EXIT', 'MIN_PEER_COUNT_CROSSING', 'STATISTIC_VALUE_CHANGE']"
+    },
+    {
+      "name": "peer hedefte yalniz M2 isteniyor",
+      "ok": true,
+      "detail": "['M2']"
+    },
+    {
+      "name": "peer hedefte M1/Ek1/GOOD_COUNT refresh EDILMIYOR",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "TTM_4Q tam 4 anchor",
+      "ok": true,
+      "detail": "['2025-03-31', '2025-06-30', '2025-09-30', '2025-12-31']"
+    },
+    {
+      "name": "Q+4 ETKILENMEZ",
+      "ok": true,
+      "detail": "Q+4=2026-03-31"
+    },
+    {
+      "name": "SERIES_8Q tam 8 anchor",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Q+8 ETKILENMEZ",
+      "ok": true,
+      "detail": "Q+8=2027-03-31"
+    },
+    {
+      "name": "takvim gunu DEGIL kanonik ceyrek ordinali",
+      "ok": true,
+      "detail": "2025Q1+1=2025-06-30 (90 gun eklense 06-29 olurdu)"
+    },
+    {
+      "name": "planda TTM kenari 4 anchor",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "planda 8Q kenari 8 anchor",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "PIT satiri DEGER OLARAK degismedi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "restate AYRI tabloda",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "iki farkli cutoff iki ayri restate run",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "target != cutoff semantigi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "V19 latest_* view'i restate GORMUYOR",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "cutoff SONRASI kaynak restate'e sizamaz",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "satir sayisi ARTMADI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "created_at DEGISMEDI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "plan SHA ayni",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "idempotent basari bildirildi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "ayni kimlik + farkli icerik -> ImpactPlanConflict",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "catisma sonrasi eski plan DEGISMEDI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "catisma sonrasi entry sayisi degismedi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "registry SHA 64 haneli hex",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "edge sayisi HEAD'de olculdu",
+      "ok": true,
+      "detail": "54 edge"
+    },
+    {
+      "name": "HOLDING/GYO V20 trigger edge = 0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "CASH_FLOW scoring edge = 0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "plan kaydi registry SHA tasiyor",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "CASH_FLOW statement type KABUL edildi",
+      "ok": true,
+      "detail": "plan uretildi"
+    },
+    {
+      "name": "CASH_FLOW scoring entry uretmedi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "CASH_FLOW neden kodu NO_SCORING_DEPENDENCY",
+      "ok": true,
+      "detail": "NO_SCORING_DEPENDENCY"
+    },
+    {
+      "name": "tanisal degisiklik AYRI neden kodu",
+      "ok": true,
+      "detail": "DIAGNOSTIC_ONLY_CHANGE"
+    },
+    {
+      "name": "MARKET_PRICE / NAV kapsam DISI (plan bile uretilmez)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "iki neden BIRBIRINDEN AYRI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "plan yazimi ortasinda hata -> istisna",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "yarim plan kaydi KALMADI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "yarim entry kaydi KALMADI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "saglikli kosu commit edildi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "gecersiz kanonik durum reddedildi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "kanonik sonuc rollback sonrasi DEGISMEDI",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "registry": {
+    "registry_version": 1,
+    "registry_sha256": "7f341cee3eda5ae3feef7313ccaa93fa95bd3fb55c7c6ab3a310d92f25b0f7be",
+    "total_edges": 54,
+    "v20_trigger_edges": 42
+  }
+}

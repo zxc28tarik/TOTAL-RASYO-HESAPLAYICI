@@ -1,0 +1,95 @@
+TOTAL RASYO — KAP/MKK RESMI VERI ADAPTORU V3
+Tarih: 2026-08-04
+
+Bu dosya son paketleme öncesi yeniden üretilecek doğrulama komutlarını kaydeder.
+
+Komutlar:
+  PYTHONPATH=. pytest -q tests
+  PYTHONPATH="$PWD/src/analytics/bank_v47" pytest -q vendor/v47_roe_belirsizlik
+  PYTHONPATH=. python scripts/self_audit_kap_ingestion.py
+  python -m py_compile src/ingest/api/mkk_kap.py src/ingest/api/kap_public_universe.py src/ingest/api/kap_financial_facts.py src/ingest/kap_raw.py src/app/cli.py
+
+Beklenen değişmezler:
+  BANK motoru: 277 passed, 1 xfailed
+  KAP öz denetimi: 25.200 senaryo, 0 kontrolsüz/sessiz hata
+  BNK1 regresyonu: önceki v2 ile değişmemeli
+
+Canlı dış sistem durumu:
+  MKK API key/ürün endpoint'i yok: canlı API koşulmadı.
+  psql/PostgreSQL server yok: canlı migration/SQL koşulmadı.
+
+Gerçek son koşu:
+  Entegrasyon testleri: 166 passed
+  Saf BANK motoru: 277 passed, 1 xfailed
+  KAP öz denetimi: 25.200 senaryo, 15.200 kontrollü ret, 0 kontrolsüz/sessiz hata
+  Önceki BANK öz denetimleri: 80.400 senaryo, 0 kontrolsüz hata
+  Birleşik sentetik öz denetim: 105.600 senaryo
+  BNK1 V_mid: 6.893445618909122
+  BNK1 v_conf: 0.8
+
+Git HEAD (kanıt koşusu öncesi): f158be808747298aefecd2d67e6795a080023d54
+Git kısa geçmiş:
+f158be8 test: self-audit KAP ingestion and record v3 handoff
+63bd460 feat: add KAP universe sync and financial fact CLI
+4796479 feat: add lossless official KAP MKK ingestion layer
+8929b15 docs: record final v2 validation evidence
+
+Entegrasyon pytest:
+........................................................................ [ 43%]
+........................................................................ [ 86%]
+......................                                                   [100%]
+166 passed in 0.85s
+
+Saf motor pytest:
+................................................x....................... [ 25%]
+........................................................................ [ 51%]
+........................................................................ [ 77%]
+..............................................................           [100%]
+277 passed, 1 xfailed in 0.73s
+
+BANK entegrasyon öz denetimi:
+{
+  "canonical_valid": 5000,
+  "canonical_controlled_reject": 15000,
+  "vconf_valid": 63,
+  "vconf_controlled_reject": 19937,
+  "sql_mutations": {
+    "seven_slots": "caught",
+    "date_leak": "caught",
+    "tie_break_removed": "caught",
+    "reverse_output": "caught"
+  },
+  "uncontrolled_exceptions": 0,
+  "bnk1_v_mid": 6.893445618909122,
+  "bnk1_v_conf": 0.8
+}
+
+BANK batch öz denetimi:
+{
+  "assumption_valid": 5337,
+  "assumption_controlled_reject": 14663,
+  "m2_valid": 108,
+  "m2_controlled_reject": 19892,
+  "shadow_valid": 80,
+  "shadow_controlled_reject": 320,
+  "source_mutations": {
+    "batch_n_plus_one": "caught",
+    "pit_function_removed": "caught",
+    "daily_gate_removed": "caught"
+  },
+  "uncontrolled_exceptions": 0,
+  "bnk1_v_mid": 6.893445618909122
+}
+
+KAP/MKK öz denetimi:
+{
+  "valid_api_items": 5000,
+  "valid_fact_batches": 5000,
+  "controlled_rejects": 15200,
+  "uncontrolled_or_silent_failures": 0,
+  "unexpected_examples": [],
+  "total_scenarios": 25200
+}
+
+py_compile: PASS
+git diff --check: PASS

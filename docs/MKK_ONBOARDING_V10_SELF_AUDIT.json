@@ -1,0 +1,12 @@
+{
+  "counts": {
+    "controlled_backfill_reject": 3000,
+    "controlled_contract_reject": 2500,
+    "lock_checks": 1000,
+    "silent_accept": 0,
+    "uncontrolled": 0,
+    "valid_backfill": 5000,
+    "valid_contract": 2500
+  },
+  "status": "PASS"
+}

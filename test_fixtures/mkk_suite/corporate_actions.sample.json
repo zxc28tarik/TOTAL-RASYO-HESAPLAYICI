@@ -1,0 +1,13 @@
+{
+  "_warning": "Sentetik fixture; resmî cevap değildir.",
+  "data": {
+    "items": [
+      {
+        "id": "SYN-2",
+        "publishedAt": "2026-08-05T01:00:00+03:00",
+        "ticker": "GARAN"
+      }
+    ],
+    "nextCursor": null
+  }
+}

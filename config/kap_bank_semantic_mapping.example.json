@@ -1,0 +1,38 @@
+{
+  "mapping_profile": "BANK_CORE_EXAMPLE",
+  "mapping_version": 1,
+  "sector_family": "BANK",
+  "fields": {
+    "TOTAL_EQUITY": {
+      "source_codes": ["PORTAL_DOKUMANINDAN_OZKAYNAK_KODU"],
+      "nature": "INSTANT",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "period_start_policy": "ANY"
+    },
+    "SHARES_OUT": {
+      "source_codes": ["PORTAL_DOKUMANINDAN_PAY_SAYISI_KODU"],
+      "nature": "INSTANT",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "period_start_policy": "ANY"
+    },
+    "NET_INCOME": {
+      "source_codes": ["PORTAL_DOKUMANINDAN_NET_KAR_KODU"],
+      "nature": "YTD",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "period_start_policy": "REQUIRED"
+    },
+    "PAYOUT_RATIO": {
+      "source_codes": ["PORTAL_DOKUMANINDA_VARSA_PAYOUT_KODU"],
+      "nature": "RATIO",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "period_start_policy": "ANY"
+    },
+    "DIVIDENDS_PAID": {
+      "source_codes": ["PORTAL_DOKUMANINDA_VARSA_TEMETTU_KODU"],
+      "nature": "YTD",
+      "sign": "ABS",
+      "statement_scope_priority": ["CONSOLIDATED", "SOLO"],
+      "period_start_policy": "REQUIRED"
+    }
+  }
+}

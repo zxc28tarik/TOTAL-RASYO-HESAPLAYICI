@@ -1,0 +1,19 @@
+{
+  "_warning": "Sentetik ornektir; resmi MKK API Portal urun cevabi degildir.",
+  "data": {
+    "items": [
+      {
+        "id": "SYNTHETIC-DISCLOSURE-1",
+        "publishedAt": "2026-08-04T10:00:00+03:00",
+        "company": {
+          "ticker": "GARAN",
+          "id": "SYNTHETIC-COMPANY-101"
+        },
+        "notificationType": "FINANCIAL_STATEMENT",
+        "subject": "Sentetik finansal rapor",
+        "url": "https://kap.org.tr/tr/Bildirim/SYNTHETIC-DISCLOSURE-1"
+      }
+    ],
+    "nextCursor": null
+  }
+}

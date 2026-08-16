@@ -1,0 +1,31 @@
+TOTAL RASYO — MKK PRODUCT ONBOARDING V10 FINAL VALIDATION
+Date: 2026-08-05 Europe/Istanbul
+
+Python integration tests: 386 passed
+BANK v4.7 tests: 277 passed, 1 xfailed
+MKK onboarding self-audit: 14,000 scenarios
+  valid backfill plans: 5,000
+  controlled invalid backfill rejects: 3,000
+  valid contract+lock cycles: 2,500
+  controlled invalid contract rejects: 2,500
+  advisory lock checks: 1,000
+  uncontrolled exceptions: 0
+  silent invalid accepts: 0
+
+Implemented:
+- offline MKK product sample contract validation
+- versioned contract-lock with config/sample SHA256
+- optional contract-lock verification before live probe/sync
+- HTTPS and DNS-host live endpoint policy
+- deterministic backfill window planning
+- PostgreSQL session advisory lock for source+stream sync exclusivity
+- direct CLI and Make targets
+
+External limits:
+- no real MKK product endpoint or API key was available
+- no live provider call was claimed
+- no live PostgreSQL 16 server was available in this environment
+
+Git commits:
+0e5e436 feat: add MKK contract lock and sync exclusivity
+3d4280e docs: record MKK onboarding v10 audit and handoff

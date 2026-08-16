@@ -1,0 +1,6 @@
+ticker,company_name,sector_index_code,sector_code,is_active
+THYAO,Turkish Airlines,XULAS,NONFIN,true
+ASELS,Aselsan,XUTEK,NONFIN,true
+GARAN,Garanti BBVA,XBANK,BANK,true
+SAHOL,Sabancı Holding,XHOLD,HOLDING,true
+EKGYO,Emlak Konut GYO,XGMYO,NONFIN,true

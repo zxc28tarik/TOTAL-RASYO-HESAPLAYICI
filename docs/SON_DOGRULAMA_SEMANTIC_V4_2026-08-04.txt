@@ -1,0 +1,37 @@
+TOTAL RASYO — SEMANTIC FACT / BANK DERIVATION V4 SON DOGRULAMA
+Tarih: 2026-08-04
+
+PYTHONPATH=. pytest -q tests
+SONUC: 242 passed
+
+PYTHONPATH=src/analytics/bank_v47 pytest -q vendor/v47_roe_belirsizlik
+SONUC: 277 passed, 1 xfailed
+
+PYTHONPATH=. python scripts/self_audit_semantic_bank_facts.py
+SONUC:
+- valid semantic mappings: 3000
+- valid bank derivations: 3000
+- controlled invalid rejections: 12000
+- missing-quarter mutation checks: 1000
+- total: 19000
+- uncontrolled/silent failures: 0
+
+DIGER OZ DENETIMLER YENIDEN KOSULDU:
+- bank integration: 40000 scenario, 0 uncontrolled
+- bank batch/M2/shadow: 40400 scenario, 0 uncontrolled
+- official KAP/MKK: 25200 scenario, 0 uncontrolled/silent
+- combined total: 124600 scenario
+
+REGRESYON:
+- BNK1 V_mid = 6.893445618909122
+- BNK1 v_conf = 0.8
+
+SINIR:
+- Canli PostgreSQL 16 migration/testi bu ortamda kosulmadi.
+- Gercek MKK API urun endpoint'i, API key ve payload ornegi yoktur.
+- Example semantic source code'lari yer tutucudur; resmi kod iddiasi yoktur.
+
+V4 COMMITLER:
+4dc1d48  versioned semantic financial fact layer
+924e82a  point-in-time BANK metric derivation
+f2e218e  semantic/BANK self-audit and v4 handoff

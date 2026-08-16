@@ -1,0 +1,20 @@
+{
+  "_warning": "Sentetik fixture; gercek MKK endpoint degildir.",
+  "base_url": "https://financial_disclosures.example.invalid",
+  "api_key_header": "X-API-Key",
+  "path": "/registered/financial_disclosures",
+  "method": "GET",
+  "items_path": "data.items",
+  "next_cursor_path": "data.nextCursor",
+  "cursor_param": "cursor",
+  "start_param": "startAt",
+  "end_param": "endAt",
+  "page_size_param": "pageSize",
+  "page_size": 100,
+  "fields": {
+    "disclosure_id": "id",
+    "published_at": "publishedAt",
+    "ticker": "ticker"
+  },
+  "source_name": "MKK_KAP_FINANCIALS"
+}

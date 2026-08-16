@@ -1,0 +1,36 @@
+TOTAL RASYO — NONFIN RELATIVE VALUATION V14
+Tarih: 2026-08-05
+
+Kod:
+- NONFIN göreli çarpan motoru
+- leave-one-out sektör emsal dağılımı
+- dört bitişik çeyrek TTM sözleşmesi
+- source derivation profile/version filtresi
+- bayat fiyat kapısı
+- iki eksenli NONFIN M2
+- PostgreSQL kalıcılığı ve günlük M2 override
+
+Doğrulama:
+- pytest -q: 518 passed
+- BANK v4.7: 277 passed, 1 xfailed
+- self_audit_nonfin_valuation.py: 15.000 / 15.000 PASS
+- kontrolsüz exception: 0
+- sessiz bozuk veri kabulü: 0
+
+Öz denetim dağılımı:
+- geçerli değerleme: 5.000
+- kontrollü yetersiz veri: 2.500
+- bayat fiyat: 2.500
+- sıra değişmezliği: 2.000
+- config bypass reddi: 1.500
+- snapshot bypass reddi: 1.500
+
+Dış doğrulama sınırı:
+- gerçek BIST NONFIN emsal dağılımı henüz çalıştırılmadı
+- PostgreSQL 16 canlı migration koşusu bu ortamda yapılamadı
+- quantile/ağırlık/band eşikleri gerçek gölge raporla kalibre edilmeli
+
+Git commit haritası:
+- 681cf0f  Saf NONFIN göreli değerleme motoru
+- 331a865  NONFIN batch, PostgreSQL, CLI ve günlük M2 köprüsü
+- 213c7e2  Öz denetim ve V14 devir belgeleri

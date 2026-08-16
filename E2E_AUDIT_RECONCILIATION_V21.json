@@ -1,0 +1,23 @@
+{
+  "total": 4,
+  "passed": 4,
+  "failed": 0,
+  "scenarios": [
+    {
+      "senaryo": "1_tam_eslesme_PASS",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "2_bir_hedef_eksik_MISSING",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "3_fazladan_islenen_UNEXPECTED",
+      "durum": "PASS"
+    },
+    {
+      "senaryo": "4_yanlis_run_kimligi_STALE",
+      "durum": "PASS"
+    }
+  ]
+}
