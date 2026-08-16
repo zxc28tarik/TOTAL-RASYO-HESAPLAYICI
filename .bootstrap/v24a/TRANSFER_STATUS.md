@@ -1,0 +1,1 @@
+V24-A snapshot transfer in progress. Final main cutover is gated by exact archive SHA256 verification.
