@@ -207,6 +207,7 @@ def test_registered_schedules_drive_full_database_backtest_and_preserve_provenan
     profile = "CUT_" + suffix
     aaa = "F" + suffix[:5] + "A"
     bbb = "F" + suffix[:5] + "B"
+    index_code = "XF" + suffix[:8]
     conn = psycopg2.connect(DSN)
     try:
         # Schedule registry writes are intentionally committed by persist_*.
@@ -221,7 +222,7 @@ def test_registered_schedules_drive_full_database_backtest_and_preserve_provenan
             with conn.cursor() as cur:
                 cur.executemany(
                     "INSERT INTO core.index_prices_daily(index_code, trade_date, open, close) VALUES (%s,%s,%s,%s)",
-                    [("XU100", "2022-01-03", 100, 101), ("XU100", "2022-02-02", 110, 111)],
+                    [(index_code, "2022-01-03", 100, 101), (index_code, "2022-02-02", 110, 111)],
                 )
                 cur.executemany(
                     """
@@ -254,6 +255,7 @@ def test_registered_schedules_drive_full_database_backtest_and_preserve_provenan
             conn,
             wage_schedule_key=wage_key,
             cutoff_profile_key=profile,
+            index_code=index_code,
             start_month="2022-01", end_month="2022-02", expected_months=2,
         )
         assert set(schedules.minimum_wage["schedule_key"]) == {wage_key}
@@ -264,6 +266,7 @@ def test_registered_schedules_drive_full_database_backtest_and_preserve_provenan
             conn,
             wage_schedule_key=wage_key,
             cutoff_profile_key=profile,
+            index_code=index_code,
             start_month="2022-01", end_month="2022-02", expected_months=2,
         )
         assert list(result.run.inputs.contributions["contribution"]) == [2000.0, 2000.0]
