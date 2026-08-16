@@ -1,0 +1,231 @@
+name: V24F CI
+
+on:
+  push:
+    branches: [v24f-ci]
+    paths:
+      - src/ingest/historical_backtest_schedules.py
+      - src/analytics/historical_backtest_schedule_db.py
+      - scripts/ingest_backtest_schedule.py
+      - tests/test_historical_backtest_schedules.py
+      - tests/test_historical_backtest_schedules_live.py
+      - tests/test_historical_backtest_schedule_constraints_live.py
+      - sql/042_backtest_schedule_registry.sql
+      - Makefile
+      - tests/test_audit_evidence_metadata.py
+      - '.github/workflows/v24f-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: total_rasyo_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d total_rasyo_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: localhost
+      PGPORT: "5432"
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: total_rasyo_test
+      TOTAL_RASYO_TEST_DSN: postgresql://postgres:postgres@localhost:5432/total_rasyo_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Diff and CLI smoke
+        run: |
+          git diff --check HEAD~1 HEAD || true
+          PYTHONPATH=. python scripts/ingest_backtest_schedule.py --help
+      - name: Apply 37 migrations
+        run: make core migrate
+      - name: V24-E/F targeted contract
+        run: |
+          python -m pytest -q \
+            tests/test_historical_backtest_schedules.py \
+            tests/test_historical_backtest_schedules_live.py \
+            tests/test_historical_backtest_schedule_constraints_live.py \
+            tests/test_historical_backtest_db.py \
+            tests/test_historical_backtest_db_live.py \
+            tests/test_historical_backtest_inputs.py \
+            tests/test_monthly_total_rasyo_portfolio.py \
+            tests/test_audit_evidence_metadata.py::test_migration_sayisi_makefile_ile_tutarli
+      - name: V24-F Python mutations — 8 guards must die
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import os, shutil, subprocess, sys
+
+          mod = Path('src/ingest/historical_backtest_schedules.py')
+          original = mod.read_text(encoding='utf-8')
+          mutations = [
+              ('wage_positive_finite', 'if not out.is_finite() or out <= 0:', 'if False and (not out.is_finite() or out <= 0):', 'test_wage_rejects_non_positive_or_non_finite_values'),
+              ('source_sha', 'if len(out) != 64 or any(ch not in "0123456789abcdef" for ch in out):', 'if False and (len(out) != 64 or any(ch not in "0123456789abcdef" for ch in out)):', 'test_source_sha_must_be_64_hex_for_both_schedule_types'),
+              ('wage_overlap', 'if left.valid_to is None or right.valid_from < left.valid_to:', 'if False and (left.valid_to is None or right.valid_from < left.valid_to):', 'test_wage_overlap_rejected_and_touching_intervals_allowed'),
+              ('cutoff_timezone', 'if ts.tzinfo is None or ts.utcoffset() is None:', 'if False and (ts.tzinfo is None or ts.utcoffset() is None):', 'test_cutoff_requires_timezone_and_strictly_precedes_execution'),
+              ('cutoff_before_execution', 'if cutoff >= execution:', 'if False and cutoff >= execution:', 'test_cutoff_requires_timezone_and_strictly_precedes_execution'),
+              ('execution_istanbul_day', 'if execution.tz_convert("Europe/Istanbul").date() != signal_date:', 'if False and execution.tz_convert("Europe/Istanbul").date() != signal_date:', 'test_execution_must_land_on_signal_date_in_istanbul'),
+              ('wage_duplicate_conflict', 'if prior != row.row_sha256:\n                raise HistoricalBacktestScheduleError(\n                    f"satir {line_no}: ayni schedule_key+valid_from farkli icerik tasiyor"', 'if False and prior != row.row_sha256:\n                raise HistoricalBacktestScheduleError(\n                    f"satir {line_no}: ayni schedule_key+valid_from farkli icerik tasiyor"', 'test_wage_exact_duplicate_collapses_but_conflicting_identity_fails'),
+              ('utc_hash_normalization', 'return ts.tz_convert("UTC").isoformat()', 'return ts.isoformat()', 'test_cutoff_hash_is_timezone_representation_invariant'),
+          ]
+          try:
+              for name, old, new, test in mutations:
+                  if original.count(old) != 1:
+                      raise SystemExit(f'{name}: mutation target count={original.count(old)}, expected 1')
+                  mod.write_text(original.replace(old, new, 1), encoding='utf-8')
+                  shutil.rmtree(Path('src/ingest/__pycache__'), ignore_errors=True)
+                  cp = subprocess.run(
+                      [sys.executable, '-B', '-m', 'pytest', '-q', f'tests/test_historical_backtest_schedules.py::{test}'],
+                      env={**os.environ, 'PYTHONPATH': '.', 'PYTHONDONTWRITEBYTECODE': '1'},
+                  )
+                  if cp.returncode == 0:
+                      raise SystemExit(f'{name} mutation SURVIVED')
+                  print(f'{name} mutation KILLED')
+                  mod.write_text(original, encoding='utf-8')
+          finally:
+              mod.write_text(original, encoding='utf-8')
+          PY
+      - name: Build V24-F SQL mutations
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          src = Path('sql/042_backtest_schedule_registry.sql').read_text(encoding='utf-8')
+          mutations = {
+            'overlap': """CREATE TRIGGER trg_backtest_minimum_wage_schedule_guard_insert
+              BEFORE INSERT ON core.backtest_minimum_wage_schedule
+              FOR EACH ROW EXECUTE FUNCTION core.backtest_minimum_wage_schedule_guard_insert();""",
+            'wage_immutable': """CREATE TRIGGER trg_backtest_minimum_wage_schedule_immutable
+              BEFORE UPDATE OR DELETE ON core.backtest_minimum_wage_schedule
+              FOR EACH ROW EXECUTE FUNCTION core.backtest_schedule_immutable();""",
+            'cutoff_immutable': """CREATE TRIGGER trg_backtest_signal_cutoff_schedule_immutable
+              BEFORE UPDATE OR DELETE ON analytics.backtest_signal_cutoff_schedule
+              FOR EACH ROW EXECUTE FUNCTION core.backtest_schedule_immutable();""",
+            'wage_check': "CHECK (net_min_wage > 0 AND net_min_wage::text NOT IN ('NaN','Infinity','-Infinity'))",
+            'cutoff_order': "CHECK (cutoff_at < execution_at)",
+            'execution_day': "CHECK ((execution_at AT TIME ZONE 'Europe/Istanbul')::date = signal_date)",
+          }
+          for name, target in mutations.items():
+              if src.count(target) != 1:
+                  raise SystemExit(f'{name}: SQL mutation target count={src.count(target)}, expected 1')
+              Path(f'/tmp/042_{name}.sql').write_text(
+                  src.replace(target, f'-- MUTATION {name} removed', 1), encoding='utf-8'
+              )
+          PY
+      - name: SQL mutation — wage overlap must die
+        shell: bash
+        run: |
+          set -euo pipefail
+          psql -d postgres -c 'CREATE DATABASE v24f_mut_overlap;'
+          PGDATABASE=v24f_mut_overlap psql -v ON_ERROR_STOP=1 -f sql/000_create_schemas.sql
+          PGDATABASE=v24f_mut_overlap psql -v ON_ERROR_STOP=1 -f sql/010_create_core_tables.sql
+          PGDATABASE=v24f_mut_overlap psql -v ON_ERROR_STOP=1 -f /tmp/042_overlap.sql
+          if TOTAL_RASYO_TEST_DSN=postgresql://postgres:postgres@localhost:5432/v24f_mut_overlap \
+             python -m pytest -q tests/test_historical_backtest_schedules_live.py::test_wage_database_rejects_overlap_against_existing_history; then
+            echo 'wage overlap mutation SURVIVED'; exit 1
+          else
+            echo 'wage overlap mutation KILLED'
+          fi
+      - name: SQL mutation — wage immutability must die
+        shell: bash
+        run: |
+          set -euo pipefail
+          psql -d postgres -c 'CREATE DATABASE v24f_mut_wage_immutable;'
+          PGDATABASE=v24f_mut_wage_immutable psql -v ON_ERROR_STOP=1 -f sql/000_create_schemas.sql
+          PGDATABASE=v24f_mut_wage_immutable psql -v ON_ERROR_STOP=1 -f sql/010_create_core_tables.sql
+          PGDATABASE=v24f_mut_wage_immutable psql -v ON_ERROR_STOP=1 -f /tmp/042_wage_immutable.sql
+          if TOTAL_RASYO_TEST_DSN=postgresql://postgres:postgres@localhost:5432/v24f_mut_wage_immutable \
+             python -m pytest -q tests/test_historical_backtest_schedules_live.py::test_schedule_tables_reject_update_delete_and_truncate; then
+            echo 'wage immutable mutation SURVIVED'; exit 1
+          else
+            echo 'wage immutable mutation KILLED'
+          fi
+      - name: SQL mutation — cutoff immutability must die
+        shell: bash
+        run: |
+          set -euo pipefail
+          psql -d postgres -c 'CREATE DATABASE v24f_mut_cutoff_immutable;'
+          PGDATABASE=v24f_mut_cutoff_immutable psql -v ON_ERROR_STOP=1 -f sql/000_create_schemas.sql
+          PGDATABASE=v24f_mut_cutoff_immutable psql -v ON_ERROR_STOP=1 -f sql/010_create_core_tables.sql
+          PGDATABASE=v24f_mut_cutoff_immutable psql -v ON_ERROR_STOP=1 -f /tmp/042_cutoff_immutable.sql
+          if TOTAL_RASYO_TEST_DSN=postgresql://postgres:postgres@localhost:5432/v24f_mut_cutoff_immutable \
+             python -m pytest -q tests/test_historical_backtest_schedules_live.py::test_schedule_tables_reject_update_delete_and_truncate; then
+            echo 'cutoff immutable mutation SURVIVED'; exit 1
+          else
+            echo 'cutoff immutable mutation KILLED'
+          fi
+      - name: SQL mutation — wage numeric check must die
+        shell: bash
+        run: |
+          set -euo pipefail
+          psql -d postgres -c 'CREATE DATABASE v24f_mut_wage_check;'
+          PGDATABASE=v24f_mut_wage_check psql -v ON_ERROR_STOP=1 -f sql/000_create_schemas.sql
+          PGDATABASE=v24f_mut_wage_check psql -v ON_ERROR_STOP=1 -f sql/010_create_core_tables.sql
+          PGDATABASE=v24f_mut_wage_check psql -v ON_ERROR_STOP=1 -f /tmp/042_wage_check.sql
+          if TOTAL_RASYO_TEST_DSN=postgresql://postgres:postgres@localhost:5432/v24f_mut_wage_check \
+             python -m pytest -q tests/test_historical_backtest_schedule_constraints_live.py::test_database_rejects_nan_or_non_positive_wage_even_without_python_ingest; then
+            echo 'wage check mutation SURVIVED'; exit 1
+          else
+            echo 'wage check mutation KILLED'
+          fi
+      - name: SQL mutation — cutoff order check must die
+        shell: bash
+        run: |
+          set -euo pipefail
+          psql -d postgres -c 'CREATE DATABASE v24f_mut_cutoff_order;'
+          PGDATABASE=v24f_mut_cutoff_order psql -v ON_ERROR_STOP=1 -f sql/000_create_schemas.sql
+          PGDATABASE=v24f_mut_cutoff_order psql -v ON_ERROR_STOP=1 -f sql/010_create_core_tables.sql
+          PGDATABASE=v24f_mut_cutoff_order psql -v ON_ERROR_STOP=1 -f /tmp/042_cutoff_order.sql
+          if TOTAL_RASYO_TEST_DSN=postgresql://postgres:postgres@localhost:5432/v24f_mut_cutoff_order \
+             python -m pytest -q tests/test_historical_backtest_schedule_constraints_live.py::test_database_rejects_cutoff_at_or_after_execution_even_without_python_ingest; then
+            echo 'cutoff order mutation SURVIVED'; exit 1
+          else
+            echo 'cutoff order mutation KILLED'
+          fi
+      - name: SQL mutation — Istanbul execution day check must die
+        shell: bash
+        run: |
+          set -euo pipefail
+          psql -d postgres -c 'CREATE DATABASE v24f_mut_execution_day;'
+          PGDATABASE=v24f_mut_execution_day psql -v ON_ERROR_STOP=1 -f sql/000_create_schemas.sql
+          PGDATABASE=v24f_mut_execution_day psql -v ON_ERROR_STOP=1 -f sql/010_create_core_tables.sql
+          PGDATABASE=v24f_mut_execution_day psql -v ON_ERROR_STOP=1 -f /tmp/042_execution_day.sql
+          if TOTAL_RASYO_TEST_DSN=postgresql://postgres:postgres@localhost:5432/v24f_mut_execution_day \
+             python -m pytest -q tests/test_historical_backtest_schedule_constraints_live.py::test_database_rejects_execution_date_mismatch_in_istanbul; then
+            echo 'execution day mutation SURVIVED'; exit 1
+          else
+            echo 'execution day mutation KILLED'
+          fi
+      - name: Reset PostgreSQL before full regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          psql -d postgres -v ON_ERROR_STOP=1 -c 'DROP DATABASE IF EXISTS total_rasyo_test WITH (FORCE);'
+          psql -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE total_rasyo_test;'
+          make core migrate
+      - name: Full regression
+        run: python -m pytest -q
+      - name: BANK v4.7 regression
+        run: make test-bank-v47
