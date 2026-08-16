@@ -30,11 +30,7 @@ jobs:
               raise SystemExit(f'Makefile 041 count={s.count(old)}, expected 1')
           if '042_backtest_schedule_registry.sql' not in s:
               s = s.replace(old, new, 1)
-          target = """
-
-ingest-backtest-schedule:
-	PYTHONPATH=. python scripts/ingest_backtest_schedule.py --kind "$(KIND)" --file "$(FILE)"
-"""
+          target = '\n\ningest-backtest-schedule:\n' + chr(9) + 'PYTHONPATH=. python scripts/ingest_backtest_schedule.py --kind "$(KIND)" --file "$(FILE)"\n'
           if 'ingest-backtest-schedule:' not in s:
               s = s.rstrip() + target + '\n'
           make.write_text(s, encoding='utf-8')
