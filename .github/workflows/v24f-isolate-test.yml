@@ -17,37 +17,28 @@ jobs:
         with:
           ref: v24f-ci
           fetch-depth: 0
-      - name: Move V24-E live fixture before append-only V24-F fixture window
+      - name: Ensure V24-E DB live test changes trigger V24-F CI
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('tests/test_historical_backtest_db_live.py')
+          p = Path('.github/workflows/v24f-ci.yml')
           s = p.read_text(encoding='utf-8')
-          replacements = {
-              '"2020-01-01"': '"2018-01-01"',
-              '"2022-01-03"': '"2019-01-02"',
-              '"2022-02-02"': '"2019-02-01"',
-              '"2022-01-02T19:00:00Z"': '"2019-01-01T19:00:00Z"',
-              '"2022-02-01T19:00:00Z"': '"2019-01-31T19:00:00Z"',
-              '"2022-02-01T19:30:00Z"': '"2019-01-31T19:30:00Z"',
-              '"2022-01-02T20:00:00Z"': '"2019-01-01T20:00:00Z"',
-              '"2022-02-01T20:00:00Z"': '"2019-01-31T20:00:00Z"',
-              '"2022-01"': '"2019-01"',
-              '"2022-02"': '"2019-02"',
-              '2022-02-01 19:00:00+00:00': '2019-01-31 19:00:00+00:00',
-          }
-          for old, new in replacements.items():
-              if old not in s:
-                  raise SystemExit(f'missing expected fixture anchor: {old}')
-              s = s.replace(old, new)
+          needle = '      - tests/test_historical_backtest_schedules_live.py\n'
+          addition = needle + '      - tests/test_historical_backtest_db_live.py\n'
+          if '      - tests/test_historical_backtest_db_live.py\n' in s:
+              raise SystemExit('trigger already present; refusing duplicate')
+          if s.count(needle) != 1:
+              raise SystemExit('CI trigger anchor not unique')
+          s = s.replace(needle, addition, 1)
+          s = s.replace('# rerun after temporal fixture correction', '# rerun after fixture isolation', 1)
           p.write_text(s, encoding='utf-8')
           PY
           git diff --check
-          git diff -- tests/test_historical_backtest_db_live.py
-      - name: Commit fixture isolation
+          git diff -- .github/workflows/v24f-ci.yml
+      - name: Commit CI trigger coverage
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add tests/test_historical_backtest_db_live.py
-          git commit -m 'V24-F isolate V24-E live fixture window'
+          git add .github/workflows/v24f-ci.yml
+          git commit -m 'V24-F cover DB live fixture in CI trigger'
           git push origin HEAD:v24f-ci
