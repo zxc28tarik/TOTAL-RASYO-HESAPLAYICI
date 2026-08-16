@@ -15,11 +15,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Rebuild and verify canonical V24-A snapshot
+      - name: Download and verify canonical V24-A snapshot
         shell: bash
         run: |
           set -euo pipefail
-          cat .v24a-transfer/chunk_* | base64 -d > /tmp/v24a.tar.xz
+          curl -fL --retry 3 'https://sdmntprnortheu.oaiusercontent.com/files/00000000-2f9c-81f4-8a9f-e14f9a981b85/raw?se=2026-08-16T19%3A38%3A13Z&sp=r&sv=2026-02-06&sr=b&scid=f7e8ab03-f3f4-53ea-82b2-6c00d5452b4f&skoid=a0b9f82a-c86e-4064-a822-2aa38890bb37&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-16T06%3A36%3A04Z&ske=2026-08-17T06%3A36%3A04Z&sks=b&skv=2026-02-06&sig=fmuJsGfZ1LBMBDFgguyLGYkQhbilAI2xQ6SGH%2BVyg%2BY%3D' -o /tmp/v24a.tar.xz
           echo '428fbc8b234a8115a8928a15e0f2d3e38cd4b6ff26005c8416aa1349c28af485  /tmp/v24a.tar.xz' | sha256sum -c -
           xz -t /tmp/v24a.tar.xz
       - name: Replace main with latest snapshot
