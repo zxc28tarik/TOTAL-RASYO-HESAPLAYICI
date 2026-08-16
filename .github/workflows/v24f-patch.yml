@@ -1,0 +1,64 @@
+name: V24F Patch Migration Chain
+
+on:
+  push:
+    branches: [v24f-ci]
+    paths:
+      - '.github/workflows/v24f-patch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v24f-ci
+          fetch-depth: 0
+      - name: Add migration 042, audit count and ingest target
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          make = Path('Makefile')
+          s = make.read_text(encoding='utf-8')
+          old = '\tpsql -f sql/041_historical_universe_truncate_guard.sql\n'
+          new = old + '\tpsql -f sql/042_backtest_schedule_registry.sql\n'
+          if s.count(old) != 1:
+              raise SystemExit(f'Makefile 041 count={s.count(old)}, expected 1')
+          if '042_backtest_schedule_registry.sql' not in s:
+              s = s.replace(old, new, 1)
+          target = """
+
+ingest-backtest-schedule:
+	PYTHONPATH=. python scripts/ingest_backtest_schedule.py --kind "$(KIND)" --file "$(FILE)"
+"""
+          if 'ingest-backtest-schedule:' not in s:
+              s = s.rstrip() + target + '\n'
+          make.write_text(s, encoding='utf-8')
+
+          audit = Path('tests/test_audit_evidence_metadata.py')
+          s = audit.read_text(encoding='utf-8')
+          old_count = 'assert len(calisan) == 36, f"schema migration sayisi {len(calisan)}"'
+          new_count = 'assert len(calisan) == 37, f"schema migration sayisi {len(calisan)}"'
+          if old_count not in s:
+              raise SystemExit('36-migration audit assertion not found')
+          s = s.replace(old_count, new_count, 1)
+          old_tail = '                 "041_historical_universe_truncate_guard.sql"):'
+          new_tail = '                 "041_historical_universe_truncate_guard.sql",\n                 "042_backtest_schedule_registry.sql"):'
+          if old_tail not in s:
+              raise SystemExit('041 audit tuple tail not found')
+          s = s.replace(old_tail, new_tail, 1)
+          audit.write_text(s, encoding='utf-8')
+          PY
+          git diff --check
+          git diff -- Makefile tests/test_audit_evidence_metadata.py
+      - name: Commit patch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Makefile tests/test_audit_evidence_metadata.py
+          git commit -m 'V24-F add migration 042 and schedule ingest target'
+          git push origin HEAD:v24f-ci
