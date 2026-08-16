@@ -98,8 +98,8 @@ def test_database_bridge_uses_only_authoritative_full_universe_runs_and_executes
             cur.executemany(
                 "INSERT INTO core.index_prices_daily(index_code, trade_date, open, close) VALUES (%s,%s,%s,%s)",
                 [
-                    ("XU100", "2022-01-03", 100, 101),
-                    ("XU100", "2022-02-02", 110, 111),
+                    ("XU100", "2019-01-02", 100, 101),
+                    ("XU100", "2019-02-01", 110, 111),
                 ],
             )
             cur.executemany(
@@ -111,50 +111,50 @@ def test_database_bridge_uses_only_authoritative_full_universe_runs_and_executes
                 ) VALUES (%s,%s,NULL,true,%s,'XBANK','BANK','V24E_TEST',%s,%s,%s)
                 """,
                 [
-                    ("V24EAAA", "2020-01-01", "AAA TEST", "fixture-a", "d"*64, "e"*64),
-                    ("V24EBBB", "2020-01-01", "BBB TEST", "fixture-b", "f"*64, "1"*64),
+                    ("V24EAAA", "2018-01-01", "AAA TEST", "fixture-a", "d"*64, "e"*64),
+                    ("V24EBBB", "2018-01-01", "BBB TEST", "fixture-b", "f"*64, "1"*64),
                 ],
             )
             cur.executemany(
                 "INSERT INTO core.prices_daily(ticker, trade_date, open, close) VALUES (%s,%s,%s,%s)",
                 [
-                    ("V24EAAA", "2022-01-03", 10, 11),
-                    ("V24EBBB", "2022-01-03", 20, 21),
-                    ("V24EAAA", "2022-02-02", 12, 13),
-                    ("V24EBBB", "2022-02-02", 22, 23),
+                    ("V24EAAA", "2019-01-02", 10, 11),
+                    ("V24EBBB", "2019-01-02", 20, 21),
+                    ("V24EAAA", "2019-02-01", 12, 13),
+                    ("V24EBBB", "2019-02-01", 22, 23),
                 ],
             )
-            _insert_run(cur, run_id="V24E-FULL-1", analysis_at="2022-01-02T19:00:00Z", scope="FULL_UNIVERSE", company_count=2, universe_count=2)
-            _insert_result(cur, run_id="V24E-FULL-1", analysis_at="2022-01-02T19:00:00Z", ticker="V24EAAA", score=0.9, decision="AL")
-            _insert_result(cur, run_id="V24E-FULL-1", analysis_at="2022-01-02T19:00:00Z", ticker="V24EBBB", score=0.4, decision="UZAK")
+            _insert_run(cur, run_id="V24E-FULL-1", analysis_at="2019-01-01T19:00:00Z", scope="FULL_UNIVERSE", company_count=2, universe_count=2)
+            _insert_result(cur, run_id="V24E-FULL-1", analysis_at="2019-01-01T19:00:00Z", ticker="V24EAAA", score=0.9, decision="AL")
+            _insert_result(cur, run_id="V24E-FULL-1", analysis_at="2019-01-01T19:00:00Z", ticker="V24EBBB", score=0.4, decision="UZAK")
 
-            _insert_run(cur, run_id="V24E-FULL-2", analysis_at="2022-02-01T19:00:00Z", scope="FULL_UNIVERSE", company_count=2, universe_count=2)
-            _insert_result(cur, run_id="V24E-FULL-2", analysis_at="2022-02-01T19:00:00Z", ticker="V24EAAA", score=0.7, decision="IZLE")
-            _insert_result(cur, run_id="V24E-FULL-2", analysis_at="2022-02-01T19:00:00Z", ticker="V24EBBB", score=0.8, decision="AL")
+            _insert_run(cur, run_id="V24E-FULL-2", analysis_at="2019-01-31T19:00:00Z", scope="FULL_UNIVERSE", company_count=2, universe_count=2)
+            _insert_result(cur, run_id="V24E-FULL-2", analysis_at="2019-01-31T19:00:00Z", ticker="V24EAAA", score=0.7, decision="IZLE")
+            _insert_result(cur, run_id="V24E-FULL-2", analysis_at="2019-01-31T19:00:00Z", ticker="V24EBBB", score=0.8, decision="AL")
 
             # Later but TARGETED: must never replace the authoritative full run.
-            _insert_run(cur, run_id="V24E-TARGET-X", analysis_at="2022-02-01T19:30:00Z", scope="TARGETED", company_count=1, universe_count=2)
-            _insert_result(cur, run_id="V24E-TARGET-X", analysis_at="2022-02-01T19:30:00Z", ticker="V24EAAA", score=0.1, decision="UZAK")
+            _insert_run(cur, run_id="V24E-TARGET-X", analysis_at="2019-01-31T19:30:00Z", scope="TARGETED", company_count=1, universe_count=2)
+            _insert_result(cur, run_id="V24E-TARGET-X", analysis_at="2019-01-31T19:30:00Z", ticker="V24EAAA", score=0.1, decision="UZAK")
 
         wages = pd.DataFrame([
-            {"valid_from": "2020-01-01", "valid_to": None, "net_min_wage": 1000},
+            {"valid_from": "2018-01-01", "valid_to": None, "net_min_wage": 1000},
         ])
         cutoffs = pd.DataFrame([
-            {"signal_date": "2022-01-03", "cutoff_at": "2022-01-02T20:00:00Z"},
-            {"signal_date": "2022-02-02", "cutoff_at": "2022-02-01T20:00:00Z"},
+            {"signal_date": "2019-01-02", "cutoff_at": "2019-01-01T20:00:00Z"},
+            {"signal_date": "2019-02-01", "cutoff_at": "2019-01-31T20:00:00Z"},
         ])
         run = run_monthly_backtest_from_database(
             conn,
             minimum_wage_schedule=wages,
             cutoffs=cutoffs,
-            start_month="2022-01",
-            end_month="2022-02",
+            start_month="2019-01",
+            end_month="2019-02",
             expected_months=2,
         )
 
-        feb = run.inputs.signals[run.inputs.signals["signal_date"] == pd.Timestamp("2022-02-02")]
+        feb = run.inputs.signals[run.inputs.signals["signal_date"] == pd.Timestamp("2019-02-01")]
         assert dict(zip(feb["ticker"], feb["decision"])) == {"V24EAAA": "IZLE", "V24EBBB": "AL"}
-        assert set(feb["analysis_at"].astype(str)) == {"2022-02-01 19:00:00+00:00"}
+        assert set(feb["analysis_at"].astype(str)) == {"2019-01-31 19:00:00+00:00"}
         assert list(run.inputs.contributions["contribution"]) == [2000.0, 2000.0]
         assert list(run.trades["side"]) == ["BUY", "BUY"]
         assert list(run.trades["ticker"]) == ["V24EAAA", "V24EBBB"]
