@@ -4,7 +4,10 @@ import pandas as pd
 import pytest
 
 from src.analytics.historical_backtest_db import HistoricalBacktestDatabaseError
-from src.analytics.historical_backtest_readiness import audit_backtest_readiness_frames
+from src.analytics.historical_backtest_readiness import (
+    BacktestReadinessReport,
+    audit_backtest_readiness_frames,
+)
 
 
 def _frames():
@@ -60,6 +63,18 @@ def test_complete_two_month_fixture_is_ready():
     assert report.checked_months == 2
     assert report.findings.empty
     assert all(v == 0 for v in report.category_counts().values())
+
+
+def test_ready_requires_checked_months_to_equal_expected_months():
+    """Empty findings alone may never produce READY when a target month was not checked."""
+    report = BacktestReadinessReport(
+        start_month="2022-01",
+        end_month="2022-02",
+        expected_months=2,
+        checked_months=1,
+        findings=pd.DataFrame(columns=["month", "signal_date", "category", "code", "detail"]),
+    )
+    assert report.ready is False
 
 
 def test_missing_price_is_reported_without_stopping_later_months():
