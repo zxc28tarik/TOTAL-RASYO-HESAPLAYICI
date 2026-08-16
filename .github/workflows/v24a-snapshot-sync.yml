@@ -1,0 +1,39 @@
+name: V24A Snapshot Sync
+
+on:
+  push:
+    branches: [v24a-action-sync]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download and verify canonical V24-A snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 'https://slack-files.com/T0AH380FC03-F0BQMAV4RQ9-4f3c45e5dc' -o /tmp/v24a.tar.xz
+          echo '428f95bbe5ce430071ae972bb372831cdc5870f538997e21c5a2a98c80f9f485  /tmp/v24a.tar.xz' | sha256sum -c -
+          xz -t /tmp/v24a.tar.xz
+      - name: Replace main with latest snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/v24a-src
+          mkdir -p /tmp/v24a-src
+          tar -xJf /tmp/v24a.tar.xz -C /tmp/v24a-src
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch --orphan v24a-latest-snapshot
+          git rm -rf . || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a /tmp/v24a-src/. ./
+          git add -A
+          git commit -m 'V24-A latest snapshot'
+          git push origin HEAD:main --force
