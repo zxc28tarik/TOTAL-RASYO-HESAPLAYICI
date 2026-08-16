@@ -1,0 +1,51 @@
+name: V24F Isolate Live Fixture
+
+on:
+  push:
+    branches: [v24f-ci]
+    paths:
+      - '.github/workflows/v24f-isolate-test.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v24f-ci
+          fetch-depth: 0
+      - name: Isolate synthetic benchmark code
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tests/test_historical_backtest_schedules_live.py')
+          s = p.read_text(encoding='utf-8')
+          old = '    bbb = "F" + suffix[:5] + "B"\n'
+          new = old + '    index_code = "XF" + suffix[:8]\n'
+          if s.count(old) != 1:
+              raise SystemExit('ticker anchor not unique')
+          s = s.replace(old, new, 1)
+          old = '[("XU100", "2022-01-03", 100, 101), ("XU100", "2022-02-02", 110, 111)]'
+          new = '[(index_code, "2022-01-03", 100, 101), (index_code, "2022-02-02", 110, 111)]'
+          if s.count(old) != 1:
+              raise SystemExit('benchmark fixture anchor not unique')
+          s = s.replace(old, new, 1)
+          old = '            cutoff_profile_key=profile,\n            start_month="2022-01", end_month="2022-02", expected_months=2,\n'
+          new = '            cutoff_profile_key=profile,\n            index_code=index_code,\n            start_month="2022-01", end_month="2022-02", expected_months=2,\n'
+          if s.count(old) != 2:
+              raise SystemExit(f'adapter call anchors={s.count(old)}, expected 2')
+          s = s.replace(old, new)
+          p.write_text(s, encoding='utf-8')
+          PY
+          git diff --check
+          git diff -- tests/test_historical_backtest_schedules_live.py
+      - name: Commit fixture isolation
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tests/test_historical_backtest_schedules_live.py
+          git commit -m 'V24-F isolate live benchmark fixture'
+          git push origin HEAD:v24f-ci
