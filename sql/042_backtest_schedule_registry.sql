@@ -83,8 +83,8 @@ $$;
 DROP TRIGGER IF EXISTS trg_backtest_minimum_wage_schedule_guard_insert
   ON core.backtest_minimum_wage_schedule;
 CREATE TRIGGER trg_backtest_minimum_wage_schedule_guard_insert
-  BEFORE INSERT ON core.backtest_minimum_wage_schedule
-  FOR EACH ROW EXECUTE FUNCTION core.backtest_minimum_wage_schedule_guard_insert();
+    BEFORE INSERT ON core.backtest_minimum_wage_schedule
+    FOR EACH ROW EXECUTE FUNCTION core.backtest_minimum_wage_schedule_guard_insert();
 
 CREATE OR REPLACE FUNCTION core.backtest_schedule_immutable()
 RETURNS trigger
@@ -98,8 +98,8 @@ $$;
 DROP TRIGGER IF EXISTS trg_backtest_minimum_wage_schedule_immutable
   ON core.backtest_minimum_wage_schedule;
 CREATE TRIGGER trg_backtest_minimum_wage_schedule_immutable
-  BEFORE UPDATE OR DELETE ON core.backtest_minimum_wage_schedule
-  FOR EACH ROW EXECUTE FUNCTION core.backtest_schedule_immutable();
+    BEFORE UPDATE OR DELETE ON core.backtest_minimum_wage_schedule
+    FOR EACH ROW EXECUTE FUNCTION core.backtest_schedule_immutable();
 
 DROP TRIGGER IF EXISTS trg_backtest_minimum_wage_schedule_no_truncate
   ON core.backtest_minimum_wage_schedule;
@@ -110,8 +110,8 @@ CREATE TRIGGER trg_backtest_minimum_wage_schedule_no_truncate
 DROP TRIGGER IF EXISTS trg_backtest_signal_cutoff_schedule_immutable
   ON analytics.backtest_signal_cutoff_schedule;
 CREATE TRIGGER trg_backtest_signal_cutoff_schedule_immutable
-  BEFORE UPDATE OR DELETE ON analytics.backtest_signal_cutoff_schedule
-  FOR EACH ROW EXECUTE FUNCTION core.backtest_schedule_immutable();
+    BEFORE UPDATE OR DELETE ON analytics.backtest_signal_cutoff_schedule
+    FOR EACH ROW EXECUTE FUNCTION core.backtest_schedule_immutable();
 
 DROP TRIGGER IF EXISTS trg_backtest_signal_cutoff_schedule_no_truncate
   ON analytics.backtest_signal_cutoff_schedule;
