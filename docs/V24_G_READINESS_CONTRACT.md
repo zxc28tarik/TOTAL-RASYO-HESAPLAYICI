@@ -1,6 +1,6 @@
 # V24-G Historical Backtest Readiness Contract
 
-Status: PART 1 — CONTRACT LOCKED, IMPLEMENTATION NOT YET CLOSED
+Status: PART 5 — CLOSURE EVIDENCE GREEN; FINAL `v24g-ci` VALIDATION PENDING
 
 V24-G is a report-only preflight layer for the locked 2021-08 .. 2026-07 monthly historical backtest. It must never repair, infer, seed, or fabricate historical data.
 
@@ -30,19 +30,35 @@ V24-G is a report-only preflight layer for the locked 2021-08 .. 2026-07 monthly
 9. Historical membership overlaps/invalid intervals are structural failures even when no monthly signal date lands inside the bad interval.
 10. If `execution_at` is supplied by the registered cutoff schedule, it must be timezone-aware; invalid/naive execution timestamps may not be silently ignored.
 
-## Part-1 contract tests
+## Delivery record
 
-`tests/test_historical_backtest_readiness_contract.py` locks the high-risk parity cases above before the production implementation is changed.
+- **Part 1 — contract lock:** high-risk V24-C/V24-E/V24-F parity rules were frozen before production implementation changes.
+- **Part 2 — compatibility/alignment:** pandas 3 fixture compatibility and contract-alignment gaps were closed.
+- **Part 3 — PostgreSQL bridge:** report-only database snapshot/readiness integration was added and exercised against the locked monthly backtest inputs.
+- **Part 4 — operator interface:** readiness report/CLI was added with fail-closed operator exit semantics.
+- **Part 5 — closing proof:** the remaining V20 mutation obligations were mapped one-to-one to permanent tests; an explicit `checked_months == expected_months` guard test was added. Part 5 changes do not alter production readiness logic.
 
-## Mutation obligations for later parts
+## Closing mutation obligations
 
-At minimum, the closing mutation set must demonstrate that tests fail if any of these protections is removed:
+The closing mutation set must demonstrate that tests fail if any of these protections is removed:
 
-- execution-universe missing ticker check,
-- malformed `OK` Total Rasyo row check,
-- wage structural gap/overlap check,
-- membership structural overlap check,
-- timezone-aware execution timestamp check,
-- `checked_months == expected_months` readiness requirement.
+1. execution-universe missing ticker check,
+2. malformed `OK` Total Rasyo row check,
+3. wage structural gap/overlap check,
+4. membership structural overlap check,
+5. timezone-aware execution timestamp check,
+6. `checked_months == expected_months` readiness requirement.
 
 The permanent V20 rule applies: every protection test must answer "which mutation does this test break?"
+
+## Part-5 work-branch evidence
+
+Validated on branch `v24g-part5-work`, head `9bc2d46a5aa51931e49c016e0f8ac3c864acff4d`, V24G CI run #10:
+
+- targeted V24-G suite: **24 passed**;
+- closing mutation set: **11/11 mutations killed** — the six obligations above plus five retained guards from Parts 1-4;
+- full repository regression: **1506 passed**;
+- BANK v4.7 regression: **277 passed, 1 xfailed**;
+- workflow conclusion: **success**.
+
+This is work-branch closure evidence only. Final V24-G closure requires the same verified Part-5 chain to be fast-forwarded to `v24g-ci`, the temporary work-branch workflow trigger to be removed, and the resulting final `v24g-ci` workflow to finish successfully.
