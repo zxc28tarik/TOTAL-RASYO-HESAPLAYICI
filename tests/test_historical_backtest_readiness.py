@@ -115,6 +115,7 @@ def test_invalid_authority_is_global_finding_not_silent_fallback():
 def test_naive_cutoff_is_reported():
     f = list(_frames())
     f[4] = f[4].copy()
+    f[4]["cutoff_at"] = f[4]["cutoff_at"].astype(object)
     f[4].loc[0, "cutoff_at"] = pd.Timestamp("2022-01-02 19:00:00")
     report = _audit(tuple(f))
     hit = report.findings[(report.findings["month"] == "2022-01") & (report.findings["category"] == "CUTOFF")]
