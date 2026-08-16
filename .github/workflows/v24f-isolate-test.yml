@@ -17,28 +17,22 @@ jobs:
         with:
           ref: v24f-ci
           fetch-depth: 0
-      - name: Ensure V24-E DB live test changes trigger V24-F CI
+      - name: Trigger V24-F CI on corrected fixture HEAD
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('.github/workflows/v24f-ci.yml')
+          p = Path('scripts/ingest_backtest_schedule.py')
           s = p.read_text(encoding='utf-8')
-          needle = '      - tests/test_historical_backtest_schedules_live.py\n'
-          addition = needle + '      - tests/test_historical_backtest_db_live.py\n'
-          if '      - tests/test_historical_backtest_db_live.py\n' in s:
-              raise SystemExit('trigger already present; refusing duplicate')
-          if s.count(needle) != 1:
-              raise SystemExit('CI trigger anchor not unique')
-          s = s.replace(needle, addition, 1)
-          s = s.replace('# rerun after temporal fixture correction', '# rerun after fixture isolation', 1)
-          p.write_text(s, encoding='utf-8')
+          marker = '\n# V24-F temporary CI rerun marker; remove before merge.\n'
+          if marker.strip() in s:
+              raise SystemExit('rerun marker already present')
+          p.write_text(s.rstrip() + marker, encoding='utf-8')
           PY
           git diff --check
-          git diff -- .github/workflows/v24f-ci.yml
-      - name: Commit CI trigger coverage
+      - name: Commit rerun marker
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .github/workflows/v24f-ci.yml
-          git commit -m 'V24-F cover DB live fixture in CI trigger'
+          git add scripts/ingest_backtest_schedule.py
+          git commit -m 'V24-F trigger CI after live fixture isolation'
           git push origin HEAD:v24f-ci
