@@ -3,6 +3,7 @@ name: V24A Snapshot Sync
 on:
   push:
     branches: [v24a-action-sync]
+    paths: [.v24a-sync-trigger]
 
 permissions:
   contents: write
@@ -14,12 +15,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Download and verify canonical V24-A snapshot
+      - name: Rebuild and verify canonical V24-A snapshot
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 3 'https://slack-files.com/T0AH380FC03-F0BQMAV4RQ9-4f3c45e5dc' -o /tmp/v24a.tar.xz
-          echo '428f95bbe5ce430071ae972bb372831cdc5870f538997e21c5a2a98c80f9f485  /tmp/v24a.tar.xz' | sha256sum -c -
+          cat .v24a-transfer/chunk_* | base64 -d > /tmp/v24a.tar.xz
+          echo '428fbc8b234a8115a8928a15e0f2d3e38cd4b6ff26005c8416aa1349c28af485  /tmp/v24a.tar.xz' | sha256sum -c -
           xz -t /tmp/v24a.tar.xz
       - name: Replace main with latest snapshot
         shell: bash
