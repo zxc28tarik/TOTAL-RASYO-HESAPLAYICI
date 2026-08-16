@@ -244,12 +244,12 @@ def test_registered_schedules_drive_full_database_backtest_and_preserve_provenan
                         (aaa, "2022-02-02", 12, 13), (bbb, "2022-02-02", 22, 23),
                     ],
                 )
-                _insert_run(cur, run_id="V24F-RUN-1", analysis_at="2022-01-02T19:00:00Z")
-                _insert_run(cur, run_id="V24F-RUN-2", analysis_at="2022-02-01T19:00:00Z")
-                _insert_result(cur, run_id="V24F-RUN-1", analysis_at="2022-01-02T19:00:00Z", ticker=aaa, score=.9, decision="AL")
-                _insert_result(cur, run_id="V24F-RUN-1", analysis_at="2022-01-02T19:00:00Z", ticker=bbb, score=.4, decision="UZAK")
-                _insert_result(cur, run_id="V24F-RUN-2", analysis_at="2022-02-01T19:00:00Z", ticker=aaa, score=.7, decision="IZLE")
-                _insert_result(cur, run_id="V24F-RUN-2", analysis_at="2022-02-01T19:00:00Z", ticker=bbb, score=.8, decision="AL")
+                _insert_run(cur, run_id="V24F-RUN-1", analysis_at="2022-01-02T16:00:00Z")
+                _insert_run(cur, run_id="V24F-RUN-2", analysis_at="2022-02-01T16:00:00Z")
+                _insert_result(cur, run_id="V24F-RUN-1", analysis_at="2022-01-02T16:00:00Z", ticker=aaa, score=.9, decision="AL")
+                _insert_result(cur, run_id="V24F-RUN-1", analysis_at="2022-01-02T16:00:00Z", ticker=bbb, score=.4, decision="UZAK")
+                _insert_result(cur, run_id="V24F-RUN-2", analysis_at="2022-02-01T16:00:00Z", ticker=aaa, score=.7, decision="IZLE")
+                _insert_result(cur, run_id="V24F-RUN-2", analysis_at="2022-02-01T16:00:00Z", ticker=bbb, score=.8, decision="AL")
 
         schedules = fetch_registered_backtest_schedules(
             conn,
