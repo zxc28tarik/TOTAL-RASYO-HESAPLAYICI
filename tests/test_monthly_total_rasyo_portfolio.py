@@ -110,6 +110,7 @@ def test_uzak_sells_and_sale_proceeds_join_same_month_cash_pool():
         ],
         1,
     )
+    # 10 AAA * 12 + 20 contribution = 140 -> 7 BBB at 20.
     assert "AAA" not in sim.positions
     assert sim.positions["BBB"].shares == 7
     assert sim.cash == 0
@@ -139,6 +140,7 @@ def test_stronger_new_al_rotates_weakest_holding():
 
 
 def test_equal_score_ticker_tiebreak_can_rotate_incumbent():
+    # score DESC then ticker ASC means AAA outranks BBB at equal score.
     sim, trades, _ = _run(
         [
             {"signal_date": "2022-01-03", "ticker": "BBB", "final_score": .80, "decision": "AL"},
@@ -184,6 +186,7 @@ def test_equal_cash_slice_does_not_recycle_expensive_name_residue():
         [{"signal_date": "2022-01-03", "contribution": 100}],
         2,
     )
+    # Fixed 50/50 slices: AAA cannot buy one share; BBB gets exactly 5 shares.
     assert "AAA" not in sim.positions
     assert sim.positions["BBB"].shares == 5
     assert sim.cash == 50
@@ -234,6 +237,7 @@ def test_negative_contribution_is_rejected():
         MonthlyTotalRasyoSimulator().run(signals, prices, contributions)
 
 
+
 def test_zero_cash_new_al_does_not_require_price_or_force_position():
     sim, trades, monthly = _run(
         [{"signal_date": "2022-01-03", "ticker": "AAA", "final_score": .9, "decision": "AL"}],
@@ -262,6 +266,7 @@ def test_benchmark_uses_same_cashflows_and_open_execution():
             {"trade_date": "2022-02-01", "open": 20, "close": 22},
         ]),
     )
+    # 10 units first month, +6 second month = 16 units, marked at 22.
     assert out.iloc[-1]["cumulative_contribution"] == 220
     assert out.iloc[-1]["units"] == 16
     assert out.iloc[-1]["benchmark_value"] == 352
