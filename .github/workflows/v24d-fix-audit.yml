@@ -1,0 +1,46 @@
+name: V24D Fix Audit
+
+on:
+  push:
+    branches: [v24d-ci]
+    paths:
+      - '.github/workflows/v24d-fix-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v24d-ci
+          fetch-depth: 0
+      - name: Update migration audit for V24-D
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tests/test_audit_evidence_metadata.py')
+          s = p.read_text(encoding='utf-8')
+          old = 'assert len(calisan) == 34, f"schema migration sayisi {len(calisan)}"'
+          new = 'assert len(calisan) == 35, f"schema migration sayisi {len(calisan)}"'
+          if old not in s:
+              raise SystemExit('expected 34-migration assertion not found')
+          s = s.replace(old, new, 1)
+          old_tail = '                 "039_restate_pit_reconciliation.sql"):'
+          new_tail = '                 "039_restate_pit_reconciliation.sql",\n                 "040_historical_universe_membership.sql"):'
+          if old_tail not in s:
+              raise SystemExit('expected migration tuple tail not found')
+          s = s.replace(old_tail, new_tail, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          git diff --check
+          git diff -- tests/test_audit_evidence_metadata.py
+      - name: Commit patch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tests/test_audit_evidence_metadata.py
+          git commit -m 'V24-D update migration audit for migration 040'
+          git push origin HEAD:v24d-ci
