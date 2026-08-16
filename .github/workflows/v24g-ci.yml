@@ -6,6 +6,7 @@ on:
     paths:
       - 'src/analytics/historical_backtest_readiness.py'
       - 'tests/test_historical_backtest_readiness.py'
+      - 'tests/test_historical_backtest_readiness_contract.py'
       - '.github/workflows/v24g-ci.yml'
 
 permissions:
@@ -47,7 +48,10 @@ jobs:
       - name: Apply schema
         run: make core migrate
       - name: V24-G targeted contract
-        run: python -m pytest -q tests/test_historical_backtest_readiness.py
+        run: >-
+          python -m pytest -q
+          tests/test_historical_backtest_readiness.py
+          tests/test_historical_backtest_readiness_contract.py
       - name: V24-G Python mutations — four guards must die
         shell: bash
         run: |
