@@ -32,7 +32,7 @@ jobs:
               s = s.replace(old, new, 1)
           target = '\n\ningest-backtest-schedule:\n' + chr(9) + 'PYTHONPATH=. python scripts/ingest_backtest_schedule.py --kind "$(KIND)" --file "$(FILE)"\n'
           if 'ingest-backtest-schedule:' not in s:
-              s = s.rstrip() + target + '\n'
+              s = s.rstrip() + target
           make.write_text(s, encoding='utf-8')
 
           audit = Path('tests/test_audit_evidence_metadata.py')
