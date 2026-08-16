@@ -3,7 +3,7 @@ MKK_SUITE_CHECKED_AT ?=
 MKK_SUITE_START ?=
 MKK_SUITE_END ?=
 
-.PHONY: audit-change-impact-e2e audit-change-impact audit-total-rasyo test test-all test-bank-v47 self-audit-kap-bank-e2e self-audit-kap-bank-batch self-audit-kap-bank-persistence preview-kap-bank-batch postgres-bank-acceptance core migrate fetch-kap-universe sync-kap-universe check-mkk-kap sync-mkk-kap sync-mkk-kap-resume extract-kap-facts optimize-weights fill-sector-group ingest-universe ingest-prices ingest-index ingest-fin validate-core calc-ratios run-daily backtest fetch-yf-prices fetch-yf-index build-universe map-kap-semantic-facts materialize-bank-facts self-audit-semantic-bank-facts run-kap-bank-batch run-kap-bank-db show-bank-ranking self-audit-kap-bank-db self-audit-mkk-runtime self-audit-mkk-onboarding validate-mkk-contract plan-mkk-backfill validate-mkk-suite-example plan-mkk-suite-example self-audit-mkk-suite self-audit-mkk-suite-sync check-mkk-suite-readiness sync-mkk-suite materialize-company-facts calc-company-ratios self-audit-nonbank-core run-nonfin-batch self-audit-nonfin-valuation ingest-holding-nav run-holding-batch self-audit-holding-valuation ingest-gyo-nav run-gyo-batch self-audit-gyo-valuation ingest-insurance-metrics run-insurance-batch self-audit-insurance-valuation ingest-fi-metrics run-fi-batch self-audit-fi-valuation
+.PHONY: audit-change-impact-e2e audit-change-impact audit-total-rasyo test test-all test-bank-v47 self-audit-kap-bank-e2e self-audit-kap-bank-batch self-audit-kap-bank-persistence preview-kap-bank-batch postgres-bank-acceptance core migrate fetch-kap-universe sync-kap-universe check-mkk-kap sync-mkk-kap sync-mkk-kap-resume extract-kap-facts optimize-weights fill-sector-group ingest-universe ingest-historical-universe ingest-prices ingest-index ingest-fin validate-core calc-ratios run-daily backtest fetch-yf-prices fetch-yf-index build-universe map-kap-semantic-facts materialize-bank-facts self-audit-semantic-bank-facts run-kap-bank-batch run-kap-bank-db show-bank-ranking self-audit-kap-bank-db self-audit-mkk-runtime self-audit-mkk-onboarding validate-mkk-contract plan-mkk-backfill validate-mkk-suite-example plan-mkk-suite-example self-audit-mkk-suite self-audit-mkk-suite-sync check-mkk-suite-readiness sync-mkk-suite materialize-company-facts calc-company-ratios self-audit-nonbank-core run-nonfin-batch self-audit-nonfin-valuation ingest-holding-nav run-holding-batch self-audit-holding-valuation ingest-gyo-nav run-gyo-batch self-audit-gyo-valuation ingest-insurance-metrics run-insurance-batch self-audit-insurance-valuation ingest-fi-metrics run-fi-batch self-audit-fi-valuation
 
 test:
 	pytest -q
@@ -50,12 +50,16 @@ migrate:
 	psql -f sql/037_reconciliation_module_freshness.sql
 	psql -f sql/038_total_rasyo_restate_hardening.sql
 	psql -f sql/039_restate_pit_reconciliation.sql
+	psql -f sql/040_historical_universe_membership.sql
 
 fill-sector-group:
 	psql -f sql/004_fill_sector_group.sql
 
 ingest-universe:
 	python -m src.app.cli ingest-universe --file data/universe_stocks.csv
+
+ingest-historical-universe:
+	PYTHONPATH=. python scripts/ingest_historical_universe.py --file data/universe_membership_history.csv
 
 ingest-prices:
 	python -m src.app.cli ingest-prices --file data/prices_daily.csv
