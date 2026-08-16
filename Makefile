@@ -52,6 +52,7 @@ migrate:
 	psql -f sql/039_restate_pit_reconciliation.sql
 	psql -f sql/040_historical_universe_membership.sql
 	psql -f sql/041_historical_universe_truncate_guard.sql
+	psql -f sql/042_backtest_schedule_registry.sql
 
 fill-sector-group:
 	psql -f sql/004_fill_sector_group.sql
@@ -243,3 +244,6 @@ audit-change-impact:
 
 audit-change-impact-e2e:
 	python3 -m src.analytics.change_impact_e2e_audit --json E2E_AUDIT_CHANGE_IMPACT_V20.json
+
+ingest-backtest-schedule:
+	PYTHONPATH=. python scripts/ingest_backtest_schedule.py --kind "$(KIND)" --file "$(FILE)"

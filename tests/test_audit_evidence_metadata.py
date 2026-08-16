@@ -96,7 +96,7 @@ def test_migration_sayisi_makefile_ile_tutarli():
         calisan |= set(re.findall(r"psql -f sql/([0-9_a-z]+\.sql)",
                                   hedef_bloklari(hedef)))
 
-    assert len(calisan) == 36, f"schema migration sayisi {len(calisan)}"
+    assert len(calisan) == 37, f"schema migration sayisi {len(calisan)}"
     assert "004_fill_sector_group.sql" not in calisan
     assert "012_bank_point_in_time_slots.sql" not in calisan
     assert "014_bank_point_in_time_slots_batch.sql" not in calisan
@@ -110,7 +110,8 @@ def test_migration_sayisi_makefile_ile_tutarli():
                  "038_total_rasyo_restate_hardening.sql",
                  "039_restate_pit_reconciliation.sql",
                  "040_historical_universe_membership.sql",
-                 "041_historical_universe_truncate_guard.sql"):
+                 "041_historical_universe_truncate_guard.sql",
+                 "042_backtest_schedule_registry.sql"):
         assert yeni in calisan, f"{yeni} zincirde yok"
 
 
