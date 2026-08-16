@@ -17,35 +17,38 @@ jobs:
         with:
           ref: v24f-ci
           fetch-depth: 0
-      - name: Isolate synthetic benchmark code
+      - name: Move V24-E live fixture before append-only V24-F fixture window
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('tests/test_historical_backtest_schedules_live.py')
+          p = Path('tests/test_historical_backtest_db_live.py')
           s = p.read_text(encoding='utf-8')
-          old = '    bbb = "F" + suffix[:5] + "B"\n'
-          new = old + '    index_code = "XF" + suffix[:8]\n'
-          if s.count(old) != 1:
-              raise SystemExit('ticker anchor not unique')
-          s = s.replace(old, new, 1)
-          old = '[("XU100", "2022-01-03", 100, 101), ("XU100", "2022-02-02", 110, 111)]'
-          new = '[(index_code, "2022-01-03", 100, 101), (index_code, "2022-02-02", 110, 111)]'
-          if s.count(old) != 1:
-              raise SystemExit('benchmark fixture anchor not unique')
-          s = s.replace(old, new, 1)
-          old = '            cutoff_profile_key=profile,\n            start_month="2022-01", end_month="2022-02", expected_months=2,\n'
-          new = '            cutoff_profile_key=profile,\n            index_code=index_code,\n            start_month="2022-01", end_month="2022-02", expected_months=2,\n'
-          if s.count(old) != 2:
-              raise SystemExit(f'adapter call anchors={s.count(old)}, expected 2')
-          s = s.replace(old, new)
+          replacements = {
+              '"2020-01-01"': '"2018-01-01"',
+              '"2022-01-03"': '"2019-01-02"',
+              '"2022-02-02"': '"2019-02-01"',
+              '"2022-01-02T19:00:00Z"': '"2019-01-01T19:00:00Z"',
+              '"2022-02-01T19:00:00Z"': '"2019-01-31T19:00:00Z"',
+              '"2022-02-01T19:30:00Z"': '"2019-01-31T19:30:00Z"',
+              '"2022-01-02T20:00:00Z"': '"2019-01-01T20:00:00Z"',
+              '"2022-02-01T20:00:00Z"': '"2019-01-31T20:00:00Z"',
+              '"2022-01"': '"2019-01"',
+              '"2022-02"': '"2019-02"',
+              'pd.Timestamp("2022-02-02")': 'pd.Timestamp("2019-02-01")',
+              '{"2022-02-01 19:00:00+00:00"}': '{"2019-01-31 19:00:00+00:00"}',
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'missing expected fixture anchor: {old}')
+              s = s.replace(old, new)
           p.write_text(s, encoding='utf-8')
           PY
           git diff --check
-          git diff -- tests/test_historical_backtest_schedules_live.py
+          git diff -- tests/test_historical_backtest_db_live.py
       - name: Commit fixture isolation
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add tests/test_historical_backtest_schedules_live.py
-          git commit -m 'V24-F isolate live benchmark fixture'
+          git add tests/test_historical_backtest_db_live.py
+          git commit -m 'V24-F isolate V24-E live fixture window'
           git push origin HEAD:v24f-ci
