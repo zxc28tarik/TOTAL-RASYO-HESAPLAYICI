@@ -1,0 +1,49 @@
+name: V24 Borsa Source Discovery
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-borsa-source-discovery.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  discover-official-source-paths:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download official Borsa Istanbul DataFilePaths archive
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/extracted
+          curl --fail --location --retry 3 --user-agent 'Mozilla/5.0' \
+            'https://borsaistanbul.com/files/DataFilePaths.zip' \
+            --output artifacts/DataFilePaths.zip
+          test -s artifacts/DataFilePaths.zip
+          sha256sum artifacts/DataFilePaths.zip > artifacts/DataFilePaths.zip.sha256
+          unzip -t artifacts/DataFilePaths.zip | tee artifacts/unzip_test.txt
+          unzip -o artifacts/DataFilePaths.zip -d artifacts/extracted
+          find artifacts/extracted -type f -print | sort > artifacts/extracted_files.txt
+      - name: Extract relevant official path evidence
+        run: |
+          set -euo pipefail
+          {
+            echo '=== archive listing ==='
+            unzip -l artifacts/DataFilePaths.zip
+            echo
+            echo '=== relevant text matches ==='
+            grep -RniE 'first trading|de-?listed|delist|equity.*code|code.*change|trading date|first.*trade' artifacts/extracted || true
+          } > artifacts/relevant_matches.txt
+          cat artifacts/relevant_matches.txt
+      - name: Hash extracted files
+        run: |
+          find artifacts/extracted -type f -print0 | sort -z | xargs -0 sha256sum > artifacts/extracted_SHA256SUMS || true
+      - name: Upload official source-path evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-borsa-datafilepaths-discovery
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90
