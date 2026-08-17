@@ -1,6 +1,6 @@
 # V24-G Historical Backtest Readiness Contract
 
-Status: PART 5 — CLOSURE EVIDENCE GREEN; FINAL `v24g-ci` VALIDATION PENDING
+Status: PART 5 — CLOSED
 
 V24-G is a report-only preflight layer for the locked 2021-08 .. 2026-07 monthly historical backtest. It must never repair, infer, seed, or fabricate historical data.
 
@@ -51,7 +51,9 @@ The closing mutation set must demonstrate that tests fail if any of these protec
 
 The permanent V20 rule applies: every protection test must answer "which mutation does this test break?"
 
-## Part-5 work-branch evidence
+## Part-5 closure evidence
+
+### Work-branch proof
 
 Validated on branch `v24g-part5-work`, head `9bc2d46a5aa51931e49c016e0f8ac3c864acff4d`, V24G CI run #10:
 
@@ -61,4 +63,16 @@ Validated on branch `v24g-part5-work`, head `9bc2d46a5aa51931e49c016e0f8ac3c864a
 - BANK v4.7 regression: **277 passed, 1 xfailed**;
 - workflow conclusion: **success**.
 
-This is work-branch closure evidence only. Final V24-G closure requires the same verified Part-5 chain to be fast-forwarded to `v24g-ci`, the temporary work-branch workflow trigger to be removed, and the resulting final `v24g-ci` workflow to finish successfully.
+### `v24g-ci` integration proof
+
+The verified Part-5 chain was fast-forwarded to `v24g-ci` without force. V24G CI run #11 completed successfully after integration.
+
+The temporary `v24g-part5-work` workflow trigger was then removed. The resulting clean `v24g-ci` workflow was validated at commit `8d0abe89d7e16706aaf737d94154f413e408cdb5` by V24G CI run #12:
+
+- targeted V24-G suite: **24 passed, 6 warnings**;
+- closing mutation set: **11/11 mutations killed**;
+- full repository regression: **1506 passed, 27 warnings**;
+- BANK v4.7 regression: **277 passed, 1 xfailed, 1 warning**;
+- workflow conclusion: **success**.
+
+V24-G Part 5 is therefore closed. The readiness layer remains report-only and fail-closed; no historical repair/fallback path was introduced by the closing proof work.
