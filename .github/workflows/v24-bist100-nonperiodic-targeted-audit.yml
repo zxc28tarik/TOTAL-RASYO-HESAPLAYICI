@@ -34,8 +34,9 @@ jobs:
           BASE='https://www.kap.org.tr'
           BORSA_OID='4028e4a14bcf2a06014be4d7e6e256b6'
           catalog=json.loads(Path('data/backtest_sources/bist100_nonperiodic_kap_catalog_2023-09_2026-08.json').read_text(encoding='utf-8'))
-          if catalog.get('row_count') != 114 or len(catalog.get('rows',[])) != 114:
-              raise RuntimeError('official nonperiodic catalog must contain exactly 114 rows')
+          ids=catalog.get('kap_ids',[])
+          if catalog.get('row_count') != 114 or not isinstance(ids,list) or len(ids) != 114 or len(set(ids)) != 114:
+              raise RuntimeError('official nonperiodic catalog must contain exactly 114 unique KAP ids')
 
           s=requests.Session()
           s.headers.update({'User-Agent':'Mozilla/5.0 (compatible; TotalRasyoTargetedAudit/1.0)','Accept':'application/json, text/plain, */*','Referer':BASE+'/tr/bildirim-sorgu'})
@@ -67,8 +68,8 @@ jobs:
 
           audited=[]
           failures=[]
-          for pos,row in enumerate(catalog['rows'],1):
-              idx=int(row['kap_id'])
+          for idx_raw in ids:
+              idx=int(idx_raw)
               r=request(BASE+f'/tr/api/notification/attachment-detail/{idx}')
               if r is None or r.status_code != 200:
                   failures.append({'kap_id':idx,'status':None if r is None else r.status_code})
@@ -95,13 +96,11 @@ jobs:
                       xrows.append(cells)
               explicit=('XU100' in normalized or 'BIST 100' in normalized)
               audited.append({
-                  'announcement_date':row['announcement_date'],
                   'disclosureIndex':idx,
                   'publishDate':basic.get('publishDate'),
                   'title':basic.get('title'),
                   'summary':basic.get('summary'),
                   'relatedStocks':basic.get('relatedStocks'),
-                  'catalog_title':row['title'],
                   'source_url':BASE+f'/tr/Bildirim/{idx}',
                   'source_detail_sha256':sha,
                   'explicit_xu100':bool(explicit),
