@@ -38,7 +38,7 @@ def test_xu100_signal_date_source_matches_recorded_actions_artifact_hash():
     assert provenance["evidence_hashes"]["daily_csv_sha256"] == "1003cf5af05b5804cdf46bc09d55324031873ff383cf11b71649ca8b740a5a06"
 
 
-def test_xu100_signal_dates_include_known_non_first-calendar-day_openings():
+def test_xu100_signal_dates_include_known_non_first_calendar_day_openings():
     frame = pd.read_csv(CSV_PATH, dtype=str, keep_default_na=False).set_index("month")
     assert frame.loc["2022-05", "signal_date"] == "2022-05-05"
     assert frame.loc["2024-01", "signal_date"] == "2024-01-02"
