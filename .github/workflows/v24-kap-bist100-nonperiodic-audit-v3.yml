@@ -1,0 +1,50 @@
+name: V24 KAP BIST100 Nonperiodic Audit V3
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-kap-bist100-nonperiodic-audit-v3.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit-borsa-index-disclosures:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install audit dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 pyyaml
+      - name: Execute the canonical audit body with dual-format KAP publish-date parsing
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/raw_lists artifacts/raw_details
+          python - <<'PY'
+          from pathlib import Path
+          import re, textwrap
+
+          source=Path('.github/workflows/v24-kap-bist100-nonperiodic-audit.yml').read_text(encoding='utf-8')
+          match=re.search(r"python - <<'PY'\n(?P<body>.*?)\n          PY\n",source,re.S)
+          if not match:
+              raise RuntimeError('canonical audit Python body could not be extracted')
+          code=textwrap.dedent(match.group('body'))
+          old="""def kap_publish_date(value: object) -> date:\n    text=str(value or '').strip()\n    try:\n        return datetime.strptime(text[:10],'%d.%m.%Y').date()\n    except ValueError as exc:\n        raise RuntimeError(f'KAP publishDate parse edilemedi: {text!r}') from exc\n"""
+          new="""def kap_publish_date(value: object) -> date:\n    text=str(value or '').strip()\n    for fmt in ('%d.%m.%Y','%Y.%m.%d','%Y-%m-%d'):\n        try:\n            return datetime.strptime(text[:10],fmt).date()\n        except ValueError:\n            pass\n    raise RuntimeError(f'KAP publishDate parse edilemedi: {text!r}')\n"""
+          if code.count(old) != 1:
+              raise RuntimeError('canonical date parser anchor changed; refusing runtime patch')
+          code=code.replace(old,new)
+          exec(compile(code,'v24-kap-bist100-nonperiodic-audit-v3','exec'),{'__name__':'__main__'})
+          PY
+      - name: Hash audit evidence
+        run: find artifacts -type f -print0 | sort -z | xargs -0 sha256sum > artifacts/SHA256SUMS
+      - name: Upload KAP audit evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-kap-bist100-nonperiodic-audit-v3
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90
