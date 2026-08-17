@@ -5,9 +5,12 @@ on:
     branches: [v24-real-data-work]
     paths:
       - 'src/analytics/historical_backtest_inventory.py'
+      - 'src/analytics/historical_backtest_corporate_actions.py'
       - 'scripts/inventory_historical_backtest_inputs.py'
+      - 'scripts/audit_historical_price_adjustments.py'
       - 'tests/test_historical_backtest_inventory.py'
       - 'tests/test_historical_backtest_inventory_db_live.py'
+      - 'tests/test_historical_backtest_corporate_actions.py'
       - '.github/workflows/v24-real-data-ci.yml'
 
 permissions:
@@ -48,11 +51,12 @@ jobs:
           python -m pip install -r requirements.txt pytest
       - name: Apply schema
         run: make core migrate
-      - name: V24 real-data inventory contract
+      - name: V24 real-data preflight contracts
         run: >-
           python -m pytest -q
           tests/test_historical_backtest_inventory.py
           tests/test_historical_backtest_inventory_db_live.py
+          tests/test_historical_backtest_corporate_actions.py
       - name: Full regression
         run: python -m pytest -q
       - name: BANK v4.7 regression
