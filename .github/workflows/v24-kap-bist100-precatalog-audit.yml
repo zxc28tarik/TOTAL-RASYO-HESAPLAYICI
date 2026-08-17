@@ -32,11 +32,19 @@ jobs:
           if not match:
               raise RuntimeError('canonical audit Python body could not be extracted')
           code=textwrap.dedent(match.group('body'))
+
           old_parser="""def kap_publish_date(value: object) -> date:\n    text=str(value or '').strip()\n    try:\n        return datetime.strptime(text[:10],'%d.%m.%Y').date()\n    except ValueError as exc:\n        raise RuntimeError(f'KAP publishDate parse edilemedi: {text!r}') from exc\n"""
           new_parser="""def kap_publish_date(value: object) -> date:\n    text=str(value or '').strip()\n    for fmt in ('%d.%m.%Y','%Y.%m.%d','%Y-%m-%d'):\n        try:\n            return datetime.strptime(text[:10],fmt).date()\n        except ValueError:\n            pass\n    raise RuntimeError(f'KAP publishDate parse edilemedi: {text!r}')\n"""
           if code.count(old_parser) != 1:
               raise RuntimeError('canonical date parser anchor changed')
           code=code.replace(old_parser,new_parser)
+
+          request_anchor="""        r=s.request(method,url,timeout=60,**kwargs)\n        last=r\n"""
+          robust_request="""        try:\n            r=s.request(method,url,timeout=60,**kwargs)\n        except requests.RequestException:\n            if attempt == 6:\n                raise\n            time.sleep(min(30.0,2.0**attempt))\n            continue\n        last=r\n"""
+          if code.count(request_anchor) != 1:
+              raise RuntimeError('canonical request anchor changed')
+          code=code.replace(request_anchor,robust_request)
+
           old_end="END_EXCLUSIVE=date(2026,8,18)"
           if code.count(old_end) != 1:
               raise RuntimeError('canonical END_EXCLUSIVE anchor changed')
