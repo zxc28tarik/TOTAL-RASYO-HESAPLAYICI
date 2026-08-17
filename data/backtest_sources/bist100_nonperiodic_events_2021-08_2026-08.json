@@ -1,0 +1,38 @@
+{
+  "publisher": "KAP / Borsa Istanbul A.S.",
+  "coverage": {
+    "start": "2021-08-01",
+    "end": "2026-08-17",
+    "borsa_index_announcements_catalog": {
+      "source_url": "https://borsaistanbul.com/en/indices/index-announcements",
+      "workflow_run_id": 31984112558,
+      "artifact_id": 9273223535,
+      "artifact_digest": "sha256:b1cd6a4456fd565e385248015d95f3c50251f45c6e30b1cf5c8812c7bc727426",
+      "source_raw_sha256": "84a44be0916871797705593c6338a814701372c0094370568cbf1a8950114027",
+      "benchmark_constituent_change_rows": 135,
+      "periodic_rows": 21,
+      "nonperiodic_rows": 114,
+      "first_nonperiodic_benchmark_announcement_date": "2023-09-28"
+    },
+    "kap_nonperiodic_detail_audit": {
+      "workflow_run_id": 31988095879,
+      "artifact_id": 9274402888,
+      "artifact_digest": "sha256:935daa9a921fcae8aaa5bd0ebf8f7957d771db5d4f4c6bfc8804e681c6fb1129",
+      "audited_catalog_disclosures": 114,
+      "explicit_xu100_disclosures": 1
+    },
+    "semantics": "Borsa Index Announcements proves no Benchmark-Indices non-periodic constituent-change row before 2023-09-28 in the target window; all 114 Benchmark non-periodic catalog KAP details from 2023-09-28 onward were audited and only disclosure 1618229 explicitly changes XU100 membership."
+  },
+  "event_count": 1,
+  "events": [
+    {
+      "disclosure_index": 1618229,
+      "effective_date": "2026-06-18",
+      "source_url": "https://www.kap.org.tr/tr/Bildirim/1618229",
+      "source_detail_sha256": "4a8aeacb95dd48072c08ae18909f41eddac2edbb55358992e3c76bdc59b3b966",
+      "event_type": "NONPERIODIC_CONSTITUENT_CHANGE",
+      "included": ["BERA"],
+      "excluded": ["KONTR"]
+    }
+  ]
+}
