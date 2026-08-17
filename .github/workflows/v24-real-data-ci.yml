@@ -9,10 +9,12 @@ on:
       - 'scripts/inventory_historical_backtest_inputs.py'
       - 'scripts/audit_historical_price_adjustments.py'
       - 'data/backtest_sources/minimum_wage_csgb_2021_2026.csv'
+      - 'data/backtest_sources/historical_universe_borsaistanbul_manifest.json'
       - 'tests/test_historical_backtest_inventory.py'
       - 'tests/test_historical_backtest_inventory_db_live.py'
       - 'tests/test_historical_backtest_corporate_actions.py'
       - 'tests/test_v24_real_minimum_wage_source.py'
+      - 'tests/test_v24_real_historical_universe_source_manifest.py'
       - '.github/workflows/v24-real-data-ci.yml'
 
 permissions:
@@ -60,6 +62,7 @@ jobs:
           tests/test_historical_backtest_inventory_db_live.py
           tests/test_historical_backtest_corporate_actions.py
           tests/test_v24_real_minimum_wage_source.py
+          tests/test_v24_real_historical_universe_source_manifest.py
       - name: Full regression
         run: python -m pytest -q
       - name: BANK v4.7 regression
