@@ -7,6 +7,7 @@ on:
       - 'src/analytics/historical_backtest_inventory.py'
       - 'src/analytics/historical_backtest_corporate_actions.py'
       - 'src/analytics/historical_backtest_signal_dates.py'
+      - 'src/analytics/bist100_membership_history.py'
       - 'scripts/inventory_historical_backtest_inputs.py'
       - 'scripts/audit_historical_price_adjustments.py'
       - 'scripts/export_historical_signal_dates.py'
@@ -14,13 +15,17 @@ on:
       - 'data/backtest_sources/historical_universe_borsaistanbul_manifest.json'
       - 'data/backtest_sources/xu100_signal_dates_yahoo_2021-08_2026-07.csv'
       - 'data/backtest_sources/xu100_signal_dates_yahoo_2021-08_2026-07.provenance.json'
+      - 'data/backtest_sources/bist100_snapshot_2026-08-17.csv'
+      - 'data/backtest_sources/bist100_snapshot_2026-08-17.provenance.json'
       - 'tests/test_historical_backtest_inventory.py'
       - 'tests/test_historical_backtest_inventory_db_live.py'
       - 'tests/test_historical_backtest_corporate_actions.py'
       - 'tests/test_historical_backtest_signal_dates.py'
+      - 'tests/test_bist100_membership_history.py'
       - 'tests/test_v24_real_minimum_wage_source.py'
       - 'tests/test_v24_real_historical_universe_source_manifest.py'
       - 'tests/test_v24_real_xu100_signal_dates_source.py'
+      - 'tests/test_v24_real_bist100_snapshot_source.py'
       - '.github/workflows/v24-real-data-ci.yml'
 
 permissions:
@@ -68,9 +73,11 @@ jobs:
           tests/test_historical_backtest_inventory_db_live.py
           tests/test_historical_backtest_corporate_actions.py
           tests/test_historical_backtest_signal_dates.py
+          tests/test_bist100_membership_history.py
           tests/test_v24_real_minimum_wage_source.py
           tests/test_v24_real_historical_universe_source_manifest.py
           tests/test_v24_real_xu100_signal_dates_source.py
+          tests/test_v24_real_bist100_snapshot_source.py
       - name: Full regression
         run: python -m pytest -q
       - name: BANK v4.7 regression
