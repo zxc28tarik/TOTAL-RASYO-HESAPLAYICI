@@ -10,6 +10,7 @@ on:
       - 'src/analytics/bist100_membership_history.py'
       - 'src/analytics/bist100_membership_pipeline.py'
       - 'src/analytics/bist100_periodic_events.py'
+      - 'src/analytics/bist100_nonperiodic_events.py'
       - 'src/analytics/ticker_lineage.py'
       - 'scripts/inventory_historical_backtest_inputs.py'
       - 'scripts/audit_historical_price_adjustments.py'
@@ -29,6 +30,7 @@ on:
       - 'tests/test_historical_backtest_signal_dates.py'
       - 'tests/test_bist100_membership_history.py'
       - 'tests/test_bist100_membership_pipeline.py'
+      - 'tests/test_bist100_nonperiodic_events.py'
       - 'tests/test_ticker_lineage.py'
       - 'tests/test_v24_real_bist100_periodic_events_source.py'
       - 'tests/test_v24_real_minimum_wage_source.py'
@@ -84,6 +86,7 @@ jobs:
           tests/test_historical_backtest_signal_dates.py
           tests/test_bist100_membership_history.py
           tests/test_bist100_membership_pipeline.py
+          tests/test_bist100_nonperiodic_events.py
           tests/test_ticker_lineage.py
           tests/test_v24_real_bist100_periodic_events_source.py
           tests/test_v24_real_minimum_wage_source.py
