@@ -6,6 +6,7 @@ on:
     paths:
       - 'src/analytics/historical_backtest_inventory.py'
       - 'src/analytics/historical_backtest_corporate_actions.py'
+      - 'src/analytics/historical_backtest_corporate_action_events.py'
       - 'src/analytics/historical_backtest_signal_dates.py'
       - 'src/analytics/bist100_membership_history.py'
       - 'src/analytics/bist100_membership_pipeline.py'
@@ -30,6 +31,7 @@ on:
       - 'tests/test_historical_backtest_inventory.py'
       - 'tests/test_historical_backtest_inventory_db_live.py'
       - 'tests/test_historical_backtest_corporate_actions.py'
+      - 'tests/test_historical_backtest_corporate_action_events.py'
       - 'tests/test_historical_backtest_signal_dates.py'
       - 'tests/test_bist100_membership_history.py'
       - 'tests/test_bist100_membership_pipeline.py'
@@ -87,6 +89,7 @@ jobs:
           tests/test_historical_backtest_inventory.py
           tests/test_historical_backtest_inventory_db_live.py
           tests/test_historical_backtest_corporate_actions.py
+          tests/test_historical_backtest_corporate_action_events.py
           tests/test_historical_backtest_signal_dates.py
           tests/test_bist100_membership_history.py
           tests/test_bist100_membership_pipeline.py
