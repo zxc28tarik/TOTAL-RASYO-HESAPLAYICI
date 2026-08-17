@@ -1,0 +1,113 @@
+name: V24 BIST100 Ticker Lineage
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-bist100-ticker-lineage.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  extract-ticker-lineage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install XLS reader
+        run: python -m pip install --disable-pip-version-check xlrd
+      - name: Download hash-locked official code-change workbook
+        run: |
+          set -euo pipefail
+          mkdir -p work artifacts
+          curl --fail --location --retry 3 --user-agent 'Mozilla/5.0' \
+            'https://borsaistanbul.com/datum/payadvekoddegisiklikleri.zip' \
+            -o work/payadvekoddegisiklikleri.zip
+          echo 'c8068dab5643940e6efe23b7920d2dc0b454f3878f365150111754cb631f2076  work/payadvekoddegisiklikleri.zip' | sha256sum -c -
+          unzip -q work/payadvekoddegisiklikleri.zip -d work
+          echo 'cb5e2fc5ed8bd69b75db7707f0078facc3b900ae14cb51e8f3a286e13cf239b5  work/PayKoduDegisiklikleri.xls' | sha256sum -c -
+      - name: Extract dated old-to-new code events
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import csv, hashlib, json
+          from datetime import date, datetime
+          from pathlib import Path
+          import xlrd
+
+          PATH=Path('work/PayKoduDegisiklikleri.xls')
+          RAW_SHA='cb5e2fc5ed69b75db7707f0078facc3b900ae14cb51e8f3a286e13cf239b5'
+          START=date(2021,8,1)
+          END=date(2026,8,18)
+          wb=xlrd.open_workbook(PATH)
+          ws=wb.sheet_by_name('KOD_DEGISIKLIGI')
+          rows=[]
+          for r in range(ws.nrows):
+              vals=[]
+              for c in range(ws.ncols):
+                  cell=ws.cell(r,c)
+                  if cell.ctype == xlrd.XL_CELL_DATE:
+                      vals.append(xlrd.xldate_as_datetime(cell.value,wb.datemode))
+                  else:
+                      vals.append(cell.value)
+              if len(vals)<3:
+                  continue
+              old=str(vals[0]).strip().upper()
+              new=str(vals[1]).strip().upper()
+              raw_day=vals[2]
+              if not old or not new or old.startswith('ESK') or old.startswith('CODE'):
+                  continue
+              if isinstance(raw_day,datetime):
+                  day=raw_day.date()
+              else:
+                  parsed=None
+                  for fmt in ('%d.%m.%Y','%d/%m/%Y','%Y-%m-%d'):
+                      try:
+                          parsed=datetime.strptime(str(raw_day).strip(),fmt).date(); break
+                      except ValueError: pass
+                  if parsed is None:
+                      continue
+                  day=parsed
+              if not (START <= day < END):
+                  continue
+              canonical=f'{old}|{new}|{day.isoformat()}|{RAW_SHA}'
+              rows.append({
+                  'effective_date':day.isoformat(),
+                  'old_ticker':old,
+                  'new_ticker':new,
+                  'source_workbook_sha256':RAW_SHA,
+                  'event_sha256':hashlib.sha256(canonical.encode()).hexdigest(),
+              })
+          rows.sort(key=lambda x:(x['effective_date'],x['old_ticker'],x['new_ticker']))
+          if len(rows) != len({(x['effective_date'],x['old_ticker'],x['new_ticker']) for x in rows}):
+              raise RuntimeError('duplicate code-change events')
+          with Path('artifacts/bist_ticker_code_changes_2021-08_2026-08.csv').open('w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=['effective_date','old_ticker','new_ticker','source_workbook_sha256','event_sha256'])
+              w.writeheader(); w.writerows(rows)
+          payload={
+              'publisher':'Borsa Istanbul A.S.',
+              'official_url':'https://borsaistanbul.com/datum/payadvekoddegisiklikleri.zip',
+              'archive_sha256':'c8068dab5643940e6efe23b7920d2dc0b454f3878f365150111754cb631f2076',
+              'workbook_sha256':RAW_SHA,
+              'sheet':'KOD_DEGISIKLIGI',
+              'window':{'start':START.isoformat(),'end_exclusive':END.isoformat()},
+              'event_count':len(rows),
+              'events':rows,
+          }
+          Path('artifacts/bist_ticker_code_changes_2021-08_2026-08.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps({'event_count':len(rows),'events':rows},ensure_ascii=False,indent=2))
+          if not rows:
+              raise RuntimeError('no ticker code changes found in target window')
+          PY
+      - name: Hash output
+        run: sha256sum artifacts/bist_ticker_code_changes_2021-08_2026-08.csv artifacts/bist_ticker_code_changes_2021-08_2026-08.json > artifacts/SHA256SUMS
+      - name: Upload ticker-lineage evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-bist-ticker-lineage-2021-08_2026-08
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90
