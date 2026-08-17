@@ -1,0 +1,46 @@
+{
+  "manifest_version": 1,
+  "purpose": "Survivorship-bias-free BIST historical universe source acquisition for 2021-08..2026-07",
+  "official_landing_page": "https://borsaistanbul.com/en/data/equity-market-data",
+  "publisher": "Borsa Istanbul A.S.",
+  "window": {
+    "start_month": "2021-08",
+    "end_month": "2026-07"
+  },
+  "datasets": [
+    {
+      "dataset_key": "FIRST_TRADING_DATE_AND_PRICE",
+      "official_label": "First Trading Date and Price of the Equities",
+      "required": true,
+      "acquisition_status": "RAW_FILE_REQUIRED",
+      "local_raw_path": null,
+      "raw_sha256": null,
+      "role": "Candidate valid_from evidence; raw columns/date semantics must be inspected before canonicalization."
+    },
+    {
+      "dataset_key": "PERMANENT_DELISTINGS",
+      "official_label": "Companies With Equities De-Listed From The Borsa Istanbul Markets Permanently",
+      "required": true,
+      "acquisition_status": "RAW_FILE_REQUIRED",
+      "local_raw_path": null,
+      "raw_sha256": null,
+      "role": "Candidate valid_to evidence; whether the published date is exclusive delisting date or last trading day must be proven from the raw file/source documentation."
+    },
+    {
+      "dataset_key": "EQUITY_CODE_CHANGES",
+      "official_label": "Equity Name and Equity Code Changes",
+      "required": true,
+      "acquisition_status": "RAW_FILE_REQUIRED",
+      "local_raw_path": null,
+      "raw_sha256": null,
+      "role": "Ticker lineage evidence so historical symbols are not silently replaced by current symbols."
+    }
+  ],
+  "rules": [
+    "Do not derive historical membership from core.universe_stocks or any other current snapshot.",
+    "Do not invent raw file URLs, column mappings, delisting date semantics, or ticker lineage.",
+    "Hash each downloaded raw file before transformation and retain the hash as provenance.",
+    "Canonical output must pass src.ingest.historical_universe.records_from_frame before persistence.",
+    "Temporary suspensions/tradability gaps are not proven by listing/delisting data; execution-day price/readiness gates remain authoritative for missing tradeability evidence."
+  ]
+}
