@@ -1,0 +1,69 @@
+name: V24 BIST100 Universe Source Discovery
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-bist100-universe-discovery.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  discover-bist100-universe-sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download official Borsa Istanbul index files
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/raw artifacts/extracted/pay_endeksleri
+          base='https://borsaistanbul.com/datum'
+          curl --fail --location --retry 3 --user-agent 'Mozilla/5.0' "$base/PayEndeksleri.zip" -o artifacts/raw/PayEndeksleri.zip
+          curl --fail --location --retry 3 --user-agent 'Mozilla/5.0' "$base/hisse_endeks_ds.csv" -o artifacts/raw/hisse_endeks_ds.csv
+          test -s artifacts/raw/PayEndeksleri.zip
+          test -s artifacts/raw/hisse_endeks_ds.csv
+          sha256sum artifacts/raw/* > artifacts/RAW_SHA256SUMS
+          file artifacts/raw/* | tee artifacts/file_types.txt
+      - name: Validate and inspect BIST Equity Indices archive
+        run: |
+          set -euo pipefail
+          unzip -t artifacts/raw/PayEndeksleri.zip | tee artifacts/pay_endeksleri_unzip_test.txt
+          unzip -o artifacts/raw/PayEndeksleri.zip -d artifacts/extracted/pay_endeksleri
+          find artifacts/extracted/pay_endeksleri -type f -print | sort | tee artifacts/extracted_files.txt
+          find artifacts/extracted/pay_endeksleri -type f -print0 | sort -z | xargs -0 sha256sum > artifacts/EXTRACTED_SHA256SUMS
+          {
+            echo '=== archive listing ==='
+            unzip -l artifacts/raw/PayEndeksleri.zip
+            echo
+            echo '=== extracted file types ==='
+            find artifacts/extracted/pay_endeksleri -type f -exec file {} \;
+            echo
+            echo '=== first 40 text lines per extracted file ==='
+            while IFS= read -r f; do
+              echo "--- $f ---"
+              iconv -f UTF-8 -t UTF-8 "$f" 2>/dev/null | head -40 || head -40 "$f" || true
+            done < artifacts/extracted_files.txt
+          } > artifacts/pay_endeksleri_inspection.txt
+          cat artifacts/pay_endeksleri_inspection.txt
+      - name: Inspect Equity Index Report
+        run: |
+          set -euo pipefail
+          {
+            echo '=== byte count / line count ==='
+            wc -c -l artifacts/raw/hisse_endeks_ds.csv
+            echo
+            echo '=== first 80 lines ==='
+            head -80 artifacts/raw/hisse_endeks_ds.csv
+            echo
+            echo '=== XU100 matches ==='
+            grep -ni 'XU100' artifacts/raw/hisse_endeks_ds.csv | head -120 || true
+          } > artifacts/hisse_endeks_inspection.txt
+          cat artifacts/hisse_endeks_inspection.txt
+      - name: Upload official BIST100 source evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-bist100-universe-source-discovery
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90
