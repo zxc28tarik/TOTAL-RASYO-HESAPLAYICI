@@ -39,7 +39,7 @@ jobs:
           import xlrd
 
           PATH=Path('work/PayKoduDegisiklikleri.xls')
-          RAW_SHA='cb5e2fc5ed69b75db7707f0078facc3b900ae14cb51e8f3a286e13cf239b5'
+          RAW_SHA='cb5e2fc5ed8bd69b75db7707f0078facc3b900ae14cb51e8f3a286e13cf239b5'
           START=date(2021,8,1)
           END=date(2026,8,18)
           wb=xlrd.open_workbook(PATH)
