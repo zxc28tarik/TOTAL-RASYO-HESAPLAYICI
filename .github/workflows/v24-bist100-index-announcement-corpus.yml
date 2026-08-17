@@ -1,0 +1,164 @@
+name: V24 BIST100 Canonical Announcement Corpus
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-bist100-index-announcement-corpus.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-announcement-corpus:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install crawler dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Fetch and classify official index announcements
+        run: |
+          mkdir -p artifacts/pages
+          python - <<'PY'
+          from __future__ import annotations
+          import hashlib
+          import json
+          import re
+          import time
+          from datetime import datetime
+          from pathlib import Path
+          from urllib.parse import urljoin
+
+          import requests
+          from bs4 import BeautifulSoup
+
+          INDEX_URL = 'https://borsaistanbul.com/en/indices/index-announcements'
+          START = datetime.strptime('2021-06-01', '%Y-%m-%d').date()
+          END = datetime.strptime('2026-08-31', '%Y-%m-%d').date()
+          session = requests.Session()
+          session.headers.update({'User-Agent': 'Mozilla/5.0 V24-historical-research/2.0'})
+
+          def fetch(url):
+              last = None
+              for i in range(4):
+                  try:
+                      r = session.get(url, timeout=35)
+                      r.raise_for_status()
+                      return r.content, r.url
+                  except Exception as exc:
+                      last = exc
+                      time.sleep(1.5 * (i + 1))
+              raise RuntimeError(f'fetch failed {url}: {last}')
+
+          raw, final_index_url = fetch(INDEX_URL)
+          Path('artifacts/index_announcements.html').write_bytes(raw)
+          soup = BeautifulSoup(raw, 'html.parser')
+
+          candidates = []
+          seen = set()
+          for tr in soup.find_all('tr'):
+              text = ' '.join(tr.stripped_strings)
+              dm = re.search(r'\b(\d{2})\.(\d{2})\.(\d{4})\b', text)
+              if not dm:
+                  continue
+              day = datetime.strptime(dm.group(0), '%m.%d.%Y').date()
+              if not (START <= day <= END):
+                  continue
+              if 'Index Constituents Changes' not in text:
+                  continue
+              if 'Benchmark Indices' not in text:
+                  continue
+              links = [a for a in tr.find_all('a', href=True) if 'javascript:' not in a['href'].lower()]
+              if not links:
+                  raise RuntimeError(f'candidate row has no link: {text}')
+              # Prefer the link whose anchor is the announcement title; category links
+              # usually have shorter generic anchor text.
+              link = max(links, key=lambda a: len(' '.join(a.stripped_strings)))
+              title = ' '.join(link.stripped_strings).strip()
+              url = urljoin(final_index_url, link['href'])
+              key = (day.isoformat(), url)
+              if key in seen:
+                  continue
+              seen.add(key)
+              candidates.append({
+                  'announcement_date': day.isoformat(),
+                  'announcement_type': 'PERIODIC' if '(Periodic)' in text else 'NON_PERIODIC',
+                  'title': title,
+                  'url': url,
+                  'index_row_text': text,
+              })
+
+          if not candidates:
+              raise RuntimeError('no Benchmark Indices constituent-change candidates found')
+
+          relevant = []
+          for i, item in enumerate(sorted(candidates, key=lambda x: (x['announcement_date'], x['url']))):
+              detail_raw, final_url = fetch(item['url'])
+              digest = hashlib.sha256(detail_raw).hexdigest()
+              detail_soup = BeautifulSoup(detail_raw, 'html.parser')
+              text = '\n'.join(' '.join(x.split()) for x in detail_soup.stripped_strings)
+              page_name = f"{item['announcement_date']}_{i:04d}.html"
+              Path('artifacts/pages', page_name).write_bytes(detail_raw)
+              tables = []
+              for ti, table in enumerate(detail_soup.find_all('table')):
+                  rows = []
+                  for tr in table.find_all('tr'):
+                      cells = [' '.join(c.stripped_strings).strip() for c in tr.find_all(['th','td'])]
+                      if any(cells):
+                          rows.append(cells)
+                  if rows:
+                      tables.append({'table_index': ti, 'rows': rows})
+              detail = {
+                  **item,
+                  'final_url': final_url,
+                  'raw_sha256': digest,
+                  'mentions_bist100': bool(re.search(r'\bBIST\s*100\b', text, re.I)),
+                  'text': text,
+                  'tables': tables,
+                  'saved_page': f'pages/{page_name}',
+              }
+              if detail['mentions_bist100']:
+                  relevant.append(detail)
+              time.sleep(0.05)
+
+          periodic = [x for x in relevant if x['announcement_type'] == 'PERIODIC']
+          nonperiodic = [x for x in relevant if x['announcement_type'] == 'NON_PERIODIC']
+          payload = {
+              'source': 'Borsa Istanbul Index Announcements',
+              'index_url': INDEX_URL,
+              'index_raw_sha256': hashlib.sha256(raw).hexdigest(),
+              'window': {'start': START.isoformat(), 'end': END.isoformat()},
+              'benchmark_change_candidate_count': len(candidates),
+              'bist100_relevant_count': len(relevant),
+              'periodic_bist100_count': len(periodic),
+              'nonperiodic_bist100_count': len(nonperiodic),
+              'announcements': relevant,
+          }
+          Path('artifacts/bist100_canonical_announcements.json').write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          with Path('artifacts/bist100_canonical_announcements.tsv').open('w', encoding='utf-8') as f:
+              f.write('announcement_date\ttype\ttitle\turl\traw_sha256\n')
+              for x in relevant:
+                  f.write(f"{x['announcement_date']}\t{x['announcement_type']}\t{x['title'].replace(chr(9),' ')}\t{x['final_url']}\t{x['raw_sha256']}\n")
+
+          summary = {k: payload[k] for k in (
+              'benchmark_change_candidate_count','bist100_relevant_count',
+              'periodic_bist100_count','nonperiodic_bist100_count')}
+          print(json.dumps(summary, indent=2))
+          print(Path('artifacts/bist100_canonical_announcements.tsv').read_text(encoding='utf-8'))
+          if len(periodic) < 20:
+              raise RuntimeError(f'periodic BIST100 corpus unexpectedly small: {len(periodic)}')
+          PY
+      - name: Hash canonical corpus
+        run: sha256sum artifacts/index_announcements.html artifacts/bist100_canonical_announcements.json artifacts/bist100_canonical_announcements.tsv > artifacts/SHA256SUMS
+      - name: Upload canonical corpus
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-bist100-canonical-announcement-corpus
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90
