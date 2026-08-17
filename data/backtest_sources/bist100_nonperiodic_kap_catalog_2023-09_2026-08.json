@@ -1,0 +1,11 @@
+{
+  "contract": "V24_BIST100_NONPERIODIC_KAP_CATALOG_V1",
+  "publisher": "Borsa Istanbul Index Announcements",
+  "source_url": "https://borsaistanbul.com/en/indices/index-announcements",
+  "source_raw_sha256": "7c38dc7d0c36055ea39b2f2e91ba4d83b525f32ce50dc0e69ca65f9e0b3db2ef",
+  "workflow_run_id": 31984112558,
+  "artifact_id": 9273223535,
+  "artifact_digest": "sha256:b1cd6a4456fd565e385248015d95f3c50251f45c6e30b1cf5c8812c7bc727426",
+  "row_count": 114,
+  "rows": "+json.dumps(catalog_rows,ensure_ascii=False,indent=2)+"
+}
