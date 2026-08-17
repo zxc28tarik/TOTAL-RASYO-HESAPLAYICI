@@ -1,0 +1,15 @@
+{
+  "contract": "V24_BIST100_HISTORICAL_TICKER_UNION_V1",
+  "membership_export": {
+    "workflow_run_id": 31988505049,
+    "artifact_id": 9274528714,
+    "artifact_digest": "sha256:eeea462a93d4963781a30c7d5ca9be46fc07cbffea3e93b6d35e1a4609fcf0b2",
+    "membership_csv_sha256": "d6a793f0e057bd2ec9d55b38e7a374440f74b0e617f87f71a66a59cc53d28cc3",
+    "membership_provenance_sha256": "4e73ac55aea3265cf64dd795013eb6948e525814a8f1aeaaa2ff254b435089ab",
+    "row_count": 6000,
+    "month_count": 60,
+    "members_per_month": 100
+  },
+  "ticker_union_count": 209,
+  "semantics": "Union of historical ticker codes present in the frozen 60-month XU100 membership export. Ticker-code lineage is intentionally preserved; old and new codes may both occur when the company code changed during the backtest window."
+}
