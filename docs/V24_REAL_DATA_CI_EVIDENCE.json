@@ -1,15 +1,15 @@
 {
   "contract": "V24_REAL_DATA_CI_EVIDENCE_V1",
-  "tested_commit_sha": "e2ddcfcbdc94d2ffaf0e4ddb744697d0fa9c5722",
+  "tested_commit_sha": "ae3b37d4c06e5cbf8e111ad13206006ab57fd665",
   "schema_migration": "PASSED",
   "targeted": {
-    "tests": 90,
+    "tests": 96,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
   "full_regression": {
-    "tests": 1619,
+    "tests": 1625,
     "failures": 0,
     "errors": 0,
     "skipped": 0
@@ -31,6 +31,12 @@
   "pit_rsc_replay": {
     "database_read_path": false,
     "input": "HistoricalPitRatioReplayResult.combined_ratios",
+    "result": "PASS"
+  },
+  "pit_m1_replay": {
+    "database_read_path": false,
+    "input": "HistoricalPitRscReplayResult.rsc_summary",
+    "production_math": "period_trend._slope/_trend_score/_trend_label",
     "result": "PASS"
   },
   "result": "PASS"
