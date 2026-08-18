@@ -1,0 +1,102 @@
+{
+  "INVES": {
+    "page_url": "https://tr.investing.com/equities/investco-holding-as-historical-data",
+    "page_status": 403,
+    "page_sha256": "d26eae87829adde551bf4b852f9da6b8c3c2db9b65b8b68870632a2db5f53e00",
+    "instrument_ids": [],
+    "probes": [],
+    "target_dates": [
+      "2022-07-01",
+      "2022-08-01",
+      "2022-09-01"
+    ],
+    "rows_found": []
+  },
+  "KLRHO": {
+    "page_url": "https://tr.investing.com/equities/kiler-holding-as-historical-data",
+    "page_status": 403,
+    "page_sha256": "d26eae87829adde551bf4b852f9da6b8c3c2db9b65b8b68870632a2db5f53e00",
+    "instrument_ids": [],
+    "probes": [],
+    "target_dates": [
+      "2023-01-02",
+      "2023-02-01",
+      "2023-03-01",
+      "2023-04-03",
+      "2023-05-02",
+      "2023-06-01"
+    ],
+    "rows_found": []
+  },
+  "ASGYO": {
+    "page_url": "https://tr.investing.com/equities/asce-gayrimenkul-yatirim-ortakligi-historical-data",
+    "page_status": 403,
+    "page_sha256": "d26eae87829adde551bf4b852f9da6b8c3c2db9b65b8b68870632a2db5f53e00",
+    "instrument_ids": [],
+    "probes": [],
+    "target_dates": [
+      "2024-01-02",
+      "2024-02-01",
+      "2024-03-01"
+    ],
+    "rows_found": []
+  },
+  "summary": {
+    "contract": "V24_INVESTING_PRICE_GAP_AUDIT_V1",
+    "target_row_count": 12,
+    "exact_rows_found": 0,
+    "missing_pairs": [
+      {
+        "ticker": "ASGYO",
+        "trade_date": "2024-01-02"
+      },
+      {
+        "ticker": "ASGYO",
+        "trade_date": "2024-02-01"
+      },
+      {
+        "ticker": "ASGYO",
+        "trade_date": "2024-03-01"
+      },
+      {
+        "ticker": "INVES",
+        "trade_date": "2022-07-01"
+      },
+      {
+        "ticker": "INVES",
+        "trade_date": "2022-08-01"
+      },
+      {
+        "ticker": "INVES",
+        "trade_date": "2022-09-01"
+      },
+      {
+        "ticker": "KLRHO",
+        "trade_date": "2023-01-02"
+      },
+      {
+        "ticker": "KLRHO",
+        "trade_date": "2023-02-01"
+      },
+      {
+        "ticker": "KLRHO",
+        "trade_date": "2023-03-01"
+      },
+      {
+        "ticker": "KLRHO",
+        "trade_date": "2023-04-03"
+      },
+      {
+        "ticker": "KLRHO",
+        "trade_date": "2023-05-02"
+      },
+      {
+        "ticker": "KLRHO",
+        "trade_date": "2023-06-01"
+      }
+    ],
+    "conflict_count": 0,
+    "accepted": false,
+    "note": "Secondary-source gap audit only. No interpolation, date shifting or forward fill."
+  }
+}
