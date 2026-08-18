@@ -1,0 +1,37 @@
+{
+  "contract": "V24_REAL_DATA_CI_EVIDENCE_V1",
+  "tested_commit_sha": "e2ddcfcbdc94d2ffaf0e4ddb744697d0fa9c5722",
+  "schema_migration": "PASSED",
+  "targeted": {
+    "tests": 90,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "full_regression": {
+    "tests": 1619,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "bank_v47": {
+    "passed": 277,
+    "xfailed": 1
+  },
+  "exact_signal_price_contract": {
+    "monthly_member_rows": 6000,
+    "official_borsa_thb_supplements": 12,
+    "remaining_execution_price_gaps": 0,
+    "overwrite_existing_yahoo_prices": false,
+    "thb_schema_evolution": "AUDITED_DYNAMIC_COLUMN_COUNT"
+  },
+  "pit_ratio_replay": {
+    "core_and_val": "PIT_SAFE"
+  },
+  "pit_rsc_replay": {
+    "database_read_path": false,
+    "input": "HistoricalPitRatioReplayResult.combined_ratios",
+    "result": "PASS"
+  },
+  "result": "PASS"
+}
