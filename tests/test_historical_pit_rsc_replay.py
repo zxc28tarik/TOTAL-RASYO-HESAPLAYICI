@@ -65,8 +65,6 @@ def test_historical_rsc_scores_directly_from_pit_core_plus_val_foundation():
     assert len(result.rsc_summary) == 2
 
     summary = result.rsc_summary.set_index("ticker")
-    # ROE is higher-better and PB is lower-better.  Both axes therefore rank
-    # AAA above BBB in this fixture.
     assert float(summary.loc["AAA", "rsc_core_norm"]) > float(summary.loc["BBB", "rsc_core_norm"])
     assert float(summary.loc["AAA", "rsc_val_norm"]) > float(summary.loc["BBB", "rsc_val_norm"])
 
@@ -123,6 +121,7 @@ def test_historical_rsc_fails_closed_on_unknown_ratio_name():
 def test_historical_rsc_rejects_text_false_is_na_instead_of_bool_false():
     foundation = _foundation()
     bad = foundation.core_ratios.copy()
+    bad["is_na"] = bad["is_na"].astype(object)
     bad.loc[0, "is_na"] = "False"
     mutated = HistoricalPitRatioReplayResult(
         analysis_at=foundation.analysis_at,
