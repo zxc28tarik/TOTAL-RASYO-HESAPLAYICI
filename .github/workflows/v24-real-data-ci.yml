@@ -49,6 +49,25 @@ on:
       - 'tests/test_v24_real_xu100_signal_dates_source.py'
       - 'tests/test_v24_real_bist100_snapshot_source.py'
       - '.github/workflows/v24-real-data-ci.yml'
+  pull_request:
+    branches: [v24-real-data-work]
+    paths:
+      - 'src/analytics/historical_backtest_inventory.py'
+      - 'src/analytics/historical_backtest_corporate_actions.py'
+      - 'src/analytics/historical_backtest_corporate_action_events.py'
+      - 'src/analytics/historical_backtest_signal_dates.py'
+      - 'src/analytics/historical_price_supplement.py'
+      - 'src/analytics/bist100_membership_history.py'
+      - 'src/analytics/bist100_membership_pipeline.py'
+      - 'src/analytics/bist100_periodic_events.py'
+      - 'src/analytics/bist100_nonperiodic_events.py'
+      - 'src/analytics/bist100_membership_export.py'
+      - 'src/analytics/ticker_lineage.py'
+      - 'data/backtest_sources/borsa_exact_price_gap_discovery/thb_schema_proof.json'
+      - 'data/backtest_sources/yahoo_resolved/monthly_member_signal_price_coverage.csv'
+      - 'data/backtest_sources/yahoo_resolved/monthly_member_missing_signal_prices.csv'
+      - 'tests/test_historical_price_supplement.py'
+      - '.github/workflows/v24-real-data-ci.yml'
 
 permissions:
   contents: write
@@ -117,6 +136,7 @@ jobs:
           set -o pipefail
           make test-bank-v47 | tee v24-real-bank.log
       - name: Persist passing V24 real-data evidence
+        if: github.event_name == 'push'
         run: |
           set -euo pipefail
           python - <<'PY'
