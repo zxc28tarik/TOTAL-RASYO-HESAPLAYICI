@@ -1,15 +1,15 @@
 {
   "contract": "V24_REAL_DATA_CI_EVIDENCE_V1",
-  "tested_commit_sha": "ae3b37d4c06e5cbf8e111ad13206006ab57fd665",
+  "tested_commit_sha": "c2b2b82f335ce96068e1f74fcaa7bacf57a4f392",
   "schema_migration": "PASSED",
   "targeted": {
-    "tests": 96,
+    "tests": 107,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
   "full_regression": {
-    "tests": 1625,
+    "tests": 1636,
     "failures": 0,
     "errors": 0,
     "skipped": 0
@@ -38,6 +38,22 @@
     "input": "HistoricalPitRscReplayResult.rsc_summary",
     "production_math": "period_trend._slope/_trend_score/_trend_label",
     "result": "PASS"
+  },
+  "pit_m2_replay": {
+    "NONFIN": {
+      "database_read_path": false,
+      "production_math": "build_nonfin_snapshots_from_frames/evaluate_nonfin_batch",
+      "future_financial_price_follow_rejected": true,
+      "current_universe_fallback": false,
+      "result": "PASS"
+    },
+    "remaining_families": [
+      "BANK",
+      "HOLDING",
+      "GYO",
+      "INSURANCE",
+      "FINANCIAL"
+    ]
   },
   "result": "PASS"
 }
