@@ -131,6 +131,15 @@ def _strict_bool(value: object) -> bool:
     )
 
 
+def _optional_positive_int(item: dict[str, object], field: str) -> int | None:
+    value = item.get(field)
+    if value is None:
+        return None
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise HistoricalPriceSupplementError(f"{field} pozitif int olmali")
+    return value
+
+
 def _require_columns(frame: pd.DataFrame, required: Iterable[str], name: str) -> None:
     missing = set(required) - set(frame.columns)
     if missing:
@@ -145,7 +154,9 @@ def load_borsa_thb_exact_signal_prices(path: str | Path) -> pd.DataFrame:
     The proof stores the first Turkish and English header rows plus the exact
     target .E series row and SHA-256 lineage for each official daily archive.
     OPEN/CLOSE are located by column *name*, never by an undocumented numeric
-    position.
+    position.  Borsa may add columns across years; schema evolution is accepted
+    only when Turkish header, English header and target row remain structurally
+    aligned and the four required bilingual semantics still match exactly.
     """
 
     source_path = Path(path)
@@ -189,8 +200,25 @@ def load_borsa_thb_exact_signal_prices(path: str | Path) -> pd.DataFrame:
         en_header = next(csv.reader([str(first_lines[1])], delimiter=";"))
         target = next(csv.reader([str(item.get("target_row", ""))], delimiter=";"))
 
-        if len(tr_header) != 56 or len(en_header) != 56 or len(target) != 56:
-            raise HistoricalPriceSupplementError(f"{key} THB field count 56 olmali")
+        field_count = len(tr_header)
+        if field_count < len(THB_BILINGUAL_COLUMNS):
+            raise HistoricalPriceSupplementError(f"{key} THB field count yetersiz")
+        if len(en_header) != field_count or len(target) != field_count:
+            raise HistoricalPriceSupplementError(
+                f"{key} THB header/target field count mismatch: "
+                f"tr={field_count} en={len(en_header)} target={len(target)}"
+            )
+
+        recorded_header_count = _optional_positive_int(item, "first_line_field_count")
+        recorded_target_count = _optional_positive_int(item, "target_field_count")
+        if recorded_header_count is not None and recorded_header_count != field_count:
+            raise HistoricalPriceSupplementError(
+                f"{key} THB first_line_field_count proof mismatch"
+            )
+        if recorded_target_count is not None and recorded_target_count != len(target):
+            raise HistoricalPriceSupplementError(
+                f"{key} THB target_field_count proof mismatch"
+            )
 
         for tr_name, en_name in THB_BILINGUAL_COLUMNS.items():
             if tr_name not in tr_header:
