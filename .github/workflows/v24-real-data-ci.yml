@@ -13,6 +13,8 @@ on:
       - 'src/analytics/historical_pit_rsc_replay.py'
       - 'src/analytics/historical_pit_m1_replay.py'
       - 'src/analytics/historical_pit_nonfin_m2_replay.py'
+      - 'src/analytics/historical_pit_holding_m2_replay.py'
+      - 'src/analytics/historical_pit_gyo_m2_replay.py'
       - 'src/analytics/bist100_membership_history.py'
       - 'src/analytics/bist100_membership_pipeline.py'
       - 'src/analytics/bist100_periodic_events.py'
@@ -22,6 +24,8 @@ on:
       - 'config/ratios.json'
       - 'config/sectors.json'
       - 'config/nonfin_valuation.relative_v1.json'
+      - 'config/holding_valuation.nav_discount_v1.json'
+      - 'config/gyo_valuation.pd_nav_v1.json'
       - 'scripts/inventory_historical_backtest_inputs.py'
       - 'scripts/audit_historical_price_adjustments.py'
       - 'scripts/export_historical_signal_dates.py'
@@ -49,6 +53,8 @@ on:
       - 'tests/test_historical_pit_rsc_replay.py'
       - 'tests/test_historical_pit_m1_replay.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
+      - 'tests/test_historical_pit_holding_m2_replay.py'
+      - 'tests/test_historical_pit_gyo_m2_replay.py'
       - 'tests/test_bist100_membership_history.py'
       - 'tests/test_bist100_membership_pipeline.py'
       - 'tests/test_bist100_nonperiodic_events.py'
@@ -113,6 +119,8 @@ jobs:
             tests/test_historical_pit_rsc_replay.py \
             tests/test_historical_pit_m1_replay.py \
             tests/test_historical_pit_nonfin_m2_replay.py \
+            tests/test_historical_pit_holding_m2_replay.py \
+            tests/test_historical_pit_gyo_m2_replay.py \
             tests/test_bist100_membership_history.py \
             tests/test_bist100_membership_pipeline.py \
             tests/test_bist100_nonperiodic_events.py \
@@ -196,7 +204,23 @@ jobs:
                       'current_universe_fallback': False,
                       'result': 'PASS',
                   },
-                  'remaining_families': ['BANK', 'HOLDING', 'GYO', 'INSURANCE', 'FINANCIAL'],
+                  'HOLDING': {
+                      'database_read_path': False,
+                      'production_math': 'build_holding_snapshots_from_frames/evaluate_holding_batch',
+                      'future_nav_price_follow_rejected': True,
+                      'current_universe_fallback': False,
+                      'm2_source': 'HOLDING_NAV_DISCOUNT_TWO_AXIS_V1',
+                      'result': 'PASS',
+                  },
+                  'GYO': {
+                      'database_read_path': False,
+                      'production_math': 'build_gyo_snapshots_from_frames/evaluate_gyo_batch',
+                      'future_nav_price_follow_rejected': True,
+                      'current_universe_fallback': False,
+                      'm2_source': 'GYO_PD_NAV_TWO_AXIS_V1',
+                      'result': 'PASS',
+                  },
+                  'remaining_families': ['BANK', 'INSURANCE', 'FINANCIAL'],
               },
               'result': 'PASS',
           }
