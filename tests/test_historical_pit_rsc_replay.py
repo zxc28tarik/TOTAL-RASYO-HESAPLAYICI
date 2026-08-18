@@ -123,6 +123,10 @@ def test_historical_rsc_fails_closed_on_unknown_ratio_name():
 def test_historical_rsc_rejects_text_false_is_na_instead_of_bool_false():
     foundation = _foundation()
     bad = foundation.core_ratios.copy()
+    # Pandas 3 refuses assigning text directly into a native bool block. Cast
+    # the mutation target to object first so the malformed upstream value
+    # reaches our replay boundary and tests _strict_bool itself.
+    bad["is_na"] = bad["is_na"].astype(object)
     bad.loc[0, "is_na"] = "False"
     mutated = HistoricalPitRatioReplayResult(
         analysis_at=foundation.analysis_at,
