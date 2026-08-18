@@ -8,6 +8,7 @@ on:
       - 'src/analytics/historical_backtest_corporate_actions.py'
       - 'src/analytics/historical_backtest_corporate_action_events.py'
       - 'src/analytics/historical_backtest_signal_dates.py'
+      - 'src/analytics/historical_price_supplement.py'
       - 'src/analytics/bist100_membership_history.py'
       - 'src/analytics/bist100_membership_pipeline.py'
       - 'src/analytics/bist100_periodic_events.py'
@@ -28,11 +29,15 @@ on:
       - 'data/backtest_sources/bist_ticker_code_changes_2021-08_2026-08.provenance.json'
       - 'data/backtest_sources/bist100_periodic_events_2021Q3_2026Q3.json'
       - 'data/backtest_sources/bist100_nonperiodic_events_2021-08_2026-08.json'
+      - 'data/backtest_sources/borsa_exact_price_gap_discovery/thb_schema_proof.json'
+      - 'data/backtest_sources/yahoo_resolved/monthly_member_signal_price_coverage.csv'
+      - 'data/backtest_sources/yahoo_resolved/monthly_member_missing_signal_prices.csv'
       - 'tests/test_historical_backtest_inventory.py'
       - 'tests/test_historical_backtest_inventory_db_live.py'
       - 'tests/test_historical_backtest_corporate_actions.py'
       - 'tests/test_historical_backtest_corporate_action_events.py'
       - 'tests/test_historical_backtest_signal_dates.py'
+      - 'tests/test_historical_price_supplement.py'
       - 'tests/test_bist100_membership_history.py'
       - 'tests/test_bist100_membership_pipeline.py'
       - 'tests/test_bist100_nonperiodic_events.py'
@@ -91,6 +96,7 @@ jobs:
           tests/test_historical_backtest_corporate_actions.py
           tests/test_historical_backtest_corporate_action_events.py
           tests/test_historical_backtest_signal_dates.py
+          tests/test_historical_price_supplement.py
           tests/test_bist100_membership_history.py
           tests/test_bist100_membership_pipeline.py
           tests/test_bist100_nonperiodic_events.py
