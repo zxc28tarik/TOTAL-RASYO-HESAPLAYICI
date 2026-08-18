@@ -112,6 +112,25 @@ def _positive_number(value: object, field: str) -> float:
     return number
 
 
+def _strict_bool(value: object) -> bool:
+    # pandas may yield Python bool, numpy.bool_, or text depending on how the
+    # coverage CSV was loaded.  Do not use bool("False"), which is True.
+    if isinstance(value, bool):
+        return value
+    type_name = type(value).__name__
+    if type_name == "bool_" and str(value) in {"True", "False"}:
+        return str(value) == "True"
+    if isinstance(value, str):
+        text = value.strip().lower()
+        if text == "true":
+            return True
+        if text == "false":
+            return False
+    raise HistoricalPriceSupplementError(
+        f"has_execution_price strict boolean olmali; value={value!r}"
+    )
+
+
 def _require_columns(frame: pd.DataFrame, required: Iterable[str], name: str) -> None:
     missing = set(required) - set(frame.columns)
     if missing:
@@ -150,7 +169,12 @@ def load_borsa_thb_exact_signal_prices(path: str | Path) -> pd.DataFrame:
             raise HistoricalPriceSupplementError("THB proof row object olmali")
 
         ticker = _ticker(item.get("ticker"))
-        trade_date = pd.Timestamp(item.get("trade_date")).normalize()
+        try:
+            trade_date = pd.Timestamp(item.get("trade_date")).normalize()
+        except Exception as exc:
+            raise HistoricalPriceSupplementError("THB proof trade_date gecersiz") from exc
+        if pd.isna(trade_date):
+            raise HistoricalPriceSupplementError("THB proof trade_date bos olamaz")
         date_text = trade_date.date().isoformat()
         key = (ticker, date_text)
         if key in seen:
@@ -236,6 +260,7 @@ def fill_exact_signal_price_gaps(
     out["ticker"] = out["ticker"].map(_ticker)
     out["signal_date"] = pd.to_datetime(out["signal_date"], errors="raise").dt.normalize()
     out["trade_date"] = pd.to_datetime(out["trade_date"], errors="coerce").dt.normalize()
+    out["has_execution_price"] = out["has_execution_price"].map(_strict_bool)
 
     if out.duplicated(["signal_date", "ticker"]).any():
         raise HistoricalPriceSupplementError("coverage duplicate signal_date+ticker")
@@ -248,10 +273,11 @@ def fill_exact_signal_price_gaps(
 
     # Existing coverage rows that claim availability must already contain a
     # valid price.  This keeps the supplement from masking a corrupt Yahoo row.
-    available = out["has_execution_price"].astype(bool)
+    available = out["has_execution_price"]
     for field in ("open", "close"):
         numeric = pd.to_numeric(out.loc[available, field], errors="coerce")
-        if numeric.isna().any() or (~numeric.map(lambda x: math.isfinite(float(x)) and float(x) > 0)).any():
+        valid = numeric.map(lambda x: math.isfinite(float(x)) and float(x) > 0)
+        if numeric.isna().any() or (~valid).any():
             raise HistoricalPriceSupplementError(
                 f"coverage available row has invalid {field}"
             )
@@ -274,8 +300,7 @@ def fill_exact_signal_price_gaps(
         )
 
     # Audit/provenance columns exist only for supplemented rows.  Existing Yahoo
-    # lineage and prices remain byte-for-byte value-equivalent in their original
-    # columns.
+    # lineage and prices remain value-equivalent in their original columns.
     for col in ("execution_source", "source_url", "archive_sha256", "member", "member_sha256"):
         if col not in out.columns:
             out[col] = pd.NA
@@ -301,7 +326,7 @@ def fill_exact_signal_price_gaps(
         out.at[idx, "member"] = row.member
         out.at[idx, "member_sha256"] = row.member_sha256
 
-    remaining = int((~out["has_execution_price"].astype(bool)).sum())
+    remaining = int((~out["has_execution_price"]).sum())
     audit = PriceSupplementAudit(
         missing_before=int(missing_mask.sum()),
         supplemented=len(supp),
