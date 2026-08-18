@@ -1,0 +1,26 @@
+name: V24 Monthly Portfolio Events CI
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - 'src/analytics/monthly_total_rasyo_portfolio.py'
+      - 'tests/test_monthly_total_rasyo_portfolio.py'
+      - 'tests/test_monthly_portfolio_events.py'
+      - '.github/workflows/v24-monthly-portfolio-events-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install targeted test dependencies
+        run: python -m pip install --disable-pip-version-check pandas pytest
+      - name: Run legacy and event-accounting portfolio tests
+        run: pytest -q tests/test_monthly_total_rasyo_portfolio.py tests/test_monthly_portfolio_events.py
