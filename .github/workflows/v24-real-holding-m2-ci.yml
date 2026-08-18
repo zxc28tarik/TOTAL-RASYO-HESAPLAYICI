@@ -7,21 +7,26 @@ on:
       - 'src/analytics/historical_pit_holding_m2_replay.py'
       - 'src/analytics/historical_pit_gyo_m2_replay.py'
       - 'src/analytics/historical_pit_insurance_m2_replay.py'
+      - 'src/analytics/historical_pit_financial_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
       - 'tests/test_historical_pit_insurance_m2_replay.py'
+      - 'tests/test_historical_pit_financial_m2_replay.py'
       - '.github/workflows/v24-real-holding-m2-ci.yml'
   pull_request:
     branches: [v24-real-data-work]
     paths:
       - 'docs/V24_REAL_M2_VALIDATION.md'
       - 'docs/V24_REAL_INSURANCE_M2_VALIDATION.md'
+      - 'docs/V24_REAL_FINANCIAL_M2_VALIDATION.md'
       - 'src/analytics/historical_pit_holding_m2_replay.py'
       - 'src/analytics/historical_pit_gyo_m2_replay.py'
       - 'src/analytics/historical_pit_insurance_m2_replay.py'
+      - 'src/analytics/historical_pit_financial_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
       - 'tests/test_historical_pit_insurance_m2_replay.py'
+      - 'tests/test_historical_pit_financial_m2_replay.py'
       - '.github/workflows/v24-real-holding-m2-ci.yml'
   workflow_dispatch:
 
@@ -65,7 +70,8 @@ jobs:
           python -m pytest -q \
             tests/test_historical_pit_holding_m2_replay.py \
             tests/test_historical_pit_gyo_m2_replay.py \
-            tests/test_historical_pit_insurance_m2_replay.py
+            tests/test_historical_pit_insurance_m2_replay.py \
+            tests/test_historical_pit_financial_m2_replay.py
       - name: Full regression
         run: python -m pytest -q
       - name: BANK v4.7 regression
