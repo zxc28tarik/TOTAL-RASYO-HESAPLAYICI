@@ -11,6 +11,7 @@ on:
       - 'src/analytics/historical_price_supplement.py'
       - 'src/analytics/historical_pit_ratio_replay.py'
       - 'src/analytics/historical_pit_rsc_replay.py'
+      - 'src/analytics/historical_pit_m1_replay.py'
       - 'src/analytics/bist100_membership_history.py'
       - 'src/analytics/bist100_membership_pipeline.py'
       - 'src/analytics/bist100_periodic_events.py'
@@ -44,6 +45,7 @@ on:
       - 'tests/test_historical_price_supplement.py'
       - 'tests/test_historical_pit_ratio_replay.py'
       - 'tests/test_historical_pit_rsc_replay.py'
+      - 'tests/test_historical_pit_m1_replay.py'
       - 'tests/test_bist100_membership_history.py'
       - 'tests/test_bist100_membership_pipeline.py'
       - 'tests/test_bist100_nonperiodic_events.py'
@@ -106,6 +108,7 @@ jobs:
             tests/test_historical_price_supplement.py \
             tests/test_historical_pit_ratio_replay.py \
             tests/test_historical_pit_rsc_replay.py \
+            tests/test_historical_pit_m1_replay.py \
             tests/test_bist100_membership_history.py \
             tests/test_bist100_membership_pipeline.py \
             tests/test_bist100_nonperiodic_events.py \
@@ -173,6 +176,12 @@ jobs:
               'pit_rsc_replay': {
                   'database_read_path': False,
                   'input': 'HistoricalPitRatioReplayResult.combined_ratios',
+                  'result': 'PASS',
+              },
+              'pit_m1_replay': {
+                  'database_read_path': False,
+                  'input': 'HistoricalPitRscReplayResult.rsc_summary',
+                  'production_math': 'period_trend._slope/_trend_score/_trend_label',
                   'result': 'PASS',
               },
               'result': 'PASS',
