@@ -99,8 +99,10 @@ def test_exact_borsa_supplement_closes_all_6000_monthly_member_execution_prices_
         "price_source_ticker", "price_resolution", "has_execution_price",
     ]
     before = available_before[original_cols].copy()
+    available_keys = available_before[["signal_date", "ticker"]].copy()
+    available_keys["signal_date"] = pd.to_datetime(available_keys["signal_date"]).dt.normalize()
     after = filled.merge(
-        available_before[["signal_date", "ticker"]],
+        available_keys,
         on=["signal_date", "ticker"],
         how="inner",
     )[original_cols].copy()
