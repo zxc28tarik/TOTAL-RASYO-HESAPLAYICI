@@ -5,6 +5,8 @@ on:
     branches: [total-rasyo-production-staging]
     paths-ignore:
       - 'docs/TOTAL_RASYO_PRODUCTION_CI_EVIDENCE.json'
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -51,6 +53,7 @@ jobs:
       - name: BANK v4.7 regression
         run: make test-bank-v47 | tee bank-v47.log
       - name: Persist passing production evidence
+        if: github.event_name == 'push'
         run: |
           set -euo pipefail
           python - <<'PY'
