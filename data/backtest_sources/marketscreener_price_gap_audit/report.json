@@ -1,0 +1,88 @@
+{
+  "INVES": {
+    "requested_url": "https://uk.marketscreener.com/quote/stock/INVESTCO-HOLDING-134161490/quotes/",
+    "final_url": "https://uk.marketscreener.com/quote/stock/INVESTCO-HOLDING-134161490/quotes/",
+    "status": 403,
+    "page_sha256": "aa19bd437e454b0e9d7ae59eba0d3f06f728197fbbfb538f4c14de1a16e4e14c",
+    "length": 445,
+    "target_dates": [
+      "2022-07-01",
+      "2022-08-01",
+      "2022-09-01"
+    ],
+    "scripts": [],
+    "anchor_count": 1,
+    "anchors": [
+      {
+        "needle": "quotes",
+        "pos": 230,
+        "snippet": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;uk&#46;marketscreener&#46;com&#47;quote&#47;stock&#47;INVESTCO&#45;HOLDING&#45;134161490&#47;quotes&#47;\" on this server.<P>\nReference&#32;&#35;18&#46;f2f12417&#46;1787068268&#46;14ff5a17\n<P>https&#58;&#47;&#47;errors&#46;edgesuite&#46;net&#47;18&#46;f2f12417&#46;1787068268&#46;14ff5a17</P>\n</BODY>\n</HTML>\n"
+      }
+    ],
+    "visible_rows": []
+  },
+  "KLRHO": {
+    "requested_url": "https://www.marketscreener.com/quote/stock/KILER-HOLDING-ANONIM-SIRK-140214455/quotes/",
+    "final_url": "https://www.marketscreener.com/quote/stock/KILER-HOLDING-ANONIM-SIRK-140214455/quotes/",
+    "status": 403,
+    "page_sha256": "964cf43ca34c7cea361edebc2183e6b9d33da4fd45ca6b38c6a8c9f96a608a11",
+    "length": 463,
+    "target_dates": [
+      "2023-01-02",
+      "2023-02-01",
+      "2023-03-01",
+      "2023-04-03",
+      "2023-05-02",
+      "2023-06-01"
+    ],
+    "scripts": [],
+    "anchor_count": 1,
+    "anchors": [
+      {
+        "needle": "quotes",
+        "pos": 248,
+        "snippet": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;www&#46;marketscreener&#46;com&#47;quote&#47;stock&#47;KILER&#45;HOLDING&#45;ANONIM&#45;SIRK&#45;140214455&#47;quotes&#47;\" on this server.<P>\nReference&#32;&#35;18&#46;16a7cb17&#46;1787068269&#46;44fe7668\n<P>https&#58;&#47;&#47;errors&#46;edgesuite&#46;net&#47;18&#46;16a7cb17&#46;1787068269&#46;44fe7668</P>\n</BODY>\n</HTML>\n"
+      }
+    ],
+    "visible_rows": []
+  },
+  "ASGYO": {
+    "requested_url": "https://www.marketscreener.com/quote/stock/ASCE-GAYRIMENKUL-YATIRIM--157758987/quotes/",
+    "final_url": "https://www.marketscreener.com/quote/stock/ASCE-GAYRIMENKUL-YATIRIM--157758987/quotes/",
+    "status": 403,
+    "page_sha256": "93f6da836ede5bf9b4fbb8a4e9b7e5e1aefee8582f35ed16dd3e2c159e3b7cb2",
+    "length": 463,
+    "target_dates": [
+      "2024-01-02",
+      "2024-02-01",
+      "2024-03-01"
+    ],
+    "scripts": [],
+    "anchor_count": 1,
+    "anchors": [
+      {
+        "needle": "quotes",
+        "pos": 248,
+        "snippet": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;www&#46;marketscreener&#46;com&#47;quote&#47;stock&#47;ASCE&#45;GAYRIMENKUL&#45;YATIRIM&#45;&#45;157758987&#47;quotes&#47;\" on this server.<P>\nReference&#32;&#35;18&#46;16a7cb17&#46;1787068269&#46;44fe7781\n<P>https&#58;&#47;&#47;errors&#46;edgesuite&#46;net&#47;18&#46;16a7cb17&#46;1787068269&#46;44fe7781</P>\n</BODY>\n</HTML>\n"
+      }
+    ],
+    "visible_rows": []
+  },
+  "script_hits": {},
+  "probes": [],
+  "summary": {
+    "contract": "V24_MARKETSCREENER_PRICE_GAP_AUDIT_V1",
+    "target_row_count": 12,
+    "page_statuses": {
+      "INVES": 403,
+      "KLRHO": 403,
+      "ASGYO": 403
+    },
+    "visible_target_row_count": 0,
+    "script_hit_count": 0,
+    "probe_count": 0,
+    "accepted_exact_rows": 0,
+    "accepted": false,
+    "note": "Discovery only. Raw table cells/endpoints are evidence, not canonical prices until OPEN/CLOSE columns are proven and exact target dates parse cleanly."
+  }
+}
