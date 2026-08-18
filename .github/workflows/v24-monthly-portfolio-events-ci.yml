@@ -10,7 +10,7 @@ on:
       - '.github/workflows/v24-monthly-portfolio-events-ci.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   test:
@@ -23,4 +23,52 @@ jobs:
       - name: Install targeted test dependencies
         run: python -m pip install --disable-pip-version-check pandas pytest
       - name: Run legacy and event-accounting portfolio tests
-        run: pytest -q tests/test_monthly_total_rasyo_portfolio.py tests/test_monthly_portfolio_events.py
+        run: pytest -q tests/test_monthly_total_rasyo_portfolio.py tests/test_monthly_portfolio_events.py --junitxml=portfolio-events-junit.xml
+      - name: Persist passing evidence
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, xml.etree.ElementTree as ET
+          from pathlib import Path
+          root=ET.parse('portfolio-events-junit.xml').getroot()
+          suite=root if root.tag=='testsuite' else root.find('testsuite')
+          if suite is None:
+              raise RuntimeError('pytest junit testsuite missing')
+          tests=int(suite.attrib.get('tests',0))
+          failures=int(suite.attrib.get('failures',0))
+          errors=int(suite.attrib.get('errors',0))
+          skipped=int(suite.attrib.get('skipped',0))
+          if failures or errors or tests <= 0:
+              raise RuntimeError('targeted portfolio test evidence is not clean')
+          out={
+              'contract':'V24_MONTHLY_PORTFOLIO_EVENTS_TEST_EVIDENCE_V1',
+              'source_head_sha':os.environ['GITHUB_SHA'],
+              'tests':tests,
+              'failures':failures,
+              'errors':errors,
+              'skipped':skipped,
+              'test_files':[
+                  'tests/test_monthly_total_rasyo_portfolio.py',
+                  'tests/test_monthly_portfolio_events.py',
+              ],
+              'semantics':[
+                  'raw OPEN execution and CLOSE marking',
+                  'verified split/bonus changes held share count',
+                  'verified cash dividend enters portfolio cash',
+                  'same-day ex-date events apply before OPEN trades',
+                  'Borsa ticker-code changes migrate positions without BUY/SELL',
+                  'fractional split fails closed without cash-in-lieu contract',
+              ],
+          }
+          dst=Path('data/backtest_sources/validation/monthly_portfolio_events_ci.json')
+          dst.parent.mkdir(parents=True,exist_ok=True)
+          dst.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(out,ensure_ascii=False,indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/backtest_sources/validation/monthly_portfolio_events_ci.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'V24 evidence monthly portfolio event tests'
+            git push origin HEAD:v24-real-data-work
+          fi
