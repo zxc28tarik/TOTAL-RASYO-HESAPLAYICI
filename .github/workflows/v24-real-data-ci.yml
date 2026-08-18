@@ -9,12 +9,16 @@ on:
       - 'src/analytics/historical_backtest_corporate_action_events.py'
       - 'src/analytics/historical_backtest_signal_dates.py'
       - 'src/analytics/historical_price_supplement.py'
+      - 'src/analytics/historical_pit_ratio_replay.py'
+      - 'src/analytics/historical_pit_rsc_replay.py'
       - 'src/analytics/bist100_membership_history.py'
       - 'src/analytics/bist100_membership_pipeline.py'
       - 'src/analytics/bist100_periodic_events.py'
       - 'src/analytics/bist100_nonperiodic_events.py'
       - 'src/analytics/bist100_membership_export.py'
       - 'src/analytics/ticker_lineage.py'
+      - 'config/ratios.json'
+      - 'config/sectors.json'
       - 'scripts/inventory_historical_backtest_inputs.py'
       - 'scripts/audit_historical_price_adjustments.py'
       - 'scripts/export_historical_signal_dates.py'
@@ -38,6 +42,8 @@ on:
       - 'tests/test_historical_backtest_corporate_action_events.py'
       - 'tests/test_historical_backtest_signal_dates.py'
       - 'tests/test_historical_price_supplement.py'
+      - 'tests/test_historical_pit_ratio_replay.py'
+      - 'tests/test_historical_pit_rsc_replay.py'
       - 'tests/test_bist100_membership_history.py'
       - 'tests/test_bist100_membership_pipeline.py'
       - 'tests/test_bist100_nonperiodic_events.py'
@@ -98,6 +104,8 @@ jobs:
             tests/test_historical_backtest_corporate_action_events.py \
             tests/test_historical_backtest_signal_dates.py \
             tests/test_historical_price_supplement.py \
+            tests/test_historical_pit_ratio_replay.py \
+            tests/test_historical_pit_rsc_replay.py \
             tests/test_bist100_membership_history.py \
             tests/test_bist100_membership_pipeline.py \
             tests/test_bist100_nonperiodic_events.py \
@@ -159,6 +167,13 @@ jobs:
                   'official_borsa_thb_supplements': 12,
                   'remaining_execution_price_gaps': 0,
                   'overwrite_existing_yahoo_prices': False,
+                  'thb_schema_evolution': 'AUDITED_DYNAMIC_COLUMN_COUNT',
+              },
+              'pit_ratio_replay': {'core_and_val': 'PIT_SAFE'},
+              'pit_rsc_replay': {
+                  'database_read_path': False,
+                  'input': 'HistoricalPitRatioReplayResult.combined_ratios',
+                  'result': 'PASS',
               },
               'result': 'PASS',
           }
