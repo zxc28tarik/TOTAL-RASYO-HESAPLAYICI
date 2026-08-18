@@ -5,8 +5,10 @@ on:
     branches: [v24-real-data-work]
     paths:
       - 'src/analytics/monthly_total_rasyo_portfolio.py'
+      - 'src/analytics/historical_backtest_execution.py'
       - 'tests/test_monthly_total_rasyo_portfolio.py'
       - 'tests/test_monthly_portfolio_events.py'
+      - 'tests/test_historical_backtest_execution.py'
       - '.github/workflows/v24-monthly-portfolio-events-ci.yml'
 
 permissions:
@@ -22,8 +24,8 @@ jobs:
           python-version: '3.11'
       - name: Install targeted test dependencies
         run: python -m pip install --disable-pip-version-check pandas pytest
-      - name: Run legacy and event-accounting portfolio tests
-        run: pytest -q tests/test_monthly_total_rasyo_portfolio.py tests/test_monthly_portfolio_events.py --junitxml=portfolio-events-junit.xml
+      - name: Run legacy, event-accounting and historical-bridge tests
+        run: pytest -q tests/test_monthly_total_rasyo_portfolio.py tests/test_monthly_portfolio_events.py tests/test_historical_backtest_execution.py --junitxml=portfolio-events-junit.xml
       - name: Persist passing evidence
         run: |
           set -euo pipefail
@@ -41,7 +43,7 @@ jobs:
           if failures or errors or tests <= 0:
               raise RuntimeError('targeted portfolio test evidence is not clean')
           out={
-              'contract':'V24_MONTHLY_PORTFOLIO_EVENTS_TEST_EVIDENCE_V1',
+              'contract':'V24_MONTHLY_PORTFOLIO_EVENTS_TEST_EVIDENCE_V2',
               'source_head_sha':os.environ['GITHUB_SHA'],
               'tests':tests,
               'failures':failures,
@@ -50,6 +52,7 @@ jobs:
               'test_files':[
                   'tests/test_monthly_total_rasyo_portfolio.py',
                   'tests/test_monthly_portfolio_events.py',
+                  'tests/test_historical_backtest_execution.py',
               ],
               'semantics':[
                   'raw OPEN execution and CLOSE marking',
@@ -58,6 +61,8 @@ jobs:
                   'same-day ex-date events apply before OPEN trades',
                   'Borsa ticker-code changes migrate positions without BUY/SELL',
                   'fractional split fails closed without cash-in-lieu contract',
+                  'validated BacktestInputBundle passes verified events into execution',
+                  'applied corporate actions and ticker changes are returned as audit frames',
               ],
           }
           dst=Path('data/backtest_sources/validation/monthly_portfolio_events_ci.json')
