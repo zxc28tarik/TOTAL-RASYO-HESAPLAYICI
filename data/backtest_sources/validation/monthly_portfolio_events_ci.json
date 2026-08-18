@@ -1,0 +1,20 @@
+{
+  "contract": "V24_MONTHLY_PORTFOLIO_EVENTS_TEST_EVIDENCE_V1",
+  "source_head_sha": "43f6f3960d5b9c5983518286c455cddb34e86214",
+  "tests": 24,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "test_files": [
+    "tests/test_monthly_total_rasyo_portfolio.py",
+    "tests/test_monthly_portfolio_events.py"
+  ],
+  "semantics": [
+    "raw OPEN execution and CLOSE marking",
+    "verified split/bonus changes held share count",
+    "verified cash dividend enters portfolio cash",
+    "same-day ex-date events apply before OPEN trades",
+    "Borsa ticker-code changes migrate positions without BUY/SELL",
+    "fractional split fails closed without cash-in-lieu contract"
+  ]
+}
