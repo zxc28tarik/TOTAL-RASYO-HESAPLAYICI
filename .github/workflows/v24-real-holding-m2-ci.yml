@@ -1,11 +1,13 @@
-name: V24 Real HOLDING M2 CI
+name: V24 Real HOLDING-GYO M2 CI
 
 on:
   push:
     branches: [v24-real-data-work]
     paths:
       - 'src/analytics/historical_pit_holding_m2_replay.py'
+      - 'src/analytics/historical_pit_gyo_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
+      - 'tests/test_historical_pit_gyo_m2_replay.py'
       - '.github/workflows/v24-real-holding-m2-ci.yml'
   workflow_dispatch:
 
@@ -44,8 +46,11 @@ jobs:
           python -m pip install -r requirements.txt pytest
       - name: Apply schema
         run: make core migrate
-      - name: HOLDING PIT M2 contract
-        run: python -m pytest -q tests/test_historical_pit_holding_m2_replay.py
+      - name: HOLDING and GYO PIT M2 contracts
+        run: |
+          python -m pytest -q \
+            tests/test_historical_pit_holding_m2_replay.py \
+            tests/test_historical_pit_gyo_m2_replay.py
       - name: Full regression
         run: python -m pytest -q
       - name: BANK v4.7 regression
