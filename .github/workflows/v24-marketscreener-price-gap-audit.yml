@@ -1,0 +1,208 @@
+name: V24 MarketScreener Price Gap Audit
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-marketscreener-price-gap-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 pandas
+      - name: Inspect quote pages and historical endpoints
+        run: |
+          set -euo pipefail
+          rm -rf artifacts_marketscreener_gap; mkdir -p artifacts_marketscreener_gap
+          python - <<'PY'
+          from __future__ import annotations
+          import hashlib,json,re,time
+          from pathlib import Path
+          from urllib.parse import urljoin
+          import requests
+          from bs4 import BeautifulSoup
+          import pandas as pd
+
+          TARGETS={
+            'INVES':{
+              'url':'https://uk.marketscreener.com/quote/stock/INVESTCO-HOLDING-134161490/quotes/',
+              'dates':['2022-07-01','2022-08-01','2022-09-01'],
+            },
+            'KLRHO':{
+              'url':'https://www.marketscreener.com/quote/stock/KILER-HOLDING-ANONIM-SIRK-140214455/quotes/',
+              'dates':['2023-01-02','2023-02-01','2023-03-01','2023-04-03','2023-05-02','2023-06-01'],
+            },
+            'ASGYO':{
+              'url':'https://www.marketscreener.com/quote/stock/ASCE-GAYRIMENKUL-YATIRIM--157758987/quotes/',
+              'dates':['2024-01-02','2024-02-01','2024-03-01'],
+            },
+          }
+          s=requests.Session()
+          s.headers.update({
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/151 Safari/537.36',
+            'Accept-Language':'en-GB,en;q=0.9,tr;q=0.8',
+            'Accept':'text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8',
+          })
+
+          def norm(text):
+              return re.sub(r'\s+',' ',str(text or '')).strip()
+
+          def parse_visible_table(html,ticker,target_dates,source_url,sha):
+              soup=BeautifulSoup(html,'html.parser')
+              rows=[]
+              for table in soup.find_all('table'):
+                  headers=[norm(x.get_text(' ',strip=True)).lower() for x in table.find_all('th')]
+                  header_text=' '.join(headers)
+                  if not (('opening' in header_text or 'open' in header_text) and ('end-of-day' in header_text or 'close' in header_text)):
+                      continue
+                  for tr in table.find_all('tr'):
+                      cells=[norm(x.get_text(' ',strip=True)) for x in tr.find_all(['td','th'])]
+                      if len(cells)<4: continue
+                      day=None
+                      for c in cells:
+                          try:
+                              d=pd.to_datetime(c,dayfirst=False,errors='raise').date().isoformat()
+                              if d in target_dates: day=d; break
+                          except Exception: pass
+                      if not day: continue
+                      rows.append({'ticker':ticker,'trade_date':day,'cells':cells,'source_url':source_url,'source_sha256':sha,'mode':'VISIBLE_TABLE'})
+              return rows
+
+          report={}; exact=[]
+          script_urls=set()
+          for ticker,cfg in TARGETS.items():
+              r=s.get(cfg['url'],timeout=45,allow_redirects=True)
+              sha=hashlib.sha256(r.content).hexdigest()
+              html=r.text
+              Path(f'artifacts_marketscreener_gap/{ticker}_page.html').write_text(html,encoding='utf-8')
+              soup=BeautifulSoup(html,'html.parser')
+              scripts=[]
+              for tag in soup.find_all('script'):
+                  src=tag.get('src')
+                  if src:
+                      full=urljoin(r.url,src); scripts.append(full); script_urls.add(full)
+              anchors=[]
+              low=html.lower()
+              for needle in ['historical quotes','opening','end-of-day','history','historical','quotes','ajax','api/','instrument','security']:
+                  start=0
+                  while True:
+                      p=low.find(needle.lower(),start)
+                      if p<0: break
+                      anchors.append({'needle':needle,'pos':p,'snippet':html[max(0,p-700):min(len(html),p+1800)]})
+                      start=p+len(needle)
+              visible=parse_visible_table(html,ticker,set(cfg['dates']),r.url,sha)
+              report[ticker]={
+                'requested_url':cfg['url'],'final_url':r.url,'status':r.status_code,
+                'page_sha256':sha,'length':len(r.content),'target_dates':cfg['dates'],
+                'scripts':scripts,'anchor_count':len(anchors),'anchors':anchors[:80],
+                'visible_rows':visible,
+              }
+
+          js_hits={}
+          for i,url in enumerate(sorted(script_urls)):
+              try:
+                  rr=s.get(url,timeout=45,headers={'Referer':'https://www.marketscreener.com/'})
+                  if rr.status_code!=200: continue
+                  text=rr.text
+                  hits=[]
+                  for pat in [
+                      r'https?://[^\"\'\s]{0,220}(?:histor|quote)[^\"\'\s]{0,220}',
+                      r'/[^\"\'\s]{0,160}(?:histor|quote)[^\"\'\s]{0,220}',
+                      r'(?:historical|history|quotation|quotes).{0,500}',
+                      r'(?:ajax|api).{0,500}',
+                  ]:
+                      hits.extend(re.findall(pat,text,re.I))
+                  if hits:
+                      js_hits[url]=list(dict.fromkeys(str(x) for x in hits))[:100]
+                      Path(f'artifacts_marketscreener_gap/script_{i}.js').write_text(text,encoding='utf-8')
+              except Exception as exc:
+                  js_hits[url]=[f'FETCH_ERROR:{exc!r}']
+          report['script_hits']=js_hits
+
+          # Probe discovered absolute/relative URL-like candidates from page anchors and JS.
+          candidates=[]
+          for ticker,cfg in TARGETS.items():
+              blob='\n'.join(a['snippet'] for a in report[ticker]['anchors'])
+              for m in re.findall(r'(?:https?://[^\"\'<>\s]+|/[A-Za-z0-9_./?=&%:-]+)',blob):
+                  if any(k in m.lower() for k in ('histor','quote','ajax','api')):
+                      candidates.append((ticker,urljoin(report[ticker]['final_url'],m)))
+          for jsurl,hits in js_hits.items():
+              for h in hits:
+                  for m in re.findall(r'(?:https?://[^\"\'<>\s]+|/[A-Za-z0-9_./?=&%:-]+)',str(h)):
+                      if any(k in m.lower() for k in ('histor','quote','ajax','api')):
+                          for ticker in TARGETS:
+                              candidates.append((ticker,urljoin(TARGETS[ticker]['url'],m)))
+
+          probes=[]
+          seen=set()
+          for ticker,url in candidates[:200]:
+              key=(ticker,url)
+              if key in seen: continue
+              seen.add(key)
+              try:
+                  rr=s.get(url,timeout=30,headers={'Referer':TARGETS[ticker]['url'],'X-Requested-With':'XMLHttpRequest'})
+                  item={'ticker':ticker,'url':url,'status':rr.status_code,'content_type':rr.headers.get('Content-Type'),'length':len(rr.content),'sha256':hashlib.sha256(rr.content).hexdigest(),'prefix':rr.text[:400]}
+                  if rr.status_code==200 and len(rr.content)>0:
+                      ctype=str(rr.headers.get('Content-Type') or '').lower()
+                      if 'json' in ctype:
+                          try:
+                              obj=rr.json(); item['json']=obj
+                          except Exception as exc: item['json_error']=repr(exc)
+                      else:
+                          rows=parse_visible_table(rr.text,ticker,set(TARGETS[ticker]['dates']),url,item['sha256'])
+                          if rows: item['rows']=rows
+                  probes.append(item)
+                  time.sleep(.15)
+              except Exception as exc:
+                  probes.append({'ticker':ticker,'url':url,'error':repr(exc)})
+          report['probes']=probes
+
+          # Convert any rows that have an explicit parsed structured representation.
+          # Visible page tables are kept as raw cells until column order is proven.
+          summary={
+            'contract':'V24_MARKETSCREENER_PRICE_GAP_AUDIT_V1',
+            'target_row_count':12,
+            'page_statuses':{t:report[t]['status'] for t in TARGETS},
+            'visible_target_row_count':sum(len(report[t]['visible_rows']) for t in TARGETS),
+            'script_hit_count':len(js_hits),
+            'probe_count':len(probes),
+            'accepted_exact_rows':0,
+            'accepted':False,
+            'note':'Discovery only. Raw table cells/endpoints are evidence, not canonical prices until OPEN/CLOSE columns are proven and exact target dates parse cleanly.',
+          }
+          report['summary']=summary
+          Path('artifacts_marketscreener_gap/report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          Path('artifacts_marketscreener_gap/summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          PY
+      - name: Hash evidence
+        run: find artifacts_marketscreener_gap -maxdepth 1 -type f -print0 | sort -z | xargs -0 sha256sum > artifacts_marketscreener_gap/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v24-marketscreener-price-gap-audit
+          path: artifacts_marketscreener_gap/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Persist compact report
+        run: |
+          set -euo pipefail
+          dst='data/backtest_sources/marketscreener_price_gap_audit'; rm -rf "$dst"; mkdir -p "$dst"
+          cp artifacts_marketscreener_gap/report.json "$dst/"
+          cp artifacts_marketscreener_gap/summary.json "$dst/"
+          cp artifacts_marketscreener_gap/SHA256SUMS "$dst/"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$dst"
+          if ! git diff --cached --quiet; then
+            git commit -m 'V24 data audit MarketScreener exact historical price gaps'
+            git push origin HEAD:v24-real-data-work
+          fi
