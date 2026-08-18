@@ -47,6 +47,25 @@ def test_official_thb_proof_parses_exact_12_signal_prices_by_named_bilingual_col
     assert float(inves["close"]) == pytest.approx(37.14)
 
 
+def test_official_thb_proof_explicitly_supports_audited_56_to_57_column_schema_evolution():
+    payload = json.loads(PROOF.read_text(encoding="utf-8"))
+    counts = {
+        (row["ticker"], row["trade_date"]): (
+            row["first_line_field_count"], row["target_field_count"]
+        )
+        for row in payload["rows"]
+    }
+
+    assert counts[("INVES", "2022-07-01")] == (56, 56)
+    assert counts[("KLRHO", "2023-01-02")] == (56, 56)
+    assert counts[("ASGYO", "2024-01-02")] == (57, 57)
+
+    frame = _supplement()
+    asgyo = frame.set_index(["ticker", "trade_date"]).loc[("ASGYO", pd.Timestamp("2024-01-02"))]
+    assert float(asgyo["open"]) == pytest.approx(14.52)
+    assert float(asgyo["close"]) == pytest.approx(14.70)
+
+
 def test_official_thb_loader_fails_closed_if_bilingual_open_semantics_are_mutated(tmp_path: Path):
     payload = json.loads(PROOF.read_text(encoding="utf-8"))
     payload["rows"][0]["first_lines"][1] = payload["rows"][0]["first_lines"][1].replace(
@@ -56,6 +75,32 @@ def test_official_thb_loader_fails_closed_if_bilingual_open_semantics_are_mutate
     mutated.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
 
     with pytest.raises(HistoricalPriceSupplementError, match="bilingual semantic mismatch"):
+        load_borsa_thb_exact_signal_prices(mutated)
+
+
+def test_official_thb_loader_fails_closed_if_target_row_field_count_no_longer_matches_headers(tmp_path: Path):
+    payload = json.loads(PROOF.read_text(encoding="utf-8"))
+    row = next(r for r in payload["rows"] if r["ticker"] == "ASGYO" and r["trade_date"] == "2024-01-02")
+    fields = row["target_row"].split(";")
+    assert len(fields) == 57
+    row["target_row"] = ";".join(fields[:-1])
+    row["target_field_count"] = 56
+    mutated = tmp_path / "mismatched-row.json"
+    mutated.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+
+    with pytest.raises(HistoricalPriceSupplementError, match="header/target field count mismatch"):
+        load_borsa_thb_exact_signal_prices(mutated)
+
+
+def test_official_thb_loader_fails_closed_if_recorded_schema_metadata_is_mutated(tmp_path: Path):
+    payload = json.loads(PROOF.read_text(encoding="utf-8"))
+    row = next(r for r in payload["rows"] if r["ticker"] == "ASGYO" and r["trade_date"] == "2024-01-02")
+    assert row["first_line_field_count"] == 57
+    row["first_line_field_count"] = 56
+    mutated = tmp_path / "mismatched-metadata.json"
+    mutated.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+
+    with pytest.raises(HistoricalPriceSupplementError, match="first_line_field_count proof mismatch"):
         load_borsa_thb_exact_signal_prices(mutated)
 
 
