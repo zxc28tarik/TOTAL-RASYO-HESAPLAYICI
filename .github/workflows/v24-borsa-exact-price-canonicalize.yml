@@ -44,13 +44,22 @@ jobs:
               header=next(csv.reader([first[0]],delimiter=';'))
               eng=next(csv.reader([first[1]],delimiter=';'))
               values=next(csv.reader([item['target_row']],delimiter=';'))
-              if len(header)!=56 or len(eng)!=56 or len(values)!=56:
-                  raise RuntimeError(f"unexpected THB field count for {item['ticker']} {item['trade_date']}")
+              field_count=len(header)
+              if field_count < 4 or len(eng)!=field_count or len(values)!=field_count:
+                  raise RuntimeError(
+                      f"THB header/target field count mismatch for {item['ticker']} {item['trade_date']}: "
+                      f"tr={field_count} en={len(eng)} target={len(values)}"
+                  )
+              recorded_header=item.get('first_line_field_count')
+              recorded_target=item.get('target_field_count')
+              if recorded_header is not None and recorded_header!=field_count:
+                  raise RuntimeError('THB first_line_field_count proof mismatch')
+              if recorded_target is not None and recorded_target!=len(values):
+                  raise RuntimeError('THB target_field_count proof mismatch')
               required=['TARIH','ISLEM  KODU','ACILIS FIYATI','KAPANIS FIYATI']
               for name in required:
                   if name not in header:
                       raise RuntimeError(f'missing official THB column {name}')
-              # Lock the bilingual semantic mapping, not just field positions.
               semantics={
                   'TARIH':'TRADE DATE',
                   'ISLEM  KODU':'INSTRUMENT SERIES CODE',
