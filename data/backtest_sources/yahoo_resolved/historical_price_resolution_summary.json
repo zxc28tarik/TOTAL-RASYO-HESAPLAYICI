@@ -1,0 +1,42 @@
+{
+  "contract": "V24_HISTORICAL_PRICE_RESOLUTION_V1",
+  "discovery_contract": "V24_HISTORICAL_MEMBER_YAHOO_DISCOVERY_V2",
+  "discovery_summary_sha256": "7f5276ca4e6cf33c9b5c6d5e6a15a78265ab820c24daacd2d3e66515dd269241",
+  "direct_price_rows": 270038,
+  "resolved_price_rows": 271267,
+  "original_missing_tickers": [
+    "EFORC",
+    "IPEKE",
+    "KERVT",
+    "KOZAA",
+    "KOZAL"
+  ],
+  "successor_map": {
+    "KERVT": "BESLR",
+    "EFORC": "EFOR",
+    "IPEKE": "TRENJ",
+    "KOZAA": "TRMET",
+    "KOZAL": "TRALT"
+  },
+  "supplemental_successors": [
+    "BESLR"
+  ],
+  "alias_recovered_rows": {
+    "EFORC": 333,
+    "IPEKE": 1350,
+    "KERVT": 1229,
+    "KOZAA": 1350,
+    "KOZAL": 1350
+  },
+  "unresolved_tickers": [],
+  "monthly_membership_rows": 6000,
+  "monthly_member_signal_price_rows_present": 5988,
+  "monthly_member_signal_price_rows_missing": 12,
+  "monthly_member_signal_price_missing_tickers": [
+    "ASGYO",
+    "INVES",
+    "KLRHO"
+  ],
+  "workflow_head_sha": "e6536979518f95a183528ed279e44f34d7ad91e5",
+  "semantics": "No date shifting or forward fill. Old-code prices are successor Yahoo rows strictly before Borsa effective_date."
+}
