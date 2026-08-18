@@ -16,7 +16,11 @@ from src.analytics.historical_pit_rsc_replay import HistoricalPitRscReplayResult
 ANALYSIS = datetime(2025, 1, 2, 7, 0, tzinfo=timezone.utc)
 
 
-def _rsc(periods: int = 8) -> HistoricalPitRscReplayResult:
+def _rsc(
+    periods: int = 8,
+    *,
+    analysis_at: datetime = ANALYSIS,
+) -> HistoricalPitRscReplayResult:
     dates = pd.date_range("2023-03-31", periods=periods, freq="QE")
     rows = []
     for i, pe in enumerate(dates):
@@ -33,7 +37,7 @@ def _rsc(periods: int = 8) -> HistoricalPitRscReplayResult:
             }
         )
     return HistoricalPitRscReplayResult(
-        analysis_at=ANALYSIS,
+        analysis_at=analysis_at,
         tickers=("AAA",),
         ratio_scores=pd.DataFrame(),
         rsc_summary=pd.DataFrame(rows),
@@ -66,11 +70,16 @@ def test_historical_m1_reproduces_production_8q_quality_trend_math():
 
 
 def test_historical_m1_uses_only_latest_eight_financial_periods():
-    replay = _rsc(periods=10)
-    result = run_historical_pit_m1_replay(replay, asof_date="2025-01-02")
+    replay = _rsc(
+        periods=10,
+        analysis_at=datetime(2025, 7, 1, 7, 0, tzinfo=timezone.utc),
+    )
+    result = run_historical_pit_m1_replay(replay, asof_date="2025-07-01")
     row = result.period_comparison.iloc[0]
     assert int(row["period_count"]) == 8
     assert pd.Timestamp(row["latest_period_end"]) == pd.Timestamp("2025-06-30")
+    assert float(row["score_latest"]) == pytest.approx(12.0)
+    assert float(row["score_prev"]) == pytest.approx(11.0)
 
 
 def test_historical_m1_rejects_two_versions_of_same_ticker_period():
