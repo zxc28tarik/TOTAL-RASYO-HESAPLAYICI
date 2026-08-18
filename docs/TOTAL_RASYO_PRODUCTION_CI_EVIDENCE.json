@@ -1,6 +1,6 @@
 {
   "contract": "TOTAL_RASYO_PRODUCTION_CI_V1",
-  "tested_commit_sha": "e23ab774128a350402e0c29eb089902b7b0e970c",
+  "tested_commit_sha": "80ddac50f61d156c7673a4ecf26c06cc3d71eef4",
   "full_regression": {
     "tests": 1482,
     "failures": 0,
