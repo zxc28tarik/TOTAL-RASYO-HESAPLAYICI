@@ -1,0 +1,9 @@
+{
+  "contract": "V24_BORSA_EXACT_PRICE_GAP_DISCOVERY_V1",
+  "path_contract": "/data/thb/YYYY/AA/ + thbYYYYAAGGS.zip",
+  "target_count": 12,
+  "valid_archive_count": 12,
+  "target_days_with_valid_archive": 12,
+  "ticker_hit_count": 19,
+  "target_days_with_ticker_hit": 12
+}
