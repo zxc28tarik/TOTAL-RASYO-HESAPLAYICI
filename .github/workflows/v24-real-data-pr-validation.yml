@@ -1,0 +1,82 @@
+name: V24 Real Data PR Validation
+
+on:
+  pull_request:
+    branches: [v24-real-data-work]
+    paths:
+      - 'src/analytics/**'
+      - 'tests/**'
+      - 'config/ratios.json'
+      - 'config/sectors.json'
+      - 'data/backtest_sources/**'
+      - '.github/workflows/v24-real-data-pr-validation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: total_rasyo_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres -d total_rasyo_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: localhost
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: total_rasyo_test
+      TOTAL_RASYO_TEST_DSN: postgresql://postgres:postgres@localhost:5432/total_rasyo_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Apply schema
+        run: make core migrate
+      - name: V24 real-data targeted contracts including PIT M1
+        run: |
+          set -o pipefail
+          python -m pytest -q --junitxml=v24-real-targeted.xml \
+            tests/test_historical_backtest_inventory.py \
+            tests/test_historical_backtest_inventory_db_live.py \
+            tests/test_historical_backtest_corporate_actions.py \
+            tests/test_historical_backtest_corporate_action_events.py \
+            tests/test_historical_backtest_signal_dates.py \
+            tests/test_historical_price_supplement.py \
+            tests/test_historical_pit_ratio_replay.py \
+            tests/test_historical_pit_rsc_replay.py \
+            tests/test_historical_pit_m1_replay.py \
+            tests/test_bist100_membership_history.py \
+            tests/test_bist100_membership_pipeline.py \
+            tests/test_bist100_nonperiodic_events.py \
+            tests/test_bist100_membership_export.py \
+            tests/test_ticker_lineage.py \
+            tests/test_v24_real_bist100_periodic_events_source.py \
+            tests/test_v24_real_minimum_wage_source.py \
+            tests/test_v24_real_historical_universe_source_manifest.py \
+            tests/test_v24_real_xu100_signal_dates_source.py \
+            tests/test_v24_real_bist100_snapshot_source.py | tee v24-real-targeted.log
+      - name: Full regression
+        run: |
+          set -o pipefail
+          python -m pytest -q --junitxml=v24-real-full.xml | tee v24-real-full.log
+      - name: BANK v4.7 regression
+        run: |
+          set -o pipefail
+          make test-bank-v47 | tee v24-real-bank.log
