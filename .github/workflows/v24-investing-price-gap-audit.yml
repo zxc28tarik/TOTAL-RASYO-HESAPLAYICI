@@ -1,0 +1,193 @@
+name: V24 Investing Price Gap Audit
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-investing-price-gap-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 pandas
+      - name: Discover instrument ids and probe historical API
+        run: |
+          set -euo pipefail
+          rm -rf artifacts_investing_gap; mkdir -p artifacts_investing_gap
+          python - <<'PY'
+          from __future__ import annotations
+          import hashlib,json,re,time
+          from pathlib import Path
+          from urllib.parse import urlparse
+          import requests
+          import pandas as pd
+
+          TARGETS={
+            'INVES':{
+              'url':'https://tr.investing.com/equities/investco-holding-as-historical-data',
+              'start':'2022-07-01','end':'2022-09-02',
+              'dates':['2022-07-01','2022-08-01','2022-09-01'],
+            },
+            'KLRHO':{
+              'url':'https://tr.investing.com/equities/kiler-holding-as-historical-data',
+              'start':'2023-01-02','end':'2023-06-02',
+              'dates':['2023-01-02','2023-02-01','2023-03-01','2023-04-03','2023-05-02','2023-06-01'],
+            },
+            'ASGYO':{
+              'url':'https://tr.investing.com/equities/asce-gayrimenkul-yatirim-ortakligi-historical-data',
+              'start':'2024-01-02','end':'2024-03-02',
+              'dates':['2024-01-02','2024-02-01','2024-03-01'],
+            },
+          }
+          s=requests.Session()
+          s.headers.update({
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/151 Safari/537.36',
+            'Accept-Language':'tr-TR,tr;q=0.9,en;q=0.8',
+            'Accept':'text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8',
+          })
+
+          id_patterns=[
+            r'pair_ID\s*[:=]\s*["\']?(\d+)',
+            r'pairId["\']?\s*[:=]\s*["\']?(\d+)',
+            r'pair_id["\']?\s*[:=]\s*["\']?(\d+)',
+            r'data-pair-id=["\'](\d+)',
+            r'instrumentId["\']?\s*[:=]\s*["\']?(\d+)',
+            r'instrument_id["\']?\s*[:=]\s*["\']?(\d+)',
+            r'financialdata/historical/(\d+)',
+          ]
+
+          report={}
+          all_rows=[]
+          for ticker,cfg in TARGETS.items():
+              page=s.get(cfg['url'],timeout=45)
+              page_sha=hashlib.sha256(page.content).hexdigest()
+              html=page.text
+              Path(f'artifacts_investing_gap/{ticker}_page.html').write_text(html,encoding='utf-8')
+              ids=[]
+              for pat in id_patterns:
+                  ids.extend(re.findall(pat,html,re.I))
+              ids=list(dict.fromkeys(str(x) for x in ids))
+
+              probes=[]
+              rows_for_ticker=[]
+              for iid in ids[:20]:
+                  candidates=[
+                    f'https://api.investing.com/api/financialdata/historical/{iid}?start-date={cfg["start"]}&end-date={cfg["end"]}&interval=P1D&time-frame=Daily',
+                    f'https://api.investing.com/api/financialdata/historical/{iid}?start-date={cfg["start"]}&end-date={cfg["end"]}&interval=P1D',
+                  ]
+                  for api_url in candidates:
+                      try:
+                          rr=s.get(api_url,headers={'Referer':cfg['url'],'Origin':'https://tr.investing.com','Domain-Id':'tr'},timeout=45)
+                          item={'instrument_id':iid,'url':api_url,'status':rr.status_code,'content_type':rr.headers.get('Content-Type'),'length':len(rr.content),'sha256':hashlib.sha256(rr.content).hexdigest(),'prefix':rr.text[:300]}
+                          if rr.status_code==200:
+                              try:
+                                  obj=rr.json(); item['json_type']=type(obj).__name__
+                                  Path(f'artifacts_investing_gap/{ticker}_{iid}.json').write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+                                  # API commonly returns {data:[{direction,rowDate,open_raw,high_raw,low_raw,last_close_raw,...}]}
+                                  data=obj.get('data',[]) if isinstance(obj,dict) else obj if isinstance(obj,list) else []
+                                  for row in data:
+                                      if not isinstance(row,dict): continue
+                                      raw_date=row.get('rowDateRaw') or row.get('rowDate') or row.get('date')
+                                      try:
+                                          day=pd.to_datetime(raw_date,unit='s' if isinstance(raw_date,(int,float)) else None).date().isoformat()
+                                      except Exception:
+                                          try: day=pd.to_datetime(raw_date).date().isoformat()
+                                          except Exception: continue
+                                      if day not in cfg['dates']: continue
+                                      def pick(*names):
+                                          for name in names:
+                                              if name in row and row[name] is not None: return row[name]
+                                          return None
+                                      out={
+                                        'ticker':ticker,'trade_date':day,'instrument_id':iid,
+                                        'open':pick('open_raw','open','Open'),
+                                        'high':pick('high_raw','high','High'),
+                                        'low':pick('low_raw','low','Low'),
+                                        'close':pick('last_close_raw','last_close','close','price','Price'),
+                                        'volume':pick('volume_raw','volume','Vol.'),
+                                        'source_url':api_url,'source_sha256':item['sha256'],
+                                      }
+                                      if out['open'] is not None and out['close'] is not None:
+                                          rows_for_ticker.append(out)
+                              except Exception as exc:
+                                  item['json_error']=repr(exc)
+                          probes.append(item)
+                      except Exception as exc:
+                          probes.append({'instrument_id':iid,'url':api_url,'error':repr(exc)})
+                      time.sleep(.3)
+              # de-duplicate identical date values; conflicting values remain explicit failure below.
+              report[ticker]={
+                'page_url':cfg['url'],'page_status':page.status_code,'page_sha256':page_sha,
+                'instrument_ids':ids,'probes':probes,'target_dates':cfg['dates'],
+                'rows_found':rows_for_ticker,
+              }
+              all_rows.extend(rows_for_ticker)
+
+          df=pd.DataFrame(all_rows)
+          if not df.empty:
+              # Multiple successful endpoint variants must agree exactly for a date.
+              value_cols=['open','high','low','close']
+              conflicts=[]
+              chosen=[]
+              for (ticker,day),g in df.groupby(['ticker','trade_date']):
+                  normalized=g[value_cols].astype(str).drop_duplicates()
+                  if len(normalized)!=1:
+                      conflicts.append({'ticker':ticker,'trade_date':day,'rows':g.to_dict('records')})
+                  else:
+                      chosen.append(g.iloc[0].to_dict())
+              if conflicts:
+                  report['conflicts']=conflicts
+              outdf=pd.DataFrame(chosen)
+          else:
+              outdf=pd.DataFrame(columns=['ticker','trade_date','open','high','low','close','volume','source_url','source_sha256','instrument_id'])
+          outdf.to_csv('artifacts_investing_gap/exact_gap_prices.csv',index=False)
+          expected={(t,d) for t,cfg in TARGETS.items() for d in cfg['dates']}
+          got={(str(r.ticker),str(r.trade_date)) for r in outdf.itertuples(index=False)}
+          missing=sorted(expected-got)
+          summary={
+            'contract':'V24_INVESTING_PRICE_GAP_AUDIT_V1',
+            'target_row_count':12,
+            'exact_rows_found':len(got),
+            'missing_pairs':[{'ticker':t,'trade_date':d} for t,d in missing],
+            'conflict_count':len(report.get('conflicts',[])),
+            'accepted':len(got)==12 and not report.get('conflicts'),
+            'note':'Secondary-source gap audit only. No interpolation, date shifting or forward fill.',
+          }
+          report['summary']=summary
+          Path('artifacts_investing_gap/report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          Path('artifacts_investing_gap/summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          # Discovery/audit may legitimately fail to retrieve rows; do not fabricate.
+          PY
+      - name: Hash audit evidence
+        run: find artifacts_investing_gap -maxdepth 1 -type f -print0 | sort -z | xargs -0 sha256sum > artifacts_investing_gap/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v24-investing-price-gap-audit
+          path: artifacts_investing_gap/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Persist compact audit
+        run: |
+          set -euo pipefail
+          dst='data/backtest_sources/investing_price_gap_audit'; rm -rf "$dst"; mkdir -p "$dst"
+          cp artifacts_investing_gap/report.json "$dst/"
+          cp artifacts_investing_gap/summary.json "$dst/"
+          cp artifacts_investing_gap/exact_gap_prices.csv "$dst/"
+          cp artifacts_investing_gap/SHA256SUMS "$dst/"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$dst"
+          if ! git diff --cached --quiet; then
+            git commit -m 'V24 data audit Investing exact historical price gaps'
+            git push origin HEAD:v24-real-data-work
+          fi
