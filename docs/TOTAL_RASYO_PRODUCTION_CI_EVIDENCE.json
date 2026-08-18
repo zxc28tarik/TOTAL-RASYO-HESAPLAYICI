@@ -1,0 +1,17 @@
+{
+  "contract": "TOTAL_RASYO_PRODUCTION_CI_V1",
+  "tested_commit_sha": "e23ab774128a350402e0c29eb089902b7b0e970c",
+  "full_regression": {
+    "tests": 1482,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "bank_v47": {
+    "passed": 277,
+    "xfailed": 1
+  },
+  "schema_migration": "PASSED",
+  "result": "PASS",
+  "production_boundary": "v24-real-data-work and V24-G readiness are not promoted by this snapshot"
+}
