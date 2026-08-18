@@ -1,0 +1,344 @@
+{
+  "contract": "V24_BORSA_BULLETIN_PATH_DISCOVERY_V1",
+  "registry_url": "https://borsaistanbul.com/files/DataFilePaths.zip",
+  "registry_sha256": "3fe49eaaf3a2787e7b19040f5340856931d4bbdf63aaf01b035f2d86855029ed",
+  "extracted_files": [
+    "extracted/VerilerDosyaIsimleri.xlsx",
+    "extracted/__MACOSX/._VerilerDosyaIsimleri.xlsx"
+  ],
+  "match_count": 24,
+  "path_candidates": [
+    "/data/tfd/YYYY/AA/",
+    "tfdYYYYAAGG.zip",
+    "/data/tgk/YYYY/AA/",
+    "tgkYYYYAAGGS.zip",
+    "/data/thb/YYYY/AA/",
+    "thbYYYYAAGGS.zip",
+    "/data/ttb/YYYY/AA/",
+    "ttbYYYYAAGG3.zip",
+    "ttbYYYYAAGG1.zip",
+    "/data/tub/YYYY/AA/",
+    "tubYYYYAAGG.zip",
+    "/datum/",
+    "rekor.zip",
+    "ttbYYYYAAGG2.zip",
+    "/data/bappiyasaozet/",
+    "piyasaozet_YYYYAAGG.zip",
+    "/data/bapbultenozet/",
+    "bultenozet_YYYYAAGG.zip",
+    "/data/kmpbltn/YYYY/AA/",
+    "KMPYYYYAAGG.zip",
+    "/data/ehb/YYYY/AA/",
+    "ehbYYYYAAGGS.zip",
+    "/data/etb/YYYY/AA/",
+    "etbYYYYAAGG1.zip",
+    "/data/eub/YYYY/AA/",
+    "eubYYYYAAGG.zip",
+    "/data/capitalraise/",
+    "capitalraiseYYYY.zip",
+    "/data/NIPGB/",
+    "NIPGBYYYY.zip",
+    "TopHacMikSozGIP_eng.zip",
+    "viop.zip",
+    "etbYYYYAAGG2.zip",
+    "/data/kmtpbltn/YYYY/AA",
+    "PMDYYYYAAGG.zip"
+  ],
+  "matches": [
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 7,
+      "cells": [
+        "",
+        "Borçlanma Araçları Piyasası ve Yurt Dışı Sermaye Piyasası Araçları Piyasası Finansal Araçlar Değerleme Bülteni",
+        "/data/tfd/YYYY/AA/",
+        "tfdYYYYAAGG.zip"
+      ],
+      "joined": " | Borçlanma Araçları Piyasası ve Yurt Dışı Sermaye Piyasası Araçları Piyasası Finansal Araçlar Değerleme Bülteni | /data/tfd/YYYY/AA/ | tfdYYYYAAGG.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 8,
+      "cells": [
+        "",
+        "Geçici Kapanış Bültenleri",
+        "/data/tgk/YYYY/AA/",
+        "tgkYYYYAAGGS.zip"
+      ],
+      "joined": " | Geçici Kapanış Bültenleri | /data/tgk/YYYY/AA/ | tgkYYYYAAGGS.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 9,
+      "cells": [
+        "",
+        "Bülten Verileri",
+        "/data/thb/YYYY/AA/",
+        "thbYYYYAAGGS.zip"
+      ],
+      "joined": " | Bülten Verileri | /data/thb/YYYY/AA/ | thbYYYYAAGGS.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 12,
+      "cells": [
+        "",
+        "Borçlanma Araçları Piyasası Günlük Bültenleri",
+        "/data/ttb/YYYY/AA/",
+        "ttbYYYYAAGG3.zip"
+      ],
+      "joined": " | Borçlanma Araçları Piyasası Günlük Bültenleri | /data/ttb/YYYY/AA/ | ttbYYYYAAGG3.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 13,
+      "cells": [
+        "",
+        "Borçlanma Araçları Piyasası Saat 14:00 Geçici Bültenleri",
+        "/data/ttb/YYYY/AA/",
+        "ttbYYYYAAGG1.zip"
+      ],
+      "joined": " | Borçlanma Araçları Piyasası Saat 14:00 Geçici Bültenleri | /data/ttb/YYYY/AA/ | ttbYYYYAAGG1.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 14,
+      "cells": [
+        "",
+        "Yurt Dışı Sermaye Piyasası Araçları Piyasası Günlük Bültenleri",
+        "/data/tub/YYYY/AA/",
+        "tubYYYYAAGG.zip"
+      ],
+      "joined": " | Yurt Dışı Sermaye Piyasası Araçları Piyasası Günlük Bültenleri | /data/tub/YYYY/AA/ | tubYYYYAAGG.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 23,
+      "cells": [
+        "",
+        "Pay Piyasası, Borçlanma Araçları Piyasası'nda Gerçekleşen Rekorlar",
+        "/datum/",
+        "rekor.zip"
+      ],
+      "joined": " | Pay Piyasası, Borçlanma Araçları Piyasası'nda Gerçekleşen Rekorlar | /datum/ | rekor.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 36,
+      "cells": [
+        "",
+        "Borçlanma Araçları Piyasası Para Piyasası Günlük Bülteni",
+        "/data/ttb/YYYY/AA/",
+        "ttbYYYYAAGG2.zip"
+      ],
+      "joined": " | Borçlanma Araçları Piyasası Para Piyasası Günlük Bülteni | /data/ttb/YYYY/AA/ | ttbYYYYAAGG2.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 37,
+      "cells": [
+        "",
+        "Borçlanma Araçları Piyasası Günlük Özet Bülten",
+        "/data/bappiyasaozet/",
+        "piyasaozet_YYYYAAGG.zip"
+      ],
+      "joined": " | Borçlanma Araçları Piyasası Günlük Özet Bülten | /data/bappiyasaozet/ | piyasaozet_YYYYAAGG.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 38,
+      "cells": [
+        "",
+        "Borçlanma Araçları Piyasası Günlük Kısa Bülten",
+        "/data/bapbultenozet/",
+        "bultenozet_YYYYAAGG.zip"
+      ],
+      "joined": " | Borçlanma Araçları Piyasası Günlük Kısa Bülten | /data/bapbultenozet/ | bultenozet_YYYYAAGG.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "TR - www.borsaistanbul.com",
+      "row": 40,
+      "cells": [
+        "",
+        "Kıymetli Madenler Piyasası Günlük Bülten",
+        "/data/kmpbltn/YYYY/AA/",
+        "KMPYYYYAAGG.zip"
+      ],
+      "joined": " | Kıymetli Madenler Piyasası Günlük Bülten | /data/kmpbltn/YYYY/AA/ | KMPYYYYAAGG.zip"
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 6,
+      "cells": [
+        "",
+        "Bulletin Data",
+        "/data/ehb/YYYY/AA/",
+        "ehbYYYYAAGGS.zip",
+        ""
+      ],
+      "joined": " | Bulletin Data | /data/ehb/YYYY/AA/ | ehbYYYYAAGGS.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 7,
+      "cells": [
+        "",
+        "Debt Securities Market Temporary Bulletins at 14:00",
+        "/data/etb/YYYY/AA/",
+        "etbYYYYAAGG1.zip",
+        ""
+      ],
+      "joined": " | Debt Securities Market Temporary Bulletins at 14:00 | /data/etb/YYYY/AA/ | etbYYYYAAGG1.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 8,
+      "cells": [
+        "",
+        "Debt Securities Market Daily Bulletins",
+        "/data/ttb/YYYY/AA/",
+        "ttbYYYYAAGG3.zip",
+        ""
+      ],
+      "joined": " | Debt Securities Market Daily Bulletins | /data/ttb/YYYY/AA/ | ttbYYYYAAGG3.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 9,
+      "cells": [
+        "",
+        "Foreign Securities Market Daily Bulletin",
+        "/data/eub/YYYY/AA/",
+        "eubYYYYAAGG.zip",
+        ""
+      ],
+      "joined": " | Foreign Securities Market Daily Bulletin | /data/eub/YYYY/AA/ | eubYYYYAAGG.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 12,
+      "cells": [
+        "",
+        "Realized or Expected Capital Increases of Companies Traded on the Equity Market",
+        "/data/capitalraise/",
+        "capitalraiseYYYY.zip",
+        ""
+      ],
+      "joined": " | Realized or Expected Capital Increases of Companies Traded on the Equity Market | /data/capitalraise/ | capitalraiseYYYY.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 29,
+      "cells": [
+        "",
+        "Offering Market for Qualified Investors Daily Bulletin Data",
+        "/data/NIPGB/",
+        "NIPGBYYYY.zip",
+        ""
+      ],
+      "joined": " | Offering Market for Qualified Investors Daily Bulletin Data | /data/NIPGB/ | NIPGBYYYY.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 33,
+      "cells": [
+        "",
+        "Emerging Companies Market Data",
+        "/datum/",
+        "TopHacMikSozGIP_eng.zip",
+        ""
+      ],
+      "joined": " | Emerging Companies Market Data | /datum/ | TopHacMikSozGIP_eng.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 37,
+      "cells": [
+        "",
+        "Futures and Options Market Data",
+        "/datum/",
+        "viop.zip",
+        ""
+      ],
+      "joined": " | Futures and Options Market Data | /datum/ | viop.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 39,
+      "cells": [
+        "",
+        "Debt Securities Market Money Market Daily Bulletin",
+        "/data/etb/YYYY/AA/",
+        "etbYYYYAAGG2.zip",
+        ""
+      ],
+      "joined": " | Debt Securities Market Money Market Daily Bulletin | /data/etb/YYYY/AA/ | etbYYYYAAGG2.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 40,
+      "cells": [
+        "",
+        "Debt Securities Market Daily Summary Bulletin",
+        "/data/bappiyasaozet/",
+        "piyasaozet_YYYYAAGG.zip",
+        ""
+      ],
+      "joined": " | Debt Securities Market Daily Summary Bulletin | /data/bappiyasaozet/ | piyasaozet_YYYYAAGG.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 41,
+      "cells": [
+        "",
+        "Debt Securities Market Daily Bulletin",
+        "/data/bapbultenozet/",
+        "bultenozet_YYYYAAGG.zip",
+        ""
+      ],
+      "joined": " | Debt Securities Market Daily Bulletin | /data/bapbultenozet/ | bultenozet_YYYYAAGG.zip | "
+    },
+    {
+      "file": "VerilerDosyaIsimleri.xlsx",
+      "sheet": "EN - www.borsaistanbul.com",
+      "row": 43,
+      "cells": [
+        "",
+        "Precious Metals Market Bulletins Daily Bulletin",
+        "/data/kmtpbltn/YYYY/AA",
+        "PMDYYYYAAGG.zip",
+        ""
+      ],
+      "joined": " | Precious Metals Market Bulletins Daily Bulletin | /data/kmtpbltn/YYYY/AA | PMDYYYYAAGG.zip | "
+    },
+    {
+      "file": "._VerilerDosyaIsimleri.xlsx",
+      "sheet": "ERROR",
+      "row": 0,
+      "cells": [],
+      "joined": "BadZipFile('File is not a zip file')"
+    }
+  ]
+}
