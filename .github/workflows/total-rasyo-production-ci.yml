@@ -3,10 +3,12 @@ name: Total Rasyo Production CI
 on:
   push:
     branches: [total-rasyo-production-staging]
+    paths-ignore:
+      - 'docs/TOTAL_RASYO_PRODUCTION_CI_EVIDENCE.json'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   test:
@@ -45,6 +47,57 @@ jobs:
       - name: Apply schema
         run: make core migrate
       - name: Full repository regression
-        run: python -m pytest -q
+        run: python -m pytest -q --junitxml=full-regression.xml
       - name: BANK v4.7 regression
-        run: make test-bank-v47
+        run: make test-bank-v47 | tee bank-v47.log
+      - name: Persist passing production evidence
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, re, xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          root = ET.parse('full-regression.xml').getroot()
+          suite = root if root.tag == 'testsuite' else root.find('testsuite')
+          if suite is None:
+              raise RuntimeError('full-regression junit suite missing')
+          tests = int(suite.attrib.get('tests', 0))
+          failures = int(suite.attrib.get('failures', 0))
+          errors = int(suite.attrib.get('errors', 0))
+          skipped = int(suite.attrib.get('skipped', 0))
+          if failures or errors or tests <= 0:
+              raise RuntimeError('full regression evidence is not clean')
+
+          bank_log = Path('bank-v47.log').read_text(encoding='utf-8', errors='replace')
+          m = re.search(r'(\d+) passed,\s*(\d+) xfailed', bank_log)
+          if not m:
+              raise RuntimeError('BANK v4.7 pass/xfailed summary missing')
+          bank_passed = int(m.group(1))
+          bank_xfailed = int(m.group(2))
+
+          out = {
+              'contract': 'TOTAL_RASYO_PRODUCTION_CI_V1',
+              'tested_commit_sha': os.environ['GITHUB_SHA'],
+              'full_regression': {
+                  'tests': tests,
+                  'failures': failures,
+                  'errors': errors,
+                  'skipped': skipped,
+              },
+              'bank_v47': {
+                  'passed': bank_passed,
+                  'xfailed': bank_xfailed,
+              },
+              'schema_migration': 'PASSED',
+              'result': 'PASS',
+              'production_boundary': 'v24-real-data-work and V24-G readiness are not promoted by this snapshot',
+          }
+          dst = Path('docs/TOTAL_RASYO_PRODUCTION_CI_EVIDENCE.json')
+          dst.write_text(json.dumps(out, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(json.dumps(out, ensure_ascii=False, indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/TOTAL_RASYO_PRODUCTION_CI_EVIDENCE.json
+          git commit -m 'Record Total Rasyo production CI evidence'
+          git push origin HEAD:total-rasyo-production-staging
