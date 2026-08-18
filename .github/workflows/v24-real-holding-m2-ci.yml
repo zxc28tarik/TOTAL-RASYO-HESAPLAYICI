@@ -9,6 +9,15 @@ on:
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
       - '.github/workflows/v24-real-holding-m2-ci.yml'
+  pull_request:
+    branches: [v24-real-data-work]
+    paths:
+      - 'docs/V24_REAL_M2_VALIDATION.md'
+      - 'src/analytics/historical_pit_holding_m2_replay.py'
+      - 'src/analytics/historical_pit_gyo_m2_replay.py'
+      - 'tests/test_historical_pit_holding_m2_replay.py'
+      - 'tests/test_historical_pit_gyo_m2_replay.py'
+      - '.github/workflows/v24-real-holding-m2-ci.yml'
   workflow_dispatch:
 
 jobs:
