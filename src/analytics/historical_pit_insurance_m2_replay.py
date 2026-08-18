@@ -3,7 +3,7 @@ from __future__ import annotations
 """Database-free PIT replay adapter for the production INSURANCE M2 engine."""
 
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 import math
 from typing import Mapping
 from zoneinfo import ZoneInfo
@@ -40,6 +40,25 @@ def _aware(value: object) -> datetime:
     if not isinstance(value, datetime) or value.tzinfo is None or value.utcoffset() is None:
         raise HistoricalPitInsuranceM2ReplayError("analysis_at timezone-aware datetime olmali")
     return value
+
+
+def _output_datetime(value: object, field: str) -> datetime:
+    """Normalize production output without weakening timezone/instant checks."""
+    if isinstance(value, pd.Timestamp):
+        value = value.to_pydatetime()
+    elif isinstance(value, str):
+        try:
+            value = datetime.fromisoformat(value.strip().replace("Z", "+00:00"))
+        except ValueError as exc:
+            raise HistoricalPitInsuranceM2ReplayError(f"{field} ISO datetime olmali") from exc
+    if not isinstance(value, datetime) or value.tzinfo is None or value.utcoffset() is None:
+        raise HistoricalPitInsuranceM2ReplayError(f"{field} timezone-aware datetime olmali")
+    return value
+
+
+def _same_instant(value: object, expected: datetime, field: str) -> bool:
+    actual = _output_datetime(value, field)
+    return actual.astimezone(timezone.utc) == expected.astimezone(timezone.utc)
 
 
 def _text(value: object, field: str) -> str:
@@ -201,8 +220,10 @@ def run_historical_pit_insurance_m2_replay(*, analysis_at: datetime, universe: p
         value = _score(m2.get("m2"), f"{ticker}.m2")
         if m2.get("m2_source") != "INSURANCE_PB_PE_TWO_AXIS_V1":
             raise HistoricalPitInsuranceM2ReplayError("INSURANCE m2_source beklenmeyen deger")
-        if m2.get("analysis_at") != analysis or valuation.get("analysis_at") != analysis:
-            raise HistoricalPitInsuranceM2ReplayError("INSURANCE report analysis_at degistirdi")
+        if not _same_instant(m2.get("analysis_at"), analysis, f"{ticker}.m2.analysis_at"):
+            raise HistoricalPitInsuranceM2ReplayError("INSURANCE m2 analysis_at degistirdi")
+        if not _same_instant(valuation.get("analysis_at"), analysis, f"{ticker}.valuation.analysis_at"):
+            raise HistoricalPitInsuranceM2ReplayError("INSURANCE valuation analysis_at degistirdi")
         result_tickers.add(ticker)
         rows.append({"ticker": ticker, "m2": value, "m2_source": m2.get("m2_source"), "period_end": m2.get("period_end"), "valuation_usable": bool(m2.get("valuation_usable")), "valuation_status": valuation.get("status"), "valuation_score": valuation.get("valuation_score"), "valuation_confidence": valuation.get("v_conf"), "score_inputs": m2.get("score_inputs")})
     scores = pd.DataFrame(rows, columns=["ticker", "m2", "m2_source", "period_end", "valuation_usable", "valuation_status", "valuation_score", "valuation_confidence", "score_inputs"])
