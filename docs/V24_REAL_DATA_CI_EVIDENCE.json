@@ -1,15 +1,15 @@
 {
   "contract": "V24_REAL_DATA_CI_EVIDENCE_V1",
-  "tested_commit_sha": "c2b2b82f335ce96068e1f74fcaa7bacf57a4f392",
+  "tested_commit_sha": "27929b67a74940988bcdb24d903906083fdf955e",
   "schema_migration": "PASSED",
   "targeted": {
-    "tests": 107,
+    "tests": 138,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
   "full_regression": {
-    "tests": 1636,
+    "tests": 1667,
     "failures": 0,
     "errors": 0,
     "skipped": 0
@@ -47,13 +47,44 @@
       "current_universe_fallback": false,
       "result": "PASS"
     },
-    "remaining_families": [
-      "BANK",
-      "HOLDING",
-      "GYO",
-      "INSURANCE",
-      "FINANCIAL"
-    ]
+    "HOLDING": {
+      "database_read_path": false,
+      "production_math": "build_holding_snapshots_from_frames/evaluate_holding_batch",
+      "future_nav_price_follow_rejected": true,
+      "current_universe_fallback": false,
+      "m2_source": "HOLDING_NAV_DISCOUNT_TWO_AXIS_V1",
+      "result": "PASS"
+    },
+    "GYO": {
+      "database_read_path": false,
+      "production_math": "build_gyo_snapshots_from_frames/evaluate_gyo_batch",
+      "future_nav_price_follow_rejected": true,
+      "current_universe_fallback": false,
+      "m2_source": "GYO_PD_NAV_TWO_AXIS_V1",
+      "result": "PASS"
+    },
+    "INSURANCE": {
+      "database_read_path": false,
+      "production_math": "build_insurance_snapshots_from_frames/evaluate_insurance_batch",
+      "future_financial_price_follow_rejected": true,
+      "current_universe_fallback": false,
+      "result": "PASS"
+    },
+    "FINANCIAL": {
+      "database_read_path": false,
+      "production_math": "build_financial_institution_snapshots_from_frames/evaluate_financial_institution_batch",
+      "future_financial_price_follow_rejected": true,
+      "current_universe_fallback": false,
+      "result": "PASS"
+    },
+    "BANK": {
+      "database_read_path": false,
+      "production_math": "to_canonical_row/evaluate_bank_batch",
+      "future_financial_price_follow_rejected": true,
+      "current_universe_fallback": false,
+      "result": "PASS"
+    },
+    "remaining_families": []
   },
   "result": "PASS"
 }
