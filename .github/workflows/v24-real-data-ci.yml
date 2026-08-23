@@ -12,6 +12,9 @@ on:
       - 'src/analytics/historical_pit_ratio_replay.py'
       - 'src/analytics/historical_pit_rsc_replay.py'
       - 'src/analytics/historical_pit_m1_replay.py'
+      - 'src/analytics/historical_pit_m3_replay.py'
+      - 'src/analytics/betas.py'
+      - 'src/analytics/trailing_alpha.py'
       - 'src/analytics/historical_pit_nonfin_m2_replay.py'
       - 'src/analytics/historical_pit_holding_m2_replay.py'
       - 'src/analytics/historical_pit_gyo_m2_replay.py'
@@ -57,6 +60,7 @@ on:
       - 'tests/test_historical_pit_ratio_replay.py'
       - 'tests/test_historical_pit_rsc_replay.py'
       - 'tests/test_historical_pit_m1_replay.py'
+      - 'tests/test_historical_pit_m3_replay.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
@@ -80,6 +84,9 @@ on:
       - 'src/analytics/historical_pit_ratio_replay.py'
       - 'src/analytics/historical_pit_rsc_replay.py'
       - 'src/analytics/historical_pit_m1_replay.py'
+      - 'src/analytics/historical_pit_m3_replay.py'
+      - 'src/analytics/betas.py'
+      - 'src/analytics/trailing_alpha.py'
       - 'src/analytics/historical_pit_nonfin_m2_replay.py'
       - 'src/analytics/historical_pit_holding_m2_replay.py'
       - 'src/analytics/historical_pit_gyo_m2_replay.py'
@@ -89,6 +96,7 @@ on:
       - 'tests/test_historical_pit_ratio_replay.py'
       - 'tests/test_historical_pit_rsc_replay.py'
       - 'tests/test_historical_pit_m1_replay.py'
+      - 'tests/test_historical_pit_m3_replay.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
@@ -148,6 +156,7 @@ jobs:
             tests/test_historical_pit_ratio_replay.py \
             tests/test_historical_pit_rsc_replay.py \
             tests/test_historical_pit_m1_replay.py \
+            tests/test_historical_pit_m3_replay.py \
             tests/test_historical_pit_nonfin_m2_replay.py \
             tests/test_historical_pit_holding_m2_replay.py \
             tests/test_historical_pit_gyo_m2_replay.py \
@@ -228,6 +237,16 @@ jobs:
                   'database_read_path': False,
                   'input': 'HistoricalPitRscReplayResult.rsc_summary',
                   'production_math': 'period_trend._slope/_trend_score/_trend_label',
+                  'result': 'PASS',
+              },
+              'pit_m3_replay': {
+                  'database_read_path': False,
+                  'inputs': 'historical universe/calendar/stock prices/index prices',
+                  'production_math': 'estimate_betas_from_frames/compute_trailing_alpha_from_frames',
+                  'window_trading_days': 63,
+                  'post_market_cutoff_rejected': True,
+                  'current_universe_fallback': False,
+                  'score_rejection_coverage': 'EXHAUSTIVE',
                   'result': 'PASS',
               },
               'pit_m2_replay': {

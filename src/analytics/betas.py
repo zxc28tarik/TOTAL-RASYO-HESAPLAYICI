@@ -51,6 +51,67 @@ def _ols_2f(y: np.ndarray, x_mkt: np.ndarray, x_sec: np.ndarray) -> Tuple[float,
     return (float(b1), float(b2), float(r2), n)
 
 
+def estimate_betas_from_frames(
+    *,
+    universe: pd.DataFrame,
+    prices: pd.DataFrame,
+    index_prices: pd.DataFrame,
+    t0_date: str | date,
+    market_index: str = "XU100",
+) -> pd.DataFrame:
+    """Run the production two-factor beta math on explicit, pre-cut frames.
+
+    The database-backed live path and the database-free historical replay both
+    call this function.  Window selection and PIT validation remain the caller's
+    responsibility; this function owns only the production return/OLS/shrinkage
+    semantics.
+    """
+
+    columns = ["ticker", "t0_date", "beta_mkt", "beta_sec", "r2", "n_obs"]
+    if universe.empty:
+        return pd.DataFrame(columns=columns)
+
+    tickers = universe["ticker"].astype(str).tolist()
+    sec_map = dict(
+        zip(universe["ticker"].astype(str), universe["sector_index_code"].astype(str))
+    )
+    t0 = pd.to_datetime(t0_date).date()
+    if prices.empty or index_prices.empty:
+        return pd.DataFrame(
+            [(ticker, t0, np.nan, np.nan, np.nan, 0) for ticker in tickers],
+            columns=columns,
+        )
+
+    p = prices.copy()
+    ip = index_prices.copy()
+    p["trade_date"] = pd.to_datetime(p["trade_date"]).dt.date
+    ip["trade_date"] = pd.to_datetime(ip["trade_date"]).dt.date
+    spx = p.pivot_table(index="trade_date", columns="ticker", values="px", aggfunc="last").sort_index()
+    ipx = ip.pivot_table(index="trade_date", columns="index_code", values="px", aggfunc="last").sort_index()
+
+    # Put both families on one date axis before converting to numpy.  Missing
+    # observations stay missing and are removed by _ols_2f's finite mask.
+    date_axis = spx.index.union(ipx.index).sort_values()
+    sret = spx.reindex(date_axis).apply(_pct_ret, axis=0)
+    iret = ipx.reindex(date_axis).apply(_pct_ret, axis=0)
+    mret = iret[market_index] if market_index in iret.columns else None
+
+    rows = []
+    for ticker in tickers:
+        sector = sec_map.get(ticker, market_index)
+        if mret is None or sector not in iret.columns or ticker not in sret.columns:
+            rows.append((ticker, t0, np.nan, np.nan, np.nan, 0))
+            continue
+        b1, b2, r2, n = _ols_2f(
+            sret[ticker].to_numpy(dtype=float),
+            mret.to_numpy(dtype=float),
+            iret[sector].to_numpy(dtype=float),
+        )
+        rows.append((ticker, t0, b1, b2, r2, n))
+
+    return pd.DataFrame(rows, columns=columns)
+
+
 def estimate_betas_for_date(
     conn,
     t0_date: str,
@@ -122,34 +183,13 @@ def estimate_betas_for_date(
 
     ip["trade_date"] = pd.to_datetime(ip["trade_date"]).dt.date
 
-    # pivot
-    spx = p.pivot_table(index="trade_date", columns="ticker", values="px", aggfunc="last").sort_index()
-    ipx = ip.pivot_table(index="trade_date", columns="index_code", values="px", aggfunc="last").sort_index()
-
-    # compute returns
-    sret = spx.apply(_pct_ret, axis=0)
-    iret = ipx.apply(_pct_ret, axis=0)
-
-    # market ret series
-    mret = iret[market_index] if market_index in iret.columns else None
-    if mret is None:
-        return pd.DataFrame(columns=["ticker","t0_date","beta_mkt","beta_sec","r2","n_obs"])
-
-    rows = []
-    for t in tickers:
-        sec = sec_map.get(t, market_index)
-        if sec not in iret.columns or t not in sret.columns:
-            rows.append((t, t0, np.nan, np.nan, np.nan, 0))
-            continue
-
-        y = sret[t].to_numpy(dtype=float)
-        x1 = mret.to_numpy(dtype=float)
-        x2 = iret[sec].to_numpy(dtype=float)
-
-        b1, b2, r2, n = _ols_2f(y, x1, x2)
-        rows.append((t, t0, b1, b2, r2, n))
-
-    return pd.DataFrame(rows, columns=["ticker","t0_date","beta_mkt","beta_sec","r2","n_obs"])
+    return estimate_betas_from_frames(
+        universe=u,
+        prices=p,
+        index_prices=ip,
+        t0_date=t0,
+        market_index=market_index,
+    )
 
 
 def upsert_betas(conn, df: pd.DataFrame) -> None:

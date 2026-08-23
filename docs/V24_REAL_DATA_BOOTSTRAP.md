@@ -1,6 +1,6 @@
 # V24 Real Historical Data Bootstrap
 
-Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1 and all six PIT sector M2 families are closed; remaining historical modules and real cutoff policy remain open.**
+Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families and the DB-free M3 replay engine are closed in code; real M3 source coverage, remaining historical modules and the real cutoff policy remain open.**
 
 Target window: **2021-08 .. 2026-07 (60 months)**
 
@@ -23,7 +23,9 @@ Goal: run the locked monthly Total Rasyo portfolio contract against an auditable
 | PIT RSC | **CLOSED** | DB-free replay consumes only `HistoricalPitRatioReplayResult.combined_ratios` |
 | PIT M1 | **CLOSED** | DB-free 8-quarter replay consumes only PIT `rsc_summary` and reuses production trend math |
 | PIT sector M2 | **CLOSED** | DB-free replay is closed for NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL and BANK; latest sector CI is green |
-| PIT M3/EK4/EK1/EK9 | **OPEN** | production source semantics must be replayed without current-state leakage |
+| PIT M3 replay engine | **IMPLEMENTED; CI PENDING** | DB-free 63-day alpha; live and history share beta/alpha production math; signal date and market cutoff are separate |
+| Real 60-month M3 source coverage | **OPEN** | historical sector-index routing and daily XU100/sector-index closes still require frozen provenance/hash coverage |
+| PIT EK4/EK1/EK9 | **OPEN** | production source semantics must be replayed without current-state leakage |
 | Signal cutoff/execution policy | **OPEN** | real 60-month policy is not authorized; test fixture times must not be promoted silently |
 | Full historical Total Rasyo authority | **OPEN** | requires the remaining PIT modules and final historical scoring/ranking assembly |
 | Final 5-year portfolio result | **BLOCKED BY ABOVE** | no performance claim until readiness is `READY` |
@@ -148,6 +150,19 @@ The DB-free historical sector replay path is closed for all six production famil
 
 Each replay consumes explicit point-in-time frames, rejects future financial/NAV/price-follow observations, and does not fall back to the current universe. The implementations reuse the corresponding production sector valuation and two-axis M2 semantics instead of defining a second historical scoring model.
 
+### M3
+
+`src/analytics/historical_pit_m3_replay.py` has no database connection argument. It consumes an explicit historical universe with sector-index routing, a pre-cut trading calendar, adjusted stock prices and index closes. `asof_date` labels the signal while `market_asof_date` records the last market day allowed by the caller's cutoff policy; the replay rejects any later calendar or price row instead of filtering it silently.
+
+The live database path and the historical adapter share:
+
+- `betas.estimate_betas_from_frames` for the production two-factor OLS and shrinkage model;
+- `trailing_alpha.compute_trailing_alpha_from_frames` for 63-trading-day stock/market/sector alpha, score and label;
+- the sector-excess factor `sector_return - market_return`, not raw sector return;
+- production beta priors `beta_mkt=1`, `beta_sec=0` when fewer than 60 finite observations are available, with an explicit `beta_source` diagnostic.
+
+Every historical ticker is either scored or emitted in `rejections`; current-universe contamination, missing sector routing, duplicate keys, off-calendar observations and post-cutoff prices are hard errors. Unlike the live compatibility path, historical replay never substitutes XU100 for a missing sector index. The real 60-month run is still blocked because the repository's frozen source package does not yet contain provenance/hash-locked daily XU100 and sector-index closes plus date-correct sector routing for every monthly member.
+
 ## Cutoff policy boundary — still open
 
 V24-F's production registry deliberately seeded **no authoritative historical cutoff values**. The hard contract requires:
@@ -161,14 +176,14 @@ V24-F's production registry deliberately seeded **no authoritative historical cu
 
 ## Latest CI evidence
 
-Latest verified active-branch sector run: [`32178692028`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/32178692028).
+Latest verified active-branch evidence commit: [`f769ba5`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/f769ba51db5b3df2ecda9cbcfc4fbb74ee012f52).
 
-Tested code SHA: **`9079773fa0b2f52e3b1f93f34a65537c6f7a720f`**.
+Tested code SHA: **`27929b67a74940988bcdb24d903906083fdf955e`**.
 
 Latest base-branch results:
 
 - schema migration: **PASS**;
-- sector PIT M2 contracts: **31 passed, 0 failed**;
+- targeted real-data contracts: **138 passed, 0 failed**;
 - full repository regression: **1667 passed, 0 failed**;
 - BANK v4.7 regression: **277 passed, 1 xfailed**;
 - exact monthly-member execution prices: **6000/6000**;
@@ -180,14 +195,17 @@ Latest base-branch results:
 - DB-free PIT M1: **PASS**;
 - DB-free PIT M2 for all six sector families: **PASS**.
 
+The M3 feature change has passed locally: M3 **14/14**, all historical PIT replay tests **75/75**, full local regression **1453 passed / 224 environment-dependent skipped**, BANK v4.7 **277 passed / 1 xfailed**. These local numbers do not replace GitHub evidence; the consolidated CI must pass after the change is committed and pushed.
+
 `docs/V24_REAL_DATA_CI_EVIDENCE.json` is the machine-readable consolidated evidence file. The consolidated workflow is being aligned with the six-family M2 closure and must regenerate that file on the next successful push to `v24-real-data-work`.
 
 ## Next work order
 
-1. Reconstruct PIT sources for **M3, EK4, EK1, `good_count_ge8` and EK9** under the same historical knowledge boundary.
-2. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
-3. Resolve and register the real cutoff/execution policy.
-4. Run V24-G real readiness; require `READY`.
-5. Only then run the locked monthly portfolio and publish holdings, trades, NAV, contributions, and XU100 comparison.
+1. Verify the M3 change in consolidated GitHub CI and freeze the real 60-month M3 sector-routing/index-price sources.
+2. Reconstruct PIT **EK4, EK1, `good_count_ge8` and EK9** under the same historical knowledge boundary.
+3. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
+4. Resolve and register the real cutoff/execution policy.
+5. Run V24-G real readiness; require `READY`.
+6. Only then run the locked monthly portfolio and publish holdings, trades, NAV, contributions, and XU100 comparison.
 
 The production `main` branch remains separate and unchanged by this experimental historical-data branch.

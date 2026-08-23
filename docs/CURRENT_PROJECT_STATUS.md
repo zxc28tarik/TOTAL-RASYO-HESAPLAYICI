@@ -1,6 +1,6 @@
 # Total Rasyo Hesaplayıcı — Güncel Proje Durumu
 
-Son doğrulama: **2026-08-20**
+Son doğrulama: **2026-08-23**
 
 Bu belge, sohbet sayfaları değişse bile projenin hedefini ve son doğrulanmış durumunu kaybetmemek için tek başlangıç noktasıdır.
 
@@ -11,7 +11,7 @@ Depo: [`zxc28tarik/TOTAL-RASYO-HESAPLAYICI`](https://github.com/zxc28tarik/TOTAL
 | Hat | Dal | Doğrulanmış baş | Anlamı |
 |---|---|---|---|
 | Üretim | `main` | `84494e29824809b20b5410c8b160ef38f70c27c9` | V24-F üretim fotoğrafı; deneysel tarihsel veri çalışması buraya henüz terfi ettirilmedi |
-| Aktif geliştirme | `v24-real-data-work` | `9079773fa0b2f52e3b1f93f34a65537c6f7a720f` | En ileri tarihsel BIST100/PIT/backtest çalışması; V24-G ve altı sektör ailesinin M2 replay zincirini içerir |
+| Aktif geliştirme | `v24-real-data-work` | `f769ba51db5b3df2ecda9cbcfc4fbb74ee012f52` | En ileri doğrulanmış tarihsel BIST100/PIT/backtest tabanı; birleştirilmiş durum belgeleri, V24-G ve altı sektör ailesinin M2 replay zincirini içerir |
 
 `v24-real-data-work`, V24-F ortak atasından sonra aktif geliştirme dalıdır. `main` üzerindeki sonraki commitler üretim CI/kanıt belgeleridir. Bu nedenle tek depo hedefi, iki dalı körlemesine ezmek değil; geliştirme tamamlanıp bütün kapılar geçtiğinde kontrollü terfi yapmaktır.
 
@@ -45,18 +45,22 @@ Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri i�
 | Kurumsal aksiyon motoru | **SEMANTİK KAPALI** | bölünme/bedelsiz, temettü nakdi, kod değişimi ve olay sırası |
 | PIT CORE+VAL, RSC, M1 | **KAPALI** | DB-free ve cutoff-sonrası veri reddi |
 | PIT M2 — altı sektör ailesi | **KAPALI** | NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL, BANK |
+| PIT M3 replay motoru | **UYGULANDI — CI ONAYI BEKLİYOR** | DB-free; 63 işlem günü; üretim beta/alpha matematiği ortak; gelecekteki fiyat ve güncel evren reddi |
+| Gerçek 60 aylık M3 kaynak paketi | **AÇIK** | tarihsel sektör rotaları ile XU100/sektör endeksi günlük kapanışları henüz hash-kilitli giriş paketi değil |
 | V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
 
-Aktif dalın son doğrulanmış GitHub Actions koşusu: [`32178692028`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/32178692028), baş `9079773...`.
+Aktif dalın son doğrulanmış GitHub kanıt commit'i: [`f769ba5`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/f769ba51db5b3df2ecda9cbcfc4fbb74ee012f52); test edilen kod `27929b6...`.
 
-- sektör PIT M2: **31 geçti**;
+- hedefli gerçek-veri sözleşmeleri: **138 geçti**;
 - tam regresyon: **1667 geçti**;
 - BANK v4.7: **277 geçti, 1 beklenen xfail**;
 - iş akışı sonucu: **success**.
 
+M3 özellik dalındaki yerel kabul sonucu: M3 **14/14**, bütün tarihsel PIT replay testleri **75/75**, yerel tam paket **1453 geçti / 224 ortam-bağımlı test atlandı**, BANK v4.7 **277 geçti / 1 beklenen xfail**. Bu sonuç GitHub CI kanıtı oluşana kadar doğrulanmış aktif-dal kanıtının yerine geçmez.
+
 ## Açık işler — uygulanacak sıra
 
-1. PIT-safe **M3** replay: 63 işlem günlük trailing hisse/BIST/sektör alpha üretimini tarihsel bilgi sınırında kur.
+1. M3 değişikliğini GitHub CI ile doğrula; 60 ay için tarihsel sektör rotalarını ve XU100/sektör endeksi günlük kapanışlarını kaynak/hash kanıtıyla kilitle.
 2. PIT-safe **Ek4** replay: 20 günlük hisse getirisi eksi sektör endeksi getirisi üretimini kur.
 3. PIT-safe **Ek1** ve `good_count_ge8` replay: RSC özetinden üretim semantiğini tarihsel olarak kur.
 4. PIT-safe **Ek9** replay: 63 günlük getiri oynaklığını tarihsel olarak kur.
@@ -81,6 +85,6 @@ Aktif dalın son doğrulanmış GitHub Actions koşusu: [`32178692028`](https://
 
 ## Yayın kuralı
 
-Henüz 5 yıllık getiri veya “başarı” iddiası yayımlanamaz. PIT M3/Ek4/Ek1/Ek9, tam tarihsel Total Rasyo otoritesi, gerçek cutoff politikası ve V24-G `READY` kapanmadan üretilen sonuç deneme/fixture sayılır.
+Henüz 5 yıllık getiri veya “başarı” iddiası yayımlanamaz. Gerçek 60 aylık M3 kaynak kapsamı, PIT Ek4/Ek1/Ek9, tam tarihsel Total Rasyo otoritesi, gerçek cutoff politikası ve V24-G `READY` kapanmadan üretilen sonuç deneme/fixture sayılır.
 
 Her kapanan aşamada bu belge, ilgili bootstrap belgesi ve CI kanıtı aynı commit zincirinde güncellenmelidir. Yeni bir sohbet açıldığında ilk okunacak dosya budur.
