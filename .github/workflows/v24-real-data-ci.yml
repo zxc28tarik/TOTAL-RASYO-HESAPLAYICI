@@ -15,6 +15,9 @@ on:
       - 'src/analytics/historical_pit_nonfin_m2_replay.py'
       - 'src/analytics/historical_pit_holding_m2_replay.py'
       - 'src/analytics/historical_pit_gyo_m2_replay.py'
+      - 'src/analytics/historical_pit_insurance_m2_replay.py'
+      - 'src/analytics/historical_pit_financial_m2_replay.py'
+      - 'src/analytics/historical_pit_bank_m2_replay.py'
       - 'src/analytics/bist100_membership_history.py'
       - 'src/analytics/bist100_membership_pipeline.py'
       - 'src/analytics/bist100_periodic_events.py'
@@ -26,6 +29,8 @@ on:
       - 'config/nonfin_valuation.relative_v1.json'
       - 'config/holding_valuation.nav_discount_v1.json'
       - 'config/gyo_valuation.pd_nav_v1.json'
+      - 'config/insurance_valuation.pb_pe_v1.json'
+      - 'config/financial_institution_valuation.pb_pe_v1.json'
       - 'scripts/inventory_historical_backtest_inputs.py'
       - 'scripts/audit_historical_price_adjustments.py'
       - 'scripts/export_historical_signal_dates.py'
@@ -55,6 +60,9 @@ on:
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
+      - 'tests/test_historical_pit_insurance_m2_replay.py'
+      - 'tests/test_historical_pit_financial_m2_replay.py'
+      - 'tests/test_historical_pit_bank_m2_replay.py'
       - 'tests/test_bist100_membership_history.py'
       - 'tests/test_bist100_membership_pipeline.py'
       - 'tests/test_bist100_nonperiodic_events.py'
@@ -65,6 +73,28 @@ on:
       - 'tests/test_v24_real_historical_universe_source_manifest.py'
       - 'tests/test_v24_real_xu100_signal_dates_source.py'
       - 'tests/test_v24_real_bist100_snapshot_source.py'
+      - '.github/workflows/v24-real-data-ci.yml'
+  pull_request:
+    branches: [v24-real-data-work]
+    paths:
+      - 'src/analytics/historical_pit_ratio_replay.py'
+      - 'src/analytics/historical_pit_rsc_replay.py'
+      - 'src/analytics/historical_pit_m1_replay.py'
+      - 'src/analytics/historical_pit_nonfin_m2_replay.py'
+      - 'src/analytics/historical_pit_holding_m2_replay.py'
+      - 'src/analytics/historical_pit_gyo_m2_replay.py'
+      - 'src/analytics/historical_pit_insurance_m2_replay.py'
+      - 'src/analytics/historical_pit_financial_m2_replay.py'
+      - 'src/analytics/historical_pit_bank_m2_replay.py'
+      - 'tests/test_historical_pit_ratio_replay.py'
+      - 'tests/test_historical_pit_rsc_replay.py'
+      - 'tests/test_historical_pit_m1_replay.py'
+      - 'tests/test_historical_pit_nonfin_m2_replay.py'
+      - 'tests/test_historical_pit_holding_m2_replay.py'
+      - 'tests/test_historical_pit_gyo_m2_replay.py'
+      - 'tests/test_historical_pit_insurance_m2_replay.py'
+      - 'tests/test_historical_pit_financial_m2_replay.py'
+      - 'tests/test_historical_pit_bank_m2_replay.py'
       - '.github/workflows/v24-real-data-ci.yml'
 
 permissions:
@@ -121,6 +151,9 @@ jobs:
             tests/test_historical_pit_nonfin_m2_replay.py \
             tests/test_historical_pit_holding_m2_replay.py \
             tests/test_historical_pit_gyo_m2_replay.py \
+            tests/test_historical_pit_insurance_m2_replay.py \
+            tests/test_historical_pit_financial_m2_replay.py \
+            tests/test_historical_pit_bank_m2_replay.py \
             tests/test_bist100_membership_history.py \
             tests/test_bist100_membership_pipeline.py \
             tests/test_bist100_nonperiodic_events.py \
@@ -140,6 +173,7 @@ jobs:
           set -o pipefail
           make test-bank-v47 | tee v24-real-bank.log
       - name: Persist passing V24 real-data evidence
+        if: github.event_name == 'push'
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -220,7 +254,28 @@ jobs:
                       'm2_source': 'GYO_PD_NAV_TWO_AXIS_V1',
                       'result': 'PASS',
                   },
-                  'remaining_families': ['BANK', 'INSURANCE', 'FINANCIAL'],
+                  'INSURANCE': {
+                      'database_read_path': False,
+                      'production_math': 'build_insurance_snapshots_from_frames/evaluate_insurance_batch',
+                      'future_financial_price_follow_rejected': True,
+                      'current_universe_fallback': False,
+                      'result': 'PASS',
+                  },
+                  'FINANCIAL': {
+                      'database_read_path': False,
+                      'production_math': 'build_financial_institution_snapshots_from_frames/evaluate_financial_institution_batch',
+                      'future_financial_price_follow_rejected': True,
+                      'current_universe_fallback': False,
+                      'result': 'PASS',
+                  },
+                  'BANK': {
+                      'database_read_path': False,
+                      'production_math': 'to_canonical_row/evaluate_bank_batch',
+                      'future_financial_price_follow_rejected': True,
+                      'current_universe_fallback': False,
+                      'result': 'PASS',
+                  },
+                  'remaining_families': [],
               },
               'result': 'PASS',
           }

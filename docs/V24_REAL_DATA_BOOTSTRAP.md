@@ -1,6 +1,6 @@
 # V24 Real Historical Data Bootstrap
 
-Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC and PIT M1 foundations are closed; historical M2/remaining modules and real cutoff policy remain open.**
+Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1 and all six PIT sector M2 families are closed; remaining historical modules and real cutoff policy remain open.**
 
 Target window: **2021-08 .. 2026-07 (60 months)**
 
@@ -22,7 +22,7 @@ Goal: run the locked monthly Total Rasyo portfolio contract against an auditable
 | PIT CORE+VAL ratios | **CLOSED** | historical PIT ratio foundation; no cutoff-later restatement may enter |
 | PIT RSC | **CLOSED** | DB-free replay consumes only `HistoricalPitRatioReplayResult.combined_ratios` |
 | PIT M1 | **CLOSED** | DB-free 8-quarter replay consumes only PIT `rsc_summary` and reuses production trend math |
-| PIT sector M2 | **OPEN** | BANK/NONFIN/HOLDING/GYO/INSURANCE/FINANCIAL historical point-in-time input/replay path still required |
+| PIT sector M2 | **CLOSED** | DB-free replay is closed for NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL and BANK; latest sector CI is green |
 | PIT M3/EK4/EK1/EK9 | **OPEN** | production source semantics must be replayed without current-state leakage |
 | Signal cutoff/execution policy | **OPEN** | real 60-month policy is not authorized; test fixture times must not be promoted silently |
 | Full historical Total Rasyo authority | **OPEN** | requires the remaining PIT modules and final historical scoring/ranking assembly |
@@ -135,6 +135,19 @@ It locks:
 
 It rejects multiple PIT versions for the same ticker+financial period so restatement versions cannot be mistaken for extra quarters.
 
+### M2
+
+The DB-free historical sector replay path is closed for all six production families:
+
+- NONFIN;
+- HOLDING;
+- GYO;
+- INSURANCE;
+- FINANCIAL;
+- BANK v4.7.
+
+Each replay consumes explicit point-in-time frames, rejects future financial/NAV/price-follow observations, and does not fall back to the current universe. The implementations reuse the corresponding production sector valuation and two-axis M2 semantics instead of defining a second historical scoring model.
+
 ## Cutoff policy boundary — still open
 
 V24-F's production registry deliberately seeded **no authoritative historical cutoff values**. The hard contract requires:
@@ -148,15 +161,15 @@ V24-F's production registry deliberately seeded **no authoritative historical cu
 
 ## Latest CI evidence
 
-Canonical evidence file: `docs/V24_REAL_DATA_CI_EVIDENCE.json`.
+Latest verified active-branch sector run: [`32178692028`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/32178692028).
 
-Tested code SHA: **`ae3b37d4c06e5cbf8e111ad13206006ab57fd665`**.
+Tested code SHA: **`9079773fa0b2f52e3b1f93f34a65537c6f7a720f`**.
 
-Latest base-branch evidence:
+Latest base-branch results:
 
 - schema migration: **PASS**;
-- targeted real-data contracts: **96 passed, 0 failed**;
-- full repository regression: **1625 passed, 0 failed**;
+- sector PIT M2 contracts: **31 passed, 0 failed**;
+- full repository regression: **1667 passed, 0 failed**;
 - BANK v4.7 regression: **277 passed, 1 xfailed**;
 - exact monthly-member execution prices: **6000/6000**;
 - official Borsa THB supplements: **12**;
@@ -164,23 +177,17 @@ Latest base-branch evidence:
 - overwrite existing Yahoo prices: **false**;
 - PIT CORE+VAL: **PASS**;
 - DB-free PIT RSC: **PASS**;
-- DB-free PIT M1: **PASS**.
+- DB-free PIT M1: **PASS**;
+- DB-free PIT M2 for all six sector families: **PASS**.
 
-An independent PR validation of the same base code also passed:
-
-- validation run: `32171062890`;
-- merge SHA tested by GitHub: `31072e590d7a3cb4716988cbd8adab91bb177fbd`;
-- targeted: **96 passed**;
-- full regression: **1625 passed**;
-- BANK: **277 passed, 1 xfailed**.
+`docs/V24_REAL_DATA_CI_EVIDENCE.json` is the machine-readable consolidated evidence file. The consolidated workflow is being aligned with the six-family M2 closure and must regenerate that file on the next successful push to `v24-real-data-work`.
 
 ## Next work order
 
-1. Build PIT-safe **M2 sector replay** for BANK, NONFIN, HOLDING, GYO, INSURANCE and FINANCIAL without current-state DB leakage.
-2. Reconstruct PIT sources for **M3, EK4, EK1 and EK9** under the same historical knowledge boundary.
-3. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
-4. Resolve and register the real cutoff/execution policy.
-5. Run V24-G real readiness; require `READY`.
-6. Only then run the locked monthly portfolio and publish holdings, trades, NAV, contributions, and XU100 comparison.
+1. Reconstruct PIT sources for **M3, EK4, EK1, `good_count_ge8` and EK9** under the same historical knowledge boundary.
+2. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
+3. Resolve and register the real cutoff/execution policy.
+4. Run V24-G real readiness; require `READY`.
+5. Only then run the locked monthly portfolio and publish holdings, trades, NAV, contributions, and XU100 comparison.
 
 The production `main` branch remains separate and unchanged by this experimental historical-data branch.
