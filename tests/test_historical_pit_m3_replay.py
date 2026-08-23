@@ -80,7 +80,7 @@ def test_historical_m3_replay_has_no_database_connection_parameter():
     assert "conn" not in inspect.signature(run_historical_pit_m3_replay).parameters
 
 
-def test_historical_m3_reuses_production_beta_and_trailing_alpha_math():
+def test_historical_m3_reuses_beta_and_trailing_alpha_frame_math():
     universe, calendar, stock_prices, index_prices = _frames()
     replay = _run()
 
@@ -130,6 +130,63 @@ def test_historical_m3_reuses_production_beta_and_trailing_alpha_math():
     assert replay.rejections.empty
     assert set(replay.m3_scores["ticker"]) == {"AAA", "BBB"}
     assert replay.m3_scores["m3"].between(0.0, 1.0).all()
+
+
+def test_historical_beta_gap_is_missing_not_a_synthetic_zero_return():
+    days = pd.bdate_range("2024-01-01", periods=100)
+    stock_days = days.delete(20)
+    universe = pd.DataFrame(
+        [{"ticker": "AAA", "sector_index_code": "XTEST"}]
+    )
+    prices = pd.DataFrame(
+        {
+            "ticker": "AAA",
+            "trade_date": stock_days,
+            "px": 100.0
+            * np.cumprod(
+                1.001 + 0.0002 * np.sin(np.arange(len(stock_days), dtype=float))
+            ),
+        }
+    )
+    index_prices = pd.concat(
+        [
+            pd.DataFrame(
+                {
+                    "index_code": code,
+                    "trade_date": days,
+                    "px": values,
+                }
+            )
+            for code, values in (
+                (
+                    "XU100",
+                    100.0
+                    * np.cumprod(
+                        1.0008 + 0.0001 * np.cos(np.arange(len(days), dtype=float))
+                    ),
+                ),
+                (
+                    "XTEST",
+                    100.0
+                    * np.cumprod(
+                        1.001 + 0.0001 * np.sin(np.arange(len(days), dtype=float))
+                    ),
+                ),
+            )
+        ],
+        ignore_index=True,
+    )
+
+    result = estimate_betas_from_frames(
+        universe=universe,
+        prices=prices,
+        index_prices=index_prices,
+        t0_date=days[-1],
+    )
+
+    # First return, the absent stock day, and the following return are unknown.
+    # Explicit no-fill semantics keep this identical on every pandas >=2.2.
+    assert result.iloc[0]["n_obs"] == 97
 
 
 def test_trailing_alpha_uses_sector_excess_factor_not_raw_sector_return():
