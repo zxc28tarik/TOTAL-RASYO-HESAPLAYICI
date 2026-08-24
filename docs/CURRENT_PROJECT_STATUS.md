@@ -62,7 +62,7 @@ Son otomatik kanıt commit'i [`44dfbc2`](https://github.com/zxc28tarik/TOTAL-RAS
 - evidence persistence: **PASS**;
 - iş akışı sonucu: **success**.
 
-PR #13'ün canlı beta uyumluluğu, tarihsel `pct_change(fill_method=None)` davranışı ve pandas sürüm kapısı bağımsız gerçek diff ve mutasyon testleriyle denetlendi; blocker/major kalmadan birleştirildi.
+PR #13'ün canlı beta uyumluluğu, tarihsel `pct_change(fill_method=None)` davranışı ve pandas sürüm kapısı Claude tarafından gerçek diff ve mutasyon testleriyle bağımsız olarak denetlendi; blocker/major kalmadan birleştirildi.
 
 PR #15'in gerçek M3 veri paketi iki bağımsız denetimden geçti. İkinci turda `GRTRK -> GRTHO` kimlik zinciri yol+SHA256 ve mutasyon testleriyle sertleştirildi; GitHub CI #41 ve merge-sonrası CI kanıtı yeşil tamamlandı.
 
