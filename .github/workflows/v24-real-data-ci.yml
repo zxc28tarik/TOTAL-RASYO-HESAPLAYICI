@@ -66,6 +66,7 @@ on:
       - 'tests/test_historical_pit_m1_replay.py'
       - 'tests/test_historical_pit_m3_replay.py'
       - 'tests/test_historical_m3_source_package.py'
+      - 'tests/test_real_historical_m3_source_package.py'
       - 'tests/test_betas_live_compatibility.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
@@ -112,6 +113,7 @@ on:
       - 'tests/test_historical_pit_m1_replay.py'
       - 'tests/test_historical_pit_m3_replay.py'
       - 'tests/test_historical_m3_source_package.py'
+      - 'tests/test_real_historical_m3_source_package.py'
       - 'tests/test_betas_live_compatibility.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
@@ -160,7 +162,8 @@ jobs:
           python -m pytest -q \
             tests/test_historical_pit_m3_replay.py \
             tests/test_betas_live_compatibility.py \
-            tests/test_historical_m3_source_package.py
+            tests/test_historical_m3_source_package.py \
+            tests/test_real_historical_m3_source_package.py
 
   test:
     needs: pandas-22-compat
@@ -212,6 +215,7 @@ jobs:
             tests/test_historical_pit_m1_replay.py \
             tests/test_historical_pit_m3_replay.py \
             tests/test_historical_m3_source_package.py \
+            tests/test_real_historical_m3_source_package.py \
             tests/test_betas_live_compatibility.py \
             tests/test_historical_pit_nonfin_m2_replay.py \
             tests/test_historical_pit_holding_m2_replay.py \
@@ -268,6 +272,13 @@ jobs:
           m = re.search(r'(\d+) passed,\s*(\d+) xfailed', bank_log)
           if not m:
               raise RuntimeError('BANK v4.7 summary missing')
+          m3_manifest = json.loads(
+              Path('data/backtest_sources/m3_source_package/manifest.json').read_text(
+                  encoding='utf-8'
+              )
+          )
+          if m3_manifest.get('package_status') != 'CLOSED':
+              raise RuntimeError('historical M3 source package is not CLOSED')
 
           evidence = {
               'contract': 'V24_REAL_DATA_CI_EVIDENCE_V1',
@@ -312,7 +323,13 @@ jobs:
                   'beta_lookback_trading_days': 252,
                   'xu100_sector_fallback': False,
                   'contract_tests': 'PASS',
-                  'real_source_package_status': 'OPEN',
+                  'real_source_package_status': 'CLOSED',
+                  'route_rows': m3_manifest['canonical_files']['sector_routes']['row_count'],
+                  'index_close_rows': m3_manifest['canonical_files']['index_closes']['row_count'],
+                  'raw_source_count': len(m3_manifest['raw_sources']),
+                  'coverage': m3_manifest['coverage'],
+                  'sector_routes_sha256': m3_manifest['canonical_files']['sector_routes']['sha256'],
+                  'index_closes_sha256': m3_manifest['canonical_files']['index_closes']['sha256'],
               },
               'pandas_compatibility': {
                   'pandas': '2.2.3',
