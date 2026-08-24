@@ -1,6 +1,6 @@
 # V24 Real Historical Data Bootstrap
 
-Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families, M3, DB-free Ek4 and DB-free Ek1/good-count are closed; Ek9 and the real cutoff policy remain open.**
+Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families, M3, DB-free Ek4 and DB-free Ek1/good-count are closed; Ek9 is a PR candidate awaiting audit/merge and the real cutoff policy remains open.**
 
 Target window: **2021-08 .. 2026-07 (60 months)**
 
@@ -27,7 +27,7 @@ Goal: run the locked monthly Total Rasyo portfolio contract against an auditable
 | Real 60-month M3 source coverage | **CLOSED** | PR #15 merged after two independent audits; 209-ticker routes, 7,415 official XU100/broad-sector closes, seven committed direct raw sources, full hashes and byte-identical reproduction pass the fail-closed validator |
 | PIT EK4 | **CLOSED** | PR #16 merged after independent mutation audit; DB-free replay shares exact live arithmetic, uses 20 trading intervals and the date-correct M3 sector route, and forbids XU100 fallback |
 | PIT EK1 + good-count | **CLOSED** | PR #17 merged after green CI and an independent 8/8 mutation audit; same PIT M1 period, shared `good_count/18` arithmetic, no missing-count default and locked production veto boundary |
-| PIT EK9 | **OPEN** | production source semantics must be replayed without current-state leakage |
+| PIT EK9 | **PR CANDIDATE — AUDIT/MERGE REQUIRED** | DB-free replay shares the exact live `std(ddof=1)`/0.06 score arithmetic; requires a complete 64-price/63-return PIT window and has no index-price fallback path |
 | Signal cutoff/execution policy | **OPEN** | real 60-month policy is not authorized; test fixture times must not be promoted silently |
 | Full historical Total Rasyo authority | **OPEN** | requires the remaining PIT modules and final historical scoring/ranking assembly |
 | Final 5-year portfolio result | **BLOCKED BY ABOVE** | no performance claim until readiness is `READY` |
@@ -217,6 +217,33 @@ silently converted to zero. Tests pass counts 4 and 5 into
 `compute_total_rasyo`, proving the `<5` threshold and 0.60 veto factor on both
 sides of the boundary. See `docs/HISTORICAL_PIT_EK1_REPLAY_CONTRACT.md`.
 
+### Ek9 — PR candidate
+
+`src/analytics/historical_pit_ek9_replay.py` has no database or index-price
+argument. The caller supplies the historical universe, XU100 trading calendar
+and stock-price rows already bounded by `market_asof_date`. The replay locks the
+production 63-return horizon to the final 64 calendar price positions and rejects
+a ticker if any one of those stock prices is missing.
+
+The live path retains its original SQL, pivot, default `pct_change()`, global
+`< lookback + 2` guard and `tail(lookback)`. Only its arithmetic is shared via
+`ek9_volatility.compute_ek9_volatility_scores`:
+
+```text
+volatility = std(daily_returns, ddof=1)
+Ek9 = 1 - clip(volatility / 0.06, 0, 1)
+```
+
+The helper also retains the live `inf -> NaN -> fillna(0.0)` cleanup. Historical
+replay is stricter before the helper: all 64 prices must be finite/positive and
+`pct_change(fill_method=None)` must yield exactly 63 finite returns. XU100 is
+calendar authority only; there is no index-price input that could become a stock
+fallback. See `docs/HISTORICAL_PIT_EK9_REPLAY_CONTRACT.md`.
+
+This is not a closure claim. The PR candidate still requires the pinned pandas
+CI, full repository/BANK gates and the independent diff/mutation audit before
+merge.
+
 ## Cutoff policy boundary — still open
 
 V24-F's production registry deliberately seeded **no authoritative historical cutoff values**. The hard contract requires:
@@ -230,16 +257,16 @@ V24-F's production registry deliberately seeded **no authoritative historical cu
 
 ## Latest CI evidence
 
-Latest verified evidence commit: [`251aec8`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/251aec86e76ac1be5be4f06153f586321a0d8a3b).
+Latest verified evidence commit: [`006456c`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/006456c459c91a66c1d371cd4c7be4c4e4acd703).
 
-Tested merge SHA: **`b9022156c43282d15a4645457773c02bb2317d47`**.
+Tested merge SHA: **`20b2c1f9afb5aa7c04a8a42fdf91384484d9a14d`**.
 
 Latest base-branch results:
 
 - schema migration: **PASS**;
-- pandas 2.2.3 / numpy 1.26.4 compatibility gate: **17 passed, 0 failed**;
-- targeted real-data contracts: **185 passed, 0 failed**;
-- full repository regression: **1714 passed, 0 failed**;
+- pandas 2.2.3 / numpy 1.26.4 compatibility gate: **91 passed, 0 failed**;
+- targeted real-data contracts: **229 passed, 0 failed**;
+- full repository regression: **1758 passed, 0 failed**;
 - BANK v4.7 regression: **277 passed, 1 xfailed**;
 - exact monthly-member execution prices: **6000/6000**;
 - official Borsa THB supplements: **12**;
@@ -249,6 +276,8 @@ Latest base-branch results:
 - DB-free PIT RSC: **PASS**;
 - DB-free PIT M1: **PASS**;
 - DB-free PIT M3: **PASS**;
+- DB-free PIT Ek4: **PASS**;
+- DB-free PIT Ek1/good-count: **PASS**;
 - real M3 source package: **CLOSED** — 210 routes, 7,415 closes, 7 raw sources;
 - DB-free PIT M2 for all six sector families: **PASS**.
 
@@ -269,11 +298,16 @@ tests, 229 targeted contracts, 1,758 full-regression tests and BANK v4.7. Merge
 commit `20b2c1f9afb5aa7c04a8a42fdf91384484d9a14d` carries the exact audited PR
 head tree for all nine changed files.
 
+The Ek9 candidate has only isolated local proof before PR CI: its pure DB-free
+adapter/helper target suite passed under pandas 2.2.3, and mutation probes for
+`ddof`, cap, lookback, missing-fill and future-stock guards were killed. These
+are not substitutes for repository CI or independent audit.
+
 `docs/V24_REAL_DATA_CI_EVIDENCE.json` is the machine-readable consolidated evidence file. CI records the source-package contract and the real source package as `CLOSED`, together with row counts, coverage and canonical hashes.
 
 ## Next work order
 
-1. Reconstruct PIT **EK9** under the same historical knowledge boundary.
+1. Independently audit and, only if clean, merge the PIT **EK9** PR candidate.
 2. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
 3. Resolve and register the real cutoff/execution policy.
 4. Run V24-G real readiness; require `READY`.

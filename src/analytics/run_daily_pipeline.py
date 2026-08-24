@@ -21,6 +21,7 @@ from src.analytics.m2_period import compute_m2_period_comparison, upsert_m2_peri
 from src.analytics.total_rasyo_score import compute_total_rasyo
 from src.analytics.ek4_momentum import compute_ek4_momentum_point
 from src.analytics.ek1_quality import compute_ek1_score_from_good_count
+from src.analytics.ek9_volatility import compute_ek9_volatility_scores
 
 
 def _sql_value(x):
@@ -391,8 +392,8 @@ def _compute_ek9_vol(conn, asof: date, lookback: int = 63) -> pd.DataFrame:
     if ret.shape[0] < lookback + 2:
         return pd.DataFrame(columns=["ticker","ek9"])
     window = ret.tail(lookback)
-    vol = window.std(ddof=1).replace([np.inf, -np.inf], np.nan).fillna(0.0)
-    ek9 = 1.0 - (vol / 0.06).clip(0.0, 1.0)
+    scored = compute_ek9_volatility_scores(window)
+    ek9 = scored["ek9"]
     return pd.DataFrame({"ticker": ek9.index.astype(str), "ek9": ek9.values})
 
 
