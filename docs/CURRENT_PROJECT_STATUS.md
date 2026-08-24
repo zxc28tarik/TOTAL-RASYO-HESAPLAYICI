@@ -1,6 +1,6 @@
 # Total Rasyo Hesaplayıcı — Güncel Proje Durumu
 
-Son doğrulama: **2026-08-23**
+Son doğrulama: **2026-08-24**
 
 Bu belge, sohbet sayfaları değişse bile projenin hedefini ve son doğrulanmış durumunu kaybetmemek için tek başlangıç noktasıdır.
 
@@ -11,7 +11,7 @@ Depo: [`zxc28tarik/TOTAL-RASYO-HESAPLAYICI`](https://github.com/zxc28tarik/TOTAL
 | Hat | Dal | Doğrulanmış baş | Anlamı |
 |---|---|---|---|
 | Üretim | `main` | `84494e29824809b20b5410c8b160ef38f70c27c9` | V24-F üretim fotoğrafı; deneysel tarihsel veri çalışması buraya henüz terfi ettirilmedi |
-| Aktif geliştirme | `v24-real-data-work` | `f769ba51db5b3df2ecda9cbcfc4fbb74ee012f52` | En ileri doğrulanmış tarihsel BIST100/PIT/backtest tabanı; birleştirilmiş durum belgeleri, V24-G ve altı sektör ailesinin M2 replay zincirini içerir |
+| Aktif geliştirme | `v24-real-data-work` | `4fce01482b7bae9574f055c2382a8f43ea86f3f3` | PR #13 sonrası doğrulanmış tarihsel taban; M3 replay, canlı beta uyumluluk koruması ve kalıcı pandas 2.2.3 CI kapısını içerir |
 
 `v24-real-data-work`, V24-F ortak atasından sonra aktif geliştirme dalıdır. `main` üzerindeki sonraki commitler üretim CI/kanıt belgeleridir. Bu nedenle tek depo hedefi, iki dalı körlemesine ezmek değil; geliştirme tamamlanıp bütün kapılar geçtiğinde kontrollü terfi yapmaktır.
 
@@ -45,22 +45,23 @@ Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri i�
 | Kurumsal aksiyon motoru | **SEMANTİK KAPALI** | bölünme/bedelsiz, temettü nakdi, kod değişimi ve olay sırası |
 | PIT CORE+VAL, RSC, M1 | **KAPALI** | DB-free ve cutoff-sonrası veri reddi |
 | PIT M2 — altı sektör ailesi | **KAPALI** | NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL, BANK |
-| PIT M3 replay motoru | **UYGULANDI — CI ONAYI BEKLİYOR** | DB-free; 63 işlem günü; üretim OLS/shrinkage ve alpha matematiği ortak; tarihsel tarih hizalama canlı yoldan izole; gelecekteki fiyat ve güncel evren reddi |
-| Gerçek 60 aylık M3 kaynak paketi | **AÇIK** | tarihsel sektör rotaları ile XU100/sektör endeksi günlük kapanışları henüz hash-kilitli giriş paketi değil |
+| PIT M3 replay motoru | **KAPALI** | PR #13 iki bağımsız denetimden geçti; DB-free tarihsel yol canlı beta davranışından izole; pandas 2.2.3 uyumluluğu ayrı CI kapısı |
+| Gerçek 60 aylık M3 kaynak paketi | **AÇIK — SÖZLEŞME UYGULANDI** | fail-closed hash/lineage/6000 rota/252 günlük kapanış kapıları kuruldu; gerçek ham ve kanonik kaynaklar henüz eklenmedi |
 | V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
 
-Aktif dalın son doğrulanmış GitHub kanıt commit'i: [`f769ba5`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/f769ba51db5b3df2ecda9cbcfc4fbb74ee012f52); test edilen kod `27929b6...`.
+Aktif dalın son doğrulanmış GitHub kanıt commit'i: [`4fce014`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/4fce01482b7bae9574f055c2382a8f43ea86f3f3); test edilen kod `533aaaf7b9ef7f3050d63d3b80e7376bb4ae59ef`.
 
-- hedefli gerçek-veri sözleşmeleri: **138 geçti**;
-- tam regresyon: **1667 geçti**;
+- pandas 2.2.3 / numpy 1.26.4 M3 uyumluluk kapısı: **17 geçti**;
+- hedefli gerçek-veri sözleşmeleri: **155 geçti**;
+- tam regresyon: **1684 geçti**;
 - BANK v4.7: **277 geçti, 1 beklenen xfail**;
 - iş akışı sonucu: **success**.
 
-M3 özellik dalındaki yerel kabul sonucu: M3 **14/14**, bütün tarihsel PIT replay testleri **75/75**, yerel tam paket **1453 geçti / 224 ortam-bağımlı test atlandı**, BANK v4.7 **277 geçti / 1 beklenen xfail**. Bu sonuç GitHub CI kanıtı oluşana kadar doğrulanmış aktif-dal kanıtının yerine geçmez.
+PR #13'ün canlı beta uyumluluğu, tarihsel `pct_change(fill_method=None)` davranışı ve pandas sürüm kapısı Claude tarafından gerçek diff ve mutasyon testleriyle bağımsız olarak denetlendi; blocker/major kalmadan birleştirildi.
 
 ## Açık işler — uygulanacak sıra
 
-1. M3 değişikliğini GitHub CI ile doğrula; 60 ay için tarihsel sektör rotalarını ve XU100/sektör endeksi günlük kapanışlarını kaynak/hash kanıtıyla kilitle.
+1. Uygulanan M3 kaynak sözleşmesini bağımsız denetimden geçir; ardından 60 ay için gerçek tarihsel sektör rotalarını ve XU100/sektör endeksi günlük kapanışlarını ham kaynak + kanonik dosya + hash + deterministik dönüşüm kanıtıyla kilitle.
 2. PIT-safe **Ek4** replay: 20 günlük hisse getirisi eksi sektör endeksi getirisi üretimini kur.
 3. PIT-safe **Ek1** ve `good_count_ge8` replay: RSC özetinden üretim semantiğini tarihsel olarak kur.
 4. PIT-safe **Ek9** replay: 63 günlük getiri oynaklığını tarihsel olarak kur.
