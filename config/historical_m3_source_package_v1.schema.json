@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/config/historical_m3_source_package_v1.schema.json",
+  "title": "Historical M3 Source Package V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "package_status",
+    "assembled_at",
+    "market_index",
+    "coverage",
+    "canonical_files",
+    "raw_sources",
+    "transformation",
+    "sha256sums_path",
+    "sha256sums_sha256"
+  ],
+  "properties": {
+    "contract": {"const": "HISTORICAL_M3_SOURCE_PACKAGE_V1"},
+    "package_status": {"enum": ["OPEN", "CLOSED"]},
+    "assembled_at": {"type": "string", "format": "date-time"},
+    "market_index": {"const": "XU100"},
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start_date", "end_date", "beta_lookback_trading_days", "alpha_window_trading_days"],
+      "properties": {
+        "start_date": {"type": "string", "format": "date"},
+        "end_date": {"type": "string", "format": "date"},
+        "beta_lookback_trading_days": {"const": 252},
+        "alpha_window_trading_days": {"const": 63}
+      }
+    },
+    "canonical_files": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sector_routes", "index_closes"],
+      "properties": {
+        "sector_routes": {"$ref": "#/$defs/canonicalFile"},
+        "index_closes": {"$ref": "#/$defs/canonicalFile"}
+      }
+    },
+    "raw_sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "publisher", "source_url", "artifact_identity", "retrieved_at", "raw_path", "raw_sha256"],
+        "properties": {
+          "source_id": {"type": "string", "minLength": 1},
+          "publisher": {"type": "string", "minLength": 1},
+          "source_url": {"type": "string", "format": "uri", "pattern": "^https://"},
+          "artifact_identity": {"type": "string", "minLength": 1},
+          "retrieved_at": {"type": "string", "format": "date-time"},
+          "raw_path": {"type": "string", "minLength": 1},
+          "raw_sha256": {"$ref": "#/$defs/sha256"}
+        }
+      }
+    },
+    "transformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entrypoint_path", "entrypoint_sha256", "determinism_test_path", "determinism_test_sha256", "reproduction_command"],
+      "properties": {
+        "entrypoint_path": {"type": "string", "minLength": 1},
+        "entrypoint_sha256": {"$ref": "#/$defs/sha256"},
+        "determinism_test_path": {"type": "string", "minLength": 1},
+        "determinism_test_sha256": {"$ref": "#/$defs/sha256"},
+        "reproduction_command": {"type": "string", "pattern": "pytest"}
+      }
+    },
+    "sha256sums_path": {"type": "string", "minLength": 1},
+    "sha256sums_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "canonicalFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "row_count", "schema"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "row_count": {"type": "integer", "minimum": 1},
+        "schema": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    }
+  }
+}

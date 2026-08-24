@@ -23,8 +23,8 @@ Goal: run the locked monthly Total Rasyo portfolio contract against an auditable
 | PIT RSC | **CLOSED** | DB-free replay consumes only `HistoricalPitRatioReplayResult.combined_ratios` |
 | PIT M1 | **CLOSED** | DB-free 8-quarter replay consumes only PIT `rsc_summary` and reuses production trend math |
 | PIT sector M2 | **CLOSED** | DB-free replay is closed for NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL and BANK; latest sector CI is green |
-| PIT M3 replay engine | **IMPLEMENTED; CI PENDING** | DB-free 63-day alpha; live/history share OLS-shrinkage and alpha math while historical date alignment stays isolated; signal date and market cutoff are separate |
-| Real 60-month M3 source coverage | **OPEN** | historical sector-index routing and daily XU100/sector-index closes still require frozen provenance/hash coverage |
+| PIT M3 replay engine | **CLOSED** | PR #13 passed two independent audits; DB-free history stays isolated from live beta behavior and pandas 2.2.3 compatibility is a permanent CI gate |
+| Real 60-month M3 source coverage | **OPEN — CONTRACT IMPLEMENTED** | fail-closed package/hash/lineage/6000-route/daily-close gates exist; real committed raw and canonical sources are still missing |
 | PIT EK4/EK1/EK9 | **OPEN** | production source semantics must be replayed without current-state leakage |
 | Signal cutoff/execution policy | **OPEN** | real 60-month policy is not authorized; test fixture times must not be promoted silently |
 | Full historical Total Rasyo authority | **OPEN** | requires the remaining PIT modules and final historical scoring/ranking assembly |
@@ -169,6 +169,14 @@ and missing-market behavior unchanged.
 
 Every historical ticker is either scored or emitted in `rejections`; current-universe contamination, missing sector routing, duplicate keys, off-calendar observations and post-cutoff prices are hard errors. Unlike the live compatibility path, historical replay never substitutes XU100 for a missing sector index. The real 60-month run is still blocked because the repository's frozen source package does not yet contain provenance/hash-locked daily XU100 and sector-index closes plus date-correct sector routing for every monthly member.
 
+`src/analytics/historical_m3_source_package.py` now defines the separate
+`HISTORICAL_M3_SOURCE_PACKAGE_V1` gate. It requires committed raw payloads,
+canonical routes/closes, exact SHA256 coverage, deterministic transformation code,
+date-ranged non-overlapping routes, all 6,000 membership-route resolutions and a
+complete 252-trading-day index-close window for every signal. The contract and its
+mutation tests are implemented; this does **not** close the real-data task. See
+`docs/HISTORICAL_M3_SOURCE_PACKAGE_CONTRACT.md`.
+
 ## Cutoff policy boundary — still open
 
 V24-F's production registry deliberately seeded **no authoritative historical cutoff values**. The hard contract requires:
@@ -182,15 +190,16 @@ V24-F's production registry deliberately seeded **no authoritative historical cu
 
 ## Latest CI evidence
 
-Latest verified active-branch evidence commit: [`f769ba5`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/f769ba51db5b3df2ecda9cbcfc4fbb74ee012f52).
+Latest verified active-branch evidence commit: [`4fce014`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/4fce01482b7bae9574f055c2382a8f43ea86f3f3).
 
-Tested code SHA: **`27929b67a74940988bcdb24d903906083fdf955e`**.
+Tested code SHA: **`533aaaf7b9ef7f3050d63d3b80e7376bb4ae59ef`**.
 
 Latest base-branch results:
 
 - schema migration: **PASS**;
-- targeted real-data contracts: **138 passed, 0 failed**;
-- full repository regression: **1667 passed, 0 failed**;
+- pandas 2.2.3 / numpy 1.26.4 compatibility gate: **17 passed, 0 failed**;
+- targeted real-data contracts: **155 passed, 0 failed**;
+- full repository regression: **1684 passed, 0 failed**;
 - BANK v4.7 regression: **277 passed, 1 xfailed**;
 - exact monthly-member execution prices: **6000/6000**;
 - official Borsa THB supplements: **12**;
@@ -199,15 +208,18 @@ Latest base-branch results:
 - PIT CORE+VAL: **PASS**;
 - DB-free PIT RSC: **PASS**;
 - DB-free PIT M1: **PASS**;
+- DB-free PIT M3: **PASS**;
 - DB-free PIT M2 for all six sector families: **PASS**.
 
-The M3 feature change has passed locally: M3 **14/14**, all historical PIT replay tests **75/75**, full local regression **1453 passed / 224 environment-dependent skipped**, BANK v4.7 **277 passed / 1 xfailed**. These local numbers do not replace GitHub evidence; the consolidated CI must pass after the change is committed and pushed.
+The M3 replay and live-beta compatibility fix passed two independent reviews,
+including mutation tests under pandas 2.2.3, before merge. The source-package
+contract in the current PR is a new gate and does not alter that live path.
 
-`docs/V24_REAL_DATA_CI_EVIDENCE.json` is the machine-readable consolidated evidence file. The consolidated workflow is being aligned with the six-family M2 closure and must regenerate that file on the next successful push to `v24-real-data-work`.
+`docs/V24_REAL_DATA_CI_EVIDENCE.json` is the machine-readable consolidated evidence file. It will record the source-package contract as PASS but the real source package as OPEN until committed real inputs pass every gate.
 
 ## Next work order
 
-1. Verify the M3 change in consolidated GitHub CI and freeze the real 60-month M3 sector-routing/index-price sources.
+1. Independently audit the M3 source-package contract, then freeze the real 60-month M3 sector-routing/index-price sources through it.
 2. Reconstruct PIT **EK4, EK1, `good_count_ge8` and EK9** under the same historical knowledge boundary.
 3. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
 4. Resolve and register the real cutoff/execution policy.
