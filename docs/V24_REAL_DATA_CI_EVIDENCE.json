@@ -1,15 +1,15 @@
 {
   "contract": "V24_REAL_DATA_CI_EVIDENCE_V1",
-  "tested_commit_sha": "181a401e73caed653cebb66d52c3ce98268b6ada",
+  "tested_commit_sha": "abdd936eaec055bfa1161c52d895a80b2f0d069e",
   "schema_migration": "PASSED",
   "targeted": {
-    "tests": 185,
+    "tests": 206,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
   "full_regression": {
-    "tests": 1714,
+    "tests": 1735,
     "failures": 0,
     "errors": 0,
     "skipped": 0
@@ -69,10 +69,23 @@
     "sector_routes_sha256": "f0c28c7babd018eb8994afdf4911a9d338dad43b291a1084a7acc47a3919c478",
     "index_closes_sha256": "32a740f7a7114e03c885d1ae75c8bacd081b5254b043521fd76ca5f8e34e786e"
   },
+  "pit_ek4_replay": {
+    "database_read_path": false,
+    "inputs": "historical routed universe/calendar/stock prices/index prices",
+    "sector_route_source": "HISTORICAL_M3_SOURCE_PACKAGE_V1",
+    "production_math": "ek4_momentum.compute_ek4_momentum_point",
+    "lookback_trading_intervals": 20,
+    "formula": "stock_return-sector_return",
+    "post_market_cutoff_rejected": true,
+    "current_universe_fallback": false,
+    "xu100_sector_fallback": false,
+    "score_rejection_coverage": "EXHAUSTIVE",
+    "result": "PASS"
+  },
   "pandas_compatibility": {
     "pandas": "2.2.3",
     "numpy": "1.26.4",
-    "tests": "historical_pit_m3_replay/live_beta_compatibility/m3_source_package",
+    "tests": "historical_market_replays/live_compatibility/m3_source_package",
     "result": "PASS"
   },
   "pit_m2_replay": {
