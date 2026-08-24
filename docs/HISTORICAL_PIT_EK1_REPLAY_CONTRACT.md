@@ -1,6 +1,6 @@
 # Historical PIT Ek1 and Good-Count Replay Contract
 
-Status: **IMPLEMENTED IN PR — independent audit and merge still required**
+Status: **CLOSED — PR #17 merged after green CI and an independent eight-mutation audit with no blocker or major finding**
 
 This contract keeps Ek1 and the Total Rasyo veto input on one point-in-time RSC
 lineage. It prevents a score from one financial period being combined with a

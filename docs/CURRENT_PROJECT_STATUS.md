@@ -11,7 +11,7 @@ Depo: [`zxc28tarik/TOTAL-RASYO-HESAPLAYICI`](https://github.com/zxc28tarik/TOTAL
 | Hat | Dal | Doğrulanmış baş | Anlamı |
 |---|---|---|---|
 | Üretim | `main` | `84494e29824809b20b5410c8b160ef38f70c27c9` | V24-F üretim fotoğrafı; deneysel tarihsel veri çalışması buraya henüz terfi ettirilmedi |
-| Aktif geliştirme | `v24-real-data-work` | `fa1fbbc25e24f4a4edd187c6c485143d3a6cfc47` | PR #16 merge-sonrası CI evidence başı; M3 ve PIT Ek4 CLOSED |
+| Aktif geliştirme | `v24-real-data-work` | `20b2c1f9afb5aa7c04a8a42fdf91384484d9a14d` | PR #17 merge başı; M3, PIT Ek4 ve PIT Ek1/good-count CLOSED |
 
 `v24-real-data-work`, V24-F ortak atasından sonra aktif geliştirme dalıdır. `main` üzerindeki sonraki commitler üretim CI/kanıt belgeleridir. Bu nedenle tek depo hedefi, iki dalı körlemesine ezmek değil; geliştirme tamamlanıp bütün kapılar geçtiğinde kontrollü terfi yapmaktır.
 
@@ -48,14 +48,14 @@ Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri i�
 | PIT M3 replay motoru | **KAPALI** | PR #13 iki bağımsız denetimden geçti; DB-free tarihsel yol canlı beta davranışından izole; pandas 2.2.3 uyumluluğu ayrı CI kapısı |
 | Gerçek 60 aylık M3 kaynak paketi | **KAPALI** | PR #15 birleşti; 209 ticker/210 rota, 5×1.483 resmî endeks kapanışı, 7 doğrudan ham kaynak, SHA256 kilidi ve deterministik yeniden üretim doğrulandı |
 | PIT Ek4 replay | **KAPALI** | PR #16 birleşti; DB-free, 20 işlem aralığı, ortak canlı formül, tarih-doğru M3 sektör rotası, ayrı piyasa kesimi ve XU100 fallback yasağı testlerle kilitli |
-| PIT Ek1 + `good_count_ge8` replay | **PR ADAYI — DENETİM BEKLİYOR** | DB-free; PIT M1 ile aynı son RSC dönemini kullanır, `Ek1=clip(good_count/18)`, eksik count sıfıra düşmez ve üretim veto sınırı 4/5 testlidir |
+| PIT Ek1 + `good_count_ge8` replay | **KAPALI** | PR #17 birleşti; DB-free, PIT M1 ile aynı son RSC dönemi, ortak canlı formül, eksik-count fallback yasağı ve gerçek üretim veto sınırı 8/8 mutasyonla doğrulandı |
 | V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
 
-Aktif dalın son doğrulanmış GitHub kanıt commit'i: [`fa1fbbc`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/fa1fbbc25e24f4a4edd187c6c485143d3a6cfc47); test edilen Ek4 kapanış commit'i [`abdd936`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/abdd936eaec055bfa1161c52d895a80b2f0d069e).
+Son otomatik kanıt commit'i [`fa1fbbc`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/fa1fbbc25e24f4a4edd187c6c485143d3a6cfc47)'dir. Ek1 için denetlenen head [`d4a227d7`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/d4a227d7c7956f0dfcf5f6506bc65b99d56a9f79), bit-bit aynı ağacı taşıyan merge commit'i [`20b2c1f9`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/20b2c1f9afb5aa7c04a8a42fdf91384484d9a14d) ve başarılı PR iş akışı [CI #47](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/32774085210)'dir.
 
-- pandas 2.2.3 / numpy 1.26.4 piyasa modülü uyumluluk kapısı: **68 geçti**;
-- hedefli gerçek-veri sözleşmeleri: **206 geçti**;
-- tam regresyon: **1735 geçti**;
+- pandas 2.2.3 / numpy 1.26.4 uyumluluk kapısı: **91 geçti**;
+- hedefli gerçek-veri sözleşmeleri: **229 geçti**;
+- tam regresyon: **1758 geçti**;
 - BANK v4.7: **277 geçti, 1 beklenen xfail**;
 - iş akışı sonucu: **success**.
 
@@ -65,15 +65,16 @@ PR #15'in gerçek M3 veri paketi iki bağımsız denetimden geçti. İkinci turd
 
 PR #16'nın PIT Ek4 replay motoru bağımsız diff ve mutasyon denetiminden blocker/major olmadan geçti. GitHub PR CI #44; pinned pandas 2.2.3, şema, hedefli gerçek-veri sözleşmeleri, tam regresyon ve BANK v4.7 kapılarının tamamında yeşildir. Merge commit'i `b24208141cce48e6009943d514d04e9ef5e18693` olup PR head içeriğiyle bit-bit eşleşir.
 
+PR #17'nin PIT Ek1/good-count replay motoru bağımsız diff ve sekiz mutasyon denetiminden blocker/major olmadan geçti. GitHub PR CI #47; pinned pandas 2.2.3'te 91, hedefli pakette 229, tam regresyonda 1.758 test ve BANK v4.7 kapılarının tamamında yeşildir. Merge commit'i `20b2c1f9afb5aa7c04a8a42fdf91384484d9a14d` olup denetlenen PR head ağacıyla bit-bit eşleşir.
+
 ## Açık işler — uygulanacak sıra
 
-1. PIT-safe **Ek1** ve `good_count_ge8` PR adayını bağımsız denetim ve CI sonrasında birleştir.
-2. PIT-safe **Ek9** replay: 63 günlük getiri oynaklığını tarihsel olarak kur.
-3. Altı modülü üretim ağırlıklarıyla birleştirip 60 cutoff için Total Rasyo sonucu ve sıralaması üret.
-4. Gerçek cutoff/execution saat politikasını açıkça kararlaştırıp kayıt altına al. Testteki önceki gün 20:00 / sinyal günü 10:00 değerleri gerçek politika sayılmaz.
-5. V24-G readiness raporunu gerçek 60 aylık veriyle çalıştır; sonuç zorunlu olarak `READY` olmalı.
-6. Aylık portföyü çalıştırıp holdings, trades, NAV, katkılar ve XU100 karşılaştırmasını yayımla.
-7. Tüm kapılar geçince aktif dalı kontrollü biçimde üretime terfi ettir.
+1. PIT-safe **Ek9** replay: 63 günlük getiri oynaklığını tarihsel olarak kur.
+2. Altı modülü üretim ağırlıklarıyla birleştirip 60 cutoff için Total Rasyo sonucu ve sıralaması üret.
+3. Gerçek cutoff/execution saat politikasını açıkça kararlaştırıp kayıt altına al. Testteki önceki gün 20:00 / sinyal günü 10:00 değerleri gerçek politika sayılmaz.
+4. V24-G readiness raporunu gerçek 60 aylık veriyle çalıştır; sonuç zorunlu olarak `READY` olmalı.
+5. Aylık portföyü çalıştırıp holdings, trades, NAV, katkılar ve XU100 karşılaştırmasını yayımla.
+6. Tüm kapılar geçince aktif dalı kontrollü biçimde üretime terfi ettir.
 
 Üretim ağırlıkları:
 
@@ -90,6 +91,6 @@ PR #16'nın PIT Ek4 replay motoru bağımsız diff ve mutasyon denetiminden bloc
 
 ## Yayın kuralı
 
-Henüz 5 yıllık getiri veya “başarı” iddiası yayımlanamaz. PIT Ek1/Ek9, tam tarihsel Total Rasyo otoritesi, gerçek cutoff politikası ve V24-G `READY` kapanmadan üretilen sonuç deneme/fixture sayılır.
+Henüz 5 yıllık getiri veya “başarı” iddiası yayımlanamaz. PIT Ek9, tam tarihsel Total Rasyo otoritesi, gerçek cutoff politikası ve V24-G `READY` kapanmadan üretilen sonuç deneme/fixture sayılır.
 
 Her kapanan aşamada bu belge, ilgili bootstrap belgesi ve CI kanıtı aynı commit zincirinde güncellenmelidir. Yeni bir sohbet açıldığında ilk okunacak dosya budur.
