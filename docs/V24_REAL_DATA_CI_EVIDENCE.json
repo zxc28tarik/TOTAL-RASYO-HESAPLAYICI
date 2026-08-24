@@ -1,15 +1,15 @@
 {
   "contract": "V24_REAL_DATA_CI_EVIDENCE_V1",
-  "tested_commit_sha": "533aaaf7b9ef7f3050d63d3b80e7376bb4ae59ef",
+  "tested_commit_sha": "8718f4320dee2eb5fd3ad59de88b15c92fb5628b",
   "schema_migration": "PASSED",
   "targeted": {
-    "tests": 155,
+    "tests": 177,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
   "full_regression": {
-    "tests": 1684,
+    "tests": 1706,
     "failures": 0,
     "errors": 0,
     "skipped": 0
@@ -49,10 +49,19 @@
     "score_rejection_coverage": "EXHAUSTIVE",
     "result": "PASS"
   },
+  "pit_m3_source_package": {
+    "contract": "HISTORICAL_M3_SOURCE_PACKAGE_V1",
+    "raw_payload_required_for_closed": true,
+    "membership_route_rows_required": 6000,
+    "beta_lookback_trading_days": 252,
+    "xu100_sector_fallback": false,
+    "contract_tests": "PASS",
+    "real_source_package_status": "OPEN"
+  },
   "pandas_compatibility": {
     "pandas": "2.2.3",
     "numpy": "1.26.4",
-    "tests": "historical_pit_m3_replay/live_beta_compatibility",
+    "tests": "historical_pit_m3_replay/live_beta_compatibility/m3_source_package",
     "result": "PASS"
   },
   "pit_m2_replay": {
