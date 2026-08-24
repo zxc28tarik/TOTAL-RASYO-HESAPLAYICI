@@ -11,7 +11,7 @@ Depo: [`zxc28tarik/TOTAL-RASYO-HESAPLAYICI`](https://github.com/zxc28tarik/TOTAL
 | Hat | Dal | Doğrulanmış baş | Anlamı |
 |---|---|---|---|
 | Üretim | `main` | `84494e29824809b20b5410c8b160ef38f70c27c9` | V24-F üretim fotoğrafı; deneysel tarihsel veri çalışması buraya henüz terfi ettirilmedi |
-| Aktif geliştirme | `v24-real-data-work` | `b24208141cce48e6009943d514d04e9ef5e18693` | PR #16 merge başı; gerçek M3 kaynak paketi ve PIT Ek4 replay CLOSED |
+| Aktif geliştirme | `v24-real-data-work` | `fa1fbbc25e24f4a4edd187c6c485143d3a6cfc47` | PR #16 merge-sonrası CI evidence başı; M3 ve PIT Ek4 CLOSED |
 
 `v24-real-data-work`, V24-F ortak atasından sonra aktif geliştirme dalıdır. `main` üzerindeki sonraki commitler üretim CI/kanıt belgeleridir. Bu nedenle tek depo hedefi, iki dalı körlemesine ezmek değil; geliştirme tamamlanıp bütün kapılar geçtiğinde kontrollü terfi yapmaktır.
 
@@ -48,13 +48,14 @@ Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri i�
 | PIT M3 replay motoru | **KAPALI** | PR #13 iki bağımsız denetimden geçti; DB-free tarihsel yol canlı beta davranışından izole; pandas 2.2.3 uyumluluğu ayrı CI kapısı |
 | Gerçek 60 aylık M3 kaynak paketi | **KAPALI** | PR #15 birleşti; 209 ticker/210 rota, 5×1.483 resmî endeks kapanışı, 7 doğrudan ham kaynak, SHA256 kilidi ve deterministik yeniden üretim doğrulandı |
 | PIT Ek4 replay | **KAPALI** | PR #16 birleşti; DB-free, 20 işlem aralığı, ortak canlı formül, tarih-doğru M3 sektör rotası, ayrı piyasa kesimi ve XU100 fallback yasağı testlerle kilitli |
+| PIT Ek1 + `good_count_ge8` replay | **PR ADAYI — DENETİM BEKLİYOR** | DB-free; PIT M1 ile aynı son RSC dönemini kullanır, `Ek1=clip(good_count/18)`, eksik count sıfıra düşmez ve üretim veto sınırı 4/5 testlidir |
 | V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
 
-Aktif dalın son doğrulanmış GitHub kanıt commit'i: [`251aec8`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/251aec86e76ac1be5be4f06153f586321a0d8a3b); test edilen PR #15 merge commit'i [`b902215`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/b9022156c43282d15a4645457773c02bb2317d47).
+Aktif dalın son doğrulanmış GitHub kanıt commit'i: [`fa1fbbc`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/fa1fbbc25e24f4a4edd187c6c485143d3a6cfc47); test edilen Ek4 kapanış commit'i [`abdd936`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/abdd936eaec055bfa1161c52d895a80b2f0d069e).
 
-- pandas 2.2.3 / numpy 1.26.4 M3 uyumluluk kapısı: **17 geçti**;
-- hedefli gerçek-veri sözleşmeleri: **185 geçti**;
-- tam regresyon: **1714 geçti**;
+- pandas 2.2.3 / numpy 1.26.4 piyasa modülü uyumluluk kapısı: **68 geçti**;
+- hedefli gerçek-veri sözleşmeleri: **206 geçti**;
+- tam regresyon: **1735 geçti**;
 - BANK v4.7: **277 geçti, 1 beklenen xfail**;
 - iş akışı sonucu: **success**.
 
@@ -66,7 +67,7 @@ PR #16'nın PIT Ek4 replay motoru bağımsız diff ve mutasyon denetiminden bloc
 
 ## Açık işler — uygulanacak sıra
 
-1. PIT-safe **Ek1** ve `good_count_ge8` replay: RSC özetinden üretim semantiğini tarihsel olarak kur.
+1. PIT-safe **Ek1** ve `good_count_ge8` PR adayını bağımsız denetim ve CI sonrasında birleştir.
 2. PIT-safe **Ek9** replay: 63 günlük getiri oynaklığını tarihsel olarak kur.
 3. Altı modülü üretim ağırlıklarıyla birleştirip 60 cutoff için Total Rasyo sonucu ve sıralaması üret.
 4. Gerçek cutoff/execution saat politikasını açıkça kararlaştırıp kayıt altına al. Testteki önceki gün 20:00 / sinyal günü 10:00 değerleri gerçek politika sayılmaz.
@@ -89,6 +90,6 @@ PR #16'nın PIT Ek4 replay motoru bağımsız diff ve mutasyon denetiminden bloc
 
 ## Yayın kuralı
 
-Henüz 5 yıllık getiri veya “başarı” iddiası yayımlanamaz. PIT Ek4/Ek1/Ek9, tam tarihsel Total Rasyo otoritesi, gerçek cutoff politikası ve V24-G `READY` kapanmadan üretilen sonuç deneme/fixture sayılır.
+Henüz 5 yıllık getiri veya “başarı” iddiası yayımlanamaz. PIT Ek1/Ek9, tam tarihsel Total Rasyo otoritesi, gerçek cutoff politikası ve V24-G `READY` kapanmadan üretilen sonuç deneme/fixture sayılır.
 
 Her kapanan aşamada bu belge, ilgili bootstrap belgesi ve CI kanıtı aynı commit zincirinde güncellenmelidir. Yeni bir sohbet açıldığında ilk okunacak dosya budur.

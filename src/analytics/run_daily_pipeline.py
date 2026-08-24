@@ -20,6 +20,7 @@ from src.analytics.expected_band_periods import build_expected_band_periods, ups
 from src.analytics.m2_period import compute_m2_period_comparison, upsert_m2_period_comparison
 from src.analytics.total_rasyo_score import compute_total_rasyo
 from src.analytics.ek4_momentum import compute_ek4_momentum_point
+from src.analytics.ek1_quality import compute_ek1_score_from_good_count
 
 
 def _sql_value(x):
@@ -369,7 +370,7 @@ def _compute_ek1_goodcount(conn, asof: date) -> pd.DataFrame:
     if df.empty:
         return pd.DataFrame(columns=["ticker","ek1","good_count_ge8"])
     gc = pd.to_numeric(df["good_count_ge8"], errors="coerce").fillna(0.0)
-    df["ek1"] = (gc / 18.0).clip(0.0, 1.0)
+    df["ek1"] = gc.map(compute_ek1_score_from_good_count)
     return df[["ticker","ek1","good_count_ge8"]]
 
 
