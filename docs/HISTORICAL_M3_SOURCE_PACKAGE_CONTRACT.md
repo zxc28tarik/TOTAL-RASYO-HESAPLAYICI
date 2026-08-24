@@ -2,12 +2,12 @@
 
 ## Status
 
-**CONTRACT IMPLEMENTED; REAL SOURCE PACKAGE OPEN.**
+**CONTRACT IMPLEMENTED; REAL SOURCE PACKAGE CLOSED IN THE DATA PR.**
 
-This contract does not claim that the 60-month M3 source data exists. It defines
-the gates that real historical sector routing and daily XU100/sector-index closes
-must pass before the package can be labelled `CLOSED` or consumed by a READY
-backtest.
+The committed package now passes the gates for real historical sector routing and
+daily XU100/sector-index closes. This closes the M3 source component only; it does
+not make the full V24 backtest `READY` while the other documented open modules and
+cutoff policy remain unresolved.
 
 The executable validator is
 `src/analytics/historical_m3_source_package.py`; the machine-readable shape is
@@ -104,6 +104,38 @@ effectively open even if all currently present files validate. If a raw source i
 not committed, the package reports `RAW_SOURCE_NOT_COMMITTED:<source_id>` and
 cannot become CLOSED.
 
-Until a separate real-data PR supplies and independently reproduces the full
-package, V24 real M3 source coverage remains **OPEN** and the backtest remains
-**NOT READY**.
+The committed data PR supplies and independently reproduces the package, so the
+M3 source component is now **CLOSED**. The full backtest remains **NOT READY**
+because separate PIT modules and the real cutoff policy are still open.
+
+## Committed real package
+
+The data PR adds a `CLOSED` package with:
+
+- 210 half-open route rows covering the exact 209-ticker historical membership
+  union;
+- 7,415 official daily closes: 1,483 common trading days for each of `XU100`,
+  `XUSIN`, `XUHIZ`, `XUMAL`, and `XUTEK` from 2020-07-27 through 2026-07-01;
+- seven committed direct raw sources (KAP sector classification, KAP notification
+  1331451, and five Borsa Istanbul index-graphic payloads);
+- a committed Borsa Istanbul announcement archive audit showing that `GRTHO` is
+  the only historical-member ticker affected by a sector-change announcement in
+  the archive;
+- a committed KAP broad-index snapshot audit proving that 207/209 current ticker
+  descendants agree with the top-sector mapping; the two non-index snapshot gaps
+  (`KONTR`, `TRILC`) are still resolved by their committed KAP sector classes;
+- deterministic gzip output (`mtime=0`) and a byte-identical reproduction test.
+
+The two large KAP page snapshots are stored in deterministic gzip containers;
+decompression restores the exact fetched HTML bytes. Direct-source and canonical
+container hashes are locked in the manifest and `SHA256SUMS`; audit-container
+hashes are locked by the hash-pinned transformation code.
+
+KAP top-level sectors are mapped to the four long-running broad BIST sector
+indices. The mapping is deterministic and agrees with the current broad-index
+membership snapshot. The only in-window exception is GRAINTURK HOLDING: KAP
+notification 1331451 moves it from `XUHIZ` to `XUMAL` effective 2024-09-09.
+
+The actual manifest and executable test are authoritative: the M3 source
+component is `CLOSED`; the full V24 backtest remains **NOT READY** for unrelated
+open gates.
