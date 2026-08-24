@@ -1,15 +1,15 @@
 {
   "contract": "V24_REAL_DATA_CI_EVIDENCE_V1",
-  "tested_commit_sha": "abdd936eaec055bfa1161c52d895a80b2f0d069e",
+  "tested_commit_sha": "fb3f410595e2ad0c6a80d522d10173667b04f771",
   "schema_migration": "PASSED",
   "targeted": {
-    "tests": 206,
+    "tests": 229,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
   "full_regression": {
-    "tests": 1735,
+    "tests": 1758,
     "failures": 0,
     "errors": 0,
     "skipped": 0
@@ -82,10 +82,24 @@
     "score_rejection_coverage": "EXHAUSTIVE",
     "result": "PASS"
   },
+  "pit_ek1_replay": {
+    "database_read_path": false,
+    "input": "HistoricalPitM1ReplayResult",
+    "upstream": "HistoricalPitRscReplayResult.rsc_summary",
+    "production_math": "ek1_quality.compute_ek1_score_from_good_count",
+    "formula": "clip(good_count_ge8/18,0,1)",
+    "same_period_as_m1_required": true,
+    "missing_good_count_default": false,
+    "veto_consumer": "total_rasyo_score.compute_total_rasyo",
+    "veto_threshold": 5,
+    "veto_factor": 0.6,
+    "score_rejection_coverage": "EXHAUSTIVE",
+    "result": "PASS"
+  },
   "pandas_compatibility": {
     "pandas": "2.2.3",
     "numpy": "1.26.4",
-    "tests": "historical_market_replays/live_compatibility/m3_source_package",
+    "tests": "historical_market_and_quality_replays/live_compatibility/m3_source_package",
     "result": "PASS"
   },
   "pit_m2_replay": {
