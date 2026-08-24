@@ -61,6 +61,7 @@ on:
       - 'tests/test_historical_pit_rsc_replay.py'
       - 'tests/test_historical_pit_m1_replay.py'
       - 'tests/test_historical_pit_m3_replay.py'
+      - 'tests/test_betas_live_compatibility.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
@@ -77,6 +78,7 @@ on:
       - 'tests/test_v24_real_historical_universe_source_manifest.py'
       - 'tests/test_v24_real_xu100_signal_dates_source.py'
       - 'tests/test_v24_real_bist100_snapshot_source.py'
+      - 'requirements.txt'
       - '.github/workflows/v24-real-data-ci.yml'
   pull_request:
     branches: [v24-real-data-work]
@@ -97,19 +99,54 @@ on:
       - 'tests/test_historical_pit_rsc_replay.py'
       - 'tests/test_historical_pit_m1_replay.py'
       - 'tests/test_historical_pit_m3_replay.py'
+      - 'tests/test_betas_live_compatibility.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
       - 'tests/test_historical_pit_insurance_m2_replay.py'
       - 'tests/test_historical_pit_financial_m2_replay.py'
       - 'tests/test_historical_pit_bank_m2_replay.py'
+      - 'requirements.txt'
       - '.github/workflows/v24-real-data-ci.yml'
 
 permissions:
   contents: write
 
 jobs:
+  pandas-22-compat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install pinned pandas 2.2 compatibility dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            'numpy==1.26.4' \
+            'pandas==2.2.3' \
+            'psycopg2-binary>=2.9' \
+            pytest
+      - name: Verify pinned versions
+        run: |
+          python - <<'PY'
+          import numpy as np
+          import pandas as pd
+
+          assert np.__version__ == '1.26.4', np.__version__
+          assert pd.__version__ == '2.2.3', pd.__version__
+          print(f'numpy={np.__version__} pandas={pd.__version__}')
+          PY
+      - name: Historical M3 and live beta compatibility on pandas 2.2.3
+        run: |
+          python -m pytest -q \
+            tests/test_historical_pit_m3_replay.py \
+            tests/test_betas_live_compatibility.py
+
   test:
+    needs: pandas-22-compat
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -248,6 +285,12 @@ jobs:
                   'post_market_cutoff_rejected': True,
                   'current_universe_fallback': False,
                   'score_rejection_coverage': 'EXHAUSTIVE',
+                  'result': 'PASS',
+              },
+              'pandas_compatibility': {
+                  'pandas': '2.2.3',
+                  'numpy': '1.26.4',
+                  'tests': 'historical_pit_m3_replay/live_beta_compatibility',
                   'result': 'PASS',
               },
               'pit_m2_replay': {
