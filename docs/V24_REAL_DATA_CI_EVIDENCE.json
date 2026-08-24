@@ -1,15 +1,15 @@
 {
   "contract": "V24_REAL_DATA_CI_EVIDENCE_V1",
-  "tested_commit_sha": "8718f4320dee2eb5fd3ad59de88b15c92fb5628b",
+  "tested_commit_sha": "b9022156c43282d15a4645457773c02bb2317d47",
   "schema_migration": "PASSED",
   "targeted": {
-    "tests": 177,
+    "tests": 185,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
   "full_regression": {
-    "tests": 1706,
+    "tests": 1714,
     "failures": 0,
     "errors": 0,
     "skipped": 0
@@ -56,7 +56,18 @@
     "beta_lookback_trading_days": 252,
     "xu100_sector_fallback": false,
     "contract_tests": "PASS",
-    "real_source_package_status": "OPEN"
+    "real_source_package_status": "CLOSED",
+    "route_rows": 210,
+    "index_close_rows": 7415,
+    "raw_source_count": 7,
+    "coverage": {
+      "start_date": "2020-07-27",
+      "end_date": "2026-07-01",
+      "beta_lookback_trading_days": 252,
+      "alpha_window_trading_days": 63
+    },
+    "sector_routes_sha256": "f0c28c7babd018eb8994afdf4911a9d338dad43b291a1084a7acc47a3919c478",
+    "index_closes_sha256": "32a740f7a7114e03c885d1ae75c8bacd081b5254b043521fd76ca5f8e34e786e"
   },
   "pandas_compatibility": {
     "pandas": "2.2.3",
