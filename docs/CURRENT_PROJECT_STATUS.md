@@ -11,7 +11,7 @@ Depo: [`zxc28tarik/TOTAL-RASYO-HESAPLAYICI`](https://github.com/zxc28tarik/TOTAL
 | Hat | Dal | Doğrulanmış baş | Anlamı |
 |---|---|---|---|
 | Üretim | `main` | `84494e29824809b20b5410c8b160ef38f70c27c9` | V24-F üretim fotoğrafı; deneysel tarihsel veri çalışması buraya henüz terfi ettirilmedi |
-| Aktif geliştirme | `v24-real-data-work` | `e5f99f1f9717149c415040ed5298f5a9cda480da` | PR #15 sonrası son doğrulanmış dal başı; gerçek M3 kaynak paketi CLOSED |
+| Aktif geliştirme | `v24-real-data-work` | `b24208141cce48e6009943d514d04e9ef5e18693` | PR #16 merge başı; gerçek M3 kaynak paketi ve PIT Ek4 replay CLOSED |
 
 `v24-real-data-work`, V24-F ortak atasından sonra aktif geliştirme dalıdır. `main` üzerindeki sonraki commitler üretim CI/kanıt belgeleridir. Bu nedenle tek depo hedefi, iki dalı körlemesine ezmek değil; geliştirme tamamlanıp bütün kapılar geçtiğinde kontrollü terfi yapmaktır.
 
@@ -47,7 +47,7 @@ Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri i�
 | PIT M2 — altı sektör ailesi | **KAPALI** | NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL, BANK |
 | PIT M3 replay motoru | **KAPALI** | PR #13 iki bağımsız denetimden geçti; DB-free tarihsel yol canlı beta davranışından izole; pandas 2.2.3 uyumluluğu ayrı CI kapısı |
 | Gerçek 60 aylık M3 kaynak paketi | **KAPALI** | PR #15 birleşti; 209 ticker/210 rota, 5×1.483 resmî endeks kapanışı, 7 doğrudan ham kaynak, SHA256 kilidi ve deterministik yeniden üretim doğrulandı |
-| PIT Ek4 replay | **PR ADAYI — DENETİM BEKLİYOR** | DB-free; 20 işlem aralığı, ortak canlı formül, tarih-doğru M3 sektör rotası, ayrı piyasa kesimi ve XU100 fallback yasağı testlerle kilitli |
+| PIT Ek4 replay | **KAPALI** | PR #16 birleşti; DB-free, 20 işlem aralığı, ortak canlı formül, tarih-doğru M3 sektör rotası, ayrı piyasa kesimi ve XU100 fallback yasağı testlerle kilitli |
 | V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
 
 Aktif dalın son doğrulanmış GitHub kanıt commit'i: [`251aec8`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/251aec86e76ac1be5be4f06153f586321a0d8a3b); test edilen PR #15 merge commit'i [`b902215`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/b9022156c43282d15a4645457773c02bb2317d47).
@@ -62,16 +62,17 @@ PR #13'ün canlı beta uyumluluğu, tarihsel `pct_change(fill_method=None)` davr
 
 PR #15'in gerçek M3 veri paketi iki bağımsız denetimden geçti. İkinci turda `GRTRK -> GRTHO` kimlik zinciri yol+SHA256 ve mutasyon testleriyle sertleştirildi; GitHub CI #41 ve merge-sonrası CI kanıtı yeşil tamamlandı.
 
+PR #16'nın PIT Ek4 replay motoru bağımsız diff ve mutasyon denetiminden blocker/major olmadan geçti. GitHub PR CI #44; pinned pandas 2.2.3, şema, hedefli gerçek-veri sözleşmeleri, tam regresyon ve BANK v4.7 kapılarının tamamında yeşildir. Merge commit'i `b24208141cce48e6009943d514d04e9ef5e18693` olup PR head içeriğiyle bit-bit eşleşir.
+
 ## Açık işler — uygulanacak sıra
 
-1. PIT-safe **Ek4** PR adayını bağımsız denetim ve CI sonrasında birleştir.
-2. PIT-safe **Ek1** ve `good_count_ge8` replay: RSC özetinden üretim semantiğini tarihsel olarak kur.
-3. PIT-safe **Ek9** replay: 63 günlük getiri oynaklığını tarihsel olarak kur.
-4. Altı modülü üretim ağırlıklarıyla birleştirip 60 cutoff için Total Rasyo sonucu ve sıralaması üret.
-5. Gerçek cutoff/execution saat politikasını açıkça kararlaştırıp kayıt altına al. Testteki önceki gün 20:00 / sinyal günü 10:00 değerleri gerçek politika sayılmaz.
-6. V24-G readiness raporunu gerçek 60 aylık veriyle çalıştır; sonuç zorunlu olarak `READY` olmalı.
-7. Aylık portföyü çalıştırıp holdings, trades, NAV, katkılar ve XU100 karşılaştırmasını yayımla.
-8. Tüm kapılar geçince aktif dalı kontrollü biçimde üretime terfi ettir.
+1. PIT-safe **Ek1** ve `good_count_ge8` replay: RSC özetinden üretim semantiğini tarihsel olarak kur.
+2. PIT-safe **Ek9** replay: 63 günlük getiri oynaklığını tarihsel olarak kur.
+3. Altı modülü üretim ağırlıklarıyla birleştirip 60 cutoff için Total Rasyo sonucu ve sıralaması üret.
+4. Gerçek cutoff/execution saat politikasını açıkça kararlaştırıp kayıt altına al. Testteki önceki gün 20:00 / sinyal günü 10:00 değerleri gerçek politika sayılmaz.
+5. V24-G readiness raporunu gerçek 60 aylık veriyle çalıştır; sonuç zorunlu olarak `READY` olmalı.
+6. Aylık portföyü çalıştırıp holdings, trades, NAV, katkılar ve XU100 karşılaştırmasını yayımla.
+7. Tüm kapılar geçince aktif dalı kontrollü biçimde üretime terfi ettir.
 
 Üretim ağırlıkları:
 

@@ -1,6 +1,6 @@
 # Historical PIT Ek4 Replay Contract
 
-Status: **IMPLEMENTED IN PR — independent audit and merge still required**
+Status: **CLOSED — PR #16 merged after independent mutation audit and green CI**
 
 This contract prevents the historical Ek4 replay from silently diverging from
 the production momentum formula or reading information that was unavailable at

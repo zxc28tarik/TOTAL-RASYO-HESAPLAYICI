@@ -1,6 +1,6 @@
 # V24 Real Historical Data Bootstrap
 
-Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families, and M3 are closed; DB-free Ek4 is implemented in a PR candidate pending independent audit/merge; remaining historical modules and the real cutoff policy remain open.**
+Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families, M3 and DB-free Ek4 are closed; remaining historical modules and the real cutoff policy remain open.**
 
 Target window: **2021-08 .. 2026-07 (60 months)**
 
@@ -25,7 +25,7 @@ Goal: run the locked monthly Total Rasyo portfolio contract against an auditable
 | PIT sector M2 | **CLOSED** | DB-free replay is closed for NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL and BANK; latest sector CI is green |
 | PIT M3 replay engine | **CLOSED** | PR #13 passed two independent audits; DB-free history stays isolated from live beta behavior and pandas 2.2.3 compatibility is a permanent CI gate |
 | Real 60-month M3 source coverage | **CLOSED** | PR #15 merged after two independent audits; 209-ticker routes, 7,415 official XU100/broad-sector closes, seven committed direct raw sources, full hashes and byte-identical reproduction pass the fail-closed validator |
-| PIT EK4 | **PR CANDIDATE — AUDIT PENDING** | DB-free replay shares exact live arithmetic; 20 trading intervals, date-correct M3 sector route, explicit market cutoff and no XU100 fallback |
+| PIT EK4 | **CLOSED** | PR #16 merged after independent mutation audit; DB-free replay shares exact live arithmetic, uses 20 trading intervals and the date-correct M3 sector route, and forbids XU100 fallback |
 | PIT EK1/EK9 | **OPEN** | production source semantics must be replayed without current-state leakage |
 | Signal cutoff/execution policy | **OPEN** | real 60-month policy is not authorized; test fixture times must not be promoted silently |
 | Full historical Total Rasyo authority | **OPEN** | requires the remaining PIT modules and final historical scoring/ranking assembly |
@@ -238,15 +238,20 @@ including mutation tests under pandas 2.2.3, before merge. PR #15's real source
 package also passed two independent reviews; its `GRTRK -> GRTHO` identity chain
 is path/hash locked and mutation tested. Neither change alters the live beta path.
 
+PR #16's Ek4 replay passed an independent diff and mutation audit with no
+blocker/major. GitHub PR CI #44 passed the pinned pandas 2.2.3 gate, schema,
+targeted contracts, full regression and BANK v4.7. Merge commit
+`b24208141cce48e6009943d514d04e9ef5e18693` is byte-identical to the audited
+head for all nine changed files.
+
 `docs/V24_REAL_DATA_CI_EVIDENCE.json` is the machine-readable consolidated evidence file. CI records the source-package contract and the real source package as `CLOSED`, together with row counts, coverage and canonical hashes.
 
 ## Next work order
 
-1. Complete independent audit, CI and merge of the PIT **EK4** PR candidate.
-2. Reconstruct PIT **EK1, `good_count_ge8` and EK9** under the same historical knowledge boundary.
-3. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
-4. Resolve and register the real cutoff/execution policy.
-5. Run V24-G real readiness; require `READY`.
-6. Only then run the locked monthly portfolio and publish holdings, trades, NAV, contributions, and XU100 comparison.
+1. Reconstruct PIT **EK1, `good_count_ge8` and EK9** under the same historical knowledge boundary.
+2. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
+3. Resolve and register the real cutoff/execution policy.
+4. Run V24-G real readiness; require `READY`.
+5. Only then run the locked monthly portfolio and publish holdings, trades, NAV, contributions, and XU100 comparison.
 
 The production `main` branch remains separate and unchanged by this experimental historical-data branch.
