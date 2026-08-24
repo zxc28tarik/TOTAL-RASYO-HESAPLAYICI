@@ -45,7 +45,7 @@ Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri i�
 | Kurumsal aksiyon motoru | **SEMANTİK KAPALI** | bölünme/bedelsiz, temettü nakdi, kod değişimi ve olay sırası |
 | PIT CORE+VAL, RSC, M1 | **KAPALI** | DB-free ve cutoff-sonrası veri reddi |
 | PIT M2 — altı sektör ailesi | **KAPALI** | NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL, BANK |
-| PIT M3 replay motoru | **UYGULANDI — CI ONAYI BEKLİYOR** | DB-free; 63 işlem günü; üretim beta/alpha matematiği ortak; gelecekteki fiyat ve güncel evren reddi |
+| PIT M3 replay motoru | **UYGULANDI — CI ONAYI BEKLİYOR** | DB-free; 63 işlem günü; üretim OLS/shrinkage ve alpha matematiği ortak; tarihsel tarih hizalama canlı yoldan izole; gelecekteki fiyat ve güncel evren reddi |
 | Gerçek 60 aylık M3 kaynak paketi | **AÇIK** | tarihsel sektör rotaları ile XU100/sektör endeksi günlük kapanışları henüz hash-kilitli giriş paketi değil |
 | V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
 

@@ -23,7 +23,7 @@ Goal: run the locked monthly Total Rasyo portfolio contract against an auditable
 | PIT RSC | **CLOSED** | DB-free replay consumes only `HistoricalPitRatioReplayResult.combined_ratios` |
 | PIT M1 | **CLOSED** | DB-free 8-quarter replay consumes only PIT `rsc_summary` and reuses production trend math |
 | PIT sector M2 | **CLOSED** | DB-free replay is closed for NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL and BANK; latest sector CI is green |
-| PIT M3 replay engine | **IMPLEMENTED; CI PENDING** | DB-free 63-day alpha; live and history share beta/alpha production math; signal date and market cutoff are separate |
+| PIT M3 replay engine | **IMPLEMENTED; CI PENDING** | DB-free 63-day alpha; live/history share OLS-shrinkage and alpha math while historical date alignment stays isolated; signal date and market cutoff are separate |
 | Real 60-month M3 source coverage | **OPEN** | historical sector-index routing and daily XU100/sector-index closes still require frozen provenance/hash coverage |
 | PIT EK4/EK1/EK9 | **OPEN** | production source semantics must be replayed without current-state leakage |
 | Signal cutoff/execution policy | **OPEN** | real 60-month policy is not authorized; test fixture times must not be promoted silently |
@@ -156,10 +156,16 @@ Each replay consumes explicit point-in-time frames, rejects future financial/NAV
 
 The live database path and the historical adapter share:
 
-- `betas.estimate_betas_from_frames` for the production two-factor OLS and shrinkage model;
+- `betas._ols_2f` for the production two-factor OLS and shrinkage model;
 - `trailing_alpha.compute_trailing_alpha_from_frames` for 63-trading-day stock/market/sector alpha, score and label;
 - the sector-excess factor `sector_return - market_return`, not raw sector return;
 - production beta priors `beta_mkt=1`, `beta_sec=0` when fewer than 60 finite observations are available, with an explicit `beta_source` diagnostic.
+
+Historical beta inputs are normalized to an explicit union date axis and use
+`pct_change(fill_method=None)`, so a missing price remains missing instead of
+becoming a synthetic zero return. This preprocessing is intentionally isolated
+from `estimate_betas_for_date`: the live database path retains its pre-M3 date-axis
+and missing-market behavior unchanged.
 
 Every historical ticker is either scored or emitted in `rejections`; current-universe contamination, missing sector routing, duplicate keys, off-calendar observations and post-cutoff prices are hard errors. Unlike the live compatibility path, historical replay never substitutes XU100 for a missing sector index. The real 60-month run is still blocked because the repository's frozen source package does not yet contain provenance/hash-locked daily XU100 and sector-index closes plus date-correct sector routing for every monthly member.
 

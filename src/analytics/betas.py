@@ -13,6 +13,12 @@ def _pct_ret(px: pd.Series) -> pd.Series:
     return px.astype(float).pct_change()
 
 
+def _historical_pct_ret(px: pd.Series) -> pd.Series:
+    """Return series without inventing zero-return observations at data gaps."""
+
+    return px.astype(float).pct_change(fill_method=None)
+
+
 SHRINK_HALF_N = 126  # shrinkage weight = n / (n + SHRINK_HALF_N)
 
 
@@ -59,12 +65,13 @@ def estimate_betas_from_frames(
     t0_date: str | date,
     market_index: str = "XU100",
 ) -> pd.DataFrame:
-    """Run the production two-factor beta math on explicit, pre-cut frames.
+    """Run two-factor beta math on explicit, pre-cut historical frames.
 
-    The database-backed live path and the database-free historical replay both
-    call this function.  Window selection and PIT validation remain the caller's
-    responsibility; this function owns only the production return/OLS/shrinkage
-    semantics.
+    This database-free adapter deliberately normalizes stock and index inputs to
+    one date axis and treats every gap as missing rather than a synthetic zero
+    return.  The live database path does not call this function because its
+    pre-existing date-axis and missing-market behavior are compatibility
+    contracts.  Both paths still share the production OLS and shrinkage function.
     """
 
     columns = ["ticker", "t0_date", "beta_mkt", "beta_sec", "r2", "n_obs"]
@@ -92,8 +99,8 @@ def estimate_betas_from_frames(
     # Put both families on one date axis before converting to numpy.  Missing
     # observations stay missing and are removed by _ols_2f's finite mask.
     date_axis = spx.index.union(ipx.index).sort_values()
-    sret = spx.reindex(date_axis).apply(_pct_ret, axis=0)
-    iret = ipx.reindex(date_axis).apply(_pct_ret, axis=0)
+    sret = spx.reindex(date_axis).apply(_historical_pct_ret, axis=0)
+    iret = ipx.reindex(date_axis).apply(_historical_pct_ret, axis=0)
     mret = iret[market_index] if market_index in iret.columns else None
 
     rows = []
@@ -183,12 +190,42 @@ def estimate_betas_for_date(
 
     ip["trade_date"] = pd.to_datetime(ip["trade_date"]).dt.date
 
-    return estimate_betas_from_frames(
-        universe=u,
-        prices=p,
-        index_prices=ip,
-        t0_date=t0,
-        market_index=market_index,
+    # Keep this database-backed compatibility path behaviorally equivalent to
+    # the pre-historical-M3 calculation.  Historical date-axis normalization is
+    # isolated in estimate_betas_from_frames and must not alter live behavior.
+    spx = p.pivot_table(
+        index="trade_date", columns="ticker", values="px", aggfunc="last"
+    ).sort_index()
+    ipx = ip.pivot_table(
+        index="trade_date", columns="index_code", values="px", aggfunc="last"
+    ).sort_index()
+
+    sret = spx.apply(_pct_ret, axis=0)
+    iret = ipx.apply(_pct_ret, axis=0)
+
+    mret = iret[market_index] if market_index in iret.columns else None
+    if mret is None:
+        return pd.DataFrame(
+            columns=["ticker", "t0_date", "beta_mkt", "beta_sec", "r2", "n_obs"]
+        )
+
+    rows = []
+    for ticker in tickers:
+        sector = sec_map.get(ticker, market_index)
+        if sector not in iret.columns or ticker not in sret.columns:
+            rows.append((ticker, t0, np.nan, np.nan, np.nan, 0))
+            continue
+
+        y = sret[ticker].to_numpy(dtype=float)
+        x1 = mret.to_numpy(dtype=float)
+        x2 = iret[sector].to_numpy(dtype=float)
+
+        b1, b2, r2, n = _ols_2f(y, x1, x2)
+        rows.append((ticker, t0, b1, b2, r2, n))
+
+    return pd.DataFrame(
+        rows,
+        columns=["ticker", "t0_date", "beta_mkt", "beta_sec", "r2", "n_obs"],
     )
 
 
