@@ -24,7 +24,7 @@ Goal: run the locked monthly Total Rasyo portfolio contract against an auditable
 | PIT M1 | **CLOSED** | DB-free 8-quarter replay consumes only PIT `rsc_summary` and reuses production trend math |
 | PIT sector M2 | **CLOSED** | DB-free replay is closed for NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL and BANK; latest sector CI is green |
 | PIT M3 replay engine | **CLOSED** | PR #13 passed two independent audits; DB-free history stays isolated from live beta behavior and pandas 2.2.3 compatibility is a permanent CI gate |
-| Real 60-month M3 source coverage | **CLOSED IN DATA PR** | 209-ticker routes, 7,415 official XU100/broad-sector closes, seven committed direct raw sources, full hashes and byte-identical reproduction pass the fail-closed validator |
+| Real 60-month M3 source coverage | **CLOSED** | PR #15 merged after two independent audits; 209-ticker routes, 7,415 official XU100/broad-sector closes, seven committed direct raw sources, full hashes and byte-identical reproduction pass the fail-closed validator |
 | PIT EK4/EK1/EK9 | **OPEN** | production source semantics must be replayed without current-state leakage |
 | Signal cutoff/execution policy | **OPEN** | real 60-month policy is not authorized; test fixture times must not be promoted silently |
 | Full historical Total Rasyo authority | **OPEN** | requires the remaining PIT modules and final historical scoring/ranking assembly |
@@ -167,7 +167,7 @@ becoming a synthetic zero return. This preprocessing is intentionally isolated
 from `estimate_betas_for_date`: the live database path retains its pre-M3 date-axis
 and missing-market behavior unchanged.
 
-Every historical ticker is either scored or emitted in `rejections`; current-universe contamination, missing sector routing, duplicate keys, off-calendar observations and post-cutoff prices are hard errors. Unlike the live compatibility path, historical replay never substitutes XU100 for a missing sector index. The real data PR now supplies provenance/hash-locked daily XU100 and broad-sector closes plus date-correct sector routing for every monthly member.
+Every historical ticker is either scored or emitted in `rejections`; current-universe contamination, missing sector routing, duplicate keys, off-calendar observations and post-cutoff prices are hard errors. Unlike the live compatibility path, historical replay never substitutes XU100 for a missing sector index. The merged package supplies provenance/hash-locked daily XU100 and broad-sector closes plus date-correct sector routing for every monthly member.
 
 `src/analytics/historical_m3_source_package.py` now defines the separate
 `HISTORICAL_M3_SOURCE_PACKAGE_V1` gate. It requires committed raw payloads,
@@ -191,16 +191,16 @@ V24-F's production registry deliberately seeded **no authoritative historical cu
 
 ## Latest CI evidence
 
-Latest verified pre-data-PR evidence commit: [`31b6c32`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/31b6c320fe611ebc0d72a9337e7ab0d316d52312).
+Latest verified evidence commit: [`251aec8`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/251aec86e76ac1be5be4f06153f586321a0d8a3b).
 
-Tested code SHA: **`8718f4320dee2eb5fd3ad59de88b15c92fb5628b`**.
+Tested merge SHA: **`b9022156c43282d15a4645457773c02bb2317d47`**.
 
 Latest base-branch results:
 
 - schema migration: **PASS**;
 - pandas 2.2.3 / numpy 1.26.4 compatibility gate: **17 passed, 0 failed**;
-- targeted real-data contracts: **177 passed, 0 failed**;
-- full repository regression: **1706 passed, 0 failed**;
+- targeted real-data contracts: **185 passed, 0 failed**;
+- full repository regression: **1714 passed, 0 failed**;
 - BANK v4.7 regression: **277 passed, 1 xfailed**;
 - exact monthly-member execution prices: **6000/6000**;
 - official Borsa THB supplements: **12**;
@@ -210,21 +210,22 @@ Latest base-branch results:
 - DB-free PIT RSC: **PASS**;
 - DB-free PIT M1: **PASS**;
 - DB-free PIT M3: **PASS**;
+- real M3 source package: **CLOSED** — 210 routes, 7,415 closes, 7 raw sources;
 - DB-free PIT M2 for all six sector families: **PASS**.
 
 The M3 replay and live-beta compatibility fix passed two independent reviews,
-including mutation tests under pandas 2.2.3, before merge. The source-package
-contract in the current PR is a new gate and does not alter that live path.
+including mutation tests under pandas 2.2.3, before merge. PR #15's real source
+package also passed two independent reviews; its `GRTRK -> GRTHO` identity chain
+is path/hash locked and mutation tested. Neither change alters the live beta path.
 
-`docs/V24_REAL_DATA_CI_EVIDENCE.json` is the machine-readable consolidated evidence file. After the data PR lands on `v24-real-data-work`, CI records the source-package contract and the real source package as `CLOSED`, together with row counts, coverage and canonical hashes.
+`docs/V24_REAL_DATA_CI_EVIDENCE.json` is the machine-readable consolidated evidence file. CI records the source-package contract and the real source package as `CLOSED`, together with row counts, coverage and canonical hashes.
 
 ## Next work order
 
-1. Independently audit the CLOSED real M3 package and its byte-identical reconstruction; keep it closed while the remaining PIT modules are implemented.
-2. Reconstruct PIT **EK4, EK1, `good_count_ge8` and EK9** under the same historical knowledge boundary.
-3. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
-4. Resolve and register the real cutoff/execution policy.
-5. Run V24-G real readiness; require `READY`.
-6. Only then run the locked monthly portfolio and publish holdings, trades, NAV, contributions, and XU100 comparison.
+1. Reconstruct PIT **EK4, EK1, `good_count_ge8` and EK9** under the same historical knowledge boundary.
+2. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
+3. Resolve and register the real cutoff/execution policy.
+4. Run V24-G real readiness; require `READY`.
+5. Only then run the locked monthly portfolio and publish holdings, trades, NAV, contributions, and XU100 comparison.
 
 The production `main` branch remains separate and unchanged by this experimental historical-data branch.

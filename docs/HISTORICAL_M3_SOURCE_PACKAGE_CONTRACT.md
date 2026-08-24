@@ -2,7 +2,7 @@
 
 ## Status
 
-**CONTRACT IMPLEMENTED; REAL SOURCE PACKAGE CLOSED IN THE DATA PR.**
+**CONTRACT IMPLEMENTED; REAL SOURCE PACKAGE CLOSED AND MERGED.**
 
 The committed package now passes the gates for real historical sector routing and
 daily XU100/sector-index closes. This closes the M3 source component only; it does
@@ -104,13 +104,13 @@ effectively open even if all currently present files validate. If a raw source i
 not committed, the package reports `RAW_SOURCE_NOT_COMMITTED:<source_id>` and
 cannot become CLOSED.
 
-The committed data PR supplies and independently reproduces the package, so the
+Merged PR #15 supplies and independently reproduces the package, so the
 M3 source component is now **CLOSED**. The full backtest remains **NOT READY**
 because separate PIT modules and the real cutoff policy are still open.
 
 ## Committed real package
 
-The data PR adds a `CLOSED` package with:
+Merged PR #15 adds a `CLOSED` package with:
 
 - 210 half-open route rows covering the exact 209-ticker historical membership
   union;
@@ -135,6 +135,9 @@ KAP top-level sectors are mapped to the four long-running broad BIST sector
 indices. The mapping is deterministic and agrees with the current broad-index
 membership snapshot. The only in-window exception is GRAINTURK HOLDING: KAP
 notification 1331451 moves it from `XUHIZ` to `XUMAL` effective 2024-09-09.
+The notification names the then-current ticker `GRTRK`; the canonical `GRTHO`
+identity is explicitly tied to Borsa Istanbul's official 2024-10-01 ticker-code
+change through hash-locked CSV and provenance files.
 
 The actual manifest and executable test are authoritative: the M3 source
 component is `CLOSED`; the full V24 backtest remains **NOT READY** for unrelated
