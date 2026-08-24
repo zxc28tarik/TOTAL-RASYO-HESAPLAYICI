@@ -31,6 +31,13 @@ ASSEMBLED_AT = "2026-08-24T16:50:00Z"
 RETRIEVED_AT = "2026-08-24T16:48:00Z"
 GRTHO_CHANGE_DATE = "2024-09-09"
 GRTHO_NOTIFICATION_ID = "1331451"
+GRTHO_LINEAGE_DATE = "2024-10-01"
+GRTHO_LINEAGE_CSV = Path(
+    "data/backtest_sources/bist_ticker_code_changes_2021-08_2026-08.csv"
+)
+GRTHO_LINEAGE_PROVENANCE = Path(
+    "data/backtest_sources/bist_ticker_code_changes_2021-08_2026-08.provenance.json"
+)
 AUDIT_ARCHIVE_SHA256 = "45bdeb775a65fae31dcc6242f2c947040bdac6995a326f69fdca616d9a17c8ad"
 KAP_INDEX_AUDIT_SHA256 = "1832428e16558272ea72f188ddf4412fe93c8fddc2bc9b9b015b18279ecb8409"
 
@@ -217,6 +224,45 @@ def _verify_grtho_notification(path: Path) -> None:
         raise ValueError(f"KAP 1331451 zorunlu alanlari eksik: {missing}")
 
 
+def _verify_grtho_identity_lineage(repo_root: Path) -> None:
+    csv_path = repo_root / GRTHO_LINEAGE_CSV
+    provenance_path = repo_root / GRTHO_LINEAGE_PROVENANCE
+    frame = pd.read_csv(csv_path, dtype=str, keep_default_na=False)
+    event = frame.loc[
+        (frame["effective_date"] == GRTHO_LINEAGE_DATE)
+        & (frame["old_ticker"].str.upper() == "GRTRK")
+        & (frame["new_ticker"].str.upper() == "GRTHO")
+    ]
+    if len(event) != 1:
+        raise ValueError("GRTRK->GRTHO resmi ticker-lineage olayi tekil olmali")
+
+    provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+    expected = {
+        "effective_date": GRTHO_LINEAGE_DATE,
+        "old_ticker": "GRTRK",
+        "new_ticker": "GRTHO",
+    }
+    if provenance.get("publisher") != "Borsa Istanbul A.S.":
+        raise ValueError("GRTRK->GRTHO lineage yayincisi Borsa Istanbul olmali")
+    if expected not in provenance.get("notable_bist100_relevant_changes", []):
+        raise ValueError("GRTRK->GRTHO lineage provenance olayini acikca icermeli")
+    workbook_sha = str(provenance.get("workbook_sha256", ""))
+    if event.iloc[0]["source_workbook_sha256"] != workbook_sha:
+        raise ValueError("GRTRK->GRTHO lineage workbook hash'i provenance ile eslesmiyor")
+
+
+def _grtho_identity_artifact(repo_root: Path) -> str:
+    _verify_grtho_identity_lineage(repo_root)
+    return (
+        "KAP notification 1331451 (relatedStocks=GRTRK), effective 2024-09-09; "
+        "canonical GRTHO identity via official Borsa Istanbul ticker-code change "
+        f"GRTRK->GRTHO effective {GRTHO_LINEAGE_DATE}; "
+        f"lineage_csv={GRTHO_LINEAGE_CSV} sha256={_sha256(repo_root / GRTHO_LINEAGE_CSV)}; "
+        f"lineage_provenance={GRTHO_LINEAGE_PROVENANCE} "
+        f"sha256={_sha256(repo_root / GRTHO_LINEAGE_PROVENANCE)}"
+    )
+
+
 def _verify_broad_index_mapping(
     path: Path,
     *,
@@ -297,6 +343,7 @@ def _route_frame(repo_root: Path, package_dir: Path) -> pd.DataFrame:
         package_dir / "audit/borsa_index_announcements_2026-08-24.html", tickers
     )
     _verify_grtho_notification(package_dir / "raw/kap_bildirim_1331451.html")
+    _verify_grtho_identity_lineage(repo_root)
     top_sector = _kap_top_sector_by_ticker(
         package_dir / "raw/kap_sektorler_2026-08-24.html.gz"
     )
@@ -419,6 +466,7 @@ def build_canonical_bytes(repo_root: str | Path) -> dict[str, bytes]:
 
 
 def _raw_sources(package_dir: Path) -> list[dict[str, object]]:
+    repo_root = package_dir.parent.parent.parent
     descriptors = [
         {
             "source_id": SECTOR_SNAPSHOT_SOURCE_ID,
@@ -431,7 +479,7 @@ def _raw_sources(package_dir: Path) -> list[dict[str, object]]:
             "source_id": GRTHO_CHANGE_SOURCE_ID,
             "publisher": "Kamuyu Aydinlatma Platformu (KAP) / Borsa Istanbul",
             "source_url": "https://www.kap.org.tr/tr/Bildirim/1331451",
-            "artifact_identity": "KAP notification 1331451, effective 2024-09-09",
+            "artifact_identity": _grtho_identity_artifact(repo_root),
             "raw_path": f"{PACKAGE_RELATIVE}/raw/kap_bildirim_1331451.html",
         },
     ]
@@ -451,7 +499,7 @@ def _raw_sources(package_dir: Path) -> list[dict[str, object]]:
     for descriptor in descriptors:
         raw_path = Path(str(descriptor["raw_path"]))
         descriptor["retrieved_at"] = RETRIEVED_AT
-        descriptor["raw_sha256"] = _sha256(package_dir.parent.parent.parent / raw_path)
+        descriptor["raw_sha256"] = _sha256(repo_root / raw_path)
     return descriptors
 
 

@@ -1,16 +1,22 @@
 from __future__ import annotations
 
 import gzip
+import hashlib
+import json
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 from scripts.build_historical_m3_source_package import (
     COVERAGE_END,
     COVERAGE_START,
     GRTHO_CHANGE_DATE,
+    GRTHO_LINEAGE_CSV,
+    GRTHO_LINEAGE_PROVENANCE,
     PACKAGE_RELATIVE,
     _historical_membership,
+    _verify_grtho_identity_lineage,
     build_canonical_bytes,
 )
 from src.analytics.historical_m3_source_package import verify_historical_m3_source_package
@@ -65,6 +71,71 @@ def test_grtho_sector_change_is_half_open_and_uses_kap_1331451():
             "source_id": "KAP_BILDIRIM_1331451",
         },
     ]
+
+
+def test_grtho_identity_lineage_is_explicit_and_hash_locked_in_manifest():
+    manifest = json.loads((PACKAGE / "manifest.json").read_text(encoding="utf-8"))
+    descriptor = next(
+        source
+        for source in manifest["raw_sources"]
+        if source["source_id"] == "KAP_BILDIRIM_1331451"
+    )
+    identity = descriptor["artifact_identity"]
+    csv_path = ROOT / "data/backtest_sources/bist_ticker_code_changes_2021-08_2026-08.csv"
+    provenance_path = ROOT / (
+        "data/backtest_sources/bist_ticker_code_changes_2021-08_2026-08.provenance.json"
+    )
+
+    assert "relatedStocks=GRTRK" in identity
+    assert "GRTRK->GRTHO effective 2024-10-01" in identity
+    assert str(csv_path.relative_to(ROOT)) in identity
+    assert hashlib.sha256(csv_path.read_bytes()).hexdigest() in identity
+    assert str(provenance_path.relative_to(ROOT)) in identity
+    assert hashlib.sha256(provenance_path.read_bytes()).hexdigest() in identity
+
+    lineage = pd.read_csv(csv_path, dtype=str, keep_default_na=False)
+    event = lineage.loc[
+        (lineage["effective_date"] == "2024-10-01")
+        & (lineage["old_ticker"] == "GRTRK")
+        & (lineage["new_ticker"] == "GRTHO")
+    ]
+    assert len(event) == 1
+    provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+    assert {
+        "effective_date": "2024-10-01",
+        "old_ticker": "GRTRK",
+        "new_ticker": "GRTHO",
+    } in provenance["notable_bist100_relevant_changes"]
+    assert event.iloc[0]["source_workbook_sha256"] == provenance["workbook_sha256"]
+
+
+@pytest.mark.parametrize("mutated_source", ["csv", "provenance"])
+def test_grtho_identity_lineage_rejects_missing_official_mapping(tmp_path, mutated_source):
+    for relative in (GRTHO_LINEAGE_CSV, GRTHO_LINEAGE_PROVENANCE):
+        target = tmp_path / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes((ROOT / relative).read_bytes())
+
+    if mutated_source == "csv":
+        path = tmp_path / GRTHO_LINEAGE_CSV
+        path.write_text(
+            path.read_text(encoding="utf-8").replace(
+                "2024-10-01,GRTRK,GRTHO", "2024-10-01,GRTRK,WRONG"
+            ),
+            encoding="utf-8",
+        )
+    else:
+        path = tmp_path / GRTHO_LINEAGE_PROVENANCE
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload["notable_bist100_relevant_changes"] = [
+            event
+            for event in payload["notable_bist100_relevant_changes"]
+            if event.get("old_ticker") != "GRTRK"
+        ]
+        path.write_text(json.dumps(payload), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="GRTRK->GRTHO"):
+        _verify_grtho_identity_lineage(tmp_path)
 
 
 def test_official_borsa_closes_are_complete_on_one_locked_calendar():
