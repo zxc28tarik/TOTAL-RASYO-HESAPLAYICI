@@ -1,6 +1,6 @@
 # Total Rasyo Hesaplayıcı — Güncel Proje Durumu
 
-Son doğrulama: **2026-08-24**
+Son doğrulama: **2026-08-25**
 
 Bu belge, sohbet sayfaları değişse bile projenin hedefini ve son doğrulanmış durumunu kaybetmemek için tek başlangıç noktasıdır.
 
@@ -11,7 +11,7 @@ Depo: [`zxc28tarik/TOTAL-RASYO-HESAPLAYICI`](https://github.com/zxc28tarik/TOTAL
 | Hat | Dal | Doğrulanmış baş | Anlamı |
 |---|---|---|---|
 | Üretim | `main` | `84494e29824809b20b5410c8b160ef38f70c27c9` | V24-F üretim fotoğrafı; deneysel tarihsel veri çalışması buraya henüz terfi ettirilmedi |
-| Aktif geliştirme | `v24-real-data-work` | `20b2c1f9afb5aa7c04a8a42fdf91384484d9a14d` | PR #17 merge başı; M3, PIT Ek4 ve PIT Ek1/good-count CLOSED |
+| Aktif geliştirme | `v24-real-data-work` | `006456c459c91a66c1d371cd4c7be4c4e4acd703` | PR #17 merge-sonrası CI evidence başı; M3, PIT Ek4 ve PIT Ek1/good-count CLOSED |
 
 `v24-real-data-work`, V24-F ortak atasından sonra aktif geliştirme dalıdır. `main` üzerindeki sonraki commitler üretim CI/kanıt belgeleridir. Bu nedenle tek depo hedefi, iki dalı körlemesine ezmek değil; geliştirme tamamlanıp bütün kapılar geçtiğinde kontrollü terfi yapmaktır.
 
@@ -49,9 +49,10 @@ Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri i�
 | Gerçek 60 aylık M3 kaynak paketi | **KAPALI** | PR #15 birleşti; 209 ticker/210 rota, 5×1.483 resmî endeks kapanışı, 7 doğrudan ham kaynak, SHA256 kilidi ve deterministik yeniden üretim doğrulandı |
 | PIT Ek4 replay | **KAPALI** | PR #16 birleşti; DB-free, 20 işlem aralığı, ortak canlı formül, tarih-doğru M3 sektör rotası, ayrı piyasa kesimi ve XU100 fallback yasağı testlerle kilitli |
 | PIT Ek1 + `good_count_ge8` replay | **KAPALI** | PR #17 birleşti; DB-free, PIT M1 ile aynı son RSC dönemi, ortak canlı formül, eksik-count fallback yasağı ve gerçek üretim veto sınırı 8/8 mutasyonla doğrulandı |
+| PIT Ek9 replay | **PR ADAYI — DENETİM BEKLİYOR** | DB-free; 63 günlük getiri std (`ddof=1`), 0.06 volatilite cap'i ve canlı skor matematiği ortak; eksik 64-gün fiyat penceresi açık rejection, XU100 fiyat fallback'i yok |
 | V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
 
-Son otomatik kanıt commit'i [`fa1fbbc`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/fa1fbbc25e24f4a4edd187c6c485143d3a6cfc47)'dir. Ek1 için denetlenen head [`d4a227d7`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/d4a227d7c7956f0dfcf5f6506bc65b99d56a9f79), bit-bit aynı ağacı taşıyan merge commit'i [`20b2c1f9`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/20b2c1f9afb5aa7c04a8a42fdf91384484d9a14d) ve başarılı PR iş akışı [CI #47](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/32774085210)'dir.
+Son otomatik kanıt commit'i [`006456c`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/006456c459c91a66c1d371cd4c7be4c4e4acd703)'dir. Ek1 için denetlenen head [`d4a227d7`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/d4a227d7c7956f0dfcf5f6506bc65b99d56a9f79), bit-bit aynı ağacı taşıyan merge commit'i [`20b2c1f9`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/20b2c1f9afb5aa7c04a8a42fdf91384484d9a14d) ve başarılı PR iş akışı [CI #47](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/32774085210)'dir.
 
 - pandas 2.2.3 / numpy 1.26.4 uyumluluk kapısı: **91 geçti**;
 - hedefli gerçek-veri sözleşmeleri: **229 geçti**;
@@ -67,9 +68,11 @@ PR #16'nın PIT Ek4 replay motoru bağımsız diff ve mutasyon denetiminden bloc
 
 PR #17'nin PIT Ek1/good-count replay motoru bağımsız diff ve sekiz mutasyon denetiminden blocker/major olmadan geçti. GitHub PR CI #47; pinned pandas 2.2.3'te 91, hedefli pakette 229, tam regresyonda 1.758 test ve BANK v4.7 kapılarının tamamında yeşildir. Merge commit'i `20b2c1f9afb5aa7c04a8a42fdf91384484d9a14d` olup denetlenen PR head ağacıyla bit-bit eşleşir.
 
+Ek9 PR adayı canlı `run_daily_pipeline._compute_ek9_vol` veri hazırlığını değiştirmez: SQL, pivot, varsayılan `pct_change()`, `< lookback+2` kapısı ve `tail(lookback)` aynıdır. Yalnız mevcut `std(ddof=1) -> inf/NaN temizliği -> 0.06 cap` aritmetiği saf paylaşılan fonksiyona çıkarılmıştır. Tarihsel adapter bu matematiği tam 64 fiyat/63 getiri penceresinde, `pct_change(fill_method=None)` ve fail-closed eksik-fiyat politikasıyla kullanır. Bu satırlar merge edilmiş kanıt sayılmaz; PR CI ve bağımsız denetim beklenir.
+
 ## Açık işler — uygulanacak sıra
 
-1. PIT-safe **Ek9** replay: 63 günlük getiri oynaklığını tarihsel olarak kur.
+1. PIT-safe **Ek9** PR adayını bağımsız denetim ve CI sonrasında birleştir.
 2. Altı modülü üretim ağırlıklarıyla birleştirip 60 cutoff için Total Rasyo sonucu ve sıralaması üret.
 3. Gerçek cutoff/execution saat politikasını açıkça kararlaştırıp kayıt altına al. Testteki önceki gün 20:00 / sinyal günü 10:00 değerleri gerçek politika sayılmaz.
 4. V24-G readiness raporunu gerçek 60 aylık veriyle çalıştır; sonuç zorunlu olarak `READY` olmalı.
