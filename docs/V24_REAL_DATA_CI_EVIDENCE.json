@@ -1,6 +1,6 @@
 {
   "contract": "V24_REAL_DATA_CI_EVIDENCE_V1",
-  "tested_commit_sha": "f3949402204e5a63a8072ec7925a66414774a15c",
+  "tested_commit_sha": "874492d9a9107d70711159af34ac6020067ea30c",
   "schema_migration": "PASSED",
   "targeted": {
     "tests": 254,
