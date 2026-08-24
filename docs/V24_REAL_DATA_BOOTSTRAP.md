@@ -1,6 +1,6 @@
 # V24 Real Historical Data Bootstrap
 
-Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families, the DB-free M3 replay engine and its real source package are closed; remaining historical modules and the real cutoff policy remain open.**
+Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families, and M3 are closed; DB-free Ek4 is implemented in a PR candidate pending independent audit/merge; remaining historical modules and the real cutoff policy remain open.**
 
 Target window: **2021-08 .. 2026-07 (60 months)**
 
@@ -25,7 +25,8 @@ Goal: run the locked monthly Total Rasyo portfolio contract against an auditable
 | PIT sector M2 | **CLOSED** | DB-free replay is closed for NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL and BANK; latest sector CI is green |
 | PIT M3 replay engine | **CLOSED** | PR #13 passed two independent audits; DB-free history stays isolated from live beta behavior and pandas 2.2.3 compatibility is a permanent CI gate |
 | Real 60-month M3 source coverage | **CLOSED** | PR #15 merged after two independent audits; 209-ticker routes, 7,415 official XU100/broad-sector closes, seven committed direct raw sources, full hashes and byte-identical reproduction pass the fail-closed validator |
-| PIT EK4/EK1/EK9 | **OPEN** | production source semantics must be replayed without current-state leakage |
+| PIT EK4 | **PR CANDIDATE — AUDIT PENDING** | DB-free replay shares exact live arithmetic; 20 trading intervals, date-correct M3 sector route, explicit market cutoff and no XU100 fallback |
+| PIT EK1/EK9 | **OPEN** | production source semantics must be replayed without current-state leakage |
 | Signal cutoff/execution policy | **OPEN** | real 60-month policy is not authorized; test fixture times must not be promoted silently |
 | Full historical Total Rasyo authority | **OPEN** | requires the remaining PIT modules and final historical scoring/ranking assembly |
 | Final 5-year portfolio result | **BLOCKED BY ABOVE** | no performance claim until readiness is `READY` |
@@ -178,6 +179,25 @@ package passes these gates with 210 routes and 7,415 closes; byte-identical
 reconstruction is enforced by CI. See
 `docs/HISTORICAL_M3_SOURCE_PACKAGE_CONTRACT.md`.
 
+### Ek4
+
+`src/analytics/historical_pit_ek4_replay.py` is database-free. The caller supplies
+the historical universe with the sector route already resolved from the same
+date-correct M3 source package, the pre-cut trading calendar, adjusted stock
+prices and index closes. The replay uses exactly 20 trading intervals (21 date
+positions) and shares `compute_ek4_momentum_point` with the live path:
+
+```text
+Ek4 = clip((((stock_end / stock_start) - 1)
+             - ((sector_end / sector_start) - 1) + 0.20) / 0.40, 0, 1)
+```
+
+The routed sector return is raw; there is no M3-style market adjustment.
+`asof_date` and `market_asof_date` remain separate. Post-cutoff rows are hard
+errors, while missing stock/sector endpoints are explicit per-ticker rejections.
+A blank route or XU100-as-sector route is rejected, and a missing sector close
+never falls back to XU100. See `docs/HISTORICAL_PIT_EK4_REPLAY_CONTRACT.md`.
+
 ## Cutoff policy boundary — still open
 
 V24-F's production registry deliberately seeded **no authoritative historical cutoff values**. The hard contract requires:
@@ -222,10 +242,11 @@ is path/hash locked and mutation tested. Neither change alters the live beta pat
 
 ## Next work order
 
-1. Reconstruct PIT **EK4, EK1, `good_count_ge8` and EK9** under the same historical knowledge boundary.
-2. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
-3. Resolve and register the real cutoff/execution policy.
-4. Run V24-G real readiness; require `READY`.
-5. Only then run the locked monthly portfolio and publish holdings, trades, NAV, contributions, and XU100 comparison.
+1. Complete independent audit, CI and merge of the PIT **EK4** PR candidate.
+2. Reconstruct PIT **EK1, `good_count_ge8` and EK9** under the same historical knowledge boundary.
+3. Assemble full historical Total Rasyo results/rankings for all 60 monthly cutoffs.
+4. Resolve and register the real cutoff/execution policy.
+5. Run V24-G real readiness; require `READY`.
+6. Only then run the locked monthly portfolio and publish holdings, trades, NAV, contributions, and XU100 comparison.
 
 The production `main` branch remains separate and unchanged by this experimental historical-data branch.

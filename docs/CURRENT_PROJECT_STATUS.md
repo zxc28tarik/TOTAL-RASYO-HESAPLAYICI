@@ -11,7 +11,7 @@ Depo: [`zxc28tarik/TOTAL-RASYO-HESAPLAYICI`](https://github.com/zxc28tarik/TOTAL
 | Hat | Dal | Doğrulanmış baş | Anlamı |
 |---|---|---|---|
 | Üretim | `main` | `84494e29824809b20b5410c8b160ef38f70c27c9` | V24-F üretim fotoğrafı; deneysel tarihsel veri çalışması buraya henüz terfi ettirilmedi |
-| Aktif geliştirme | `v24-real-data-work` | `251aec86e76ac1be5be4f06153f586321a0d8a3b` | PR #15 sonrası CI kanıtı; gerçek M3 kaynak paketi CLOSED, replay ve pandas 2.2.3 kapısı yeşil |
+| Aktif geliştirme | `v24-real-data-work` | `e5f99f1f9717149c415040ed5298f5a9cda480da` | PR #15 sonrası son doğrulanmış dal başı; gerçek M3 kaynak paketi CLOSED |
 
 `v24-real-data-work`, V24-F ortak atasından sonra aktif geliştirme dalıdır. `main` üzerindeki sonraki commitler üretim CI/kanıt belgeleridir. Bu nedenle tek depo hedefi, iki dalı körlemesine ezmek değil; geliştirme tamamlanıp bütün kapılar geçtiğinde kontrollü terfi yapmaktır.
 
@@ -47,6 +47,7 @@ Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri i�
 | PIT M2 — altı sektör ailesi | **KAPALI** | NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL, BANK |
 | PIT M3 replay motoru | **KAPALI** | PR #13 iki bağımsız denetimden geçti; DB-free tarihsel yol canlı beta davranışından izole; pandas 2.2.3 uyumluluğu ayrı CI kapısı |
 | Gerçek 60 aylık M3 kaynak paketi | **KAPALI** | PR #15 birleşti; 209 ticker/210 rota, 5×1.483 resmî endeks kapanışı, 7 doğrudan ham kaynak, SHA256 kilidi ve deterministik yeniden üretim doğrulandı |
+| PIT Ek4 replay | **PR ADAYI — DENETİM BEKLİYOR** | DB-free; 20 işlem aralığı, ortak canlı formül, tarih-doğru M3 sektör rotası, ayrı piyasa kesimi ve XU100 fallback yasağı testlerle kilitli |
 | V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
 
 Aktif dalın son doğrulanmış GitHub kanıt commit'i: [`251aec8`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/251aec86e76ac1be5be4f06153f586321a0d8a3b); test edilen PR #15 merge commit'i [`b902215`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/b9022156c43282d15a4645457773c02bb2317d47).
@@ -63,7 +64,7 @@ PR #15'in gerçek M3 veri paketi iki bağımsız denetimden geçti. İkinci turd
 
 ## Açık işler — uygulanacak sıra
 
-1. PIT-safe **Ek4** replay: 20 günlük hisse getirisi eksi sektör endeksi getirisi üretimini kur.
+1. PIT-safe **Ek4** PR adayını bağımsız denetim ve CI sonrasında birleştir.
 2. PIT-safe **Ek1** ve `good_count_ge8` replay: RSC özetinden üretim semantiğini tarihsel olarak kur.
 3. PIT-safe **Ek9** replay: 63 günlük getiri oynaklığını tarihsel olarak kur.
 4. Altı modülü üretim ağırlıklarıyla birleştirip 60 cutoff için Total Rasyo sonucu ve sıralaması üret.

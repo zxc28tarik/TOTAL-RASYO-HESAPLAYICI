@@ -19,6 +19,7 @@ from src.analytics.period_trend import build_period_8q_comparison, upsert_period
 from src.analytics.expected_band_periods import build_expected_band_periods, upsert_expected_band_periods
 from src.analytics.m2_period import compute_m2_period_comparison, upsert_m2_period_comparison
 from src.analytics.total_rasyo_score import compute_total_rasyo
+from src.analytics.ek4_momentum import compute_ek4_momentum_point
 
 
 def _sql_value(x):
@@ -346,11 +347,13 @@ def _compute_ek4_momentum(conn, asof: date, lookback: int = 20) -> pd.DataFrame:
         s0 = ipx.loc[start, sec]; s1 = ipx.loc[end, sec]
         if pd.isna(p0) or pd.isna(p1) or pd.isna(s0) or pd.isna(s1) or float(p0) <= 0 or float(s0) <= 0:
             continue
-        sr = float(p1) / float(p0) - 1.0
-        ir = float(s1) / float(s0) - 1.0
-        diff = sr - ir
-        ek4 = (diff + 0.2) / 0.4
-        rows.append((t, float(np.clip(ek4, 0.0, 1.0))))
+        point = compute_ek4_momentum_point(
+            stock_start=float(p0),
+            stock_end=float(p1),
+            sector_start=float(s0),
+            sector_end=float(s1),
+        )
+        rows.append((t, point.score))
     return pd.DataFrame(rows, columns=["ticker","ek4"])
 
 
