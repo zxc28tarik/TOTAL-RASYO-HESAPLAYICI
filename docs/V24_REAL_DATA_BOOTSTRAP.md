@@ -1,6 +1,6 @@
 # V24 Real Historical Data Bootstrap
 
-Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families, M3, DB-free Ek4, DB-free Ek1/good-count and DB-free Ek9 are closed; the combined 60-cutoff Total Rasyo replay is PR #19 awaiting audit/merge and the real cutoff policy remains open.**
+Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families, M3, DB-free Ek4, DB-free Ek1/good-count and DB-free Ek9 are closed; the combined 60-cutoff Total Rasyo replay code is merged and CI-clean, PR #20 is the remaining machine-readable evidence closure, and the real cutoff policy remains open.**
 
 Target window: **2021-08 .. 2026-07 (60 months)**
 
@@ -28,9 +28,9 @@ Goal: run the locked monthly Total Rasyo portfolio contract against an auditable
 | PIT EK4 | **CLOSED** | PR #16 merged after independent mutation audit; DB-free replay shares exact live arithmetic, uses 20 trading intervals and the date-correct M3 sector route, and forbids XU100 fallback |
 | PIT EK1 + good-count | **CLOSED** | PR #17 merged after green CI and an independent 8/8 mutation audit; same PIT M1 period, shared `good_count/18` arithmetic, no missing-count default and locked production veto boundary |
 | PIT EK9 | **CLOSED** | PR #18 merged after independent real-diff/mutation audit; DB-free replay shares exact live `std(ddof=1)`/0.06 arithmetic, requires complete 64-price/63-return PIT input and has no index-price fallback |
-| Combined 60-cutoff Total Rasyo replay | **PR CANDIDATE — AUDIT/MERGE REQUIRED** | PR #19 reuses production `combine_company_result`/`compute_total_rasyo`, preserves module rejections, exact cutoff coherence, M2 single-owner routing and deterministic ranking |
+| Combined 60-cutoff Total Rasyo replay | **MERGED — FORMAL EVIDENCE FOLLOW-UP OPEN** | PR #19 passed independent real-diff + 12 mutation audit and merged as `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff`; special CI #6 and wide CI #56 are green. PR #20 only closes the missing machine-readable `pit_total_rasyo_replay` evidence/CI coverage |
 | Signal cutoff/execution policy | **OPEN** | real 60-month policy is not authorized; test fixture times must not be promoted silently |
-| Full historical Total Rasyo authority | **BLOCKED BY PR #19 + CUTOFF POLICY** | scoring/ranking adapter is candidate only; no real performance claim yet |
+| Full historical Total Rasyo authority | **BLOCKED BY PR #20 EVIDENCE + CUTOFF POLICY** | scoring/ranking code is merged and CI-clean; machine-readable closure and real cutoff policy remain required before performance claims |
 | Final 5-year portfolio result | **BLOCKED BY ABOVE** | no performance claim until readiness is `READY` |
 
 ## Historical BIST100 universe
@@ -245,34 +245,19 @@ PR #18 passed independent real-diff and mutation audit, merged as
 `f3949402204e5a63a8072ec7925a66414774a15c`, and its merge/post-documentation
 CI evidence is green. Ek9 is closed and is not a remaining replay gap.
 
-### Combined Total Rasyo — PR #19 candidate
+### Combined Total Rasyo — merged, machine-readable evidence follow-up open
 
-`src/analytics/historical_pit_total_rasyo_replay.py` is the candidate
-orchestration layer. It does not define a second Total Rasyo formula and does not
-change the closed replay contracts.
+`src/analytics/historical_pit_total_rasyo_replay.py` is the merged orchestration layer. It does not define a second Total Rasyo formula and does not change the closed replay contracts.
 
-For one cutoff it calls the existing M1, M3, Ek4, Ek1 and Ek9 replay functions.
-M2 remains intentionally different: the six already-closed sector-family replay
-results are normalized into the existing production `EngineRun` contract, with
-exactly one M2 owner per ticker and exhaustive union coverage of the historical
-universe.
+For one cutoff it calls the existing M1, M3, Ek4, Ek1 and Ek9 replay functions. M2 remains intentionally different: the six already-closed sector-family replay results are normalized into the existing production `EngineRun` contract, with exactly one M2 owner per ticker and exhaustive union coverage of the historical universe.
 
-The other five module outputs are normalized into the existing
-`CompanyModuleContext` contract and then passed to production
-`combine_company_result`. That combiner remains the authority for missing-module
-behavior, M2 usability, production weights, the `<5` `good_count_ge8` veto and
-the 0.60 veto factor. The historical layer does not redistribute weights or fill
-a missing/rejected module.
+The other five module outputs are normalized into the existing `CompanyModuleContext` contract and then passed to production `combine_company_result`. That combiner remains the authority for missing-module behavior, M2 usability, production weights, the `<5` `good_count_ge8` veto and the 0.60 veto factor. The historical layer does not redistribute weights or fill a missing/rejected module.
 
-The candidate additionally requires exact cross-module `analysis_at`/`asof_date`
-and market-cutoff coherence, exact M1/Ek1 `period_end` + `good_count_ge8`
-lineage, exhaustive score/rejection output and deterministic
-`final_score DESC, ticker ASC` ranking. The 60-cutoff wrapper accepts exactly the
-ordered months `2021-08 .. 2026-07`.
+The merged layer additionally requires exact cross-module `analysis_at`/`asof_date` and market-cutoff coherence, exact M1/Ek1 `period_end` + `good_count_ge8` lineage, exhaustive score/rejection output and deterministic `final_score DESC, ticker ASC` ranking. The 60-cutoff wrapper accepts exactly the ordered months `2021-08 .. 2026-07`.
 
-See `docs/HISTORICAL_PIT_TOTAL_RASYO_REPLAY_CONTRACT.md`. This is **not** a
-closure claim: PR #19 must still pass the full CI set and independent real-diff +
-mutation audit before merge.
+PR #19's exact seven-file diff and the fact that all closed production files remained untouched were independently audited. Its target suite passed 15/15 and all requested 12 mutation points were killed, including a direct temporary `veto_factor=0.60 -> 0.50` mutation in the unchanged production scorer. PR #19 merged as `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff`. The merge-triggered dedicated CI #6 passed 75 pinned-pandas tests and 190 combined/upstream tests; wide V24 CI #56 passed 116 pinned tests, 254 targeted tests, 1798 full-regression tests and BANK 277 passed + 1 xfailed.
+
+See `docs/HISTORICAL_PIT_TOTAL_RASYO_REPLAY_CONTRACT.md`. The code/CI result is merged and clean, but formal machine-readable closure is deliberately withheld until PR #20 makes wide V24 evidence self-contained and the post-merge evidence JSON actually contains `pit_total_rasyo_replay`.
 
 ## Cutoff policy boundary — still open
 
@@ -287,4 +272,8 @@ V24-F's production registry deliberately seeded **no authoritative historical cu
 
 ## Latest CI evidence
 
-Latest verified base-branch evidence commit: [`97c34537`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/97c34537d600f1441ef1c18d1e5186a99796f3c8), recording the successful post-Ek9 documentation CI chain. PR #19 has a separate dedicated `V24 PIT Total Rasyo Replay CI` gate plus the existing `V24 Real Data CI`; neither PR CI nor this document constitutes merge/closure evidence until independent audit is complete.
+Latest verified base-branch evidence commit: [`63a746c2`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/63a746c2cfae642525e7ed80e01654a9d29f2b3c), recording V24 Real Data CI #56 for PR #19 merge commit `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff`.
+
+The code gates are green: dedicated Total Rasyo replay CI #6 = 75 pinned + 190 combined/upstream passed; wide CI #56 = 116 pinned, 254 targeted, 1798 full-regression, BANK 277 passed + 1 xfailed, schema/evidence persistence PASS. The remaining defect is documentary but governance-critical: the generated `V24_REAL_DATA_CI_EVIDENCE.json` does not yet contain a separate `pit_total_rasyo_replay` block.
+
+PR #20 is therefore intentionally narrow. It changes no production or replay code; it adds the new Total Rasyo source/test/contract files to wide CI triggers, runs replay+mutation tests in the pinned and targeted wide gates, and writes a truthful `pit_total_rasyo_replay` block on successful push. The evidence explicitly records that the real cutoff/execution clock policy is still unauthorized. PR #20 must pass independent real-diff review before merge; only its merge-triggered push evidence can complete this formal closure.
