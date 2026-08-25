@@ -297,8 +297,7 @@ jobs:
         run: |
           set -o pipefail
           make test-bank-v47 | tee v24-real-bank.log
-      - name: Persist passing V24 real-data evidence
-        if: github.event_name == 'push'
+      - name: Generate passing V24 real-data evidence
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -515,6 +514,10 @@ jobs:
           dst.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           print(json.dumps(evidence, ensure_ascii=False, indent=2))
           PY
+      - name: Persist passing V24 real-data evidence
+        if: github.event_name == 'push'
+        run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add docs/V24_REAL_DATA_CI_EVIDENCE.json
