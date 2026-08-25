@@ -21,6 +21,10 @@ on:
       - 'src/analytics/historical_pit_ek9_replay.py'
       - 'src/analytics/ek9_volatility.py'
       - 'src/analytics/historical_pit_total_rasyo_replay.py'
+      - 'src/analytics/total_rasyo_combine.py'
+      - 'src/analytics/total_rasyo_score.py'
+      - 'src/analytics/total_rasyo_engine_isolation.py'
+      - 'src/analytics/total_rasyo_module_reader.py'
       - 'src/analytics/run_daily_pipeline.py'
       - 'src/analytics/betas.py'
       - 'src/analytics/trailing_alpha.py'
@@ -84,6 +88,8 @@ on:
       - 'tests/test_ek9_live_compatibility.py'
       - 'tests/test_historical_pit_total_rasyo_replay.py'
       - 'tests/test_historical_pit_total_rasyo_mutations.py'
+      - 'tests/test_total_rasyo_score.py'
+      - 'tests/test_total_rasyo_combine.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
@@ -124,6 +130,10 @@ on:
       - 'src/analytics/historical_pit_ek9_replay.py'
       - 'src/analytics/ek9_volatility.py'
       - 'src/analytics/historical_pit_total_rasyo_replay.py'
+      - 'src/analytics/total_rasyo_combine.py'
+      - 'src/analytics/total_rasyo_score.py'
+      - 'src/analytics/total_rasyo_engine_isolation.py'
+      - 'src/analytics/total_rasyo_module_reader.py'
       - 'src/analytics/run_daily_pipeline.py'
       - 'src/analytics/betas.py'
       - 'src/analytics/trailing_alpha.py'
@@ -151,6 +161,8 @@ on:
       - 'tests/test_ek9_live_compatibility.py'
       - 'tests/test_historical_pit_total_rasyo_replay.py'
       - 'tests/test_historical_pit_total_rasyo_mutations.py'
+      - 'tests/test_total_rasyo_score.py'
+      - 'tests/test_total_rasyo_combine.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
@@ -211,7 +223,9 @@ jobs:
             tests/test_historical_pit_ek9_replay.py \
             tests/test_ek9_live_compatibility.py \
             tests/test_historical_pit_total_rasyo_replay.py \
-            tests/test_historical_pit_total_rasyo_mutations.py
+            tests/test_historical_pit_total_rasyo_mutations.py \
+            tests/test_total_rasyo_score.py \
+            tests/test_total_rasyo_combine.py
 
   test:
     needs: pandas-22-compat
@@ -273,6 +287,8 @@ jobs:
             tests/test_ek9_live_compatibility.py \
             tests/test_historical_pit_total_rasyo_replay.py \
             tests/test_historical_pit_total_rasyo_mutations.py \
+            tests/test_total_rasyo_score.py \
+            tests/test_total_rasyo_combine.py \
             tests/test_historical_pit_nonfin_m2_replay.py \
             tests/test_historical_pit_holding_m2_replay.py \
             tests/test_historical_pit_gyo_m2_replay.py \
@@ -432,7 +448,7 @@ jobs:
               'pandas_compatibility': {
                   'pandas': '2.2.3',
                   'numpy': '1.26.4',
-                  'tests': 'historical_market_quality_and_volatility_replays/total_rasyo_replay/live_compatibility/m3_source_package',
+                  'tests': 'historical_market_quality_and_volatility_replays/total_rasyo_replay/production_scorer_combiner/live_compatibility/m3_source_package',
                   'result': 'PASS',
               },
               'pit_m2_replay': {
