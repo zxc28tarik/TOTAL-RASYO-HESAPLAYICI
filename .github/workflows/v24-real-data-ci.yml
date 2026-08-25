@@ -20,6 +20,7 @@ on:
       - 'src/analytics/ek1_quality.py'
       - 'src/analytics/historical_pit_ek9_replay.py'
       - 'src/analytics/ek9_volatility.py'
+      - 'src/analytics/historical_pit_total_rasyo_replay.py'
       - 'src/analytics/run_daily_pipeline.py'
       - 'src/analytics/betas.py'
       - 'src/analytics/trailing_alpha.py'
@@ -81,6 +82,8 @@ on:
       - 'tests/test_ek1_live_compatibility.py'
       - 'tests/test_historical_pit_ek9_replay.py'
       - 'tests/test_ek9_live_compatibility.py'
+      - 'tests/test_historical_pit_total_rasyo_replay.py'
+      - 'tests/test_historical_pit_total_rasyo_mutations.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
@@ -101,6 +104,7 @@ on:
       - 'docs/HISTORICAL_PIT_EK4_REPLAY_CONTRACT.md'
       - 'docs/HISTORICAL_PIT_EK1_REPLAY_CONTRACT.md'
       - 'docs/HISTORICAL_PIT_EK9_REPLAY_CONTRACT.md'
+      - 'docs/HISTORICAL_PIT_TOTAL_RASYO_REPLAY_CONTRACT.md'
       - 'docs/V24_REAL_DATA_BOOTSTRAP.md'
       - 'docs/CURRENT_PROJECT_STATUS.md'
       - 'requirements.txt'
@@ -119,6 +123,7 @@ on:
       - 'src/analytics/ek1_quality.py'
       - 'src/analytics/historical_pit_ek9_replay.py'
       - 'src/analytics/ek9_volatility.py'
+      - 'src/analytics/historical_pit_total_rasyo_replay.py'
       - 'src/analytics/run_daily_pipeline.py'
       - 'src/analytics/betas.py'
       - 'src/analytics/trailing_alpha.py'
@@ -144,6 +149,8 @@ on:
       - 'tests/test_ek1_live_compatibility.py'
       - 'tests/test_historical_pit_ek9_replay.py'
       - 'tests/test_ek9_live_compatibility.py'
+      - 'tests/test_historical_pit_total_rasyo_replay.py'
+      - 'tests/test_historical_pit_total_rasyo_mutations.py'
       - 'tests/test_historical_pit_nonfin_m2_replay.py'
       - 'tests/test_historical_pit_holding_m2_replay.py'
       - 'tests/test_historical_pit_gyo_m2_replay.py'
@@ -154,6 +161,7 @@ on:
       - 'docs/HISTORICAL_PIT_EK4_REPLAY_CONTRACT.md'
       - 'docs/HISTORICAL_PIT_EK1_REPLAY_CONTRACT.md'
       - 'docs/HISTORICAL_PIT_EK9_REPLAY_CONTRACT.md'
+      - 'docs/HISTORICAL_PIT_TOTAL_RASYO_REPLAY_CONTRACT.md'
       - 'docs/V24_REAL_DATA_BOOTSTRAP.md'
       - 'docs/CURRENT_PROJECT_STATUS.md'
       - 'requirements.txt'
@@ -201,7 +209,9 @@ jobs:
             tests/test_historical_pit_ek1_replay.py \
             tests/test_ek1_live_compatibility.py \
             tests/test_historical_pit_ek9_replay.py \
-            tests/test_ek9_live_compatibility.py
+            tests/test_ek9_live_compatibility.py \
+            tests/test_historical_pit_total_rasyo_replay.py \
+            tests/test_historical_pit_total_rasyo_mutations.py
 
   test:
     needs: pandas-22-compat
@@ -261,6 +271,8 @@ jobs:
             tests/test_ek1_live_compatibility.py \
             tests/test_historical_pit_ek9_replay.py \
             tests/test_ek9_live_compatibility.py \
+            tests/test_historical_pit_total_rasyo_replay.py \
+            tests/test_historical_pit_total_rasyo_mutations.py \
             tests/test_historical_pit_nonfin_m2_replay.py \
             tests/test_historical_pit_holding_m2_replay.py \
             tests/test_historical_pit_gyo_m2_replay.py \
@@ -421,7 +433,7 @@ jobs:
               'pandas_compatibility': {
                   'pandas': '2.2.3',
                   'numpy': '1.26.4',
-                  'tests': 'historical_market_quality_and_volatility_replays/live_compatibility/m3_source_package',
+                  'tests': 'historical_market_quality_and_volatility_replays/total_rasyo_replay/live_compatibility/m3_source_package',
                   'result': 'PASS',
               },
               'pit_m2_replay': {
@@ -470,6 +482,32 @@ jobs:
                       'result': 'PASS',
                   },
                   'remaining_families': [],
+              },
+              'pit_total_rasyo_replay': {
+                  'database_read_path': False,
+                  'production_combiner': 'total_rasyo_combine.combine_company_result',
+                  'production_scorer': 'total_rasyo_score.compute_total_rasyo',
+                  'upstream_replays': ['M2_FAMILY_REPLAYS', 'M1', 'M3', 'Ek4', 'Ek1', 'Ek9'],
+                  'm2_families': ['BANK', 'NONFIN', 'HOLDING', 'GYO', 'INSURANCE', 'FINANCIAL'],
+                  'm2_single_owner_required': True,
+                  'historical_universe_coverage_required': 'EXACT',
+                  'strict_analysis_at_match': True,
+                  'strict_asof_date_match': True,
+                  'strict_market_asof_date_match': True,
+                  'm1_ek1_period_good_count_lineage': 'EXACT',
+                  'missing_component_default': False,
+                  'cross_cutoff_borrowing': False,
+                  'current_state_fallback': False,
+                  'veto_consumer': 'total_rasyo_score.compute_total_rasyo',
+                  'veto_threshold': 5,
+                  'veto_factor': 0.60,
+                  'cutoff_months': 60,
+                  'start_month': '2021-08',
+                  'end_month': '2026-07',
+                  'real_cutoff_execution_clock_policy_authorized': False,
+                  'ranking': 'final_score DESC, ticker ASC',
+                  'score_rejection_coverage': 'EXHAUSTIVE',
+                  'result': 'PASS',
               },
               'result': 'PASS',
           }
