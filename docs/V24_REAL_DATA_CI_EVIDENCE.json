@@ -1,6 +1,6 @@
 {
   "contract": "V24_REAL_DATA_CI_EVIDENCE_V1",
-  "tested_commit_sha": "874492d9a9107d70711159af34ac6020067ea30c",
+  "tested_commit_sha": "f39c6e4b69bd66d13192d8c377eb8f0a76aafdff",
   "schema_migration": "PASSED",
   "targeted": {
     "tests": 254,
@@ -9,7 +9,7 @@
     "skipped": 0
   },
   "full_regression": {
-    "tests": 1783,
+    "tests": 1798,
     "failures": 0,
     "errors": 0,
     "skipped": 0
