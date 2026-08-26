@@ -173,6 +173,14 @@ def _istanbul_timestamp(day: pd.Timestamp, clock: time) -> pd.Timestamp:
     )
 
 
+def _require_canonical_policy_identity(policy: HistoricalCutoffExecutionPolicy) -> None:
+    # Authorization is deliberately identity-based, not dataclass-value-based.
+    # A copied/reconstructed/replaced policy object must never become authorized
+    # merely because it currently has equal fields or an `authorized=True` flag.
+    if policy is not TOTAL_RASYO_MONTHLY_OPEN_V1 or not policy.authorized:
+        raise HistoricalCutoffExecutionPolicyError("unauthorized timing policy")
+
+
 def build_authorized_cutoff_execution_schedule(
     signal_dates: pd.DataFrame,
     trading_calendar: pd.DataFrame,
@@ -180,8 +188,7 @@ def build_authorized_cutoff_execution_schedule(
     policy: HistoricalCutoffExecutionPolicy = TOTAL_RASYO_MONTHLY_OPEN_V1,
 ) -> pd.DataFrame:
     """Build the exact authorized 60-row PIT cutoff/execution schedule."""
-    if policy != TOTAL_RASYO_MONTHLY_OPEN_V1 or not policy.authorized:
-        raise HistoricalCutoffExecutionPolicyError("unauthorized timing policy")
+    _require_canonical_policy_identity(policy)
 
     signals = _normalize_signal_dates(signal_dates)
     calendar = _normalize_trade_calendar(trading_calendar)
@@ -242,6 +249,7 @@ def validate_authorized_cutoff_execution_schedule(
     policy: HistoricalCutoffExecutionPolicy = TOTAL_RASYO_MONTHLY_OPEN_V1,
 ) -> pd.DataFrame:
     """Fail closed unless a supplied schedule is exactly the authorized policy."""
+    _require_canonical_policy_identity(policy)
     expected = build_authorized_cutoff_execution_schedule(
         signal_dates,
         trading_calendar,
