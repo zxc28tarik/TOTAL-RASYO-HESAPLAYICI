@@ -11,7 +11,7 @@ Depo: [`zxc28tarik/TOTAL-RASYO-HESAPLAYICI`](https://github.com/zxc28tarik/TOTAL
 | Hat | Dal | Doğrulanmış baş | Anlamı |
 |---|---|---|---|
 | Üretim | `main` | `84494e29824809b20b5410c8b160ef38f70c27c9` | V24-F üretim fotoğrafı; deneysel tarihsel veri çalışması buraya henüz terfi ettirilmedi |
-| Aktif geliştirme | `v24-real-data-work` | `97c34537d600f1441ef1c18d1e5186a99796f3c8` | Ek9 kapanış belgesi sonrası CI evidence başı; M3, PIT Ek4, PIT Ek1/good-count ve PIT Ek9 CLOSED |
+| Aktif geliştirme | `v24-real-data-work` | `63a746c2cfae642525e7ed80e01654a9d29f2b3c` | PR #19 birleşti; merge-sonrası iki CI hattı yeşil ve bot evidence commit'i yazıldı. `pit_total_rasyo_replay` makine-okur evidence bloğunu ekleyen dar PR #20 bağımsız denetim bekliyor |
 
 `v24-real-data-work`, V24-F ortak atasından sonra aktif geliştirme dalıdır. `main` üzerindeki sonraki commitler üretim CI/kanıt belgeleridir. Bu nedenle tek depo hedefi, iki dalı körlemesine ezmek değil; geliştirme tamamlanıp bütün kapılar geçtiğinde kontrollü terfi yapmaktır.
 
@@ -50,18 +50,21 @@ Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri i�
 | PIT Ek4 replay | **KAPALI** | PR #16 birleşti; DB-free, 20 işlem aralığı, ortak canlı formül, tarih-doğru M3 sektör rotası, ayrı piyasa kesimi ve XU100 fallback yasağı testlerle kilitli |
 | PIT Ek1 + `good_count_ge8` replay | **KAPALI** | PR #17 birleşti; DB-free, PIT M1 ile aynı son RSC dönemi, ortak canlı formül, eksik-count fallback yasağı ve gerçek üretim veto sınırı 8/8 mutasyonla doğrulandı |
 | PIT Ek9 replay | **KAPALI** | PR #18 bağımsız gerçek-diff ve mutasyon denetiminden blocker/major olmadan geçti; DB-free, 63 günlük getiri std (`ddof=1`), 0.06 volatilite cap'i, tam 64 fiyat pozisyonu, `pct_change(fill_method=None)`, cutoff-sonrası veri reddi ve XU100 fiyat fallback yasağı kilitli |
-| 60-cutoff birleşik Total Rasyo replay/sıralama | **PR ADAYI — DENETİM BEKLİYOR** | PR #19; mevcut replay motorlarını ve üretim `combine_company_result`/`compute_total_rasyo` zincirini yeniden yazmadan bağlar; eksik/rejected herhangi modülde fail-closed, M2 tek-motor sahipliği ve modüller arası tam cutoff eşitliği zorunlu |
+| 60-cutoff birleşik Total Rasyo replay/sıralama | **BİRLEŞTİRİLDİ — FORMAL EVIDENCE TAKİBİ AÇIK** | PR #19 bağımsız gerçek-diff + 12 mutasyon denetiminden `BLOCKER YOK, MAJOR YOK — TEMİZ` geçti ve `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff` ile birleşti. Özel CI #6 ve geniş CI #56 yeşil; PR #20 yalnız `pit_total_rasyo_replay` makine-okur evidence bloğunu/CI kapsamını tamamlıyor |
 | V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
 
-Son otomatik kanıt commit'i [`97c34537`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/97c34537d600f1441ef1c18d1e5186a99796f3c8)'dir. Bu kanıt, Ek9 kapanış durum belgesi commit'i [`874492d9`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/874492d9a9107d70711159af34ac6020067ea30c) üzerinde çalışan [CI #53](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/32790486213) sonucunu kaydeder.
+Son otomatik kanıt commit'i [`63a746c2`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/63a746c2cfae642525e7ed80e01654a9d29f2b3c)'dir. Bu commit, PR #19 merge commit'i [`f39c6e4b`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/f39c6e4b69bd66d13192d8c377eb8f0a76aafdff) üzerinde çalışan V24 Real Data CI #56 sonucunu kaydeder.
 
-- pandas 2.2.3 / numpy 1.26.4 uyumluluk kapısı: **PASS**;
-- hedefli gerçek-veri sözleşmeleri: **254 geçti**;
-- tam regresyon: **1783 geçti**;
-- BANK v4.7: **277 geçti, 1 beklenen xfail**;
+- özel V24 PIT Total Rasyo Replay CI #6: pandas 2.2.3 kapısında **75 geçti**, birleşik/upstream pakette **190 geçti**;
+- geniş pandas 2.2.3 / numpy 1.26.4 uyumluluk kapısı: **116 geçti, 1 uyarı**;
+- hedefli gerçek-veri sözleşmeleri: **254 geçti, 5 uyarı**;
+- tam regresyon: **1798 geçti, 32 uyarı**;
+- BANK v4.7: **277 geçti, 1 beklenen xfail, 1 uyarı**;
 - schema migration: **PASS**;
 - evidence persistence: **PASS**;
 - iş akışı sonucu: **success**.
+
+Önemli kanıt sınırı: CI #56'nın ürettiği `docs/V24_REAL_DATA_CI_EVIDENCE.json` doğru merge SHA ve güncel test sayılarını kaydetti, ancak PR #19'un yeni katmanı için ayrı `pit_total_rasyo_replay` bölümü yazmadı. Bu nedenle kod/CI birleşimi temiz olsa da makine-okur formal kapanış PR #20 birleşip push evidence yeniden üretmeden ilan edilmez.
 
 PR #13'ün canlı beta uyumluluğu, tarihsel `pct_change(fill_method=None)` davranışı ve pandas sürüm kapısı Claude tarafından gerçek diff ve mutasyon testleriyle bağımsız olarak denetlendi; blocker/major kalmadan birleştirildi.
 
@@ -73,11 +76,13 @@ PR #17'nin PIT Ek1/good-count replay motoru bağımsız diff ve sekiz mutasyon d
 
 PR #18'in PIT Ek9 replay motoru bağımsız gerçek diff denetiminden blocker/major olmadan geçti. Denetlenen head `d1fe827c1ff42b1b0ed63552f30124528b6fe6be`, merge commit'i `f3949402204e5a63a8072ec7925a66414774a15c` ile 9/9 dosyada bit-bit eşleşir. Canlı `run_daily_pipeline._compute_ek9_vol` veri hazırlığı değişmemiştir: SQL, `COALESCE(adj_close, close)`, pivot, varsayılan `pct_change()`, `< lookback+2` kapısı ve `tail(lookback)` korunur; yalnız `std(ddof=1) -> inf/NaN temizliği -> 0.06 cap` aritmetiği saf paylaşılan fonksiyona taşınmıştır. Tarihsel adapter tam 64 fiyat/63 getiri penceresinde `pct_change(fill_method=None)` kullanır, DB-free çalışır, cutoff-sonrası veri ve eksik fiyat için fail-closed davranır ve XU100 fiyat fallback'i kabul etmez. Bağımsız mutasyon turunda `ddof`, 0.06 cap, 63-lookback, cutoff-sonrası fiyat ve `fill_method=None` korumaları kırılmıştır. Merge-sonrası CI #51 ve `V24_REAL_DATA_CI_EVIDENCE.json` sonucu PASS'tir.
 
-PR #19, kapalı altı modülün tarihsel sonuçlarını tek-cutoff bazında üretim Total Rasyo combiner'ına bağlayan aday katmandır. `compute_total_rasyo` veya kapalı replay fonksiyonları değiştirilmez. M2 altı mevcut sektör-family replay sonucundan gelir; diğer beş modül mevcut replay fonksiyonları çağrılarak üretilir. Bir modül bile eksik/rejected ise skor üretilmez. `good_count_ge8`, Ek1'in M1 ile aynı dönem lineage'ından taşınır; veto eşiği/faktörü üretim scorer'dan devralınır. PR #19 bağımsız gerçek-diff ve mutasyon denetiminden geçmeden KAPALI sayılmaz ve merge edilmez.
+PR #19, kapalı altı modülün tarihsel sonuçlarını tek-cutoff bazında üretim Total Rasyo combiner'ına bağlar. `compute_total_rasyo` veya kapalı replay fonksiyonları değiştirilmedi. M2 altı mevcut sektör-family replay sonucundan gelir; diğer beş modül mevcut replay fonksiyonları çağrılarak üretilir. Bir modül bile eksik/rejected ise skor üretilmez. `good_count_ge8`, Ek1'in M1 ile aynı dönem lineage'ından taşınır; veto eşiği/faktörü üretim scorer'dan devralınır. Bağımsız denetimde 7 dosyalık gerçek diff doğrulandı, 13 kapalı üretim dosyasının değişmediği teyit edildi ve istenen 12 mutasyon noktasının tamamı kırıldı. PR head `e984db473a150adb9ba0766ad4df78c2115f428b`, merge commit'i `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff`'dir.
+
+PR #20 üretim/replay koduna dokunmaz. Yalnız geniş `V24 Real Data CI` tetikleme/test kapsamını PR #19'un kaynak, test ve kontrat dosyalarına genişletir; replay+mutasyon testlerini pinned ve targeted kapılara ekler; başarılı push'ta `V24_REAL_DATA_CI_EVIDENCE.json` içine `pit_total_rasyo_replay` sözleşme bloğunu üretir. Gerçek cutoff/execution saat politikası bu evidence içinde de açıkça yetkilendirilmemiş (`false`) kalır. PR #20 bağımsız gerçek-diff denetimi temiz gelmeden merge edilmez.
 
 ## Açık işler — uygulanacak sıra
 
-1. PR #19'daki 60-cutoff birleşik Total Rasyo replay/sıralama katmanını CI + bağımsız gerçek-diff/mutasyon denetimi sonrasında birleştir.
+1. PR #20'deki dar Total Rasyo evidence/CI kapanışını bağımsız denetimden geçirip birleştir; merge-sonrası evidence JSON'da `pit_total_rasyo_replay` kaydını gerçek push CI ile doğrula ve ancak o zaman birleşik replay'i formal **KAPALI** ilan et.
 2. Gerçek cutoff/execution saat politikasını açıkça kararlaştırıp kayıt altına al. Testteki önceki gün 20:00 / sinyal günü 10:00 değerleri gerçek politika sayılmaz.
 3. V24-G readiness raporunu gerçek 60 aylık veriyle çalıştır; sonuç zorunlu olarak `READY` olmalı.
 4. Aylık portföyü çalıştırıp holdings, trades, NAV, katkılar ve XU100 karşılaştırmasını yayımla.
