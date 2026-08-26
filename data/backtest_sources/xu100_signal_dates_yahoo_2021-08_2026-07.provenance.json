@@ -1,0 +1,33 @@
+{
+  "source_provider": "Yahoo Finance via yfinance",
+  "yahoo_symbol": "XU100.IS",
+  "canonical_index_code": "XU100",
+  "fetch_start_inclusive": "2021-08-01",
+  "fetch_end_exclusive": "2026-08-01",
+  "target_start_month": "2021-08",
+  "target_end_month": "2026-07",
+  "expected_months": 60,
+  "signal_date_count": 60,
+  "missing_months": [],
+  "daily_row_count": 1250,
+  "cutoff_policy_status": "UNRESOLVED",
+  "github_actions": {
+    "workflow": "V24 Real XU100 Calendar",
+    "run_id": 31983176710,
+    "head_sha": "b555fe0145122caefcf36d4a741de451593adab8",
+    "artifact_id": 9272963739,
+    "artifact_name": "v24-xu100-calendar-2021-08_2026-07",
+    "artifact_digest": "sha256:24190cd23f30a4f3bbe6e7387a1e778075ee92c0eb4833b6469727a82bf2a55c",
+    "artifact_created_at": "2026-08-17T00:50:49Z"
+  },
+  "evidence_hashes": {
+    "daily_csv_sha256": "1003cf5af05b5804cdf46bc09d55324031873ff383cf11b71649ca8b740a5a06",
+    "signal_dates_csv_sha256": "320682828756e23e556177a9642a7b4056679edba351eb1b418c94612b1fb185",
+    "signal_dates_json_sha256": "7ab4f4c4d44419ab053d3fac0ed22e7916c11aa9459f62e2aca6cf5b8d179c1f"
+  },
+  "repository_policy": {
+    "daily_vendor_data_committed": false,
+    "signal_date_facts_committed": true,
+    "note": "The full daily vendor-derived evidence remains in the GitHub Actions artifact; only the 60 first-trading-day facts and provenance hashes are committed."
+  }
+}

@@ -1,0 +1,83 @@
+name: V24 BIST100 Membership Export
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - 'data/backtest_sources/bist100_snapshot_2026-08-17.csv'
+      - 'data/backtest_sources/bist100_periodic_events_2021Q3_2026Q3.json'
+      - 'data/backtest_sources/bist100_nonperiodic_events_2021-08_2026-08.json'
+      - 'data/backtest_sources/bist_ticker_code_changes_2021-08_2026-08.csv'
+      - 'data/backtest_sources/xu100_signal_dates_yahoo_2021-08_2026-07.csv'
+      - 'src/analytics/bist100_membership_export.py'
+      - 'src/analytics/bist100_membership_pipeline.py'
+      - 'src/analytics/bist100_membership_history.py'
+      - 'src/analytics/bist100_nonperiodic_events.py'
+      - 'src/analytics/ticker_lineage.py'
+      - 'scripts/export_bist100_membership_history.py'
+      - '.github/workflows/v24-bist100-membership-export.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Validate membership contracts
+        run: >-
+          python -m pytest -q
+          tests/test_bist100_membership_history.py
+          tests/test_bist100_membership_pipeline.py
+          tests/test_bist100_membership_export.py
+          tests/test_bist100_nonperiodic_events.py
+          tests/test_ticker_lineage.py
+          tests/test_v24_real_bist100_periodic_events_source.py
+          tests/test_v24_real_bist100_snapshot_source.py
+          tests/test_v24_real_xu100_signal_dates_source.py
+          tests/test_v24_real_bist100_nonperiodic_catalog_source.py
+          tests/test_v24_real_bist100_nonperiodic_events_source.py
+      - name: Export frozen 60-month BIST100 membership
+        run: |
+          mkdir -p artifacts
+          PYTHONPATH=. python scripts/export_bist100_membership_history.py \
+            --snapshot-csv data/backtest_sources/bist100_snapshot_2026-08-17.csv \
+            --periodic-json data/backtest_sources/bist100_periodic_events_2021Q3_2026Q3.json \
+            --nonperiodic-json data/backtest_sources/bist100_nonperiodic_events_2021-08_2026-08.json \
+            --ticker-lineage-csv data/backtest_sources/bist_ticker_code_changes_2021-08_2026-08.csv \
+            --signal-dates-csv data/backtest_sources/xu100_signal_dates_yahoo_2021-08_2026-07.csv \
+            --out-csv artifacts/bist100_monthly_membership_2021-08_2026-07.csv \
+            --manifest-json artifacts/bist100_monthly_membership_2021-08_2026-07.provenance.json \
+            --expected-months 60 \
+            --expected-member-count 100 \
+            --index-code XU100
+      - name: Verify frozen export dimensions
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          df=pd.read_csv('artifacts/bist100_monthly_membership_2021-08_2026-07.csv')
+          assert len(df)==6000, len(df)
+          counts=df.groupby('signal_date')['ticker'].nunique()
+          assert len(counts)==60, len(counts)
+          assert counts.eq(100).all(), counts[counts.ne(100)].to_dict()
+          assert not df.duplicated(['signal_date','ticker']).any()
+          print({'rows':len(df),'months':len(counts),'members_per_month':sorted(counts.unique().tolist())})
+          PY
+      - name: Hash export evidence
+        run: sha256sum artifacts/* > artifacts/SHA256SUMS
+      - name: Upload membership evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-bist100-monthly-membership-2021-08_2026-07
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90

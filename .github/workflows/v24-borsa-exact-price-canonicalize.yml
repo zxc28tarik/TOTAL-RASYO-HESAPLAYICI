@@ -1,0 +1,130 @@
+name: V24 Borsa Exact Price Canonicalize
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-borsa-exact-price-canonicalize.yml'
+      - 'data/backtest_sources/borsa_exact_price_gap_discovery/thb_schema_proof.json'
+
+permissions:
+  contents: write
+
+jobs:
+  canonicalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build canonical 12-row official price source
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+          import csv, hashlib, json, math
+          from pathlib import Path
+
+          src=Path('data/backtest_sources/borsa_exact_price_gap_discovery/thb_schema_proof.json')
+          payload=json.loads(src.read_text(encoding='utf-8'))
+          if payload.get('contract')!='V24_BORSA_THB_SCHEMA_PROOF_V1':
+              raise RuntimeError('unexpected THB schema proof contract')
+          expected={
+            ('2022-07-01','INVES'),('2022-08-01','INVES'),('2022-09-01','INVES'),
+            ('2023-01-02','KLRHO'),('2023-02-01','KLRHO'),('2023-03-01','KLRHO'),
+            ('2023-04-03','KLRHO'),('2023-05-02','KLRHO'),('2023-06-01','KLRHO'),
+            ('2024-01-02','ASGYO'),('2024-02-01','ASGYO'),('2024-03-01','ASGYO'),
+          }
+          rows=[]
+          for item in payload['rows']:
+              first=item.get('first_lines') or []
+              if len(first)<2:
+                  raise RuntimeError('THB proof missing bilingual headers')
+              header=next(csv.reader([first[0]],delimiter=';'))
+              eng=next(csv.reader([first[1]],delimiter=';'))
+              values=next(csv.reader([item['target_row']],delimiter=';'))
+              field_count=len(header)
+              if field_count < 4 or len(eng)!=field_count or len(values)!=field_count:
+                  raise RuntimeError(
+                      f"THB header/target field count mismatch for {item['ticker']} {item['trade_date']}: "
+                      f"tr={field_count} en={len(eng)} target={len(values)}"
+                  )
+              recorded_header=item.get('first_line_field_count')
+              recorded_target=item.get('target_field_count')
+              if recorded_header is not None and recorded_header!=field_count:
+                  raise RuntimeError('THB first_line_field_count proof mismatch')
+              if recorded_target is not None and recorded_target!=len(values):
+                  raise RuntimeError('THB target_field_count proof mismatch')
+              required=['TARIH','ISLEM  KODU','ACILIS FIYATI','KAPANIS FIYATI']
+              for name in required:
+                  if name not in header:
+                      raise RuntimeError(f'missing official THB column {name}')
+              semantics={
+                  'TARIH':'TRADE DATE',
+                  'ISLEM  KODU':'INSTRUMENT SERIES CODE',
+                  'ACILIS FIYATI':'OPENING PRICE',
+                  'KAPANIS FIYATI':'CLOSING PRICE',
+              }
+              for tr,en in semantics.items():
+                  idx=header.index(tr)
+                  if eng[idx]!=en:
+                      raise RuntimeError(f'THB bilingual schema mismatch for {tr}: {eng[idx]!r}')
+              data=dict(zip(header,values))
+              day=data['TARIH'].strip(); ticker=item['ticker'].strip().upper()
+              if day!=item['trade_date']:
+                  raise RuntimeError('target row trade date mismatch')
+              if data['ISLEM  KODU'].strip().upper()!=ticker+'.E':
+                  raise RuntimeError('target row instrument series mismatch')
+              try:
+                  op=float(data['ACILIS FIYATI']); cl=float(data['KAPANIS FIYATI'])
+              except Exception as exc:
+                  raise RuntimeError('official OPEN/CLOSE is not numeric') from exc
+              if not (math.isfinite(op) and op>0 and math.isfinite(cl) and cl>0):
+                  raise RuntimeError(f'nonpositive/nonfinite official price for {ticker} {day}')
+              rows.append({
+                  'trade_date':day,
+                  'ticker':ticker,
+                  'open':format(op,'.10g'),
+                  'close':format(cl,'.10g'),
+                  'source':'BORSA_ISTANBUL_THB',
+                  'source_url':item['archive_url'],
+                  'archive_sha256':item['archive_sha256'],
+                  'member':item['member'],
+                  'member_sha256':item['member_sha256'],
+              })
+          keys={(r['trade_date'],r['ticker']) for r in rows}
+          if keys!=expected or len(rows)!=12:
+              raise RuntimeError(f'canonical key set mismatch: got={sorted(keys)}')
+          rows=sorted(rows,key=lambda r:(r['trade_date'],r['ticker']))
+          out=Path('data/backtest_sources/borsa_exact_signal_prices_2022_2024.csv')
+          fields=['trade_date','ticker','open','close','source','source_url','archive_sha256','member','member_sha256']
+          with out.open('w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
+          csv_sha=hashlib.sha256(out.read_bytes()).hexdigest()
+          prov={
+              'contract':'V24_BORSA_EXACT_SIGNAL_PRICES_V1',
+              'publisher':'Borsa Istanbul A.S.',
+              'price_semantics':{'open':'ACILIS FIYATI / OPENING PRICE','close':'KAPANIS FIYATI / CLOSING PRICE'},
+              'series_semantics':'ordinary equity .E series only',
+              'row_count':12,
+              'key_count':12,
+              'canonical_csv_sha256':csv_sha,
+              'schema_proof_path':str(src),
+              'schema_proof_sha256':hashlib.sha256(src.read_bytes()).hexdigest(),
+              'source_path_contract':'/data/thb/YYYY/AA/ + thbYYYYAAGG1.zip',
+              'adjustment':'RAW_UNADJUSTED_BORSA_PRICES',
+          }
+          Path('data/backtest_sources/borsa_exact_signal_prices_2022_2024.provenance.json').write_text(json.dumps(prov,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps({'row_count':12,'csv_sha256':csv_sha,'rows':rows},ensure_ascii=False,indent=2))
+          PY
+      - name: Persist canonical source
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/backtest_sources/borsa_exact_signal_prices_2022_2024.csv data/backtest_sources/borsa_exact_signal_prices_2022_2024.provenance.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'V24 data lock official Borsa exact signal prices'
+            git push origin HEAD:v24-real-data-work
+          fi

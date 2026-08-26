@@ -1,0 +1,150 @@
+name: V24 Historical Member Yahoo Backfill
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - 'data/backtest_sources/bist100_historical_ticker_union_2021-08_2026-07.csv'
+      - 'data/backtest_sources/bist100_historical_ticker_union_2021-08_2026-07.provenance.json'
+      - '.github/workflows/v24-historical-member-yfinance.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install data dependencies
+        run: python -m pip install --disable-pip-version-check pandas yfinance
+      - name: Fetch historical member prices and Yahoo actions
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          python - <<'PY'
+          from __future__ import annotations
+          import hashlib, json, time
+          from concurrent.futures import ThreadPoolExecutor, as_completed
+          from pathlib import Path
+          import pandas as pd
+          import yfinance as yf
+
+          START='2020-07-01'; END='2026-08-02'
+          union_path=Path('data/backtest_sources/bist100_historical_ticker_union_2021-08_2026-07.csv')
+          prov_path=Path('data/backtest_sources/bist100_historical_ticker_union_2021-08_2026-07.provenance.json')
+          tickers=pd.read_csv(union_path)['ticker'].astype(str).tolist()
+          assert len(tickers)==209 and len(set(tickers))==209
+          union_sha=hashlib.sha256(union_path.read_bytes()).hexdigest()
+          prov_sha=hashlib.sha256(prov_path.read_bytes()).hexdigest()
+
+          def fetch_one(ticker):
+              symbol=f'{ticker}.IS'
+              last=None
+              for attempt in range(5):
+                  try:
+                      h=yf.Ticker(symbol).history(start=START,end=END,auto_adjust=False,actions=True,repair=False,raise_errors=True)
+                      if h is None or h.empty:
+                          return ticker,symbol,None,None,'EMPTY'
+                      h=h.reset_index()
+                      datecol='Date' if 'Date' in h.columns else h.columns[0]
+                      h['trade_date']=pd.to_datetime(h[datecol]).dt.date.astype(str)
+                      price=pd.DataFrame({
+                          'ticker':ticker,'yahoo_symbol':symbol,'trade_date':h['trade_date'],
+                          'open':pd.to_numeric(h.get('Open'),errors='coerce'),
+                          'high':pd.to_numeric(h.get('High'),errors='coerce'),
+                          'low':pd.to_numeric(h.get('Low'),errors='coerce'),
+                          'close':pd.to_numeric(h.get('Close'),errors='coerce'),
+                          'adj_close':pd.to_numeric(h.get('Adj Close'),errors='coerce'),
+                          'volume':pd.to_numeric(h.get('Volume'),errors='coerce'),
+                      })
+                      actions=[]
+                      for r in h.itertuples(index=False):
+                          d=str(getattr(r,'trade_date'))
+                          div=getattr(r,'Dividends',0.0) if hasattr(r,'Dividends') else 0.0
+                          split=getattr(r,'Stock_Splits',0.0) if hasattr(r,'Stock_Splits') else 0.0
+                          try: div=float(div or 0.0)
+                          except Exception: div=0.0
+                          try: split=float(split or 0.0)
+                          except Exception: split=0.0
+                          if div!=0.0 or split!=0.0:
+                              actions.append({'ticker':ticker,'yahoo_symbol':symbol,'action_date':d,'cash_dividend_per_share':div,'split_factor':split})
+                      return ticker,symbol,price,pd.DataFrame(actions),'OK'
+                  except Exception as exc:
+                      last=repr(exc)
+                      time.sleep(1.5*(attempt+1))
+              return ticker,symbol,None,None,last or 'ERROR'
+
+          results=[]
+          with ThreadPoolExecutor(max_workers=4) as ex:
+              futs={ex.submit(fetch_one,t):t for t in tickers}
+              for fut in as_completed(futs):
+                  results.append(fut.result())
+          results.sort(key=lambda x:x[0])
+
+          prices=[]; actions=[]; coverage=[]
+          for ticker,symbol,p,a,status in results:
+              if p is not None and not p.empty:
+                  prices.append(p)
+                  coverage.append({'ticker':ticker,'yahoo_symbol':symbol,'status':'OK','row_count':int(len(p)),'date_min':str(p.trade_date.min()),'date_max':str(p.trade_date.max())})
+              else:
+                  coverage.append({'ticker':ticker,'yahoo_symbol':symbol,'status':'MISSING','row_count':0,'date_min':None,'date_max':None,'error':status})
+              if a is not None and not a.empty:
+                  actions.append(a)
+
+          pdf=pd.concat(prices,ignore_index=True) if prices else pd.DataFrame(columns=['ticker','yahoo_symbol','trade_date','open','high','low','close','adj_close','volume'])
+          adf=pd.concat(actions,ignore_index=True) if actions else pd.DataFrame(columns=['ticker','yahoo_symbol','action_date','cash_dividend_per_share','split_factor'])
+          cdf=pd.DataFrame(coverage)
+          pdf.sort_values(['ticker','trade_date']).to_csv('artifacts/historical_member_prices_yahoo_2020-07_2026-08.csv.gz',index=False,compression='gzip')
+          adf.sort_values(['ticker','action_date']).to_csv('artifacts/historical_member_actions_yahoo_2020-07_2026-08.csv',index=False)
+          cdf.sort_values(['ticker']).to_csv('artifacts/historical_member_price_coverage.csv',index=False)
+          missing=cdf[cdf.status!='OK'].ticker.tolist()
+          summary={
+              'contract':'V24_HISTORICAL_MEMBER_YAHOO_DISCOVERY_V2',
+              'start':START,'end_exclusive':END,
+              'target_ticker_count':209,
+              'fetched_ticker_count':int((cdf.status=='OK').sum()),
+              'missing_ticker_count':len(missing),
+              'missing_tickers':missing,
+              'price_row_count':int(len(pdf)),
+              'action_row_count':int(len(adf)),
+              'ticker_union_sha256':union_sha,
+              'ticker_union_provenance_sha256':prov_sha,
+              'workflow_head_sha':'${{ github.sha }}',
+              'note':'Discovery artifact only. Yahoo actions are candidates; official/contract validation is required before backtest accounting.'
+          }
+          Path('artifacts/summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          if len(pdf)==0:
+              raise RuntimeError('no historical prices fetched')
+          PY
+      - name: Hash discovery artifact
+        run: sha256sum artifacts/* > artifacts/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v24-historical-member-yahoo-discovery
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Persist discovery evidence on branch
+        run: |
+          set -euo pipefail
+          dst='data/backtest_sources/yahoo_discovery'
+          mkdir -p "$dst"
+          cp artifacts/historical_member_prices_yahoo_2020-07_2026-08.csv.gz "$dst/"
+          cp artifacts/historical_member_actions_yahoo_2020-07_2026-08.csv "$dst/"
+          cp artifacts/historical_member_price_coverage.csv "$dst/"
+          cp artifacts/summary.json "$dst/historical_member_yahoo_summary.json"
+          cp artifacts/SHA256SUMS "$dst/SHA256SUMS"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$dst"
+          if git diff --cached --quiet; then
+            echo 'No discovery evidence change.'
+          else
+            git commit -m 'V24 data freeze historical Yahoo price discovery'
+            git push origin HEAD:v24-real-data-work
+          fi

@@ -1,0 +1,127 @@
+name: V24G CI
+
+on:
+  push:
+    branches: [v24g-ci]
+    paths:
+      - 'src/analytics/historical_backtest_readiness.py'
+      - 'src/analytics/historical_backtest_readiness_db.py'
+      - 'src/analytics/historical_backtest_readiness_cli.py'
+      - 'scripts/audit_historical_backtest_readiness.py'
+      - 'tests/test_historical_backtest_readiness.py'
+      - 'tests/test_historical_backtest_readiness_contract.py'
+      - 'tests/test_historical_backtest_readiness_db.py'
+      - 'tests/test_historical_backtest_readiness_db_live.py'
+      - 'tests/test_historical_backtest_readiness_cli.py'
+      - '.github/workflows/v24g-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: total_rasyo_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres -d total_rasyo_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: localhost
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: total_rasyo_test
+      TOTAL_RASYO_TEST_DSN: postgresql://postgres:postgres@localhost:5432/total_rasyo_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Apply schema
+        run: make core migrate
+      - name: V24-G targeted contract
+        run: >-
+          python -m pytest -q
+          tests/test_historical_backtest_readiness.py
+          tests/test_historical_backtest_readiness_contract.py
+          tests/test_historical_backtest_readiness_db.py
+          tests/test_historical_backtest_readiness_db_live.py
+          tests/test_historical_backtest_readiness_cli.py
+      - name: V24-G Python mutations — contract obligations and readiness guards must die
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/analytics/historical_backtest_readiness.py /tmp/readiness.orig
+          cp src/analytics/historical_backtest_readiness_cli.py /tmp/readiness_cli.orig
+          run_mutation() {
+            file="$1"
+            name="$2"
+            testnode="$3"
+            python - "$file" "$name" <<'PY'
+          from pathlib import Path
+          import sys
+          file=sys.argv[1]
+          name=sys.argv[2]
+          p=Path(file)
+          original=Path('/tmp/readiness_cli.orig' if file.endswith('_cli.py') else '/tmp/readiness.orig').read_text()
+          mutations={
+            # Part-5 closing obligations from docs/V24_G_READINESS_CONTRACT.md.
+            'execution_universe_guard_removed': ('missing = sorted(universe - run_tickers)', 'missing = []'),
+            'malformed_ok_guard_removed': ('if decision not in VALID_DECISIONS or not np.isfinite(score):', 'if False:'),
+            'wage_structure_guard_removed': ('_audit_wage_structure(wage, findings)', 'pass  # mutation: wage structure audit removed'),
+            'membership_structure_guard_removed': ('_audit_membership_structure(mem, findings)', 'pass  # mutation: membership structure audit removed'),
+            'execution_timezone_guard_removed': ('if execution_present and execution_at is None:', 'if False:'),
+            'checked_month_guard_removed': ('return self.checked_months == self.expected_months and self.findings.empty', 'return self.findings.empty'),
+            # Additional guards retained from Parts 1-4.
+            'ready_ignores_findings': ('return self.checked_months == self.expected_months and self.findings.empty', 'return self.checked_months == self.expected_months'),
+            'price_guard_removed': ('if missing or duplicates or invalid:', 'if False:'),
+            'naive_cutoff_accepted': ('if pd.isna(ts) or ts.tzinfo is None or ts.utcoffset() is None:\n        return None', 'if False:\n        return None'),
+            'authority_finding_removed': ('findings.append(("*", None, "TOTAL_RASYO", "AUTHORITY_INVALID", str(exc)))', 'pass'),
+            'not_ready_returns_zero': ('exit_code = READY_EXIT_CODE if snapshot.report.ready else NOT_READY_EXIT_CODE', 'exit_code = READY_EXIT_CODE'),
+          }
+          old,new=mutations[name]
+          if original.count(old) != 1:
+              raise SystemExit(f'{name}: anchor count={original.count(old)}, expected 1')
+          p.write_text(original.replace(old,new,1))
+          PY
+            if PYTHONDONTWRITEBYTECODE=1 python -m pytest -q "$testnode"; then
+              echo "$name mutation SURVIVED"
+              exit 1
+            else
+              echo "$name mutation KILLED"
+            fi
+            cp /tmp/readiness.orig src/analytics/historical_backtest_readiness.py
+            cp /tmp/readiness_cli.orig src/analytics/historical_backtest_readiness_cli.py
+            find src -name '__pycache__' -type d -prune -exec rm -rf {} + || true
+          }
+          run_mutation src/analytics/historical_backtest_readiness.py execution_universe_guard_removed tests/test_historical_backtest_readiness.py::test_latest_authoritative_run_must_cover_that_months_universe
+          run_mutation src/analytics/historical_backtest_readiness.py malformed_ok_guard_removed tests/test_historical_backtest_readiness_contract.py::test_malformed_ok_total_rasyo_row_must_block_ready
+          run_mutation src/analytics/historical_backtest_readiness.py wage_structure_guard_removed tests/test_historical_backtest_readiness_contract.py::test_wage_gap_between_execution_dates_is_still_a_structural_failure
+          run_mutation src/analytics/historical_backtest_readiness.py membership_structure_guard_removed tests/test_historical_backtest_readiness_contract.py::test_membership_overlap_between_execution_dates_is_structural_failure
+          run_mutation src/analytics/historical_backtest_readiness.py execution_timezone_guard_removed tests/test_historical_backtest_readiness_contract.py::test_naive_execution_at_is_not_silently_accepted
+          run_mutation src/analytics/historical_backtest_readiness.py checked_month_guard_removed tests/test_historical_backtest_readiness.py::test_ready_requires_checked_months_to_equal_expected_months
+          run_mutation src/analytics/historical_backtest_readiness.py ready_ignores_findings tests/test_historical_backtest_readiness.py::test_missing_price_is_reported_without_stopping_later_months
+          run_mutation src/analytics/historical_backtest_readiness.py price_guard_removed tests/test_historical_backtest_readiness.py::test_missing_price_is_reported_without_stopping_later_months
+          run_mutation src/analytics/historical_backtest_readiness.py naive_cutoff_accepted tests/test_historical_backtest_readiness.py::test_naive_cutoff_is_reported
+          run_mutation src/analytics/historical_backtest_readiness.py authority_finding_removed tests/test_historical_backtest_readiness.py::test_invalid_authority_is_global_finding_not_silent_fallback
+          run_mutation src/analytics/historical_backtest_readiness_cli.py not_ready_returns_zero tests/test_historical_backtest_readiness_cli.py::test_not_ready_returns_three_and_preserves_full_finding
+          cmp -s src/analytics/historical_backtest_readiness.py /tmp/readiness.orig
+          cmp -s src/analytics/historical_backtest_readiness_cli.py /tmp/readiness_cli.orig
+      - name: Full regression
+        run: python -m pytest -q
+      - name: BANK v4.7 regression
+        run: make test-bank-v47

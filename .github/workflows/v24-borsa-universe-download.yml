@@ -1,0 +1,55 @@
+name: V24 Borsa Universe Raw Acquisition
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-borsa-universe-download.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-official-universe-sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download official raw source files
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/raw artifacts/extracted/ilkislem artifacts/extracted/code_changes
+          base='https://borsaistanbul.com/datum'
+          curl --fail --location --retry 3 --user-agent 'Mozilla/5.0' "$base/ilkislem.zip" -o artifacts/raw/ilkislem.zip
+          curl --fail --location --retry 3 --user-agent 'Mozilla/5.0' "$base/IslemSirasiKapananSirketler.xls" -o artifacts/raw/IslemSirasiKapananSirketler.xls
+          curl --fail --location --retry 3 --user-agent 'Mozilla/5.0' "$base/payadvekoddegisiklikleri.zip" -o artifacts/raw/payadvekoddegisiklikleri.zip
+          test -s artifacts/raw/ilkislem.zip
+          test -s artifacts/raw/IslemSirasiKapananSirketler.xls
+          test -s artifacts/raw/payadvekoddegisiklikleri.zip
+          sha256sum artifacts/raw/* > artifacts/RAW_SHA256SUMS
+          file artifacts/raw/* | tee artifacts/file_types.txt
+      - name: Validate and extract archives
+        run: |
+          set -euo pipefail
+          unzip -t artifacts/raw/ilkislem.zip | tee artifacts/ilkislem_unzip_test.txt
+          unzip -o artifacts/raw/ilkislem.zip -d artifacts/extracted/ilkislem
+          unzip -t artifacts/raw/payadvekoddegisiklikleri.zip | tee artifacts/code_changes_unzip_test.txt
+          unzip -o artifacts/raw/payadvekoddegisiklikleri.zip -d artifacts/extracted/code_changes
+          find artifacts/extracted -type f -print | sort | tee artifacts/extracted_files.txt
+          find artifacts/extracted -type f -print0 | sort -z | xargs -0 sha256sum > artifacts/EXTRACTED_SHA256SUMS
+      - name: Record acquisition manifest
+        run: |
+          cat > artifacts/acquisition_manifest.txt <<'EOF'
+          Official landing page: https://borsaistanbul.com/en/data/equity-market-data
+          Official path registry: https://borsaistanbul.com/files/DataFilePaths.zip
+          First trading file: https://borsaistanbul.com/datum/ilkislem.zip
+          Permanent delisting file: https://borsaistanbul.com/datum/IslemSirasiKapananSirketler.xls
+          Equity name/code changes file: https://borsaistanbul.com/datum/payadvekoddegisiklikleri.zip
+          Acquisition policy: raw files are evidence only; no date or ticker-lineage semantics are inferred here.
+          EOF
+      - name: Upload raw official evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-borsa-universe-raw-official
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90

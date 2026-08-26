@@ -1,0 +1,15 @@
+{
+  "contract": "V24_MARKETSCREENER_PRICE_GAP_AUDIT_V1",
+  "target_row_count": 12,
+  "page_statuses": {
+    "INVES": 403,
+    "KLRHO": 403,
+    "ASGYO": 403
+  },
+  "visible_target_row_count": 0,
+  "script_hit_count": 0,
+  "probe_count": 0,
+  "accepted_exact_rows": 0,
+  "accepted": false,
+  "note": "Discovery only. Raw table cells/endpoints are evidence, not canonical prices until OPEN/CLOSE columns are proven and exact target dates parse cleanly."
+}

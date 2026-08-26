@@ -1,0 +1,105 @@
+name: V24 Borsa Universe Source Inspection
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-borsa-universe-inspect.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect-official-source-tables:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install inspection readers
+        run: python -m pip install --disable-pip-version-check openpyxl xlrd
+      - name: Re-download and hash-lock official files
+        run: |
+          set -euo pipefail
+          mkdir -p work/ilkislem work/code_changes artifacts
+          base='https://borsaistanbul.com/datum'
+          curl --fail --location --retry 3 --user-agent 'Mozilla/5.0' "$base/ilkislem.zip" -o work/ilkislem.zip
+          curl --fail --location --retry 3 --user-agent 'Mozilla/5.0' "$base/IslemSirasiKapananSirketler.xls" -o work/IslemSirasiKapananSirketler.xls
+          curl --fail --location --retry 3 --user-agent 'Mozilla/5.0' "$base/payadvekoddegisiklikleri.zip" -o work/payadvekoddegisiklikleri.zip
+          echo '71666f0e981cb647a9c223811768b0478397d356ccae7608c91a34633b353e14  work/ilkislem.zip' | sha256sum -c -
+          echo '26e3a7fb0152acdc8f548901ee0edbb44ddd2ecedbc1eae1527f030bd336c8e3  work/IslemSirasiKapananSirketler.xls' | sha256sum -c -
+          echo 'c8068dab5643940e6efe23b7920d2dc0b454f3878f365150111754cb631f2076  work/payadvekoddegisiklikleri.zip' | sha256sum -c -
+          unzip -q work/ilkislem.zip -d work/ilkislem
+          unzip -q work/payadvekoddegisiklikleri.zip -d work/code_changes
+      - name: Extract sheet schemas and sample rows
+        run: |
+          python - <<'PY' | tee artifacts/table_inspection.txt
+          from pathlib import Path
+          from datetime import datetime
+          import json
+          import openpyxl
+          import xlrd
+
+          def clean(v):
+              if isinstance(v, datetime):
+                  return v.isoformat()
+              return v
+
+          def inspect_xlsx(path):
+              wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
+              out=[]
+              for ws in wb.worksheets:
+                  rows=[[clean(v) for v in row] for row in ws.iter_rows(values_only=True)]
+                  nonempty=[r for r in rows if any(v not in (None, '') for v in r)]
+                  out.append({
+                      'sheet': ws.title,
+                      'row_count': len(nonempty),
+                      'max_columns': max((len(r) for r in nonempty), default=0),
+                      'first_rows': nonempty[:12],
+                      'last_rows': nonempty[-12:],
+                  })
+              return out
+
+          def inspect_xls(path):
+              wb=xlrd.open_workbook(path)
+              out=[]
+              for ws in wb.sheets():
+                  rows=[]
+                  for r in range(ws.nrows):
+                      vals=[]
+                      for c in range(ws.ncols):
+                          cell=ws.cell(r,c)
+                          if cell.ctype == xlrd.XL_CELL_DATE:
+                              vals.append(xlrd.xldate_as_datetime(cell.value, wb.datemode).isoformat())
+                          else:
+                              vals.append(cell.value)
+                      if any(v not in (None, '') for v in vals):
+                          rows.append(vals)
+                  out.append({
+                      'sheet': ws.name,
+                      'row_count': len(rows),
+                      'max_columns': ws.ncols,
+                      'first_rows': rows[:12],
+                      'last_rows': rows[-12:],
+                  })
+              return out
+
+          payload={
+              'first_trading': inspect_xlsx(Path('work/ilkislem/ilkislem.xlsx')),
+              'permanent_delistings': inspect_xls(Path('work/IslemSirasiKapananSirketler.xls')),
+              'equity_name_changes': inspect_xls(Path('work/code_changes/PayAdiDegisiklikleri.xls')),
+              'equity_code_changes': inspect_xls(Path('work/code_changes/PayKoduDegisiklikleri.xls')),
+          }
+          print(json.dumps(payload, ensure_ascii=False, indent=2, default=str))
+          Path('artifacts/table_inspection.json').write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2, default=str) + '\n', encoding='utf-8'
+          )
+          PY
+      - name: Upload inspection evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-borsa-universe-table-inspection
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90

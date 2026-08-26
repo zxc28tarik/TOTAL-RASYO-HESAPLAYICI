@@ -1,0 +1,602 @@
+[
+  {
+    "trade_date": "2022-07-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/07/thb20220701.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/07/thb20220701.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-07-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/07/thb202207010.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/07/thb202207010.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-07-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/07/thb202207011.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/07/thb202207011.zip",
+    "status": 200,
+    "length": 87486,
+    "content_type": "application/zip",
+    "sha256": "12aee75eab38cdb846739d13033e0a696f3f199e2c3e8e84af51f640b2736ec5",
+    "valid_zip": true,
+    "members": [
+      "thb202207011.csv"
+    ]
+  },
+  {
+    "trade_date": "2022-07-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/07/thb202207012.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/07/thb202207012.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-07-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/07/thb202207013.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/07/thb202207013.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-08-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/08/thb20220801.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/08/thb20220801.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-08-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/08/thb202208010.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/08/thb202208010.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-08-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/08/thb202208011.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/08/thb202208011.zip",
+    "status": 200,
+    "length": 91098,
+    "content_type": "application/zip",
+    "sha256": "96ef862854b5125a8016e34e284a447e2621ea2477636f3357e4d8b0fa4a91c5",
+    "valid_zip": true,
+    "members": [
+      "thb202208011.csv"
+    ]
+  },
+  {
+    "trade_date": "2022-08-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/08/thb202208012.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/08/thb202208012.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-08-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/08/thb202208013.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/08/thb202208013.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-09-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/09/thb20220901.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/09/thb20220901.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-09-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/09/thb202209010.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/09/thb202209010.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-09-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/09/thb202209011.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/09/thb202209011.zip",
+    "status": 200,
+    "length": 97303,
+    "content_type": "application/zip",
+    "sha256": "869c68c12109c1aac7192a266a33bb1012c68629682c22a22b841d88258a06d9",
+    "valid_zip": true,
+    "members": [
+      "thb202209011.csv"
+    ]
+  },
+  {
+    "trade_date": "2022-09-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/09/thb202209012.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/09/thb202209012.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2022-09-01",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/09/thb202209013.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2022/09/thb202209013.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-01-02",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/01/thb20230102.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/01/thb20230102.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-01-02",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/01/thb202301020.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/01/thb202301020.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-01-02",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/01/thb202301021.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/01/thb202301021.zip",
+    "status": 200,
+    "length": 96535,
+    "content_type": "application/zip",
+    "sha256": "bce2d568ee009f184ae216f1df6705e27cdde1d7e0aefeb7a5cebc0ae09f706b",
+    "valid_zip": true,
+    "members": [
+      "thb202301021.csv"
+    ]
+  },
+  {
+    "trade_date": "2023-01-02",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/01/thb202301022.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/01/thb202301022.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-01-02",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/01/thb202301023.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/01/thb202301023.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-02-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/02/thb20230201.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/02/thb20230201.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-02-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/02/thb202302010.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/02/thb202302010.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-02-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/02/thb202302011.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/02/thb202302011.zip",
+    "status": 200,
+    "length": 100064,
+    "content_type": "application/zip",
+    "sha256": "6ebbbe2bdccb7ab6e7b8644be247eec4f2d68513f5a4a7956f0d3685a4f5686c",
+    "valid_zip": true,
+    "members": [
+      "thb202302011.csv"
+    ]
+  },
+  {
+    "trade_date": "2023-02-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/02/thb202302012.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/02/thb202302012.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-02-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/02/thb202302013.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/02/thb202302013.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-03-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/03/thb20230301.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/03/thb20230301.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-03-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/03/thb202303010.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/03/thb202303010.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-03-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/03/thb202303011.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/03/thb202303011.zip",
+    "status": 200,
+    "length": 107913,
+    "content_type": "application/zip",
+    "sha256": "fac0614edc5492f205967d801d0f8aed90f3298167f923cb9b983fbc4c7372c8",
+    "valid_zip": true,
+    "members": [
+      "thb202303011.csv"
+    ]
+  },
+  {
+    "trade_date": "2023-03-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/03/thb202303012.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/03/thb202303012.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-03-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/03/thb202303013.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/03/thb202303013.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-04-03",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/04/thb20230403.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/04/thb20230403.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-04-03",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/04/thb202304030.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/04/thb202304030.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-04-03",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/04/thb202304031.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/04/thb202304031.zip",
+    "status": 200,
+    "length": 96092,
+    "content_type": "application/zip",
+    "sha256": "f9a015250259cbe120dfbdab53ed018ef173113a25a41fd75c870b7d6b8e9366",
+    "valid_zip": true,
+    "members": [
+      "thb202304031.csv"
+    ]
+  },
+  {
+    "trade_date": "2023-04-03",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/04/thb202304032.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/04/thb202304032.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-04-03",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/04/thb202304033.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/04/thb202304033.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-05-02",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/05/thb20230502.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/05/thb20230502.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-05-02",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/05/thb202305020.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/05/thb202305020.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-05-02",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/05/thb202305021.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/05/thb202305021.zip",
+    "status": 200,
+    "length": 94674,
+    "content_type": "application/zip",
+    "sha256": "c27d74854c3054dcd12b7fac1897bc96f7d0830686886b28e1fe25105d6788b2",
+    "valid_zip": true,
+    "members": [
+      "thb202305021.csv"
+    ]
+  },
+  {
+    "trade_date": "2023-05-02",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/05/thb202305022.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/05/thb202305022.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-05-02",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/05/thb202305023.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/05/thb202305023.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-06-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/06/thb20230601.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/06/thb20230601.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-06-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/06/thb202306010.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/06/thb202306010.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-06-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/06/thb202306011.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/06/thb202306011.zip",
+    "status": 200,
+    "length": 112375,
+    "content_type": "application/zip",
+    "sha256": "be155ba958ea562ea66f88ac8d77a536a9b59829c91dcbb030a17f5b0a22dd1b",
+    "valid_zip": true,
+    "members": [
+      "thb202306011.csv"
+    ]
+  },
+  {
+    "trade_date": "2023-06-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/06/thb202306012.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/06/thb202306012.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2023-06-01",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/06/thb202306013.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2023/06/thb202306013.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-01-02",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/01/thb20240102.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/01/thb20240102.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-01-02",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/01/thb202401020.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/01/thb202401020.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-01-02",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/01/thb202401021.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/01/thb202401021.zip",
+    "status": 200,
+    "length": 136040,
+    "content_type": "application/zip",
+    "sha256": "2f69aebbd7e5370d0d85880be082980bb38ba9b0c2428e94760f75d241307bbd",
+    "valid_zip": true,
+    "members": [
+      "thb202401021.csv"
+    ]
+  },
+  {
+    "trade_date": "2024-01-02",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/01/thb202401022.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/01/thb202401022.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-01-02",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/01/thb202401023.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/01/thb202401023.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-02-01",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/02/thb20240201.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/02/thb20240201.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-02-01",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/02/thb202402010.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/02/thb202402010.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-02-01",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/02/thb202402011.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/02/thb202402011.zip",
+    "status": 200,
+    "length": 145403,
+    "content_type": "application/zip",
+    "sha256": "6cea64edab52be5b0145b97874e5535c11cac6e1d18a36127326b226f3a97e6a",
+    "valid_zip": true,
+    "members": [
+      "thb202402011.csv"
+    ]
+  },
+  {
+    "trade_date": "2024-02-01",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/02/thb202402012.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/02/thb202402012.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-02-01",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/02/thb202402013.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/02/thb202402013.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-03-01",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/03/thb20240301.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/03/thb20240301.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-03-01",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/03/thb202403010.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/03/thb202403010.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-03-01",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/03/thb202403011.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/03/thb202403011.zip",
+    "status": 200,
+    "length": 151510,
+    "content_type": "application/zip",
+    "sha256": "19d42084b38a84164a7ec02abefb229cb2f0d0b802608bc92e51a504b1a4d5fb",
+    "valid_zip": true,
+    "members": [
+      "thb202403011.csv"
+    ]
+  },
+  {
+    "trade_date": "2024-03-01",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/03/thb202403012.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/03/thb202403012.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  },
+  {
+    "trade_date": "2024-03-01",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/03/thb202403013.zip",
+    "final_url": "https://borsaistanbul.com/data/thb/2024/03/thb202403013.zip",
+    "status": 404,
+    "length": 8558,
+    "content_type": "text/html"
+  }
+]

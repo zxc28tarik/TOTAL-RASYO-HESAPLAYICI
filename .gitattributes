@@ -1,0 +1,3 @@
+data/backtest_sources/m3_source_package/raw/** binary
+data/backtest_sources/m3_source_package/audit/** binary
+data/backtest_sources/m3_source_package/*.gz binary

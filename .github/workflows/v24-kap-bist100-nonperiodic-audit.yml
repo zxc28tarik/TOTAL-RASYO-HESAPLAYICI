@@ -1,0 +1,219 @@
+name: V24 KAP BIST100 Nonperiodic Audit
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-kap-bist100-nonperiodic-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit-borsa-index-disclosures:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install audit dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Query only Borsa Istanbul KAP disclosures and classify explicit XU100 evidence
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/raw_lists artifacts/raw_details
+          python - <<'PY'
+          from __future__ import annotations
+          import hashlib, json, re, time, unicodedata
+          from datetime import date, datetime, timedelta
+          from pathlib import Path
+          import requests
+          from bs4 import BeautifulSoup
+
+          BASE='https://www.kap.org.tr'
+          BORSA_OID='4028e4a14bcf2a06014be4d7e6e256b6'
+          START=date(2021,8,1)
+          END_EXCLUSIVE=date(2026,8,18)
+          UA='Mozilla/5.0 (compatible; TotalRasyoHistoricalAudit/1.0; +https://github.com/zxc28tarik/letsmakemoney)'
+          s=requests.Session()
+          s.headers.update({
+              'User-Agent':UA,
+              'Accept':'application/json, text/plain, */*',
+              'Referer':BASE+'/tr/bildirim-sorgu',
+          })
+
+          def request(method: str, url: str, **kwargs):
+              last=None
+              for attempt in range(7):
+                  r=s.request(method,url,timeout=60,**kwargs)
+                  last=r
+                  if r.status_code != 429 and r.status_code < 500:
+                      return r
+                  retry_after=r.headers.get('Retry-After')
+                  try:
+                      delay=max(float(retry_after),1.0) if retry_after else min(30.0,2.0**attempt)
+                  except ValueError:
+                      delay=min(30.0,2.0**attempt)
+                  time.sleep(delay)
+              return last
+
+          def norm(text: object) -> str:
+              raw=unicodedata.normalize('NFKD',str(text or ''))
+              raw=''.join(ch for ch in raw if not unicodedata.combining(ch))
+              return re.sub(r'\s+',' ',raw).strip().upper()
+
+          def kap_publish_date(value: object) -> date:
+              text=str(value or '').strip()
+              try:
+                  return datetime.strptime(text[:10],'%d.%m.%Y').date()
+              except ValueError as exc:
+                  raise RuntimeError(f'KAP publishDate parse edilemedi: {text!r}') from exc
+
+          warm=request('GET',BASE+'/tr/bildirim-sorgu')
+          warm.raise_for_status()
+          time.sleep(0.8)
+
+          # Anchor contract: known Borsa XU100 replacement must remain discoverable.
+          anchor=request('GET',BASE+'/tr/api/notification/attachment-detail/1618229')
+          anchor.raise_for_status()
+          anchor_obj=anchor.json()
+          anchor_basic=anchor_obj[0]['disclosure']['disclosureBasic']
+          if anchor_basic.get('mkkMemberOid') != BORSA_OID or anchor_basic.get('companyTitle') != 'BORSA İSTANBUL A.Ş.':
+              raise RuntimeError('known KAP anchor no longer identifies expected Borsa Istanbul member')
+
+          all_rows=[]
+          cursor=START
+          window_no=0
+          while cursor < END_EXCLUSIVE:
+              window_end=min(cursor+timedelta(days=30),END_EXCLUSIVE-timedelta(days=1))
+              payload={
+                  'fromDate':cursor.isoformat(),
+                  'toDate':window_end.isoformat(),
+                  'mkkMemberOidList':[BORSA_OID],
+                  'subjectList':[],
+              }
+              r=request('POST',BASE+'/tr/api/disclosure/members/byCriteria',json=payload,headers={'Content-Type':'application/json'})
+              r.raise_for_status()
+              raw=r.content
+              window_no+=1
+              Path(f'artifacts/raw_lists/{window_no:03d}_{cursor.isoformat()}_{window_end.isoformat()}.json').write_bytes(raw)
+              rows=r.json()
+              if not isinstance(rows,list):
+                  raise RuntimeError(f'KAP list response is not list for {cursor}..{window_end}')
+              if len(rows) >= 2000:
+                  raise RuntimeError(f'KAP list response may be truncated for {cursor}..{window_end}: {len(rows)}')
+              # OID filter is a hard provenance boundary; refuse if API leaks another filer.
+              wrong=[x for x in rows if x.get('kapTitle') not in {'BORSA İSTANBUL A.Ş.','BORSA İSTANBUL BISTECH DEVRE KESİCİ UYGULAMASI'}]
+              if wrong:
+                  raise RuntimeError(f'KAP member filter leaked {len(wrong)} other filers for {cursor}..{window_end}')
+              all_rows.extend(rows)
+              cursor=window_end+timedelta(days=1)
+              time.sleep(0.7)
+
+          by_id={}
+          for row in all_rows:
+              idx=int(row['disclosureIndex'])
+              prev=by_id.get(idx)
+              if prev is not None and prev != row:
+                  raise RuntimeError(f'duplicate disclosureIndex with different metadata: {idx}')
+              by_id[idx]=row
+
+          def is_index_related(row: dict) -> bool:
+              hay=norm(' '.join(str(row.get(k) or '') for k in ('subject','summary')))
+              # Intentionally broad. False positives are retained and classified from body;
+              # false negatives are more dangerous for historical membership.
+              return ('ENDEKS' in hay or 'INDEX' in hay) and 'DEVRE KESICI' not in hay
+
+          index_meta=[by_id[k] for k in sorted(by_id) if is_index_related(by_id[k])]
+          details=[]
+          failures=[]
+          for n,row in enumerate(index_meta,1):
+              idx=int(row['disclosureIndex'])
+              r=request('GET',BASE+f'/tr/api/notification/attachment-detail/{idx}')
+              if r.status_code != 200:
+                  failures.append({'disclosureIndex':idx,'status':r.status_code,'metadata':row})
+                  time.sleep(0.8)
+                  continue
+              raw=r.content
+              raw_sha=hashlib.sha256(raw).hexdigest()
+              Path(f'artifacts/raw_details/{idx}.json').write_bytes(raw)
+              try:
+                  obj=r.json()
+                  root=obj[0] if isinstance(obj,list) and obj else obj
+                  disclosure=root['disclosure']
+                  basic=disclosure['disclosureBasic']
+                  body=root.get('disclosureBody',[])
+              except Exception as exc:
+                  failures.append({'disclosureIndex':idx,'status':200,'parse_error':repr(exc),'metadata':row})
+                  time.sleep(0.8)
+                  continue
+              if basic.get('companyTitle') != 'BORSA İSTANBUL A.Ş.' or basic.get('mkkMemberOid') != BORSA_OID:
+                  raise RuntimeError(f'detail {idx} filer identity mismatch')
+              html='\n'.join(body if isinstance(body,list) else [str(body)])
+              soup=BeautifulSoup(html,'html.parser')
+              plain=' '.join(soup.stripped_strings)
+              xrows=[]
+              for tr in soup.find_all('tr'):
+                  cells=[' '.join(cell.stripped_strings) for cell in tr.find_all(['td','th'])]
+                  if cells and any('XU100' in norm(cell) for cell in cells):
+                      xrows.append(cells)
+              normalized_plain=norm(plain)
+              explicit_xu100=('XU100' in normalized_plain or 'BIST 100' in normalized_plain)
+              periodic=('DONEMSEL' in normalized_plain or 'PERIODIC' in normalized_plain) and (
+                  norm(basic.get('title')) == 'BIST PAY ENDEKSLERI' or 'DONEMSEL ENDEKS DEGISIKLIKLERI' in normalized_plain
+              )
+              details.append({
+                  'disclosureIndex':idx,
+                  'publishDate':basic.get('publishDate'),
+                  'title':basic.get('title'),
+                  'summary':basic.get('summary'),
+                  'relatedStocks':basic.get('relatedStocks'),
+                  'source_url':BASE+f'/tr/Bildirim/{idx}',
+                  'source_detail_sha256':raw_sha,
+                  'explicit_xu100':bool(explicit_xu100),
+                  'periodic_hint':bool(periodic),
+                  'xu100_table_rows':xrows,
+                  'plain_text':plain,
+              })
+              time.sleep(0.8)
+
+          if failures:
+              Path('artifacts/detail_failures.json').write_text(json.dumps(failures,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+              raise RuntimeError(f'{len(failures)} index-related KAP details could not be audited')
+
+          # Keep only explicit XU100 evidence as candidates; do not infer membership from title alone.
+          xu100=[x for x in details if x['explicit_xu100']]
+          nonperiodic=[x for x in xu100 if not x['periodic_hint']]
+          early=[x for x in nonperiodic if x['publishDate'] and kap_publish_date(x['publishDate']) < date(2023,9,28)]
+
+          payload={
+              'publisher':'KAP / Borsa Istanbul A.S.',
+              'kap_member_oid':BORSA_OID,
+              'window':{'start':START.isoformat(),'end_exclusive':END_EXCLUSIVE.isoformat()},
+              'list_window_count':window_no,
+              'unique_borsa_disclosure_count':len(by_id),
+              'index_related_detail_count':len(details),
+              'explicit_xu100_detail_count':len(xu100),
+              'nonperiodic_xu100_candidate_count':len(nonperiodic),
+              'pre_catalog_nonperiodic_xu100_candidate_count':len(early),
+              'candidates':nonperiodic,
+          }
+          Path('artifacts/kap_bist100_nonperiodic_candidates_2021-08_2026-08.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          Path('artifacts/kap_all_index_related_details.json').write_text(json.dumps(details,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          Path('artifacts/kap_all_borsa_list_metadata.json').write_text(json.dumps([by_id[k] for k in sorted(by_id)],ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps({k:v for k,v in payload.items() if k!='candidates'},ensure_ascii=False,indent=2))
+          print('NONPERIODIC XU100 CANDIDATES')
+          for item in nonperiodic:
+              print(json.dumps({k:item[k] for k in ('disclosureIndex','publishDate','title','summary','relatedStocks','source_detail_sha256','xu100_table_rows')},ensure_ascii=False))
+          PY
+      - name: Hash audit evidence
+        run: |
+          find artifacts -type f -print0 | sort -z | xargs -0 sha256sum > artifacts/SHA256SUMS
+      - name: Upload KAP audit evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-kap-bist100-nonperiodic-audit
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90

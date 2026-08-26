@@ -1,0 +1,99 @@
+name: V24 KAP API Discovery
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-kap-api-discovery.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  discover-kap-api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install HTTP dependencies
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Probe public KAP disclosure API with known Borsa disclosure
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          python - <<'PY'
+          import hashlib, json, time
+          from pathlib import Path
+          import requests
+
+          BASE='https://www.kap.org.tr'
+          UA='Mozilla/5.0 (compatible; TotalRasyoHistoricalAudit/1.0; +https://github.com/zxc28tarik/letsmakemoney)'
+          s=requests.Session()
+          s.headers.update({'User-Agent':UA,'Accept':'application/json, text/plain, */*','Referer':BASE+'/tr/bildirim-sorgu'})
+
+          def req(method,url,**kwargs):
+              last=None
+              for attempt in range(6):
+                  r=s.request(method,url,timeout=45,**kwargs)
+                  last=r
+                  if r.status_code != 429 and r.status_code < 500:
+                      return r
+                  time.sleep(min(20,2**attempt))
+              return last
+
+          warm=req('GET',BASE+'/tr/bildirim-sorgu')
+          warm.raise_for_status()
+          time.sleep(1.0)
+
+          detail=req('GET',BASE+'/tr/api/notification/attachment-detail/1618229')
+          print('detail status',detail.status_code,'content-type',detail.headers.get('content-type'))
+          detail.raise_for_status()
+          raw_detail=detail.content
+          Path('artifacts/known_1618229_detail.raw').write_bytes(raw_detail)
+          print('detail sha256',hashlib.sha256(raw_detail).hexdigest())
+          try:
+              dj=detail.json()
+          except Exception:
+              dj=None
+          if dj is not None:
+              Path('artifacts/known_1618229_detail.json').write_text(json.dumps(dj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+              if isinstance(dj,dict):
+                  print('detail top keys',sorted(dj.keys()))
+                  for k,v in dj.items():
+                      lk=k.lower()
+                      if any(x in lk for x in ('member','mkk','company','issuer','title','name')):
+                          print('detail candidate field',k,repr(v)[:1000])
+
+          payload={'fromDate':'2026-06-17','toDate':'2026-06-17','mkkMemberOidList':[],'subjectList':[]}
+          listing=req('POST',BASE+'/tr/api/disclosure/members/byCriteria',json=payload,headers={'Content-Type':'application/json'})
+          print('list status',listing.status_code,'content-type',listing.headers.get('content-type'))
+          listing.raise_for_status()
+          raw_list=listing.content
+          Path('artifacts/list_2026-06-17.raw').write_bytes(raw_list)
+          print('list sha256',hashlib.sha256(raw_list).hexdigest())
+          lj=listing.json()
+          Path('artifacts/list_2026-06-17.json').write_text(json.dumps(lj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          rows=lj if isinstance(lj,list) else lj.get('data',lj.get('items',[])) if isinstance(lj,dict) else []
+          print('list rows',len(rows) if isinstance(rows,list) else 'non-list')
+          found=[]
+          if isinstance(rows,list):
+              for row in rows:
+                  text=json.dumps(row,ensure_ascii=False)
+                  if '1618229' in text or 'BORSA İSTANBUL' in text.upper() or 'BORSA ISTANBUL' in text.upper():
+                      found.append(row)
+              print('matching rows',len(found))
+              for row in found[:10]:
+                  print('MATCH',json.dumps(row,ensure_ascii=False)[:3000])
+          Path('artifacts/matching_rows.json').write_text(json.dumps(found,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Hash discovery evidence
+        run: sha256sum artifacts/* > artifacts/SHA256SUMS
+      - name: Upload discovery evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-kap-api-discovery
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 30

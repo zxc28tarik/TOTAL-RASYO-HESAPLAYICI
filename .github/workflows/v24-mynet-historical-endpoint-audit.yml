@@ -1,0 +1,111 @@
+name: V24 Mynet Historical Endpoint Audit
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-mynet-historical-endpoint-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Inspect historical pages and scripts
+        run: |
+          set -euo pipefail
+          rm -rf artifacts_mynet_endpoint
+          mkdir -p artifacts_mynet_endpoint
+          python - <<'PY'
+          from __future__ import annotations
+          import json,re,hashlib
+          from urllib.parse import urljoin
+          from pathlib import Path
+          import requests
+          from bs4 import BeautifulSoup
+
+          pages={
+            'INVES':'https://finans.mynet.com/borsa/hisseler/inves-investco-holding/tarihselveriler/',
+            'KLRHO':'https://finans.mynet.com/borsa/hisseler/klrho-kiler-holding/tarihselveriler/',
+            'ASGYO':'https://finans.mynet.com/borsa/hisseler/asgyo-asce-gmyo/tarihselveriler/',
+          }
+          s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0'})
+          report={}
+          script_urls=set()
+          for ticker,url in pages.items():
+              r=s.get(url,timeout=45); r.raise_for_status()
+              raw=r.text
+              Path(f'artifacts_mynet_endpoint/{ticker}_page.html').write_text(raw,encoding='utf-8')
+              soup=BeautifulSoup(raw,'html.parser')
+              scripts=[]
+              for tag in soup.find_all('script'):
+                  src=tag.get('src')
+                  if src:
+                      full=urljoin(url,src); scripts.append(full); script_urls.add(full)
+              # Preserve only diagnostic text around likely pagination/API anchors.
+              needles=['Daha Eski','daha-eski','loadmore','load-more','tarihsel','historical','ajax','api/']
+              snippets=[]
+              low=raw.lower()
+              for needle in needles:
+                  n=needle.lower(); start=0
+                  while True:
+                      pos=low.find(n,start)
+                      if pos<0: break
+                      snippets.append(raw[max(0,pos-500):min(len(raw),pos+1000)])
+                      start=pos+len(n)
+              report[ticker]={
+                'url':url,
+                'http_status':r.status_code,
+                'page_sha256':hashlib.sha256(r.content).hexdigest(),
+                'scripts':scripts,
+                'snippets':snippets[:30],
+              }
+          js_hits={}
+          for i,url in enumerate(sorted(script_urls)):
+              try:
+                  r=s.get(url,timeout=45)
+                  if r.status_code!=200: continue
+                  text=r.text
+                  hits=[]
+                  for pattern in [r'tarihsel[^\"\'\s]{0,120}',r'historical[^\"\'\s]{0,120}',r'load.?more[^\"\'\s]{0,120}',r'ajax[^\"\'\s]{0,120}',r'/api/[^\"\'\s]{0,180}']:
+                      hits.extend(re.findall(pattern,text,re.I))
+                  if hits:
+                      js_hits[url]=sorted(set(hits))[:100]
+                      Path(f'artifacts_mynet_endpoint/script_{i}.js').write_text(text,encoding='utf-8')
+              except Exception as exc:
+                  js_hits[url]=[f'FETCH_ERROR:{exc!r}']
+          report['script_hits']=js_hits
+          Path('artifacts_mynet_endpoint/report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps({k:{'page_sha256':v['page_sha256'],'snippet_count':len(v['snippets']),'script_count':len(v['scripts'])} for k,v in report.items() if k!='script_hits'},indent=2))
+          print(json.dumps({'script_hit_files':len(js_hits),'script_hit_keys':list(js_hits)[:20]},indent=2))
+          PY
+      - name: Hash evidence
+        run: find artifacts_mynet_endpoint -type f -print0 | sort -z | xargs -0 sha256sum > artifacts_mynet_endpoint/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v24-mynet-historical-endpoint-audit
+          path: artifacts_mynet_endpoint/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Persist compact audit report
+        run: |
+          set -euo pipefail
+          dst='data/backtest_sources/mynet_endpoint_audit'
+          rm -rf "$dst"; mkdir -p "$dst"
+          cp artifacts_mynet_endpoint/report.json "$dst/"
+          cp artifacts_mynet_endpoint/SHA256SUMS "$dst/"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$dst"
+          if ! git diff --cached --quiet; then
+            git commit -m 'V24 data audit Mynet historical endpoint'
+            git push origin HEAD:v24-real-data-work
+          fi

@@ -1,0 +1,148 @@
+name: V24 BIST100 Announcement Crawl
+
+on:
+  push:
+    branches: [v24-real-data-work]
+    paths:
+      - '.github/workflows/v24-bist100-announcement-crawl.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  crawl-bist100-announcements:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install crawler dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Crawl official Borsa Istanbul announcement archive
+        run: |
+          mkdir -p artifacts/pages
+          python - <<'PY'
+          from __future__ import annotations
+          import hashlib
+          import json
+          import re
+          import time
+          from pathlib import Path
+          from urllib.parse import urljoin
+
+          import requests
+          from bs4 import BeautifulSoup
+
+          BASE = 'https://www.borsaistanbul.com'
+          START = '2021-06-01'
+          END = '2026-08-31'
+          session = requests.Session()
+          session.headers.update({'User-Agent': 'Mozilla/5.0 V24-historical-research/1.0'})
+
+          def get(url: str) -> bytes:
+              last = None
+              for i in range(4):
+                  try:
+                      r = session.get(url, timeout=30)
+                      r.raise_for_status()
+                      return r.content
+                  except Exception as exc:
+                      last = exc
+                      time.sleep(1.5 * (i + 1))
+              raise RuntimeError(f'fetch failed {url}: {last}')
+
+          links = {}
+          for page in range(1, 41):
+              url = f'{BASE}/en/announcement?page={page}'
+              raw = get(url)
+              soup = BeautifulSoup(raw, 'html.parser')
+              found = 0
+              for a in soup.find_all('a', href=True):
+                  href = a['href']
+                  if not re.search(r'/en/announcement/\d+/', href):
+                      continue
+                  title = ' '.join(a.stripped_strings).strip()
+                  if not title:
+                      continue
+                  full = urljoin(BASE, href)
+                  links[full] = title
+                  found += 1
+              if page > 5 and found == 0:
+                  break
+
+          candidates = []
+          title_terms = ('bist', 'index', 'indices', 'shares', 'watchlist', 'constituent')
+          for url, title in sorted(links.items()):
+              if not any(term in title.lower() for term in title_terms):
+                  continue
+              raw = get(url)
+              digest = hashlib.sha256(raw).hexdigest()
+              soup = BeautifulSoup(raw, 'html.parser')
+              text = '\n'.join(' '.join(x.split()) for x in soup.stripped_strings)
+              # Keep pages that actually mention the target index. This catches
+              # both periodic and company-specific/non-periodic announcements.
+              if not re.search(r'\bBIST\s*100\b', text, re.I):
+                  continue
+              date_match = re.search(r'\b(0?[1-9]|1[0-2])/(0?[1-9]|[12]\d|3[01])/(20\d{2})\b', text)
+              published = None
+              if date_match:
+                  mm, dd, yyyy = date_match.groups()
+                  published = f'{yyyy}-{int(mm):02d}-{int(dd):02d}'
+              if published and not (START <= published <= END):
+                  continue
+              tables = []
+              for ti, table in enumerate(soup.find_all('table')):
+                  rows = []
+                  for tr in table.find_all('tr'):
+                      cells = [' '.join(c.stripped_strings).strip() for c in tr.find_all(['th','td'])]
+                      if any(cells):
+                          rows.append(cells)
+                  if rows:
+                      tables.append({'table_index': ti, 'rows': rows})
+              page_id = re.search(r'/announcement/(\d+)/', url).group(1)
+              Path(f'artifacts/pages/{page_id}.html').write_bytes(raw)
+              candidates.append({
+                  'announcement_id': int(page_id),
+                  'url': url,
+                  'title': title,
+                  'published_date_guess': published,
+                  'raw_sha256': digest,
+                  'text': text,
+                  'tables': tables,
+              })
+              time.sleep(0.05)
+
+          candidates.sort(key=lambda x: (x['published_date_guess'] or '', x['announcement_id']))
+          payload = {
+              'source': 'Borsa Istanbul official announcement archive',
+              'window': {'start': START, 'end': END},
+              'archive_pages_scanned': 40,
+              'unique_announcement_links_seen': len(links),
+              'bist100_relevant_count': len(candidates),
+              'announcements': candidates,
+          }
+          out = Path('artifacts/bist100_announcements.json')
+          out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          with Path('artifacts/bist100_announcements.tsv').open('w', encoding='utf-8') as f:
+              f.write('published_date\tannouncement_id\ttitle\turl\traw_sha256\n')
+              for x in candidates:
+                  f.write(f"{x['published_date_guess'] or ''}\t{x['announcement_id']}\t{x['title'].replace(chr(9),' ')}\t{x['url']}\t{x['raw_sha256']}\n")
+          print(json.dumps({k: payload[k] for k in ('archive_pages_scanned','unique_announcement_links_seen','bist100_relevant_count')}, indent=2))
+          print('\n'.join(Path('artifacts/bist100_announcements.tsv').read_text(encoding='utf-8').splitlines()[:80]))
+          PY
+      - name: Hash corpus
+        run: |
+          sha256sum artifacts/bist100_announcements.json artifacts/bist100_announcements.tsv > artifacts/SHA256SUMS
+          test "$(python - <<'PY'
+          import json
+          print(json.load(open('artifacts/bist100_announcements.json'))['bist100_relevant_count'])
+          PY
+          )" -gt 0
+      - name: Upload announcement corpus
+        uses: actions/upload-artifact@v4
+        with:
+          name: v24-bist100-official-announcement-corpus
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90
