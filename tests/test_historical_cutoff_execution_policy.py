@@ -38,12 +38,18 @@ def _real_schedule() -> pd.DataFrame:
     )
 
 
-def test_authorized_policy_is_explicit_and_conservative():
+def test_authorized_policy_is_explicit_conservative_and_half_day_aware():
     policy = TOTAL_RASYO_MONTHLY_OPEN_V1
     assert policy.profile_key == "TOTAL_RASYO_MONTHLY_OPEN_V1"
     assert policy.timezone == "Europe/Istanbul"
-    assert policy.cutoff_anchor == "PREVIOUS_XU100_TRADING_DAY_SESSION_END"
-    assert policy.cutoff_time.strftime("%H:%M:%S") == "18:10:00"
+    assert policy.cutoff_anchor == "PREVIOUS_XU100_TRADING_SESSION_END"
+    assert policy.full_day_session_end.strftime("%H:%M:%S") == "18:10:00"
+    assert policy.half_day_session_end.strftime("%H:%M:%S") == "12:40:00"
+    assert policy.half_day_cutoff_dates == (
+        "2021-10-28",
+        "2023-06-27",
+        "2026-05-26",
+    )
     assert policy.execution_anchor == "SIGNAL_DAY_OPENING_PRICE_ACCOUNTING_BOUNDARY"
     assert policy.execution_time.strftime("%H:%M:%S") == "10:00:00"
     assert policy.execution_price_basis == "DAILY_OPEN"
@@ -63,18 +69,40 @@ def test_real_60_month_schedule_is_derived_from_closed_sources():
     assert schedule["policy_status"].eq("AUTHORIZED").all()
     assert schedule["execution_price_basis"].eq("DAILY_OPEN").all()
     assert schedule["source_sha256"].eq(TOTAL_RASYO_MONTHLY_OPEN_V1.descriptor_sha256).all()
+    assert schedule["session_type"].value_counts().to_dict() == {
+        "FULL_DAY": 57,
+        "HALF_DAY": 3,
+    }
 
     first = schedule.iloc[0]
     assert first["signal_date"] == pd.Timestamp("2021-08-02")
     assert first["previous_trading_date"] == pd.Timestamp("2021-07-30")
+    assert first["session_type"] == "FULL_DAY"
     assert first["cutoff_at"] == pd.Timestamp("2021-07-30T18:10:00+03:00")
     assert first["execution_at"] == pd.Timestamp("2021-08-02T10:00:00+03:00")
 
     may_2022 = schedule.loc[schedule["month"] == "2022-05"].iloc[0]
     assert may_2022["signal_date"] == pd.Timestamp("2022-05-05")
     assert may_2022["previous_trading_date"] == pd.Timestamp("2022-04-29")
+    assert may_2022["session_type"] == "FULL_DAY"
     assert may_2022["cutoff_at"] == pd.Timestamp("2022-04-29T18:10:00+03:00")
     assert may_2022["execution_at"] == pd.Timestamp("2022-05-05T10:00:00+03:00")
+
+
+def test_three_relevant_half_day_predecessors_use_1240_session_end():
+    schedule = _real_schedule().set_index("month")
+    expected = {
+        "2021-11": ("2021-10-28", "2021-10-28T12:40:00+03:00"),
+        "2023-07": ("2023-06-27", "2023-06-27T12:40:00+03:00"),
+        "2026-06": ("2026-05-26", "2026-05-26T12:40:00+03:00"),
+    }
+    for month, (previous_day, cutoff_at) in expected.items():
+        row = schedule.loc[month]
+        assert row["previous_trading_date"] == pd.Timestamp(previous_day)
+        assert row["session_type"] == "HALF_DAY"
+        assert row["cutoff_at"] == pd.Timestamp(cutoff_at)
+        assert row["execution_at"].hour == 10
+        assert row["execution_at"].minute == 0
 
 
 def test_original_signal_date_source_remains_unresolved_and_unmodified():
@@ -95,10 +123,22 @@ def test_authorized_schedule_is_compatible_with_append_only_registry_records():
     }
 
 
-def test_mutated_cutoff_clock_is_rejected():
+def test_mutated_full_day_cutoff_clock_is_rejected():
     expected = _real_schedule()
     mutated = expected.copy()
     mutated.loc[0, "cutoff_at"] = pd.Timestamp("2021-07-30T20:00:00+03:00")
+    with pytest.raises(HistoricalCutoffExecutionPolicyError, match="exactly match"):
+        validate_authorized_cutoff_execution_schedule(
+            _real_signal_dates(), _real_xu100_calendar(), mutated
+        )
+
+
+def test_mutated_half_day_cutoff_to_full_day_clock_is_rejected():
+    expected = _real_schedule()
+    index = expected.index[expected["month"] == "2021-11"][0]
+    mutated = expected.copy()
+    mutated.loc[index, "cutoff_at"] = pd.Timestamp("2021-10-28T18:10:00+03:00")
+    mutated.loc[index, "session_type"] = "FULL_DAY"
     with pytest.raises(HistoricalCutoffExecutionPolicyError, match="exactly match"):
         validate_authorized_cutoff_execution_schedule(
             _real_signal_dates(), _real_xu100_calendar(), mutated
@@ -143,7 +183,13 @@ def test_missing_previous_trading_day_fails_closed():
 def test_machine_readable_policy_evidence_matches_contract():
     evidence = cutoff_execution_policy_evidence()
     assert evidence["authorized"] is True
-    assert evidence["cutoff_time"] == "18:10:00"
+    assert evidence["full_day_session_end"] == "18:10:00"
+    assert evidence["half_day_session_end"] == "12:40:00"
+    assert evidence["half_day_cutoff_dates"] == [
+        "2021-10-28",
+        "2023-06-27",
+        "2026-05-26",
+    ]
     assert evidence["execution_time"] == "10:00:00"
     assert evidence["execution_price_basis"] == "DAILY_OPEN"
     assert evidence["expected_months"] == 60
