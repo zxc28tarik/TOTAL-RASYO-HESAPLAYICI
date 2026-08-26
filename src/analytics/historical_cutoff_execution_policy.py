@@ -2,22 +2,24 @@ from __future__ import annotations
 
 """Authorized PIT cutoff/execution policy for the 60-month Total Rasyo backtest.
 
-This module does not infer market dates from weekdays or calendar days.  The
+This module never infers market dates from weekdays or calendar days.  The
 caller must provide the observed XU100 trading calendar and the already-closed
 60 monthly signal dates.  The policy then derives one deterministic schedule:
 
-* information cutoff: 18:10 Europe/Istanbul on the immediately preceding
-  observed XU100 trading day;
+* information cutoff: the actual end of the immediately preceding XU100
+  trading session in Europe/Istanbul — 18:10 on full days and 12:40 on the
+  policy's audited half-day exceptions relevant to the 60 monthly cutoffs;
 * portfolio execution accounting timestamp: 10:00 Europe/Istanbul on the
   signal date;
 * execution price basis: the already-authorized daily OPEN price.
 
 The 10:00 timestamp is an accounting boundary for the opening price, not a
 claim that an order is first submitted at exactly 10:00.  The signal is fixed
-before the opening session because the cutoff is the prior trading-day close.
-Information published after that cutoff is deliberately excluded even if it
-would have been available before the next opening.  This conservative choice
-removes unmodelled overnight ingestion/processing latency from the backtest.
+before the opening session because the cutoff is the prior trading-session
+close.  Information published after that cutoff is deliberately excluded even
+if it would have been available before the next opening.  This conservative
+choice removes unmodelled overnight ingestion/processing latency from the
+backtest.
 """
 
 from dataclasses import dataclass
@@ -45,7 +47,9 @@ class HistoricalCutoffExecutionPolicy:
     profile_key: str
     timezone: str
     cutoff_anchor: str
-    cutoff_time: time
+    full_day_session_end: time
+    half_day_session_end: time
+    half_day_cutoff_dates: tuple[str, ...]
     execution_anchor: str
     execution_time: time
     execution_price_basis: str
@@ -58,7 +62,9 @@ class HistoricalCutoffExecutionPolicy:
             "profile_key": self.profile_key,
             "timezone": self.timezone,
             "cutoff_anchor": self.cutoff_anchor,
-            "cutoff_time": self.cutoff_time.strftime("%H:%M:%S"),
+            "full_day_session_end": self.full_day_session_end.strftime("%H:%M:%S"),
+            "half_day_session_end": self.half_day_session_end.strftime("%H:%M:%S"),
+            "half_day_cutoff_dates": list(self.half_day_cutoff_dates),
             "execution_anchor": self.execution_anchor,
             "execution_time": self.execution_time.strftime("%H:%M:%S"),
             "execution_price_basis": self.execution_price_basis,
@@ -78,12 +84,27 @@ class HistoricalCutoffExecutionPolicy:
         ).encode("utf-8")
         return sha256(raw).hexdigest()
 
+    def session_end_for(self, trade_day: pd.Timestamp) -> time:
+        key = pd.Timestamp(trade_day).date().isoformat()
+        if key in self.half_day_cutoff_dates:
+            return self.half_day_session_end
+        return self.full_day_session_end
+
 
 TOTAL_RASYO_MONTHLY_OPEN_V1 = HistoricalCutoffExecutionPolicy(
     profile_key="TOTAL_RASYO_MONTHLY_OPEN_V1",
     timezone="Europe/Istanbul",
-    cutoff_anchor="PREVIOUS_XU100_TRADING_DAY_SESSION_END",
-    cutoff_time=time(18, 10),
+    cutoff_anchor="PREVIOUS_XU100_TRADING_SESSION_END",
+    full_day_session_end=time(18, 10),
+    half_day_session_end=time(12, 40),
+    # Only half-day sessions that are the immediately preceding XU100 trading
+    # day for one of the 60 authorized monthly executions belong here.  Other
+    # half-days in the five-year interval cannot affect this schedule.
+    half_day_cutoff_dates=(
+        "2021-10-28",
+        "2023-06-27",
+        "2026-05-26",
+    ),
     execution_anchor="SIGNAL_DAY_OPENING_PRICE_ACCOUNTING_BOUNDARY",
     execution_time=time(10, 0),
     execution_price_basis="DAILY_OPEN",
@@ -167,6 +188,7 @@ def build_authorized_cutoff_execution_schedule(
     dates = calendar["trade_date"]
 
     rows: list[dict[str, object]] = []
+    half_days_used: set[str] = set()
     for row in signals.itertuples(index=False):
         signal_day = pd.Timestamp(row.signal_date).normalize()
         in_month = dates[dates.dt.to_period("M") == signal_day.to_period("M")]
@@ -180,7 +202,11 @@ def build_authorized_cutoff_execution_schedule(
                 f"previous XU100 trading day missing for {signal_day.date()}"
             )
         previous_day = pd.Timestamp(previous.iloc[-1]).normalize()
-        cutoff_at = _istanbul_timestamp(previous_day, policy.cutoff_time)
+        previous_key = previous_day.date().isoformat()
+        session_end = policy.session_end_for(previous_day)
+        if previous_key in policy.half_day_cutoff_dates:
+            half_days_used.add(previous_key)
+        cutoff_at = _istanbul_timestamp(previous_day, session_end)
         execution_at = _istanbul_timestamp(signal_day, policy.execution_time)
         if cutoff_at >= execution_at:
             raise HistoricalCutoffExecutionPolicyError("cutoff_at must precede execution_at")
@@ -190,6 +216,7 @@ def build_authorized_cutoff_execution_schedule(
                 "month": row.month,
                 "signal_date": signal_day,
                 "previous_trading_date": previous_day,
+                "session_type": "HALF_DAY" if previous_key in policy.half_day_cutoff_dates else "FULL_DAY",
                 "cutoff_at": cutoff_at,
                 "execution_at": execution_at,
                 "execution_price_basis": policy.execution_price_basis,
@@ -198,6 +225,11 @@ def build_authorized_cutoff_execution_schedule(
                 "source_ref": "docs/HISTORICAL_CUTOFF_EXECUTION_POLICY.md",
                 "source_sha256": policy.descriptor_sha256,
             }
+        )
+
+    if half_days_used != set(policy.half_day_cutoff_dates):
+        raise HistoricalCutoffExecutionPolicyError(
+            "authorized half-day exception set is not exactly exercised by the 60-month schedule"
         )
     return pd.DataFrame(rows)
 
@@ -248,5 +280,6 @@ def cutoff_execution_policy_evidence() -> dict[str, object]:
         "start_month": EXPECTED_START_MONTH,
         "end_month": EXPECTED_END_MONTH,
         "signal_date_source_status_required": "UNRESOLVED_SOURCE_FACTS_PRESERVED",
+        "cutoff_schedule_derivation": "XU100_SIGNAL_DATES + XU100_TRADING_CALENDAR + AUDITED_SESSION_ENDS",
         "result": "PASS",
     }
