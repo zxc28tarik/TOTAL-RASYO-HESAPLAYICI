@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from dataclasses import replace
+from datetime import time
 import gzip
 from pathlib import Path
 
@@ -178,6 +180,41 @@ def test_missing_previous_trading_day_fails_closed():
     calendar = calendar.loc[calendar["trade_date"] >= "2021-08-02"].copy()
     with pytest.raises(HistoricalCutoffExecutionPolicyError, match="previous XU100 trading day missing"):
         build_authorized_cutoff_execution_schedule(_real_signal_dates(), calendar)
+
+
+@pytest.mark.parametrize("mutation", ["remove", "reorder"])
+def test_signal_month_sequence_mutations_fail_closed(mutation: str):
+    signals = _real_signal_dates()
+    if mutation == "remove":
+        signals = signals.drop(index=17).reset_index(drop=True)
+    else:
+        order = list(range(len(signals)))
+        order[17], order[18] = order[18], order[17]
+        signals = signals.iloc[order].reset_index(drop=True)
+
+    with pytest.raises(
+        HistoricalCutoffExecutionPolicyError,
+        match="exact ordered 60-month",
+    ):
+        build_authorized_cutoff_execution_schedule(signals, _real_xu100_calendar())
+
+
+@pytest.mark.parametrize(
+    "candidate",
+    [
+        replace(TOTAL_RASYO_MONTHLY_OPEN_V1),
+        replace(TOTAL_RASYO_MONTHLY_OPEN_V1, full_day_session_end=time(20, 0)),
+        replace(TOTAL_RASYO_MONTHLY_OPEN_V1, profile_key="TOTAL_RASYO_MONTHLY_OPEN_V1_COPY"),
+    ],
+)
+def test_only_canonical_policy_object_identity_is_authorized(candidate):
+    assert candidate is not TOTAL_RASYO_MONTHLY_OPEN_V1
+    with pytest.raises(HistoricalCutoffExecutionPolicyError, match="unauthorized timing policy"):
+        build_authorized_cutoff_execution_schedule(
+            _real_signal_dates(),
+            _real_xu100_calendar(),
+            policy=candidate,
+        )
 
 
 def test_machine_readable_policy_evidence_matches_contract():
