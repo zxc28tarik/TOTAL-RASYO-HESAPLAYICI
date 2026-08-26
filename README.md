@@ -2,15 +2,6 @@
 
 Bu proje, 8 finansal dönemlik oran kalitesini fiyatla karşılaştıran bir karar destek motorudur.
 
-## Güncel proje durumu
-
-- Tek kanonik depo: [`zxc28tarik/TOTAL-RASYO-HESAPLAYICI`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI)
-- Üretim sınırı: `main` (`V24-F` üretim fotoğrafı)
-- Aktif tarihsel çalışma: `v24-real-data-work`
-- Hedef, tamamlanan işler ve sıradaki adımlar: [`docs/CURRENT_PROJECT_STATUS.md`](docs/CURRENT_PROJECT_STATUS.md)
-
-ChatGPT konuşmalarındaki ZIP dosyaları tarihsel arşivdir. Sürüm doğruluğu için GitHub dal/commit geçmişi ve CI kanıtı esas alınır.
-
 Ana soru:
 
 > Son 8 dönemde total rasyo notu yükseliyor mu, beklenen fiyat bandları dönem dönem yukarı gidiyor mu, ama gerçek fiyat bu band yükselişini takip etmeyip geride mi kalıyor?
