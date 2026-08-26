@@ -1,6 +1,6 @@
 # V24 Real Historical Data Bootstrap
 
-Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families, M3, DB-free Ek4, DB-free Ek1/good-count and DB-free Ek9 are closed; the combined 60-cutoff Total Rasyo replay code is merged and CI-clean, PR #20 is the remaining machine-readable evidence closure, and the real cutoff policy remains open.**
+Status: **IN PROGRESS — universe, calendar, execution-price, corporate-action, PIT CORE+VAL, PIT RSC, PIT M1, all six PIT sector M2 families, M3, DB-free Ek4, DB-free Ek1/good-count, DB-free Ek9 and the combined 60-cutoff Total Rasyo replay/ranking layer are closed; the real cutoff/execution policy remains open.**
 
 Target window: **2021-08 .. 2026-07 (60 months)**
 
@@ -28,9 +28,9 @@ Goal: run the locked monthly Total Rasyo portfolio contract against an auditable
 | PIT EK4 | **CLOSED** | PR #16 merged after independent mutation audit; DB-free replay shares exact live arithmetic, uses 20 trading intervals and the date-correct M3 sector route, and forbids XU100 fallback |
 | PIT EK1 + good-count | **CLOSED** | PR #17 merged after green CI and an independent 8/8 mutation audit; same PIT M1 period, shared `good_count/18` arithmetic, no missing-count default and locked production veto boundary |
 | PIT EK9 | **CLOSED** | PR #18 merged after independent real-diff/mutation audit; DB-free replay shares exact live `std(ddof=1)`/0.06 arithmetic, requires complete 64-price/63-return PIT input and has no index-price fallback |
-| Combined 60-cutoff Total Rasyo replay | **MERGED — FORMAL EVIDENCE FOLLOW-UP OPEN** | PR #19 passed independent real-diff + 12 mutation audit and merged as `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff`; special CI #6 and wide CI #56 are green. PR #20 only closes the missing machine-readable `pit_total_rasyo_replay` evidence/CI coverage |
+| Combined 60-cutoff Total Rasyo replay | **CLOSED** | PR #19 passed independent real-diff + 12 mutation audit and merged as `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff`. PR #20 independently passed real-diff evidence audit, merged as `816393bbfe428d17cbadbc0ca553a7457795713f`, wide CI #62 succeeded and `883e680a2564e38f4c08a21bc88aa95b8f164036` permanently records the `pit_total_rasyo_replay` evidence block |
 | Signal cutoff/execution policy | **OPEN** | real 60-month policy is not authorized; test fixture times must not be promoted silently |
-| Full historical Total Rasyo authority | **BLOCKED BY PR #20 EVIDENCE + CUTOFF POLICY** | scoring/ranking code is merged and CI-clean; machine-readable closure and real cutoff policy remain required before performance claims |
+| Full historical Total Rasyo authority | **BLOCKED BY CUTOFF POLICY** | scoring/ranking code and machine-readable evidence are closed; the real cutoff/execution policy remains required before performance claims |
 | Final 5-year portfolio result | **BLOCKED BY ABOVE** | no performance claim until readiness is `READY` |
 
 ## Historical BIST100 universe
@@ -245,7 +245,7 @@ PR #18 passed independent real-diff and mutation audit, merged as
 `f3949402204e5a63a8072ec7925a66414774a15c`, and its merge/post-documentation
 CI evidence is green. Ek9 is closed and is not a remaining replay gap.
 
-### Combined Total Rasyo — merged, machine-readable evidence follow-up open
+### Combined Total Rasyo — CLOSED
 
 `src/analytics/historical_pit_total_rasyo_replay.py` is the merged orchestration layer. It does not define a second Total Rasyo formula and does not change the closed replay contracts.
 
@@ -257,7 +257,9 @@ The merged layer additionally requires exact cross-module `analysis_at`/`asof_da
 
 PR #19's exact seven-file diff and the fact that all closed production files remained untouched were independently audited. Its target suite passed 15/15 and all requested 12 mutation points were killed, including a direct temporary `veto_factor=0.60 -> 0.50` mutation in the unchanged production scorer. PR #19 merged as `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff`. The merge-triggered dedicated CI #6 passed 75 pinned-pandas tests and 190 combined/upstream tests; wide V24 CI #56 passed 116 pinned tests, 254 targeted tests, 1798 full-regression tests and BANK 277 passed + 1 xfailed.
 
-See `docs/HISTORICAL_PIT_TOTAL_RASYO_REPLAY_CONTRACT.md`. The code/CI result is merged and clean, but formal machine-readable closure is deliberately withheld until PR #20 makes wide V24 evidence self-contained and the post-merge evidence JSON actually contains `pit_total_rasyo_replay`.
+PR #20 then closed the machine-readable evidence gap without changing production or replay code. Its real three-file diff independently passed with `BLOCKER YOK, MAJOR YOK — TEMİZ`; it merged as `816393bbfe428d17cbadbc0ca553a7457795713f`. Merge-triggered V24 Real Data CI #62 passed 191 pinned-pandas tests, 329 targeted tests, 1798 full-regression tests and BANK 277 passed + 1 xfailed; schema migration, evidence generation and evidence persistence all passed. Bot commit `883e680a2564e38f4c08a21bc88aa95b8f164036` permanently records `tested_commit_sha=816393bbfe428d17cbadbc0ca553a7457795713f` and a `pit_total_rasyo_replay` block with `result=PASS`, exact 60-cutoff coverage and `real_cutoff_execution_clock_policy_authorized=false`.
+
+See `docs/HISTORICAL_PIT_TOTAL_RASYO_REPLAY_CONTRACT.md`. The combined PIT-safe scoring/ranking layer and its machine-readable evidence are formally closed. This does not authorize a real cutoff/execution clock or a 5-year performance claim.
 
 ## Cutoff policy boundary — still open
 
@@ -272,8 +274,8 @@ V24-F's production registry deliberately seeded **no authoritative historical cu
 
 ## Latest CI evidence
 
-Latest verified base-branch evidence commit: [`63a746c2`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/63a746c2cfae642525e7ed80e01654a9d29f2b3c), recording V24 Real Data CI #56 for PR #19 merge commit `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff`.
+Latest verified base-branch evidence commit: [`883e680a`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/883e680a2564e38f4c08a21bc88aa95b8f164036), recording V24 Real Data CI #62 for PR #20 merge commit `816393bbfe428d17cbadbc0ca553a7457795713f`.
 
-The code gates are green: dedicated Total Rasyo replay CI #6 = 75 pinned + 190 combined/upstream passed; wide CI #56 = 116 pinned, 254 targeted, 1798 full-regression, BANK 277 passed + 1 xfailed, schema/evidence persistence PASS. The remaining defect is documentary but governance-critical: the generated `V24_REAL_DATA_CI_EVIDENCE.json` does not yet contain a separate `pit_total_rasyo_replay` block.
+The latest wide gates are green: pandas 2.2.3 compatibility = 191 passed + 1 warning; targeted = 329 passed + 5 warnings; full regression = 1798 passed + 32 warnings; BANK v4.7 = 277 passed + 1 xfailed + 1 warning; schema migration, evidence generation and evidence persistence = PASS. The persisted `V24_REAL_DATA_CI_EVIDENCE.json` contains `pit_total_rasyo_replay.result=PASS`, production scorer/combiner identity, strict cross-module boundary checks, veto threshold 5, veto factor 0.60, exact 60 months (`2021-08 .. 2026-07`), exhaustive score/rejection coverage, and explicitly keeps `real_cutoff_execution_clock_policy_authorized=false`.
 
-PR #20 is therefore intentionally narrow. It changes no production or replay code; it adds the new Total Rasyo source/test/contract files to wide CI triggers, runs replay+mutation tests in the pinned and targeted wide gates, and writes a truthful `pit_total_rasyo_replay` block on successful push. The evidence explicitly records that the real cutoff/execution clock policy is still unauthorized. PR #20 must pass independent real-diff review before merge; only its merge-triggered push evidence can complete this formal closure.
+The remaining blocker for full historical performance authority is therefore the real cutoff/execution policy, followed by the real-data V24-G `READY` gate; PR #20/evidence closure is no longer open.
