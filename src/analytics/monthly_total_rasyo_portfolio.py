@@ -18,22 +18,9 @@ locked portfolio rules only:
 * stock purchases use integer shares,
 * available cash is split equally across current AL targets; integer-lot residue
   remains cash,
-* execution uses the supplied rebalance-day OPEN; holdings are marked at CLOSE,
-* optional verified corporate actions are applied on their effective/ex-date:
-  split/bonus factors change held share count and cash dividends enter cash,
-* optional verified Borsa ticker-code changes migrate an existing position's
-  identity without creating a BUY/SELL or changing shares/cost basis.
+* execution uses the supplied rebalance-day OPEN; holdings are marked at CLOSE.
 
-Corporate actions and ticker changes are processed chronologically between monthly
-rebalance dates.  On a rebalance date itself they are applied before contribution
-and before OPEN execution, so newly bought shares cannot receive a same-day
-ex-dividend cash payment.  If a same-day code change and corporate action coexist,
-the code change is applied first and the corporate action must use the effective
-new ticker.
-
-The engine deliberately consumes raw OPEN/CLOSE.  Adjusted-close substitution is
-not part of portfolio accounting.  Transaction costs/slippage remain out of scope
-for V24-B.
+Transaction costs/slippage are deliberately out of scope for V24-B.
 """
 
 from dataclasses import dataclass
@@ -87,26 +74,6 @@ class Trade:
 
 
 @dataclass(frozen=True)
-class CorporateActionApplication:
-    date: pd.Timestamp
-    ticker: str
-    shares_before: int
-    shares_after: int
-    split_factor: float
-    cash_dividend_per_share: float
-    cash_dividend: float
-
-
-@dataclass(frozen=True)
-class TickerChangeApplication:
-    date: pd.Timestamp
-    old_ticker: str
-    new_ticker: str
-    shares: int
-    cost_basis: float
-
-
-@dataclass(frozen=True)
 class MonthlySnapshot:
     date: pd.Timestamp
     contribution: float
@@ -145,14 +112,6 @@ def _nonnegative_amount(name: str, value: object) -> float:
     return amount
 
 
-def _optional_nonnegative(name: str, value: object) -> float:
-    if value is None or pd.isna(value) or (isinstance(value, str) and not value.strip()):
-        return 0.0
-    if isinstance(value, bool):
-        raise MonthlyPortfolioError(f"{name} boolean olamaz")
-    return _nonnegative_amount(name, value)
-
-
 def _score(value: object, *, decision: str) -> float:
     if value is None or pd.isna(value):
         if decision == "AL":
@@ -172,62 +131,6 @@ def _rank_key(ticker: str, signals: Mapping[str, Mapping[str, object]]) -> Tuple
     return (-float(signals.get(ticker, {}).get("score", NEG_INF)), ticker)
 
 
-def _normalize_corporate_actions(actions: Optional[pd.DataFrame]) -> pd.DataFrame:
-    cols = ["action_date", "ticker", "split_factor", "cash_dividend_per_share"]
-    if actions is None:
-        return pd.DataFrame(columns=cols)
-    missing = set(cols) - set(actions.columns)
-    if missing:
-        raise MonthlyPortfolioError(f"corporate_actions missing columns: {sorted(missing)}")
-    a = actions[cols].copy()
-    if a.empty:
-        return a
-    a["action_date"] = pd.to_datetime(a["action_date"], errors="raise").dt.normalize()
-    a["ticker"] = a["ticker"].map(_ticker)
-    if a.duplicated(["action_date", "ticker"]).any():
-        raise MonthlyPortfolioError("duplicate corporate action for action_date+ticker")
-
-    split_values: List[float] = []
-    dividend_values: List[float] = []
-    for row in a[["split_factor", "cash_dividend_per_share"]].itertuples(index=False):
-        factor = _optional_nonnegative("split_factor", row.split_factor)
-        dividend = _optional_nonnegative(
-            "cash_dividend_per_share", row.cash_dividend_per_share
-        )
-        # 0 or 1 means no share-count change.  Yahoo discovery commonly emits 0
-        # on dividend-only rows; canonical verified inputs may use 1 instead.
-        has_split = factor not in (0.0, 1.0)
-        if not has_split and dividend == 0.0:
-            raise MonthlyPortfolioError("corporate action row split/temettu acisindan no-op olamaz")
-        split_values.append(factor)
-        dividend_values.append(dividend)
-    a["split_factor"] = split_values
-    a["cash_dividend_per_share"] = dividend_values
-    return a.sort_values(["action_date", "ticker"]).reset_index(drop=True)
-
-
-def _normalize_ticker_changes(changes: Optional[pd.DataFrame]) -> pd.DataFrame:
-    cols = ["effective_date", "old_ticker", "new_ticker"]
-    if changes is None:
-        return pd.DataFrame(columns=cols)
-    missing = set(cols) - set(changes.columns)
-    if missing:
-        raise MonthlyPortfolioError(f"ticker_changes missing columns: {sorted(missing)}")
-    t = changes[cols].copy()
-    if t.empty:
-        return t
-    t["effective_date"] = pd.to_datetime(t["effective_date"], errors="raise").dt.normalize()
-    t["old_ticker"] = t["old_ticker"].map(_ticker)
-    t["new_ticker"] = t["new_ticker"].map(_ticker)
-    if (t["old_ticker"] == t["new_ticker"]).any():
-        raise MonthlyPortfolioError("ticker change old_ticker ve new_ticker ayni olamaz")
-    if t.duplicated(["effective_date", "old_ticker"]).any():
-        raise MonthlyPortfolioError("duplicate ticker change for effective_date+old_ticker")
-    if t.duplicated(["effective_date", "new_ticker"]).any():
-        raise MonthlyPortfolioError("same-day ticker changes ayni new_ticker'a birlesemez")
-    return t.sort_values(["effective_date", "old_ticker", "new_ticker"]).reset_index(drop=True)
-
-
 class MonthlyTotalRasyoSimulator:
     def __init__(self, config: PortfolioConfig = PortfolioConfig()) -> None:
         self.config = config
@@ -235,8 +138,6 @@ class MonthlyTotalRasyoSimulator:
         self.cumulative_contribution = 0.0
         self.positions: Dict[str, Position] = {}
         self.trades: List[Trade] = []
-        self.corporate_action_events: List[CorporateActionApplication] = []
-        self.ticker_change_events: List[TickerChangeApplication] = []
         self.snapshots: List[MonthlySnapshot] = []
 
     @staticmethod
@@ -294,7 +195,13 @@ class MonthlyTotalRasyoSimulator:
         }
 
     def _construct_target(self, signals: Dict[str, dict]) -> Tuple[List[str], Dict[str, str]]:
-        """Return target holdings and removal reasons before execution."""
+        """Return target holdings and removal reasons before execution.
+
+        New entries may only be current AL. Existing non-UZAK positions are
+        incumbents.  If incumbents + new AL exceed capacity, the deterministic
+        score-desc/ticker-asc ranking selects the strongest names.  Therefore an
+        equal-score candidate with a lexicographically smaller ticker is stronger.
+        """
         removals: Dict[str, str] = {}
         survivors: List[str] = []
 
@@ -360,113 +267,9 @@ class MonthlyTotalRasyoSimulator:
             float(payload["score"]), str(payload["decision"]),
         ))
 
-    def _apply_ticker_changes_on_day(self, day: pd.Timestamp, rows: pd.DataFrame) -> None:
-        if rows.empty:
-            return
-        mapping = {row.old_ticker: row.new_ticker for row in rows.itertuples(index=False)}
-        moving = {old: self.positions[old] for old in mapping if old in self.positions}
-        if not moving:
-            return
-
-        moving_old = set(moving)
-        destinations = {mapping[old] for old in moving_old}
-        collisions = sorted(destinations & (set(self.positions) - moving_old))
-        if collisions:
-            raise MonthlyPortfolioError(
-                f"ticker change destination already held: {collisions} on {day.date()}"
-            )
-        if len(destinations) != len(moving_old):
-            raise MonthlyPortfolioError("ticker change held positions ayni destination'a birlesemez")
-
-        # Simultaneous rename: remove all old identities first, then install the
-        # new identities.  This avoids order-dependent behavior for same-day rows.
-        for old in moving_old:
-            del self.positions[old]
-        for old in sorted(moving_old):
-            new = mapping[old]
-            pos = moving[old]
-            pos.ticker = new
-            self.positions[new] = pos
-            self.ticker_change_events.append(TickerChangeApplication(
-                day, old, new, int(pos.shares), float(pos.cost_basis)
-            ))
-
-    def _apply_corporate_action(self, day: pd.Timestamp, row: object) -> None:
-        ticker = str(getattr(row, "ticker"))
-        if ticker not in self.positions:
-            return
-        pos = self.positions[ticker]
-        before = int(pos.shares)
-        factor = float(getattr(row, "split_factor"))
-        dividend = float(getattr(row, "cash_dividend_per_share"))
-
-        if factor not in (0.0, 1.0):
-            raw_shares = before * factor
-            rounded = round(raw_shares)
-            if abs(raw_shares - rounded) > 1e-9:
-                raise MonthlyPortfolioError(
-                    f"split fractional share requires explicit cash-in-lieu contract: "
-                    f"{ticker} {before}*{factor} on {day.date()}"
-                )
-            if rounded <= 0:
-                raise MonthlyPortfolioError("split held share count sifir/negatif yapamaz")
-            pos.shares = int(rounded)
-
-        cash_dividend = float(pos.shares) * dividend
-        self.cash += cash_dividend
-        self.corporate_action_events.append(CorporateActionApplication(
-            day,
-            ticker,
-            before,
-            int(pos.shares),
-            factor,
-            dividend,
-            cash_dividend,
-        ))
-
-    def _apply_events_between(
-        self,
-        previous_day: Optional[pd.Timestamp],
-        day: pd.Timestamp,
-        corporate_actions: pd.DataFrame,
-        ticker_changes: pd.DataFrame,
-    ) -> None:
-        if previous_day is None:
-            actions = corporate_actions[corporate_actions["action_date"] <= day]
-            changes = ticker_changes[ticker_changes["effective_date"] <= day]
-        else:
-            actions = corporate_actions[
-                (corporate_actions["action_date"] > previous_day) &
-                (corporate_actions["action_date"] <= day)
-            ]
-            changes = ticker_changes[
-                (ticker_changes["effective_date"] > previous_day) &
-                (ticker_changes["effective_date"] <= day)
-            ]
-
-        event_days = sorted(
-            set(actions["action_date"].tolist()) |
-            set(changes["effective_date"].tolist())
-        )
-        for event_day in event_days:
-            change_rows = changes[changes["effective_date"] == event_day]
-            # Effective ticker identity is established first at start-of-day.
-            self._apply_ticker_changes_on_day(event_day, change_rows)
-            action_rows = actions[actions["action_date"] == event_day]
-            for row in action_rows.sort_values("ticker").itertuples(index=False):
-                self._apply_corporate_action(event_day, row)
-
-    def run(
-        self,
-        signals: pd.DataFrame,
-        prices: pd.DataFrame,
-        contributions: pd.DataFrame,
-        corporate_actions: Optional[pd.DataFrame] = None,
-        ticker_changes: Optional[pd.DataFrame] = None,
-    ) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    def run(self, signals: pd.DataFrame, prices: pd.DataFrame,
+            contributions: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
         s, p, c = self._normalize(signals, prices, contributions)
-        actions = _normalize_corporate_actions(corporate_actions)
-        changes = _normalize_ticker_changes(ticker_changes)
 
         price_map = {
             (row.trade_date, row.ticker): (float(row.open), float(row.close))
@@ -479,13 +282,8 @@ class MonthlyTotalRasyoSimulator:
         # The contribution schedule is the authoritative monthly clock.  A month
         # with zero signal rows must still add cash and produce a snapshot.
         dates = sorted(contribution_map)
-        previous_day: Optional[pd.Timestamp] = None
 
         for day in dates:
-            # All verified events after the previous monthly snapshot through this
-            # rebalance day are applied before this month's cash/trades.
-            self._apply_events_between(previous_day, day, actions, changes)
-
             month = s[s["signal_date"] == day]
             signals_now = self._signal_map(month)
             contribution = contribution_map[day]
@@ -496,8 +294,7 @@ class MonthlyTotalRasyoSimulator:
             target, removals = self._construct_target(signals_now)
 
             # Sales happen before buys, so sale proceeds are available in the
-            # same month's equal-cash pool together with the contribution and any
-            # verified dividends received since the previous snapshot.
+            # same month's equal-cash pool together with the contribution.
             for ticker in sorted(removals):
                 if ticker not in self.positions:
                     continue
@@ -541,7 +338,6 @@ class MonthlyTotalRasyoSimulator:
                 day, contribution, self.cumulative_contribution, self.cash,
                 holdings_value, self.cash + holdings_value, holdings, buys, sells,
             ))
-            previous_day = day
 
         trade_columns = list(Trade.__dataclass_fields__)
         snapshot_columns = list(MonthlySnapshot.__dataclass_fields__)

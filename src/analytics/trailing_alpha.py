@@ -67,108 +67,6 @@ def _label_alpha(alpha: Optional[float]) -> str:
     return "STRONG_NEGATIVE"
 
 
-ALPHA_COLUMNS = [
-    "ticker", "asof_date", "window_days", "start_date", "end_date", "stock_ret", "mkt_ret",
-    "sec_ret", "beta_mkt", "beta_sec", "alpha_trailing", "alpha_score", "alpha_label",
-]
-
-
-def compute_trailing_alpha_from_frames(
-    *,
-    universe: pd.DataFrame,
-    prices: pd.DataFrame,
-    index_prices: pd.DataFrame,
-    betas: pd.DataFrame,
-    asof_date: str | date,
-    start_date: str | date,
-    end_date: str | date,
-    window_days: int = 63,
-    market_index: str = "XU100",
-) -> pd.DataFrame:
-    """Run production trailing-alpha math on explicit, pre-cut frames.
-
-    This pure calculation is shared by the live database path and historical
-    replay.  Historical PIT/cutoff and coverage checks belong to the adapter.
-    """
-
-    if universe.empty or prices.empty or index_prices.empty:
-        return pd.DataFrame(columns=ALPHA_COLUMNS)
-
-    asof_raw = pd.to_datetime(asof_date).date()
-    start = pd.to_datetime(start_date).date()
-    end = pd.to_datetime(end_date).date()
-    tickers = universe["ticker"].astype(str).tolist()
-    sec_map = dict(
-        zip(universe["ticker"].astype(str), universe["sector_index_code"].astype(str))
-    )
-
-    prices = prices.copy()
-    index_prices = index_prices.copy()
-    prices["trade_date"] = pd.to_datetime(prices["trade_date"]).dt.date
-    index_prices["trade_date"] = pd.to_datetime(index_prices["trade_date"]).dt.date
-    px = prices.pivot_table(index="trade_date", columns="ticker", values="px", aggfunc="last")
-    ipx = index_prices.pivot_table(
-        index="trade_date", columns="index_code", values="px", aggfunc="last"
-    )
-
-    beta_map = {}
-    if not betas.empty:
-        for row in betas.itertuples(index=False):
-            beta_map[str(row.ticker)] = (
-                None if row.beta_mkt is None else float(row.beta_mkt),
-                None if row.beta_sec is None else float(row.beta_sec),
-            )
-
-    m0 = ipx.loc[start, market_index] if market_index in ipx.columns and start in ipx.index else None
-    m1 = ipx.loc[end, market_index] if market_index in ipx.columns and end in ipx.index else None
-    if m0 is None or m1 is None or pd.isna(m0) or pd.isna(m1) or float(m0) <= 0:
-        return pd.DataFrame(columns=ALPHA_COLUMNS)
-    mkt_ret = float(m1) / float(m0) - 1.0
-
-    rows = []
-    for ticker in tickers:
-        if ticker not in px.columns or start not in px.index or end not in px.index:
-            continue
-        p0 = px.loc[start, ticker]
-        p1 = px.loc[end, ticker]
-        if pd.isna(p0) or pd.isna(p1) or float(p0) <= 0:
-            continue
-        stock_ret = float(p1) / float(p0) - 1.0
-
-        sector = sec_map.get(ticker, market_index)
-        if sector not in ipx.columns:
-            sector = market_index
-        s0 = ipx.loc[start, sector]
-        s1 = ipx.loc[end, sector]
-        if pd.isna(s0) or pd.isna(s1) or float(s0) <= 0:
-            continue
-        sec_ret = float(s1) / float(s0) - 1.0
-
-        beta_mkt, beta_sec = beta_map.get(ticker, (1.0, 0.0))
-        beta_mkt = 1.0 if beta_mkt is None or not np.isfinite(beta_mkt) else beta_mkt
-        beta_sec = 0.0 if beta_sec is None or not np.isfinite(beta_sec) else beta_sec
-        alpha = stock_ret - beta_mkt * mkt_ret - beta_sec * (sec_ret - mkt_ret)
-        rows.append(
-            (
-                ticker,
-                asof_raw,
-                int(window_days),
-                start,
-                end,
-                float(stock_ret),
-                float(mkt_ret),
-                float(sec_ret),
-                float(beta_mkt),
-                float(beta_sec),
-                float(alpha),
-                float(_score_alpha(alpha)),
-                _label_alpha(alpha),
-            )
-        )
-
-    return pd.DataFrame(rows, columns=ALPHA_COLUMNS)
-
-
 def compute_trailing_alpha(
     conn,
     asof_date: str,
@@ -184,7 +82,10 @@ def compute_trailing_alpha(
     asof_raw = pd.to_datetime(asof_date).date()
     trading_days = get_trading_days(conn)
     if not trading_days:
-        return pd.DataFrame(columns=ALPHA_COLUMNS)
+        return pd.DataFrame(columns=[
+            "ticker", "asof_date", "window_days", "start_date", "end_date", "stock_ret", "mkt_ret",
+            "sec_ret", "beta_mkt", "beta_sec", "alpha_trailing", "alpha_score", "alpha_label"
+        ])
     end = _latest_trading_day_on_or_before(trading_days, asof_raw)
     if end is None:
         return pd.DataFrame()
@@ -229,6 +130,13 @@ def compute_trailing_alpha(
     if prices.empty or idx_prices.empty:
         return pd.DataFrame()
 
+    prices = prices.copy()
+    idx_prices = idx_prices.copy()
+    prices["trade_date"] = pd.to_datetime(prices["trade_date"]).dt.date
+    idx_prices["trade_date"] = pd.to_datetime(idx_prices["trade_date"]).dt.date
+    px = prices.pivot_table(index="trade_date", columns="ticker", values="px", aggfunc="last")
+    ipx = idx_prices.pivot_table(index="trade_date", columns="index_code", values="px", aggfunc="last")
+
     betas = pd.read_sql(
         """
         SELECT DISTINCT ON (ticker) ticker, beta_mkt, beta_sec
@@ -239,17 +147,60 @@ def compute_trailing_alpha(
         conn,
         params={"asof": end},
     )
-    return compute_trailing_alpha_from_frames(
-        universe=universe,
-        prices=prices,
-        index_prices=idx_prices,
-        betas=betas,
-        asof_date=asof_raw,
-        start_date=start,
-        end_date=end,
-        window_days=window_days,
-        market_index=market_index,
-    )
+    beta_map = {}
+    if not betas.empty:
+        for r in betas.itertuples(index=False):
+            beta_map[str(r.ticker)] = (
+                None if r.beta_mkt is None else float(r.beta_mkt),
+                None if r.beta_sec is None else float(r.beta_sec),
+            )
+
+    rows = []
+    m0 = ipx.loc[start, market_index] if market_index in ipx.columns and start in ipx.index else None
+    m1 = ipx.loc[end, market_index] if market_index in ipx.columns and end in ipx.index else None
+    if m0 is None or m1 is None or pd.isna(m0) or pd.isna(m1) or float(m0) <= 0:
+        return pd.DataFrame()
+    mkt_ret = float(m1) / float(m0) - 1.0
+
+    for t in tickers:
+        if t not in px.columns or start not in px.index or end not in px.index:
+            continue
+        p0 = px.loc[start, t]
+        p1 = px.loc[end, t]
+        if pd.isna(p0) or pd.isna(p1) or float(p0) <= 0:
+            continue
+        stock_ret = float(p1) / float(p0) - 1.0
+
+        sec = sec_map.get(t, market_index)
+        if sec not in ipx.columns:
+            sec = market_index
+        s0 = ipx.loc[start, sec]
+        s1 = ipx.loc[end, sec]
+        if pd.isna(s0) or pd.isna(s1) or float(s0) <= 0:
+            continue
+        sec_ret = float(s1) / float(s0) - 1.0
+
+        beta_mkt, beta_sec = beta_map.get(t, (1.0, 0.0))
+        beta_mkt = 1.0 if beta_mkt is None or not np.isfinite(beta_mkt) else beta_mkt
+        beta_sec = 0.0 if beta_sec is None or not np.isfinite(beta_sec) else beta_sec
+        # Same decomposition as beta estimation: second factor is the sector EXCESS
+        # over the market (sec_ret - mkt_ret), not the raw sector return.
+        alpha = stock_ret - beta_mkt * mkt_ret - beta_sec * (sec_ret - mkt_ret)
+        alpha_score = _score_alpha(alpha)
+        alpha_label = _label_alpha(alpha)
+        # Store the requested analysis date in asof_date, while end_date keeps
+        # the actual last trading day used. This keeps downstream pipeline joins
+        # stable even if the user passes a weekend/holiday as --asof.
+        rows.append((
+            t, asof_raw, int(window_days), start, end,
+            float(stock_ret), float(mkt_ret), float(sec_ret),
+            float(beta_mkt), float(beta_sec), float(alpha), float(alpha_score), alpha_label,
+        ))
+
+    return pd.DataFrame(rows, columns=[
+        "ticker", "asof_date", "window_days", "start_date", "end_date", "stock_ret", "mkt_ret",
+        "sec_ret", "beta_mkt", "beta_sec", "alpha_trailing", "alpha_score", "alpha_label"
+    ])
 
 
 def upsert_trailing_alpha(conn, df: pd.DataFrame) -> None:
