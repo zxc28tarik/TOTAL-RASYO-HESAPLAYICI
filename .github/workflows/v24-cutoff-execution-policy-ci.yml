@@ -1,0 +1,87 @@
+name: V24 Cutoff Execution Policy CI
+
+on:
+  push:
+    branches: [v24-real-data-work, codex/v24-cutoff-execution-policy]
+    paths:
+      - 'src/analytics/historical_cutoff_execution_policy.py'
+      - 'src/ingest/historical_backtest_schedules.py'
+      - 'data/backtest_sources/xu100_signal_dates_yahoo_2021-08_2026-07.csv'
+      - 'data/backtest_sources/xu100_signal_dates_yahoo_2021-08_2026-07.provenance.json'
+      - 'data/backtest_sources/m3_source_package/**'
+      - 'tests/test_historical_cutoff_execution_policy.py'
+      - 'tests/test_v24_real_xu100_signal_dates_source.py'
+      - 'tests/test_real_historical_m3_source_package.py'
+      - 'docs/HISTORICAL_CUTOFF_EXECUTION_POLICY.md'
+      - '.github/workflows/v24-cutoff-execution-policy-ci.yml'
+  pull_request:
+    branches: [v24-real-data-work]
+    paths:
+      - 'src/analytics/historical_cutoff_execution_policy.py'
+      - 'src/ingest/historical_backtest_schedules.py'
+      - 'data/backtest_sources/xu100_signal_dates_yahoo_2021-08_2026-07.csv'
+      - 'data/backtest_sources/xu100_signal_dates_yahoo_2021-08_2026-07.provenance.json'
+      - 'data/backtest_sources/m3_source_package/**'
+      - 'tests/test_historical_cutoff_execution_policy.py'
+      - 'tests/test_v24_real_xu100_signal_dates_source.py'
+      - 'tests/test_real_historical_m3_source_package.py'
+      - 'docs/HISTORICAL_CUTOFF_EXECUTION_POLICY.md'
+      - '.github/workflows/v24-cutoff-execution-policy-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  pandas-22-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install pinned pandas 2.2 dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            'numpy==1.26.4' \
+            'pandas==2.2.3' \
+            pytest
+      - name: Verify pinned versions
+        run: |
+          python - <<'PY'
+          import numpy as np
+          import pandas as pd
+          assert np.__version__ == '1.26.4', np.__version__
+          assert pd.__version__ == '2.2.3', pd.__version__
+          print(f'numpy={np.__version__} pandas={pd.__version__}')
+          PY
+      - name: Authorized cutoff policy and real-source guards
+        run: |
+          python -m pytest -q \
+            tests/test_historical_cutoff_execution_policy.py \
+            tests/test_v24_real_xu100_signal_dates_source.py \
+            tests/test_real_historical_m3_source_package.py
+
+  default-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Policy plus downstream replay contracts
+        run: |
+          python -m pytest -q \
+            tests/test_historical_cutoff_execution_policy.py \
+            tests/test_v24_real_xu100_signal_dates_source.py \
+            tests/test_real_historical_m3_source_package.py \
+            tests/test_historical_pit_total_rasyo_replay.py \
+            tests/test_historical_pit_total_rasyo_mutations.py \
+            tests/test_total_rasyo_score.py \
+            tests/test_total_rasyo_combine.py
