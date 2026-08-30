@@ -1,6 +1,6 @@
 # Historical Cutoff / Execution Policy — TOTAL_RASYO_MONTHLY_OPEN_V1
 
-Status: **PR candidate — independent audit required before merge/closure**
+Status: **MERGED + independent audit clean; post-merge machine-evidence revalidation in progress**
 
 Scope: the monthly BIST 100 / Total Rasyo historical backtest for the exact 60-month window **2021-08 through 2026-07**.
 
@@ -128,11 +128,15 @@ The authorized path is identified only by profile key:
 
 and exact validation against `historical_cutoff_execution_policy.py`.
 
-## 7. What becomes true only after this PR is independently audited and merged
+## 7. What becomes true only after post-merge evidence persistence
 
-After clean independent audit + merge + successful push CI/evidence persistence, the project may mark:
+PR #21 was independently audited clean and merged as `dcf66e951f25bc94cd1be4be012bba783b1a781f`.
+
+The policy phase is not formally closed until a successful post-merge V24 Real Data CI push persists machine-readable evidence with:
 
 `real_cutoff_execution_clock_policy_authorized = true`
+
+and the evidence is derived from the real 60-row schedule with exactly `57 FULL_DAY + 3 HALF_DAY` predecessor sessions.
 
 That statement means only that the timing contract is closed. It does **not** by itself prove portfolio performance.
 
@@ -154,3 +158,12 @@ At minimum mutate and require failure for:
 10. mutate the original signal-date source so `UNRESOLVED` is no longer preserved;
 11. alter policy source hash/profile identity;
 12. attempt to pass an arbitrary schedule that still satisfies only the generic `cutoff_at < execution_at` DB constraint.
+
+## 9. Post-merge CI revalidation record
+
+The first post-merge runs associated with `dcf66e951f25bc94cd1be4be012bba783b1a781f` did not provide closure evidence because GitHub Actions cancelled them before the full chain could run:
+
+- V24 Real Data CI #68 / run `32984109106`: first job cancelled; downstream job skipped; no passing evidence persisted.
+- V24 Cutoff Execution Policy CI #7 / run `32984186844`: cancelled before jobs were created.
+
+These cancellations are not treated as test passes or policy closure. This documentation-only commit intentionally retriggers both push workflows from `v24-real-data-work`; the new runs must complete successfully and persist fresh evidence before the policy phase can be marked **CLOSED**.
