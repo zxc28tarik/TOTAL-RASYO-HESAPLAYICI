@@ -335,7 +335,10 @@ def extract_taxonomy_rows(detail: KapFinancialDisclosureDetail) -> tuple[KapTaxo
         soup = BeautifulSoup(html, "html.parser")
         for tr in soup.find_all("tr"):
             blob_parts = [tr.get_text(" ", strip=True)]
-            for node in tr.find_all(True):
+            # Taxonomy codes can live on the row element itself or on nested
+            # cells/spans.  Scan both; omitting tr.attrs would silently lose a
+            # valid KAP taxonomy row depending on the rendered form version.
+            for node in [tr, *tr.find_all(True)]:
                 for key, raw_value in node.attrs.items():
                     values: Sequence[object]
                     if isinstance(raw_value, list):
