@@ -1,0 +1,33 @@
+name: V24 BilancoVeri 3Y Source Probe
+
+on:
+  push:
+    branches:
+      - codex/v24-bilancoveri-3y-source-probe
+    paths:
+      - 'scripts/probe_bilancoveri_financials.py'
+      - '.github/workflows/v24-bilancoveri-source-probe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-bilancoveri-probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch BilancoVeri open API historical financials
+        run: python scripts/probe_bilancoveri_financials.py
+      - name: Show manifest
+        run: cat artifacts/bilancoveri_probe/manifest.json
+      - name: Upload immutable probe artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bilancoveri-3y-source-probe
+          path: artifacts/bilancoveri_probe/
+          if-no-files-found: error
+          retention-days: 14
