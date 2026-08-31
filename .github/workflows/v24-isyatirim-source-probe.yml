@@ -1,4 +1,4 @@
-name: V24 Is Yatirim 3Y Source Probe
+name: V24 3Y Hybrid Financial Source Probe
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
       - codex/v24-isyatirim-3y-source-probe
     paths:
       - 'scripts/probe_isyatirim_financials.py'
+      - 'scripts/probe_kap_financial_metadata.py'
       - '.github/workflows/v24-isyatirim-source-probe.yml'
   workflow_dispatch:
 
@@ -22,12 +23,18 @@ jobs:
           python-version: '3.11'
       - name: Fetch live İş Yatırım financial JSON and hash raw bytes
         run: python scripts/probe_isyatirim_financials.py
-      - name: Show manifest
-        run: cat artifacts/isyatirim_probe/manifest.json
-      - name: Upload immutable probe artifact
+      - name: Probe low-volume KAP FR publication metadata
+        run: python scripts/probe_kap_financial_metadata.py
+      - name: Show manifests
+        run: |
+          cat artifacts/isyatirim_probe/manifest.json
+          cat artifacts/kap_metadata_probe/manifest.json
+      - name: Upload immutable hybrid probe artifact
         uses: actions/upload-artifact@v4
         with:
-          name: isyatirim-3y-source-probe
-          path: artifacts/isyatirim_probe/
+          name: hybrid-3y-financial-source-probe
+          path: |
+            artifacts/isyatirim_probe/
+            artifacts/kap_metadata_probe/
           if-no-files-found: error
           retention-days: 14
