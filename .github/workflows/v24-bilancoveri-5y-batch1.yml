@@ -1,0 +1,64 @@
+name: V24 BilancoVeri 5Y All-BIST Batch 1
+
+on:
+  push:
+    branches:
+      - codex/v24-bilancoveri-5y-all-bist-source
+    paths:
+      - 'scripts/build_bilancoveri_5y_all_bist_universe.py'
+      - 'scripts/fetch_bilancoveri_5y_batch.py'
+      - '.github/workflows/v24-bilancoveri-5y-batch1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-plan-and-fetch-batch-1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build exact six-batch all-BIST source plan
+        run: python scripts/build_bilancoveri_5y_all_bist_universe.py
+      - name: Show frozen plan summary
+        run: |
+          python - <<'PY'
+          import json
+          p = json.load(open('artifacts/bilancoveri_5y_plan/plan.json', encoding='utf-8'))
+          print(json.dumps({
+              'current_listed_count': p['current_listed_count'],
+              'search_index_count': p['search_index_count'],
+              'closed_historical_bist100_seed_count': p['closed_historical_bist100_seed_count'],
+              'source_candidate_universe_count': p['source_candidate_universe_count'],
+              'batch_sizes': p['batch_sizes'],
+              'historical_seed_not_in_bilancoveri_indexes': p['historical_seed_not_in_bilancoveri_indexes'],
+              'pit_authorized': p['pit_authorized'],
+          }, ensure_ascii=False, indent=2, sort_keys=True))
+          PY
+      - name: Fetch batch 1 with polite rate limiting
+        run: python scripts/fetch_bilancoveri_5y_batch.py --batch 1 --delay 0.75
+      - name: Show batch 1 coverage summary
+        run: |
+          python - <<'PY'
+          import json
+          p = json.load(open('artifacts/bilancoveri_5y_batches/batch_01/manifest.json', encoding='utf-8'))
+          print(json.dumps({
+              'batch': p['batch'],
+              'requested_tickers': p['requested_tickers'],
+              'status_counts': p['status_counts'],
+              'pit_authorized': p['pit_authorized'],
+              'real_total_rasyo_scoring_authorized': p['real_total_rasyo_scoring_authorized'],
+          }, ensure_ascii=False, indent=2, sort_keys=True))
+          PY
+      - name: Upload immutable batch 1 evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: bilancoveri-5y-all-bist-batch-01
+          path: |
+            artifacts/bilancoveri_5y_plan/
+            artifacts/bilancoveri_5y_batches/batch_01/
+          if-no-files-found: error
+          retention-days: 14
