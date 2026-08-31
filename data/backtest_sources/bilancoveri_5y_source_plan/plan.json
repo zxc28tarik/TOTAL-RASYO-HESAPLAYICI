@@ -1,0 +1,42 @@
+{
+  "contract": "BILANCOVERI_ALL_BIST_5Y_FROZEN_SOURCE_PLAN_V2",
+  "snapshot_generated_at": "2026-08-31T02:45:51Z",
+  "performance_window": {
+    "start_month": "2021-08",
+    "end_month": "2026-07",
+    "months": 60
+  },
+  "source_candidate_universe_count": 627,
+  "current_count": 591,
+  "search_count": 588,
+  "detail_sitemap_count": 617,
+  "historical_seed_only": [
+    "EFORC",
+    "IPEKE",
+    "KERVT",
+    "KONTR",
+    "KOZAA",
+    "KOZAL",
+    "TRILC"
+  ],
+  "batch_sizes": [100, 106, 106, 105, 105, 105],
+  "batch_01_preserved_from_run": 33357805834,
+  "batch_01_artifact_sha256": "b01f83369ca1ca9328c27a9c4a0451da7fca2603f0254ff9a3729dfd854031ec",
+  "batch_csv_sha256": {
+    "batch_01.csv": "551f43974a37c32230b7b83d7053f5f47bbc44a546e85dee4001df3a19d92357",
+    "batch_02.csv": "587232b7832f9832bc609fc48713d1e058dcc098ab244d69f2fd6a8a56987b85",
+    "batch_03.csv": "878bfd83a28eb0d0d235e8f23c6ca547020a8c9bd9145e9e96f55711dba3d6ef",
+    "batch_04.csv": "949abdc9c2b0dcab033bab06c9c2b7ffda40c6a660e3f417c93bb066a92e2c82",
+    "batch_05.csv": "0a41108749d83c0594f9581c2c070752cb049cf574b56ba281fed6397cf2c732",
+    "batch_06.csv": "ad7c8376ba276d3ce51464b94970b3021164731d61f055f449e55c84e9e268e6"
+  },
+  "source_snapshot_sha256": {
+    "current.raw.json": "06bc21535d2d636de31542e7d241cbfb74a08d27024d7bb7fb8bf887a270097e",
+    "search.raw.json": "151e5823c29053660d3e2d3c15ec3b8261458d946a87e55de3ec9d1b1788861c",
+    "sitemap_companies.raw.xml": "7766c52564d536345af3b938cbc0f24933fa5ffda9d2bcb8c9e7e1e593ffa986",
+    "meta.raw.json": "6a73c1e5bd3c3932b2597eb23dc579e921434e9f265c5155959ea9a1fda89bcd"
+  },
+  "source_history_policy": "capture full available company history; never source-truncate to five years",
+  "pit_authorized": false,
+  "real_total_rasyo_scoring_authorized": false
+}
