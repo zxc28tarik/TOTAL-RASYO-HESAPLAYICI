@@ -1,0 +1,56 @@
+{
+  "archive_count": 28,
+  "blocker": "SUPERSEDED_HISTORICAL_KAP_REPORT_VERSIONS_NOT_ENUMERATED",
+  "captured_at": "2026-08-31T04:25:50+00:00",
+  "contract": "KAP_BULK_FINANCIAL_SOURCE_PACKAGE_V1",
+  "experimental_downstream_work_allowed": true,
+  "experimental_inventory": {
+    "accepted_risk_id": "SUPERSEDED_HISTORICAL_KAP_REPORT_VERSIONS_NOT_ENUMERATED",
+    "authoritative_pit_claim_allowed": false,
+    "contract": "EXPERIMENTAL_KAP_SOURCE_INVENTORY_V1",
+    "downstream_period_depth_verified": false,
+    "experimental_downstream_work_allowed": true,
+    "historical_version_enumeration_complete": false,
+    "members_per_month": 100,
+    "months": 60,
+    "real_total_rasyo_scoring_authorized": false,
+    "result": "PASS_WITH_EXPLICIT_VERSION_ENUMERATION_RISK",
+    "schema_family_coverage_verified": false,
+    "source_presence_only": true,
+    "status_counts": {
+      "FOUND_WITH_VERSION_ENUMERATION_RISK": 5997,
+      "NOT_FOUND_WITH_VERSION_ENUMERATION_RISK": 3
+    },
+    "total_cells": 6000,
+    "uses_authorized_cutoff_schedule": true,
+    "uses_pr25_visible_version_selector": true
+  },
+  "historical_version_enumeration_complete": false,
+  "inventory": {
+    "all_cells_classified": true,
+    "contract": "PUBLIC_KAP_SOURCE_INVENTORY_V1",
+    "downstream_period_depth_verified": false,
+    "members_per_month": 100,
+    "months": 60,
+    "real_total_rasyo_scoring_authorized": false,
+    "result": "PASS",
+    "schema_family_coverage_verified": false,
+    "source_presence_only": true,
+    "status_counts": {
+      "AWAITING_AUTHORIZED_SOURCE": 6000,
+      "FOUND": 0,
+      "NOT_FOUND": 0,
+      "PARSING_REJECTED": 0
+    },
+    "total_cells": 6000,
+    "uses_pr25_visible_version_selector": true
+  },
+  "pit_materialization_authorized": false,
+  "real_60_cutoff_scoring_authorized": false,
+  "real_parser_probe_count": 3,
+  "report_count": 16624,
+  "result": "SOURCE_CAPTURE_PARSED_BUT_PIT_BLOCKED",
+  "target_report_count": 5489,
+  "target_ticker_count": 209,
+  "unique_notification_ids": 16624
+}

@@ -1,0 +1,40 @@
+{
+  "contract": "KAP_BULK_FINANCIAL_EXPORT_REAL_PARSER_PROBES_V1",
+  "probe_count": 3,
+  "probes": [
+    {
+      "archive_name": "KAP_2021_3A.zip",
+      "first_fact_code": "banks_role_310017:3",
+      "first_period_end": "2020-03-31",
+      "member_name": "AKBNK_931897_2021_1.xls",
+      "member_sha256": "c9d8e6ea1b6a605d959f1b3c909cc2db28b9d39a551530293ee1962e19f51f54",
+      "notification_id": 931897,
+      "numeric_cell_count": 1873,
+      "result": "PASS",
+      "statement_scope": "CONSOLIDATED"
+    },
+    {
+      "archive_name": "KAP_2021_3A.zip",
+      "first_fact_code": "general_role_310000:3",
+      "first_period_end": "2020-03-31",
+      "member_name": "ARCLK_931007_2021_1.xls",
+      "member_sha256": "a366358beeced567229a1ec275218c041b29f2d8e6ab6378dd772ab748316bab",
+      "notification_id": 931007,
+      "numeric_cell_count": 588,
+      "result": "PASS",
+      "statement_scope": "CONSOLIDATED"
+    },
+    {
+      "archive_name": "KAP_2021_3A.zip",
+      "first_fact_code": "banks_role_310017:3",
+      "first_period_end": "2020-03-31",
+      "member_name": "AKBNK_931903_2021_1.xls",
+      "member_sha256": "9fbf6ce2963d9f2f5293183ffe82a756a7eae1a64e6cd3394cd5bed3de7e11fd",
+      "notification_id": 931903,
+      "numeric_cell_count": 1875,
+      "result": "PASS",
+      "statement_scope": "SOLO"
+    }
+  ],
+  "result": "PASS"
+}
