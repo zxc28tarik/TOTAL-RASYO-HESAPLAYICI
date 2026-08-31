@@ -10,6 +10,7 @@ on:
       - 'src/ingest/public_kap_source_inventory.py'
       - 'tests/test_public_kap_pit.py'
       - 'tests/test_public_kap_source_inventory.py'
+      - 'tests/test_public_kap_source_inventory_cutoff_boundary.py'
       - 'docs/PUBLIC_KAP_PIT_COLLECTOR_CONTRACT.md'
       - 'docs/PUBLIC_KAP_SOURCE_INVENTORY_CONTRACT.md'
       - 'src/analytics/historical_cutoff_execution_policy.py'
@@ -24,6 +25,7 @@ on:
       - 'src/ingest/public_kap_source_inventory.py'
       - 'tests/test_public_kap_pit.py'
       - 'tests/test_public_kap_source_inventory.py'
+      - 'tests/test_public_kap_source_inventory_cutoff_boundary.py'
       - 'docs/PUBLIC_KAP_PIT_COLLECTOR_CONTRACT.md'
       - 'docs/PUBLIC_KAP_SOURCE_INVENTORY_CONTRACT.md'
       - 'src/analytics/historical_cutoff_execution_policy.py'
@@ -64,4 +66,5 @@ jobs:
         run: |
           python -m pytest -q \
             tests/test_public_kap_pit.py \
-            tests/test_public_kap_source_inventory.py
+            tests/test_public_kap_source_inventory.py \
+            tests/test_public_kap_source_inventory_cutoff_boundary.py
