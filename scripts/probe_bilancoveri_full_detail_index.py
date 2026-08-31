@@ -8,7 +8,8 @@ from urllib.request import Request, urlopen
 
 URLS = {
     "meta": "https://bilancoveri.com/api/v1/meta.json",
-    "sitemap": "https://bilancoveri.com/sitemap.xml",
+    "sitemap_index": "https://bilancoveri.com/sitemap.xml",
+    "sitemap_companies": "https://bilancoveri.com/sitemaps/sitemap-sirketler.xml",
     "current": "https://bilancoveri.com/api/v1/sirketler.json",
     "search": "https://bilancoveri.com/api/v1/arama.json",
 }
@@ -48,20 +49,25 @@ def main() -> None:
     raw: dict[str, bytes] = {}
     for name, url in URLS.items():
         raw[name] = fetch(url)
-        suffix = "xml" if name == "sitemap" else "json"
+        suffix = "xml" if name.startswith("sitemap") else "json"
         (OUT / f"{name}.raw.{suffix}").write_bytes(raw[name])
 
     current = extract_json_tickers(json.loads(raw["current"].decode("utf-8-sig")))
     search = extract_json_tickers(json.loads(raw["search"].decode("utf-8-sig")))
-    sitemap_text = raw["sitemap"].decode("utf-8", errors="strict")
-    sitemap = {m.group(1).upper() for m in TICKER_RE.finditer(sitemap_text)}
+    company_sitemap_text = raw["sitemap_companies"].decode("utf-8", errors="strict")
+    sitemap = {m.group(1).upper() for m in TICKER_RE.finditer(company_sitemap_text)}
     meta = json.loads(raw["meta"].decode("utf-8-sig"))
 
+    detail_expected = int(meta.get("coverage", {}).get("detail_companies", 0))
+    if detail_expected and len(sitemap) != detail_expected:
+        raise RuntimeError(f"company sitemap/detail count mismatch: sitemap={len(sitemap)} meta={detail_expected}")
+
     report = {
-        "contract": "BILANCOVERI_FULL_DETAIL_INDEX_PROBE_V1",
+        "contract": "BILANCOVERI_FULL_DETAIL_INDEX_PROBE_V2",
         "current_count": len(current),
         "search_count": len(search),
         "sitemap_company_ticker_count": len(sitemap),
+        "meta_detail_company_count": detail_expected,
         "sitemap_only_vs_current_search": sorted(sitemap - (current | search)),
         "current_search_not_in_sitemap": sorted((current | search) - sitemap),
         "union_count": len(current | search | sitemap),
