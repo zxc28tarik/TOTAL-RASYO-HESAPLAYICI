@@ -7,6 +7,8 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 BASE = "https://bilancoveri.com/api/v1/hisse/{ticker}.json"
+API_DOCS_URL = "https://bilancoveri.com/api/"
+LEGAL_URL = "https://bilancoveri.com/yasal-uyari/"
 OUT = Path("artifacts/bilancoveri_probe")
 CASES = (
     ("THYAO", "XI_29"),
@@ -89,6 +91,8 @@ def main() -> None:
         "contract": "BILANCOVERI_OPEN_API_SOURCE_PROBE_V1",
         "scope": "probe_only_not_yet_pit_authority",
         "api_policy": "keyless self-service JSON; reasonable-use; attribution requested",
+        "api_docs_url": API_DOCS_URL,
+        "legal_url": LEGAL_URL,
         "original_event_crosscheck": {
             "ticker": "THYAO",
             "periods": THYAO_EXPECTED,
