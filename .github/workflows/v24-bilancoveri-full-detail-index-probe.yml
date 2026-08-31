@@ -1,0 +1,33 @@
+name: V24 BilancoVeri Full Detail Index Probe
+
+on:
+  push:
+    branches:
+      - codex/v24-bilancoveri-5y-all-bist-source
+    paths:
+      - 'scripts/probe_bilancoveri_full_detail_index.py'
+      - '.github/workflows/v24-bilancoveri-full-detail-index-probe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full-detail-index-probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Probe current/search/sitemap/meta indexes
+        run: python scripts/probe_bilancoveri_full_detail_index.py
+      - name: Show report
+        run: cat artifacts/bilancoveri_full_detail_index/report.json
+      - name: Upload index evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: bilancoveri-full-detail-index-probe
+          path: artifacts/bilancoveri_full_detail_index/
+          if-no-files-found: error
+          retention-days: 14
