@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -16,9 +17,11 @@ CASES = (
     ("SISE", "XI_29"),
     ("THYAO", "XI_29"),
 )
+TIMEOUT_SECONDS = 20
+MAX_WORKERS = 3
 
 
-def fetch(ticker: str, group: str, year: int) -> tuple[bytes, str]:
+def fetch(ticker: str, group: str, year: int) -> tuple[str, str, int, bytes, str]:
     params = {
         "companyCode": ticker,
         "exchange": "TRY",
@@ -35,7 +38,7 @@ def fetch(ticker: str, group: str, year: int) -> tuple[bytes, str]:
             "Accept": "application/json,text/plain,*/*",
         },
     )
-    with urlopen(req, timeout=45) as response:
+    with urlopen(req, timeout=TIMEOUT_SECONDS) as response:
         raw = response.read()
         final_url = response.geturl()
         status = getattr(response, "status", 200)
@@ -43,37 +46,42 @@ def fetch(ticker: str, group: str, year: int) -> tuple[bytes, str]:
         raise RuntimeError(f"HTTP {status}: {ticker}/{year}")
     if not raw:
         raise RuntimeError(f"empty response: {ticker}/{year}")
-    return raw, final_url
+    return ticker, group, year, raw, final_url
+
+
+def validate_and_store(result: tuple[str, str, int, bytes, str]) -> dict[str, object]:
+    ticker, group, year, raw, final_url = result
+    try:
+        payload = json.loads(raw.decode("utf-8-sig"))
+    except Exception as exc:
+        raise RuntimeError(f"non-JSON response: {ticker}/{year}") from exc
+    rows = payload.get("value") if isinstance(payload, dict) else None
+    if not isinstance(rows, list) or not rows:
+        raise RuntimeError(f"no financial rows: {ticker}/{year}/{group}")
+    path = OUT / f"{ticker}_{year}_{group}.json"
+    path.write_bytes(raw)
+    return {
+        "ticker": ticker,
+        "year": year,
+        "financial_group": group,
+        "periods": list(PERIODS),
+        "source_url": final_url,
+        "raw_sha256": hashlib.sha256(raw).hexdigest(),
+        "raw_size_bytes": len(raw),
+        "row_count": len(rows),
+        "first_item_code": rows[0].get("itemCode") if isinstance(rows[0], dict) else None,
+    }
 
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
+    jobs = [(ticker, group, year) for ticker, group in CASES for year in YEARS]
     manifest: list[dict[str, object]] = []
-    for ticker, group in CASES:
-        for year in YEARS:
-            raw, final_url = fetch(ticker, group, year)
-            try:
-                payload = json.loads(raw.decode("utf-8-sig"))
-            except Exception as exc:
-                raise RuntimeError(f"non-JSON response: {ticker}/{year}") from exc
-            rows = payload.get("value") if isinstance(payload, dict) else None
-            if not isinstance(rows, list) or not rows:
-                raise RuntimeError(f"no financial rows: {ticker}/{year}/{group}")
-            path = OUT / f"{ticker}_{year}_{group}.json"
-            path.write_bytes(raw)
-            manifest.append(
-                {
-                    "ticker": ticker,
-                    "year": year,
-                    "financial_group": group,
-                    "periods": list(PERIODS),
-                    "source_url": final_url,
-                    "raw_sha256": hashlib.sha256(raw).hexdigest(),
-                    "raw_size_bytes": len(raw),
-                    "row_count": len(rows),
-                    "first_item_code": rows[0].get("itemCode") if isinstance(rows[0], dict) else None,
-                }
-            )
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        futures = {executor.submit(fetch, *job): job for job in jobs}
+        for future in as_completed(futures):
+            manifest.append(validate_and_store(future.result()))
+    manifest.sort(key=lambda row: (str(row["ticker"]), int(row["year"])))
     manifest_path = OUT / "manifest.json"
     manifest_path.write_text(
         json.dumps(
