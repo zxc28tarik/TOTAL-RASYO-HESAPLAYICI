@@ -1,0 +1,33 @@
+name: V24 Is Yatirim 3Y Source Probe
+
+on:
+  push:
+    branches:
+      - codex/v24-isyatirim-3y-source-probe
+    paths:
+      - 'scripts/probe_isyatirim_financials.py'
+      - '.github/workflows/v24-isyatirim-source-probe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-source-probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch live İş Yatırım financial JSON and hash raw bytes
+        run: python scripts/probe_isyatirim_financials.py
+      - name: Show manifest
+        run: cat artifacts/isyatirim_probe/manifest.json
+      - name: Upload immutable probe artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: isyatirim-3y-source-probe
+          path: artifacts/isyatirim_probe/
+          if-no-files-found: error
+          retention-days: 14
