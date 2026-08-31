@@ -1,6 +1,6 @@
 # Total Rasyo Hesaplayıcı — Güncel Proje Durumu
 
-Son doğrulama: **2026-08-26**
+Son doğrulama: **2026-08-31**
 
 Bu belge, sohbet sayfaları değişse bile projenin hedefini ve son doğrulanmış durumunu kaybetmemek için tek başlangıç noktasıdır.
 
@@ -52,6 +52,27 @@ Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri i�
 | PIT Ek9 replay | **KAPALI** | PR #18 bağımsız gerçek-diff ve mutasyon denetiminden blocker/major olmadan geçti; DB-free, 63 günlük getiri std (`ddof=1`), 0.06 volatilite cap'i, tam 64 fiyat pozisyonu, `pct_change(fill_method=None)`, cutoff-sonrası veri reddi ve XU100 fiyat fallback yasağı kilitli |
 | 60-cutoff birleşik Total Rasyo replay/sıralama | **KAPALI** | PR #19 bağımsız gerçek-diff + 12 mutasyon denetiminden temiz geçti ve `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff` ile birleşti. PR #20 evidence/CI boşluğunu üretim/replay koduna dokunmadan kapattı; merge `816393bbfe428d17cbadbc0ca553a7457795713f`, V24 Real Data CI #62 SUCCESS, kalıcı evidence commit'i `883e680a2564e38f4c08a21bc88aa95b8f164036` |
 | V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
+
+## Aktif KAP toplu finansal kaynak çalışması
+
+KAP'ın dönem bazlı toplu finansal tablo dışa aktarımı için fail-closed HTML
+parser, exact-label semantik adapter ve tekrar başlatılabilir arşiv envanter
+scripti geliştirme dalında hazırlanmıştır. `KAP_2021_3A.zip` pilot doğrulamasında
+arşiv SHA256 değeri
+`d953adceb72accfc4294cce4b40e79121ba10529ad2a17ef3f60e61654ecd654`
+olarak kilitlenmiş ve 466 raporun tamamı sınıflandırılmıştır:
+
+- 404 `NONFIN`/`HOLDING` raporu exact-label kurallarıyla eşleşti;
+- 62 banka, katılım bankası, sigorta veya diğer farklı teknik şema
+  `UNSUPPORTED_SCHEMA` olarak açıkça ayrıldı;
+- teknik parser reddi kalmadı;
+- tarama bir seferde yalnız bir raporu belleğe alıp her rapordan sonra
+  checkpoint yazar;
+- sektör yönlendirmesi henüz otoritatif değildir ve bu pilot tek başına gerçek
+  60-cutoff veri hazırlığının tamamlandığı anlamına gelmez.
+
+Ham KAP ZIP'i ve tekrar üretilebilir CSV çıktıları Git geçmişine alınmaz; kaynak
+hash'i, parser, eşleştirme sözleşmesi ve doğrulama testleri sürümlenir.
 
 Son otomatik kanıt commit'i [`883e680a`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/883e680a2564e38f4c08a21bc88aa95b8f164036)'dır. Bu commit, PR #20 merge commit'i [`816393bb`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/816393bbfe428d17cbadbc0ca553a7457795713f) üzerinde çalışan V24 Real Data CI #62 sonucunu kaydeder.
 
