@@ -1,0 +1,61 @@
+name: V24 BilancoVeri 5Y Frozen Next Batch
+
+on:
+  push:
+    branches:
+      - codex/v24-bilancoveri-5y-all-bist-source
+    paths:
+      - 'data/backtest_sources/bilancoveri_5y_source_plan/NEXT_BATCH'
+      - 'data/backtest_sources/bilancoveri_5y_source_plan/plan.json'
+      - 'data/backtest_sources/bilancoveri_5y_source_plan/batch_*.csv'
+      - 'scripts/fetch_bilancoveri_5y_frozen_batch.py'
+      - '.github/workflows/v24-bilancoveri-5y-frozen-next-batch.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fetch-frozen-next-batch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Resolve frozen batch number
+        id: batch
+        shell: bash
+        run: |
+          BATCH="$(tr -d '[:space:]' < data/backtest_sources/bilancoveri_5y_source_plan/NEXT_BATCH)"
+          case "$BATCH" in 2|3|4|5|6) ;; *) echo "invalid NEXT_BATCH=$BATCH"; exit 1;; esac
+          printf -v PADDED '%02d' "$BATCH"
+          echo "number=$BATCH" >> "$GITHUB_OUTPUT"
+          echo "padded=$PADDED" >> "$GITHUB_OUTPUT"
+          echo "NEXT_BATCH=$BATCH"
+      - name: Fetch hash-locked frozen batch with polite rate limiting
+        run: python scripts/fetch_bilancoveri_5y_frozen_batch.py --batch '${{ steps.batch.outputs.number }}' --delay 0.75
+      - name: Show batch coverage summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          batch = '${{ steps.batch.outputs.padded }}'
+          path = Path(f'artifacts/bilancoveri_5y_frozen_batches/batch_{batch}/manifest.json')
+          p = json.load(path.open(encoding='utf-8'))
+          print(json.dumps({
+              'batch': p['batch'],
+              'requested_tickers': p['requested_tickers'],
+              'status_counts': p['status_counts'],
+              'frozen_batch_csv_sha256': p['frozen_batch_csv_sha256'],
+              'pit_authorized': p['pit_authorized'],
+              'real_total_rasyo_scoring_authorized': p['real_total_rasyo_scoring_authorized'],
+          }, ensure_ascii=False, indent=2, sort_keys=True))
+          PY
+      - name: Upload immutable frozen batch evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: bilancoveri-5y-all-bist-batch-${{ steps.batch.outputs.padded }}
+          path: artifacts/bilancoveri_5y_frozen_batches/batch_${{ steps.batch.outputs.padded }}/
+          if-no-files-found: error
+          retention-days: 14
