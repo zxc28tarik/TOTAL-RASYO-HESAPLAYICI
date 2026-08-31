@@ -6,6 +6,7 @@ on:
       - codex/v24-bilancoveri-3y-source-probe
     paths:
       - 'scripts/probe_bilancoveri_financials.py'
+      - 'scripts/probe_bilancoveri_3y_universe_coverage.py'
       - '.github/workflows/v24-bilancoveri-source-probe.yml'
   workflow_dispatch:
 
@@ -15,19 +16,36 @@ permissions:
 jobs:
   live-bilancoveri-probe:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Fetch BilancoVeri open API historical financials
+      - name: Fetch BilancoVeri open API historical financials for schema cross-check
         run: python scripts/probe_bilancoveri_financials.py
-      - name: Show manifest
-        run: cat artifacts/bilancoveri_probe/manifest.json
-      - name: Upload immutable probe artifact
+      - name: Measure all 171 historical BIST100 tickers with polite rate limiting
+        run: python scripts/probe_bilancoveri_3y_universe_coverage.py
+      - name: Show summaries
+        run: |
+          cat artifacts/bilancoveri_probe/manifest.json
+          python - <<'PY'
+          import json
+          p = json.load(open('artifacts/bilancoveri_3y_coverage/coverage.json', encoding='utf-8'))
+          print(json.dumps({
+              'contract': p['contract'],
+              'unique_historical_tickers': p['unique_historical_tickers'],
+              'status_counts': p['status_counts'],
+              'financial_group_counts': p['financial_group_counts'],
+              'pit_authorized': p['pit_authorized'],
+          }, ensure_ascii=False, indent=2, sort_keys=True))
+          PY
+      - name: Upload immutable coverage artifact
         uses: actions/upload-artifact@v4
         with:
-          name: bilancoveri-3y-source-probe
-          path: artifacts/bilancoveri_probe/
+          name: bilancoveri-3y-source-coverage
+          path: |
+            artifacts/bilancoveri_probe/
+            artifacts/bilancoveri_3y_coverage/
           if-no-files-found: error
           retention-days: 14
