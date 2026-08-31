@@ -1,0 +1,36 @@
+name: V24 Public KAP PIT Collector CI
+
+on:
+  push:
+    branches: [codex/v24-real-60-cutoff-production]
+    paths:
+      - 'src/ingest/public_kap_pit.py'
+      - 'tests/test_public_kap_pit.py'
+      - 'docs/PUBLIC_KAP_PIT_COLLECTOR_CONTRACT.md'
+      - '.github/workflows/v24-public-kap-pit-ci.yml'
+  pull_request:
+    branches: [v24-real-data-work]
+    paths:
+      - 'src/ingest/public_kap_pit.py'
+      - 'tests/test_public_kap_pit.py'
+      - 'docs/PUBLIC_KAP_PIT_COLLECTOR_CONTRACT.md'
+      - '.github/workflows/v24-public-kap-pit-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  public-kap-pit-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install test dependency
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+      - name: Public KAP PIT source contract
+        run: python -m pytest -q tests/test_public_kap_pit.py
