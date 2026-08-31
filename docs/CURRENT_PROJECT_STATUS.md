@@ -1,108 +1,152 @@
 # Total Rasyo Hesaplayıcı — Güncel Proje Durumu
 
-Son doğrulama: **2026-08-26**
+Son doğrulama: **2026-08-31**
 
 Bu belge, sohbet sayfaları değişse bile projenin hedefini ve son doğrulanmış durumunu kaybetmemek için tek başlangıç noktasıdır.
 
 ## Tek kanonik GitHub deposu
 
-Depo: [`zxc28tarik/TOTAL-RASYO-HESAPLAYICI`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI)
+Depo: `zxc28tarik/TOTAL-RASYO-HESAPLAYICI`
 
 | Hat | Dal | Doğrulanmış baş | Anlamı |
 |---|---|---|---|
-| Üretim | `main` | `84494e29824809b20b5410c8b160ef38f70c27c9` | V24-F üretim fotoğrafı; deneysel tarihsel veri çalışması buraya henüz terfi ettirilmedi |
-| Aktif geliştirme | `v24-real-data-work` | `883e680a2564e38f4c08a21bc88aa95b8f164036` | PR #20 bağımsız denetimden temiz geçti, `816393bbfe428d17cbadbc0ca553a7457795713f` ile birleşti; V24 Real Data CI #62 yeşil tamamlandı ve makine-okur `pit_total_rasyo_replay` kanıtı bu evidence commit'inde kalıcılaştırıldı |
+| Üretim | `main` | `adf3f810914066af7f29087b98aa62efb95a26a1` | PR #22 ile yapılan erken terfi PR #23/revert ile geri alındı; kararlı üretim ağacı korunuyor |
+| Aktif tarihsel geliştirme | `v24-real-data-work` | `9528c6093cce8facd830d614b14c275dc2878476` | PR #28 KAP kaynak-capture kimliği korundu; GPT×Claude çift-denetimli 5Y yürütme planı eklendi |
 
-`v24-real-data-work`, V24-F ortak atasından sonra aktif geliştirme dalıdır. `main` üzerindeki sonraki commitler üretim CI/kanıt belgeleridir. Bu nedenle tek depo hedefi, iki dalı körlemesine ezmek değil; geliştirme tamamlanıp bütün kapılar geçtiğinde kontrollü terfi yapmaktır.
-
-ChatGPT içindeki eski ZIP ve bundle dosyaları geri dönüş/arşiv amacı taşır. Yüklenme tarihleri sürüm sırasını göstermez; GitHub dal/commit geçmişi ve başarılı CI koşusu sürüm otoritesidir.
+Aktif dal ile `main` körlemesine birleştirilmez. Tarihsel çalışma bütün ilgili kapıları geçmeden `main` üretim terfisi yapılmaz.
 
 ## Şu anki hedef
 
-Yakın hedef, **2021-08 ile 2026-07 arasındaki 60 ay için BIST100/XU100 üzerinde savunulabilir point-in-time 5 yıllık backtest** üretmektir.
+2021-08 .. 2026-07 arasındaki **60 aylık BIST100 point-in-time 5 yıllık backtest**.
 
-Her ay:
+Aylık sözleşme:
+- tarih-doğru BIST100 üyeleri;
+- yalnız cutoff anında bilinebilen veri;
+- `TOTAL_RASYO_MONTHLY_OPEN_V1` timing profile;
+- önceki gözlenen XU100 işlem seansı sonu cutoff (normal 18:10; kilitli yarım günler 12:40);
+- signal-day execution accounting 10:00, price basis `DAILY_OPEN`;
+- same-day ve cutoff-sonrası overnight bilgi yasak;
+- ayda 2× geçerli net asgari ücret katkısı;
+- maksimum 6 hisse;
+- AL / İZLE / UZAK sözleşmesi;
+- alış, satış, nakit, holdings, katkı, NAV ve XU100 benchmark yayımlanır.
 
-- o tarihte gerçekten BIST100 üyesi olan hisseler kullanılacak;
-- yalnız o anda bilinebilen finansal veri ve fiyatlar görülecek;
-- güncel durum sızıntısı, sonradan düzeltilmiş veri yanlılığı, survivorship bias ve sessiz fallback olmayacak;
-- o ay geçerli net asgari ücretin 2 katı portföye eklenecek;
-- en fazla 6 hisse tutulacak; alış, satış, elde tutma, nakit ve NAV kaydedilecek;
-- sonuç XU100 ile karşılaştırılacak.
+## Kapanmış temel katmanlar
 
-Uzun vadeli ürün hedefi, aynı sektör motorlarını bütün BIST hisseleri için otomatik resmi veri akışıyla çalıştırıp Total Rasyo sıralaması üretmektir. Ancak mevcut teslimat sırası önce 60 aylık tarihsel doğrulamayı kapatmaktır.
+- 60 aylık XU100 sinyal takvimi: KAPALI.
+- Tarihsel BIST100 evreni: KAPALI.
+- Ticker lineage: KAPALI.
+- Aylık üye execution price coverage: KAPALI (6000/6000 temel execution price kaynağı).
+- Asgari ücret kaynağı: KİLİTLİ.
+- Kurumsal aksiyon semantiği: KAPALI.
+- PIT CORE+VAL/RSC/M1: KAPALI.
+- PIT M2 altı family replay motorları: KAPALI.
+- PIT M3 ve gerçek M3 source package: KAPALI.
+- PIT Ek4: KAPALI.
+- PIT Ek1 + `good_count_ge8`: KAPALI.
+- PIT Ek9: KAPALI.
+- Birleşik 60-cutoff Total Rasyo replay/ranking motoru: KAPALI.
+- `TOTAL_RASYO_MONTHLY_OPEN_V1` cutoff/execution timing policy: **KAPALI / YETKİLENDİRİLDİ** (PR #21).
+- V24-G readiness implementasyonu: UYGULAMA KAPALI; gerçek veri READY henüz yok.
 
-## Kapanan işler
+## Gerçek KAP kaynak durumu
 
-| Alan | Durum | Kanıt/ölçü |
-|---|---|---|
-| 60 aylık XU100 sinyal takvimi | **KAPALI** | 2021-08-02 .. 2026-07-01, 60/60 |
-| Tarihsel BIST100 evreni | **KAPALI** | 21 periyodik grup, 180 değişim çifti, 114 periyodik olmayan duyuru denetimi |
-| Periyodik olmayan üyelik olayı | **KAPALI** | 2026-06-18 KONTR çıkış / BERA giriş |
-| Ticker soy zinciri | **KAPALI** | 38 resmi kod değişikliği |
-| Aylık üye işlem fiyatı | **KAPALI** | 6000/6000; 12 Yahoo boşluğu resmi Borsa THB ile tamamlandı |
-| Asgari ücret kaynağı | **KAYNAK KİLİTLİ** | `WAGE_TR_NET_CSGB_2021_2026_V1`; katkı = 2 × geçerli net ücret |
-| Kurumsal aksiyon motoru | **SEMANTİK KAPALI** | bölünme/bedelsiz, temettü nakdi, kod değişimi ve olay sırası |
-| PIT CORE+VAL, RSC, M1 | **KAPALI** | DB-free ve cutoff-sonrası veri reddi |
-| PIT M2 — altı sektör ailesi | **KAPALI** | NONFIN, HOLDING, GYO, INSURANCE, FINANCIAL, BANK |
-| PIT M3 replay motoru | **KAPALI** | PR #13 iki bağımsız denetimden geçti; DB-free tarihsel yol canlı beta davranışından izole; pandas 2.2.3 uyumluluğu ayrı CI kapısı |
-| Gerçek 60 aylık M3 kaynak paketi | **KAPALI** | PR #15 birleşti; 209 ticker/210 rota, 5×1.483 resmî endeks kapanışı, 7 doğrudan ham kaynak, SHA256 kilidi ve deterministik yeniden üretim doğrulandı |
-| PIT Ek4 replay | **KAPALI** | PR #16 birleşti; DB-free, 20 işlem aralığı, ortak canlı formül, tarih-doğru M3 sektör rotası, ayrı piyasa kesimi ve XU100 fallback yasağı testlerle kilitli |
-| PIT Ek1 + `good_count_ge8` replay | **KAPALI** | PR #17 birleşti; DB-free, PIT M1 ile aynı son RSC dönemi, ortak canlı formül, eksik-count fallback yasağı ve gerçek üretim veto sınırı 8/8 mutasyonla doğrulandı |
-| PIT Ek9 replay | **KAPALI** | PR #18 bağımsız gerçek-diff ve mutasyon denetiminden blocker/major olmadan geçti; DB-free, 63 günlük getiri std (`ddof=1`), 0.06 volatilite cap'i, tam 64 fiyat pozisyonu, `pct_change(fill_method=None)`, cutoff-sonrası veri reddi ve XU100 fiyat fallback yasağı kilitli |
-| 60-cutoff birleşik Total Rasyo replay/sıralama | **KAPALI** | PR #19 bağımsız gerçek-diff + 12 mutasyon denetiminden temiz geçti ve `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff` ile birleşti. PR #20 evidence/CI boşluğunu üretim/replay koduna dokunmadan kapattı; merge `816393bbfe428d17cbadbc0ca553a7457795713f`, V24 Real Data CI #62 SUCCESS, kalıcı evidence commit'i `883e680a2564e38f4c08a21bc88aa95b8f164036` |
-| V24-G readiness katmanı | **UYGULAMA KAPALI** | report-only, fail-closed; gerçek veriyle `READY` henüz alınmadı |
+### Public KAP collector / inventory
 
-Son otomatik kanıt commit'i [`883e680a`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/883e680a2564e38f4c08a21bc88aa95b8f164036)'dır. Bu commit, PR #20 merge commit'i [`816393bb`](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/commit/816393bbfe428d17cbadbc0ca553a7457795713f) üzerinde çalışan V24 Real Data CI #62 sonucunu kaydeder.
+- PR #25: fail-closed individual notification collector contract.
+- PR #26: fail-closed 6000-cell Public KAP source inventory.
+- Issue #24 formal production blocker olarak OPEN kalır.
 
-- geniş pandas 2.2.3 / numpy 1.26.4 uyumluluk kapısı: **191 geçti, 1 uyarı**;
-- hedefli gerçek-veri sözleşmeleri: **329 geçti, 5 uyarı**;
-- tam regresyon: **1798 geçti, 32 uyarı**;
-- BANK v4.7: **277 geçti, 1 beklenen xfail, 1 uyarı**;
-- schema migration: **PASS**;
-- evidence generation: **PASS**;
-- evidence persistence: **PASS**;
-- iş akışı sonucu: **SUCCESS**.
+### 28 dönemlik KAP toplu finansal capture
 
-Makine-okur kapanış da doğrulandı: `docs/V24_REAL_DATA_CI_EVIDENCE.json` içindeki `tested_commit_sha`, PR #20 merge SHA'sı `816393bbfe428d17cbadbc0ca553a7457795713f`'dir. Aynı dosyada `pit_total_rasyo_replay.result=PASS`, `veto_threshold=5`, `veto_factor=0.6`, tam 60 cutoff (`2021-08 .. 2026-07`), `score_rejection_coverage=EXHAUSTIVE` ve `real_cutoff_execution_clock_policy_authorized=false` kalıcı olarak kayıtlıdır. Böylece birleşik replay/sıralama katmanının formal evidence kapanışı tamamlanmıştır; gerçek işlem saati politikası ise bilinçli olarak açık kalır.
+PR #28 ile kaynak kimliği/provenance aktif dala kalıcılaştırıldı.
 
-PR #13'ün canlı beta uyumluluğu, tarihsel `pct_change(fill_method=None)` davranışı ve pandas sürüm kapısı Claude tarafından gerçek diff ve mutasyon testleriyle bağımsız olarak denetlendi; blocker/major kalmadan birleştirildi.
+- dönem: 2019Q3 .. 2026Q2;
+- 28 KAP bulk archive;
+- 16,624 unique notification/report;
+- 5,489 target historical report;
+- 209 target historical ticker;
+- archive bazında exact filename + SHA256 + byte size + member count korunuyor;
+- raw ZIP'ler normal Git history'ye alınmıyor.
 
-PR #15'in gerçek M3 veri paketi iki bağımsız denetimden geçti. İkinci turda `GRTRK -> GRTHO` kimlik zinciri yol+SHA256 ve mutasyon testleriyle sertleştirildi; GitHub CI #41 ve merge-sonrası CI kanıtı yeşil tamamlandı.
+Formal PIT blocker:
+`SUPERSEDED_HISTORICAL_KAP_REPORT_VERSIONS_NOT_ENUMERATED`.
 
-PR #16'nın PIT Ek4 replay motoru bağımsız diff ve mutasyon denetiminden blocker/major olmadan geçti. GitHub PR CI #44; pinned pandas 2.2.3, şema, hedefli gerçek-veri sözleşmeleri, tam regresyon ve BANK v4.7 kapılarının tamamında yeşildir. Merge commit'i `b24208141cce48e6009943d514d04e9ef5e18693` olup PR head içeriğiyle bit-bit eşleşir.
+Bu nedenle authoritative profil için:
+- `historical_version_enumeration_complete=false`;
+- `pit_materialization_authorized=false`;
+- `real_60_cutoff_scoring_authorized=false`.
 
-PR #17'nin PIT Ek1/good-count replay motoru bağımsız diff ve sekiz mutasyon denetiminden blocker/major olmadan geçti. GitHub PR CI #47; pinned pandas 2.2.3'te 91, hedefli pakette 229, tam regresyonda 1.758 test ve BANK v4.7 kapılarının tamamında yeşildir. Merge commit'i `20b2c1f9afb5aa7c04a8a42fdf91384484d9a14d` olup denetlenen PR head ağacıyla bit-bit eşleşir.
+Ancak kullanıcı açık risk kabulü verdiği için **deneysel 5 yıllık çalışma bu blocker yüzünden durdurulmayacak**. Risk açıkça etiketlenecek:
+`PASS_WITH_EXPLICIT_VERSION_ENUMERATION_RISK` / `EXPERIMENTAL_RISK_ACCEPTED_5Y`.
 
-PR #18'in PIT Ek9 replay motoru bağımsız gerçek diff denetiminden blocker/major olmadan geçti. Denetlenen head `d1fe827c1ff42b1b0ed63552f30124528b6fe6be`, merge commit'i `f3949402204e5a63a8072ec7925a66414774a15c` ile 9/9 dosyada bit-bit eşleşir. Canlı `run_daily_pipeline._compute_ek9_vol` veri hazırlığı değişmemiştir: SQL, `COALESCE(adj_close, close)`, pivot, varsayılan `pct_change()`, `< lookback+2` kapısı ve `tail(lookback)` korunur; yalnız `std(ddof=1) -> inf/NaN temizliği -> 0.06 cap` aritmetiği saf paylaşılan fonksiyona taşınmıştır. Tarihsel adapter tam 64 fiyat/63 getiri penceresinde `pct_change(fill_method=None)` kullanır, DB-free çalışır, cutoff-sonrası veri ve eksik fiyat için fail-closed davranır ve XU100 fiyat fallback'i kabul etmez. Bağımsız mutasyon turunda `ddof`, 0.06 cap, 63-lookback, cutoff-sonrası fiyat ve `fill_method=None` korumaları kırılmıştır. Merge-sonrası CI #51 ve `V24_REAL_DATA_CI_EVIDENCE.json` sonucu PASS'tir.
+Deneysel source-presence çalışmasında 6000 hücrenin 5997'sinde kaynak bulundu, 3 hücre not-found-with-risk kaldı.
 
-PR #19, kapalı altı modülün tarihsel sonuçlarını tek-cutoff bazında üretim Total Rasyo combiner'ına bağlar. `compute_total_rasyo` veya kapalı replay fonksiyonları değiştirilmedi. M2 altı mevcut sektör-family replay sonucundan gelir; diğer beş modül mevcut replay fonksiyonları çağrılarak üretilir. Bir modül bile eksik/rejected ise skor üretilmez. `good_count_ge8`, Ek1'in M1 ile aynı dönem lineage'ından taşınır; veto eşiği/faktörü üretim scorer'dan devralınır. Bağımsız denetimde 7 dosyalık gerçek diff doğrulandı, 13 kapalı üretim dosyasının değişmediği teyit edildi ve istenen 12 mutasyon noktasının tamamı kırıldı. PR head `e984db473a150adb9ba0766ad4df78c2115f428b`, merge commit'i `f39c6e4b69bd66d13192d8c377eb8f0a76aafdff`'dir.
+## Açık PR
 
-PR #20 üretim/replay koduna dokunmadan yalnız geniş `V24 Real Data CI` tetikleme/test ve makine-okur evidence kapsamını tamamladı. Bağımsız denetimde gerçek diff'in yalnız üç dosya olduğu, üretim/replay dosyalarının değişmediği, push/PR tetikleyicilerinin ve pinned/targeted test kapılarının doğru genişletildiği, evidence generate/persist ayrımının doğru olduğu ve yeni JSON bloğunun gerçek sözleşmeyle tutarlı olduğu doğrulandı. Denetim `BLOCKER YOK, MAJOR YOK — TEMİZ` sonucu verdi. PR #20 `816393bbfe428d17cbadbc0ca553a7457795713f` ile birleşti; V24 Real Data CI #62 SUCCESS oldu ve bot `883e680a2564e38f4c08a21bc88aa95b8f164036` commit'iyle kanıtı kalıcılaştırdı. Gerçek cutoff/execution saat politikası evidence içinde açıkça yetkilendirilmemiş (`false`) kalır.
+### PR #27 — KAP bulk financial parser
 
-## Açık işler — uygulanacak sıra
+Durum: OPEN / DRAFT.
 
-1. Gerçek cutoff/execution saat politikasını açıkça kararlaştırıp kayıt altına al. Testteki önceki gün 20:00 / sinyal günü 10:00 değerleri gerçek politika sayılmaz.
-2. Yetkilendirilmiş cutoff/execution politikasıyla gerçek 60 tarihsel cutoff için Total Rasyo sonuçlarını üret/doğrula.
-3. V24-G readiness raporunu gerçek 60 aylık veriyle çalıştır; sonuç zorunlu olarak `READY` olmalı.
-4. Aylık portföyü çalıştırıp holdings, trades, NAV, katkılar ve XU100 karşılaştırmasını yayımla.
-5. Tüm kapılar geçince aktif dalı kontrollü biçimde üretime terfi ettir.
+Mevcut kapsam:
+- bulk HTML parser;
+- exact-label semantic adapter;
+- NONFIN/HOLDING mapping;
+- resumable archive checkpoint;
+- gerçek `KAP_2021_3A` pilotu 466/466 classify;
+- BANK / participation bank / INSURANCE / diğer FINANCIAL semantiği henüz bilinçli olarak `UNSUPPORTED_SCHEMA`.
 
-Üretim ağırlıkları:
+PR #27 doğrudan merge edilmeden önce yeni aktif HEAD'e göre yeniden denetlenmeli. Sonraki ana teknik iş diğer sektör ailelerinin dimension-context doğrulanmış semantik mapping'idir.
 
-| Modül | Ağırlık |
-|---|---:|
-| M2 | 0.40 |
-| M1 | 0.18 |
-| M3 | 0.12 |
-| Ek4 | 0.16 |
-| Ek1 | 0.08 |
-| Ek9 | 0.06 |
+## HOLDING/GYO deneysel değerleme hattı
 
-`good_count_ge8` ayrıca veto sözleşmesine girer.
+Gerçek KAP book-equity proxy çalışması:
+- 993/993 hücre exact KAP equity+capital source;
+- 981 deneysel M2 score;
+- 12 kontrollü rejection: INVES 3, KLRHO 6, ASGYO 3;
+- rejection sebebi pre-cutoff güvenli fiyat yokluğu;
+- ikinci üretim bit-level aynı;
+- canonical NAD ve production profile değiştirilmedi.
 
-## Yayın kuralı
+Gerçek tarihsel NAD bulunmazsa bu sonuç yalnız `EXPERIMENTAL_HOLDING_BOOK_EQUITY_TWO_AXIS_V1` / `EXPERIMENTAL_GYO_BOOK_EQUITY_TWO_AXIS_V1` etiketiyle deneysel hatta kullanılabilir.
 
-Henüz 5 yıllık getiri veya “başarı” iddiası yayımlanamaz. Birleşik 60-cutoff Total Rasyo skor/sıralama katmanı formal olarak kapalıdır; ancak gerçek cutoff/execution politikası yetkilendirilmeden ve V24-G gerçek veriyle `READY` olmadan üretilen portföy sonucu yayımlanabilir tarihsel performans kanıtı sayılmaz.
+## Açık işler — yeni zorunlu sıra
 
-Her kapanan aşamada bu belge, ilgili bootstrap belgesi ve CI kanıtı aynı commit zincirinde güncellenmelidir. Yeni bir sohbet açıldığında ilk okunacak dosya budur.
+Ana yürütme sözleşmesi:
+`docs/V24_5Y_BACKTEST_DUAL_REVIEW_EXECUTION_PLAN.md`
+
+1. **P0** — durum/koordinasyon ve çift-denetim zemini.
+2. **P1** — BANK, participation bank, INSURANCE, diğer FINANCIAL ve GYO routing dahil KAP semantic family coverage.
+3. **P2** — HOLDING/GYO değerleme kararı + 12 pre-cutoff price gap.
+4. **P3** — risk-kabul edilmiş 6000-cell gerçek KAP PIT materialization.
+5. **P4** — gerçek 60-cutoff Total Rasyo score/ranking artifact.
+6. **P5** — aylık 1–6 hisselik portfolio/trade ledger + XU100 backtest.
+7. **P6** — bağımsız final audit, V24-G ve kontrollü terfi kararı.
+8. **P7 (paralel)** — superseded historical KAP version enumeration; Issue #24 authoritative closure.
+
+## Çift denetim kuralı
+
+Her ana P1–P7 işi GitHub issue/PR üzerinde:
+- GPT önerisi;
+- Claude bağımsız önerisi/denetimi;
+- uyuşmazlık çözümü;
+- hedef test;
+- mutasyon kanıtı;
+- full regression/CI;
+- source SHA/provenance
+ile kapanır.
+
+Claude doğrudan bu ChatGPT oturumundan çağrılamıyorsa GitHub issue/PR ortak devir noktasıdır. Claude'un bağımsız review/commit/yorum kanıtı gelmeden çift-denetim kapısı PASS sayılmaz.
+
+## Production Total Rasyo ağırlıkları
+
+- M2: 0.40
+- M1: 0.18
+- M3: 0.12
+- Ek4: 0.16
+- Ek1: 0.08
+- Ek9: 0.06
+- veto threshold: `good_count < 5`
+- veto factor: 0.60
+
+Bu matematik 5Y yürütme sırasında değiştirilmez.
