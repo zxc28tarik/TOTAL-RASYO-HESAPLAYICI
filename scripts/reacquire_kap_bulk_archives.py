@@ -2,17 +2,19 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 import hashlib
 import json
 from pathlib import Path
 import re
-from typing import Mapping
+import time
+from typing import Callable, Mapping
 from zipfile import BadZipFile, ZipFile
 
 import requests
 
 
-CONTRACT = "KAP_BULK_ARCHIVE_REACQUISITION_V1"
+CONTRACT = "KAP_BULK_ARCHIVE_REACQUISITION_V2"
 DEFAULT_MANIFEST = Path(
     "data/backtest_sources/kap_bulk_financial_source_capture/archive_manifest.json"
 )
@@ -27,6 +29,9 @@ REQUIRED_ARCHIVE_FIELDS = (
     "member_count",
     "uncompressed_bytes",
 )
+RETRYABLE_HTTP_STATUSES = frozenset({408, 425, 429, 500, 502, 503, 504})
+MAX_RETRY_DELAY_SECONDS = 300.0
+MIN_429_DELAY_SECONDS = 60.0
 
 
 def sha256_file(path: Path) -> str:
@@ -122,56 +127,174 @@ def evaluate_observation(expected: Mapping[str, object], observed: Mapping[str, 
     return not reasons, reasons
 
 
-def _download_one(
+def should_retry_status(status: int) -> bool:
+    return int(status) in RETRYABLE_HTTP_STATUSES
+
+
+def retry_delay_seconds(
+    *,
+    retry_after: str | None,
+    attempt: int,
+    base_seconds: float,
+    status: int | None = None,
+    now: datetime | None = None,
+) -> float:
+    if attempt < 1:
+        raise ValueError("attempt must be >= 1")
+    if base_seconds < 0:
+        raise ValueError("base_seconds must be >= 0")
+
+    parsed: float | None = None
+    if retry_after:
+        text = retry_after.strip()
+        try:
+            parsed = max(0.0, float(text))
+        except ValueError:
+            try:
+                target = parsedate_to_datetime(text)
+                if target.tzinfo is None:
+                    target = target.replace(tzinfo=timezone.utc)
+                current = now or datetime.now(timezone.utc)
+                parsed = max(0.0, (target - current).total_seconds())
+            except (TypeError, ValueError, OverflowError):
+                parsed = None
+
+    if parsed is None:
+        parsed = base_seconds * (2 ** (attempt - 1))
+        if status == 429:
+            parsed = max(parsed, MIN_429_DELAY_SECONDS)
+    return min(float(parsed), MAX_RETRY_DELAY_SECONDS)
+
+
+def _failure_result(
+    *,
+    attempts: int,
+    retry_events: list[dict[str, object]],
+    error: str,
+    http_status: int | None = None,
+    content_type: str | None = None,
+    content_disposition: str | None = None,
+    final_url: str | None = None,
+) -> dict[str, object]:
+    return {
+        "download_ok": False,
+        "attempt_count": attempts,
+        "retry_events": retry_events,
+        "http_status": http_status,
+        "content_type": content_type,
+        "content_disposition": content_disposition,
+        "final_url": final_url,
+        "error": error,
+    }
+
+
+def download_one(
     session: requests.Session,
     *,
     url: str,
     destination: Path,
     timeout_seconds: int,
+    max_attempts: int,
+    retry_base_seconds: float,
+    sleeper: Callable[[float], None] = time.sleep,
 ) -> dict[str, object]:
+    if max_attempts < 1:
+        raise ValueError("max_attempts must be >= 1")
     tmp = destination.with_suffix(destination.suffix + ".part")
-    tmp.unlink(missing_ok=True)
-    digest = hashlib.sha256()
-    size = 0
-    try:
-        with session.get(url, stream=True, timeout=timeout_seconds) as response:
-            status = response.status_code
-            content_type = response.headers.get("Content-Type")
-            disposition = response.headers.get("Content-Disposition")
-            final_url = response.url
-            if not response.ok:
-                preview = response.content[:256].decode("utf-8", errors="replace")
-                return {
-                    "download_ok": False,
-                    "http_status": status,
-                    "content_type": content_type,
-                    "content_disposition": disposition,
-                    "final_url": final_url,
-                    "error": f"HTTP_{status}:{preview}",
-                }
-            with tmp.open("wb") as handle:
-                for block in response.iter_content(chunk_size=1024 * 1024):
-                    if not block:
-                        continue
-                    handle.write(block)
-                    digest.update(block)
-                    size += len(block)
-        tmp.replace(destination)
-        return {
-            "download_ok": True,
-            "http_status": status,
-            "content_type": content_type,
-            "content_disposition": disposition,
-            "final_url": final_url,
-            "sha256": digest.hexdigest(),
-            "size_bytes": size,
-        }
-    except Exception as exc:
+    retry_events: list[dict[str, object]] = []
+
+    for attempt in range(1, max_attempts + 1):
         tmp.unlink(missing_ok=True)
-        return {
-            "download_ok": False,
-            "error": f"{type(exc).__name__}:{exc}",
-        }
+        digest = hashlib.sha256()
+        size = 0
+        try:
+            with session.get(url, stream=True, timeout=timeout_seconds) as response:
+                status = int(response.status_code)
+                content_type = response.headers.get("Content-Type")
+                disposition = response.headers.get("Content-Disposition")
+                final_url = response.url
+
+                if not response.ok:
+                    preview = response.content[:256].decode("utf-8", errors="replace")
+                    if should_retry_status(status) and attempt < max_attempts:
+                        delay = retry_delay_seconds(
+                            retry_after=response.headers.get("Retry-After"),
+                            attempt=attempt,
+                            base_seconds=retry_base_seconds,
+                            status=status,
+                        )
+                        retry_events.append(
+                            {
+                                "attempt": attempt,
+                                "reason": f"HTTP_{status}",
+                                "delay_seconds": delay,
+                                "retry_after": response.headers.get("Retry-After"),
+                            }
+                        )
+                        sleeper(delay)
+                        continue
+                    return _failure_result(
+                        attempts=attempt,
+                        retry_events=retry_events,
+                        error=f"HTTP_{status}:{preview}",
+                        http_status=status,
+                        content_type=content_type,
+                        content_disposition=disposition,
+                        final_url=final_url,
+                    )
+
+                with tmp.open("wb") as handle:
+                    for block in response.iter_content(chunk_size=1024 * 1024):
+                        if not block:
+                            continue
+                        handle.write(block)
+                        digest.update(block)
+                        size += len(block)
+
+            tmp.replace(destination)
+            return {
+                "download_ok": True,
+                "attempt_count": attempt,
+                "retry_events": retry_events,
+                "http_status": status,
+                "content_type": content_type,
+                "content_disposition": disposition,
+                "final_url": final_url,
+                "sha256": digest.hexdigest(),
+                "size_bytes": size,
+            }
+        except requests.exceptions.RequestException as exc:
+            tmp.unlink(missing_ok=True)
+            if attempt < max_attempts:
+                delay = retry_delay_seconds(
+                    retry_after=None,
+                    attempt=attempt,
+                    base_seconds=retry_base_seconds,
+                    status=None,
+                )
+                retry_events.append(
+                    {
+                        "attempt": attempt,
+                        "reason": type(exc).__name__,
+                        "delay_seconds": delay,
+                    }
+                )
+                sleeper(delay)
+                continue
+            return _failure_result(
+                attempts=attempt,
+                retry_events=retry_events,
+                error=f"{type(exc).__name__}:{exc}",
+            )
+        except Exception as exc:
+            tmp.unlink(missing_ok=True)
+            return _failure_result(
+                attempts=attempt,
+                retry_events=retry_events,
+                error=f"{type(exc).__name__}:{exc}",
+            )
+
+    raise AssertionError("download retry loop exhausted unexpectedly")
 
 
 def reacquire(
@@ -182,6 +305,10 @@ def reacquire(
     base_url: str,
     lang: str,
     timeout_seconds: int,
+    max_attempts: int,
+    retry_base_seconds: float,
+    inter_archive_delay_seconds: float,
+    sleeper: Callable[[float], None] = time.sleep,
 ) -> dict[str, object]:
     archives = manifest["archives"]
     period_codes = client_contract.get("period_codes")
@@ -189,65 +316,55 @@ def reacquire(
     if not isinstance(archives, list) or not isinstance(period_codes, dict) or not isinstance(templates, dict):
         raise ValueError("manifest/client acquisition fields invalid")
     download_template = templates.get("download")
-    check_template = templates.get("check_file_exist")
-    if not isinstance(download_template, str) or not isinstance(check_template, str):
-        raise ValueError("client endpoint templates missing")
+    if not isinstance(download_template, str):
+        raise ValueError("client download endpoint template missing")
+    if inter_archive_delay_seconds < 0:
+        raise ValueError("inter_archive_delay_seconds must be >= 0")
 
     output_dir.mkdir(parents=True, exist_ok=True)
     session = requests.Session()
     session.headers.update(
         {
             "Accept-Language": lang,
-            "User-Agent": "Mozilla/5.0 TOTAL-RASYO-KAP-reacquisition/1.0",
+            "User-Agent": "Mozilla/5.0 TOTAL-RASYO-KAP-reacquisition/2.0",
         }
     )
 
     rows: list[dict[str, object]] = []
-    for expected_raw in archives:
+    for index, expected_raw in enumerate(archives):
         if not isinstance(expected_raw, dict):
             raise ValueError("archive row invalid")
         expected = {key: expected_raw[key] for key in REQUIRED_ARCHIVE_FIELDS}
         filename = str(expected["filename"])
         year, period, period_code = parse_manifest_filename(filename, period_codes)
-        format_args = {
-            "base_url": base_url.rstrip("/"),
-            "lang": lang,
-            "year": year,
-            "period_code": period_code,
-        }
-        check_url = check_template.format(**format_args)
-        download_url = download_template.format(**format_args)
+        download_url = download_template.format(
+            base_url=base_url.rstrip("/"),
+            lang=lang,
+            year=year,
+            period_code=period_code,
+        )
         row: dict[str, object] = {
             "filename": filename,
             "year": year,
             "period": period,
             "period_code": period_code,
-            "check_url": check_url,
             "download_url": download_url,
             "expected": expected,
+            "check_policy": "OMITTED_DURING_BULK_REACQUISITION_TO_MINIMIZE_KAP_REQUEST_LOAD",
         }
 
-        try:
-            check = session.get(check_url, timeout=timeout_seconds)
-            row["check"] = {
-                "status": check.status_code,
-                "content_type": check.headers.get("Content-Type"),
-                "body_sha256": hashlib.sha256(check.content).hexdigest(),
-                "body_preview": check.content[:256].decode("utf-8", errors="replace"),
-            }
-        except Exception as exc:
-            row["check"] = {"error": f"{type(exc).__name__}:{exc}"}
-
         destination = output_dir / filename
-        observed = _download_one(
+        observed = download_one(
             session,
             url=download_url,
             destination=destination,
             timeout_seconds=timeout_seconds,
+            max_attempts=max_attempts,
+            retry_base_seconds=retry_base_seconds,
+            sleeper=sleeper,
         )
         if observed.get("download_ok"):
             observed.update(inspect_zip(destination))
-            # Recompute from disk to protect against write/rename corruption.
             observed["sha256"] = sha256_file(destination)
             observed["size_bytes"] = destination.stat().st_size
         row["observed"] = observed
@@ -261,6 +378,8 @@ def reacquire(
                     "filename": filename,
                     "exact_manifest_match": exact,
                     "mismatch_reasons": reasons,
+                    "attempt_count": observed.get("attempt_count"),
+                    "retry_events": observed.get("retry_events"),
                     "observed_sha256": observed.get("sha256"),
                     "observed_size_bytes": observed.get("size_bytes"),
                     "observed_member_count": observed.get("member_count"),
@@ -270,10 +389,17 @@ def reacquire(
             ),
             flush=True,
         )
+        if index + 1 < len(archives) and inter_archive_delay_seconds:
+            sleeper(inter_archive_delay_seconds)
 
     exact_count = sum(1 for row in rows if row["exact_manifest_match"])
     mismatch_rows = [
-        {"filename": row["filename"], "reasons": row["mismatch_reasons"]}
+        {
+            "filename": row["filename"],
+            "reasons": row["mismatch_reasons"],
+            "error": row["observed"].get("error") if isinstance(row.get("observed"), dict) else None,
+            "attempt_count": row["observed"].get("attempt_count") if isinstance(row.get("observed"), dict) else None,
+        }
         for row in rows
         if not row["exact_manifest_match"]
     ]
@@ -282,12 +408,18 @@ def reacquire(
         "captured_at": datetime.now(timezone.utc).isoformat(),
         "source_manifest_contract": manifest.get("contract"),
         "source_manifest_captured_at": manifest.get("captured_at"),
-        "source_manifest_sha256": hashlib.sha256(
-            (json.dumps(manifest, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n").encode("utf-8")
-        ).hexdigest(),
         "client_contract": client_contract.get("contract"),
         "base_url": base_url,
         "lang": lang,
+        "request_policy": {
+            "check_endpoint_during_bulk": False,
+            "max_attempts": max_attempts,
+            "retry_base_seconds": retry_base_seconds,
+            "min_429_delay_seconds_without_retry_after": MIN_429_DELAY_SECONDS,
+            "max_retry_delay_seconds": MAX_RETRY_DELAY_SECONDS,
+            "inter_archive_delay_seconds": inter_archive_delay_seconds,
+            "parallelism": 1,
+        },
         "archive_count": len(rows),
         "exact_manifest_match_count": exact_count,
         "mismatch_count": len(rows) - exact_count,
@@ -310,6 +442,9 @@ def main() -> None:
     parser.add_argument("--base-url", default="https://kap.org.tr")
     parser.add_argument("--lang", default="tr")
     parser.add_argument("--timeout-seconds", type=int, default=180)
+    parser.add_argument("--max-attempts", type=int, default=6)
+    parser.add_argument("--retry-base-seconds", type=float, default=15.0)
+    parser.add_argument("--inter-archive-delay-seconds", type=float, default=5.0)
     parser.add_argument("--require-exact", action="store_true")
     args = parser.parse_args()
 
@@ -321,6 +456,9 @@ def main() -> None:
         base_url=args.base_url,
         lang=args.lang,
         timeout_seconds=args.timeout_seconds,
+        max_attempts=args.max_attempts,
+        retry_base_seconds=args.retry_base_seconds,
+        inter_archive_delay_seconds=args.inter_archive_delay_seconds,
     )
     args.receipt.parent.mkdir(parents=True, exist_ok=True)
     args.receipt.write_text(
