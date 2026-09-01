@@ -22,7 +22,6 @@ def _identity(seed: str, *, members: int = 1) -> dict[str, object]:
 def _evidence(*, drift: bool = False) -> dict[str, object]:
     current = _identity("a", members=2)
     preserved = _identity("b", members=1) if drift else dict(current)
-    drift_names = ["KAP_2025_Y.zip"] if drift else []
     return {
         "contract": "KAP_BULK_PUBLIC_BYTE_EVIDENCE_V2",
         "snapshot_complete": True,
@@ -144,3 +143,27 @@ def test_discovery_output_keeps_current_snapshot_and_authorization_boundaries(mo
     assert result["semantic_mapping_authorized"] is False
     assert result["pit_materialization_authorized"] is False
     assert result["real_60_cutoff_scoring_authorized"] is False
+
+
+def test_current_snapshot_cli_module_entrypoint_imports_successfully() -> None:
+    import subprocess
+    import sys
+
+    completed = subprocess.run(
+        [sys.executable, "-m", "scripts.discover_kap_bulk_current_snapshot", "--help"],
+        cwd=Path(__file__).resolve().parents[1],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert "--public-evidence" in completed.stdout
+
+
+def test_current_snapshot_workflow_uses_module_entrypoint() -> None:
+    workflow = (
+        Path(__file__).resolve().parents[1]
+        / ".github/workflows/v24-kap-current-snapshot-schema-discovery.yml"
+    ).read_text(encoding="utf-8")
+    assert "python -m scripts.discover_kap_bulk_current_snapshot" in workflow
+    assert "python scripts/discover_kap_bulk_current_snapshot.py" not in workflow

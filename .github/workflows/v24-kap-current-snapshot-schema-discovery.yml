@@ -79,7 +79,7 @@ jobs:
           for archive in "${archives[@]}"; do
             args+=(--archive "$archive")
           done
-          python scripts/discover_kap_bulk_current_snapshot.py \
+          python -m scripts.discover_kap_bulk_current_snapshot \
             "${args[@]}" \
             --public-evidence "$PUBLIC_EVIDENCE" \
             --output kap-current-technical-schema-discovery.json
