@@ -76,7 +76,7 @@ def test_archive_validation_rejects_incomplete_manifest_set_before_reading_files
             {"filename": "B.zip", "sha256": "1" * 64, "member_count": 1},
         ],
     }
-    with pytest.raises(ValueError, match="archive set manifestle uyusmuyor"):
+    with pytest.raises(ValueError, match="archive set manifestle ayni degil"):
         validate_archive_inputs([tmp_path / "A.zip"], manifest)
 
 
