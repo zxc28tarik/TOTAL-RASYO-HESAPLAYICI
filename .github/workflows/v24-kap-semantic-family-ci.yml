@@ -1,6 +1,7 @@
 name: V24 KAP Semantic Family CI
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: [v24-real-data-work]
     paths:
