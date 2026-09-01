@@ -1,9 +1,13 @@
+from dataclasses import replace
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 from zoneinfo import ZoneInfo
 
 import pytest
 
+from src.ingest.api.mkk_kap import KapApiProtocolError
+from src.ingest.api.semantic_facts import SemanticFactMapper
+from src.ingest.kap_bulk_exact_semantic_mapping import build_bulk_exact_semantic_config
 from src.ingest.kap_bulk_financial_export import (
     KapBulkExportError,
     KapBulkExportReport,
@@ -55,6 +59,19 @@ def _cell() -> KapBulkFinancialCell:
     )
 
 
+def _map_nonfin_single(cell: KapBulkFinancialCell):
+    mapped_at = datetime(2021, 4, 30, 19, tzinfo=ISTANBUL)
+    facts = bulk_cells_to_financial_facts(
+        _report(),
+        [cell],
+        ticker="TEST",
+        extracted_at=mapped_at,
+    )
+    return SemanticFactMapper(
+        build_bulk_exact_semantic_config("NONFIN")
+    ).map_facts(facts, mapped_at=mapped_at)
+
+
 def test_adapter_preserves_archive_and_exact_label_lineage() -> None:
     facts = bulk_cells_to_financial_facts(
         _report(),
@@ -83,3 +100,33 @@ def test_adapter_rejects_capture_before_publication() -> None:
             ticker="TEST",
             extracted_at=report.published_at - timedelta(minutes=6),
         )
+
+
+def test_exact_mapping_accepts_correct_role_row_and_label_identity() -> None:
+    mapped = _map_nonfin_single(_cell())
+
+    assert len(mapped) == 1
+    assert mapped[0].canonical_field == "TOTAL_ASSETS"
+    assert mapped[0].value == Decimal("123000")
+
+
+@pytest.mark.parametrize("mutation", ["role", "row", "label"])
+def test_exact_mapping_rejects_role_row_or_label_identity_mutation(mutation: str) -> None:
+    cell = _cell()
+    if mutation == "role":
+        cell = replace(
+            cell,
+            table_role="holding_role_210015",
+            fact_code="holding_role_210015:129",
+        )
+    elif mutation == "row":
+        cell = replace(
+            cell,
+            row_number=130,
+            fact_code="general_role_210015:130",
+        )
+    else:
+        cell = replace(cell, label_tr="Ödenmiş Sermaye")
+
+    with pytest.raises(KapApiProtocolError, match="hic kalem uretmedi"):
+        _map_nonfin_single(cell)
