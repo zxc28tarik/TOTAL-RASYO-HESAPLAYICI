@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 from datetime import datetime, timezone
 import hashlib
 from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
-from typing import Iterable
 from urllib.parse import urljoin
 
 import requests
@@ -24,6 +24,12 @@ INTEREST_TOKENS = (
     "period",
     "year",
     "report",
+)
+_ROUTE_INTEREST_TOKENS = ("download", "financial", "report", "statement", "file")
+_ROUTE_PATTERNS = (
+    re.compile(r"https?://(?:www\.)?kap\.org\.tr/[A-Za-z0-9_./?=&%{}:+-]+", re.IGNORECASE),
+    re.compile(r"/(?:tr|en)/api/[A-Za-z0-9_./?=&%{}:+-]+", re.IGNORECASE),
+    re.compile(r"/api/[A-Za-z0-9_./?=&%{}:+-]+", re.IGNORECASE),
 )
 
 
@@ -55,20 +61,35 @@ def _normalize_text(text: str) -> str:
     return text.replace("\\/", "/").replace("\\u002F", "/")
 
 
+def _overlaps(span: tuple[int, int], occupied: list[tuple[int, int]]) -> bool:
+    start, end = span
+    return any(start < other_end and other_start < end for other_start, other_end in occupied)
+
+
 def extract_candidate_routes(text: str) -> tuple[str, ...]:
+    """Return canonical route candidates without suffix duplicates.
+
+    Patterns are evaluated most-specific first. Once a full KAP URL is accepted,
+    shorter `/tr/api/...` or `/api/...` matches inside that same span are ignored.
+    Likewise a localized `/tr|en/api/...` match suppresses the bare `/api/...`
+    suffix. This keeps evidence deterministic and prevents one client route from
+    being counted as several candidates merely because regexes overlap.
+    """
     normalized = _normalize_text(text)
-    patterns = (
-        r"https?://(?:www\\.)?kap\\.org\\.tr/[A-Za-z0-9_./?=&%{}:+-]+",
-        r"/(?:tr|en)/api/[A-Za-z0-9_./?=&%{}:+-]+",
-        r"/api/[A-Za-z0-9_./?=&%{}:+-]+",
-    )
+    occupied: list[tuple[int, int]] = []
     candidates: set[str] = set()
-    for pattern in patterns:
-        for match in re.finditer(pattern, normalized, flags=re.IGNORECASE):
+
+    for pattern in _ROUTE_PATTERNS:
+        for match in pattern.finditer(normalized):
+            span = match.span()
+            if _overlaps(span, occupied):
+                continue
             route = match.group(0).rstrip(".,;:)]}'\"")
-            lowered = route.lower()
-            if any(token in lowered for token in ("download", "financial", "report", "statement", "file")):
-                candidates.add(route)
+            if not any(token in route.lower() for token in _ROUTE_INTEREST_TOKENS):
+                continue
+            candidates.add(route)
+            occupied.append(span)
+
     return tuple(sorted(candidates))
 
 
