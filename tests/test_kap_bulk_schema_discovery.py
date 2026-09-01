@@ -68,6 +68,20 @@ def test_discovery_keeps_same_row_with_different_labels_separate() -> None:
     assert interest["ytd_count"] == 1
 
 
+def test_archive_validation_rejects_duplicate_archive_input(tmp_path) -> None:
+    archive = tmp_path / "A.zip"
+    with ZipFile(archive, "w") as bundle:
+        bundle.writestr("A_1.xls", b"one")
+    manifest = {
+        "archive_count": 1,
+        "archives": [
+            {"filename": "A.zip", "sha256": _sha(archive), "member_count": 1},
+        ],
+    }
+    with pytest.raises(ValueError, match="duplicate archive input filename"):
+        validate_archive_inputs([archive, archive], manifest)
+
+
 def test_archive_validation_rejects_incomplete_manifest_set_before_reading_files(tmp_path) -> None:
     manifest = {
         "archive_count": 2,
