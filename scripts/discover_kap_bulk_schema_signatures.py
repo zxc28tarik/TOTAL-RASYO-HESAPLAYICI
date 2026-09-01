@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 import hashlib
 import json
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, Mapping
 from zipfile import ZipFile
 
 from src.ingest.kap_bulk_financial_export import (
@@ -52,6 +52,13 @@ def technical_schema_signature_sha256(roles: Iterable[str]) -> str:
         separators=(",", ":"),
     ).encode("utf-8")
     return _sha256_bytes(payload)
+
+
+@dataclass(frozen=True)
+class VerifiedArchive:
+    path: Path
+    sha256: str
+    member_count: int
 
 
 @dataclass
@@ -109,6 +116,70 @@ def observe_reports(
     return observations
 
 
+def _manifest_expectations(manifest: Mapping[str, object]) -> dict[str, tuple[str, int]]:
+    archives = manifest.get("archives")
+    if not isinstance(archives, list) or not archives:
+        raise ValueError("archive manifest archives listesi bos veya gecersiz")
+    declared_count = manifest.get("archive_count")
+    if not isinstance(declared_count, int) or declared_count != len(archives):
+        raise ValueError("archive manifest archive_count tutarsiz")
+
+    expected: dict[str, tuple[str, int]] = {}
+    for row in archives:
+        if not isinstance(row, Mapping):
+            raise ValueError("archive manifest satiri obje olmali")
+        filename = row.get("filename")
+        sha256 = row.get("sha256")
+        member_count = row.get("member_count")
+        if not isinstance(filename, str) or not filename:
+            raise ValueError("archive manifest filename gecersiz")
+        if filename in expected:
+            raise ValueError(f"archive manifest duplicate filename: {filename}")
+        if not isinstance(sha256, str) or len(sha256) != 64:
+            raise ValueError(f"archive manifest sha256 gecersiz: {filename}")
+        if not isinstance(member_count, int) or member_count < 0:
+            raise ValueError(f"archive manifest member_count gecersiz: {filename}")
+        expected[filename] = (sha256.lower(), member_count)
+    return expected
+
+
+def validate_archive_inputs(
+    archives: Iterable[Path],
+    manifest: Mapping[str, object],
+) -> tuple[VerifiedArchive, ...]:
+    expected = _manifest_expectations(manifest)
+    supplied = tuple(Path(p).resolve() for p in archives)
+    supplied_names = [path.name for path in supplied]
+    if len(supplied_names) != len(set(supplied_names)):
+        raise ValueError("duplicate archive input filename")
+    supplied_set = set(supplied_names)
+    expected_set = set(expected)
+    if supplied_set != expected_set:
+        missing = sorted(expected_set - supplied_set)
+        unexpected = sorted(supplied_set - expected_set)
+        raise ValueError(
+            f"archive set manifestle ayni degil: missing={missing} unexpected={unexpected}"
+        )
+
+    verified: list[VerifiedArchive] = []
+    for path in sorted(supplied, key=lambda item: item.name):
+        expected_sha, expected_members = expected[path.name]
+        actual_sha = _sha256_path(path)
+        if actual_sha.lower() != expected_sha:
+            raise ValueError(f"archive sha256 manifestle uyusmuyor: {path.name}")
+        with ZipFile(path) as bundle:
+            member_count = sum(1 for name in bundle.namelist() if name.endswith(".xls"))
+        if member_count != expected_members:
+            raise ValueError(
+                f"archive member_count manifestle uyusmuyor: {path.name} "
+                f"expected={expected_members} actual={member_count}"
+            )
+        verified.append(
+            VerifiedArchive(path=path, sha256=actual_sha, member_count=member_count)
+        )
+    return tuple(verified)
+
+
 def _serialize(
     observations: dict[tuple[str, ...], SignatureObservation],
 ) -> list[dict[str, object]]:
@@ -147,11 +218,18 @@ def _serialize(
     return output
 
 
-def discover_archives(archives: Iterable[Path]) -> dict[str, object]:
+def discover_archives(
+    archives: Iterable[Path],
+    *,
+    manifest: Mapping[str, object],
+    manifest_sha256: str | None = None,
+) -> dict[str, object]:
+    verified_archives = validate_archive_inputs(archives, manifest)
     archive_rows: list[dict[str, object]] = []
-    combined: list[tuple[str, str, tuple[KapBulkFinancialCell, ...]]] = []
-    for archive in sorted((Path(p).resolve() for p in archives), key=lambda p: p.name):
-        archive_hash = _sha256_path(archive)
+    observations: dict[tuple[str, ...], SignatureObservation] = {}
+
+    for verified in verified_archives:
+        archive = verified.path
         member_count = 0
         with ZipFile(archive) as bundle:
             members = sorted(name for name in bundle.namelist() if name.endswith(".xls"))
@@ -159,21 +237,29 @@ def discover_archives(archives: Iterable[Path]) -> dict[str, object]:
                 raw = bundle.read(member_name)
                 report = parse_kap_bulk_export_report(
                     archive_name=archive.name,
-                    archive_sha256=archive_hash,
+                    archive_sha256=verified.sha256,
                     member_name=member_name,
                     raw_html=raw,
                 )
                 cells = parse_kap_bulk_financial_cells(report, raw)
-                combined.append((report.source_entity_code, member_name, cells))
+                roles = technical_schema_signature(cell.table_role for cell in cells)
+                bucket = observations.setdefault(roles, SignatureObservation())
+                bucket.add_report(
+                    source_entity_code=report.source_entity_code,
+                    member_name=member_name,
+                    cells=cells,
+                )
                 member_count += 1
+        if member_count != verified.member_count:
+            raise ValueError(f"archive member_count verification scan sirasinda degisti: {archive.name}")
         archive_rows.append(
             {
                 "archive_name": archive.name,
-                "archive_sha256": archive_hash,
+                "archive_sha256": verified.sha256,
                 "member_count": member_count,
             }
         )
-    observations = observe_reports(combined)
+
     return {
         "contract": CONTRACT,
         "archive_count": len(archive_rows),
@@ -181,6 +267,8 @@ def discover_archives(archives: Iterable[Path]) -> dict[str, object]:
         "report_count": sum(row["member_count"] for row in archive_rows),
         "technical_schema_count": len(observations),
         "technical_schemas": _serialize(observations),
+        "archive_manifest_verified": True,
+        "source_manifest_sha256": manifest_sha256,
         "semantic_mapping_authorized": False,
         "purpose": "DISCOVERY_ONLY_EXACT_ROLE_ROW_LABEL_EVIDENCE",
     }
@@ -189,9 +277,17 @@ def discover_archives(archives: Iterable[Path]) -> dict[str, object]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--archive", type=Path, action="append", required=True)
+    parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    result = discover_archives(args.archive)
+
+    manifest_bytes = args.manifest.read_bytes()
+    manifest = json.loads(manifest_bytes.decode("utf-8"))
+    result = discover_archives(
+        args.archive,
+        manifest=manifest,
+        manifest_sha256=_sha256_bytes(manifest_bytes),
+    )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     text = json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
     args.output.write_text(text, encoding="utf-8")
@@ -203,6 +299,7 @@ def main() -> None:
                 "archive_count": result["archive_count"],
                 "report_count": result["report_count"],
                 "technical_schema_count": result["technical_schema_count"],
+                "archive_manifest_verified": result["archive_manifest_verified"],
             },
             ensure_ascii=False,
             sort_keys=True,
