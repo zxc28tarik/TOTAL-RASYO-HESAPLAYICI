@@ -1,5 +1,9 @@
 from datetime import date
 from decimal import Decimal
+import hashlib
+from zipfile import ZipFile
+
+import pytest
 
 from scripts.discover_kap_bulk_schema_signatures import (
     _serialize,
@@ -7,6 +11,7 @@ from scripts.discover_kap_bulk_schema_signatures import (
     role_namespace,
     technical_schema_signature,
     technical_schema_signature_sha256,
+    validate_archive_inputs,
 )
 from src.ingest.kap_bulk_financial_export import KapBulkFinancialCell
 
@@ -29,6 +34,10 @@ def _cell(*, role: str, row: int, label: str, ytd: bool = False) -> KapBulkFinan
         currency="TRY",
         unit_scale=1000,
     )
+
+
+def _sha(path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def test_signature_is_deterministic_and_role_namespace_preserves_hyphenated_family() -> None:
@@ -57,3 +66,43 @@ def test_discovery_keeps_same_row_with_different_labels_separate() -> None:
     interest = next(row for row in facts if row["label_tr"] == "Faiz Gelirleri")
     assert interest["instant_count"] == 0
     assert interest["ytd_count"] == 1
+
+
+def test_archive_validation_rejects_incomplete_manifest_set_before_reading_files(tmp_path) -> None:
+    manifest = {
+        "archive_count": 2,
+        "archives": [
+            {"filename": "A.zip", "sha256": "0" * 64, "member_count": 1},
+            {"filename": "B.zip", "sha256": "1" * 64, "member_count": 1},
+        ],
+    }
+    with pytest.raises(ValueError, match="archive set manifestle uyusmuyor"):
+        validate_archive_inputs([tmp_path / "A.zip"], manifest)
+
+
+def test_archive_validation_rejects_sha_mutation(tmp_path) -> None:
+    archive = tmp_path / "A.zip"
+    with ZipFile(archive, "w") as bundle:
+        bundle.writestr("A_1.xls", b"original")
+    manifest = {
+        "archive_count": 1,
+        "archives": [
+            {"filename": "A.zip", "sha256": "f" * 64, "member_count": 1},
+        ],
+    }
+    with pytest.raises(ValueError, match="archive sha256 manifestle uyusmuyor"):
+        validate_archive_inputs([archive], manifest)
+
+
+def test_archive_validation_rejects_member_count_mutation(tmp_path) -> None:
+    archive = tmp_path / "A.zip"
+    with ZipFile(archive, "w") as bundle:
+        bundle.writestr("A_1.xls", b"one")
+    manifest = {
+        "archive_count": 1,
+        "archives": [
+            {"filename": "A.zip", "sha256": _sha(archive), "member_count": 2},
+        ],
+    }
+    with pytest.raises(ValueError, match="archive member_count manifestle uyusmuyor"):
+        validate_archive_inputs([archive], manifest)
