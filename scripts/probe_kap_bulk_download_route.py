@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass
 from datetime import datetime, timezone
 import hashlib
 from html.parser import HTMLParser
@@ -30,6 +29,7 @@ _ROUTE_PATTERNS = (
     re.compile(r"https?://(?:www\.)?kap\.org\.tr/[A-Za-z0-9_./?=&%{}:+-]+", re.IGNORECASE),
     re.compile(r"/(?:tr|en)/api/[A-Za-z0-9_./?=&%{}:+-]+", re.IGNORECASE),
     re.compile(r"/api/[A-Za-z0-9_./?=&%{}:+-]+", re.IGNORECASE),
+    re.compile(r"(?<![A-Za-z0-9_/])api/[A-Za-z0-9_./?=&%{}:+-]+", re.IGNORECASE),
 )
 
 
@@ -67,14 +67,7 @@ def _overlaps(span: tuple[int, int], occupied: list[tuple[int, int]]) -> bool:
 
 
 def extract_candidate_routes(text: str) -> tuple[str, ...]:
-    """Return canonical route candidates without suffix duplicates.
-
-    Patterns are evaluated most-specific first. Once a full KAP URL is accepted,
-    shorter `/tr/api/...` or `/api/...` matches inside that same span are ignored.
-    Likewise a localized `/tr|en/api/...` match suppresses the bare `/api/...`
-    suffix. This keeps evidence deterministic and prevents one client route from
-    being counted as several candidates merely because regexes overlap.
-    """
+    """Return canonical route candidates without suffix duplicates."""
     normalized = _normalize_text(text)
     occupied: list[tuple[int, int]] = []
     candidates: set[str] = set()
@@ -178,7 +171,7 @@ def build_probe(
                     "interesting_snippets": extract_interesting_snippets(text),
                 }
             )
-        except Exception as exc:  # evidence collector: preserve per-script failure, continue scanning
+        except Exception as exc:
             row.update({"error": f"{type(exc).__name__}:{exc}"})
         scripts.append(row)
 

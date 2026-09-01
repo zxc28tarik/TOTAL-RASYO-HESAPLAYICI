@@ -19,14 +19,16 @@ def test_extract_script_urls_resolves_relative_and_deduplicates() -> None:
     )
 
 
-def test_extract_candidate_routes_finds_relative_and_escaped_kap_download_paths() -> None:
+def test_extract_candidate_routes_finds_relative_escaped_and_plain_api_paths() -> None:
     script = r'''
       const a="/tr/api/financial-report/download?year=2025&period=Y";
       const b="https:\/\/kap.org.tr\/tr\/api\/file\/download\/4028abc";
+      const c="api/financialTable/download";
       const ignored="/tr/api/company/list";
     '''
     assert extract_candidate_routes(script) == (
         "/tr/api/financial-report/download?year=2025&period=Y",
+        "api/financialTable/download",
         "https://kap.org.tr/tr/api/file/download/4028abc",
     )
 
