@@ -80,6 +80,7 @@ jobs:
             tests/test_kap_bulk_role_namespaces_targeted.py \
             tests/test_kap_bulk_insurance_finance_schema_targeted.py \
             tests/test_kap_bulk_insurance_finance_exact_semantic_mapping.py \
+            tests/test_kap_bulk_financial_schema_shift_2022.py \
             tests/test_sector_routing.py \
             tests/test_sector_routing_missing_values.py \
             tests/test_gyo_batch_pipeline.py | tee p1-kap-targeted.log
