@@ -1,4 +1,4 @@
-name: V24 KAP Insurance Finance 2021Q1 Discovery
+name: V24 KAP Insurance Finance Schema Epoch Regression
 
 on:
   workflow_dispatch:
@@ -9,6 +9,7 @@ on:
       - 'src/ingest/kap_bulk_insurance_finance_exact_semantic_mapping.py'
       - 'scripts/discover_kap_bulk_insurance_finance_schema_targeted.py'
       - 'tests/test_kap_bulk_insurance_finance_exact_semantic_mapping.py'
+      - 'tests/test_kap_bulk_financial_schema_shift_2022.py'
       - 'tests/test_kap_bulk_insurance_finance_schema_targeted.py'
       - '.github/workflows/v24-kap-insurance-finance-schema-2021q1.yml'
 
@@ -16,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  discover-2021q1:
+  discover-schema-epochs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
@@ -34,11 +35,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt pytest
-      - name: Quick discovery and semantic guards
+      - name: Discovery and semantic guards
         run: |
           python -m pytest -q \
             tests/test_kap_bulk_insurance_finance_schema_targeted.py \
-            tests/test_kap_bulk_insurance_finance_exact_semantic_mapping.py
+            tests/test_kap_bulk_insurance_finance_exact_semantic_mapping.py \
+            tests/test_kap_bulk_financial_schema_shift_2022.py
       - name: Download exact public release raw ZIP assets
         run: |
           mkdir -p kap-current
@@ -46,7 +48,7 @@ jobs:
           test "$(find kap-current -maxdepth 1 -type f -name 'KAP_*.zip' | wc -l)" -eq 28
       - name: Re-verify exact public release bytes
         run: (cd kap-current && sha256sum -c "$GITHUB_WORKSPACE/$SHA256SUMS_OBSERVED")
-      - name: Discover verified 2021Q1 INSURANCE FINANCE schema
+      - name: Discover verified pre-shift and post-shift schemas
         run: |
           mapfile -t archives < <(find kap-current -maxdepth 1 -type f -name 'KAP_*.zip' | sort)
           args=()
@@ -54,20 +56,20 @@ jobs:
           python -m scripts.discover_kap_bulk_insurance_finance_schema_targeted \
             "${args[@]}" \
             --scan-archive-name KAP_2021_3A.zip \
+            --scan-archive-name KAP_2022_3A.zip \
             --public-evidence "$PUBLIC_EVIDENCE" \
-            --output kap-2021q1-insurance-finance-schema.json
+            --output kap-insurance-finance-schema-epochs.json
       - name: Enforce discovery-only boundary
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          result = json.loads(Path('kap-2021q1-insurance-finance-schema.json').read_text())
+          result = json.loads(Path('kap-insurance-finance-schema-epochs.json').read_text())
           assert result['archive_count'] == 28
-          assert result['scanned_archive_count'] == 1
-          assert result['scanned_archive_names'] == ['KAP_2021_3A.zip']
+          assert result['scanned_archive_count'] == 2
+          assert result['scanned_archive_names'] == ['KAP_2021_3A.zip', 'KAP_2022_3A.zip']
           assert result['full_archive_schema_scan'] is False
-          assert result['matched_insurance_finance_report_count'] == 17
-          assert result['source_entity_count'] == 13
+          assert result['matched_insurance_finance_report_count'] == 35
           assert set(result['role_namespaces']) == {'insurance', 'finance'}
           assert result['semantic_mapping_authorized'] is False
           assert result['pit_materialization_authorized'] is False
@@ -90,68 +92,84 @@ jobs:
           )
           from src.ingest.kap_bulk_semantic_adapter import bulk_cells_to_financial_facts
 
-          archive = Path('kap-current/KAP_2021_3A.zip')
-          archive_sha = hashlib.sha256(archive.read_bytes()).hexdigest()
           insurance_mapper = SemanticFactMapper(build_bulk_exact_insurance_semantic_config())
           financial_mapper = SemanticFactMapper(build_bulk_exact_financial_semantic_config())
           cases = [
-              ('ANSGR', 'INSURANCE', {
+              ('KAP_2021_3A.zip', '_2021_1.xls', 'ANSGR', 'INSURANCE', {
                   'TOTAL_EQUITY', 'ISSUED_CAPITAL', 'NET_INCOME',
                   'WRITTEN_PREMIUMS_NON_LIFE', 'TECHNICAL_RESULT_TOTAL', 'INVESTMENT_INCOME',
               }),
-              ('ANHYT', 'INSURANCE', {
+              ('KAP_2021_3A.zip', '_2021_1.xls', 'ANHYT', 'INSURANCE', {
                   'TOTAL_EQUITY', 'ISSUED_CAPITAL', 'NET_INCOME',
                   'WRITTEN_PREMIUMS_LIFE', 'TECHNICAL_RESULT_TOTAL', 'INVESTMENT_INCOME',
               }),
-              ('CRDFA', 'FINANCIAL', {
+              ('KAP_2021_3A.zip', '_2021_1.xls', 'CRDFA', 'FINANCIAL', {
                   'TOTAL_ASSETS', 'TOTAL_EQUITY', 'ISSUED_CAPITAL', 'NET_INCOME',
                   'FACTORING_RECEIVABLES', 'NET_FINANCE_INCOME', 'FUNDING_COSTS', 'OPERATING_EXPENSES',
               }),
-              ('ISFIN', 'FINANCIAL', {
+              ('KAP_2021_3A.zip', '_2021_1.xls', 'ISFIN', 'FINANCIAL', {
+                  'TOTAL_ASSETS', 'TOTAL_EQUITY', 'ISSUED_CAPITAL', 'NET_INCOME',
+                  'LEASING_RECEIVABLES_NET', 'NET_FINANCE_INCOME', 'FUNDING_COSTS', 'OPERATING_EXPENSES',
+              }),
+              ('KAP_2022_3A.zip', '_2022_1.xls', 'CRDFA', 'FINANCIAL', {
+                  'TOTAL_ASSETS', 'TOTAL_EQUITY', 'ISSUED_CAPITAL', 'NET_INCOME',
+                  'FACTORING_RECEIVABLES', 'NET_FINANCE_INCOME', 'FUNDING_COSTS', 'OPERATING_EXPENSES',
+              }),
+              ('KAP_2022_3A.zip', '_2022_1.xls', 'ISFIN', 'FINANCIAL', {
                   'TOTAL_ASSETS', 'TOTAL_EQUITY', 'ISSUED_CAPITAL', 'NET_INCOME',
                   'LEASING_RECEIVABLES_NET', 'NET_FINANCE_INCOME', 'FUNDING_COSTS', 'OPERATING_EXPENSES',
               }),
           ]
-          evidence = {'archive': archive.name, 'archive_sha256': archive_sha, 'cases': []}
-          with ZipFile(archive) as bundle:
-              names = bundle.namelist()
-              for ticker, family, required in cases:
-                  candidates = sorted(
-                      name for name in names
-                      if name.startswith(f'{ticker}_') and name.endswith('_2021_1.xls')
+          archive_cache = {}
+          evidence = {'archives': {}, 'cases': []}
+          for archive_name, suffix, ticker, family, required in cases:
+              archive = Path('kap-current') / archive_name
+              archive_sha = hashlib.sha256(archive.read_bytes()).hexdigest()
+              evidence['archives'][archive_name] = archive_sha
+              if archive_name not in archive_cache:
+                  archive_cache[archive_name] = ZipFile(archive)
+              bundle = archive_cache[archive_name]
+              candidates = sorted(
+                  name for name in bundle.namelist()
+                  if name.startswith(f'{ticker}_') and name.endswith(suffix)
+              )
+              assert candidates, f'{ticker} {archive_name} real KAP member bulunamadi'
+              successful = []
+              for member in candidates:
+                  raw = bundle.read(member)
+                  report = parse_kap_bulk_export_report(
+                      archive_name=archive_name,
+                      archive_sha256=archive_sha,
+                      member_name=member,
+                      raw_html=raw,
                   )
-                  assert candidates, f'{ticker} 2021Q1 real KAP member bulunamadi'
-                  successful = []
-                  for member in candidates:
-                      raw = bundle.read(member)
-                      report = parse_kap_bulk_export_report(
-                          archive_name=archive.name,
-                          archive_sha256=archive_sha,
-                          member_name=member,
-                          raw_html=raw,
-                      )
-                      cells = parse_kap_bulk_financial_cells(report, raw)
-                      facts = bulk_cells_to_financial_facts(
-                          report, cells, ticker=ticker,
-                          extracted_at=report.published_at + timedelta(minutes=1),
-                      )
-                      mapper = insurance_mapper if family == 'INSURANCE' else financial_mapper
-                      semantic = mapper.map_facts(
-                          facts, mapped_at=report.published_at + timedelta(minutes=2)
-                      )
-                      fields = {row.canonical_field for row in semantic}
-                      if required.issubset(fields):
-                          successful.append({
-                              'member': member,
-                              'notification_id': report.notification_id,
-                              'statement_scope': report.statement_scope,
-                              'semantic_fields': sorted(fields),
-                          })
-                  assert successful, f'{ticker} real KAP {family} semantic core mapping PASS uretmedi'
-                  evidence['cases'].append({
-                      'ticker': ticker, 'family': family,
-                      'required_fields': sorted(required), 'successful': successful,
-                  })
+                  cells = parse_kap_bulk_financial_cells(report, raw)
+                  facts = bulk_cells_to_financial_facts(
+                      report, cells, ticker=ticker,
+                      extracted_at=report.published_at + timedelta(minutes=1),
+                  )
+                  mapper = insurance_mapper if family == 'INSURANCE' else financial_mapper
+                  semantic = mapper.map_facts(
+                      facts, mapped_at=report.published_at + timedelta(minutes=2)
+                  )
+                  fields = {row.canonical_field for row in semantic}
+                  if required.issubset(fields):
+                      successful.append({
+                          'member': member,
+                          'notification_id': report.notification_id,
+                          'statement_scope': report.statement_scope,
+                          'semantic_fields': sorted(fields),
+                      })
+              assert successful, f'{ticker} {archive_name} {family} semantic core mapping PASS uretmedi'
+              evidence['cases'].append({
+                  'archive': archive_name,
+                  'ticker': ticker,
+                  'family': family,
+                  'required_fields': sorted(required),
+                  'successful': successful,
+              })
+          for bundle in archive_cache.values():
+              bundle.close()
 
           evidence['result'] = 'PASS'
           Path('kap-real-insurance-finance-semantic-regression.json').write_text(
@@ -160,12 +178,12 @@ jobs:
           )
           print(json.dumps(evidence, ensure_ascii=False, sort_keys=True))
           PY
-      - name: Upload 2021Q1 INSURANCE FINANCE evidence
+      - name: Upload schema epoch evidence
         uses: actions/upload-artifact@v4
         with:
-          name: kap-2021q1-insurance-finance-schema-${{ github.sha }}
+          name: kap-insurance-finance-schema-epochs-${{ github.sha }}
           path: |
-            kap-2021q1-insurance-finance-schema.json
+            kap-insurance-finance-schema-epochs.json
             kap-real-insurance-finance-semantic-regression.json
           if-no-files-found: error
           retention-days: 90
