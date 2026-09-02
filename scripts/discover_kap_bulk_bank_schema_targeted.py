@@ -5,7 +5,7 @@ import hashlib
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Iterable, Mapping
+from typing import BinaryIO, Iterable, Mapping
 from zipfile import ZipFile
 
 from scripts.discover_kap_bulk_current_snapshot import build_current_identity_manifest
@@ -20,6 +20,7 @@ from src.ingest.kap_bulk_financial_export import (
 CONTRACT = "KAP_BULK_BANK_SCHEMA_TARGETED_DISCOVERY_CURRENT_SNAPSHOT_V1"
 TARGET_ROLE_NAMESPACES = frozenset({"banks", "par-banks"})
 RAW_MARKERS = (b"banks_role_", b"par-banks_role_")
+STREAM_SCAN_CHUNK_BYTES = 1024 * 1024
 MAX_EXAMPLES = 5
 
 
@@ -30,6 +31,31 @@ def _sha256_bytes(value: bytes) -> str:
 def _is_target_raw(raw: bytes) -> bool:
     lowered = bytes(raw).lower()
     return any(marker in lowered for marker in RAW_MARKERS)
+
+
+def _stream_contains_target_role(
+    handle: BinaryIO,
+    *,
+    chunk_size: int = STREAM_SCAN_CHUNK_BYTES,
+) -> bool:
+    """Search target role markers without materializing every XLS member.
+
+    Non-target members are scanned incrementally and discarded. Only members that
+    expose an exact BANK / participation-bank technical role are subsequently read
+    in full and parsed. ``carry`` preserves markers split across chunk boundaries.
+    """
+    if isinstance(chunk_size, bool) or not isinstance(chunk_size, int) or chunk_size <= 0:
+        raise ValueError("chunk_size pozitif Python int olmali")
+    overlap = max(len(marker) for marker in RAW_MARKERS) - 1
+    carry = b""
+    while True:
+        block = handle.read(chunk_size)
+        if not block:
+            return False
+        probe = carry + bytes(block).lower()
+        if any(marker in probe for marker in RAW_MARKERS):
+            return True
+        carry = probe[-overlap:] if overlap else b""
 
 
 def _target_cells(cells: Iterable[KapBulkFinancialCell]) -> tuple[KapBulkFinancialCell, ...]:
@@ -88,9 +114,14 @@ def discover_targeted_bank_schema(
         with ZipFile(verified.path) as bundle:
             members = sorted(name for name in bundle.namelist() if name.endswith(".xls"))
             for member_name in members:
+                with bundle.open(member_name, "r") as member_stream:
+                    if not _stream_contains_target_role(member_stream):
+                        continue
+                # Target members are rare. Read only those in full for the strict
+                # report/cell parser; all other members were never materialized.
                 raw = bundle.read(member_name)
                 if not _is_target_raw(raw):
-                    continue
+                    raise ValueError("stream BANK role gate ile full-byte gate celisti")
                 report = parse_kap_bulk_export_report(
                     archive_name=verified.path.name,
                     archive_sha256=verified.sha256,
@@ -99,13 +130,16 @@ def discover_targeted_bank_schema(
                 )
                 cells = _target_cells(parse_kap_bulk_financial_cells(report, raw))
                 if not cells:
-                    continue
+                    raise ValueError("BANK role marker bulundu ancak hedef hucre uretilmedi")
                 matched_reports += 1
                 target_reports += 1
                 target_source_entities.add(report.source_entity_code)
                 if len(matched_members) < MAX_EXAMPLES:
                     matched_members.append(member_name)
                 for cell in cells:
+                    namespace = role_namespace(cell.table_role)
+                    if namespace not in TARGET_ROLE_NAMESPACES:
+                        raise ValueError(f"hedef disi BANK namespace sizdi: {namespace}")
                     target_roles.add(cell.table_role)
                     key = (cell.table_role, cell.row_number, " ".join(cell.label_tr.split()))
                     observations.setdefault(key, Observation()).add(
