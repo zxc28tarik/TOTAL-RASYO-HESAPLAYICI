@@ -1,15 +1,18 @@
 from datetime import date
 from decimal import Decimal
 from io import BytesIO
+from pathlib import Path
 
 import pytest
 
 from scripts.discover_kap_bulk_bank_schema_targeted import (
     TARGET_ROLE_NAMESPACES,
     _is_target_raw,
+    _select_scan_archives,
     _stream_contains_target_role,
     _target_cells,
 )
+from scripts.discover_kap_bulk_schema_signatures import VerifiedArchive
 from src.ingest.kap_bulk_financial_export import KapBulkFinancialCell
 
 
@@ -30,6 +33,14 @@ def _cell(role: str) -> KapBulkFinancialCell:
         scaled_value=Decimal("1000"),
         currency="TRY",
         unit_scale=1000,
+    )
+
+
+def _verified(name: str) -> VerifiedArchive:
+    return VerifiedArchive(
+        path=Path("/tmp") / name,
+        sha256="a" * 64,
+        member_count=1,
     )
 
 
@@ -76,3 +87,39 @@ def test_target_cells_preserve_only_exact_bank_role_namespaces() -> None:
         "banks_role_210013",
         "par-banks_role_310019",
     ]
+
+
+def test_probe_archive_selector_keeps_full_verified_set_outside_scan_scope() -> None:
+    verified = (
+        _verified("KAP_2020_Y.zip"),
+        _verified("KAP_2021_3A.zip"),
+        _verified("KAP_2026_6A.zip"),
+    )
+
+    selected, names = _select_scan_archives(verified, ["KAP_2021_3A.zip"])
+
+    assert names == frozenset({"KAP_2021_3A.zip"})
+    assert [row.path.name for row in selected] == ["KAP_2021_3A.zip"]
+    assert len(verified) == 3
+
+
+def test_probe_archive_selector_defaults_to_all_verified_archives() -> None:
+    verified = (_verified("KAP_2020_Y.zip"), _verified("KAP_2021_3A.zip"))
+
+    selected, names = _select_scan_archives(verified, None)
+
+    assert selected == verified
+    assert names == frozenset({"KAP_2020_Y.zip", "KAP_2021_3A.zip"})
+
+
+def test_probe_archive_selector_rejects_unknown_duplicate_and_empty_names() -> None:
+    verified = (_verified("KAP_2021_3A.zip"),)
+
+    with pytest.raises(ValueError, match="manifestte yok"):
+        _select_scan_archives(verified, ["KAP_2099_Y.zip"])
+    with pytest.raises(ValueError, match="duplicate"):
+        _select_scan_archives(verified, ["KAP_2021_3A.zip", "KAP_2021_3A.zip"])
+    with pytest.raises(ValueError, match="dolu metin"):
+        _select_scan_archives(verified, [" "])
+    with pytest.raises(ValueError, match="bos olamaz"):
+        _select_scan_archives(verified, [])
