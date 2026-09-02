@@ -13,6 +13,7 @@ on:
 permissions:
   contents: read
 
+# P2 gate: raw THB evidence is preserved but adjusted-basis proof remains mandatory.
 jobs:
   gate:
     runs-on: ubuntu-latest
