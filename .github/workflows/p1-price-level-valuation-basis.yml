@@ -1,0 +1,27 @@
+name: P1 Price-Level Valuation Basis
+
+on:
+  push:
+    branches: [codex/p1-price-level-valuation-basis]
+    paths:
+      - 'src/analytics/price_level_valuation_basis.py'
+      - 'tests/test_price_level_valuation_basis.py'
+      - '.github/workflows/p1-price-level-valuation-basis.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install targeted dependencies
+        run: python -m pip install --disable-pip-version-check pytest pandas
+      - name: Run price-level economic contract tests
+        run: python -m pytest -q tests/test_price_level_valuation_basis.py
