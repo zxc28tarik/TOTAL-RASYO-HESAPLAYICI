@@ -13,8 +13,11 @@ from src.ingest.kap_bulk_insurance_finance_exact_semantic_mapping import (
 from src.ingest.kap_bulk_semantic_adapter import bulk_cells_to_financial_facts
 
 
-PUBLISHED = datetime(2021, 5, 5, 18, 0, tzinfo=timezone.utc)
-MAPPED = datetime(2021, 5, 5, 19, 0, tzinfo=timezone.utc)
+# Keep the synthetic disclosure publication after both 2021Q1 and 2022Q1 facts.
+# This fixture is for exact semantic identity tests; real publication timing is
+# independently covered by the real KAP archive regressions.
+PUBLISHED = datetime(2022, 5, 5, 18, 0, tzinfo=timezone.utc)
+MAPPED = datetime(2022, 5, 5, 19, 0, tzinfo=timezone.utc)
 
 
 def report() -> KapBulkExportReport:
