@@ -1,0 +1,209 @@
+name: P2 Official THB Valuation Price Discovery
+
+on:
+  push:
+    branches: [codex/p2-holding-gyo-nad-price-gaps]
+    paths:
+      - '.github/workflows/p2-valuation-price-discovery.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Discover exact pre-cutoff Borsa THB prices
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          python - <<'PY'
+          from __future__ import annotations
+
+          import csv
+          import hashlib
+          import io
+          import json
+          import urllib.error
+          import urllib.request
+          import zipfile
+          from datetime import date, timedelta
+          from pathlib import Path
+
+          TARGETS = [
+              {"ticker":"INVES","signal_date":"2022-07-01","analysis_date":"2022-06-30","price_cap_date":"2022-06-29"},
+              {"ticker":"INVES","signal_date":"2022-08-01","analysis_date":"2022-07-29","price_cap_date":"2022-07-28"},
+              {"ticker":"INVES","signal_date":"2022-09-01","analysis_date":"2022-08-31","price_cap_date":"2022-08-30"},
+              {"ticker":"KLRHO","signal_date":"2023-01-02","analysis_date":"2022-12-30","price_cap_date":"2022-12-29"},
+              {"ticker":"KLRHO","signal_date":"2023-02-01","analysis_date":"2023-01-31","price_cap_date":"2023-01-30"},
+              {"ticker":"KLRHO","signal_date":"2023-03-01","analysis_date":"2023-02-28","price_cap_date":"2023-02-27"},
+              {"ticker":"KLRHO","signal_date":"2023-04-03","analysis_date":"2023-03-31","price_cap_date":"2023-03-30"},
+              {"ticker":"KLRHO","signal_date":"2023-05-02","analysis_date":"2023-04-28","price_cap_date":"2023-04-27"},
+              {"ticker":"KLRHO","signal_date":"2023-06-01","analysis_date":"2023-05-31","price_cap_date":"2023-05-30"},
+              {"ticker":"ASGYO","signal_date":"2024-01-02","analysis_date":"2023-12-29","price_cap_date":"2023-12-28"},
+              {"ticker":"ASGYO","signal_date":"2024-02-01","analysis_date":"2024-01-31","price_cap_date":"2024-01-30"},
+              {"ticker":"ASGYO","signal_date":"2024-03-01","analysis_date":"2024-02-29","price_cap_date":"2024-02-28"},
+          ]
+
+          REQUIRED = {
+              "TARIH": "TRADE DATE",
+              "ISLEM  KODU": "INSTRUMENT SERIES CODE",
+              "ACILIS FIYATI": "OPENING PRICE",
+              "KAPANIS FIYATI": "CLOSING PRICE",
+          }
+          SUFFIXES = ("", "0", "1", "2", "3")
+          UA = "TOTAL-RASYO-HESAPLAYICI/P2 official THB audit"
+
+          def get(url: str) -> bytes | None:
+              req = urllib.request.Request(url, headers={"User-Agent": UA})
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as resp:
+                      if resp.status != 200:
+                          return None
+                      return resp.read()
+              except urllib.error.HTTPError as exc:
+                  if exc.code in {403, 404}:
+                      return None
+                  raise
+
+          def decode_member(raw: bytes) -> tuple[str, str]:
+              for enc in ("utf-8-sig", "utf-8", "cp1254", "latin-1"):
+                  try:
+                      return raw.decode(enc), enc
+                  except UnicodeDecodeError:
+                      pass
+              raise RuntimeError("THB CSV decode failed")
+
+          def inspect_archive(ticker: str, trade_day: date, blob: bytes, url: str):
+              if not zipfile.is_zipfile(io.BytesIO(blob)):
+                  return None
+              with zipfile.ZipFile(io.BytesIO(blob)) as zf:
+                  members = [n for n in zf.namelist() if n.lower().endswith(".csv")]
+                  for member in members:
+                      raw = zf.read(member)
+                      text, encoding = decode_member(raw)
+                      lines = text.splitlines()
+                      if len(lines) < 3:
+                          continue
+                      tr = next(csv.reader([lines[0]], delimiter=";"))
+                      en = next(csv.reader([lines[1]], delimiter=";"))
+                      if len(tr) != len(en):
+                          continue
+                      positions = {}
+                      valid = True
+                      for tr_name, en_name in REQUIRED.items():
+                          if tr_name not in tr:
+                              valid = False
+                              break
+                          idx = tr.index(tr_name)
+                          if en[idx] != en_name:
+                              valid = False
+                              break
+                          positions[tr_name] = idx
+                      if not valid:
+                          continue
+                      target_code = f"{ticker}.E"
+                      for line_no, line in enumerate(lines[2:], start=3):
+                          row = next(csv.reader([line], delimiter=";"))
+                          if len(row) != len(tr):
+                              continue
+                          if row[positions["ISLEM  KODU"]].strip().upper() != target_code:
+                              continue
+                          if row[positions["TARIH"]].strip() != trade_day.isoformat():
+                              continue
+                          open_text = row[positions["ACILIS FIYATI"]].strip()
+                          close_text = row[positions["KAPANIS FIYATI"]].strip()
+                          open_value = float(open_text)
+                          close_value = float(close_text)
+                          if not (open_value > 0 and close_value > 0):
+                              raise RuntimeError(f"non-positive THB price {ticker} {trade_day}")
+                          return {
+                              "trade_date": trade_day.isoformat(),
+                              "open": open_value,
+                              "close": close_value,
+                              "archive_url": url,
+                              "archive_sha256": hashlib.sha256(blob).hexdigest(),
+                              "member": member,
+                              "member_sha256": hashlib.sha256(raw).hexdigest(),
+                              "encoding": encoding,
+                              "line_no": line_no,
+                              "first_lines": lines[:2],
+                              "target_row": line,
+                              "field_count": len(tr),
+                          }
+              return None
+
+          results = []
+          for target in TARGETS:
+              ticker = target["ticker"]
+              signal = date.fromisoformat(target["signal_date"])
+              analysis = date.fromisoformat(target["analysis_date"])
+              cap = date.fromisoformat(target["price_cap_date"])
+              assert cap < analysis < signal
+              found = None
+              attempts = []
+              for delta in range(0, 7):
+                  day = cap - timedelta(days=delta)
+                  if (analysis - day).days > 7:
+                      break
+                  for suffix in SUFFIXES:
+                      stem = f"thb{day:%Y%m%d}{suffix}"
+                      url = f"https://borsaistanbul.com/data/thb/{day:%Y}/{day:%m}/{stem}.zip"
+                      blob = get(url)
+                      attempts.append({"trade_date": day.isoformat(), "url": url, "status": "HIT" if blob else "MISS"})
+                      if blob is None:
+                          continue
+                      row = inspect_archive(ticker, day, blob, url)
+                      if row is None:
+                          continue
+                      found = row
+                      break
+                  if found is not None:
+                      break
+              if found is None:
+                  raise RuntimeError(f"no exact pre-cutoff THB row within 7-day price age: {ticker} {signal}")
+              selected = date.fromisoformat(found["trade_date"])
+              price_age_days = (analysis - selected).days
+              assert selected <= cap
+              assert 0 <= price_age_days <= 7
+              result = {
+                  **target,
+                  "cutoff_local": f"{analysis.isoformat()}T18:10:00+03:00",
+                  "max_price_age_days": 7,
+                  "price_age_days": price_age_days,
+                  "source": "BORSA_ISTANBUL_THB",
+                  "price_resolution": "BORSA_ISTANBUL_THB_PRE_CUTOFF_EXACT",
+                  **found,
+                  "attempt_count": len(attempts),
+                  "attempts": attempts,
+              }
+              results.append(result)
+              print("P2_RESULT=" + json.dumps({k:v for k,v in result.items() if k not in {"first_lines","target_row","attempts"}}, ensure_ascii=False, sort_keys=True))
+
+          keyset = {(r["ticker"], r["signal_date"]) for r in results}
+          expected = {(r["ticker"], r["signal_date"]) for r in TARGETS}
+          assert keyset == expected and len(results) == 12
+          payload = {
+              "contract": "P2_HISTORICAL_VALUATION_PRICE_DISCOVERY_V1",
+              "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+              "production_contract_changed": False,
+              "execution_price_supplement_reused": False,
+              "rows": results,
+          }
+          out = Path("artifacts/p2_historical_valuation_price_discovery.json")
+          raw = json.dumps(payload, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
+          out.write_text(raw, encoding="utf-8")
+          digest = hashlib.sha256(raw.encode("utf-8")).hexdigest()
+          Path("artifacts/SHA256SUMS").write_text(f"{digest}  {out.name}\n", encoding="utf-8")
+          print("P2_RECEIPT_SHA256=" + digest)
+          print("P2_ROWS=12")
+          PY
+      - name: Upload P2 valuation-price evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: p2-historical-valuation-price-discovery
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90
