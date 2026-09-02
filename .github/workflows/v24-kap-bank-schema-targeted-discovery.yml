@@ -56,6 +56,7 @@ jobs:
           done
           python -m scripts.discover_kap_bulk_bank_schema_targeted \
             "${args[@]}" \
+            --scan-archive-name KAP_2021_3A.zip \
             --public-evidence "$PUBLIC_EVIDENCE" \
             --output kap-current-bank-schema-targeted.json
       - name: Enforce discovery-only authorization boundary
@@ -67,11 +68,14 @@ jobs:
           result = json.loads(Path('kap-current-bank-schema-targeted.json').read_text())
           assert result['contract'] == 'KAP_BULK_BANK_SCHEMA_TARGETED_DISCOVERY_CURRENT_SNAPSHOT_V1'
           assert result['archive_count'] == 28
+          assert result['scanned_archive_count'] == 1
+          assert result['scanned_archive_names'] == ['KAP_2021_3A.zip']
+          assert result['full_archive_schema_scan'] is False
           assert result['matched_bank_report_count'] > 0
           assert result['source_entity_count'] > 0
           assert result['fact_identity_count'] > 0
           assert set(result['role_namespaces']).issubset({'banks', 'par-banks'})
-          assert 'banks' in result['role_namespaces']
+          assert set(result['role_namespaces']) == {'banks', 'par-banks'}
           assert result['current_snapshot_public_evidence_verified'] is True
           assert result['preserved_manifest_exact_match_count'] == 26
           assert result['preserved_manifest_drift_count'] == 2
@@ -79,6 +83,7 @@ jobs:
           assert result['semantic_mapping_authorized'] is False
           assert result['pit_materialization_authorized'] is False
           assert result['real_60_cutoff_scoring_authorized'] is False
+          print('scanned_archive_names=', result['scanned_archive_names'])
           print('matched_bank_report_count=', result['matched_bank_report_count'])
           print('source_entity_count=', result['source_entity_count'])
           print('role_count=', result['role_count'])
