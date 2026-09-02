@@ -1,0 +1,95 @@
+{
+  "archive": "KAP_2021_3A.zip",
+  "archive_sha256": "d953adceb72accfc4294cce4b40e79121ba10529ad2a17ef3f60e61654ecd654",
+  "cases": [
+    {
+      "successful": [
+        {
+          "member": "AKBNK_931897_2021_1.xls",
+          "notification_id": 931897,
+          "semantic_fields": [
+            "DIVIDENDS_PAID",
+            "ISSUED_CAPITAL",
+            "NET_INCOME",
+            "TOTAL_EQUITY"
+          ],
+          "statement_scope": "CONSOLIDATED"
+        },
+        {
+          "member": "AKBNK_931903_2021_1.xls",
+          "notification_id": 931903,
+          "semantic_fields": [
+            "DIVIDENDS_PAID",
+            "ISSUED_CAPITAL",
+            "NET_INCOME",
+            "TOTAL_EQUITY"
+          ],
+          "statement_scope": "SOLO"
+        }
+      ],
+      "ticker": "AKBNK"
+    },
+    {
+      "successful": [
+        {
+          "member": "ALBRK-ALK_934792_2021_1.xls",
+          "notification_id": 934792,
+          "semantic_fields": [
+            "DIVIDENDS_PAID",
+            "ISSUED_CAPITAL",
+            "NET_INCOME",
+            "TOTAL_EQUITY"
+          ],
+          "statement_scope": "SOLO"
+        },
+        {
+          "member": "ALBRK-ALK_938474_2021_1.xls",
+          "notification_id": 938474,
+          "semantic_fields": [
+            "DIVIDENDS_PAID",
+            "ISSUED_CAPITAL",
+            "NET_INCOME",
+            "TOTAL_EQUITY"
+          ],
+          "statement_scope": "CONSOLIDATED"
+        }
+      ],
+      "ticker": "ALBRK"
+    }
+  ],
+  "dividend_evidence": [
+    {
+      "context": "Cari Dönem 01.01.2021 - 31.03.2021 | Toplam Özkaynak",
+      "label": "Dağıtılan Temettü",
+      "member": "AKBNK_931897_2021_1.xls",
+      "role": "banks_role_610003",
+      "row": 39,
+      "ticker": "AKBNK"
+    },
+    {
+      "context": "Cari Dönem 01.01.2021 - 31.03.2021 | Toplam Özkaynak",
+      "label": "Dağıtılan Temettü",
+      "member": "AKBNK_931903_2021_1.xls",
+      "role": "banks_role_610003",
+      "row": 39,
+      "ticker": "AKBNK"
+    },
+    {
+      "context": "Cari Dönem 01.01.2021 - 31.03.2021 | Toplam Özkaynak",
+      "label": "Dağıtılan Temettü",
+      "member": "ALBRK-ALK_934792_2021_1.xls",
+      "role": "par-banks_role_610005",
+      "row": 39,
+      "ticker": "ALBRK"
+    },
+    {
+      "context": "Cari Dönem 01.01.2021 - 31.03.2021 | Toplam Özkaynak",
+      "label": "Dağıtılan Temettü",
+      "member": "ALBRK-ALK_938474_2021_1.xls",
+      "role": "par-banks_role_610005",
+      "row": 39,
+      "ticker": "ALBRK"
+    }
+  ],
+  "result": "PASS"
+}

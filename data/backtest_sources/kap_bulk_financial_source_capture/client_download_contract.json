@@ -1,0 +1,41 @@
+{
+  "captured_at": "2026-09-01T22:40:53.997830+00:00",
+  "contract": "PUBLIC_KAP_FINANCIAL_TABLE_DOWNLOAD_CLIENT_CONTRACT_V1",
+  "discovery_source": {
+    "page": "https://kap.org.tr/tr",
+    "page_sha256": "43c9d883322c65866c2b04d5ff84b5dc546c7026231650688ba70264d3ed3f8a",
+    "route_constants_chunk": "https://kap.org.tr/_next/static/chunks/0aa_ceeqiu8kv.js",
+    "route_constants_chunk_sha256": "86640679fce6630109b143e22f04bf6c21155659f0eefa3a64307eba9323911c",
+    "download_call_chunk": "https://kap.org.tr/_next/static/chunks/17zxt7wxle~0k.js",
+    "download_call_chunk_sha256": "9e9df381847604f530e9ba30ebeed5e904ab5525234c8d073a5e7d3f5c6fa281",
+    "github_actions_run_id": 33567450808,
+    "github_actions_artifact_id": 9823667594,
+    "probe_head_sha": "6e1f606200982d7fd81dcfd0dcc629359b1b8066"
+  },
+  "client_routes": {
+    "bulk_download": "api/financialTable/download",
+    "bulk_check_file_exist": "api/financialTable/checkFileExist",
+    "company_download": "api/home-financial/download-file"
+  },
+  "bulk_templates": {
+    "check_file_exist": "{base_url}/{lang}/api/financialTable/checkFileExist/{year}/{period_code}",
+    "download": "{base_url}/{lang}/api/financialTable/download/{year}/{period_code}"
+  },
+  "period_codes": {
+    "3A": 1,
+    "6A": 2,
+    "9A": 3,
+    "Y": 4
+  },
+  "http_method": "GET",
+  "language_header": "Accept-Language",
+  "evidence_status": "DISCOVERED_FROM_PUBLIC_KAP_CLIENT_BUNDLE",
+  "archive_download_verified": false,
+  "raw_archives_committed_to_git": false,
+  "semantic_mapping_authorized": false,
+  "notes": [
+    "The public KAP client constructs the bulk request as base/lang/api/financialTable/download/year/period_code.",
+    "Period codes are taken from the public client UI mapping: 1=3A, 2=6A, 3=9A, 4=Y.",
+    "This contract records client behavior only. A separate endpoint probe must verify that the route returns an archive before 28-period acquisition is authorized."
+  ]
+}
