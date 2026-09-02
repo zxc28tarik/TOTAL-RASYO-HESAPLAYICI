@@ -27,8 +27,11 @@ def test_stream_role_markers_accepts_marker_ending_at_eof() -> None:
     }
 
 
-def test_stream_role_markers_does_not_absorb_adjacent_text_into_namespace() -> None:
-    assert _stream_role_markers(BytesIO(b'prefixinsurance_role_310001"'), chunk_size=4) == set()
+def test_stream_role_markers_respects_markup_delimiter_before_namespace() -> None:
+    raw = b'prefix"insurance_role_310001" suffix'
+    assert _stream_role_markers(BytesIO(raw), chunk_size=4) == {
+        ("insurance", "insurance_role_310001")
+    }
 
 
 def test_stream_role_markers_rejects_invalid_chunk_size() -> None:
