@@ -182,6 +182,65 @@ def test_financial_verified_2021q1_balance_rows_require_current_total() -> None:
             ), "FINANCIAL")
 
 
+def test_financial_verified_2022_schema_shift_maps_exactly() -> None:
+    instant_cases = [
+        (40, "VARLIKLAR TOPLAMI", "TOTAL_ASSETS"),
+        (62, "ÖZKAYNAKLAR", "TOTAL_EQUITY"),
+        (63, "Ödenmiş Sermaye", "ISSUED_CAPITAL"),
+        (15, "Finansman Kredileri", "CONSUMER_FINANCE_RECEIVABLES"),
+        (19, "Kiralama İşlemleri (Net)", "LEASING_RECEIVABLES_NET"),
+        (24, "Takipteki Alacaklar", "NPL_GROSS"),
+        (25, "Beklenen Zarar Karşılıkları / Özel Karşılıklar (-)", "PROVISIONS"),
+    ]
+    for row, label, field in instant_cases:
+        out = map_one(cell(
+            "finance_role_210014", row, label,
+            "Cari Dönem 31.03.2022 | Toplam",
+            period_end=date(2022, 3, 31),
+            value="-100" if field == "PROVISIONS" else "100",
+        ), "FINANCIAL")
+        assert out[0].canonical_field == field
+        if field == "PROVISIONS":
+            assert out[0].value == Decimal("100")
+
+    ytd_cases = [
+        (81, "DÖNEM NET KARI VEYA ZARARI", "NET_INCOME", "100"),
+        (29, "BRÜT KAR (ZARAR)", "NET_FINANCE_INCOME", "100"),
+        (21, "FİNANSMAN GİDERLERİ (-)", "FUNDING_COSTS", "-100"),
+        (30, "ESAS FAALİYET GİDERLERİ (-)", "OPERATING_EXPENSES", "-100"),
+    ]
+    for row, label, field, value in ytd_cases:
+        out = map_one(cell(
+            "finance_role_310020", row, label,
+            "Cari Dönem 01.01.2022 - 31.03.2022",
+            value=value,
+            period_start=date(2022, 1, 1),
+            period_end=date(2022, 3, 31),
+        ), "FINANCIAL")
+        assert out[0].canonical_field == field
+        if field in {"FUNDING_COSTS", "OPERATING_EXPENSES"}:
+            assert out[0].value == Decimal("100")
+
+
+def test_financial_2022_shift_still_rejects_wrong_label_and_context() -> None:
+    with pytest.raises(KapApiProtocolError, match="hic kalem"):
+        map_one(cell(
+            "finance_role_210014", 40, "TOPLAM VARLIKLAR",
+            "Cari Dönem 31.03.2022 | Toplam", period_end=date(2022, 3, 31),
+        ), "FINANCIAL")
+    with pytest.raises(KapApiProtocolError, match="hic kalem"):
+        map_one(cell(
+            "finance_role_210014", 40, "VARLIKLAR TOPLAMI",
+            "Cari Dönem 31.03.2022 | TP", period_end=date(2022, 3, 31),
+        ), "FINANCIAL")
+    with pytest.raises(KapApiProtocolError, match="hic kalem"):
+        map_one(cell(
+            "finance_role_310020", 81, "DÖNEM NET KARI VEYA ZARARI",
+            "Önceki Dönem 01.01.2021 - 31.03.2021",
+            period_start=date(2021, 1, 1), period_end=date(2021, 3, 31),
+        ), "FINANCIAL")
+
+
 def test_financial_ytd_core_and_abs_signs_are_exact() -> None:
     net = map_one(cell(
         "finance_role_310020", 77, "DÖNEM NET KARI VEYA ZARARI",
