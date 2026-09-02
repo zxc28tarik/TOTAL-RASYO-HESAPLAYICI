@@ -15,12 +15,25 @@ from scripts.discover_kap_bulk_schema_signatures import validate_archive_inputs
 
 CONTRACT = "KAP_BULK_ROLE_NAMESPACE_TARGETED_DISCOVERY_V1"
 STREAM_SCAN_CHUNK_BYTES = 1024 * 1024
-ROLE_PATTERN = re.compile(rb"([a-z0-9-]+)_role_([0-9]+)", re.IGNORECASE)
+# Both boundaries are deliberate. A role number split at a chunk boundary must not
+# be accepted until its terminating non-digit arrives; adjacent text must not be
+# absorbed into the namespace.
+ROLE_PATTERN = re.compile(
+    rb"(?<![a-z0-9-])([a-z0-9-]+)_role_([0-9]+)(?=[^0-9])",
+    re.IGNORECASE,
+)
 MAX_EXAMPLES = 8
 
 
 def _sha256_bytes(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
+
+
+def _collect_role_markers(probe: bytes, found: set[tuple[str, str]]) -> None:
+    for match in ROLE_PATTERN.finditer(probe):
+        namespace = match.group(1).decode("ascii")
+        role = f"{namespace}_role_{match.group(2).decode('ascii')}"
+        found.add((namespace, role))
 
 
 def _stream_role_markers(
@@ -37,12 +50,13 @@ def _stream_role_markers(
     while True:
         block = handle.read(chunk_size)
         if not block:
+            # A marker can legally end at EOF. Add a synthetic non-digit solely to
+            # finalize that trailing candidate; it never becomes source evidence.
+            if carry:
+                _collect_role_markers(carry + b" ", found)
             return found
         probe = carry + bytes(block).lower()
-        for match in ROLE_PATTERN.finditer(probe):
-            namespace = match.group(1).decode("ascii")
-            role = f"{namespace}_role_{match.group(2).decode('ascii')}"
-            found.add((namespace, role))
+        _collect_role_markers(probe, found)
         carry = probe[-overlap:]
 
 
