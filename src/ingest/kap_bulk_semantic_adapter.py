@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from hashlib import sha256
 import json
 import re
@@ -18,6 +18,8 @@ SOURCE = "KAP_BULK_FINANCIAL_EXPORT"
 MAPPING_PROFILE = "KAP_BULK_HTML_EXACT_LABEL_V1"
 MAPPING_VERSION = 1
 _ROLE_ROW_RE = re.compile(r"^[A-Za-z0-9_-]+:[1-9][0-9]*$")
+_CURRENT_PREFIXES = ("Cari Dönem", "Cari Donem")
+_PREVIOUS_PREFIXES = ("Önceki Dönem", "Onceki Donem")
 
 
 def _canonical_json(value: object) -> str:
@@ -31,6 +33,47 @@ def exact_label_fact_code(role_row_code: str, label_tr: str) -> str:
         raise KapBulkExportError("bulk Turkce etiketi bos")
     label = " ".join(label_tr.split())
     return f"{role_row_code.upper()}|LABEL_SHA256={sha256(label.encode('utf-8')).hexdigest()}"
+
+
+def bulk_context_dimensions(cell: KapBulkFinancialCell) -> dict[str, str]:
+    """Return date-independent context dimensions for fail-closed semantic selection.
+
+    KAP bulk exports embed period side and dimensional member in a human-readable
+    context string (for example ``Cari Dönem 31.03.2021 | Toplam``).  Exact
+    semantic mappings cannot safely match that raw string because dates change on
+    every report.  This helper derives only deterministic structural attributes;
+    the original ``context_label`` is still preserved verbatim for lineage.
+    """
+    if not isinstance(cell, KapBulkFinancialCell):
+        raise TypeError("cell KapBulkFinancialCell olmali")
+    context = " ".join(cell.context_label.split())
+    if not context:
+        raise KapBulkExportError("bulk context_label bos")
+
+    if context.startswith(_CURRENT_PREFIXES):
+        period_side = "CURRENT"
+    elif context.startswith(_PREVIOUS_PREFIXES):
+        period_side = "PREVIOUS"
+    else:
+        period_side = "UNCLASSIFIED"
+
+    if cell.period_start is None:
+        period_kind = "INSTANT"
+    elif "3 Aylık" in context or "3 Aylik" in context:
+        period_kind = "QUARTER"
+    elif cell.period_start.month == 1 and cell.period_start.day == 1:
+        period_kind = "YTD"
+    else:
+        period_kind = "OTHER_DURATION"
+
+    result = {
+        "context_period_side": period_side,
+        "context_period_kind": period_kind,
+    }
+    parts = [part.strip() for part in context.split("|")]
+    if len(parts) > 1 and parts[-1]:
+        result["context_member"] = parts[-1]
+    return result
 
 
 def bulk_cells_to_financial_facts(
@@ -85,6 +128,7 @@ def bulk_cells_to_financial_facts(
             "column_index": cell.column_index,
             "label_tr": " ".join(cell.label_tr.split()),
             "context_label": cell.context_label,
+            **bulk_context_dimensions(cell),
         }
         key_context = {
             "fact_code": fact_code,
