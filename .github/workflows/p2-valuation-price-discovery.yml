@@ -31,6 +31,7 @@ jobs:
           import urllib.error
           import urllib.request
           import zipfile
+          from concurrent.futures import ThreadPoolExecutor
           from datetime import date, timedelta
           from pathlib import Path
 
@@ -55,9 +56,9 @@ jobs:
               "ACILIS FIYATI": "OPENING PRICE",
               "KAPANIS FIYATI": "CLOSING PRICE",
           }
-          # Most audited modern THB archives use suffix 1. Suffixless is a known
-          # historical fallback (e.g. 2023-03-17). Try those first, then 0/2/3.
-          SUFFIXES = ("1", "", "0", "2", "3")
+          # Existing official discovery proves suffix 1 for the 12 signal-day
+          # archives; a suffixless THB archive is also known historically.
+          SUFFIXES = ("1", "")
           UA = "TOTAL-RASYO-HESAPLAYICI/P2 official THB audit"
 
           def get(url: str) -> bytes | None:
@@ -98,17 +99,14 @@ jobs:
                       if len(tr) != len(en):
                           continue
                       positions = {}
-                      valid = True
                       for tr_name, en_name in REQUIRED.items():
                           if tr_name not in tr:
-                              valid = False
                               break
                           idx = tr.index(tr_name)
                           if en[idx] != en_name:
-                              valid = False
                               break
                           positions[tr_name] = idx
-                      if not valid:
+                      if len(positions) != len(REQUIRED):
                           continue
                       target_code = f"{ticker}.E"
                       for line_no, line in enumerate(lines[2:], start=3):
@@ -139,15 +137,14 @@ jobs:
                           }
               return None
 
-          results = []
-          for target in TARGETS:
+          def discover_one(target: dict[str, str]) -> dict[str, object]:
               ticker = target["ticker"]
               signal = date.fromisoformat(target["signal_date"])
               analysis = date.fromisoformat(target["analysis_date"])
               cap = date.fromisoformat(target["price_cap_date"])
               assert cap < analysis < signal
-              found = None
               attempts = []
+              found = None
               for delta in range(0, 7):
                   day = cap - timedelta(days=delta)
                   if (analysis - day).days > 7:
@@ -160,19 +157,18 @@ jobs:
                       if blob is None:
                           continue
                       row = inspect_archive(ticker, day, blob, url)
-                      if row is None:
-                          continue
-                      found = row
-                      break
+                      if row is not None:
+                          found = row
+                          break
                   if found is not None:
                       break
               if found is None:
                   raise RuntimeError(f"no exact pre-cutoff THB row within 7-day price age: {ticker} {signal}")
-              selected = date.fromisoformat(found["trade_date"])
+              selected = date.fromisoformat(str(found["trade_date"]))
               price_age_days = (analysis - selected).days
               assert selected <= cap
               assert 0 <= price_age_days <= 7
-              result = {
+              return {
                   **target,
                   "cutoff_local": f"{analysis.isoformat()}T18:10:00+03:00",
                   "max_price_age_days": 7,
@@ -183,7 +179,11 @@ jobs:
                   "attempt_count": len(attempts),
                   "attempts": attempts,
               }
-              results.append(result)
+
+          with ThreadPoolExecutor(max_workers=12) as pool:
+              results = list(pool.map(discover_one, TARGETS))
+
+          for result in results:
               print("P2_RESULT=" + json.dumps({k:v for k,v in result.items() if k not in {"first_lines","target_row","attempts"}}, ensure_ascii=False, sort_keys=True))
 
           keyset = {(r["ticker"], r["signal_date"]) for r in results}
