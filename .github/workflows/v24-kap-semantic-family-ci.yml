@@ -7,9 +7,12 @@ on:
     paths:
       - 'src/ingest/kap_bulk_*.py'
       - 'scripts/build_kap_archive_semantic_checkpoint.py'
-      - 'scripts/discover_kap_bulk_schema_signatures.py'
+      - 'scripts/discover_kap_bulk_*.py'
       - 'tests/test_kap_archive_semantic_checkpoint.py'
       - 'tests/test_kap_bulk_*.py'
+      - 'tests/test_sector_routing.py'
+      - 'tests/test_sector_routing_missing_values.py'
+      - 'tests/test_gyo_batch_pipeline.py'
       - '.github/workflows/v24-kap-semantic-family-ci.yml'
   push:
     branches:
@@ -17,9 +20,12 @@ on:
     paths:
       - 'src/ingest/kap_bulk_*.py'
       - 'scripts/build_kap_archive_semantic_checkpoint.py'
-      - 'scripts/discover_kap_bulk_schema_signatures.py'
+      - 'scripts/discover_kap_bulk_*.py'
       - 'tests/test_kap_archive_semantic_checkpoint.py'
       - 'tests/test_kap_bulk_*.py'
+      - 'tests/test_sector_routing.py'
+      - 'tests/test_sector_routing_missing_values.py'
+      - 'tests/test_gyo_batch_pipeline.py'
       - '.github/workflows/v24-kap-semantic-family-ci.yml'
 
 permissions:
@@ -68,7 +74,14 @@ jobs:
             tests/test_kap_bulk_financial_export.py \
             tests/test_kap_bulk_semantic_adapter.py \
             tests/test_kap_bulk_semantic_real.py \
-            tests/test_kap_bulk_schema_discovery.py | tee p1-kap-targeted.log
+            tests/test_kap_bulk_schema_discovery.py \
+            tests/test_kap_bulk_bank_exact_semantic_mapping.py \
+            tests/test_kap_bulk_bank_schema_targeted.py \
+            tests/test_kap_bulk_role_namespaces_targeted.py \
+            tests/test_kap_bulk_insurance_finance_schema_targeted.py \
+            tests/test_sector_routing.py \
+            tests/test_sector_routing_missing_values.py \
+            tests/test_gyo_batch_pipeline.py | tee p1-kap-targeted.log
       - name: Full regression
         run: |
           set -o pipefail
