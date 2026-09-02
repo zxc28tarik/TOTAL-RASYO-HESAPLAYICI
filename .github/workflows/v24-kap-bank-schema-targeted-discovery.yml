@@ -1,0 +1,94 @@
+name: V24 KAP Bank Schema Targeted Discovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/p1-kap-semantic-family-coverage
+    paths:
+      - 'scripts/discover_kap_bulk_bank_schema_targeted.py'
+      - 'tests/test_kap_bulk_bank_schema_targeted.py'
+      - '.github/workflows/v24-kap-bank-schema-targeted-discovery.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  discover-bank-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      RELEASE_TAG: 'kap-bulk-byte-evidence-run-33568804543'
+      PUBLIC_EVIDENCE: 'data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/run_33568804543.json'
+      SHA256SUMS_OBSERVED: 'data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/SHA256SUMS.run_33568804543.observed'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Targeted BANK discovery unit guards
+        run: |
+          python -m pytest -q \
+            tests/test_kap_bulk_bank_schema_targeted.py \
+            tests/test_kap_bulk_schema_discovery.py \
+            tests/test_kap_bulk_current_snapshot_discovery.py
+      - name: Download exact public release raw ZIP assets
+        run: |
+          mkdir -p kap-current
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --pattern 'KAP_*.zip' --dir kap-current
+          test "$(find kap-current -maxdepth 1 -type f -name 'KAP_*.zip' | wc -l)" -eq 28
+      - name: Re-verify exact public release bytes
+        run: |
+          (cd kap-current && sha256sum -c "$GITHUB_WORKSPACE/$SHA256SUMS_OBSERVED")
+      - name: Run targeted BANK and participation-bank discovery
+        run: |
+          mapfile -t archives < <(find kap-current -maxdepth 1 -type f -name 'KAP_*.zip' | sort)
+          args=()
+          for archive in "${archives[@]}"; do
+            args+=(--archive "$archive")
+          done
+          python -m scripts.discover_kap_bulk_bank_schema_targeted \
+            "${args[@]}" \
+            --public-evidence "$PUBLIC_EVIDENCE" \
+            --output kap-current-bank-schema-targeted.json
+      - name: Enforce discovery-only authorization boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('kap-current-bank-schema-targeted.json').read_text())
+          assert result['contract'] == 'KAP_BULK_BANK_SCHEMA_TARGETED_DISCOVERY_CURRENT_SNAPSHOT_V1'
+          assert result['archive_count'] == 28
+          assert result['matched_bank_report_count'] > 0
+          assert result['source_entity_count'] > 0
+          assert result['fact_identity_count'] > 0
+          assert set(result['role_namespaces']).issubset({'banks', 'par-banks'})
+          assert 'banks' in result['role_namespaces']
+          assert result['current_snapshot_public_evidence_verified'] is True
+          assert result['preserved_manifest_exact_match_count'] == 26
+          assert result['preserved_manifest_drift_count'] == 2
+          assert result['preserved_manifest_drift_filenames'] == ['KAP_2025_Y.zip', 'KAP_2026_6A.zip']
+          assert result['semantic_mapping_authorized'] is False
+          assert result['pit_materialization_authorized'] is False
+          assert result['real_60_cutoff_scoring_authorized'] is False
+          print('matched_bank_report_count=', result['matched_bank_report_count'])
+          print('source_entity_count=', result['source_entity_count'])
+          print('role_count=', result['role_count'])
+          print('fact_identity_count=', result['fact_identity_count'])
+          print('role_namespaces=', result['role_namespaces'])
+          PY
+      - name: Upload targeted BANK technical schema evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kap-current-bank-schema-targeted-${{ github.sha }}
+          path: kap-current-bank-schema-targeted.json
+          if-no-files-found: error
+          retention-days: 90
