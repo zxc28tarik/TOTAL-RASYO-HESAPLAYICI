@@ -57,16 +57,12 @@ def test_raw_thb_close_cannot_silently_become_current_price():
         )
 
 
-def test_exact_pit_adjustment_proof_can_materialize_price():
+@pytest.mark.parametrize("factor", [0.5, 1.0, 2.0])
+def test_legacy_adjustment_factor_cannot_materialize_price(factor):
     evidence = _evidence()
-    result = materialize_historical_valuation_price(
-        evidence=evidence,
-        analysis_at=evidence.cutoff_local,
-        proof=_proof(evidence, adjustment_factor=0.5),
-    )
-    assert result.current_price == pytest.approx(evidence.raw_close * 0.5)
-    assert result.price_trade_date == evidence.trade_date
-    assert result.share_basis == REQUIRED_SHARE_BASIS
+    with pytest.raises(HistoricalValuationPriceSupplementError, match="LEGACY_ADJUSTMENT_PROOF_DISABLED"):
+        materialize_historical_valuation_price(evidence=evidence,
+            analysis_at=evidence.cutoff_local, proof=_proof(evidence, adjustment_factor=factor))
 
 
 def test_signal_day_price_is_rejected():

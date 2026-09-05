@@ -1,15 +1,10 @@
 from __future__ import annotations
 
-"""Fail-closed P2 historical valuation price evidence for 12 HOLDING/GYO gaps.
+"""Official P2 raw-close catalog and fail-closed PIT share-basis materialization.
 
-The official Borsa Istanbul THB rows prove exact pre-cutoff *raw closing prices*.
-They do NOT by themselves prove the ADJUSTED_PRICE_SERIES_V1 share basis required
-by the HOLDING/GYO valuation contracts.  This module therefore preserves the raw
-evidence but refuses to emit ``current_price`` unless a point-in-time adjustment
-proof, tied to the same raw archive and trade date, is supplied.
-
-This is experimental historical replay support only.  It does not alter the
-production price query or the canonical HOLDING/GYO NAV contracts.
+Legacy receipt labels remain readable. Arbitrary adjusted-price factors can no
+longer materialize a valuation. The v2 entrypoint verifies original THB bytes
+and consumes the same corporate-action proof as all five production adapters.
 """
 
 from dataclasses import dataclass
@@ -328,20 +323,37 @@ def materialize_historical_valuation_price(
         raise HistoricalValuationPriceSupplementError("adjustment proof source_document_id dolu olmali")
     proof_sha = _sha256(proof.source_sha256, "proof.source_sha256")
     factor = _finite_positive(proof.adjustment_factor, "proof.adjustment_factor")
-    current_price = evidence.raw_close * factor
-    if not math.isfinite(current_price) or current_price <= 0:
-        raise HistoricalValuationPriceSupplementError("adjusted current_price pozitif sonlu olmali")
+    raise HistoricalValuationPriceSupplementError(
+        "LEGACY_ADJUSTMENT_PROOF_DISABLED: use materialize_historical_price_level_v2")
 
-    return ResolvedValuationPrice(
-        ticker=evidence.ticker,
-        signal_date=evidence.signal_date,
-        analysis_at=analysis,
-        price_trade_date=evidence.trade_date,
-        current_price=float(current_price),
-        share_basis=REQUIRED_SHARE_BASIS,
-        raw_close=evidence.raw_close,
-        adjustment_factor=factor,
-        raw_archive_sha256=evidence.archive_sha256,
-        adjustment_source_document_id=proof.source_document_id.strip(),
-        adjustment_source_sha256=proof_sha,
-    )
+
+def materialize_historical_price_level_v2(*, evidence: RawValuationPriceEvidence,
+        analysis_at: datetime, raw_archive_bytes: bytes, shares_out: float,
+        shares_basis_date: date, action_bundle):
+    """Verify immutable raw evidence before normalizing dated shares, never price."""
+    from hashlib import sha256
+    from io import BytesIO
+    from zipfile import ZipFile
+    from src.analytics.price_level_adapter import normalize_price_level_input
+    from src.analytics.price_level_action_evidence import SOURCE_SHARE_BASIS
+    from src.analytics.price_level_valuation_basis import PRICE_LEVEL_BASIS
+
+    # Reuse all canonical-key, cutoff and freshness guards of the legacy reader.
+    try:
+        materialize_historical_valuation_price(evidence=evidence, analysis_at=analysis_at, proof=None)
+    except HistoricalValuationPriceSupplementError as exc:
+        if str(exc) != UNRESOLVED_REASON:
+            raise
+    if not isinstance(raw_archive_bytes, bytes) or sha256(raw_archive_bytes).hexdigest() != evidence.archive_sha256:
+        raise HistoricalValuationPriceSupplementError("RAW_ARCHIVE_SHA256_MISMATCH")
+    with ZipFile(BytesIO(raw_archive_bytes)) as archive:
+        if archive.namelist().count(evidence.member) != 1:
+            raise HistoricalValuationPriceSupplementError("RAW_MEMBER_MISSING_OR_DUPLICATE")
+        member = archive.read(evidence.member)
+    if sha256(member).hexdigest() != evidence.member_sha256:
+        raise HistoricalValuationPriceSupplementError("RAW_MEMBER_SHA256_MISMATCH")
+    return normalize_price_level_input(ticker=evidence.ticker, shares_out=shares_out,
+        source_date=shares_basis_date, source_share_basis=SOURCE_SHARE_BASIS,
+        analysis_at=analysis_at, price={"ticker": evidence.ticker,
+            "price_trade_date": evidence.trade_date, "current_price": evidence.raw_close,
+            "price_basis": PRICE_LEVEL_BASIS, "action_bundle": action_bundle})

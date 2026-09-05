@@ -3,6 +3,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import pytest
+from price_level_fixtures import certify_frames, SHARE_BASIS
 
 from src.analytics.gyo_batch_pipeline import (
     GyoBatchError,
@@ -23,7 +24,7 @@ def cfg():
     return GyoValuationConfig.from_dict({
         "valuation_profile": "GYO_PD_NAV", "valuation_version": 1,
         "source_nav_profile": "GYO_REPORTED_NAV", "source_nav_version": 1,
-        "share_basis": "ADJUSTED_PRICE_SERIES_V1",
+        "share_basis": SHARE_BASIS,
         "minimum_peer_count": 3, "full_confidence_peer_count": 5,
     })
 
@@ -53,6 +54,7 @@ def frames():
         "current_price": [4.0, 5.0, 6.0, 7.0],
     })
     follow = pd.DataFrame({"ticker": tickers, "follow_score": [0.5] * 4, "follow_active": [True] * 4})
+    certify_frames(navs, prices, ANALYSIS, "nav_asof_date")
     return universe, navs, prices, follow
 
 

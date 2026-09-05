@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import stat
+import os
 from datetime import datetime, timezone
 
 import pytest
@@ -84,9 +85,19 @@ def test_capture_writes_private_raw_sample_and_secret_free_metadata(tmp_path):
     assert meta["sample_sha256"] == capture.payload_sha256
     assert "super-secret" not in sample_path.read_text(encoding="utf-8")
     assert "super-secret" not in meta_path.read_text(encoding="utf-8")
-    assert stat.S_IMODE(sample_path.stat().st_mode) == 0o600
-    assert stat.S_IMODE(meta_path.stat().st_mode) == 0o600
     assert session.calls[0]["headers"]["X-API-Key"] == "super-secret"
+
+
+@pytest.mark.skipif(os.name != "posix", reason="POSIX mode 0600 is not a Windows ACL contract")
+def test_capture_enforces_posix_owner_only_permissions(tmp_path):
+    client = MkkKapApiClient(config(), "secret", session=Session(payload()),
+                            clock=lambda: datetime(2026, 8, 5, 0, 30, tzinfo=timezone.utc))
+    capture = client.capture_contract_sample(start_at=datetime(2026, 8, 4, tzinfo=timezone.utc),
+                                             end_at=datetime(2026, 8, 5, tzinfo=timezone.utc))
+    paths = write_mkk_contract_capture(sample_path=tmp_path / "sample.json",
+                                      metadata_path=tmp_path / "meta.json", config=config(), capture=capture)
+    for path in paths:
+        assert stat.S_IMODE(path.stat().st_mode) == 0o600
 
 
 def test_capture_rejects_empty_page():

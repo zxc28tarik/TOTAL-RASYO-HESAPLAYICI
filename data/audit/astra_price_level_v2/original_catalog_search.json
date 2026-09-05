@@ -1,0 +1,559 @@
+{
+  "artifact_contents_inspected": [
+    {
+      "all_exact_manifest_match": false,
+      "artifact_id": 9824592566,
+      "artifact_sha256": "d25f34aca37a17acfdf47c0a2f13e4f420ae0ecfe061ce330f46fb35961824c0",
+      "members": [
+        "kap-bulk-acquisition-receipt.json"
+      ],
+      "nonmatching_raw_archives": [
+        "KAP_2025_Y.zip",
+        "KAP_2026_6A.zip"
+      ]
+    },
+    {
+      "all_exact_manifest_match": false,
+      "artifact_id": 9824007012,
+      "artifact_sha256": "355bc6fdaccd753336e1de990535519f69d10e47c1768ed81aa73a66b2cc5f3e",
+      "members": [
+        "kap-bulk-acquisition-receipt.json"
+      ],
+      "nonmatching_raw_archives": [
+        "KAP_2020_9A.zip",
+        "KAP_2022_3A.zip",
+        "KAP_2022_6A.zip",
+        "KAP_2022_9A.zip",
+        "KAP_2022_Y.zip",
+        "KAP_2023_3A.zip",
+        "KAP_2023_6A.zip",
+        "KAP_2023_9A.zip",
+        "KAP_2023_Y.zip",
+        "KAP_2024_3A.zip",
+        "KAP_2024_6A.zip",
+        "KAP_2024_9A.zip",
+        "KAP_2024_Y.zip",
+        "KAP_2025_3A.zip",
+        "KAP_2025_6A.zip",
+        "KAP_2025_9A.zip",
+        "KAP_2025_Y.zip",
+        "KAP_2026_3A.zip",
+        "KAP_2026_6A.zip"
+      ]
+    }
+  ],
+  "artifacts_metadata_reviewed": [
+    {
+      "bytes": 37554,
+      "id": 9975601533,
+      "name": "astra-integration-evidence"
+    },
+    {
+      "bytes": 37568,
+      "id": 9975601503,
+      "name": "astra-integration-evidence"
+    },
+    {
+      "bytes": 37572,
+      "id": 9975594838,
+      "name": "astra-integration-evidence"
+    },
+    {
+      "bytes": 37463,
+      "id": 9975593581,
+      "name": "astra-integration-evidence"
+    },
+    {
+      "bytes": 37464,
+      "id": 9975522130,
+      "name": "astra-integration-evidence"
+    },
+    {
+      "bytes": 37509,
+      "id": 9975508400,
+      "name": "astra-integration-evidence"
+    },
+    {
+      "bytes": 4964,
+      "id": 9850984457,
+      "name": "p2-historical-valuation-price-discovery"
+    },
+    {
+      "bytes": 5153,
+      "id": 9850903772,
+      "name": "p2-historical-valuation-price-discovery"
+    },
+    {
+      "bytes": 58400,
+      "id": 9833411680,
+      "name": "kap-insurance-finance-schema-epochs-dd9113a11b07963c57d5564cd641c73617e66eda"
+    },
+    {
+      "bytes": 58400,
+      "id": 9829819211,
+      "name": "kap-insurance-finance-schema-epochs-59bb36c50487c78dfb534d0127b658f12c72adbc"
+    },
+    {
+      "bytes": 51191,
+      "id": 9829766346,
+      "name": "kap-2021q1-insurance-finance-schema-574cc70ac2ccc3b957128a2f28222bf79a6ba2a1"
+    },
+    {
+      "bytes": 78374,
+      "id": 9829669638,
+      "name": "kap-current-insurance-finance-schema-targeted-c81ad430af7d4670d44bc42fe024fe29fcb8ec6f"
+    },
+    {
+      "bytes": 51191,
+      "id": 9829631424,
+      "name": "kap-2021q1-insurance-finance-schema-fdc08b2ba5c484a3ba36fb46ab7f969cba4c25c4"
+    },
+    {
+      "bytes": 50263,
+      "id": 9829471872,
+      "name": "kap-2021q1-insurance-finance-schema-e2ca2bb4b7ea6fb5df194a66bf9c649ea111caad"
+    },
+    {
+      "bytes": 1228,
+      "id": 9827720388,
+      "name": "kap-role-namespaces-2021q1-8a08bf689afc439ef9c45069fb9817be272f01ac"
+    },
+    {
+      "bytes": 45976,
+      "id": 9827494311,
+      "name": "kap-current-bank-schema-targeted-9c7b7bf29d55bbce69437a33541771b48135e0ae"
+    },
+    {
+      "bytes": 94704,
+      "id": 9827453115,
+      "name": "kap-current-bank-schema-targeted-5b7b25f9ebd3008ea6df612dd132cd119ab76590"
+    },
+    {
+      "bytes": 94704,
+      "id": 9827452514,
+      "name": "kap-current-bank-schema-targeted-305ee01f8df5c6093fdbc4b095081faad750b351"
+    },
+    {
+      "bytes": 94560,
+      "id": 9826983660,
+      "name": "kap-current-bank-schema-targeted-d5d38a264b8ed428297f91697c4030a346e8df62"
+    },
+    {
+      "bytes": 94560,
+      "id": 9826983422,
+      "name": "kap-current-bank-schema-targeted-2acd6b53294f7602694d3f151c4c61a9c0638fc4"
+    },
+    {
+      "bytes": 45261,
+      "id": 9826928121,
+      "name": "kap-current-bank-schema-targeted-8d987ae77442a62229a66bfe66fde077b51538fd"
+    },
+    {
+      "bytes": 94560,
+      "id": 9826731768,
+      "name": "kap-current-bank-schema-targeted-291648c760bd4413114105de0a6a590c974520c4"
+    },
+    {
+      "bytes": 606105470,
+      "id": 9824594632,
+      "name": "kap-bulk-raw-archives-d890a3a996a7da9080f86853df32b276549a5d27"
+    },
+    {
+      "bytes": 4557,
+      "id": 9824592566,
+      "name": "kap-bulk-acquisition-receipt-d890a3a996a7da9080f86853df32b276549a5d27"
+    },
+    {
+      "bytes": 161362865,
+      "id": 9824008634,
+      "name": "kap-bulk-raw-archives-c649609ee65decf2cf73ca8246f7422cce6f4c00"
+    },
+    {
+      "bytes": 4533,
+      "id": 9824007012,
+      "name": "kap-bulk-acquisition-receipt-c649609ee65decf2cf73ca8246f7422cce6f4c00"
+    },
+    {
+      "bytes": 11979,
+      "id": 9823778184,
+      "name": "kap-bulk-route-probe-7f9b45949f0b18a175658dd8ea641db3f8c02044"
+    },
+    {
+      "bytes": 11200,
+      "id": 9823667594,
+      "name": "kap-bulk-route-probe-6e1f606200982d7fd81dcfd0dcc629359b1b8066"
+    },
+    {
+      "bytes": 3707858,
+      "id": 9746066791,
+      "name": "bilancoveri-5y-all-bist-batch-05"
+    },
+    {
+      "bytes": 3208886,
+      "id": 9746014036,
+      "name": "bilancoveri-5y-all-bist-batch-04"
+    },
+    {
+      "bytes": 3721516,
+      "id": 9745967832,
+      "name": "bilancoveri-5y-all-bist-batch-03"
+    },
+    {
+      "bytes": 3467690,
+      "id": 9745911612,
+      "name": "bilancoveri-5y-all-bist-batch-02"
+    },
+    {
+      "bytes": 46397,
+      "id": 9745782364,
+      "name": "bilancoveri-full-detail-index-probe"
+    },
+    {
+      "bytes": 45477,
+      "id": 9745748288,
+      "name": "bilancoveri-full-detail-index-probe"
+    },
+    {
+      "bytes": 3773073,
+      "id": 9745723451,
+      "name": "bilancoveri-5y-all-bist-batch-01"
+    },
+    {
+      "bytes": 6902601,
+      "id": 9745440966,
+      "name": "bilancoveri-3y-source-coverage"
+    },
+    {
+      "bytes": 155742,
+      "id": 9745360991,
+      "name": "bilancoveri-3y-source-probe"
+    },
+    {
+      "bytes": 155718,
+      "id": 9745346420,
+      "name": "bilancoveri-3y-source-probe"
+    },
+    {
+      "bytes": 117827,
+      "id": 9745201821,
+      "name": "hybrid-3y-financial-source-probe"
+    },
+    {
+      "bytes": 116781,
+      "id": 9745115463,
+      "name": "hybrid-3y-financial-source-probe"
+    },
+    {
+      "bytes": 64267,
+      "id": 9745059275,
+      "name": "isyatirim-3y-source-probe"
+    },
+    {
+      "bytes": 64268,
+      "id": 9745049153,
+      "name": "isyatirim-3y-source-probe"
+    },
+    {
+      "bytes": 1133004,
+      "id": 9332277151,
+      "name": "v24-ekofin-price-gap-audit"
+    },
+    {
+      "bytes": 3310,
+      "id": 9332046661,
+      "name": "v24-marketscreener-price-gap-audit"
+    },
+    {
+      "bytes": 2177,
+      "id": 9331871650,
+      "name": "v24-investing-price-gap-audit"
+    },
+    {
+      "bytes": 489849,
+      "id": 9331013543,
+      "name": "v24-mynet-historical-endpoint-audit"
+    },
+    {
+      "bytes": 6708964,
+      "id": 9330759397,
+      "name": "v24-historical-price-resolution"
+    },
+    {
+      "bytes": 6434645,
+      "id": 9330483453,
+      "name": "v24-historical-member-yahoo-discovery"
+    },
+    {
+      "bytes": 6445868,
+      "id": 9274572833,
+      "name": "v24-historical-member-yahoo-discovery"
+    },
+    {
+      "bytes": 19790,
+      "id": 9274528714,
+      "name": "v24-bist100-monthly-membership-2021-08_2026-07"
+    },
+    {
+      "bytes": 1215407,
+      "id": 9274526760,
+      "name": "v24-kap-bist100-precatalog-audit"
+    },
+    {
+      "bytes": 1070627,
+      "id": 9274520753,
+      "name": "v24-kap-bist100-precatalog-fast-audit"
+    },
+    {
+      "bytes": 1215407,
+      "id": 9274460389,
+      "name": "v24-kap-bist100-precatalog-audit"
+    },
+    {
+      "bytes": 378258,
+      "id": 9274402888,
+      "name": "v24-bist100-nonperiodic-targeted-audit"
+    },
+    {
+      "bytes": 378258,
+      "id": 9274343958,
+      "name": "v24-bist100-nonperiodic-targeted-audit"
+    },
+    {
+      "bytes": 2765942,
+      "id": 9273881494,
+      "name": "v24-kap-bist100-nonperiodic-audit"
+    },
+    {
+      "bytes": 39790,
+      "id": 9273666211,
+      "name": "v24-kap-api-discovery"
+    },
+    {
+      "bytes": 397731,
+      "id": 9273323409,
+      "name": "v24-bist100-periodic-event-proof"
+    },
+    {
+      "bytes": 5211,
+      "id": 9273305248,
+      "name": "v24-bist-ticker-lineage-2021-08_2026-08"
+    },
+    {
+      "bytes": 5225,
+      "id": 9273296270,
+      "name": "v24-bist-ticker-lineage-2021-08_2026-08"
+    },
+    {
+      "bytes": 47870,
+      "id": 9273223535,
+      "name": "v24-bist100-index-row-catalog"
+    },
+    {
+      "bytes": 422005,
+      "id": 9273158758,
+      "name": "v24-bist100-official-announcement-corpus"
+    },
+    {
+      "bytes": 85762,
+      "id": 9273062288,
+      "name": "v24-bist100-universe-source-discovery"
+    },
+    {
+      "bytes": 8238,
+      "id": 9273009059,
+      "name": "v24-borsa-universe-table-inspection"
+    },
+    {
+      "bytes": 319945,
+      "id": 9272988898,
+      "name": "v24-borsa-universe-raw-official"
+    },
+    {
+      "bytes": 30948,
+      "id": 9272964524,
+      "name": "v24-borsa-datafilepaths-discovery"
+    },
+    {
+      "bytes": 28306,
+      "id": 9272963739,
+      "name": "v24-xu100-calendar-2021-08_2026-07"
+    }
+  ],
+  "contract": "ORIGINAL_CATALOG_SEARCH_V1",
+  "entries": [
+    {
+      "expected_sha256": "a2dd6ea550ea2fc4c5723eb9d2256c2718c69fd9ed3a19f2142ebd4df634eb03",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/enumeration_receipts.csv.gz",
+      "reachable_history_commits": [],
+      "reason": "ORIGINAL_BYTES_NOT_FOUND; CURRENT_SNAPSHOT_NOT_SUBSTITUTED",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "d9a0de7770d1e2aa6a05d8b12d90e1aaddf2ff559d5ee1bb61572026aa9516ea",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/experimental_inventory_6000.csv.gz",
+      "reachable_history_commits": [],
+      "reason": "ORIGINAL_BYTES_NOT_FOUND; CURRENT_SNAPSHOT_NOT_SUBSTITUTED",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "46f69b078c9d7738e779c758089869b2e1e42857007ea89123fe2ea1a05e40bf",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/inventory_6000.csv.gz",
+      "reachable_history_commits": [],
+      "reason": "ORIGINAL_BYTES_NOT_FOUND; CURRENT_SNAPSHOT_NOT_SUBSTITUTED",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "d8f11e355964ca9a9643d1a980f434699d769fc83121bb40c32f1c8676223fe4",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/report_catalog.csv.gz",
+      "reachable_history_commits": [],
+      "reason": "ORIGINAL_BYTES_NOT_FOUND; CURRENT_SNAPSHOT_NOT_SUBSTITUTED",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "05b5aeaf4d7961683d026bf6032cd4df9482f721a7173d6631034887595a5ca9",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/target_report_catalog.csv.gz",
+      "reachable_history_commits": [],
+      "reason": "ORIGINAL_BYTES_NOT_FOUND; CURRENT_SNAPSHOT_NOT_SUBSTITUTED",
+      "status": "MISSING"
+    }
+  ],
+  "historical_version_authority": "UNPROVEN",
+  "release_assets_reviewed": [
+    {
+      "assets": [
+        {
+          "name": "kap-bulk-acquisition-receipt.json",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/kap-bulk-acquisition-receipt.json"
+        },
+        {
+          "name": "KAP_2019_9A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2019_9A.zip"
+        },
+        {
+          "name": "KAP_2019_Y.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2019_Y.zip"
+        },
+        {
+          "name": "KAP_2020_3A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2020_3A.zip"
+        },
+        {
+          "name": "KAP_2020_6A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2020_6A.zip"
+        },
+        {
+          "name": "KAP_2020_9A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2020_9A.zip"
+        },
+        {
+          "name": "KAP_2020_Y.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2020_Y.zip"
+        },
+        {
+          "name": "KAP_2021_3A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2021_3A.zip"
+        },
+        {
+          "name": "KAP_2021_6A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2021_6A.zip"
+        },
+        {
+          "name": "KAP_2021_9A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2021_9A.zip"
+        },
+        {
+          "name": "KAP_2021_Y.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2021_Y.zip"
+        },
+        {
+          "name": "KAP_2022_3A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_3A.zip"
+        },
+        {
+          "name": "KAP_2022_6A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_6A.zip"
+        },
+        {
+          "name": "KAP_2022_9A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_9A.zip"
+        },
+        {
+          "name": "KAP_2022_Y.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_Y.zip"
+        },
+        {
+          "name": "KAP_2023_3A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_3A.zip"
+        },
+        {
+          "name": "KAP_2023_6A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_6A.zip"
+        },
+        {
+          "name": "KAP_2023_9A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_9A.zip"
+        },
+        {
+          "name": "KAP_2023_Y.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_Y.zip"
+        },
+        {
+          "name": "KAP_2024_3A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2024_3A.zip"
+        },
+        {
+          "name": "KAP_2024_6A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2024_6A.zip"
+        },
+        {
+          "name": "KAP_2024_9A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2024_9A.zip"
+        },
+        {
+          "name": "KAP_2024_Y.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2024_Y.zip"
+        },
+        {
+          "name": "KAP_2025_3A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2025_3A.zip"
+        },
+        {
+          "name": "KAP_2025_6A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2025_6A.zip"
+        },
+        {
+          "name": "KAP_2025_9A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2025_9A.zip"
+        },
+        {
+          "name": "KAP_2025_Y.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2025_Y.zip"
+        },
+        {
+          "name": "KAP_2026_3A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2026_3A.zip"
+        },
+        {
+          "name": "KAP_2026_6A.zip",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2026_6A.zip"
+        },
+        {
+          "name": "public_byte_evidence.json",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/public_byte_evidence.json"
+        },
+        {
+          "name": "SHA256SUMS.observed",
+          "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/SHA256SUMS.observed"
+        }
+      ],
+      "tag": "kap-bulk-byte-evidence-run-33568804543"
+    }
+  ],
+  "search_scope": "Reachable git history, all currently listed artifact metadata, two bulk acquisition receipt ZIPs, public release asset names. Not every artifact payload was downloaded.",
+  "status": "BLOCKED"
+}

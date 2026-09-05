@@ -5,6 +5,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import pytest
+from price_level_fixtures import certify_frames, SHARE_BASIS
 
 from src.analytics.nonfin_batch_pipeline import (
     NonfinBatchError,
@@ -49,6 +50,7 @@ def frames():
         {"ticker": "BBB", "price_trade_date": date(2026, 8, 5), "current_price": 9.0},
         {"ticker": "CCC", "price_trade_date": date(2026, 8, 5), "current_price": 11.0},
     ])
+    certify_frames(financials, prices, ANALYSIS, "period_end")
     return universe, financials, prices
 
 
@@ -177,6 +179,7 @@ def test_default_batch_uses_per_ticker_latest_anchor_instead_of_global_max():
     earlier = financials[(financials["ticker"] == "BBB") & (financials["period_end"] == PERIODS[0])].copy()
     earlier["period_end"] = date(2025, 6, 30)
     financials = pd.concat([financials, earlier], ignore_index=True)
+    certify_frames(financials, prices, ANALYSIS, "period_end")
     snapshots, rejections = build_nonfin_snapshots_from_frames(
         universe=universe, financials=financials, prices=prices,
         analysis_at=ANALYSIS, anchor_period_end=None,

@@ -13,7 +13,10 @@ import xml.etree.ElementTree as ET
 
 EVIDENCE = "src/analytics/price_level_action_evidence.py"
 BASIS = "src/analytics/price_level_valuation_basis.py"
-TESTS = ["tests/test_price_level_action_evidence.py", "tests/test_price_level_valuation_basis.py"]
+FAMILIES = ("nonfin", "holding", "gyo", "insurance", "financial_institution")
+ADAPTERS = [f"src/analytics/{family}_batch_pipeline.py" for family in FAMILIES]
+TESTS = ["tests/test_price_level_action_evidence.py", "tests/test_price_level_valuation_basis.py",
+         "tests/test_price_level_family_adapters.py"]
 MUTATIONS = [
     ("manifest_hash_bypass", EVIDENCE, "if digest != self.expected_sha256:", "if False:"),
     ("source_hash_bypass", EVIDENCE, 'if sha256(raw).hexdigest() != source.get("source_sha256"):', "if False:"),
@@ -33,15 +36,30 @@ MUTATIONS = [
     ("adjusted_price_for_market_cap", BASIS, 'close=_positive(close, "close"),', 'close=_positive(adjusted_close if adjusted_close is not None else close, "close"),'),
 ]
 
+for family, path in zip(FAMILIES, ADAPTERS):
+    MUTATIONS.append((f"{family}_adjusted_query", path,
+        "close AS current_price, 'POINT_IN_TIME_MARKET_CLOSE_V1' AS price_basis",
+        "COALESCE(adj_close, close) AS current_price, 'POINT_IN_TIME_MARKET_CLOSE_V1' AS price_basis"))
+    if family == "nonfin":
+        MUTATIONS.append((f"{family}_split_not_applied", path,
+            'normalized_group.loc[normalized_group.index[-1], "shares_out"] = basis.normalized_shares_out',
+            'normalized_group.loc[normalized_group.index[-1], "shares_out"] = latest["shares_out"]'))
+    else:
+        source = "nav" if family in {"holding", "gyo"} else "metric"
+        MUTATIONS.append((f"{family}_split_not_applied", path,
+            'shares_out=basis.normalized_shares_out,', f'shares_out={source}["shares_out"],'))
+
 
 def run(root: Path) -> dict:
-    sources = {name: (root / name).read_text(encoding="utf-8") for name in (EVIDENCE, BASIS)}
+    sources = {name: (root / name).read_text(encoding="utf-8") for name in (EVIDENCE, BASIS, *ADAPTERS)}
     results = []
     with tempfile.TemporaryDirectory(prefix="rasyo-mutations-") as directory:
         checkout = Path(directory)
         shutil.copytree(root / "src", checkout / "src", ignore=shutil.ignore_patterns("__pycache__"))
         (checkout / "tests").mkdir()
-        for name in TESTS + ["pytest.ini"]:
+        shutil.copytree(root / "config", checkout / "config")
+        support = ["tests/price_level_fixtures.py"] + [f"tests/test_{family}_batch_pipeline.py" for family in FAMILIES]
+        for name in TESTS + support + ["pytest.ini"]:
             shutil.copyfile(root / name, checkout / name)
         for name, path, old, new in [("baseline", BASIS, "", "")] + MUTATIONS:
             for source_path, content in sources.items():

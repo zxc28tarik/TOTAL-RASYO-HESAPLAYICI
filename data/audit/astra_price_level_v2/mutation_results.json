@@ -1,0 +1,154 @@
+{
+  "contract": "PRICE_LEVEL_MUTATION_AUDIT_V1",
+  "results": [
+    {
+      "failures": 0,
+      "name": "baseline",
+      "status": "PASS"
+    },
+    {
+      "failures": 7,
+      "name": "manifest_hash_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "source_hash_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 6,
+      "name": "future_publication_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 6,
+      "name": "wrong_ticker_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "wrong_share_basis_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 2,
+      "name": "completeness_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 6,
+      "name": "wrong_source_date_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 7,
+      "name": "wrong_price_date_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "event_set_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "event_identity_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 2,
+      "name": "event_date_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 3,
+      "name": "rights_as_split",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "price_cutoff_bypass",
+      "status": "KILLED"
+    },
+    {
+      "failures": 2,
+      "name": "dividend_changes_shares",
+      "status": "KILLED"
+    },
+    {
+      "failures": 9,
+      "name": "split_not_applied",
+      "status": "KILLED"
+    },
+    {
+      "failures": 7,
+      "name": "adjusted_price_for_market_cap",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "nonfin_adjusted_query",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "nonfin_split_not_applied",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "holding_adjusted_query",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "holding_split_not_applied",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "gyo_adjusted_query",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "gyo_split_not_applied",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "insurance_adjusted_query",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "insurance_split_not_applied",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "financial_institution_adjusted_query",
+      "status": "KILLED"
+    },
+    {
+      "failures": 1,
+      "name": "financial_institution_split_not_applied",
+      "status": "KILLED"
+    }
+  ],
+  "source_sha256": {
+    "src/analytics/financial_institution_batch_pipeline.py": "8e88c74a57cc633a8216538ca1be742d3c4112eb969e88a66ff38159ea4ae306",
+    "src/analytics/gyo_batch_pipeline.py": "0122c2ebd7a9728cdbaf60b93b666fbe3c6743afa98462c4ef5db0ba7e93b966",
+    "src/analytics/holding_batch_pipeline.py": "27598a7f9dc24cfb2b102a548eab2adc61bf8a00fc7a81107653f23fbaac5436",
+    "src/analytics/insurance_batch_pipeline.py": "ce5d4f2db6ac61d31371ec8e56cb3cc6246553eb4afd3cfe5fc269d08797a20c",
+    "src/analytics/nonfin_batch_pipeline.py": "2ade3f8dff8d56d8c1ad6f4985fda497e91cafcffa1fbcac47557b9332a04b27",
+    "src/analytics/price_level_action_evidence.py": "e43f2826e20eb3ab7b80d82198436f91cc661e69a0fbfcaa238a7711ac8185d2",
+    "src/analytics/price_level_valuation_basis.py": "16c633db9d0dfc00b238762e6fe0deaf8a300af4c95a5d018c778b584701e5fd"
+  },
+  "tests_sha256": {
+    "tests/test_price_level_action_evidence.py": "da5c715e186c0277e1eb97aaa04690b3eba4c2904b624fdb4c3a8936e401f051",
+    "tests/test_price_level_family_adapters.py": "bd0b75887ca389cc52e3659869d4e33d892e317d2f25d2c4309b025d29e696f0",
+    "tests/test_price_level_valuation_basis.py": "e08f896afdc2cd118a02ee2a201ea76a005b3b5f3326e6fb3eacb525c0050ccd"
+  }
+}

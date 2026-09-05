@@ -5,6 +5,18 @@
 > sonraki işler için aşağıdaki Claude adıyla denetim şartının yerini alır.
 > Teknik kapanışlar henüz ilan edilmedi; entegrasyon dalı `codex/astra-v24-finalize`.
 
+## Yeni adaptör geçişi — 2026-09-05
+
+- Beş üretim adaptörü ve tarihsel replay akışları ham kapanış + kanıtlı PIT pay normalizasyonuna bağlı.
+- 12 resmi THB ZIP yeniden alındı; 12/12 özgün hash eşleşiyor. Gerçek action completeness eksik olduğundan 12/12 açık rejection; 993/993 başarı iddiası yok.
+- Genişletilmiş üretim mutasyon denetimi: **26/26 yakalandı**.
+- Son Windows tam regresyonu: **1829 passed, 233 skipped, 0 failure**. PostgreSQL testleri Linux CI kapısında.
+- Beş özgün katalog hâlâ eksik. P3 kaynak ön kontrolünde **6000/6000** üyelik hücresi açıkça hesaplandı; bu, tamamlanmış P3 materialization değildir.
+- P4/P5 çalıştırılmadı; P6 PASS ve P7 authoritative kapanış yok. PR #40 taslak, issue kapıları açık.
+- [Yeni ikinci denetim](ASTRA_PRICE_LEVEL_V2_SECOND_PASS.md); yeni kanıt dizini `data/audit/astra_price_level_v2/`.
+
+Aşağıdaki CI sayıları önceki commit'e aittir; yeni sonuçlar validation receipt ile ayrıca kaydedilir.
+
 ## Codex/Astra entegrasyon doğrulaması — 2026-09-05
 
 - Taslak entegrasyon PR'ı: #40; `main` ve canonical base değiştirilmedi.
