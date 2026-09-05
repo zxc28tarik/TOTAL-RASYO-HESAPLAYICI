@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime
+from hashlib import sha256
+import json
 
 import pytest
 
@@ -14,11 +16,39 @@ from src.analytics.price_level_valuation_basis import (
     SHARE_BASIS,
     PriceLevelValuationBasisError,
     build_price_level_observation,
-    materialize_price_level_market_cap,
+    materialize_price_level_market_cap as _materialize_price_level_market_cap,
     normalize_shares_out_to_price_date,
 )
 
-SHA = "a" * 64
+from src.analytics.price_level_action_evidence import (
+    CONTRACT, SOURCE_SHARE_BASIS, PriceLevelActionEvidence,
+)
+
+TEST_BYTES = b"synthetic legacy economic test source"
+SHA = sha256(TEST_BYTES).hexdigest()
+
+
+def materialize_price_level_market_cap(**kwargs):
+    """Supply explicit synthetic coverage to the original economic cases."""
+    events = tuple(kwargs["corporate_actions"])
+    refs = sorted({event.source_ref for event in events} | {"test:complete-inventory"})
+    data = {
+        "contract": CONTRACT, "ticker": kwargs["price"].ticker,
+        "source_share_basis": SOURCE_SHARE_BASIS,
+        "source_shares_out": kwargs["shares_out"], "share_source_ref": "test:complete-inventory",
+        "shares_basis_date": kwargs["shares_basis_date"].isoformat(),
+        "complete_through": kwargs["price"].trade_date.isoformat(),
+        "enumeration_complete": True, "completeness_source_ref": "test:complete-inventory",
+        "sources": [{"source_ref": ref, "source_sha256": SHA,
+                     "published_at": "2026-08-03T18:10:00+03:00"} for ref in refs],
+        "events": [{"action_id": event.action_id,
+                    "economic_kind": "CASH_DIVIDEND" if event.action_type == ACTION_CASH_DIVIDEND else "SPLIT"}
+                   for event in events],
+    }
+    raw = json.dumps(data, sort_keys=True).encode()
+    return _materialize_price_level_market_cap(
+        **kwargs, evidence=PriceLevelActionEvidence(raw, sha256(raw).hexdigest(), {ref: TEST_BYTES for ref in refs}),
+        cutoff=datetime.fromisoformat("2026-08-03T18:10:00+03:00"))
 
 
 def split(ticker: str, ex_date: date, multiplier: float):

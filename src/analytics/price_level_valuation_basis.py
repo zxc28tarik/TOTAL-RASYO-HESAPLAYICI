@@ -13,9 +13,11 @@ market capitalization can be materialized.
 """
 
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime
 import math
 from typing import Iterable
+
+from src.analytics.price_level_action_evidence import PriceLevelActionEvidence
 
 from src.analytics.historical_backtest_corporate_action_events import (
     ACTION_CASH_DIVIDEND,
@@ -33,7 +35,7 @@ class PriceLevelValuationBasisError(ValueError):
 
 
 def _date(value: object, field: str) -> date:
-    if not isinstance(value, date):
+    if not isinstance(value, date) or isinstance(value, datetime):
         raise PriceLevelValuationBasisError(f"{field} date olmali")
     return value
 
@@ -74,6 +76,7 @@ class PriceLevelMarketCap:
     normalized_shares_out: float
     market_cap: float
     applied_share_action_ids: tuple[str, ...]
+    action_evidence_sha256: str
     price_basis: str = PRICE_LEVEL_BASIS
     share_basis: str = SHARE_BASIS
 
@@ -109,7 +112,8 @@ def normalize_shares_out_to_price_date(
 ) -> tuple[float, tuple[str, ...]]:
     """Move a dated share count to the price date using effective split events.
 
-    Cash dividends never change the share count.  A split/bonus/rights-capital
+    This is arithmetic only; materialization additionally requires verified
+    evidence. Cash dividends never change the share count. A split/bonus
     event is represented by ACTION_SPLIT/SHARE_MULTIPLIER and is applied only
     when ``shares_basis_date < ex_date <= price_trade_date``.
     """
@@ -148,15 +152,42 @@ def materialize_price_level_market_cap(
     shares_basis_date: date,
     corporate_actions: Iterable[HistoricalCorporateAction],
     events_complete_through: date,
+    evidence: PriceLevelActionEvidence | None = None,
+    cutoff: datetime | None = None,
 ) -> PriceLevelMarketCap:
     if not isinstance(price, PriceLevelObservation):
         raise PriceLevelValuationBasisError("price PriceLevelObservation olmali")
+    if price.price_basis != PRICE_LEVEL_BASIS:
+        raise PriceLevelValuationBasisError("price basis mismatch")
+    # Revalidate direct dataclass construction, including sign and finite values.
+    price = build_price_level_observation(
+        ticker=price.ticker, trade_date=price.trade_date, close=price.close,
+        adjusted_close=price.adjusted_close_diagnostic,
+    )
+    if not isinstance(evidence, PriceLevelActionEvidence):
+        raise PriceLevelValuationBasisError("verified corporate-action evidence required")
+    if not isinstance(cutoff, datetime) or cutoff.tzinfo is None or cutoff.utcoffset() is None:
+        raise PriceLevelValuationBasisError("timezone-aware valuation cutoff required")
+    from zoneinfo import ZoneInfo
+    from src.analytics.historical_cutoff_execution_policy import TOTAL_RASYO_MONTHLY_OPEN_V1
+    policy = TOTAL_RASYO_MONTHLY_OPEN_V1
+    end = (policy.half_day_session_end if price.trade_date.isoformat() in policy.half_day_cutoff_dates
+           else policy.full_day_session_end)
+    available_at = datetime.combine(price.trade_date, end, tzinfo=ZoneInfo("Europe/Istanbul"))
+    if available_at > cutoff:
+        raise PriceLevelValuationBasisError("price close unavailable at valuation cutoff")
+    events = tuple(corporate_actions)
+    evidence_sha = evidence.verify(
+        ticker=price.ticker, shares_basis_date=_date(shares_basis_date, "shares_basis_date"),
+        price_trade_date=price.trade_date, cutoff=cutoff, events=events,
+        shares_out=_positive(shares_out, "shares_out"),
+    )
     normalized, applied = normalize_shares_out_to_price_date(
         ticker=price.ticker,
         shares_out=shares_out,
         shares_basis_date=shares_basis_date,
         price_trade_date=price.trade_date,
-        corporate_actions=corporate_actions,
+        corporate_actions=events,
         events_complete_through=events_complete_through,
     )
     market_cap = price.close * normalized
@@ -170,4 +201,5 @@ def materialize_price_level_market_cap(
         normalized_shares_out=normalized,
         market_cap=float(market_cap),
         applied_share_action_ids=applied,
+        action_evidence_sha256=evidence_sha,
     )
