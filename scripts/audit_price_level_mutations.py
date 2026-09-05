@@ -71,5 +71,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     result = run(Path(__file__).resolve().parents[1])
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    args.output.write_bytes((json.dumps(result, indent=2, sort_keys=True) + "\n").encode("utf-8"))
     print(f"{len(MUTATIONS)}/{len(MUTATIONS)} mutations killed; baseline PASS")
