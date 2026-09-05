@@ -3,6 +3,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import pytest
+from price_level_fixtures import certify_frames, SHARE_BASIS
 
 from src.analytics.insurance_batch_pipeline import (
     InsuranceBatchError,
@@ -25,7 +26,7 @@ def cfg(**patch):
         "source_metrics_version": 1,
         "accounting_profile": "TFRS17_LOCAL_STATUTORY",
         "accounting_version": 1,
-        "share_basis": "ADJUSTED_PRICE_SERIES_V1",
+        "share_basis": SHARE_BASIS,
         "minimum_peer_count": 2,
         "full_confidence_peer_count": 4,
     }
@@ -46,7 +47,7 @@ def frames():
             "accounting_version": 1,
             "currency": "TRY",
             "shares_out": 100,
-            "share_basis": "ADJUSTED_PRICE_SERIES_V1",
+            "share_basis": SHARE_BASIS,
             "total_equity": 1000,
             "net_income_ttm": 100,
             "written_premiums_ttm": 1000,
@@ -74,6 +75,7 @@ def frames():
         "follow_score": [0.5, 0.6, 0.4],
         "follow_active": [True, True, True],
     })
+    certify_frames(metrics, prices, ANALYSIS, "period_end")
     return universe, metrics, prices, follow
 
 

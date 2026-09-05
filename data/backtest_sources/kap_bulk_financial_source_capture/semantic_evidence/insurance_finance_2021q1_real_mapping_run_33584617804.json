@@ -1,0 +1,199 @@
+{
+  "archive": "KAP_2021_3A.zip",
+  "archive_sha256": "d953adceb72accfc4294cce4b40e79121ba10529ad2a17ef3f60e61654ecd654",
+  "cases": [
+    {
+      "family": "INSURANCE",
+      "required_fields": [
+        "INVESTMENT_INCOME",
+        "ISSUED_CAPITAL",
+        "NET_INCOME",
+        "TECHNICAL_RESULT_TOTAL",
+        "TOTAL_EQUITY",
+        "WRITTEN_PREMIUMS_NON_LIFE"
+      ],
+      "successful": [
+        {
+          "member": "ANSGR_931972_2021_1.xls",
+          "notification_id": 931972,
+          "semantic_fields": [
+            "EARNED_PREMIUMS_LIFE",
+            "EARNED_PREMIUMS_NON_LIFE",
+            "INVESTMENT_INCOME",
+            "ISSUED_CAPITAL",
+            "NET_CLAIMS_LIFE",
+            "NET_CLAIMS_NON_LIFE",
+            "NET_INCOME",
+            "OPERATING_EXPENSES_LIFE",
+            "OPERATING_EXPENSES_NON_LIFE",
+            "TECHNICAL_RESULT_LIFE",
+            "TECHNICAL_RESULT_NON_LIFE",
+            "TECHNICAL_RESULT_PENSION",
+            "TECHNICAL_RESULT_TOTAL",
+            "TOTAL_ASSETS",
+            "TOTAL_EQUITY",
+            "WRITTEN_PREMIUMS_LIFE",
+            "WRITTEN_PREMIUMS_NON_LIFE"
+          ],
+          "statement_scope": "SOLO"
+        },
+        {
+          "member": "ANSGR_931975_2021_1.xls",
+          "notification_id": 931975,
+          "semantic_fields": [
+            "EARNED_PREMIUMS_LIFE",
+            "EARNED_PREMIUMS_NON_LIFE",
+            "INVESTMENT_INCOME",
+            "ISSUED_CAPITAL",
+            "NET_CLAIMS_LIFE",
+            "NET_CLAIMS_NON_LIFE",
+            "NET_INCOME",
+            "OPERATING_EXPENSES_LIFE",
+            "OPERATING_EXPENSES_NON_LIFE",
+            "TECHNICAL_RESULT_LIFE",
+            "TECHNICAL_RESULT_NON_LIFE",
+            "TECHNICAL_RESULT_PENSION",
+            "TECHNICAL_RESULT_TOTAL",
+            "TOTAL_ASSETS",
+            "TOTAL_EQUITY",
+            "WRITTEN_PREMIUMS_LIFE",
+            "WRITTEN_PREMIUMS_NON_LIFE"
+          ],
+          "statement_scope": "CONSOLIDATED"
+        }
+      ],
+      "ticker": "ANSGR"
+    },
+    {
+      "family": "INSURANCE",
+      "required_fields": [
+        "INVESTMENT_INCOME",
+        "ISSUED_CAPITAL",
+        "NET_INCOME",
+        "TECHNICAL_RESULT_TOTAL",
+        "TOTAL_EQUITY",
+        "WRITTEN_PREMIUMS_LIFE"
+      ],
+      "successful": [
+        {
+          "member": "ANHYT_931452_2021_1.xls",
+          "notification_id": 931452,
+          "semantic_fields": [
+            "EARNED_PREMIUMS_LIFE",
+            "EARNED_PREMIUMS_NON_LIFE",
+            "INVESTMENT_INCOME",
+            "ISSUED_CAPITAL",
+            "NET_CLAIMS_LIFE",
+            "NET_CLAIMS_NON_LIFE",
+            "NET_INCOME",
+            "OPERATING_EXPENSES_LIFE",
+            "OPERATING_EXPENSES_NON_LIFE",
+            "TECHNICAL_RESULT_LIFE",
+            "TECHNICAL_RESULT_NON_LIFE",
+            "TECHNICAL_RESULT_PENSION",
+            "TECHNICAL_RESULT_TOTAL",
+            "TOTAL_ASSETS",
+            "TOTAL_EQUITY",
+            "WRITTEN_PREMIUMS_LIFE",
+            "WRITTEN_PREMIUMS_NON_LIFE"
+          ],
+          "statement_scope": "SOLO"
+        },
+        {
+          "member": "ANHYT_931455_2021_1.xls",
+          "notification_id": 931455,
+          "semantic_fields": [
+            "EARNED_PREMIUMS_LIFE",
+            "EARNED_PREMIUMS_NON_LIFE",
+            "INVESTMENT_INCOME",
+            "ISSUED_CAPITAL",
+            "NET_CLAIMS_LIFE",
+            "NET_CLAIMS_NON_LIFE",
+            "NET_INCOME",
+            "OPERATING_EXPENSES_LIFE",
+            "OPERATING_EXPENSES_NON_LIFE",
+            "TECHNICAL_RESULT_LIFE",
+            "TECHNICAL_RESULT_NON_LIFE",
+            "TECHNICAL_RESULT_PENSION",
+            "TECHNICAL_RESULT_TOTAL",
+            "TOTAL_ASSETS",
+            "TOTAL_EQUITY",
+            "WRITTEN_PREMIUMS_LIFE",
+            "WRITTEN_PREMIUMS_NON_LIFE"
+          ],
+          "statement_scope": "CONSOLIDATED"
+        }
+      ],
+      "ticker": "ANHYT"
+    },
+    {
+      "family": "FINANCIAL",
+      "required_fields": [
+        "FACTORING_RECEIVABLES",
+        "FUNDING_COSTS",
+        "ISSUED_CAPITAL",
+        "NET_FINANCE_INCOME",
+        "NET_INCOME",
+        "OPERATING_EXPENSES",
+        "TOTAL_ASSETS",
+        "TOTAL_EQUITY"
+      ],
+      "successful": [
+        {
+          "member": "CRDFA_937029_2021_1.xls",
+          "notification_id": 937029,
+          "semantic_fields": [
+            "FACTORING_RECEIVABLES",
+            "FUNDING_COSTS",
+            "ISSUED_CAPITAL",
+            "NET_FINANCE_INCOME",
+            "NET_INCOME",
+            "NPL_GROSS",
+            "OPERATING_EXPENSES",
+            "PROVISIONS",
+            "TOTAL_ASSETS",
+            "TOTAL_EQUITY"
+          ],
+          "statement_scope": "SOLO"
+        }
+      ],
+      "ticker": "CRDFA"
+    },
+    {
+      "family": "FINANCIAL",
+      "required_fields": [
+        "FUNDING_COSTS",
+        "ISSUED_CAPITAL",
+        "LEASING_RECEIVABLES_NET",
+        "NET_FINANCE_INCOME",
+        "NET_INCOME",
+        "OPERATING_EXPENSES",
+        "TOTAL_ASSETS",
+        "TOTAL_EQUITY"
+      ],
+      "successful": [
+        {
+          "member": "ISFIN_931923_2021_1.xls",
+          "notification_id": 931923,
+          "semantic_fields": [
+            "CONSUMER_FINANCE_RECEIVABLES",
+            "FACTORING_RECEIVABLES",
+            "FUNDING_COSTS",
+            "ISSUED_CAPITAL",
+            "LEASING_RECEIVABLES_NET",
+            "NET_FINANCE_INCOME",
+            "NET_INCOME",
+            "NPL_GROSS",
+            "OPERATING_EXPENSES",
+            "PROVISIONS",
+            "TOTAL_ASSETS",
+            "TOTAL_EQUITY"
+          ],
+          "statement_scope": "CONSOLIDATED"
+        }
+      ],
+      "ticker": "ISFIN"
+    }
+  ],
+  "result": "PASS"
+}

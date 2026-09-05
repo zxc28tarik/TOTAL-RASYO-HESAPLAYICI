@@ -1,0 +1,66 @@
+{
+  "receipt_version": "P2_HOLDING_GYO_NAD_SOURCE_RESEARCH_V1",
+  "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "base_sha": "dd2028953bd24f4cd11d0beb2fda93b86ad94930",
+  "gate": "P2",
+  "gate_status": "OPEN",
+  "production_contract_unchanged": true,
+  "gyo": {
+    "status": "REAL_NAD_SOURCE_IDENTIFIED_BUT_HISTORICAL_PIT_COVERAGE_NOT_YET_PROVEN",
+    "source_family": "TSPB_GYO_NET_AKTIF_DEGER_VE_VARLIK_DEGERI",
+    "general_circular": "46",
+    "general_circular_date": "2022-08-01",
+    "source_page": "https://tspb.org.tr/genelgeler/tspb-gyo-net-aktif-deger-ve-varlik-degeri-tablolari-yonergesi-hk/",
+    "source_pdf": "https://tspb.org.tr/wp-content/uploads/2023/01/Genelge-46-eki_GYO-Net-Aktif-Deger-Yonergesi.pdf",
+    "semantic_fields": [
+      "ownership_adjusted_total_portfolio_value",
+      "financial_debt",
+      "non_financial_debt",
+      "total_debt",
+      "net_asset_value_total",
+      "paid_in_capital",
+      "net_asset_value_per_share",
+      "prepared_date"
+    ],
+    "entry_frequency": "SEMIANNUAL",
+    "general_deadlines": [
+      "03-31",
+      "08-31"
+    ],
+    "first_implementation": {
+      "year": 2022,
+      "covered_financial_periods": [
+        "2021-12M",
+        "2022-06M"
+      ],
+      "entry_completion_deadline": "2022-08-31"
+    },
+    "pit_guard": {
+      "period_date_is_not_publication_date": true,
+      "deadline_is_not_exact_publication_timestamp": true,
+      "later_publication_must_not_be_borrowed_backward": true,
+      "actual_publication_timestamp_required": true
+    },
+    "spk_portfolio_source": {
+      "url": "https://spk.gov.tr/portfoy-degerleri-GYO",
+      "status": "COMPONENT_DISCOVERY_ONLY_NOT_AUTHORIZED_AS_NAV",
+      "reason": "Toplam Deger must not be treated as Net Aktif Deger without direct-NAD identity or complete liability reconciliation"
+    }
+  },
+  "holding": {
+    "status": "REAL_HISTORICAL_NAD_SOURCE_NOT_YET_PROVEN",
+    "experimental_proxy": "EXPERIMENTAL_HOLDING_BOOK_EQUITY_TWO_AXIS_V1",
+    "proxy_is_canonical_nav": false
+  },
+  "gyo_experimental_proxy": {
+    "profile": "EXPERIMENTAL_GYO_BOOK_EQUITY_TWO_AXIS_V1",
+    "proxy_is_canonical_nav": false
+  },
+  "authoritative_claim_allowed": false,
+  "next_actions": [
+    "enumerate actual historical TSPB/KAP GYO publication rows and timestamps",
+    "search pre-TSPB KAP/issuer disclosures for direct or V16-derived NAV",
+    "continue search for historical holding NAV",
+    "reconstruct the 12 pre-cutoff valuation-price rejection keys without signal-day leakage"
+  ]
+}

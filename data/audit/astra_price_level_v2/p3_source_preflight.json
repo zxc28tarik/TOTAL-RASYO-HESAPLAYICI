@@ -1,0 +1,47 @@
+{
+  "P4": "NOT_RUN_NO_VERIFIED_SCORE_INPUTS",
+  "P5": "NOT_RUN_NO_RANKINGS",
+  "P6": "NOT_ELIGIBLE",
+  "P7": "HISTORICAL_VERSION_ENUMERATION_UNPROVEN",
+  "cells_sha256": "24436bb7a2e092b79e0ebaf8b31734c4bc71df4336ae44e3317a33fba7f4f9ec",
+  "contract": "P3_SOURCE_PREFLIGHT_V1",
+  "cutoffs": 60,
+  "materialization_completed": false,
+  "membership_cells": 6000,
+  "missing_sources": [
+    {
+      "expected_sha256": "a2dd6ea550ea2fc4c5723eb9d2256c2718c69fd9ed3a19f2142ebd4df634eb03",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/enumeration_receipts.csv.gz",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "d9a0de7770d1e2aa6a05d8b12d90e1aaddf2ff559d5ee1bb61572026aa9516ea",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/experimental_inventory_6000.csv.gz",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "46f69b078c9d7738e779c758089869b2e1e42857007ea89123fe2ea1a05e40bf",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/inventory_6000.csv.gz",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "d8f11e355964ca9a9643d1a980f434699d769fc83121bb40c32f1c8676223fe4",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/report_catalog.csv.gz",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "05b5aeaf4d7961683d026bf6032cd4df9482f721a7173d6631034887595a5ca9",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/target_report_catalog.csv.gz",
+      "status": "MISSING"
+    }
+  ],
+  "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "ready_cells": 0,
+  "rejected_at_source_preflight": 6000,
+  "status": "BLOCKED"
+}

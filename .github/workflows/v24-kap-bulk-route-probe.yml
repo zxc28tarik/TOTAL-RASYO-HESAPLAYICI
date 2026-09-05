@@ -1,0 +1,88 @@
+name: V24 KAP Bulk Route Probe
+
+on:
+  push:
+    branches:
+      - codex/p1-kap-semantic-family-coverage
+    paths:
+      - 'scripts/probe_kap_bulk_download_route.py'
+      - 'scripts/probe_kap_bulk_endpoint_contract.py'
+      - 'tests/test_kap_bulk_download_route_probe.py'
+      - 'tests/test_kap_bulk_endpoint_contract.py'
+      - 'data/backtest_sources/kap_bulk_financial_source_capture/client_download_contract.json'
+      - '.github/workflows/v24-kap-bulk-route-probe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  route-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install probe dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests pytest
+      - name: Probe unit contracts
+        run: |
+          python -m pytest -q \
+            tests/test_kap_bulk_download_route_probe.py \
+            tests/test_kap_bulk_endpoint_contract.py
+      - name: Probe official KAP client routes
+        id: route_probe
+        run: |
+          python scripts/probe_kap_bulk_download_route.py \
+            --source-page https://kap.org.tr/tr \
+            --output kap-bulk-route-probe.json \
+            --require-candidates
+      - name: Verify official KAP bulk endpoint shape
+        id: endpoint_probe
+        continue-on-error: true
+        run: |
+          python scripts/probe_kap_bulk_endpoint_contract.py \
+            --output kap-bulk-endpoint-probe.json \
+            --year 2021 \
+            --period-code 1 \
+            --require-verified
+      - name: Upload route evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kap-bulk-route-probe-${{ github.sha }}
+          path: |
+            kap-bulk-route-probe.json
+            kap-bulk-endpoint-probe.json
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Record external probe outcome
+        if: always()
+        run: |
+          echo "route_probe_outcome=${{ steps.route_probe.outcome }}"
+          echo "endpoint_probe_outcome=${{ steps.endpoint_probe.outcome }}"
+          if [ -f kap-bulk-route-probe.json ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path('kap-bulk-route-probe.json').read_text(encoding='utf-8'))
+          print('candidate_route_count=', len(p.get('candidate_routes', [])))
+          PY
+          fi
+          if [ -f kap-bulk-endpoint-probe.json ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path('kap-bulk-endpoint-probe.json').read_text(encoding='utf-8'))
+          print('endpoint_verified=', p.get('endpoint_verified'))
+          print('check_status=', p.get('check', {}).get('status'))
+          print('download_status=', p.get('download', {}).get('status'))
+          print('archive_kind=', p.get('download', {}).get('archive_kind'))
+          print('content_disposition=', p.get('download', {}).get('content_disposition'))
+          PY
+          fi

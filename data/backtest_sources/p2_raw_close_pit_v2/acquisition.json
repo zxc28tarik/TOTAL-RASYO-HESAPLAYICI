@@ -1,0 +1,98 @@
+[
+  {
+    "expected_sha256": "b6e1aaf788041569fd117cf2eb1b04a7974476971358e838279d99bea78e992d",
+    "observed_sha256": "b6e1aaf788041569fd117cf2eb1b04a7974476971358e838279d99bea78e992d",
+    "signal_date": "2022-07-01",
+    "status": "MATCH",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/06/thb202206291.zip"
+  },
+  {
+    "expected_sha256": "50b824a92da98e59781d012256026f10ae658c458485a5630d3fd379a065427f",
+    "observed_sha256": "50b824a92da98e59781d012256026f10ae658c458485a5630d3fd379a065427f",
+    "signal_date": "2022-08-01",
+    "status": "MATCH",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/07/thb202207281.zip"
+  },
+  {
+    "expected_sha256": "d6117bc61f4bd43afad4e3cdd92dd41d6d648f006248284512343c4135374d09",
+    "observed_sha256": "d6117bc61f4bd43afad4e3cdd92dd41d6d648f006248284512343c4135374d09",
+    "signal_date": "2022-09-01",
+    "status": "MATCH",
+    "ticker": "INVES",
+    "url": "https://borsaistanbul.com/data/thb/2022/08/thb202208291.zip"
+  },
+  {
+    "expected_sha256": "841ba686e617a6e381e4a68e0f4947acdf1bf7bf5cc893c620d2d4403c8a0210",
+    "observed_sha256": "841ba686e617a6e381e4a68e0f4947acdf1bf7bf5cc893c620d2d4403c8a0210",
+    "signal_date": "2023-01-02",
+    "status": "MATCH",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2022/12/thb202212291.zip"
+  },
+  {
+    "expected_sha256": "7a381ec6c559fc27358e4ddac9342c54d19d0a226d38ce57c5943ec4f581fea5",
+    "observed_sha256": "7a381ec6c559fc27358e4ddac9342c54d19d0a226d38ce57c5943ec4f581fea5",
+    "signal_date": "2023-02-01",
+    "status": "MATCH",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/01/thb202301301.zip"
+  },
+  {
+    "expected_sha256": "8f8f35ca1da3297840031b053227d7b85f674d2afb32dc2a81a492458c39f01b",
+    "observed_sha256": "8f8f35ca1da3297840031b053227d7b85f674d2afb32dc2a81a492458c39f01b",
+    "signal_date": "2023-03-01",
+    "status": "MATCH",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/02/thb202302271.zip"
+  },
+  {
+    "expected_sha256": "e347c27fdea27fc1470764b7c5a23235644aa057f0eec986d313ce7b6484dc41",
+    "observed_sha256": "e347c27fdea27fc1470764b7c5a23235644aa057f0eec986d313ce7b6484dc41",
+    "signal_date": "2023-04-03",
+    "status": "MATCH",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/03/thb202303301.zip"
+  },
+  {
+    "expected_sha256": "881c45080ece57034a31dff1a85bed823bca3a2e14d21efa4143a2a2d490639e",
+    "observed_sha256": "881c45080ece57034a31dff1a85bed823bca3a2e14d21efa4143a2a2d490639e",
+    "signal_date": "2023-05-02",
+    "status": "MATCH",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/04/thb202304271.zip"
+  },
+  {
+    "expected_sha256": "81fdc68a9473bdfa134b9275e5cad6ae77d36a0ddabb44c2b4f19de1c94118c0",
+    "observed_sha256": "81fdc68a9473bdfa134b9275e5cad6ae77d36a0ddabb44c2b4f19de1c94118c0",
+    "signal_date": "2023-06-01",
+    "status": "MATCH",
+    "ticker": "KLRHO",
+    "url": "https://borsaistanbul.com/data/thb/2023/05/thb202305301.zip"
+  },
+  {
+    "expected_sha256": "c11a3d91d361df4a4b0e2fe01b9b5066469a9995ea005fa10dd209635398c6a0",
+    "observed_sha256": "c11a3d91d361df4a4b0e2fe01b9b5066469a9995ea005fa10dd209635398c6a0",
+    "signal_date": "2024-01-02",
+    "status": "MATCH",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2023/12/thb202312281.zip"
+  },
+  {
+    "expected_sha256": "e6482cee5147742c0bb2c485cc098d5e651eed302541c8867a40bbff98998b56",
+    "observed_sha256": "e6482cee5147742c0bb2c485cc098d5e651eed302541c8867a40bbff98998b56",
+    "signal_date": "2024-02-01",
+    "status": "MATCH",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/01/thb202401301.zip"
+  },
+  {
+    "expected_sha256": "dd6a236aa787d6ccf5005fa8bb42cd9f3436c1f049687a9b64a65b6e328fd722",
+    "observed_sha256": "dd6a236aa787d6ccf5005fa8bb42cd9f3436c1f049687a9b64a65b6e328fd722",
+    "signal_date": "2024-03-01",
+    "status": "MATCH",
+    "ticker": "ASGYO",
+    "url": "https://borsaistanbul.com/data/thb/2024/02/thb202402281.zip"
+  }
+]

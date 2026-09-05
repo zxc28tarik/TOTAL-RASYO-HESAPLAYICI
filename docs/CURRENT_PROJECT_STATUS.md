@@ -1,6 +1,43 @@
 # Total Rasyo Hesaplayıcı — Güncel Proje Durumu
 
-Son doğrulama: **2026-08-31**
+> 2026-09-05: Kalan işler kullanıcı kararıyla Codex/Astra'ya devredildi.
+> [Yetki ve ikinci denetim sözleşmesi](ASTRA_EXECUTION_AUTHORIZATION.md) bundan
+> sonraki işler için aşağıdaki Claude adıyla denetim şartının yerini alır.
+> Teknik kapanışlar henüz ilan edilmedi; entegrasyon dalı `codex/astra-v24-finalize`.
+
+## Yeni adaptör geçişi — 2026-09-05
+
+- Beş üretim adaptörü ve tarihsel replay akışları ham kapanış + kanıtlı PIT pay normalizasyonuna bağlı.
+- 12 resmi THB ZIP yeniden alındı; 12/12 özgün hash eşleşiyor. Gerçek action completeness eksik olduğundan 12/12 açık rejection; 993/993 başarı iddiası yok.
+- Genişletilmiş üretim mutasyon denetimi: **26/26 yakalandı**.
+- Son Windows tam regresyonu: **1829 passed, 233 skipped, 0 failure**. PostgreSQL testleri Linux CI kapısında.
+- Beş özgün katalog hâlâ eksik. P3 kaynak ön kontrolünde **6000/6000** üyelik hücresi açıkça hesaplandı; bu, tamamlanmış P3 materialization değildir.
+- P4/P5 çalıştırılmadı; P6 PASS ve P7 authoritative kapanış yok. PR #40 taslak, issue kapıları açık.
+- [Yeni ikinci denetim](ASTRA_PRICE_LEVEL_V2_SECOND_PASS.md); yeni kanıt dizini `data/audit/astra_price_level_v2/`.
+
+Aşağıdaki CI sayıları önceki commit'e aittir; yeni sonuçlar validation receipt ile ayrıca kaydedilir.
+
+## Codex/Astra entegrasyon doğrulaması — 2026-09-05
+
+- Taslak entegrasyon PR'ı: #40; `main` ve canonical base değiştirilmedi.
+- Governance commit: `8af5c54`; fiyat kanıtı hardening commit: `b928a326e458b97bb1dc8533e03e3dc57ef10ebf`.
+- Bu kod commit'inde [CI 33986983642](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/33986983642)
+  SUCCESS: PostgreSQL dâhil **1991 passed, 7 skipped**;
+  BANK v4.7 **277 passed, 1 xfailed**; **16/16 mutasyon yakalandı**.
+- Yerel fiyat sözleşmesi: **45 passed**.
+- Arşiv manifestinin özgün SHA256'sı biçimlendirme onarımıyla geri kazanıldı;
+  özgün checksum iddiası ve JSON içeriği değiştirilmedi.
+- Kaynak kapısı **BLOCKED**: 5 özgün gzip katalog dosyası mevcut değil.
+  Bu kaynak kapısı, kod CI sonucundan ayrıdır.
+- #39 henüz tamamlanmadı: gerçek aksiyon tamlık kanıtı, 5 adaptörün atomik geçişi
+  ve 12 THB hücresinin yeniden değerlemesi gerekli. P3–P6 gerçek artifact zinciri
+  henüz üretilmedi; #24/#36 authoritative kapısı açık.
+- Yeni kanıtlar: `data/audit/astra_2026-09-05/`;
+  [ikinci denetim ve kalan işler](ASTRA_PRICE_LEVEL_SECOND_PASS.md).
+
+Alttaki önceki durum kayıtları tarihsel bağlamdır; yeni kapanış iddiası değildir.
+
+Son doğrulama: **2026-09-02**
 
 Bu belge, sohbet sayfaları değişse bile projenin hedefini ve son doğrulanmış durumunu kaybetmemek için tek başlangıç noktasıdır.
 
@@ -11,7 +48,8 @@ Depo: `zxc28tarik/TOTAL-RASYO-HESAPLAYICI`
 | Hat | Dal | Doğrulanmış baş | Anlamı |
 |---|---|---|---|
 | Üretim | `main` | `adf3f810914066af7f29087b98aa62efb95a26a1` | PR #22 ile yapılan erken terfi PR #23/revert ile geri alındı; kararlı üretim ağacı korunuyor |
-| Aktif tarihsel geliştirme | `v24-real-data-work` | `9528c6093cce8facd830d614b14c275dc2878476` | PR #28 KAP kaynak-capture kimliği korundu; GPT×Claude çift-denetimli 5Y yürütme planı eklendi |
+| Aktif tarihsel geliştirme | `v24-real-data-work` | `dd2028953bd24f4cd11d0beb2fda93b86ad94930` | P1 PR #38'in güncel base'i; 5Y tarihsel çalışma hattı |
+| P1 çalışma dalı | `codex/p1-kap-semantic-family-coverage` | `dd9113a11b07963c57d5564cd641c73617e66eda` | PR #38; GPT PASS, fresh Claude bağımsız denetimi bekleniyor |
 
 Aktif dal ile `main` körlemesine birleştirilmez. Tarihsel çalışma bütün ilgili kapıları geçmeden `main` üretim terfisi yapılmaz.
 
@@ -59,15 +97,16 @@ Aylık sözleşme:
 
 ### 28 dönemlik KAP toplu finansal capture
 
-PR #28 ile kaynak kimliği/provenance aktif dala kalıcılaştırıldı.
+Kaynak byte/provenance zinciri GitHub release + küçük repo evidence dosyalarıyla korunuyor.
 
 - dönem: 2019Q3 .. 2026Q2;
 - 28 KAP bulk archive;
-- 16,624 unique notification/report;
+- 16,624 archive member/report;
 - 5,489 target historical report;
 - 209 target historical ticker;
 - archive bazında exact filename + SHA256 + byte size + member count korunuyor;
-- raw ZIP'ler normal Git history'ye alınmıyor.
+- raw ZIP'ler normal Git history'ye alınmıyor;
+- public release byte doğrulamasında 26 eski manifest exact-match + 2 açık current-snapshot drift (`KAP_2025_Y.zip`, `KAP_2026_6A.zip`) kayıtlı.
 
 Formal PIT blocker:
 `SUPERSEDED_HISTORICAL_KAP_REPORT_VERSIONS_NOT_ENUMERATED`.
@@ -82,21 +121,63 @@ Ancak kullanıcı açık risk kabulü verdiği için **deneysel 5 yıllık çal�
 
 Deneysel source-presence çalışmasında 6000 hücrenin 5997'sinde kaynak bulundu, 3 hücre not-found-with-risk kaldı.
 
-## Açık PR
+## P1 — KAP semantic family coverage
 
-### PR #27 — KAP bulk financial parser
+### PR #38
 
-Durum: OPEN / DRAFT.
+Durum: **OPEN / DRAFT / GPT PASS / CLAUDE FRESH REVIEW PENDING**.
 
-Mevcut kapsam:
-- bulk HTML parser;
-- exact-label semantic adapter;
-- NONFIN/HOLDING mapping;
-- resumable archive checkpoint;
-- gerçek `KAP_2021_3A` pilotu 466/466 classify;
-- BANK / participation bank / INSURANCE / diğer FINANCIAL semantiği henüz bilinçli olarak `UNSUPPORTED_SCHEMA`.
+Güncel head:
+`dd9113a11b07963c57d5564cd641c73617e66eda`
 
-PR #27 doğrudan merge edilmeden önce yeni aktif HEAD'e göre yeniden denetlenmeli. Sonraki ana teknik iş diğer sektör ailelerinin dimension-context doğrulanmış semantik mapping'idir.
+Tamamlanan kapsam:
+- fail-closed archive identity doğrulaması: exact set + SHA256 + member_count + duplicate-input;
+- deterministic technical schema discovery;
+- BANK / participation-bank targeted discovery + exact mapping + gerçek KAP regression;
+- INSURANCE / FINANCIAL gerçek namespace discovery;
+- INSURANCE / FINANCIAL exact role+row+label+context mapping;
+- GYO routing P1 CI kapısına bağlandı;
+- yanlış role/row/label/context ve epoch collision mutation testleri;
+- gerçek arşiv evidence ve SHA/receipt zinciri.
+
+INSURANCE / FINANCIAL full-28 discovery:
+- 28/28 archive;
+- 994 hedef rapor;
+- 71 source entity;
+- 10 technical role;
+- 917 exact `(role,row,label)` identity;
+- discovery SHA256: `ce0687bd9f418f20c2cffcf5e095cfc11882a0b3f065331416017d738340513a`.
+
+Şema sonucu:
+- INSURANCE çekirdek identity'leri 2019Q3..2026Q2 boyunca stabil;
+- FINANCIAL epoch 1: 2019Q3..2021Q4;
+- FINANCIAL epoch 2: 2022Q1..2026Q2;
+- doğrulanmış örnek kaymalar: assets `37→40`, equity `58→62`, capital `59→63`, net income `77→81`.
+
+Exact mapping profilleri:
+- `KAP_BULK_INSURANCE_EXACT_LABEL_V1`;
+- `KAP_BULK_FINANCIAL_EXACT_LABEL_V1`.
+
+Kritik semantik sınır:
+- balance facts: `CURRENT + INSTANT`; FINANCIAL için ayrıca `context_member=Toplam`;
+- duration facts: `CURRENT + YTD`;
+- TTM bulk adapter içinde uydurulmaz, downstream PIT-safe dönemlerden türetilir.
+
+Gerçek KAP 2021Q1 positive regression:
+- ANSGR: PASS;
+- ANHYT: PASS;
+- CRDFA: PASS;
+- ISFIN: PASS.
+
+Güncel-head CI run `33595979842`:
+- P1 targeted contracts: **110 passed, 7 skipped**;
+- full regression: **1936 passed, 7 skipped, 32 warnings**;
+- BANK v4.7: **277 passed, 1 xfailed, 1 warning**;
+- workflow: **SUCCESS**.
+
+GPT kararı: **PASS**.
+
+P1'in tek merge kapısı: current head üzerinde **fresh Claude independent PASS**. Bu gelmeden PR #38 ready/merge yapılmaz.
 
 ## HOLDING/GYO deneysel değerleme hattı
 
@@ -110,13 +191,13 @@ Gerçek KAP book-equity proxy çalışması:
 
 Gerçek tarihsel NAD bulunmazsa bu sonuç yalnız `EXPERIMENTAL_HOLDING_BOOK_EQUITY_TWO_AXIS_V1` / `EXPERIMENTAL_GYO_BOOK_EQUITY_TWO_AXIS_V1` etiketiyle deneysel hatta kullanılabilir.
 
-## Açık işler — yeni zorunlu sıra
+## Açık işler — zorunlu sıra
 
 Ana yürütme sözleşmesi:
 `docs/V24_5Y_BACKTEST_DUAL_REVIEW_EXECUTION_PLAN.md`
 
 1. **P0** — durum/koordinasyon ve çift-denetim zemini.
-2. **P1** — BANK, participation bank, INSURANCE, diğer FINANCIAL ve GYO routing dahil KAP semantic family coverage.
+2. **P1** — teknik implementasyon GPT PASS; fresh Claude denetimi ve ardından kontrollü PR #38 merge kararı bekleniyor.
 3. **P2** — HOLDING/GYO değerleme kararı + 12 pre-cutoff price gap.
 4. **P3** — risk-kabul edilmiş 6000-cell gerçek KAP PIT materialization.
 5. **P4** — gerçek 60-cutoff Total Rasyo score/ranking artifact.

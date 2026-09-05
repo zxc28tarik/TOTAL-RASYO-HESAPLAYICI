@@ -1,0 +1,77 @@
+name: Astra V24 Integration Audit
+
+on:
+  push:
+    branches: [codex/astra-v24-finalize]
+  pull_request:
+    branches: [v24-real-data-work]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: total_rasyo_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres -d total_rasyo_test"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      PGHOST: localhost
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: total_rasyo_test
+      TOTAL_RASYO_TEST_DSN: postgresql://postgres:postgres@localhost:5432/total_rasyo_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies including supported pandas floor
+        run: python -m pip install -r requirements.txt 'pandas==2.2.3' pytest
+      - name: Apply schema
+        run: make core migrate
+      - name: Full regression including live PostgreSQL
+        run: python -m pytest -q --junitxml=astra-full.xml
+      - name: BANK v4.7
+        if: '!cancelled()'
+        run: make test-bank-v47
+      - name: Production-code mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_price_level_mutations.py --output astra-mutations.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: astra-integration-evidence
+          path: |
+            astra-full.xml
+            astra-mutations.json
+
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          cache: pip
+      - run: python -m pip install -r requirements.txt pytest
+      - name: Windows regression (database tests require separate Linux service)
+        run: python -X utf8 -m pytest -q --junitxml=astra-windows.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: astra-windows-evidence
+          path: astra-windows.xml

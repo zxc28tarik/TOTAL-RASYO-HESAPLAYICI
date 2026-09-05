@@ -11,6 +11,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import pytest
+from price_level_fixtures import certify_frames
 
 from src.analytics.financial_institution_batch_pipeline import (
     FinancialInstitutionBatchError,
@@ -83,6 +84,7 @@ def frames(eksik_fiyat=(), eksik_metrik=()):
         {"ticker": t, "price_trade_date": date(2026, 2, 27), "current_price": 10.0}
         for t in tickers if t not in eksik_fiyat
     ])
+    certify_frames(metrics, prices, ANALIZ, "period_end")
     return universe, metrics, prices
 
 

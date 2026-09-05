@@ -1,0 +1,188 @@
+{
+  "artifact_zip_sha256": "8eeb21c81bf8f3719223dd32fcfa70de9104b731899cc4bc5ee5f8b820b1b71c",
+  "contract_evidence": [
+    {
+      "path": "docs/HOLDING_VALUATION_V15.md",
+      "rule": "ADJUSTED_PRICE_SERIES_V1 may be used only after shares_out/NAD share basis is aligned to core.prices_daily.adj_close."
+    },
+    {
+      "path": "docs/GYO_VALUATION_V16.md",
+      "rule": "share_basis must match; split/capital-action share_basis converter remains an explicit external limitation."
+    }
+  ],
+  "discovery_artifact_id": 9850984457,
+  "discovery_json_sha256": "f1054ed2d98293ad32e000985d45fd3b1791b8883e1d32e4c675827876f17126",
+  "discovery_workflow_run_id": 33641452436,
+  "production_contract_unchanged": true,
+  "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "raw_source": "BORSA_ISTANBUL_THB",
+  "reason": "THB_RAW_CLOSE_AVAILABLE_BUT_ADJUSTED_BASIS_UNRESOLVED",
+  "receipt_payload_sha256": "32822d79536f6ea4ef2e5314c7007acca9a67f2ca693972caa0467666878ff88",
+  "required_share_basis": "ADJUSTED_PRICE_SERIES_V1",
+  "row_count": 12,
+  "rows": [
+    {
+      "archive_sha256": "b6e1aaf788041569fd117cf2eb1b04a7974476971358e838279d99bea78e992d",
+      "archive_url": "https://borsaistanbul.com/data/thb/2022/06/thb202206291.zip",
+      "cutoff_local": "2022-06-30T18:10:00+03:00",
+      "member": "thb202206291.csv",
+      "member_sha256": "8f05fbe456c15cfe78ac2e63079f25baa092ea57073cf23be88141fdc3188cc7",
+      "price_age_days": 1,
+      "price_cap_date": "2022-06-29",
+      "raw_close": 37.36,
+      "signal_date": "2022-07-01",
+      "ticker": "INVES",
+      "trade_date": "2022-06-29"
+    },
+    {
+      "archive_sha256": "50b824a92da98e59781d012256026f10ae658c458485a5630d3fd379a065427f",
+      "archive_url": "https://borsaistanbul.com/data/thb/2022/07/thb202207281.zip",
+      "cutoff_local": "2022-07-29T18:10:00+03:00",
+      "member": "thb202207281.csv",
+      "member_sha256": "af620393c07fcc2902706d108cfc20655862c8e3b39a8b7cf35abea6d0d8a8e5",
+      "price_age_days": 1,
+      "price_cap_date": "2022-07-28",
+      "raw_close": 40.82,
+      "signal_date": "2022-08-01",
+      "ticker": "INVES",
+      "trade_date": "2022-07-28"
+    },
+    {
+      "archive_sha256": "d6117bc61f4bd43afad4e3cdd92dd41d6d648f006248284512343c4135374d09",
+      "archive_url": "https://borsaistanbul.com/data/thb/2022/08/thb202208291.zip",
+      "cutoff_local": "2022-08-31T18:10:00+03:00",
+      "member": "thb202208291.csv",
+      "member_sha256": "a64641a5e513dba123a4d3965da00c2779840414ab33763ae7e97d0ec4947ac4",
+      "price_age_days": 2,
+      "price_cap_date": "2022-08-30",
+      "raw_close": 41.08,
+      "signal_date": "2022-09-01",
+      "ticker": "INVES",
+      "trade_date": "2022-08-29"
+    },
+    {
+      "archive_sha256": "841ba686e617a6e381e4a68e0f4947acdf1bf7bf5cc893c620d2d4403c8a0210",
+      "archive_url": "https://borsaistanbul.com/data/thb/2022/12/thb202212291.zip",
+      "cutoff_local": "2022-12-30T18:10:00+03:00",
+      "member": "thb202212291.csv",
+      "member_sha256": "36f7e5759ce79acf24ce46caed2b46d30f44b0c5769ac9d2e1d6d009f4d23956",
+      "price_age_days": 1,
+      "price_cap_date": "2022-12-29",
+      "raw_close": 26.8,
+      "signal_date": "2023-01-02",
+      "ticker": "KLRHO",
+      "trade_date": "2022-12-29"
+    },
+    {
+      "archive_sha256": "7a381ec6c559fc27358e4ddac9342c54d19d0a226d38ce57c5943ec4f581fea5",
+      "archive_url": "https://borsaistanbul.com/data/thb/2023/01/thb202301301.zip",
+      "cutoff_local": "2023-01-31T18:10:00+03:00",
+      "member": "thb202301301.csv",
+      "member_sha256": "b16e3e41fe8f55c242c447163bd2c8d9bd1cfb7515f6f3a09bb26b32ae1a3f15",
+      "price_age_days": 1,
+      "price_cap_date": "2023-01-30",
+      "raw_close": 26.2,
+      "signal_date": "2023-02-01",
+      "ticker": "KLRHO",
+      "trade_date": "2023-01-30"
+    },
+    {
+      "archive_sha256": "8f8f35ca1da3297840031b053227d7b85f674d2afb32dc2a81a492458c39f01b",
+      "archive_url": "https://borsaistanbul.com/data/thb/2023/02/thb202302271.zip",
+      "cutoff_local": "2023-02-28T18:10:00+03:00",
+      "member": "thb202302271.csv",
+      "member_sha256": "6b808a68403701b6a4e866f3cf2f017f265f2ba3e8d45389743df808de282d1f",
+      "price_age_days": 1,
+      "price_cap_date": "2023-02-27",
+      "raw_close": 21.18,
+      "signal_date": "2023-03-01",
+      "ticker": "KLRHO",
+      "trade_date": "2023-02-27"
+    },
+    {
+      "archive_sha256": "e347c27fdea27fc1470764b7c5a23235644aa057f0eec986d313ce7b6484dc41",
+      "archive_url": "https://borsaistanbul.com/data/thb/2023/03/thb202303301.zip",
+      "cutoff_local": "2023-03-31T18:10:00+03:00",
+      "member": "thb202303301.csv",
+      "member_sha256": "861e6b5bd0e965b04e9da6d3ea984b5f0fcd2c141f6581930d5ce8a65c6c971b",
+      "price_age_days": 1,
+      "price_cap_date": "2023-03-30",
+      "raw_close": 27.82,
+      "signal_date": "2023-04-03",
+      "ticker": "KLRHO",
+      "trade_date": "2023-03-30"
+    },
+    {
+      "archive_sha256": "881c45080ece57034a31dff1a85bed823bca3a2e14d21efa4143a2a2d490639e",
+      "archive_url": "https://borsaistanbul.com/data/thb/2023/04/thb202304271.zip",
+      "cutoff_local": "2023-04-28T18:10:00+03:00",
+      "member": "thb202304271.csv",
+      "member_sha256": "9ca728a7054848f2281d1537785d629537ff609686ed61674c50e2f003445fe0",
+      "price_age_days": 1,
+      "price_cap_date": "2023-04-27",
+      "raw_close": 25.6,
+      "signal_date": "2023-05-02",
+      "ticker": "KLRHO",
+      "trade_date": "2023-04-27"
+    },
+    {
+      "archive_sha256": "81fdc68a9473bdfa134b9275e5cad6ae77d36a0ddabb44c2b4f19de1c94118c0",
+      "archive_url": "https://borsaistanbul.com/data/thb/2023/05/thb202305301.zip",
+      "cutoff_local": "2023-05-31T18:10:00+03:00",
+      "member": "thb202305301.csv",
+      "member_sha256": "60a986ce437417c93dbdc8ab971d0986790c86486025edb70fd779198fdb1057",
+      "price_age_days": 1,
+      "price_cap_date": "2023-05-30",
+      "raw_close": 34.18,
+      "signal_date": "2023-06-01",
+      "ticker": "KLRHO",
+      "trade_date": "2023-05-30"
+    },
+    {
+      "archive_sha256": "c11a3d91d361df4a4b0e2fe01b9b5066469a9995ea005fa10dd209635398c6a0",
+      "archive_url": "https://borsaistanbul.com/data/thb/2023/12/thb202312281.zip",
+      "cutoff_local": "2023-12-29T18:10:00+03:00",
+      "member": "thb202312281.csv",
+      "member_sha256": "292e74e04e44fcb19ac7da1a401ea4f28123ab56b07898a4ea6ed0b8f9fb82dd",
+      "price_age_days": 1,
+      "price_cap_date": "2023-12-28",
+      "raw_close": 13.76,
+      "signal_date": "2024-01-02",
+      "ticker": "ASGYO",
+      "trade_date": "2023-12-28"
+    },
+    {
+      "archive_sha256": "e6482cee5147742c0bb2c485cc098d5e651eed302541c8867a40bbff98998b56",
+      "archive_url": "https://borsaistanbul.com/data/thb/2024/01/thb202401301.zip",
+      "cutoff_local": "2024-01-31T18:10:00+03:00",
+      "member": "thb202401301.csv",
+      "member_sha256": "7793ae3cc962e04331bf36deffa197e6c49451cc2febcc69ba33316534427333",
+      "price_age_days": 1,
+      "price_cap_date": "2024-01-30",
+      "raw_close": 16.22,
+      "signal_date": "2024-02-01",
+      "ticker": "ASGYO",
+      "trade_date": "2024-01-30"
+    },
+    {
+      "archive_sha256": "dd6a236aa787d6ccf5005fa8bb42cd9f3436c1f049687a9b64a65b6e328fd722",
+      "archive_url": "https://borsaistanbul.com/data/thb/2024/02/thb202402281.zip",
+      "cutoff_local": "2024-02-29T18:10:00+03:00",
+      "member": "thb202402281.csv",
+      "member_sha256": "cdf005f8e3e53e885a1f6885cea1e327a08fb8af9d8d92b98e2db1fb00b47ab3",
+      "price_age_days": 1,
+      "price_cap_date": "2024-02-28",
+      "raw_close": 15.5,
+      "signal_date": "2024-03-01",
+      "ticker": "ASGYO",
+      "trade_date": "2024-02-28"
+    }
+  ],
+  "schema": "P2_HISTORICAL_VALUATION_PRICE_EVIDENCE_V1",
+  "status": "BLOCKED_ADJUSTED_BASIS",
+  "ticker_counts": {
+    "ASGYO": 3,
+    "INVES": 3,
+    "KLRHO": 6
+  }
+}

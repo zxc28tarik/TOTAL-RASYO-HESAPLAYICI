@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
+from src.analytics.price_level_adapter import attach_basis_receipts
 from src.analytics.nonfin_batch_pipeline import build_nonfin_snapshots_from_frames
 from src.analytics.nonfin_valuation import (
     NonfinValuationConfig,
@@ -249,6 +250,7 @@ def run_historical_pit_nonfin_m2_replay(
         tickers=tickers,
     )
 
+    basis_receipts = {}
     try:
         snapshots, rejected = build_nonfin_snapshots_from_frames(
             universe=hist_universe,
@@ -256,8 +258,12 @@ def run_historical_pit_nonfin_m2_replay(
             prices=hist_prices,
             analysis_at=analysis,
             anchor_period_end=None,
+            basis_receipts=basis_receipts,
         )
-        report = evaluate_nonfin_batch(snapshots, config=config, follow_contexts=contexts)
+        accepted = {snapshot.ticker for snapshot in snapshots}
+        report = evaluate_nonfin_batch(snapshots, config=config,
+            follow_contexts={ticker: value for ticker, value in contexts.items() if ticker in accepted})
+        attach_basis_receipts(report, basis_receipts)
     except (NonfinValuationError, ValueError, TypeError, OverflowError) as exc:
         raise HistoricalPitNonfinM2ReplayError("NONFIN production math replay basarisiz") from exc
 

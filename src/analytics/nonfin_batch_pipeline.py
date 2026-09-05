@@ -20,6 +20,10 @@ from src.analytics.nonfin_valuation import (
     evaluate_nonfin_batch,
 )
 from src.ingest.sector_routing import SectorRoutingConfig
+from src.analytics.price_level_adapter import (
+    normalize_price_level_input, attach_action_bundles, valuation_basis_receipt, attach_basis_receipts,
+    SOURCE_SHARE_BASIS, SHARE_BASIS,
+)
 
 
 class NonfinBatchError(ValueError):
@@ -124,7 +128,7 @@ def fetch_nonfin_prices(
         """
         SELECT DISTINCT ON (ticker)
                ticker, trade_date AS price_trade_date,
-               COALESCE(adj_close, close) AS current_price
+               close AS current_price, 'POINT_IN_TIME_MARKET_CLOSE_V1' AS price_basis
         FROM core.prices_daily
         WHERE ticker = ANY(%(tickers)s::text[])
           AND trade_date <= %(cutoff)s
@@ -184,6 +188,7 @@ def build_nonfin_snapshots_from_frames(
     prices: pd.DataFrame,
     analysis_at: datetime,
     anchor_period_end: date | None,
+    basis_receipts: dict | None = None,
 ) -> tuple[list[NonfinSnapshot], list[dict[str, str]]]:
     analysis = _aware_datetime("analysis_at", analysis_at)
     requested_anchor = None if anchor_period_end is None else _strict_date("anchor_period_end", anchor_period_end)
@@ -238,17 +243,27 @@ def build_nonfin_snapshots_from_frames(
         group = ticker_rows[ticker_rows["period_end"] <= ticker_anchor]
         group = group.sort_values("period_end").tail(4)
         try:
+            if group.empty:
+                raise NonfinValuationError("hedef anchor donemi bulunamadi")
+            latest = group.iloc[-1]
+            basis = normalize_price_level_input(
+                ticker=ticker, shares_out=latest["shares_out"], source_date=latest["period_end"],
+                source_share_basis=SOURCE_SHARE_BASIS, price=price, analysis_at=analysis)
+            normalized_group = group.copy()
+            normalized_group.loc[normalized_group.index[-1], "shares_out"] = basis.normalized_shares_out
             snapshot = build_nonfin_snapshot(
                 ticker=ticker,
                 analysis_at=analysis,
                 sector_code=universe_rows[ticker]["peer_group"],
-                current_price=price["current_price"],
+                current_price=basis.raw_close,
                 price_trade_date=pd.to_datetime(price["price_trade_date"], errors="raise").date(),
-                quarters=group.to_dict("records"),
+                quarters=normalized_group.to_dict("records"),
             )
             if snapshot.anchor_period_end != ticker_anchor:
                 raise NonfinValuationError("hedef anchor donemi bulunamadi")
             snapshots.append(snapshot)
+            if basis_receipts is not None:
+                basis_receipts[ticker] = valuation_basis_receipt(basis)
         except (NonfinValuationError, TypeError, ValueError, OverflowError) as exc:
             rejections.append({"ticker": ticker, "reason": str(exc)})
     return snapshots, rejections
@@ -373,6 +388,7 @@ def run_nonfin_batch(
     tickers: Optional[Iterable[str]] = None,
     routing_config: SectorRoutingConfig | None = None,
     persist: bool = True,
+    action_bundles=None,
 ) -> dict[str, Any]:
     if type(persist) is not bool:
         raise NonfinBatchError("persist Python bool olmali")
@@ -404,8 +420,11 @@ def run_nonfin_batch(
             "results": [],
         }
     prices = fetch_nonfin_prices(conn, tickers=ticker_list, analysis_at=analysis)
+    prices = attach_action_bundles(prices, action_bundles)
     follow = fetch_nonfin_follow_contexts(conn, tickers=ticker_list, analysis_at=analysis)
+    basis_receipts = {}
     snapshots, rejections = build_nonfin_snapshots_from_frames(
+        basis_receipts=basis_receipts,
         universe=universe,
         financials=financials,
         prices=prices,
@@ -422,6 +441,7 @@ def run_nonfin_batch(
         "anchor_period_end": requested_anchor,
         "rejections": rejections,
     })
+    attach_basis_receipts(report, basis_receipts)
     if persist:
         persist_nonfin_batch(conn, report)
     return report

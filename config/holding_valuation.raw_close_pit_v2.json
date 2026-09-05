@@ -1,0 +1,22 @@
+{
+  "valuation_profile": "HOLDING_NAV_DISCOUNT_RAW_CLOSE_PIT",
+  "valuation_version": 2,
+  "source_nav_profile": "HOLDING_ADJUSTED_NAV",
+  "source_nav_version": 1,
+  "lower_quantile": 0.25,
+  "upper_quantile": 0.75,
+  "minimum_peer_count": 3,
+  "full_confidence_peer_count": 8,
+  "minimum_discount": -0.5,
+  "maximum_discount": 0.9,
+  "max_nav_age_days": 370,
+  "full_freshness_days": 120,
+  "max_price_age_days": 7,
+  "minimum_source_confidence": 0.4,
+  "max_halfwidth": 1.25,
+  "band_width_shadow_mode": true,
+  "valuation_axis_weight": 0.65,
+  "follow_axis_weight": 0.35,
+  "currency": "TRY",
+  "share_basis": "POINT_IN_TIME_MARKET_CLOSE_SHARES_V1"
+}

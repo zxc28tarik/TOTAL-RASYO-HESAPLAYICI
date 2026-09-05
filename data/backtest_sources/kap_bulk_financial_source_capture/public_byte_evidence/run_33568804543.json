@@ -1,0 +1,932 @@
+{
+  "acquisition_captured_at": "2026-09-01T23:14:20.663860+00:00",
+  "acquisition_declared_all_exact_manifest_match": false,
+  "acquisition_declared_exact_manifest_match_count": 26,
+  "acquisition_declared_mismatch_count": 2,
+  "acquisition_head_sha": "d890a3a996a7da9080f86853df32b276549a5d27",
+  "acquisition_receipt_contract": "KAP_BULK_ARCHIVE_REACQUISITION_V2",
+  "acquisition_receipt_path": "evidence/source/kap-bulk-acquisition-receipt.json",
+  "acquisition_receipt_sha256": "4fc1d631b944bc21e4d9bc36119c171c8f971d228feaf8fb854b2aaeb2d88292",
+  "all_exact_manifest_match": false,
+  "archive_count_expected": 28,
+  "archive_count_observed": 28,
+  "archives": [
+    {
+      "filename": "KAP_2019_9A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 432,
+        "sha256": "c81e02d17aecfa141ee98c26a7373916d6b4531fa68476b7967a4d19fee80d41",
+        "size_bytes": 16235475,
+        "uncompressed_bytes": 562977166
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 432,
+        "sha256": "c81e02d17aecfa141ee98c26a7373916d6b4531fa68476b7967a4d19fee80d41",
+        "size_bytes": 16235475,
+        "uncompressed_bytes": 562977166,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 432,
+        "sha256": "c81e02d17aecfa141ee98c26a7373916d6b4531fa68476b7967a4d19fee80d41",
+        "size_bytes": 16235475,
+        "uncompressed_bytes": 562977166,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2019_Y.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 502,
+        "sha256": "734955b9ef13b485e8da7224f04b03ba5fe08e18335774e72a4295e8b6045118",
+        "size_bytes": 17497008,
+        "uncompressed_bytes": 606413153
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 502,
+        "sha256": "734955b9ef13b485e8da7224f04b03ba5fe08e18335774e72a4295e8b6045118",
+        "size_bytes": 17497008,
+        "uncompressed_bytes": 606413153,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 502,
+        "sha256": "734955b9ef13b485e8da7224f04b03ba5fe08e18335774e72a4295e8b6045118",
+        "size_bytes": 17497008,
+        "uncompressed_bytes": 606413153,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2020_3A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 425,
+        "sha256": "f12e00d22d3575584301e0970e96fd9e455b6cc86b765c0deb1a8bfd4c11e115",
+        "size_bytes": 15086931,
+        "uncompressed_bytes": 527660912
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 425,
+        "sha256": "f12e00d22d3575584301e0970e96fd9e455b6cc86b765c0deb1a8bfd4c11e115",
+        "size_bytes": 15086931,
+        "uncompressed_bytes": 527660912,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 425,
+        "sha256": "f12e00d22d3575584301e0970e96fd9e455b6cc86b765c0deb1a8bfd4c11e115",
+        "size_bytes": 15086931,
+        "uncompressed_bytes": 527660912,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2020_6A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 512,
+        "sha256": "150b539ff6b380eef66514995fd16536434596a69c97c03108885b08734f841f",
+        "size_bytes": 18556936,
+        "uncompressed_bytes": 642425953
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 512,
+        "sha256": "150b539ff6b380eef66514995fd16536434596a69c97c03108885b08734f841f",
+        "size_bytes": 18556936,
+        "uncompressed_bytes": 642425953,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 512,
+        "sha256": "150b539ff6b380eef66514995fd16536434596a69c97c03108885b08734f841f",
+        "size_bytes": 18556936,
+        "uncompressed_bytes": 642425953,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2020_9A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 432,
+        "sha256": "ed627acc050f9fbbf0cf8c74d8801b2c45411a1eb60eb9819317e61a8d4cdbb0",
+        "size_bytes": 16256591,
+        "uncompressed_bytes": 561064250
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 432,
+        "sha256": "ed627acc050f9fbbf0cf8c74d8801b2c45411a1eb60eb9819317e61a8d4cdbb0",
+        "size_bytes": 16256591,
+        "uncompressed_bytes": 561064250,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 432,
+        "sha256": "ed627acc050f9fbbf0cf8c74d8801b2c45411a1eb60eb9819317e61a8d4cdbb0",
+        "size_bytes": 16256591,
+        "uncompressed_bytes": 561064250,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2020_Y.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 519,
+        "sha256": "6a6da9e47ed6918a292117ec1c700ca785b0416e52b3db44b290ff754e148fce",
+        "size_bytes": 18141479,
+        "uncompressed_bytes": 627138540
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 519,
+        "sha256": "6a6da9e47ed6918a292117ec1c700ca785b0416e52b3db44b290ff754e148fce",
+        "size_bytes": 18141479,
+        "uncompressed_bytes": 627138540,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 519,
+        "sha256": "6a6da9e47ed6918a292117ec1c700ca785b0416e52b3db44b290ff754e148fce",
+        "size_bytes": 18141479,
+        "uncompressed_bytes": 627138540,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2021_3A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 466,
+        "sha256": "d953adceb72accfc4294cce4b40e79121ba10529ad2a17ef3f60e61654ecd654",
+        "size_bytes": 16573084,
+        "uncompressed_bytes": 578778888
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 466,
+        "sha256": "d953adceb72accfc4294cce4b40e79121ba10529ad2a17ef3f60e61654ecd654",
+        "size_bytes": 16573084,
+        "uncompressed_bytes": 578778888,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 466,
+        "sha256": "d953adceb72accfc4294cce4b40e79121ba10529ad2a17ef3f60e61654ecd654",
+        "size_bytes": 16573084,
+        "uncompressed_bytes": 578778888,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2021_6A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 554,
+        "sha256": "8ebb059e19d31f56ea23c4eaafe383761a8fac2ec2160e3dec656d32da0afc7d",
+        "size_bytes": 20195066,
+        "uncompressed_bytes": 699082315
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 554,
+        "sha256": "8ebb059e19d31f56ea23c4eaafe383761a8fac2ec2160e3dec656d32da0afc7d",
+        "size_bytes": 20195066,
+        "uncompressed_bytes": 699082315,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 554,
+        "sha256": "8ebb059e19d31f56ea23c4eaafe383761a8fac2ec2160e3dec656d32da0afc7d",
+        "size_bytes": 20195066,
+        "uncompressed_bytes": 699082315,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2021_9A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 498,
+        "sha256": "ac7cf0cc65b5dd567e2a3fb1e6261db73ec953d08ce47355b191d1c150679806",
+        "size_bytes": 18781780,
+        "uncompressed_bytes": 649044088
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 498,
+        "sha256": "ac7cf0cc65b5dd567e2a3fb1e6261db73ec953d08ce47355b191d1c150679806",
+        "size_bytes": 18781780,
+        "uncompressed_bytes": 649044088,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 498,
+        "sha256": "ac7cf0cc65b5dd567e2a3fb1e6261db73ec953d08ce47355b191d1c150679806",
+        "size_bytes": 18781780,
+        "uncompressed_bytes": 649044088,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2021_Y.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 575,
+        "sha256": "e6798fe4f673eb835d97325f405ec0cb168f20d9a6d33283622cc4fdf26e8f98",
+        "size_bytes": 20293992,
+        "uncompressed_bytes": 703626048
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 575,
+        "sha256": "e6798fe4f673eb835d97325f405ec0cb168f20d9a6d33283622cc4fdf26e8f98",
+        "size_bytes": 20293992,
+        "uncompressed_bytes": 703626048,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 575,
+        "sha256": "e6798fe4f673eb835d97325f405ec0cb168f20d9a6d33283622cc4fdf26e8f98",
+        "size_bytes": 20293992,
+        "uncompressed_bytes": 703626048,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2022_3A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 522,
+        "sha256": "62de63b62f939feed7eb31ae4832a6ef884777eb796ee13c347eb5e8f860a4fc",
+        "size_bytes": 18710612,
+        "uncompressed_bytes": 654204150
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 522,
+        "sha256": "62de63b62f939feed7eb31ae4832a6ef884777eb796ee13c347eb5e8f860a4fc",
+        "size_bytes": 18710612,
+        "uncompressed_bytes": 654204150,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 522,
+        "sha256": "62de63b62f939feed7eb31ae4832a6ef884777eb796ee13c347eb5e8f860a4fc",
+        "size_bytes": 18710612,
+        "uncompressed_bytes": 654204150,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2022_6A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 620,
+        "sha256": "81b08fce506533f890fba1638b3d1a1101450a4d56b88d92da8cbc99bbee9a91",
+        "size_bytes": 22910458,
+        "uncompressed_bytes": 792843876
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 620,
+        "sha256": "81b08fce506533f890fba1638b3d1a1101450a4d56b88d92da8cbc99bbee9a91",
+        "size_bytes": 22910458,
+        "uncompressed_bytes": 792843876,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 620,
+        "sha256": "81b08fce506533f890fba1638b3d1a1101450a4d56b88d92da8cbc99bbee9a91",
+        "size_bytes": 22910458,
+        "uncompressed_bytes": 792843876,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2022_9A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 539,
+        "sha256": "623d3364855db39c611e7d9ec434ba072cb5abfd999afbe701f2b09943cb665c",
+        "size_bytes": 20654632,
+        "uncompressed_bytes": 708830407
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 539,
+        "sha256": "623d3364855db39c611e7d9ec434ba072cb5abfd999afbe701f2b09943cb665c",
+        "size_bytes": 20654632,
+        "uncompressed_bytes": 708830407,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 539,
+        "sha256": "623d3364855db39c611e7d9ec434ba072cb5abfd999afbe701f2b09943cb665c",
+        "size_bytes": 20654632,
+        "uncompressed_bytes": 708830407,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2022_Y.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 631,
+        "sha256": "841531a7c3a2918fbb6e51729c36862c252e80b811c875fafa07d78822894956",
+        "size_bytes": 22477370,
+        "uncompressed_bytes": 775777381
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 631,
+        "sha256": "841531a7c3a2918fbb6e51729c36862c252e80b811c875fafa07d78822894956",
+        "size_bytes": 22477370,
+        "uncompressed_bytes": 775777381,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 631,
+        "sha256": "841531a7c3a2918fbb6e51729c36862c252e80b811c875fafa07d78822894956",
+        "size_bytes": 22477370,
+        "uncompressed_bytes": 775777381,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2023_3A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 556,
+        "sha256": "bccb5496f7ed249c37db3a294de9ccd4855c50395851c72ab539bcc543052133",
+        "size_bytes": 20116678,
+        "uncompressed_bytes": 701854351
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 556,
+        "sha256": "bccb5496f7ed249c37db3a294de9ccd4855c50395851c72ab539bcc543052133",
+        "size_bytes": 20116678,
+        "uncompressed_bytes": 701854351,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 556,
+        "sha256": "bccb5496f7ed249c37db3a294de9ccd4855c50395851c72ab539bcc543052133",
+        "size_bytes": 20116678,
+        "uncompressed_bytes": 701854351,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2023_6A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 656,
+        "sha256": "2ccd51309f33db95b41d2b4e5e4512f15564603a3189c95bcdba97653d311088",
+        "size_bytes": 24637205,
+        "uncompressed_bytes": 846990970
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 656,
+        "sha256": "2ccd51309f33db95b41d2b4e5e4512f15564603a3189c95bcdba97653d311088",
+        "size_bytes": 24637205,
+        "uncompressed_bytes": 846990970,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 656,
+        "sha256": "2ccd51309f33db95b41d2b4e5e4512f15564603a3189c95bcdba97653d311088",
+        "size_bytes": 24637205,
+        "uncompressed_bytes": 846990970,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2023_9A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 592,
+        "sha256": "d6aef26f4b837146e1f658126159e909b277ee879f9183d09a7023504e6f5316",
+        "size_bytes": 22842796,
+        "uncompressed_bytes": 783242208
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 592,
+        "sha256": "d6aef26f4b837146e1f658126159e909b277ee879f9183d09a7023504e6f5316",
+        "size_bytes": 22842796,
+        "uncompressed_bytes": 783242208,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 592,
+        "sha256": "d6aef26f4b837146e1f658126159e909b277ee879f9183d09a7023504e6f5316",
+        "size_bytes": 22842796,
+        "uncompressed_bytes": 783242208,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2023_Y.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 685,
+        "sha256": "9d8a26d43d16c31248b50635e29af0f6820e8bb361dd44eff5ba7d96106e6088",
+        "size_bytes": 23986807,
+        "uncompressed_bytes": 827325032
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 685,
+        "sha256": "9d8a26d43d16c31248b50635e29af0f6820e8bb361dd44eff5ba7d96106e6088",
+        "size_bytes": 23986807,
+        "uncompressed_bytes": 827325032,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 685,
+        "sha256": "9d8a26d43d16c31248b50635e29af0f6820e8bb361dd44eff5ba7d96106e6088",
+        "size_bytes": 23986807,
+        "uncompressed_bytes": 827325032,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2024_3A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 616,
+        "sha256": "4199758e36f9e25c174d9fa9920ae06a45fe7d58407938d644eb0b5a7a6db0d0",
+        "size_bytes": 21954398,
+        "uncompressed_bytes": 764129330
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 616,
+        "sha256": "4199758e36f9e25c174d9fa9920ae06a45fe7d58407938d644eb0b5a7a6db0d0",
+        "size_bytes": 21954398,
+        "uncompressed_bytes": 764129330,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 616,
+        "sha256": "4199758e36f9e25c174d9fa9920ae06a45fe7d58407938d644eb0b5a7a6db0d0",
+        "size_bytes": 21954398,
+        "uncompressed_bytes": 764129330,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2024_6A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 705,
+        "sha256": "1e09aceddd6edb14909e4f3db081ad084c0417fa2f203625b3dc571f77a237c6",
+        "size_bytes": 26152529,
+        "uncompressed_bytes": 895513502
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 705,
+        "sha256": "1e09aceddd6edb14909e4f3db081ad084c0417fa2f203625b3dc571f77a237c6",
+        "size_bytes": 26152529,
+        "uncompressed_bytes": 895513502,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 705,
+        "sha256": "1e09aceddd6edb14909e4f3db081ad084c0417fa2f203625b3dc571f77a237c6",
+        "size_bytes": 26152529,
+        "uncompressed_bytes": 895513502,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2024_9A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 633,
+        "sha256": "94a04df809937e6291b6081c074e01cbafb4492a84fafd0ce24f4ab8afbcfd31",
+        "size_bytes": 24046861,
+        "uncompressed_bytes": 821311089
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 633,
+        "sha256": "94a04df809937e6291b6081c074e01cbafb4492a84fafd0ce24f4ab8afbcfd31",
+        "size_bytes": 24046861,
+        "uncompressed_bytes": 821311089,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 633,
+        "sha256": "94a04df809937e6291b6081c074e01cbafb4492a84fafd0ce24f4ab8afbcfd31",
+        "size_bytes": 24046861,
+        "uncompressed_bytes": 821311089,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2024_Y.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 731,
+        "sha256": "5e63acec0eb83e3e32df9faf5f7c0205c420e6b742407dd9c9aa4f6191944cf8",
+        "size_bytes": 25881075,
+        "uncompressed_bytes": 889508063
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 731,
+        "sha256": "5e63acec0eb83e3e32df9faf5f7c0205c420e6b742407dd9c9aa4f6191944cf8",
+        "size_bytes": 25881075,
+        "uncompressed_bytes": 889508063,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 731,
+        "sha256": "5e63acec0eb83e3e32df9faf5f7c0205c420e6b742407dd9c9aa4f6191944cf8",
+        "size_bytes": 25881075,
+        "uncompressed_bytes": 889508063,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2025_3A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 648,
+        "sha256": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
+        "size_bytes": 23167013,
+        "uncompressed_bytes": 805758022
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 648,
+        "sha256": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
+        "size_bytes": 23167013,
+        "uncompressed_bytes": 805758022,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 648,
+        "sha256": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
+        "size_bytes": 23167013,
+        "uncompressed_bytes": 805758022,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2025_6A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 738,
+        "sha256": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
+        "size_bytes": 27367724,
+        "uncompressed_bytes": 936780280
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 738,
+        "sha256": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
+        "size_bytes": 27367724,
+        "uncompressed_bytes": 936780280,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 738,
+        "sha256": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
+        "size_bytes": 27367724,
+        "uncompressed_bytes": 936780280,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2025_9A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 655,
+        "sha256": "421317ffb4edb55e1656773a5e6c8d4d9e2e79225888e2ff71556490dc817163",
+        "size_bytes": 24914340,
+        "uncompressed_bytes": 849979734
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 655,
+        "sha256": "421317ffb4edb55e1656773a5e6c8d4d9e2e79225888e2ff71556490dc817163",
+        "size_bytes": 24914340,
+        "uncompressed_bytes": 849979734,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 655,
+        "sha256": "421317ffb4edb55e1656773a5e6c8d4d9e2e79225888e2ff71556490dc817163",
+        "size_bytes": 24914340,
+        "uncompressed_bytes": 849979734,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2025_Y.zip",
+      "manifest_exact_match": false,
+      "manifest_expected": {
+        "member_count": 762,
+        "sha256": "0609af49651d1f4693cf383e92ecd4e792040b9328e9fd0b0b1c16ef788d00f2",
+        "size_bytes": 26910898,
+        "uncompressed_bytes": 924277068
+      },
+      "manifest_mismatch_reasons": [
+        "SHA256_MISMATCH",
+        "SIZE_BYTES_MISMATCH",
+        "MEMBER_COUNT_MISMATCH",
+        "UNCOMPRESSED_BYTES_MISMATCH"
+      ],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 765,
+        "sha256": "bef9ac8c5159db2fba8d388a1c4c1bf14f50c24bfef79c782b7efce93ef4e5c5",
+        "size_bytes": 27013792,
+        "uncompressed_bytes": 927931500,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 765,
+        "sha256": "bef9ac8c5159db2fba8d388a1c4c1bf14f50c24bfef79c782b7efce93ef4e5c5",
+        "size_bytes": 27013792,
+        "uncompressed_bytes": 927931500,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2026_3A.zip",
+      "manifest_exact_match": true,
+      "manifest_expected": {
+        "member_count": 667,
+        "sha256": "d7a53002009bc1c4672b80c272554412487d1abb21d95e69fed698cf8be2e82f",
+        "size_bytes": 23833516,
+        "uncompressed_bytes": 826605989
+      },
+      "manifest_mismatch_reasons": [],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 667,
+        "sha256": "d7a53002009bc1c4672b80c272554412487d1abb21d95e69fed698cf8be2e82f",
+        "size_bytes": 23833516,
+        "uncompressed_bytes": 826605989,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 667,
+        "sha256": "d7a53002009bc1c4672b80c272554412487d1abb21d95e69fed698cf8be2e82f",
+        "size_bytes": 23833516,
+        "uncompressed_bytes": 826605989,
+        "zip_readable": true
+      }
+    },
+    {
+      "filename": "KAP_2026_6A.zip",
+      "manifest_exact_match": false,
+      "manifest_expected": {
+        "member_count": 753,
+        "sha256": "534767928b83cff047ec83e62811ebe66af1a392cff6d278dd4e4e5c199a18fc",
+        "size_bytes": 27664848,
+        "uncompressed_bytes": 948808639
+      },
+      "manifest_mismatch_reasons": [
+        "SHA256_MISMATCH",
+        "SIZE_BYTES_MISMATCH",
+        "MEMBER_COUNT_MISMATCH",
+        "UNCOMPRESSED_BYTES_MISMATCH"
+      ],
+      "official_download_receipt_ok": true,
+      "public_byte_verified": true,
+      "public_observed": {
+        "member_count": 757,
+        "sha256": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2",
+        "size_bytes": 27815898,
+        "uncompressed_bytes": 954067008,
+        "zip_readable": true
+      },
+      "receipt_byte_match": true,
+      "receipt_manifest_baseline_match": true,
+      "receipt_mismatch_reasons": [],
+      "receipt_observed": {
+        "member_count": 757,
+        "sha256": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2",
+        "size_bytes": 27815898,
+        "uncompressed_bytes": 954067008,
+        "zip_readable": true
+      }
+    }
+  ],
+  "contract": "KAP_BULK_PUBLIC_BYTE_EVIDENCE_V2",
+  "drifts": [
+    {
+      "current_observed": {
+        "member_count": 765,
+        "sha256": "bef9ac8c5159db2fba8d388a1c4c1bf14f50c24bfef79c782b7efce93ef4e5c5",
+        "size_bytes": 27013792,
+        "uncompressed_bytes": 927931500,
+        "zip_readable": true
+      },
+      "filename": "KAP_2025_Y.zip",
+      "manifest_expected": {
+        "member_count": 762,
+        "sha256": "0609af49651d1f4693cf383e92ecd4e792040b9328e9fd0b0b1c16ef788d00f2",
+        "size_bytes": 26910898,
+        "uncompressed_bytes": 924277068
+      },
+      "manifest_mismatch_reasons": [
+        "SHA256_MISMATCH",
+        "SIZE_BYTES_MISMATCH",
+        "MEMBER_COUNT_MISMATCH",
+        "UNCOMPRESSED_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "current_observed": {
+        "member_count": 757,
+        "sha256": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2",
+        "size_bytes": 27815898,
+        "uncompressed_bytes": 954067008,
+        "zip_readable": true
+      },
+      "filename": "KAP_2026_6A.zip",
+      "manifest_expected": {
+        "member_count": 753,
+        "sha256": "534767928b83cff047ec83e62811ebe66af1a392cff6d278dd4e4e5c199a18fc",
+        "size_bytes": 27664848,
+        "uncompressed_bytes": 948808639
+      },
+      "manifest_mismatch_reasons": [
+        "SHA256_MISMATCH",
+        "SIZE_BYTES_MISMATCH",
+        "MEMBER_COUNT_MISMATCH",
+        "UNCOMPRESSED_BYTES_MISMATCH"
+      ]
+    }
+  ],
+  "generated_at": "2026-09-01T23:21:00.315624+00:00",
+  "manifest_drift_count": 2,
+  "manifest_exact_match_count": 26,
+  "manifest_file_sha256": "f18f0be050266c34b64d465ec8ca65b247c0f8841b230c7492b086df4ed51df5",
+  "manifest_path": "data/backtest_sources/kap_bulk_financial_source_capture/archive_manifest.json",
+  "missing_archives": [],
+  "pit_materialization_authorized": false,
+  "public_byte_verified_count": 28,
+  "public_release_authorized": true,
+  "real_60_cutoff_scoring_authorized": false,
+  "receipt_byte_match_count": 28,
+  "receipt_manifest_baseline_match_count": 28,
+  "receipt_missing_archives": [],
+  "receipt_unexpected_archives": [],
+  "semantic_mapping_authorized": false,
+  "snapshot_complete": true,
+  "source_manifest_captured_at": "2026-08-31T04:25:50+00:00",
+  "source_manifest_contract": "KAP_BULK_FINANCIAL_EXPORT_ARCHIVES_V1",
+  "unexpected_archives": [],
+  "workflow_run_id": 33568804543
+}

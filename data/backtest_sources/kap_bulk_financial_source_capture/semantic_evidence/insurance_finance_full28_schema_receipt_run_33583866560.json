@@ -1,0 +1,57 @@
+{
+  "actions_artifact_digest": "sha256:f6d103f1832ca9228e738e6f242103f08bcb8e2bcad5b70861f442585cd0e1c6",
+  "actions_artifact_id": 9829669638,
+  "authoritative_pit_claim_allowed": false,
+  "contract": "KAP_INSURANCE_FINANCE_FULL28_SCHEMA_RECEIPT_V1",
+  "discovery_sha256": "ce0687bd9f418f20c2cffcf5e095cfc11882a0b3f065331416017d738340513a",
+  "fact_identity_count": 917,
+  "financial_schema_epochs": [
+    {
+      "archive_count": 10,
+      "end": "2021Q4",
+      "rows": {
+        "CONSUMER_FINANCE_RECEIVABLES": 12,
+        "FUNDING_COSTS": 18,
+        "ISSUED_CAPITAL": 59,
+        "LEASING_RECEIVABLES_NET": 16,
+        "NET_FINANCE_INCOME": 25,
+        "NET_INCOME": 77,
+        "NPL_GROSS": 21,
+        "OPERATING_EXPENSES": 26,
+        "PROVISIONS": 22,
+        "TOTAL_ASSETS": 37,
+        "TOTAL_EQUITY": 58
+      },
+      "start": "2019Q3"
+    },
+    {
+      "archive_count": 18,
+      "end": "2026Q2",
+      "rows": {
+        "CONSUMER_FINANCE_RECEIVABLES": 15,
+        "FUNDING_COSTS": 21,
+        "ISSUED_CAPITAL": 63,
+        "LEASING_RECEIVABLES_NET": 19,
+        "NET_FINANCE_INCOME": 29,
+        "NET_INCOME": 81,
+        "NPL_GROSS": 24,
+        "OPERATING_EXPENSES": 30,
+        "PROVISIONS": 25,
+        "TOTAL_ASSETS": 40,
+        "TOTAL_EQUITY": 62
+      },
+      "start": "2022Q1"
+    }
+  ],
+  "full_archive_schema_scan": true,
+  "insurance_key_role_row_label_identities_stable_across_all_28_archives": true,
+  "matched_insurance_finance_report_count": 994,
+  "pit_materialization_authorized": false,
+  "real_60_cutoff_scoring_authorized": false,
+  "role_count": 10,
+  "role_namespaces": ["finance", "insurance"],
+  "scanned_archive_count": 28,
+  "source_entity_count": 71,
+  "workflow_head_sha": "c81ad430af7d4670d44bc42fe024fe29fcb8ec6f",
+  "workflow_run_id": 33583866560
+}

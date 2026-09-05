@@ -5,6 +5,7 @@ import inspect
 
 import pandas as pd
 import pytest
+from price_level_fixtures import certify_frames
 
 from src.analytics.historical_pit_nonfin_m2_replay import (
     HistoricalPitNonfinM2ReplayError,
@@ -66,7 +67,7 @@ def _financials() -> pd.DataFrame:
 
 
 def _prices() -> pd.DataFrame:
-    return pd.DataFrame(
+    prices = pd.DataFrame(
         [
             {
                 "ticker": ticker,
@@ -76,6 +77,9 @@ def _prices() -> pd.DataFrame:
             for idx, ticker in enumerate(TICKERS, start=1)
         ]
     )
+
+    certify_frames(_financials(), prices, ANALYSIS, "period_end")
+    return prices
 
 
 def _follow() -> pd.DataFrame:
@@ -116,6 +120,7 @@ def test_historical_nonfin_m2_matches_existing_pure_production_engine_from_same_
     prepared_fin["period_end"] = pd.to_datetime(prepared_fin["period_end"]).dt.date
     prepared_prices = prices.copy()
     prepared_prices["price_trade_date"] = pd.to_datetime(prepared_prices["price_trade_date"]).dt.date
+    certify_frames(prepared_fin, prepared_prices, ANALYSIS, "period_end")
     snapshots, rejections = build_nonfin_snapshots_from_frames(
         universe=universe,
         financials=prepared_fin,
@@ -292,3 +297,13 @@ def test_historical_nonfin_m2_rejects_future_follow_context():
             config=_config(),
             follow_contexts=follow,
         )
+
+
+def test_missing_action_evidence_rejects_without_follow_context_crash():
+    prices = _prices().drop(columns="action_bundle")
+    replay = run_historical_pit_nonfin_m2_replay(analysis_at=ANALYSIS,
+        universe=_universe(), financials=_financials(), prices=prices,
+        config=_config(), follow_contexts=_follow())
+    assert replay.m2_scores.empty
+    assert set(replay.rejections["ticker"]) == set(TICKERS)
+    assert replay.rejections["reason"].eq("ACTION_COMPLETENESS_EVIDENCE_MISSING").all()
