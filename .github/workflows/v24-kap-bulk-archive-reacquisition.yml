@@ -1,0 +1,104 @@
+name: V24 KAP Bulk Archive Reacquisition
+
+on:
+  push:
+    branches:
+      - codex/p1-kap-semantic-family-coverage
+    paths:
+      - 'scripts/reacquire_kap_bulk_archives.py'
+      - 'tests/test_kap_bulk_archive_reacquisition.py'
+      - '.github/workflows/v24-kap-bulk-archive-reacquisition.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reacquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Acquisition unit contracts
+        run: |
+          python -m pytest -q \
+            tests/test_kap_bulk_archive_reacquisition.py \
+            tests/test_kap_bulk_schema_discovery.py
+      - name: Reacquire and verify all 28 official KAP archives
+        id: acquire
+        continue-on-error: true
+        run: |
+          python scripts/reacquire_kap_bulk_archives.py \
+            --output-dir kap-bulk-archives \
+            --receipt kap-bulk-acquisition-receipt.json \
+            --require-exact
+      - name: Upload acquisition receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kap-bulk-acquisition-receipt-${{ github.sha }}
+          path: kap-bulk-acquisition-receipt.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Preserve reacquired raw KAP archives
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kap-bulk-raw-archives-${{ github.sha }}
+          path: kap-bulk-archives/*.zip
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 90
+      - name: Run exact technical schema discovery
+        id: discovery
+        if: steps.acquire.outcome == 'success'
+        run: |
+          mapfile -t archives < <(find kap-bulk-archives -maxdepth 1 -type f -name 'KAP_*.zip' | sort)
+          args=()
+          for archive in "${archives[@]}"; do
+            args+=(--archive "$archive")
+          done
+          python scripts/discover_kap_bulk_schema_signatures.py \
+            "${args[@]}" \
+            --manifest data/backtest_sources/kap_bulk_financial_source_capture/archive_manifest.json \
+            --output kap-bulk-technical-schema-discovery.json
+      - name: Upload technical schema evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kap-bulk-technical-schema-discovery-${{ github.sha }}
+          path: kap-bulk-technical-schema-discovery.json
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Enforce exact manifest identity
+        if: always()
+        run: |
+          echo "acquisition_outcome=${{ steps.acquire.outcome }}"
+          echo "discovery_outcome=${{ steps.discovery.outcome }}"
+          if [ -f kap-bulk-acquisition-receipt.json ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path('kap-bulk-acquisition-receipt.json').read_text(encoding='utf-8'))
+          print('archive_count=', p.get('archive_count'))
+          print('exact_manifest_match_count=', p.get('exact_manifest_match_count'))
+          print('mismatch_count=', p.get('mismatch_count'))
+          print('all_exact_manifest_match=', p.get('all_exact_manifest_match'))
+          for row in p.get('mismatches', []):
+              print('mismatch=', row)
+          PY
+          fi
+          if [ "${{ steps.acquire.outcome }}" != "success" ]; then
+            exit 1
+          fi
+          if [ "${{ steps.discovery.outcome }}" != "success" ]; then
+            exit 1
+          fi

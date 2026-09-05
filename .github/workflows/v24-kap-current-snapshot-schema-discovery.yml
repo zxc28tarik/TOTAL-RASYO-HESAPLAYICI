@@ -1,0 +1,113 @@
+name: V24 KAP Current Snapshot Schema Discovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/p1-kap-semantic-family-coverage
+    paths:
+      - 'scripts/discover_kap_bulk_current_snapshot.py'
+      - 'tests/test_kap_bulk_current_snapshot_discovery.py'
+      - '.github/workflows/v24-kap-current-snapshot-schema-discovery.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  discover-current-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      RELEASE_TAG: 'kap-bulk-byte-evidence-run-33568804543'
+      SOURCE_RUN_ID: '33568804543'
+      SOURCE_HEAD_SHA: 'd890a3a996a7da9080f86853df32b276549a5d27'
+      PUBLIC_EVIDENCE: 'data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/run_33568804543.json'
+      ACQUISITION_RECEIPT: 'data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/acquisition_receipt.run_33568804543.json'
+      SHA256SUMS_OBSERVED: 'data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/SHA256SUMS.run_33568804543.observed'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Discovery gate unit contracts
+        run: |
+          python -m pytest -q \
+            tests/test_kap_bulk_current_snapshot_discovery.py \
+            tests/test_kap_bulk_schema_discovery.py \
+            tests/test_kap_bulk_public_evidence.py
+      - name: Download exact public release raw ZIP assets
+        run: |
+          mkdir -p kap-current
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --pattern 'KAP_*.zip' --dir kap-current
+          test "$(find kap-current -maxdepth 1 -type f -name 'KAP_*.zip' | wc -l)" -eq 28
+      - name: Re-verify release bytes against acquisition receipt and committed evidence
+        run: |
+          (cd kap-current && sha256sum -c "$GITHUB_WORKSPACE/$SHA256SUMS_OBSERVED")
+          python scripts/build_kap_bulk_public_evidence.py \
+            --raw-dir kap-current \
+            --acquisition-receipt "$ACQUISITION_RECEIPT" \
+            --workflow-run-id "$SOURCE_RUN_ID" \
+            --acquisition-head-sha "$SOURCE_HEAD_SHA" \
+            --output-json /tmp/reverified-public-evidence.json \
+            --output-sha256s /tmp/reverified-SHA256SUMS.observed \
+            --require-publishable-snapshot
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          committed = json.loads(Path('data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/run_33568804543.json').read_text())
+          observed = json.loads(Path('/tmp/reverified-public-evidence.json').read_text())
+          assert observed['snapshot_complete'] is True
+          assert observed['receipt_byte_match_count'] == 28
+          assert observed['public_byte_verified_count'] == 28
+          assert observed['manifest_exact_match_count'] == committed['manifest_exact_match_count'] == 26
+          assert observed['manifest_drift_count'] == committed['manifest_drift_count'] == 2
+          left = [(r['filename'], r['public_observed']) for r in committed['archives']]
+          right = [(r['filename'], r['public_observed']) for r in observed['archives']]
+          assert left == right
+          PY
+      - name: Run drift-aware discovery-only scan
+        run: |
+          mapfile -t archives < <(find kap-current -maxdepth 1 -type f -name 'KAP_*.zip' | sort)
+          args=()
+          for archive in "${archives[@]}"; do
+            args+=(--archive "$archive")
+          done
+          python -m scripts.discover_kap_bulk_current_snapshot \
+            "${args[@]}" \
+            --public-evidence "$PUBLIC_EVIDENCE" \
+            --output kap-current-technical-schema-discovery.json
+      - name: Enforce discovery-only authorization boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          evidence = json.loads(Path('data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/run_33568804543.json').read_text())
+          result = json.loads(Path('kap-current-technical-schema-discovery.json').read_text())
+          expected_reports = sum(int(row['public_observed']['member_count']) for row in evidence['archives'])
+          assert result['contract'] == 'KAP_BULK_TECHNICAL_SCHEMA_DISCOVERY_CURRENT_SNAPSHOT_V1'
+          assert result['archive_count'] == 28
+          assert result['report_count'] == expected_reports
+          assert result['current_snapshot_public_evidence_verified'] is True
+          assert result['preserved_manifest_exact_match_count'] == 26
+          assert result['preserved_manifest_drift_count'] == 2
+          assert result['preserved_manifest_drift_filenames'] == ['KAP_2025_Y.zip', 'KAP_2026_6A.zip']
+          assert result['semantic_mapping_authorized'] is False
+          assert result['pit_materialization_authorized'] is False
+          assert result['real_60_cutoff_scoring_authorized'] is False
+          print('report_count=', result['report_count'])
+          print('technical_schema_count=', result['technical_schema_count'])
+          PY
+      - name: Upload current snapshot technical schema evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kap-current-technical-schema-discovery-${{ github.sha }}
+          path: kap-current-technical-schema-discovery.json
+          if-no-files-found: error
+          retention-days: 90

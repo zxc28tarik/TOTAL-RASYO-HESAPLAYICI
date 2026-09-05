@@ -1,0 +1,17 @@
+{
+  "actions_artifact_digest": "sha256:272777a8ede8256a20f9b61fc57c204ac839bd53bd1814b5e5768b4db05106a8",
+  "actions_artifact_id": 9829631424,
+  "archive": "KAP_2021_3A.zip",
+  "archive_sha256": "d953adceb72accfc4294cce4b40e79121ba10529ad2a17ef3f60e61654ecd654",
+  "authoritative_pit_claim_allowed": false,
+  "contract": "KAP_INSURANCE_FINANCE_2021Q1_REAL_SEMANTIC_EVIDENCE_V1",
+  "discovery_sha256": "3f4e7c0d4e71221bd44821072cd90dfb86b3d71d1c2e8a42d83d02f71c6d9183",
+  "historical_full_28_archive_coverage_complete": false,
+  "pit_materialization_authorized": false,
+  "real_60_cutoff_scoring_authorized": false,
+  "real_semantic_regression_sha256": "65299e6609116a88e132b7e0ccf3ff6361fc5d260b460acdc93ea3943f2cca69",
+  "result": "PASS",
+  "semantic_mapping_authorized_for_observed_2021q1_identities": true,
+  "workflow_head_sha": "fdc08b2ba5c484a3ba36fb46ab7f969cba4c25c4",
+  "workflow_run_id": 33584617804
+}
