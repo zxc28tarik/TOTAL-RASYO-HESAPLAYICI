@@ -2,6 +2,8 @@
 * text=auto eol=lf
 *.gz -text
 *.zip -text
+# Source captures can intentionally contain CRLF; preserve their exact bytes.
+data/backtest_sources/** -text
 data/backtest_sources/m3_source_package/raw/** binary
 data/backtest_sources/m3_source_package/audit/** binary
 data/backtest_sources/m3_source_package/*.gz binary

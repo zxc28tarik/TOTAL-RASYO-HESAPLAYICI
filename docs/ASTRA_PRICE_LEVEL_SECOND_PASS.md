@@ -54,6 +54,15 @@ materialized or approved in this change.
   engine are unchanged in this hardening commit.
 - `.gitattributes` preserves LF source/evidence bytes on Windows while retaining
   the pre-existing binary rules for M3 source evidence.
+- Captured `data/backtest_sources/**` bytes are exempt from text conversion,
+  including original CSV files whose recorded bytes intentionally use CRLF.
+- GitHub CI run `33986983642` passed on code commit
+  `b928a326e458b97bb1dc8533e03e3dc57ef10ebf`: full PostgreSQL regression
+  **1991 passed, 7 skipped**; BANK v4.7 **277 passed, 1 xfailed**;
+  production mutation audit **16/16 killed**.
+- Versioned receipts are in `data/audit/astra_2026-09-05/`. The preserved-source
+  audit returns exit code 2 and `BLOCKED` for five missing source components.
+  Two runs produce identical bytes. This source failure is not hidden by CI.
 
 ## Remaining acceptance work
 
@@ -67,6 +76,12 @@ materialized or approved in this change.
    The source-capture SHA256SUMS lists five absent gzip components:
    `enumeration_receipts`, `experimental_inventory_6000`, `inventory_6000`,
    `report_catalog`, and `target_report_catalog`.
+   The committed archive manifest initially differed from its recorded hash
+   because its JSON formatting had changed. Re-serialization with two-space
+   indentation and a final LF reconstructed the exact original SHA256
+   `066efe98ffa6ebd67a2f529dcaceceadeedbf99df39c94b2d16dd1211907cd26`.
+   Those verified bytes were restored without changing the JSON data or the
+   preserved checksum claim. The other two present components also match.
 5. Complete real P3/P4/P5 artifacts and their independent replays before P6.
 6. #24/#36 still require historical superseded-version enumeration. KAP's
    [official site guide](https://kap.org.tr/tr/api/about/content-file/402832a195b3017d0195bd17e2e07e9a)

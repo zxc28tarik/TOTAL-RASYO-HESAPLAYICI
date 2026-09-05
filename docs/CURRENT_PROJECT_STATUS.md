@@ -5,6 +5,26 @@
 > sonraki işler için aşağıdaki Claude adıyla denetim şartının yerini alır.
 > Teknik kapanışlar henüz ilan edilmedi; entegrasyon dalı `codex/astra-v24-finalize`.
 
+## Codex/Astra entegrasyon doğrulaması — 2026-09-05
+
+- Taslak entegrasyon PR'ı: #40; `main` ve canonical base değiştirilmedi.
+- Governance commit: `8af5c54`; fiyat kanıtı hardening commit: `b928a326e458b97bb1dc8533e03e3dc57ef10ebf`.
+- Bu kod commit'inde [CI 33986983642](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/33986983642)
+  SUCCESS: PostgreSQL dâhil **1991 passed, 7 skipped**;
+  BANK v4.7 **277 passed, 1 xfailed**; **16/16 mutasyon yakalandı**.
+- Yerel fiyat sözleşmesi: **45 passed**.
+- Arşiv manifestinin özgün SHA256'sı biçimlendirme onarımıyla geri kazanıldı;
+  özgün checksum iddiası ve JSON içeriği değiştirilmedi.
+- Kaynak kapısı **BLOCKED**: 5 özgün gzip katalog dosyası mevcut değil.
+  Bu kaynak kapısı, kod CI sonucundan ayrıdır.
+- #39 henüz tamamlanmadı: gerçek aksiyon tamlık kanıtı, 5 adaptörün atomik geçişi
+  ve 12 THB hücresinin yeniden değerlemesi gerekli. P3–P6 gerçek artifact zinciri
+  henüz üretilmedi; #24/#36 authoritative kapısı açık.
+- Yeni kanıtlar: `data/audit/astra_2026-09-05/`;
+  [ikinci denetim ve kalan işler](ASTRA_PRICE_LEVEL_SECOND_PASS.md).
+
+Alttaki önceki durum kayıtları tarihsel bağlamdır; yeni kapanış iddiası değildir.
+
 Son doğrulama: **2026-09-02**
 
 Bu belge, sohbet sayfaları değişse bile projenin hedefini ve son doğrulanmış durumunu kaybetmemek için tek başlangıç noktasıdır.
