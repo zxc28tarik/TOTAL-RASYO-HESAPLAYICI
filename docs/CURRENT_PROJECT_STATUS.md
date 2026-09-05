@@ -1,5 +1,10 @@
 # Total Rasyo Hesaplayıcı — Güncel Proje Durumu
 
+> 2026-09-05: Kalan işler kullanıcı kararıyla Codex/Astra'ya devredildi.
+> [Yetki ve ikinci denetim sözleşmesi](ASTRA_EXECUTION_AUTHORIZATION.md) bundan
+> sonraki işler için aşağıdaki Claude adıyla denetim şartının yerini alır.
+> Teknik kapanışlar henüz ilan edilmedi; entegrasyon dalı `codex/astra-v24-finalize`.
+
 Son doğrulama: **2026-09-02**
 
 Bu belge, sohbet sayfaları değişse bile projenin hedefini ve son doğrulanmış durumunu kaybetmemek için tek başlangıç noktasıdır.

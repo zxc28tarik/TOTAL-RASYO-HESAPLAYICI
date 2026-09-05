@@ -2,6 +2,11 @@
 
 Son oluşturma: 2026-08-31
 
+> 2026-09-05 prospective amendment: remaining execution migrated to Codex/Astra
+> by user decision. The named Claude requirement below is historical and is
+> superseded for remaining work by [ASTRA_EXECUTION_AUTHORIZATION.md](ASTRA_EXECUTION_AUTHORIZATION.md).
+> All technical evidence gates remain mandatory.
+
 ## Amaç
 
 2021-08 .. 2026-07 arasındaki 60 aylık tarihsel BIST100 çalışmasını, açıkça kabul edilmiş KAP sürüm-enumeration riski altında deneysel olarak tamamlamak; ardından aynı hattı production-grade otoriteye yükseltecek paralel hardening işini sürdürmek.
