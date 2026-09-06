@@ -5,6 +5,8 @@ import csv
 from io import StringIO
 from calendar import monthrange
 from collections import Counter, defaultdict
+from concurrent.futures import ProcessPoolExecutor
+from dataclasses import asdict
 from datetime import date, datetime
 from decimal import Decimal
 from functools import lru_cache
@@ -13,6 +15,7 @@ import gzip
 import hashlib
 import json
 import math
+import re
 from pathlib import Path
 import sys
 from zipfile import ZipFile
@@ -77,6 +80,24 @@ def independent_source_candidates(ticker,cutoff):
         candidates.append(old);used.append(edge);current=old;upper=date.fromisoformat(edge['effective_date'])
     return candidates,used,csv_digest,provenance_digest
 
+def independent_entity_tokens(source):
+    if not isinstance(source,str) or re.fullmatch(r'[A-Z0-9]+(?:-[A-Z0-9]+)*',source) is None:
+        return ()
+    tokens=tuple(source.split('-'))
+    return tokens if len(tokens)==len(set(tokens)) else ()
+
+def validate_entity_binding(cell,candidates):
+    selected=cell.get('selected_report');binding=cell.get('financial_entity_binding')
+    if selected is None:
+        if binding is not None:raise ValueError('ENTITY_BINDING_WITHOUT_SOURCE')
+        return []
+    source=selected['source_entity_code'];tokens=independent_entity_tokens(source)
+    matched=sorted(set(candidates).intersection(tokens))
+    if not matched:raise ValueError('FINANCIAL_ENTITY_TOKEN_MEMBERSHIP_MISSING')
+    expected={'contract':'EXPERIMENTAL_ARCHIVED_FINANCIAL_ENTITY_BINDING_V1','target_ticker':cell['ticker'],'source_entity_code':source,'entity_tokens':list(tokens),'matched_source_tickers':matched,'archive_name':selected.get('archive_name'),'member_name':selected.get('member_name'),'archive_sha256':selected.get('archive_sha256'),'member_sha256':selected.get('member_sha256'),'composite_entity':len(tokens)>1,'financial_statement_identity_only':True,'price_transfer_allowed':False,'nominal_share_transfer_allowed':False,'risk_ids':['ARCHIVED_COMPOSITE_ENTITY_FINANCIAL_BINDING_NOT_SHARE_CLASS_PROOF'] if len(tokens)>1 else []}
+    if binding!=expected:raise ValueError('FINANCIAL_ENTITY_BINDING_OR_RAW_LINEAGE_MISMATCH')
+    return matched
+
 def validate_financial_lineage(cell,required=False):
     lineage=cell.get('financial_ticker_lineage')
     if lineage is None:
@@ -85,8 +106,8 @@ def validate_financial_lineage(cell,required=False):
     cutoff=datetime.fromisoformat(cell['knowledge_cutoff_at'])
     candidates,events,csv_digest,provenance_digest=independent_source_candidates(cell['ticker'],cutoff)
     selected=(cell.get('selected_report') or {}).get('source_entity_code')
-    expected={'contract':'EXPERIMENTAL_FORWARD_FINANCIAL_IDENTITY_CANDIDATES_V1','ticker':cell['ticker'],'cutoff':cutoff.isoformat(),'candidate_source_tickers':candidates,'events':events,'csv_sha256':csv_digest,'provenance_sha256':provenance_digest,'current_or_future_successor_fallback':False,'semantic_retag_performed':False,'raw_report_identity_must_be_preserved':True,'risk_ids':['HISTORICAL_CODE_CHANGE_ANNOUNCEMENT_TIMES_NOT_ENUMERATED'],'authoritative_pit_claim_allowed':False,'selected_source_ticker':selected,'alias_selected':selected is not None and selected!=cell['ticker']}
-    if lineage!=expected or (selected is not None and selected not in candidates):
+    expected={'contract':'EXPERIMENTAL_FORWARD_FINANCIAL_IDENTITY_CANDIDATES_V1','ticker':cell['ticker'],'cutoff':cutoff.isoformat(),'candidate_source_tickers':candidates,'events':events,'csv_sha256':csv_digest,'provenance_sha256':provenance_digest,'current_or_future_successor_fallback':False,'semantic_retag_performed':False,'raw_report_identity_must_be_preserved':True,'risk_ids':['HISTORICAL_CODE_CHANGE_ANNOUNCEMENT_TIMES_NOT_ENUMERATED'],'authoritative_pit_claim_allowed':False,'selected_source_ticker':selected,'alias_selected':selected is not None and cell['ticker'] not in independent_entity_tokens(selected)}
+    if lineage!=expected or (selected is not None and not set(independent_entity_tokens(selected)).intersection(candidates)):
         raise ValueError('FINANCIAL_TICKER_LINEAGE_OR_FUTURE_ALIAS_MISMATCH')
     return candidates
 
@@ -135,7 +156,10 @@ def validate_pair(p3,p4):
     selected=p3.get('selected_report')
     if selected:
         if datetime.fromisoformat(selected['published_at'])>cutoff:raise ValueError('FUTURE_FINANCIAL_STATEMENT')
-        if selected['source_entity_code'] not in validate_financial_lineage(p3):raise ValueError('CURRENT_TICKER_FALLBACK')
+        allowed=validate_financial_lineage(p3)
+        if p3.get('financial_entity_binding') is not None:
+            validate_entity_binding(p3,allowed)
+        elif selected['source_entity_code'] not in allowed:raise ValueError('CURRENT_TICKER_FALLBACK')
         if period_end(selected)>cutoff.date():raise ValueError('FUTURE_FINANCIAL_PERIOD')
     if p3['knowledge_cutoff_at']!=p4['knowledge_cutoff_at']:raise ValueError('P4_CUTOFF_MISMATCH')
     if p3['module_values']!=p4['module_values']:raise ValueError('P4_MODULE_VALUE_CHANGED')
@@ -169,27 +193,91 @@ def validate_rankings(month_rows):
     if [r['rank'] for r in valid]!=list(range(1,len(valid)+1)):
         raise ValueError('RANK_OR_TIEBREAK_MISMATCH')
 
-def verified_semantic_rows(semantic_dir,source_hashes,catalog_hash):
+def validate_semantic_entity_mapping(semantic):
+    report=semantic['report'];source=report['source_entity_code']
+    binding=semantic.get('mapping_ticker_binding')
+    if binding is None:
+        if len(independent_entity_tokens(source))>1:
+            raise ValueError('COMPOSITE_SEMANTIC_MAPPING_BINDING_MISSING')
+        return source
+    tokens=independent_entity_tokens(source)
+    if not tokens:raise ValueError('INVALID_SEMANTIC_ENTITY_TOKENS')
+    expected={'contract':'ARCHIVED_ENTITY_TECHNICAL_TOKEN_V1','raw_source_entity_code':source,'declared_tokens':list(tokens),'technical_mapping_ticker':tokens[0],'source_member_sha256':report['member_sha256'],'original_dimensions_preserved':True,'share_or_price_basis_proven':False}
+    if binding!=expected or semantic.get('report_mapping_ticker')!=tokens[0]:
+        raise ValueError('SEMANTIC_ENTITY_MAPPING_BINDING_MISMATCH')
+    return tokens[0]
+
+def validate_semantic_report_identity(report,catalog_report):
+    if catalog_report is None:raise ValueError('SEMANTIC_REPORT_NOT_IN_ACCEPTED_CATALOG')
+    for field in ('archive_name','member_name','archive_sha256','member_sha256','source_entity_code','report_year','report_period','statement_scope','presentation_currency','presentation_scale','company_name'):
+        if report.get(field)!=catalog_report.get(field):raise ValueError('SEMANTIC_REPORT_RAW_IDENTITY_MISMATCH')
+    if datetime.fromisoformat(report['published_at'])!=datetime.fromisoformat(catalog_report['published_at']):
+        raise ValueError('SEMANTIC_REPORT_RAW_PUBLICATION_MISMATCH')
+
+def verified_semantic_rows(semantic_dir,source_hashes,catalog_hash,catalog_reports=None):
     semantic_dir=Path(semantic_dir);main_path=semantic_dir/'semantic_reports.jsonl.gz'
     if sha(main_path)!=source_hashes['semantic']:raise ValueError('SEMANTIC_SOURCE_HASH_MISMATCH')
     combined=rows(main_path)
-    alias_path=semantic_dir/'semantic_alias_reports.jsonl.gz';alias_receipt_path=semantic_dir/'semantic_alias_receipt.json'
-    if alias_path.exists() or alias_receipt_path.exists() or 'semantic_alias' in source_hashes:
-        if not alias_path.exists() or not alias_receipt_path.exists():raise ValueError('SEMANTIC_ALIAS_PAIR_MISSING')
-        receipt=json.loads(alias_receipt_path.read_bytes());digest=sha(alias_path)
-        if digest!=source_hashes.get('semantic_alias') or digest!=receipt.get('artifact_sha256') or sha(alias_receipt_path)!=source_hashes.get('semantic_alias_receipt'):
-            raise ValueError('SEMANTIC_ALIAS_SOURCE_HASH_MISMATCH')
-        if receipt.get('contract')!='EXPERIMENTAL_PREDECESSOR_SEMANTIC_SUPPLEMENT_V1' or receipt.get('catalog_sha256')!=catalog_hash or receipt.get('authoritative_claim_allowed') is not False:
-            raise ValueError('SEMANTIC_ALIAS_CONTRACT_OR_CATALOG_MISMATCH')
-        additional=rows(alias_path)
+    supplements=(('alias','EXPERIMENTAL_PREDECESSOR_SEMANTIC_SUPPLEMENT_V1'),('entity','EXPERIMENTAL_ARCHIVED_ENTITY_SEMANTIC_SUPPLEMENT_V1'))
+    for kind,contract in supplements:
+        artifact=semantic_dir/f'semantic_{kind}_reports.jsonl.gz';receipt_path=semantic_dir/f'semantic_{kind}_receipt.json';hash_key=f'semantic_{kind}'
+        if not (artifact.exists() or receipt_path.exists() or hash_key in source_hashes):continue
+        if not artifact.exists() or not receipt_path.exists():raise ValueError(f'SEMANTIC_{kind.upper()}_PAIR_MISSING')
+        receipt=json.loads(receipt_path.read_bytes());digest=sha(artifact)
+        if digest!=source_hashes.get(hash_key) or digest!=receipt.get('artifact_sha256') or sha(receipt_path)!=source_hashes.get(hash_key+'_receipt'):
+            raise ValueError(f'SEMANTIC_{kind.upper()}_SOURCE_HASH_MISMATCH')
+        if receipt.get('contract')!=contract or receipt.get('catalog_sha256')!=catalog_hash or receipt.get('authoritative_claim_allowed') is not False:
+            raise ValueError(f'SEMANTIC_{kind.upper()}_CONTRACT_OR_CATALOG_MISMATCH')
+        additional=rows(artifact)
         if len(additional)!=receipt['report_count'] or sum(len(r['facts']) for r in additional)!=receipt['fact_count']:
-            raise ValueError('SEMANTIC_ALIAS_COUNTS_MISMATCH')
+            raise ValueError(f'SEMANTIC_{kind.upper()}_COUNTS_MISMATCH')
+        if kind=='entity':
+            for report in additional:validate_semantic_entity_mapping(report)
         combined.extend(additional)
     keys=[(r['report']['archive_name'],r['report']['member_name']) for r in combined]
+    if catalog_reports is not None:
+        accepted={(r['archive_name'],r['member_name']):r for r in catalog_reports}
+        for row,key in zip(combined,keys):validate_semantic_report_identity(row['report'],accepted.get(key))
     if len(keys)!=len(set(keys)):raise ValueError('DUPLICATE_MAIN_OR_ALIAS_SEMANTIC_REPORT')
     return combined
 
-def audit(artifact_dir,semantic_dir,raw_dir):
+def verify_selected_raw_member(task):
+    directory,chosen=task
+    archive=chosen['archive_name'];member=chosen['member_name']
+    with ZipFile(Path(directory)/archive) as bundle:
+        if bundle.namelist().count(member)!=1:raise ValueError('SELECTED_MEMBER_MISSING_OR_DUPLICATE')
+        raw=bundle.read(member)
+    digest=hashlib.sha256(raw).hexdigest()
+    if digest!=chosen['member_sha256']:raise ValueError('RAW_MEMBER_HASH_MISMATCH')
+    report=parse_kap_bulk_export_report(archive_name=archive,archive_sha256=chosen['archive_sha256'],member_name=member,raw_html=raw)
+    observed=asdict(report);observed['published_at']=report.published_at.isoformat()
+    validate_semantic_report_identity(observed,chosen)
+    return (archive,member),digest
+
+def verified_selected_source_prepass(cells,catalog,raw_dir,original_hashes,workers=4):
+    accepted={(r['archive_name'],r['member_name']):r for r in catalog}
+    unique={}
+    for cell in cells:
+        chosen=cell.get('selected_report')
+        if chosen is None:continue
+        key=(chosen['archive_name'],chosen['member_name'])
+        if accepted.get(key)!=chosen:raise ValueError('SELECTED_REPORT_NOT_IDENTICAL_TO_ACCEPTED_CATALOG')
+        unique[key]=chosen
+    archives={}
+    for chosen in unique.values():
+        name=chosen['archive_name']
+        if name not in archives:archives[name]=sha(Path(raw_dir)/name)
+        if archives[name]!=original_hashes.get(name) or archives[name]!=chosen['archive_sha256']:
+            raise ValueError('ORIGINAL_ARCHIVE_HASH_MISMATCH')
+    tasks=[(str(raw_dir),report) for _,report in sorted(unique.items())]
+    if workers==1:
+        members=dict(map(verify_selected_raw_member,tasks))
+    else:
+        with ProcessPoolExecutor(max_workers=workers) as pool:
+            members=dict(pool.map(verify_selected_raw_member,tasks,chunksize=8))
+    return archives,members
+
+def audit(artifact_dir,semantic_dir,raw_dir,workers=4):
     import pandas as pd
     artifact_dir=Path(artifact_dir);semantic_dir=Path(semantic_dir);raw_dir=Path(raw_dir)
     receipt=json.loads((artifact_dir/'receipt.json').read_bytes())
@@ -207,12 +295,14 @@ def audit(artifact_dir,semantic_dir,raw_dir):
     schedule=build_authorized_cutoff_execution_schedule(members[['month','signal_date','index_code']].drop_duplicates(),calendar)
     times={pd.Timestamp(r.signal_date).date().isoformat():r for r in schedule.itertuples()}
     catalog=rows(CAT/'reports.jsonl.gz');by_ticker=defaultdict(list)
-    for report in catalog:by_ticker[report['source_entity_code']].append(report)
+    for report in catalog:
+        for token in independent_entity_tokens(report['source_entity_code']):by_ticker[token].append(report)
     drift=defaultdict(list)
     for observed in rows(CAT/'drift_dependency_metadata.jsonl.gz'):
         if not observed.get('source_entity_code'):continue
-        drift[observed['source_entity_code']].append({**observed,'published_at':observed['observed_published_at'],'notification_id':observed['observed_notification_id']})
-    semantics=verified_semantic_rows(semantic_dir,receipt['source_hashes'],sha(CAT/'reports.jsonl.gz'))
+        for token in independent_entity_tokens(observed['source_entity_code']):
+            drift[token].append({**observed,'published_at':observed['observed_published_at'],'notification_id':observed['observed_notification_id']})
+    semantics=verified_semantic_rows(semantic_dir,receipt['source_hashes'],sha(CAT/'reports.jsonl.gz'),catalog)
     semantic_by_key={(r['report']['archive_name'],r['report']['member_name']):r for r in semantics}
     if sha(CAT/'reports.jsonl.gz')!=receipt['source_hashes']['catalog'] or sha(semantic_dir/'semantic_reports.jsonl.gz')!=receipt['source_hashes']['semantic']:raise ValueError('SEMANTIC_OR_CATALOG_SOURCE_HASH_MISMATCH')
     if sha(index_path)!=receipt['source_hashes']['index_prices']:raise ValueError('INDEX_SOURCE_HASH_MISMATCH')
@@ -223,7 +313,8 @@ def audit(artifact_dir,semantic_dir,raw_dir):
     market_by_ticker={str(t):frame.sort_values('trade_date') for t,frame in market.groupby('ticker')}
     original_manifest=json.loads((ROOT/'data/backtest_sources/kap_bulk_financial_source_capture/archive_manifest.json').read_bytes())
     original_hashes={r['filename']:r['sha256'] for r in original_manifest['archives']}
-    checked_archives={};checked_members={};checked_thb=[];monthly=defaultdict(list);facts_checked=0
+    checked_archives,checked_members=verified_selected_source_prepass(p3,catalog,raw_dir,original_hashes,workers)
+    checked_thb=[];monthly=defaultdict(list);facts_checked=0
     for cell,scored in zip(p3,p4):
         validate_pair(cell,scored)
         timing=times[cell['signal_date']]
@@ -231,6 +322,7 @@ def audit(artifact_dir,semantic_dir,raw_dir):
         cutoff=datetime.fromisoformat(cell['knowledge_cutoff_at']);candidate_tickers=validate_financial_lineage(cell,required=True)
         chosen=independent_latest([r for ticker in candidate_tickers for r in by_ticker[ticker]],cutoff)
         validate_selected_source(cell['selected_report'],chosen)
+        validate_entity_binding(cell,candidate_tickers)
         reported_price=cell.get('price');ticker_prices=market_by_ticker.get(cell['ticker'])
         eligible_prices=ticker_prices.loc[ticker_prices.trade_date.le(pd.Timestamp(cutoff.date()))] if ticker_prices is not None else None
         if reported_price is not None and 'raw_close' in reported_price:
@@ -259,10 +351,11 @@ def audit(artifact_dir,semantic_dir,raw_dir):
             semantic=semantic_by_key.get(key)
             if cell.get('historical_family') is not None:
                 if cell.get('historical_family_source')!='DATED_REPORT' or not semantic or cell['historical_family']!=semantic.get('historical_family'):raise ValueError('CURRENT_OR_CHANGED_SECTOR')
+            semantic_fact_ticker=validate_semantic_entity_mapping(semantic) if semantic else chosen['source_entity_code']
             fact_hashes={hashlib.sha256(encoded(f)).hexdigest() for f in semantic['facts']} if semantic else set()
             for fact in cell['own_period_semantic_facts']:
                 if hashlib.sha256(encoded(fact)).hexdigest() not in fact_hashes:raise ValueError('FACT_NOT_IN_SOURCE_SEMANTIC_ARTIFACT')
-                if fact['ticker']!=chosen['source_entity_code'] or datetime.fromisoformat(fact['published_at'])>cutoff or datetime.fromisoformat(fact['published_at'])!=datetime.fromisoformat(chosen['published_at']) or fact['period_end']!=period_end(chosen).isoformat():raise ValueError('FACT_TICKER_PERIOD_OR_PUBLICATION_MISMATCH')
+                if fact['ticker']!=semantic_fact_ticker or datetime.fromisoformat(fact['published_at'])>cutoff or datetime.fromisoformat(fact['published_at'])!=datetime.fromisoformat(chosen['published_at']) or fact['period_end']!=period_end(chosen).isoformat():raise ValueError('FACT_TICKER_PERIOD_OR_PUBLICATION_MISMATCH')
                 for field in ('archive_name','archive_sha256','member_name','member_sha256','source_entity_code'):
                     if fact['dimensions'][field]!=chosen[field]:raise ValueError('FACT_RAW_LINEAGE_MISMATCH')
                 if not Decimal(str(fact['value'])).is_finite():raise ValueError('NONFINITE_FINANCIAL_FACT')
@@ -282,6 +375,6 @@ def audit(artifact_dir,semantic_dir,raw_dir):
     return {'contract':'P6_PARTIAL_SOURCE_TO_REJECTION_AUDIT_V1','profile':'EXPERIMENTAL_RISK_ACCEPTED_5Y','result':'PASS','total_cells':6000,'months':60,'status_counts':dict(sorted(Counter(r['status'] for r in p3).items())),'verified_original_archives':checked_archives,'verified_selected_members':len(checked_members),'verified_fact_occurrences':facts_checked,'verified_canonical_thb_prices':checked_thb,'member_identity_inventory_sha256':hashlib.sha256(encoded([{'archive':a,'member':m,'sha256':digest} for (a,m),digest in sorted(checked_members.items())])).hexdigest(),'p3_sha256':sha(artifact_dir/'p3_cells.jsonl.gz'),'p4_sha256':sha(artifact_dir/'p4_cells.jsonl.gz'),'audit_producer_sha256':sha(__file__),'nav_trade_conservation_audited':False,'p6_full_completed':False,'authoritative_claim_allowed':False,'limitations':['Semantic numerical mapping is bound to the versioned semantic artifact, not independently remapped for every report by this audit.','No portfolio/NAV conservation claim until an actual P5 artifact is separately audited.']}
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--artifact-dir',type=Path,required=True);parser.add_argument('--semantic-dir',type=Path,required=True);parser.add_argument('--raw-dir',type=Path,default=ROOT/'private/reconstructed_kap_archives');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
-    result=audit(args.artifact_dir,args.semantic_dir,args.raw_dir);args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_bytes(encoded(result));print(json.dumps(result,sort_keys=True))
+    parser=argparse.ArgumentParser();parser.add_argument('--artifact-dir',type=Path,required=True);parser.add_argument('--semantic-dir',type=Path,required=True);parser.add_argument('--raw-dir',type=Path,default=ROOT/'private/reconstructed_kap_archives');parser.add_argument('--output',type=Path,required=True);parser.add_argument('--workers',type=int,default=4);args=parser.parse_args()
+    result=audit(args.artifact_dir,args.semantic_dir,args.raw_dir,args.workers);args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_bytes(encoded(result));print(json.dumps(result,sort_keys=True))
 if __name__=='__main__':main()

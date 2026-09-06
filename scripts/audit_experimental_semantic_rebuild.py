@@ -16,7 +16,8 @@ from scripts.materialize_experimental_financial_facts import ROOT, encoded, sha
 
 def audit(first: Path, second: Path):
     files = ('semantic_reports.jsonl.gz', 'semantic_receipt.json',
-             'semantic_alias_reports.jsonl.gz', 'semantic_alias_receipt.json')
+             'semantic_alias_reports.jsonl.gz', 'semantic_alias_receipt.json',
+             'semantic_entity_reports.jsonl.gz', 'semantic_entity_receipt.json')
     comparisons = {}
     for name in files:
         left, right = sha(first / name), sha(second / name)
@@ -29,7 +30,9 @@ def audit(first: Path, second: Path):
     generator = 'scripts/materialize_experimental_financial_facts.py'
     if receipt['generator_sha256'] != sha(ROOT / generator):
         raise ValueError('SEMANTIC_GENERATOR_CHANGED_SINCE_BUILD')
-    producers = [generator, 'scripts/kap_bulk_financial_native.py',
+    producers = [generator, 'scripts/materialize_experimental_alias_facts.py',
+                 'scripts/materialize_experimental_entity_facts.py',
+                 'scripts/kap_bulk_financial_native.py',
                  'scripts/kap_bulk_financial_fast.py', 'requirements-experimental.txt',
                  'src/ingest/kap_bulk_financial_export.py',
                  'src/ingest/kap_bulk_exact_semantic_mapping.py',
@@ -42,10 +45,25 @@ def audit(first: Path, second: Path):
     facts = Counter(f['semantic_profile'] for r in rows for f in r['facts'])
     if len(rows) != receipt['report_count'] or sum(facts.values()) != receipt['fact_count']:
         raise ValueError('SEMANTIC_RECEIPT_COUNT_MISMATCH')
+    supplementary = {}
+    for kind in ('alias', 'entity'):
+        extra = [json.loads(line) for line in gzip.decompress(
+            (first / f'semantic_{kind}_reports.jsonl.gz').read_bytes()).splitlines()]
+        extra_receipt = json.loads((first / f'semantic_{kind}_receipt.json').read_bytes())
+        count = sum(len(r['facts']) for r in extra)
+        if len(extra) != extra_receipt['report_count'] or count != extra_receipt['fact_count']:
+            raise ValueError('SEMANTIC_SUPPLEMENT_COUNT_MISMATCH:' + kind)
+        if extra_receipt['catalog_sha256'] != receipt['catalog_sha256']:
+            raise ValueError('SEMANTIC_SUPPLEMENT_CATALOG_MISMATCH:' + kind)
+        supplementary[kind] = dict(report_count=len(extra), fact_count=count,
+            report_status_counts=dict(sorted(Counter(r['status'] for r in extra).items())))
     return dict(contract='EXPERIMENTAL_SEMANTIC_TWO_PRIMARY_READS_AUDIT_V1',
                 result='PASS', independent_primary_byte_rebuilds=2,
                 byte_identical_outputs=comparisons, report_count=len(rows),
                 fact_count=sum(facts.values()), report_status_counts=dict(sorted(reports.items())),
+                supplements=supplementary,
+                total_report_count=len(rows)+sum(r['report_count'] for r in supplementary.values()),
+                total_fact_count=sum(facts.values())+sum(r['fact_count'] for r in supplementary.values()),
                 fact_profile_counts=dict(sorted(facts.items())),
                 dated_family_report_counts=dict(sorted(Counter(r.get('historical_family') or 'UNRESOLVED' for r in rows).items())),
                 producer_hashes={p: sha(ROOT / p) for p in producers},

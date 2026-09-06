@@ -20,8 +20,8 @@ def test_invalid_source_is_rejected_even_when_tokens_survive(tmp_path):
         dated_route('2025-01-03T10:00:00+03:00', 'GRTHO', source_path=path)
 
 
-def frames():
-    days = pd.bdate_range(end='2025-01-02', periods=320)
+def frames(end='2025-01-02'):
+    days = pd.bdate_range(end=end, periods=320)
     step = np.arange(len(days))
     calendar = pd.DataFrame({'trade_date': days})
     prices = pd.concat([pd.DataFrame(dict(ticker=t, trade_date=days,
@@ -48,3 +48,19 @@ def test_post_cutoff_prices_do_not_leak():
     result = build_market_modules('2025-01-03T10:00:00+03:00', ['GRTHO'], calendar,prices,indices)
     assert all(m['value'] is None and m['reasons'] == ['POST_CUTOFF_MARKET_DATA']
         for m in result['per_ticker']['GRTHO'].values())
+
+
+@pytest.mark.parametrize('day,closing,too_early', [
+    ('2021-10-28', '12:40:00', '12:39:59'),
+    ('2023-06-27', '12:40:00', '12:39:59'),
+    ('2026-05-26', '12:40:00', '12:39:59'),
+    ('2025-01-02', '18:10:00', '18:09:59'),
+])
+def test_authorized_close_boundary_keeps_actual_session_observations(day, closing, too_early):
+    calendar, prices, indices = frames(end=day)
+    result = build_market_modules(f'{day}T{closing}+03:00', ['AAA'], calendar, prices, indices)
+    assert result['market_asof_date'] == day
+    assert result['per_ticker']['AAA']['Ek9']['value'] is not None
+    early = build_market_modules(f'{day}T{too_early}+03:00', ['AAA'], calendar, prices, indices)
+    assert all(m['value'] is None and m['reasons'] == ['POST_CUTOFF_MARKET_DATA']
+               for m in early['per_ticker']['AAA'].values())

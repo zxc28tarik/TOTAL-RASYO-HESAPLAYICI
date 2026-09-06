@@ -78,17 +78,18 @@ def test_alias_drift_uses_same_precedence_and_cannot_reverse_to_future_successor
     assert financial_selection('GRTRK',cutoff,{'GRTHO':[old]}, {}, {})[0] is None
 
 
-def test_supplemental_alias_requires_hash_bound_artifact_and_no_duplicate(tmp_path):
+@pytest.mark.parametrize('kind',['alias','entity'])
+def test_supplemental_alias_requires_hash_bound_artifact_and_no_duplicate(tmp_path,kind):
     import json
     from scripts.materialize_experimental_p3_p4 import append_semantic_alias, write_rows, sha
     catalog=tmp_path/'catalog';catalog.write_bytes(b'primary metadata')
     row={'report':{'archive_name':'original.zip','member_name':'GRTRK.xls'}}
-    artifact=tmp_path/'semantic_alias_reports.jsonl.gz';write_rows(artifact,[row])
-    receipt=tmp_path/'semantic_alias_receipt.json'
+    artifact=tmp_path/f'semantic_{kind}_reports.jsonl.gz';write_rows(artifact,[row])
+    receipt=tmp_path/f'semantic_{kind}_receipt.json'
     receipt.write_text(json.dumps({'artifact_sha256':sha(artifact),'catalog_sha256':sha(catalog)}))
-    assert append_semantic_alias(tmp_path,catalog,[])[0]==[row]
+    assert append_semantic_alias(tmp_path,catalog,[],kind=kind)[0]==[row]
     with pytest.raises(ValueError,match='DUPLICATE'):
-        append_semantic_alias(tmp_path,catalog,[row])
+        append_semantic_alias(tmp_path,catalog,[row],kind=kind)
     artifact.write_bytes(artifact.read_bytes()+b' ')
     with pytest.raises(ValueError,match='ARTIFACT_HASH_MISMATCH'):
-        append_semantic_alias(tmp_path,catalog,[])
+        append_semantic_alias(tmp_path,catalog,[],kind=kind)

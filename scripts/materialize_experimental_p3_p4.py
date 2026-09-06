@@ -18,6 +18,7 @@ import pandas as pd
 from scripts.build_historical_m3_source_package import _historical_membership
 from scripts.materialize_experimental_financial_facts import encoded, sha
 from scripts.experimental_financial_ticker_lineage import candidate_source_tickers, lineage_receipt
+from scripts.experimental_financial_entity_binding import matching_financial_entities, financial_entity_binding
 from src.analytics.historical_cutoff_execution_policy import build_authorized_cutoff_execution_schedule
 from src.analytics.historical_pit_ek9_replay import run_historical_pit_ek9_replay
 from src.analytics.total_rasyo_combine import combine_company_result
@@ -54,7 +55,7 @@ def select_report(reports, cutoff):
     return visible[0]
 
 def financial_selection(ticker, cutoff, catalog_by_ticker, semantic_by_key, drift_by_ticker):
-    source_tickers=candidate_source_tickers(ticker,cutoff)
+    source_tickers=matching_financial_entities(ticker,cutoff,set(catalog_by_ticker)|set(drift_by_ticker))
     reports=[r for source in source_tickers for r in catalog_by_ticker.get(source,[])]
     chosen=select_report(reports,cutoff)
     drift=select_report([r for source in source_tickers for r in drift_by_ticker.get(source,[])],cutoff)
@@ -85,9 +86,10 @@ def validate_cells(cells, members):
         if r['status']=='SCORE_INPUT_READY' and r['reasons']: raise ValueError('READY_WITH_MISSING_INPUTS')
         if r['historical_family_source']=='CURRENT_SNAPSHOT': raise ValueError('CURRENT_SECTOR_FALLBACK')
 
-def append_semantic_alias(semantic_dir, catalog_path, semantics):
-    alias_path=semantic_dir/'semantic_alias_reports.jsonl.gz'
-    alias_receipt_path=semantic_dir/'semantic_alias_receipt.json'
+def append_semantic_alias(semantic_dir, catalog_path, semantics, kind='alias'):
+    if kind not in {'alias','entity'}: raise ValueError('UNKNOWN_SEMANTIC_SUPPLEMENT_KIND')
+    alias_path=semantic_dir/f'semantic_{kind}_reports.jsonl.gz'
+    alias_receipt_path=semantic_dir/f'semantic_{kind}_receipt.json'
     alias_sha=None
     if alias_path.exists() or alias_receipt_path.exists():
         if not alias_path.is_file() or not alias_receipt_path.is_file():
@@ -116,6 +118,7 @@ def build(semantic_dir, output):
     if sha(CAT/'reports.jsonl.gz')!=semantic_receipt['catalog_sha256']: raise ValueError('SEMANTIC_CATALOG_LINEAGE_MISMATCH')
     catalog=read_rows(CAT/'reports.jsonl.gz'); semantics=read_rows(semantic_dir/'semantic_reports.jsonl.gz')
     semantics,alias_sha=append_semantic_alias(semantic_dir,CAT/'reports.jsonl.gz',semantics)
+    semantics,entity_sha=append_semantic_alias(semantic_dir,CAT/'reports.jsonl.gz',semantics,kind='entity')
     alias_receipt_path=semantic_dir/'semantic_alias_receipt.json'
     by_ticker=defaultdict(list); drift_by_ticker=defaultdict(list)
     for r in catalog: by_ticker[r['source_entity_code']].append(r)
@@ -153,7 +156,8 @@ def build(semantic_dir, output):
             financial_lineage=lineage_receipt(ticker,cutoff)
             source_ticker=selected.get('source_entity_code',ticker) if selected else None
             financial_lineage['selected_source_ticker']=source_ticker
-            alias_selected=source_ticker is not None and source_ticker!=ticker
+            entity_binding=financial_entity_binding(ticker,cutoff,selected) if selected else None
+            alias_selected=entity_binding is not None and ticker not in entity_binding['entity_tokens']
             financial_lineage['alias_selected']=alias_selected
             # A dated family observation is independent of whether the next
             # financial statement's primary bytes are available.
@@ -191,6 +195,7 @@ def build(semantic_dir, output):
             cells.append(cell)
             cell['m2_source_gate']=m2_gate
             cell['financial_ticker_lineage']=financial_lineage
+            cell['financial_entity_binding']=entity_binding
             cell['m2_execution_stage']=m2_gate['implementation_stage']
             cell['market_module_lineage']=market_cell
             cell['partial_core_diagnostic_status']=core['per_ticker'][ticker]['status']
@@ -210,6 +215,15 @@ def build(semantic_dir, output):
     write_rows(output/'p3_cells.jsonl.gz',cells);write_rows(output/'p4_cells.jsonl.gz',p4);write_rows(output/'p2_candidates.jsonl.gz',candidates);write_rows(output/'core_diagnostics.jsonl.gz',core_audits)
     receipt={'contract':'EXPERIMENTAL_P3_P4_MATERIALIZATION_V1','profile':PROFILE,'risk_ids':RISKS,'total_cells':len(cells),'score_input_ready':sum(r['status']=='SCORE_INPUT_READY' for r in cells),'explicit_rejections':sum(r['status']=='EXPLICIT_REJECTION' for r in cells),'cells_with_own_period_financial_facts':sum(bool(r['own_period_semantic_facts']) for r in cells),'reason_counts':dict(sorted(Counter(x for r in cells for x in r['reasons']).items())),'p2_candidate_count':len(candidates),'p2_usable_count':0,'p4_months':monthly,'p4_valid_total_scores':sum(m['valid'] for m in monthly),'p5_eligible_for_strategy_performance':False,'original_993_reproduced':False,'financial_materialization_performed':True,'authoritative_claim_allowed':False,'source_hashes':{'catalog':sha(CAT/'reports.jsonl.gz'),'semantic':sha(semantic_dir/'semantic_reports.jsonl.gz'),'stock_prices':price_sha,'index_prices':sha(INDICES)},'producer_hashes':{name:sha(ROOT/name) for name in ['scripts/materialize_experimental_p3_p4.py','scripts/experimental_core_module_materializer.py','scripts/experimental_historical_market_modules.py','scripts/experimental_m2_source_gate.py','scripts/experimental_financial_ticker_lineage.py','src/analytics/historical_pit_m3_replay.py','src/analytics/historical_pit_ek4_replay.py','src/analytics/total_rasyo_combine.py','src/analytics/total_rasyo_score.py','src/analytics/historical_pit_ek9_replay.py']},'outputs':{p.name:sha(p) for p in sorted(output.glob('*.gz'))}}
     receipt['per_module_nonnull_counts']={key:sum(c['module_values'].get(key) is not None for c in cells) for key in ('M2',*READ_MODULE_KEYS)}
+    receipt['producer_hashes'].update({name:sha(ROOT/name) for name in (
+        'config/ratios.json','config/sectors.json',
+        'src/ingest/company_fact_materializer.py',
+        'src/analytics/company_ratio_pipeline.py','src/analytics/ratios_calc.py',
+        'src/analytics/rsc_scoring.py','src/analytics/historical_pit_rsc_replay.py',
+        'src/analytics/historical_pit_m1_replay.py','src/analytics/historical_pit_ek1_replay.py',
+        'src/analytics/historical_cutoff_execution_policy.py',
+        'src/analytics/price_level_adapter.py','src/analytics/price_level_action_evidence.py',
+        'src/analytics/historical_valuation_price_supplement.py')})
     receipt['core_diagnostic_status_counts']=dict(sorted(Counter(c['partial_core_diagnostic_status'] for c in cells).items()))
     receipt['financial_alias_selected_cells']=sum(c['financial_ticker_lineage']['alias_selected'] for c in cells)
     receipt['core_financial_alias_adapter_implemented']=True
@@ -217,6 +231,11 @@ def build(semantic_dir, output):
     if alias_sha is not None:
         receipt['source_hashes']['semantic_alias']=alias_sha
         receipt['source_hashes']['semantic_alias_receipt']=sha(alias_receipt_path)
+    if entity_sha is not None:
+        receipt['source_hashes']['semantic_entity']=entity_sha
+        receipt['source_hashes']['semantic_entity_receipt']=sha(semantic_dir/'semantic_entity_receipt.json')
+    receipt['composite_financial_entity_cells']=sum(bool(c['financial_entity_binding'] and c['financial_entity_binding']['composite_entity']) for c in cells)
+    receipt['producer_hashes']['scripts/experimental_financial_entity_binding.py']=sha(ROOT/'scripts/experimental_financial_entity_binding.py')
     (output/'receipt.json').write_bytes(encoded(receipt));return receipt
 
 if __name__=='__main__':

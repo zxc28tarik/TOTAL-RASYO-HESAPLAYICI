@@ -77,6 +77,7 @@ def build_core_modules(reports, analysis_at, tickers):
     """
     analysis = _time(analysis_at)
     from scripts.experimental_financial_ticker_lineage import lineage_receipt
+    from scripts.experimental_financial_entity_binding import entity_tokens, financial_entity_binding
     wanted = tuple(sorted(set(str(t).strip().upper() for t in tickers)))
     selected = {t: [] for t in wanted}
     identity = {t: lineage_receipt(t, analysis) for t in wanted}
@@ -88,7 +89,8 @@ def build_core_modules(reports, analysis_at, tickers):
         report = item['report']
         ticker = report['source_entity_code']
         if _time(report['published_at']) <= analysis:
-            for target in targets_by_source.get(ticker, []):
+            targets = {target for token in entity_tokens(ticker) for target in targets_by_source.get(token, [])}
+            for target in sorted(targets):
                 selected[target].append(item)
     result = {'contract': 'EXPERIMENTAL_PARTIAL_CORE_MODULES_V1',
               'diagnostic_only': True, 'analysis_at': analysis.isoformat(),
@@ -105,6 +107,8 @@ def build_core_modules(reports, analysis_at, tickers):
         diag['financial_ticker_lineage'] = identity[ticker]
         diag['alias_fact_adaptations'] = []
         diag['alias_history_consumed'] = False
+        diag['financial_entity_bindings'] = []
+        diag['excluded_unproven_share_class_facts'] = 0
         visible = sorted(selected[ticker], key=lambda x: (
             _time(x['report']['published_at']), int(x['report']['notification_id']),
             x['report']['member_sha256']))
@@ -137,7 +141,7 @@ def build_core_modules(reports, analysis_at, tickers):
                 bounded.append(item)
         diag['excluded_older_own_reports'] = len(visible) - len(bounded)
         visible = bounded
-        aliases = [item for item in visible if item['report']['source_entity_code'] != ticker]
+        aliases = [item for item in visible if ticker not in entity_tokens(item['report']['source_entity_code'])]
         if aliases and (len({item.get('historical_family') for item in visible}) != 1 or family is None):
             diag['reasons'].append('FINANCIAL_ALIAS_ECONOMIC_FAMILY_CONTINUITY_UNPROVEN')
             continue
@@ -147,6 +151,18 @@ def build_core_modules(reports, analysis_at, tickers):
         candidates = []
         for item in visible:
             report = item['report']
+            binding = financial_entity_binding(ticker, analysis, report)
+            diag['financial_entity_bindings'].append(binding)
+            if binding['composite_entity']:
+                expected_binding = {'contract':'ARCHIVED_ENTITY_TECHNICAL_TOKEN_V1',
+                    'raw_source_entity_code':report['source_entity_code'],
+                    'declared_tokens':list(entity_tokens(report['source_entity_code'])),
+                    'technical_mapping_ticker':entity_tokens(report['source_entity_code'])[0],
+                    'source_member_sha256':report['member_sha256'],
+                    'original_dimensions_preserved':True,'share_or_price_basis_proven':False}
+                if item.get('mapping_ticker_binding') != expected_binding:
+                    diag['reasons'].append('COMPOSITE_TECHNICAL_MAPPING_BINDING_MISMATCH')
+                    continue
             month = {'Q1': 3, 'Q2': 6, 'Q3': 9, 'Q4': 12}[report['report_period']]
             year = int(report['report_year'])
             own_end = date(year, month, calendar.monthrange(year, month)[1])
@@ -160,11 +176,16 @@ def build_core_modules(reports, analysis_at, tickers):
                 if _time(raw['published_at']) > analysis:
                     diag['excluded_future_facts'] += 1
                     continue
-                if (raw['ticker'] != report['source_entity_code'] or _time(raw['published_at']) != _time(report['published_at'])
+                declared_mapping_ticker = item.get('report_mapping_ticker', report['source_entity_code'])
+                if (declared_mapping_ticker not in entity_tokens(report['source_entity_code'])
+                    or raw['ticker'] != declared_mapping_ticker or _time(raw['published_at']) != _time(report['published_at'])
                     or raw['disclosure_id'] != 'KAP:' + str(report['notification_id'])
                     or raw.get('statement_scope') != report.get('statement_scope')
                     or raw.get('dimensions', {}).get('member_sha256') != report['member_sha256']):
                     diag['reasons'].append('FACT_REPORT_IDENTITY_MISMATCH')
+                    continue
+                if binding['composite_entity'] and raw['canonical_field'] in {'ISSUED_CAPITAL','SHARES_OUT','SHARES_DILUTED'}:
+                    diag['excluded_unproven_share_class_facts'] += 1
                     continue
                 if raw['sector_family'] in {'NONFIN', 'HOLDING'}:
                     candidates.append((item, raw))

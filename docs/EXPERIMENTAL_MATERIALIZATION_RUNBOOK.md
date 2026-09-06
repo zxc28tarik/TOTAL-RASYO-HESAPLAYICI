@@ -22,13 +22,17 @@ records the two excluded replacement archives and their observed hashes.
 python -m scripts.reconstruct_experimental_kap_catalog --help
 python -m scripts.materialize_experimental_financial_facts --catalog data/backtest_sources/reconstructed_experimental_kap_v1/reports.jsonl.gz --raw-dir private/reconstructed_kap_archives --output-dir data/backtest_sources/experimental_semantic_facts_v1 --workers 4
 python -m scripts.materialize_experimental_alias_facts --raw-dir private/reconstructed_kap_archives --output-dir data/backtest_sources/experimental_semantic_facts_v1
+python -m scripts.materialize_experimental_entity_facts --raw-dir private/reconstructed_kap_archives --output-dir data/backtest_sources/experimental_semantic_facts_v1 --workers 4
 python -m scripts.materialize_experimental_financial_facts --catalog data/backtest_sources/reconstructed_experimental_kap_v1/reports.jsonl.gz --raw-dir private/reconstructed_kap_archives --output-dir private/experimental_semantic_second --workers 4
 python -m scripts.materialize_experimental_alias_facts --raw-dir private/reconstructed_kap_archives --output-dir private/experimental_semantic_second
+python -m scripts.materialize_experimental_entity_facts --raw-dir private/reconstructed_kap_archives --output-dir private/experimental_semantic_second --workers 4
 python -m scripts.audit_experimental_semantic_rebuild --first data/backtest_sources/experimental_semantic_facts_v1 --second private/experimental_semantic_second --output data/backtest_sources/experimental_semantic_facts_v1/rebuild_audit.json
 python -m scripts.materialize_experimental_p3_p4 --semantic-dir data/backtest_sources/experimental_semantic_facts_v1 --output-dir data/audit/experimental_materialization_v1
 python -m scripts.materialize_experimental_p3_p4 --semantic-dir private/experimental_semantic_second --output-dir private/experimental_materialization_second
 python -m scripts.audit_experimental_materialization --artifact-dir data/audit/experimental_materialization_v1 --semantic-dir data/backtest_sources/experimental_semantic_facts_v1 --raw-dir private/reconstructed_kap_archives --output data/audit/experimental_materialization_v1/independent_audit.json
 python -m scripts.replay_experimental_portfolio --p4-cells data/audit/experimental_materialization_v1/p4_cells.jsonl.gz --output-dir data/audit/experimental_portfolio_v1
+python -m scripts.summarize_experimental_dependencies --artifact-dir data/audit/experimental_materialization_v1
+python -m scripts.audit_experimental_readiness --p4-cells data/audit/experimental_materialization_v1/p4_cells.jsonl.gz --output-dir data/audit/experimental_readiness_v1
 python -m scripts.audit_p7_version_pair
 ```
 
@@ -54,6 +58,12 @@ builds nor passing tests establish historical source completeness.
   the change takes effect. The original source ticker, facts and hashes remain
   unchanged. CORE calculations may use an explicitly audited temporary ticker
   copy; changes in economic family still reject continuity.
+- Archived composite member codes such as GARAN-TGB bind only their exact
+  declared tokens. A separately recorded first-token technical mapping identity
+  satisfies the existing semantic API while preserving raw source dimensions.
+  Financial entity binding is not permission to transfer prices or nominal
+  shares between share classes; composite capital/share inputs are excluded
+  from the temporary CORE calculation where that proof is missing.
 - Generic historical Yahoo closes are observations, not a proof of raw nominal
   valuation basis. The 12 verified THB closes have a separate actual source
   path; their remaining action-completeness rejection is recorded by calling

@@ -1,5 +1,5 @@
 """Source-bound partial market modules without a current sector snapshot."""
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from functools import lru_cache
 import hashlib
 from pathlib import Path
@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 from scripts.experimental_core_module_materializer import _json, _time
-from src.analytics.bank_batch_pipeline import daily_price_cutoff_date
+from src.analytics.historical_cutoff_execution_policy import TOTAL_RASYO_MONTHLY_OPEN_V1
 from src.analytics.historical_pit_m3_replay import run_historical_pit_m3_replay
 from src.analytics.historical_pit_ek4_replay import run_historical_pit_ek4_replay
 from src.analytics.historical_pit_ek9_replay import run_historical_pit_ek9_replay
@@ -63,7 +63,13 @@ def dated_route(cutoff, ticker, *, source_path=SOURCE, lineage_path=LINEAGE):
 def build_market_modules(cutoff, tickers, calendar, prices, indices):
     analysis = _time(cutoff)
     signal_day = analysis.astimezone(ZoneInfo('Europe/Istanbul')).date()
-    market_day = daily_price_cutoff_date(analysis)
+    # The monthly policy explicitly authorizes the three half-day closes at
+    # 12:40. The generic bank helper assumes 18:10 and would reject every valid
+    # cutoff-day observation for those months as future data.
+    local_analysis = analysis.astimezone(ZoneInfo('Europe/Istanbul'))
+    session_end = TOTAL_RASYO_MONTHLY_OPEN_V1.session_end_for(pd.Timestamp(signal_day))
+    market_day = (signal_day if local_analysis.timetz().replace(tzinfo=None) >= session_end
+                  else signal_day - timedelta(days=1))
     wanted = tuple(sorted(set(tickers)))
     result = {'contract': 'EXPERIMENTAL_PARTIAL_MARKET_MODULES_V1',
         'analysis_at': analysis.isoformat(), 'current_sector_fallback': False,
@@ -72,6 +78,7 @@ def build_market_modules(cutoff, tickers, calendar, prices, indices):
             'route_source_sha256': SOURCE_SHA, 'lineage_sha256': LINEAGE_SHA,
             'publication': PUBLICATION.isoformat(), 'effective_date': EFFECTIVE.isoformat(),
             'generator_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+            'cutoff_policy_sha256': TOTAL_RASYO_MONTHLY_OPEN_V1.descriptor_sha256,
             'risk_ids': ['SUBSEQUENT_SECTOR_CHANGE_ENUMERATION_UNPROVEN'],
             'authoritative_pit_claim_allowed': False}, 'per_ticker': {}}
     for ticker in wanted:
