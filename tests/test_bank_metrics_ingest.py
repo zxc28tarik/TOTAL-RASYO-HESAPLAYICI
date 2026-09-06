@@ -111,7 +111,7 @@ def test_copy_temp_table_does_not_inherit_bigserial_sequence_defaults():
 
 def test_migration_contains_database_level_fail_closed_constraints():
     from pathlib import Path
-    sql = (Path(__file__).resolve().parents[1] / "sql" / "011_bank_valuation_integration.sql").read_text().lower()
+    sql = (Path(__file__).resolve().parents[1] / "sql" / "011_bank_valuation_integration.sql").read_text(encoding="utf-8").lower()
     for constraint in (
         "ck_bank_metrics_version_sequence",
         "ck_bank_metrics_bvps",

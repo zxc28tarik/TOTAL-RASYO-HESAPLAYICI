@@ -28,6 +28,8 @@ banka/holding/GYO tahmini yapılmıyor.
 - Güncel 6.000 hücre kaynak/P3/P4 denetimi **PASS**; tarihli aile rotası bağımsız
   olarak yeniden seçiliyor ve yanlış hash/ticker/kod/etkinlik tarihi mutasyonları
   reddediliyor.
+- İki ayrı tam süreç aynı receipt'i ve receipt'te listelenen 64 gzip artifact'ı
+  bayt düzeyinde aynı üretti: yeniden üretim denetimi **PASS**.
 
 Ayrıntılar: [kilit açma sonucu](ASTRA_V24_UNLOCK_RESULT.md). Önceki v1 artifact
 ve sonuç bölümü tarihsel karşılaştırma olarak aşağıda korunur.

@@ -323,7 +323,7 @@ def test_production_sql_calls_single_point_in_time_function():
     assert "analytics.bank_point_in_time_slots" in call_norm
     assert "%(analysis_at)s::timestamptz" in call_norm
 
-    migration = (root / "sql" / "011_bank_valuation_integration.sql").read_text()
+    migration = (root / "sql" / "011_bank_valuation_integration.sql").read_text(encoding="utf-8")
     normalized = " ".join(migration.lower().split())
     assert "generate_series(7, 0, -1)" in normalized
     assert "m.published_at <= p.analysis_at" in normalized

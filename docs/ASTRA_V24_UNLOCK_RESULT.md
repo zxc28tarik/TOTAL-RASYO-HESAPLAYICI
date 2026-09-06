@@ -19,6 +19,10 @@ geçerli Total Rasyo skoru üretmemiştir. M2 kanıt kapısı korunmuştur.
 | En az 5 modül | — | 3.017 | — |
 | Geçerli Total skor | 0 | 0 | 0 |
 
+İki ayrı tam üretim süreci aynı receipt'i ve receipt'te listelenen 64 gzip
+artifact'ı bayt düzeyinde aynı üretti. `EXPERIMENTAL_P3_P4_TWO_COMPLETE_REBUILDS_V1`
+denetimi PASS'tir.
+
 M3/Ek4'teki eski 16 hücrelik sonuç, üreticinin kapalı M3 paketini tüketmeyip
 yalnız tek bir GRTRK/GRTHO olayına bağlı kalmasından kaynaklanıyordu. Yeni akış
 paket manifestini önce kapalı olarak doğrular, sonra 210 rotayı tam ticker ve
