@@ -1,0 +1,253 @@
+{
+  "runs": [
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T17:23:44Z",
+      "head_sha": "723aafbb51e3bfa4391a3d5ca1cf40846d479183",
+      "id": 33419321706,
+      "name": "V24 Real Data CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T15:39:25Z",
+      "head_sha": "dc63e7ee599b3159de3f0ed77d5a8f282e3588b7",
+      "id": 33409696761,
+      "name": "V24 Real Data CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:58:38Z",
+      "head_sha": "bd29108c544513fd8e58ef311bff7d88c2406e82",
+      "id": 33358901539,
+      "name": "V24 BilancoVeri 5Y Frozen Next Batch",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:55:25Z",
+      "head_sha": "b2dc63c237ddb4722ae3f84193a0518babb6471d",
+      "id": 33358738143,
+      "name": "V24 BilancoVeri 5Y Frozen Next Batch",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:52:15Z",
+      "head_sha": "5d150f04534f6367bb98ebcbc2666882d25daf50",
+      "id": 33358564383,
+      "name": "V24 BilancoVeri 5Y Frozen Next Batch",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:49:13Z",
+      "head_sha": "46d78d1c8e726d6f800aae3611dbb4eb87d55a52",
+      "id": 33358401632,
+      "name": "V24 BilancoVeri 5Y Frozen Next Batch",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:43:56Z",
+      "head_sha": "2acb1dc7614403bdbde08b79a731d707856fd11c",
+      "id": 33358110990,
+      "name": "V24 BilancoVeri Full Detail Index Probe",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:42:08Z",
+      "head_sha": "08c6f393d155a64410b908f8512adb48ba85b271",
+      "id": 33358010501,
+      "name": "V24 BilancoVeri Full Detail Index Probe",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:38:35Z",
+      "head_sha": "a508d21f6ff083dac92bf4bcd305554294477b8c",
+      "id": 33357805834,
+      "name": "V24 BilancoVeri 5Y All-BIST Batch 1",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:21:51Z",
+      "head_sha": "8583af1ea6f88002650f15952d0aacf3f00b6113",
+      "id": 33356820906,
+      "name": "V24 BilancoVeri 3Y Source Probe",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:20:22Z",
+      "head_sha": "0600cdb0825e91387d243ae26c7031486242d9e4",
+      "id": 33356733170,
+      "name": "V24 BilancoVeri 3Y Source Probe",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:19:33Z",
+      "head_sha": "2b2f155c2e60efb6c640ebf5e3cf0cdac9dbd558",
+      "id": 33356682956,
+      "name": "V24 BilancoVeri 3Y Source Probe",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:10:36Z",
+      "head_sha": "0e5288f72f5f6b69b111b615c419cb911fa566f1",
+      "id": 33356170838,
+      "name": "V24 3Y Hybrid Financial Source Probe",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:05:59Z",
+      "head_sha": "b1be13d93d2d13b6952af49534f97bf98a64e14b",
+      "id": 33355920815,
+      "name": "V24 3Y Hybrid Financial Source Probe",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:01:56Z",
+      "head_sha": "4019f044f4bdd7b2385c2a2173fb5315491ed0a1",
+      "id": 33355705212,
+      "name": "V24 Is Yatirim 3Y Source Probe",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T04:00:53Z",
+      "head_sha": "96c49a975316df0d07a98ac5bef75226bfc70347",
+      "id": 33355651752,
+      "name": "V24 Is Yatirim 3Y Source Probe",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T01:57:07Z",
+      "head_sha": "ffdd5b3bf5187f5f70e79a00539f63c5a76d5e7a",
+      "id": 33349133429,
+      "name": "V24 Public KAP Source Inventory CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T01:24:31Z",
+      "head_sha": "1ba38f17f999b85fb4026c50aca3407723ce1bc1",
+      "id": 33347484195,
+      "name": "V24 Public KAP Source Inventory CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T01:24:11Z",
+      "head_sha": "ee864796d3815780dc0f9f4f7423ec438ec2f3b4",
+      "id": 33347466554,
+      "name": "V24 Public KAP Source Inventory CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T01:22:50Z",
+      "head_sha": "cb396659552f4eb02dd30524e8faf186eabf1250",
+      "id": 33347399065,
+      "name": "V24 Public KAP Source Inventory CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T01:22:47Z",
+      "head_sha": "cb396659552f4eb02dd30524e8faf186eabf1250",
+      "id": 33347397024,
+      "name": "V24 Public KAP Source Inventory CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T01:22:38Z",
+      "head_sha": "3958af17e6e504b1176c100c08b5e3722dec2196",
+      "id": 33347389357,
+      "name": "V24 Public KAP Source Inventory CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T01:14:11Z",
+      "head_sha": "b2a56d505055b6ee7740444b263e47b4a9e96caa",
+      "id": 33346973064,
+      "name": "V24 Public KAP Source Inventory CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T01:13:32Z",
+      "head_sha": "b2a56d505055b6ee7740444b263e47b4a9e96caa",
+      "id": 33346936371,
+      "name": "V24 Public KAP Source Inventory CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T00:32:20Z",
+      "head_sha": "78fa09493f5028da8e25f688146dba34bf7c7984",
+      "id": 33344868215,
+      "name": "V24 Public KAP PIT Collector CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-31T00:31:55Z",
+      "head_sha": "78fa09493f5028da8e25f688146dba34bf7c7984",
+      "id": 33344847681,
+      "name": "V24 Public KAP PIT Collector CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-30T19:48:30Z",
+      "head_sha": "d3a73906c38abf41e2ad07cacdc5d3a29e13dd7e",
+      "id": 33331890356,
+      "name": "V24 KAP Public Financial PIT CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-30T19:46:23Z",
+      "head_sha": "67b830a42a601e72fd6ce5f48384bbf1058eb314",
+      "id": 33331792555,
+      "name": "V24 KAP Public Financial PIT CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "failure",
+      "created_at": "2026-08-30T19:42:55Z",
+      "head_sha": "5f9c7f12d5b2039d9cecc1b23f743412a16b47e8",
+      "id": 33331633904,
+      "name": "V24 KAP Public Financial PIT CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-30T18:56:44Z",
+      "head_sha": "30d56b47243a3d49f6bc9d01e083459c6ec519c4",
+      "id": 33329485241,
+      "name": "V24 Cutoff Execution Policy CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-08-30T18:56:44Z",
+      "head_sha": "30d56b47243a3d49f6bc9d01e083459c6ec519c4",
+      "id": 33329485196,
+      "name": "V24 Real Data CI",
+      "status": "completed"
+    }
+  ],
+  "total_count": 31
+}

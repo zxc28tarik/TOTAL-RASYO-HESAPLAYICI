@@ -1,0 +1,84 @@
+{
+  "baseline_head": "50c3b40691ef9dbabbd588fd95255f1f5207ee52",
+  "contract": "ORIGINAL_CATALOG_RECOVERY_DECISION_V3",
+  "evidence_sha256": {
+    "actions_artifact_contents.json": "2f6d8addc38b02adf66d3c524c1dc68fad07382e5fd86294c0b72952dad756b7",
+    "download_packages.json": "f2f981bb25a4db54baff8d63b39913101006d49d583cbf3114cfdc4b07c33205",
+    "git_objects.json": "bf64b89fb6e672843cf3220e8a603a818a0d0c6244092d8cac59770f2e25a8a1",
+    "historical_workflow_log_search.json": "6d7d87ab2ba2c76b22a63f1442cef77e311b2ee9477b24cf5192ede269a651fb",
+    "issue_lineage_search.json": "a3248e03003e46404c9388263c99b8b97570980b1bb812dfd2341a4e8a373d95",
+    "local_packages.json": "7005abe3badf49196e2abbd82c0ae679f3ea8e93b699608f427fabe9d6a695a0",
+    "original_capture_workflow_run_inventory.json": "2eec398b73a074bb222c0a633ca50d1dd0cb21bef67608285f6e8061197a2ceb",
+    "producer_history_search.json": "6b5d78359c9f686e10156240fb107b9d7d43913f200eb0c85228fac8c8613abc",
+    "release_archive_contents.json": "2e1a03451f2df9257b95a2ca0011656d1a3ad2cec0a38660fc4d822a1a8f5026"
+  },
+  "limitations": [
+    "Archive payload hashing limited to 16 MiB per member and nested ZIP depth 2. Oversized skipped members are enumerated.",
+    "Release ZIP inspection checks central-directory names and records name-list hashes, not all 20.9 GB of decompressed XLS payloads.",
+    "Local scope is this repository plus relevant Desktop project copies and matching Downloads archives; unrelated local projects were not searched.",
+    "No original 993-cell candidate/source package or its producer was recovered; historical 981 summary is not treated as a fresh replay."
+  ],
+  "lineage": {
+    "capture_at": "2026-08-31T04:25:50+00:00",
+    "metadata_preservation_commit": "d3c39306cd080bb4c2f542d9296696c88eb834ed",
+    "reacquisition_run": 33568804543,
+    "source_catalogs_already_absent_at_metadata_preservation": true
+  },
+  "recovered_catalogs": 0,
+  "reproduction_conditions": {
+    "all_original_raw_input_bytes_available": false,
+    "expected_raw_archives": 28,
+    "gzip_parameters_identified": false,
+    "known_matching_raw_archives": 26,
+    "ordering_identified": false,
+    "producer_and_version_identified": false,
+    "reason": "Same-input/same-producer reconstruction cannot be established; no guessed serialization or current-snapshot substitution is labeled original.",
+    "rebuild_attempted": false,
+    "serialization_identified": false
+  },
+  "search_counts": {
+    "artifact_members_hashed": 6134,
+    "artifact_members_listed": 6164,
+    "available_actions_artifacts": 71,
+    "capture_window_workflow_logs_scanned": 31,
+    "local_git_blobs_hashed": 1078,
+    "local_git_objects": 3094,
+    "oversized_artifact_members_not_hashed": 30,
+    "release_zip_central_directories_inspected": 28,
+    "relevant_download_zip_members_hashed": 1303,
+    "unreachable_blobs_included": 2
+  },
+  "status": "BLOCKED",
+  "targets": [
+    {
+      "expected_sha256": "a2dd6ea550ea2fc4c5723eb9d2256c2718c69fd9ed3a19f2142ebd4df634eb03",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/enumeration_receipts.csv.gz",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "d9a0de7770d1e2aa6a05d8b12d90e1aaddf2ff559d5ee1bb61572026aa9516ea",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/experimental_inventory_6000.csv.gz",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "46f69b078c9d7738e779c758089869b2e1e42857007ea89123fe2ea1a05e40bf",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/inventory_6000.csv.gz",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "d8f11e355964ca9a9643d1a980f434699d769fc83121bb40c32f1c8676223fe4",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/report_catalog.csv.gz",
+      "status": "MISSING"
+    },
+    {
+      "expected_sha256": "05b5aeaf4d7961683d026bf6032cd4df9482f721a7173d6631034887595a5ca9",
+      "observed_sha256": null,
+      "path": "data/backtest_sources/kap_bulk_financial_source_capture/target_report_catalog.csv.gz",
+      "status": "MISSING"
+    }
+  ]
+}

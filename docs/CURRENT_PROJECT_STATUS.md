@@ -5,6 +5,14 @@
 > sonraki işler için aşağıdaki Claude adıyla denetim şartının yerini alır.
 > Teknik kapanışlar henüz ilan edilmedi; entegrasyon dalı `codex/astra-v24-finalize`.
 
+## Veri kurtarma araştırması — 2026-09-06
+
+- Tüm 1078 yerel Git blobu, 71 Actions artifact içeriği, 31 eski workflow logu, 28 release ZIP dizini ve ilgili yerel paketler araştırıldı; beş özgün katalog bulunamadı.
+- INVES/KLRHO/ASGYO için altı gerçek KAP raporundan tarihli pay kaynakları çıkarıldı; 12 P2 hücresinin aralıkları ve cutoff öncesi yayınları kayıtlı.
+- Resmi bildirim sorgularının tekrarları ve aylık birleşimleri tutarlı; tarihsel kapsam garantisi kanıtlanamadı. Boş CA takviminin bilinen bir olayı kaçırdığı doğrulandı.
+- Gerçek pay adaylarıyla iki P2 replay aynı: 12 açık action-completeness reddi. 993 aday paket yeniden üretilemedi; P3–P7 tamamlanmadı.
+- [Kaynak araştırması ve ikinci kontrol](ASTRA_DATA_RECOVERY_SECOND_PASS.md), `data/audit/catalog_recovery_v3/` ve `data/backtest_sources/p2_action_research_v1/`.
+
 ## Yeni adaptör geçişi — 2026-09-05
 
 - Beş üretim adaptörü ve tarihsel replay akışları ham kapanış + kanıtlı PIT pay normalizasyonuna bağlı.

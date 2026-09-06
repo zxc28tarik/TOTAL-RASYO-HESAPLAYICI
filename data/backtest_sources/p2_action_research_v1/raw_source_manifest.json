@@ -1,0 +1,330 @@
+{
+  "archive_file": "raw_sources.zip",
+  "archive_sha256": "8d3087ee5e51bd47816f75a50a1749a06db70c3c6236037bccd677dbb6122266",
+  "archive_size_bytes": 11233318,
+  "compression": {
+    "algorithm": "ZIP_DEFLATE",
+    "level": 9,
+    "member_order": "filename_ASC",
+    "timestamp": [
+      1980,
+      1,
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  "contract": "P2_ACTION_RESEARCH_RAW_SOURCE_BYTES_V1",
+  "members": [
+    {
+      "path": "0.71jgxax-7yc.js",
+      "sha256": "90d684c067c1973cc803d65f5c74d7b5ca19848703ab9dabbd6596040dddcf2e",
+      "size_bytes": 29117,
+      "source_url": "https://kap.org.tr/_next/static/chunks/0.71jgxax-7yc.js"
+    },
+    {
+      "path": "0738zwqvc5qtd.js",
+      "sha256": "919a3dc1287e1adc0a92e310991c529d6663045a2f40624f5962e0e799decc00",
+      "size_bytes": 224782,
+      "source_url": "https://kap.org.tr/_next/static/chunks/0738zwqvc5qtd.js"
+    },
+    {
+      "path": "0aa_ceeqiu8kv.js",
+      "sha256": "86640679fce6630109b143e22f04bf6c21155659f0eefa3a64307eba9323911c",
+      "size_bytes": 28249,
+      "source_url": "https://kap.org.tr/_next/static/chunks/0aa_ceeqiu8kv.js"
+    },
+    {
+      "path": "0c.~mod-kqh3~.js",
+      "sha256": "2b16a924fd7547f11102e854bc4cec542be105ba494ccef2768d33445ae559f9",
+      "size_bytes": 23960,
+      "source_url": "https://kap.org.tr/_next/static/chunks/0c.~mod-kqh3~.js"
+    },
+    {
+      "path": "0mdzs.75236fo.js",
+      "sha256": "e62be76db782d9eeb82e9abf724c014daa5e452c757a9a457dae96ae256793e1",
+      "size_bytes": 39716,
+      "source_url": "https://kap.org.tr/_next/static/chunks/0mdzs.75236fo.js"
+    },
+    {
+      "path": "0q-.t164j22gy.js",
+      "sha256": "cecc21367c3836f8b72724595fb9cf9062d9a6bc01ce7adfc78b4f3afe761525",
+      "size_bytes": 37047,
+      "source_url": "https://kap.org.tr/_next/static/chunks/0q-.t164j22gy.js"
+    },
+    {
+      "path": "0ryc4cumjud8..js",
+      "sha256": "87288cbfaac48d5a7f8713abd4505caa5289c1a6d6b5afcb7cd529b212b872ea",
+      "size_bytes": 60627,
+      "source_url": "https://kap.org.tr/_next/static/chunks/0ryc4cumjud8..js"
+    },
+    {
+      "path": "15nftaedmwt2t.js",
+      "sha256": "067b603c3d829038162adb2bd3954b80d5e8f6c47ab25a6b719b7a9b7d87cec2",
+      "size_bytes": 74863,
+      "source_url": "https://kap.org.tr/_next/static/chunks/15nftaedmwt2t.js"
+    },
+    {
+      "path": "kap_1027019.html",
+      "sha256": "8e00170fe13475fd0f029aa3a6a56cd2f2e0b696f6d1a039799724e852efec87",
+      "size_bytes": 4835533,
+      "source_url": "https://kap.org.tr/tr/Bildirim/1027019"
+    },
+    {
+      "decoded_pdf_offset": 27,
+      "path": "kap_1027019_attachment_0.pdf",
+      "response_encoding": "JAVA_SERIALIZED_BYTE_ARRAY",
+      "sha256": "536af1a02367e6c8ef101e09ac171b06ca795017dcea3a33ca1e6ef19212951b",
+      "size_bytes": 1037891,
+      "source_url": "https://kap.org.tr/tr/api/file/download/4028328d8029261a01809560ba7c6bcf"
+    },
+    {
+      "path": "kap_1052635.html",
+      "sha256": "8c26391d6b7bc9614e8f8833f70dfac0c858059cb98df405f002ae183f117b4a",
+      "size_bytes": 4974695,
+      "source_url": "https://kap.org.tr/tr/Bildirim/1052635"
+    },
+    {
+      "decoded_pdf_offset": 27,
+      "path": "kap_1052635_attachment_0.pdf",
+      "response_encoding": "JAVA_SERIALIZED_BYTE_ARRAY",
+      "sha256": "dd28e54b804b60cadafad07d9192857e6a8e8a818bcdd5051abe9cfc7d7dd9f7",
+      "size_bytes": 1413011,
+      "source_url": "https://kap.org.tr/tr/api/file/download/4028328c81fdc44901826eb8895f581a"
+    },
+    {
+      "path": "kap_1079063.html",
+      "sha256": "d640c35d4bd5d4ddf9228473c48a6eb27c1f8c8667e710ca3fb6d317512ddd1b",
+      "size_bytes": 4866547,
+      "source_url": "https://kap.org.tr/tr/Bildirim/1079063"
+    },
+    {
+      "decoded_pdf_offset": 27,
+      "path": "kap_1079063_attachment_0.pdf",
+      "response_encoding": "JAVA_SERIALIZED_BYTE_ARRAY",
+      "sha256": "fb09ebc76877d01c0e71ae859d2fc22d13192f03463ba0d0c8dc13b9a5c91dc0",
+      "size_bytes": 1417182,
+      "source_url": "https://kap.org.tr/tr/api/file/download/4028328c843995b301845e0a6aa512a6"
+    },
+    {
+      "path": "kap_1124175.html",
+      "sha256": "d0b9a82313fa9283cd164b3f14af473f0a20e0e1156754eb4a33386fec7e0cd5",
+      "size_bytes": 4964675,
+      "source_url": "https://kap.org.tr/tr/Bildirim/1124175"
+    },
+    {
+      "decoded_pdf_offset": 27,
+      "path": "kap_1124175_attachment_0.pdf",
+      "response_encoding": "JAVA_SERIALIZED_BYTE_ARRAY",
+      "sha256": "6471afe12a78e9d1d356565ebd84a0c8664ed374e63fbf5b1f3ad68d4d3030b3",
+      "size_bytes": 3487647,
+      "source_url": "https://kap.org.tr/tr/api/file/download/4028328c86d231ff0186dc9cf69f3638"
+    },
+    {
+      "path": "kap_1139424.html",
+      "sha256": "bc09edd9f8e499cc34a03759ec82f1b501577e57b778729fee87b8fa8d00413f",
+      "size_bytes": 125538,
+      "source_url": "https://kap.org.tr/tr/Bildirim/1139424"
+    },
+    {
+      "path": "kap_1149285.html",
+      "sha256": "dce805c7598e180024d649b15aa034b2bcc569f314d91e595cd60f350695c25d",
+      "size_bytes": 148637,
+      "source_url": "https://kap.org.tr/tr/Bildirim/1149285"
+    },
+    {
+      "decoded_pdf_offset": 27,
+      "path": "kap_1149285_attachment_0.pdf",
+      "response_encoding": "JAVA_SERIALIZED_BYTE_ARRAY",
+      "sha256": "be59f341f010cfd454cca189a822005034f8c89166a90f24703d390e874ae750",
+      "size_bytes": 323553,
+      "source_url": "https://kap.org.tr/tr/api/file/download/4028328d86d233bf018801af38065d42"
+    },
+    {
+      "path": "kap_1150263.html",
+      "sha256": "3978d2cda0e16cc02c8660308ebe6f1742d8489cb7b860fe4a71a26e57499b41",
+      "size_bytes": 4750591,
+      "source_url": "https://kap.org.tr/tr/Bildirim/1150263"
+    },
+    {
+      "decoded_pdf_offset": 27,
+      "path": "kap_1150263_attachment_0.pdf",
+      "response_encoding": "JAVA_SERIALIZED_BYTE_ARRAY",
+      "sha256": "d9b5ad005e910293487ebac08fc7083746aa4115bce30c998e00e801a1613488",
+      "size_bytes": 1402861,
+      "source_url": "https://kap.org.tr/tr/api/file/download/4028328c86d231ff0188074cb9ca5e4e"
+    },
+    {
+      "path": "kap_1158799.html",
+      "sha256": "bfec569b0ea0b4cf9207733a5cad35f5c4fe4462cf35b31670e4cd53632b1e71",
+      "size_bytes": 136700,
+      "source_url": "https://kap.org.tr/tr/Bildirim/1158799"
+    },
+    {
+      "path": "kap_1210998.html",
+      "sha256": "1281ef06a3ae0a3f36e795b22b1476f5ee0d55f59f508f0e938613685c09114e",
+      "size_bytes": 5000242,
+      "source_url": "https://kap.org.tr/tr/Bildirim/1210998"
+    },
+    {
+      "decoded_pdf_offset": 27,
+      "path": "kap_1210998_attachment_0.pdf",
+      "response_encoding": "JAVA_SERIALIZED_BYTE_ARRAY",
+      "sha256": "6ea7f2d9afa6d691ed38713eb0c93cc9a1a651ce1cfa63f2f0ebd1241be72c48",
+      "size_bytes": 2467319,
+      "source_url": "https://kap.org.tr/tr/api/file/download/4028328d8b2fcee7018b718a0aeb3b8b"
+    },
+    {
+      "original_archive": "KAP_2022_3A.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "62de63b62f939feed7eb31ae4832a6ef884777eb796ee13c347eb5e8f860a4fc",
+      "original_member": "INVES_1027019_2022_1.xls",
+      "path": "KAP_2022_3A__INVES_1027019_2022_1.xls",
+      "sha256": "57dfe2a5fac24e46c753544e1eff2edcf4c44b110f2d910be752b6df57e792ee",
+      "size_bytes": 1258515,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_3A.zip"
+    },
+    {
+      "original_archive": "KAP_2022_6A.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "81b08fce506533f890fba1638b3d1a1101450a4d56b88d92da8cbc99bbee9a91",
+      "original_member": "INVES_1052635_2022_2.xls",
+      "path": "KAP_2022_6A__INVES_1052635_2022_2.xls",
+      "sha256": "3982b79117ffe5cc06a95ce020c390b302c79f93065bea693429155b79b5ce27",
+      "size_bytes": 1314684,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_6A.zip"
+    },
+    {
+      "original_archive": "KAP_2022_6A.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "81b08fce506533f890fba1638b3d1a1101450a4d56b88d92da8cbc99bbee9a91",
+      "original_member": "KLRHO_1056131_2022_2.xls",
+      "path": "KAP_2022_6A__KLRHO_1056131_2022_2.xls",
+      "sha256": "7acbc54816fbcf0409d65ba60b20b5d9d9252b142e35902c7ef81346e2205012",
+      "size_bytes": 1317168,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_6A.zip"
+    },
+    {
+      "original_archive": "KAP_2022_9A.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "623d3364855db39c611e7d9ec434ba072cb5abfd999afbe701f2b09943cb665c",
+      "original_member": "INVES_1075609_2022_3.xls",
+      "path": "KAP_2022_9A__INVES_1075609_2022_3.xls",
+      "sha256": "693a9533f16267c24754c10358a22bb7fdb2c0bb5065cdc8009e7ac879996064",
+      "size_bytes": 1320635,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_9A.zip"
+    },
+    {
+      "original_archive": "KAP_2022_9A.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "623d3364855db39c611e7d9ec434ba072cb5abfd999afbe701f2b09943cb665c",
+      "original_member": "KLRHO_1079063_2022_3.xls",
+      "path": "KAP_2022_9A__KLRHO_1079063_2022_3.xls",
+      "sha256": "f3179dcc3f2d6017514dd5a19a3f4737a9d5f8add29ff9c7696026fa57da6078",
+      "size_bytes": 1725714,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_9A.zip"
+    },
+    {
+      "original_archive": "KAP_2022_Y.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "841531a7c3a2918fbb6e51729c36862c252e80b811c875fafa07d78822894956",
+      "original_member": "INVES_1107763_2022_4.xls",
+      "path": "KAP_2022_Y__INVES_1107763_2022_4.xls",
+      "sha256": "e96fd8ad30757ccc85430fd5e7691953d5b8a1a7bde47ac5dab35622e052c3e9",
+      "size_bytes": 1263728,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_Y.zip"
+    },
+    {
+      "original_archive": "KAP_2022_Y.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "841531a7c3a2918fbb6e51729c36862c252e80b811c875fafa07d78822894956",
+      "original_member": "KLRHO_1124175_2022_4.xls",
+      "path": "KAP_2022_Y__KLRHO_1124175_2022_4.xls",
+      "sha256": "6c7bca8f7168b972f70000dd132c23e6ca5289e9aba1a437624324501b67645c",
+      "size_bytes": 1678500,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_Y.zip"
+    },
+    {
+      "original_archive": "KAP_2023_3A.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "bccb5496f7ed249c37db3a294de9ccd4855c50395851c72ab539bcc543052133",
+      "original_member": "INVES_1140364_2023_1.xls",
+      "path": "KAP_2023_3A__INVES_1140364_2023_1.xls",
+      "sha256": "dab03e5fdc4f05da940ae5aa0ab4dbcfaad63343b7ff5fc0c4d97470e751d1ac",
+      "size_bytes": 1251138,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_3A.zip"
+    },
+    {
+      "original_archive": "KAP_2023_3A.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "bccb5496f7ed249c37db3a294de9ccd4855c50395851c72ab539bcc543052133",
+      "original_member": "KLRHO_1150263_2023_1.xls",
+      "path": "KAP_2023_3A__KLRHO_1150263_2023_1.xls",
+      "sha256": "e1d2129917620551f2902261e5538dbcf8d1030991523811823e3eb84ad62f15",
+      "size_bytes": 1668353,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_3A.zip"
+    },
+    {
+      "original_archive": "KAP_2023_9A.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "d6aef26f4b837146e1f658126159e909b277ee879f9183d09a7023504e6f5316",
+      "original_member": "ASGYO_1210998_2023_3.xls",
+      "path": "KAP_2023_9A__ASGYO_1210998_2023_3.xls",
+      "sha256": "2a766f5ecd775756814fd9c8c9b51a5d4704769cbb360941fa7c03dbb53335ed",
+      "size_bytes": 1325345,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_9A.zip"
+    },
+    {
+      "original_archive": "KAP_2023_9A.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "d6aef26f4b837146e1f658126159e909b277ee879f9183d09a7023504e6f5316",
+      "original_member": "INVES_1208341_2023_3.xls",
+      "path": "KAP_2023_9A__INVES_1208341_2023_3.xls",
+      "sha256": "587f149d431963a01cc5e82ab39400a8099e55042c55647783ed65bef7a77255",
+      "size_bytes": 1308451,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_9A.zip"
+    },
+    {
+      "original_archive": "KAP_2023_9A.zip",
+      "original_archive_manifest_match": true,
+      "original_archive_sha256": "d6aef26f4b837146e1f658126159e909b277ee879f9183d09a7023504e6f5316",
+      "original_member": "KLRHO_1216056_2023_3.xls",
+      "path": "KAP_2023_9A__KLRHO_1216056_2023_3.xls",
+      "sha256": "641a7a7dde3c42f4c72927e589edecfc082e93bae1a5b7c4ad67c4191752d653",
+      "size_bytes": 1333152,
+      "source_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_9A.zip"
+    },
+    {
+      "path": "kap_ca_page.html",
+      "sha256": "7849803aad4001e0caa9e90abd8f385aa9f4505ac8cfa4873c6ee0587c7c9511",
+      "size_bytes": 12792,
+      "source_url": null
+    },
+    {
+      "path": "kap_query_page.html",
+      "sha256": "628d38be2b8e0841d00c6ccb904789ae03ebb40f2b79f51dd8b5739e0d4a51c7",
+      "size_bytes": 1173371,
+      "source_url": null
+    },
+    {
+      "path": "kap_routes.js",
+      "sha256": "86640679fce6630109b143e22f04bf6c21155659f0eefa3a64307eba9323911c",
+      "size_bytes": 28249,
+      "source_url": "https://kap.org.tr/_next/static/chunks/0aa_ceeqiu8kv.js"
+    },
+    {
+      "path": "klrho_2022_q3.html",
+      "sha256": "b94618b5d3793efb365dc4a91edb85b3e682f62dc4a9638cfd1d67d891d68f51",
+      "size_bytes": 118735,
+      "source_url": null
+    },
+    {
+      "path": "klrho_listing.html",
+      "sha256": "148f6f86b4ce27ae1e3f7ee679a03872b9581bad4cbf95e6ae314c05358a624c",
+      "size_bytes": 588076,
+      "source_url": null
+    }
+  ],
+  "original_catalogs_recovered": 0
+}

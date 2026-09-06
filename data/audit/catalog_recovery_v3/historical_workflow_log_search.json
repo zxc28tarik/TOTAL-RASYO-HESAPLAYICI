@@ -1,0 +1,253 @@
+{
+  "capture_window": "2026-08-30..2026-08-31",
+  "runs": [
+    {
+      "log_members": 4,
+      "matches": [],
+      "name": "V24 Real Data CI",
+      "run_id": 33419321706,
+      "status": "SCANNED",
+      "zip_sha256": "288f4cf44ed8e2e1bfe20630e0ce6d640d218990489714087ddde42c8866832f"
+    },
+    {
+      "log_members": 4,
+      "matches": [],
+      "name": "V24 Real Data CI",
+      "run_id": 33409696761,
+      "status": "SCANNED",
+      "zip_sha256": "6a299ed6a1d70d4de1bba7917a82380f57607981052aa60292ec756130affbba"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 BilancoVeri 5Y Frozen Next Batch",
+      "run_id": 33358901539,
+      "status": "SCANNED",
+      "zip_sha256": "5b7fabc14f129303ea57d5c8c2c99bf209efa9f2239f931b367268e83be0a588"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 BilancoVeri 5Y Frozen Next Batch",
+      "run_id": 33358738143,
+      "status": "SCANNED",
+      "zip_sha256": "38d31f33e330468f1dc1d5ab5a724663ff325d25906c8d99932db3d27c4bc615"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 BilancoVeri 5Y Frozen Next Batch",
+      "run_id": 33358564383,
+      "status": "SCANNED",
+      "zip_sha256": "2d185990578826bb2649bd98dfedc5ab88833b058b27336994e01a9c8d22948f"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 BilancoVeri 5Y Frozen Next Batch",
+      "run_id": 33358401632,
+      "status": "SCANNED",
+      "zip_sha256": "76242bbbdf949eb55d2674f465b5a80965c3ef1e8703c48d6639b8d0d3d50b66"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 BilancoVeri Full Detail Index Probe",
+      "run_id": 33358110990,
+      "status": "SCANNED",
+      "zip_sha256": "ea30da93f89c2df5ba8fc0b3a446959d7768125524c9742c9d309dbb9108da74"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 BilancoVeri Full Detail Index Probe",
+      "run_id": 33358010501,
+      "status": "SCANNED",
+      "zip_sha256": "e54b76e5469459536cc4b5353d966088200bb60023e06b35a8adf29a65fc896e"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 BilancoVeri 5Y All-BIST Batch 1",
+      "run_id": 33357805834,
+      "status": "SCANNED",
+      "zip_sha256": "89560cc096552876f74bec7052cd986a3ef7c7d800177406700fa115f048a793"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 BilancoVeri 3Y Source Probe",
+      "run_id": 33356820906,
+      "status": "SCANNED",
+      "zip_sha256": "172d20a110fc7c821be168ecaac79c2a43052761a9f6cdca817457c5d0fb4e87"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 BilancoVeri 3Y Source Probe",
+      "run_id": 33356733170,
+      "status": "SCANNED",
+      "zip_sha256": "80ed59a3930a2aabac8662f39dda220cc352ee2d54af70e796cb1f2a520cab6d"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 BilancoVeri 3Y Source Probe",
+      "run_id": 33356682956,
+      "status": "SCANNED",
+      "zip_sha256": "a7b6ddbc6d15c1e8ab1150803a4b87d6af2ef360bb06b0edaed26653df621255"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 3Y Hybrid Financial Source Probe",
+      "run_id": 33356170838,
+      "status": "SCANNED",
+      "zip_sha256": "9edd40e68ee1c2d049e9407f7d3eb9eb07e96e4ea24c371a84fe5d5176d2ad83"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 3Y Hybrid Financial Source Probe",
+      "run_id": 33355920815,
+      "status": "SCANNED",
+      "zip_sha256": "d4276fd82225911f005023443795e4d3a59bc20b0e30c721c5021ed844fd597a"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Is Yatirim 3Y Source Probe",
+      "run_id": 33355705212,
+      "status": "SCANNED",
+      "zip_sha256": "bd26bba49936f8deab2ed906557f410b5842bb955988a9fabc551fc0127835e0"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Is Yatirim 3Y Source Probe",
+      "run_id": 33355651752,
+      "status": "SCANNED",
+      "zip_sha256": "74723b19899f414517c794569f604b5ab63469ffff3d737f18efb3b63117e8e9"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Public KAP Source Inventory CI",
+      "run_id": 33349133429,
+      "status": "SCANNED",
+      "zip_sha256": "6565983fbc757682a8c8834c983e8c38230d8ad6effd0604f31877294987a177"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Public KAP Source Inventory CI",
+      "run_id": 33347484195,
+      "status": "SCANNED",
+      "zip_sha256": "d3fcaa2e87824814fc3da0118b32bcbdc6b312b19d9b9735af0cdab50b596354"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Public KAP Source Inventory CI",
+      "run_id": 33347466554,
+      "status": "SCANNED",
+      "zip_sha256": "16e93c291b33390b635ae0f3838abffb3100172e99fae1916b067f13cfd714ff"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Public KAP Source Inventory CI",
+      "run_id": 33347399065,
+      "status": "SCANNED",
+      "zip_sha256": "2bea9220f1c4e1967fb0aea74d6bf10f266e12cf617f2cbc296efad143212891"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Public KAP Source Inventory CI",
+      "run_id": 33347397024,
+      "status": "SCANNED",
+      "zip_sha256": "81007e9163fa5efac34abfd316ce47e0ea16cecc345c0a5f08e5f465020d0b1e"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Public KAP Source Inventory CI",
+      "run_id": 33347389357,
+      "status": "SCANNED",
+      "zip_sha256": "d64ac2f96b31a43c2763e84957fe7906d0eac8a16376ca3a577981431f262027"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Public KAP Source Inventory CI",
+      "run_id": 33346973064,
+      "status": "SCANNED",
+      "zip_sha256": "faaf6ca1753646d256eea89eb28232e8d5c67fafaedb016fb21d78e68c61e4a2"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Public KAP Source Inventory CI",
+      "run_id": 33346936371,
+      "status": "SCANNED",
+      "zip_sha256": "8388dbc1050c89889246d37afcc40dd8d29d541cb55d44205dd82a3cddaba364"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Public KAP PIT Collector CI",
+      "run_id": 33344868215,
+      "status": "SCANNED",
+      "zip_sha256": "b4819b0344c801589d85c55ce6f4119d1bca214334a32fb2e5307b9f892a2534"
+    },
+    {
+      "log_members": 2,
+      "matches": [],
+      "name": "V24 Public KAP PIT Collector CI",
+      "run_id": 33344847681,
+      "status": "SCANNED",
+      "zip_sha256": "5150cb60e9b2f6b8c55f4db45e00138df73699c05e1ddbb38c4a8d863221b129"
+    },
+    {
+      "log_members": 4,
+      "matches": [],
+      "name": "V24 KAP Public Financial PIT CI",
+      "run_id": 33331890356,
+      "status": "SCANNED",
+      "zip_sha256": "06040992b318e57b82bb3c7f97fe7ef7012723836111b5d9f8410e17e0fdb764"
+    },
+    {
+      "log_members": 4,
+      "matches": [],
+      "name": "V24 KAP Public Financial PIT CI",
+      "run_id": 33331792555,
+      "status": "SCANNED",
+      "zip_sha256": "e048342a2bec23abf1622154a25eb63da168031033eb22cafe16e6c6ff438055"
+    },
+    {
+      "log_members": 4,
+      "matches": [],
+      "name": "V24 KAP Public Financial PIT CI",
+      "run_id": 33331633904,
+      "status": "SCANNED",
+      "zip_sha256": "c9cd59e05f8eb026a2767e9e32360e0655116358ed2c301a7d6651401e78d6a5"
+    },
+    {
+      "log_members": 4,
+      "matches": [],
+      "name": "V24 Cutoff Execution Policy CI",
+      "run_id": 33329485241,
+      "status": "SCANNED",
+      "zip_sha256": "c8d3a6a2e9524e9d351d851aba346463210396ecf01c99cc57fad7897febf22b"
+    },
+    {
+      "log_members": 4,
+      "matches": [],
+      "name": "V24 Real Data CI",
+      "run_id": 33329485196,
+      "status": "SCANNED",
+      "zip_sha256": "7c578e7c02800d5de11a000ea87725c18c67deb2ee4305848d9de40ab4907787"
+    }
+  ]
+}

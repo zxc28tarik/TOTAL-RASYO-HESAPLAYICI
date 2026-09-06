@@ -1,0 +1,26 @@
+[
+  {
+    "end": "2022-08-31",
+    "error": "500 Server Error: Internal Server Error for url: https://kap.org.tr/tr/api/disclosure/members/byCriteria",
+    "historical_prior_action_completeness_proven": false,
+    "start": "2009-01-01",
+    "status": "REJECTED",
+    "ticker": "INVES"
+  },
+  {
+    "end": "2023-06-30",
+    "error": "500 Server Error: Internal Server Error for url: https://kap.org.tr/tr/api/disclosure/members/byCriteria",
+    "historical_prior_action_completeness_proven": false,
+    "start": "2009-01-01",
+    "status": "REJECTED",
+    "ticker": "KLRHO"
+  },
+  {
+    "end": "2024-02-29",
+    "error": "500 Server Error: Internal Server Error for url: https://kap.org.tr/tr/api/disclosure/members/byCriteria",
+    "historical_prior_action_completeness_proven": false,
+    "start": "2009-01-01",
+    "status": "REJECTED",
+    "ticker": "ASGYO"
+  }
+]

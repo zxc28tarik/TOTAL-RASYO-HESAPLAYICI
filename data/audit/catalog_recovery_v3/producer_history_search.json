@@ -1,0 +1,35 @@
+{
+  "matching_blobs": [
+    {
+      "bytes": 4340,
+      "object": "204f01060489298e23c0388ed0dfca0b5ce36670",
+      "reachable_path": "docs/ASTRA_PRICE_LEVEL_SECOND_PASS.md"
+    },
+    {
+      "bytes": 5410,
+      "object": "4342e439ba583afc7b90a8afa6d1007a7c152040",
+      "reachable_path": "docs/ASTRA_PRICE_LEVEL_SECOND_PASS.md"
+    },
+    {
+      "bytes": 18031,
+      "object": "5985a40fb858e132c125a9ae8cc075a3457d3cb2",
+      "reachable_path": "data/audit/astra_price_level_v2/original_catalog_search.json"
+    },
+    {
+      "bytes": 2501,
+      "object": "b298978d9022dad8a30bf3d2c5a07578b062d998",
+      "reachable_path": "data/audit/astra_2026-09-05/source_inventory.json"
+    },
+    {
+      "bytes": 1834,
+      "object": "d3226cfdfda3bc7d94bd06d332cb596948010f50",
+      "reachable_path": "data/audit/astra_price_level_v2/p3_source_preflight.json"
+    },
+    {
+      "bytes": 723,
+      "object": "d4f4fb98837666fba543ae79cedda66ef3d3ac5f",
+      "reachable_path": "data/backtest_sources/kap_bulk_financial_source_capture/SHA256SUMS"
+    }
+  ],
+  "producer_code_candidates": []
+}

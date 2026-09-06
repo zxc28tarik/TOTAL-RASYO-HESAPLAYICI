@@ -1,0 +1,18 @@
+{
+  "baseline_head": "50c3b40691ef9dbabbd588fd95255f1f5207ee52",
+  "complete_source_gate": false,
+  "contract": "DATA_RECOVERY_VALIDATION_V1",
+  "dated_share_replay_sha256": "c1d0807294a87ae9537f697b277cc569fa39f9d40d30e9c4e6c3ca7ec7f78381",
+  "exact_head_full_CI": "Recorded in PR #40 after push; this receipt does not substitute for CI.",
+  "local_full_before_final_two_source_tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 233,
+    "tests": 2064
+  },
+  "production_mutations_killed": 26,
+  "raw_zip_rebuild_same_runtime_identical": true,
+  "raw_zip_sha256": "8d3087ee5e51bd47816f75a50a1749a06db70c3c6236037bccd677dbb6122266",
+  "targeted_final_tests_passed": 4,
+  "valuation_core_changed": false
+}

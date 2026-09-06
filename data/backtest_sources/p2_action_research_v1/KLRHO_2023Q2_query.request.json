@@ -1,0 +1,26 @@
+{
+  "fromDate": "2023-04-01",
+  "toDate": "2023-06-30",
+  "memberType": "",
+  "mkkMemberOidList": [
+    "4028e4a1415f4d990141600b4b5331e2"
+  ],
+  "inactiveMkkMemberOidList": [],
+  "disclosureClass": "",
+  "subjectList": [],
+  "isLate": "",
+  "mainSector": "",
+  "sector": "",
+  "subSector": "",
+  "marketOid": "",
+  "index": "",
+  "bdkReview": "",
+  "bdkMemberOidList": [],
+  "year": "",
+  "term": "",
+  "ruleType": "",
+  "period": "",
+  "fromSrc": false,
+  "srcCategory": "",
+  "disclosureIndexList": []
+}

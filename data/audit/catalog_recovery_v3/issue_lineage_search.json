@@ -1,0 +1,184 @@
+[
+  {
+    "issue": 24,
+    "matches": [
+      {
+        "line": "   - raw response capture/provenance and deterministic canonicalization",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/24"
+      },
+      {
+        "line": "- However KAP explicitly warns that summary/financial-item query pages reflect the latest published financial statement for a current year/period and are not a sufficient source for historical restatement/version reconstruction. For strict PIT replay, original financial-report notifications and their publication timestamps must be retained.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/24#issuecomment-5471403663"
+      },
+      {
+        "line": "1. **Preferred route:** onboard the official MKK API product with live-ready endpoint/product config and secret credential; capture raw disclosure payloads + publication timestamps + hashes.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/24#issuecomment-5471403663"
+      },
+      {
+        "line": "2. **Fallback candidate to investigate:** official public KAP financial-report/bulk-download route, but only if we can preserve per-disclosure identity, publication time, original version and deterministic raw artifacts. KAP summary pages / latest-value queries are explicitly non-admissible for PIT scoring.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/24#issuecomment-5471403663"
+      },
+      {
+        "line": "1. whether the official bulk `.rar` financial-statement downloads retain all original disclosure versions or only the latest statement for each company/period;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/24#issuecomment-5471405426"
+      },
+      {
+        "line": "- capture the raw notification page / attachment identity and SHA256;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/24#issuecomment-5472153830"
+      },
+      {
+        "line": "- deterministic raw capture and canonical hashing;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/24#issuecomment-5472153830"
+      },
+      {
+        "line": "## Public KAP route limitation discovered \u2014 at-scale capture requires official data service",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/24#issuecomment-5472349184"
+      },
+      {
+        "line": "28 KAP archive source-capture identity/provenance PR #28 ile `v24-real-data-work` dal\u0131na korunmu\u015ftur.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/24#issuecomment-5481983364"
+      }
+    ],
+    "records_scanned": 6
+  },
+  {
+    "issue": 25,
+    "matches": [
+      {
+        "line": "5. change `G\u00f6nderim Tarihi` past capture time;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/pull/25"
+      }
+    ],
+    "records_scanned": 1
+  },
+  {
+    "issue": 28,
+    "matches": [],
+    "records_scanned": 1
+  },
+  {
+    "issue": 29,
+    "matches": [
+      {
+        "line": "- PR #27, Issue #24, PR #28 ve 28 KAP ar\u015fivi kaynak-capture durumu do\u011fru.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/29"
+      },
+      {
+        "line": "- 28 KAP archive source-capture PR #28 ile korunuyor;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/29#issuecomment-5481986629"
+      }
+    ],
+    "records_scanned": 3
+  },
+  {
+    "issue": 30,
+    "matches": [
+      {
+        "line": "  - `Content-Type: application/vnd.zip`;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/30#issuecomment-5501475824"
+      },
+      {
+        "line": "- committed checksum evidence: `data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/SHA256SUMS.run_33568804543.observed`;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/30#issuecomment-5502086616"
+      },
+      {
+        "line": "- committed receipt: `data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/run_33568804543.json`.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/30#issuecomment-5502086616"
+      },
+      {
+        "line": "- `KAP_2025_Y.zip` is current-snapshot drift: 762 -> 765 XLS, observed SHA256 `40df88e2342e70a17774008f38ad58abfb6b73d7d76333dc1eb9c0dbfc600870`;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/30#issuecomment-5502086616"
+      },
+      {
+        "line": "- `KAP_2026_6A.zip` is current-snapshot drift: 753 -> 757 XLS, observed SHA256 `b89d049d1541b6f4cd23fc45b63965dcff7062b1b4a0c3dc07679b72de90129d`.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/30#issuecomment-5502086616"
+      },
+      {
+        "line": "- exact archive: `KAP_2021_3A.zip`, SHA256 `d953adceb72accfc4294cce4b40e79121ba10529ad2a17ef3f60e61654ecd654`",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/30#issuecomment-5502859292"
+      },
+      {
+        "line": "- Receipt: `data/backtest_sources/kap_bulk_financial_source_capture/semantic_evidence/insurance_finance_full28_schema_receipt_run_33583866560.json`.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/30#issuecomment-5505089598"
+      },
+      {
+        "line": "Verified `KAP_2021_3A.zip` \u00fczerinde ANSGR, ANHYT, CRDFA, ISFIN exact semantic core mapping PASS. Evidence:",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/30#issuecomment-5505089598"
+      },
+      {
+        "line": "`data/backtest_sources/kap_bulk_financial_source_capture/semantic_evidence/insurance_finance_2021q1_real_mapping_run_33584617804.json`",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/30#issuecomment-5505089598"
+      }
+    ],
+    "records_scanned": 10
+  },
+  {
+    "issue": 31,
+    "matches": [
+      {
+        "line": "- 993/993 proxy source lineage yeniden do\u011frulan\u0131r;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/31"
+      },
+      {
+        "line": "- 993/993 HOLDING/GYO cells had exact KAP equity + issued-capital lineage;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/31#issuecomment-5500883023"
+      },
+      {
+        "line": "- 981 experimental M2 scores;",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/31#issuecomment-5500883023"
+      },
+      {
+        "line": "Next technical action: recover/rebuild exact rejected month+ticker keys from the original experimental materialization inputs before any price repair.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/31#issuecomment-5500883023"
+      },
+      {
+        "line": "- GitHub Actions gate run `33646887245`: `10 passed`; receipt hash + exact 12-key catalog PASS.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/31#issuecomment-5511831653"
+      },
+      {
+        "line": "P2 update at `50c3b40691ef9dbabbd588fd95255f1f5207ee52` (PR #40): all 12 official THB ZIPs were reacquired and match the original archive hashes; the v2 materializer also checks CSV-member hashes. Original bytes are committed under `data/backtest_sources/p2_raw_close_pit_v2/`.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/31#issuecomment-5554422841"
+      },
+      {
+        "line": "The previous 993-candidate/981-usable result was not recomputed; no 993/993 claim is made. Book-equity proxy remains experimental, not canonical NAD. #31 stays open pending real dated-share/action evidence. Targeted P2 unit tests: 24 passed, using actual THB bytes and explicitly synthetic share proof only for positive unit scenarios.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/31#issuecomment-5554422841"
+      }
+    ],
+    "records_scanned": 4
+  },
+  {
+    "issue": 36,
+    "matches": [],
+    "records_scanned": 1
+  },
+  {
+    "issue": 37,
+    "matches": [
+      {
+        "line": "Tamamlanan dar kapsam: \u00fc\u00e7 branch'in canonical `dd202895...` taban\u0131ndan history-preserving entegrasyonu; #39 helper'\u0131n hash/publication/event-inventory hardening'i; 45 hedef test ve 16/16 production mutation; original KAP archive_manifest.json bytes/hash onar\u0131m\u0131 (`066efe98ffa6ebd67a2f529dcaceceadeedbf99df39c94b2d16dd1211907cd26`). Code CI run `33986983642`: SUCCESS, 1991 passed / 7 skipped; BANK 277 passed / 1 xfailed. Son head CI ayr\u0131ca devam ediyor.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/37#issuecomment-5554259382"
+      },
+      {
+        "line": "Kaynak audit iki kez bit-level ayn\u0131: `data/audit/astra_2026-09-05/source_inventory.json` SHA256 `ded99c00cce571ffcab7956993b71f10cdf7fe33b06b114f3b19fe4f98782c4f`; \u00fc\u00e7 mevcut dosya MATCH, be\u015f original gzip component MISSING. Script exit 2 / BLOCKED; source gate ye\u015fil g\u00f6sterilmiyor. Release asset listesinde mevcut 28 raw ZIP ve public receipts var, bu be\u015f original katalog yok.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/37#issuecomment-5554259382"
+      },
+      {
+        "line": "A\u00e7\u0131k ba\u011f\u0131ml\u0131l\u0131klar: ger\u00e7ek kurumsal-aksiyon taml\u0131k kan\u0131t\u0131 ve 5 valuation adapter ge\u00e7i\u015fi (#39); P2 yeniden de\u011ferleme (#31); original hash-locked kataloglar ve P3/P4/P5 artifact zinciri (#32\u2013#34); final P6 audit (#35); historical superseded-version enumeration (#36/#24). #30/#38 entegrasyonu teknik kapan\u0131\u015f say\u0131lmad\u0131. Hi\u00e7bir issue tamamlanm\u0131\u015f diye kapat\u0131lmad\u0131; ger\u00e7ek 5Y getiri / XU100 kar\u015f\u0131la\u015ft\u0131rmas\u0131 veya authoritative/V24-G READY iddias\u0131 yok.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/37#issuecomment-5554259382"
+      },
+      {
+        "line": "Completed code work: atomic raw-close/PIT-share migration for all five valuation adapters and historical replay wrappers; hash-locked bundle loading and persisted basis receipts; v2 configs; P2 archive/member verification with legacy factor path disabled; Windows portability fixes preserving original source-byte contracts; expanded 26-mutant audit. All 12 official THB archives now match original hashes.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/37#issuecomment-5554451901"
+      },
+      {
+        "line": "Open data gates: 5 original gzip catalogs remain absent; exact paths/hashes and bounded history/artifact/release search are recorded. Real P2: 12/12 explicit ACTION_COMPLETENESS_EVIDENCE_MISSING rejections; 993-candidate materialization not recomputed. P3 source preflight deterministically accounts for 6000/6000 membership cells with explicit source-stage rejections, not completed P3. P4/P5 not run without verified score inputs; P6 not eligible; P7/#36/#24 historical-version authority unproven. Thus no P0\u2013P6 experimental-completed or authoritative PASS claim.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/37#issuecomment-5554451901"
+      },
+      {
+        "line": "`docs/CURRENT_PROJECT_STATUS.md`, `docs/ASTRA_PRICE_LEVEL_V2_SECOND_PASS.md`, and `data/audit/astra_price_level_v2/` contain the new state/evidence. Receipt code hashes match committed blobs; P2 and P3 outputs reproduce. #39, #31 and #32 have stage-specific updates and remain open. Remaining blockers require original source bytes and a defensible historical action/share publication chain; no synthetic evidence entered real materialization.",
+        "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/37#issuecomment-5554451901"
+      }
+    ],
+    "records_scanned": 4
+  }
+]
