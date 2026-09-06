@@ -183,6 +183,24 @@ def validate_thb_price(cell, thb_dir=None):
         raise ValueError('THB_RAW_CSV_CLOSE_MISMATCH')
     return {'ticker':canonical.ticker,'signal_date':str(canonical.signal_date),'trade_date':str(canonical.trade_date),'archive_sha256':canonical.archive_sha256,'member_sha256':canonical.member_sha256,'close_verified_from_raw_csv':True,'action_completeness_claimed':False}
 
+def validate_yahoo_raw_close(cell, resolved_rows, discovery_rows, evidence):
+    """Second-pass row and lineage check without invoking the producer adapter."""
+    price=cell['price'];gate=cell.get('m2_source_gate',{})
+    if price.get('contract')!='VERIFIED_YAHOO_RAW_CLOSE_RECEIPT_V1':raise ValueError('YAHOO_RAW_CLOSE_RECEIPT_CONTRACT_MISMATCH')
+    source={key:value for key,value in price.items() if key!='valuation_basis_verified'}
+    if gate.get('price_source')!=source or gate.get('raw_close_basis_verified') is not True:raise ValueError('YAHOO_M2_GATE_LINEAGE_MISMATCH')
+    key=(cell['ticker'],price['trade_date'])
+    if key not in resolved_rows or key not in discovery_rows:raise ValueError('YAHOO_SOURCE_ROW_MISSING')
+    resolved=resolved_rows[key];discovery=discovery_rows[key];symbol=cell['ticker']+'.IS'
+    if (resolved['price_source_ticker']!=cell['ticker'] or resolved['price_resolution']!='DIRECT_YAHOO' or resolved['yahoo_symbol']!=symbol or discovery['yahoo_symbol']!=symbol):raise ValueError('YAHOO_DIRECT_IDENTITY_MISMATCH')
+    if not math.isclose(float(price['raw_close']),float(resolved['close']),rel_tol=1e-12,abs_tol=1e-12) or not math.isclose(float(price['raw_close']),float(discovery['close']),rel_tol=1e-12,abs_tol=1e-12):raise ValueError('YAHOO_RAW_CLOSE_VALUE_MISMATCH')
+    if not math.isclose(float(price['adjusted_close_diagnostic']),float(resolved['adj_close']),rel_tol=1e-12,abs_tol=1e-12) or not math.isclose(float(price['adjusted_close_diagnostic']),float(discovery['adj_close']),rel_tol=1e-12,abs_tol=1e-12):raise ValueError('YAHOO_ADJ_CLOSE_DIAGNOSTIC_MISMATCH')
+    canonical={'ticker':cell['ticker'],'yahoo_symbol':symbol,'trade_date':price['trade_date'],'close':float(discovery['close']),'adj_close':float(discovery['adj_close'])}
+    row_hash=hashlib.sha256(json.dumps(canonical,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    expected={'contract':'VERIFIED_YAHOO_RAW_CLOSE_RECEIPT_V1','ticker':cell['ticker'],'yahoo_symbol':symbol,'trade_date':price['trade_date'],'raw_close':float(discovery['close']),'adjusted_close_diagnostic':float(discovery['adj_close']),'price_basis':'POINT_IN_TIME_MARKET_CLOSE_V1','price_resolution':'DIRECT_YAHOO','source_row_sha256':row_hash,'discovery_prices_sha256':evidence['discovery_prices_sha256'],'resolved_prices_sha256':evidence['resolved_prices_sha256'],'discovery_summary_sha256':evidence['discovery_summary_sha256'],'resolution_summary_sha256':evidence['resolution_summary_sha256'],'acquisition_workflow_sha256':evidence['acquisition_workflow_sha256'],'acquisition_workflow_head_sha':evidence['acquisition_workflow_head_sha'],'auto_adjust':False,'close_field':'Close','adjusted_close_field':'Adj Close','corporate_action_evidence_provided':False,'share_count_evidence_provided':False}
+    if source!=expected:raise ValueError('YAHOO_RAW_CLOSE_RECEIPT_LINEAGE_MISMATCH')
+    return row_hash
+
 def validate_pair(p3,p4):
     if p3.get('profile','EXPERIMENTAL_RISK_ACCEPTED_5Y')!='EXPERIMENTAL_RISK_ACCEPTED_5Y' or p4.get('profile','EXPERIMENTAL_RISK_ACCEPTED_5Y')!='EXPERIMENTAL_RISK_ACCEPTED_5Y':raise ValueError('EXPERIMENTAL_PROFILE_CHANGED')
     if (p3['signal_date'],p3['ticker'])!=(p4['signal_date'],p4['ticker']):raise ValueError('P3_P4_MEMBERSHIP_KEY_MISMATCH')
@@ -354,10 +372,22 @@ def audit(artifact_dir,semantic_dir,raw_dir,workers=4):
     market=pd.read_csv(price_path,low_memory=False);market['trade_date']=pd.to_datetime(market.trade_date)
     market=market.loc[market.ticker.eq(market.price_source_ticker)&market.trade_date.isin(calendar.trade_date)]
     market_by_ticker={str(t):frame.sort_values('trade_date') for t,frame in market.groupby('ticker')}
+    yahoo_evidence_path=ROOT/'data/backtest_sources/yahoo_raw_close_evidence_v1.json'
+    yahoo_evidence=json.loads(yahoo_evidence_path.read_bytes())
+    if yahoo_evidence.get('contract')!='VERIFIED_YAHOO_RAW_CLOSE_EVIDENCE_V1':raise ValueError('YAHOO_EVIDENCE_CONTRACT_MISMATCH')
+    for key in ('acquisition_workflow','discovery_summary','discovery_prices','resolution_summary','resolved_prices'):
+        if sha(ROOT/yahoo_evidence[key])!=yahoo_evidence[key+'_sha256']:raise ValueError('YAHOO_EVIDENCE_HASH_MISMATCH:'+key)
+    workflow=(ROOT/yahoo_evidence['acquisition_workflow']).read_text(encoding='utf-8')
+    if any(fragment not in workflow for fragment in ("auto_adjust=False","h.get('Close')","h.get('Adj Close')")):raise ValueError('YAHOO_ACQUISITION_SEMANTICS_MISMATCH')
+    discovery=pd.read_csv(ROOT/yahoo_evidence['discovery_prices'],usecols=['ticker','yahoo_symbol','trade_date','close','adj_close'],dtype={'ticker':str,'yahoo_symbol':str,'trade_date':str})
+    raw_resolved=pd.read_csv(price_path,usecols=['ticker','yahoo_symbol','trade_date','close','adj_close','price_source_ticker','price_resolution'],dtype={'ticker':str,'yahoo_symbol':str,'trade_date':str,'price_source_ticker':str,'price_resolution':str})
+    if discovery.duplicated(['ticker','trade_date']).any() or raw_resolved.duplicated(['ticker','trade_date']).any():raise ValueError('YAHOO_SOURCE_DUPLICATE')
+    discovery_rows={(r.ticker,r.trade_date):r._asdict() for r in discovery.itertuples(index=False)}
+    resolved_rows={(r.ticker,r.trade_date):r._asdict() for r in raw_resolved.itertuples(index=False)}
     original_manifest=json.loads((ROOT/'data/backtest_sources/kap_bulk_financial_source_capture/archive_manifest.json').read_bytes())
     original_hashes={r['filename']:r['sha256'] for r in original_manifest['archives']}
     checked_archives,checked_members=verified_selected_source_prepass(p3,catalog,raw_dir,original_hashes,workers)
-    checked_thb=[];monthly=defaultdict(list);facts_checked=0
+    checked_thb=[];checked_yahoo=[];monthly=defaultdict(list);facts_checked=0
     for cell,scored in zip(p3,p4):
         validate_pair(cell,scored)
         timing=times[cell['signal_date']]
@@ -368,7 +398,9 @@ def audit(artifact_dir,semantic_dir,raw_dir,workers=4):
         validate_entity_binding(cell,candidate_tickers)
         reported_price=cell.get('price');ticker_prices=market_by_ticker.get(cell['ticker'])
         eligible_prices=ticker_prices.loc[ticker_prices.trade_date.le(pd.Timestamp(cutoff.date()))] if ticker_prices is not None else None
-        if reported_price is not None and 'raw_close' in reported_price:
+        if reported_price is not None and reported_price.get('contract')=='VERIFIED_YAHOO_RAW_CLOSE_RECEIPT_V1':
+            checked_yahoo.append(validate_yahoo_raw_close(cell,resolved_rows,discovery_rows,yahoo_evidence))
+        elif reported_price is not None and 'raw_close' in reported_price:
             checked_thb.append(validate_thb_price(cell))
         elif eligible_prices is not None and not eligible_prices.empty:
             latest_date=eligible_prices.trade_date.max();last_rows=eligible_prices.loc[eligible_prices.trade_date.eq(latest_date)]
@@ -415,7 +447,7 @@ def audit(artifact_dir,semantic_dir,raw_dir,workers=4):
     if receipt['total_cells']!=6000 or receipt['score_input_ready']!=status_counts['SCORE_INPUT_READY'] or receipt['explicit_rejections']!=status_counts['EXPLICIT_REJECTION']:raise ValueError('P3_SUMMARY_COUNTS_MISMATCH')
     if receipt.get('financial_alias_selected_cells')!=sum(bool(r['financial_ticker_lineage']['alias_selected']) for r in p3):raise ValueError('FINANCIAL_ALIAS_COUNTS_MISMATCH')
     if receipt['authoritative_claim_allowed'] is not False:raise ValueError('AUTHORITATIVE_CLAIM_NOT_ALLOWED')
-    return {'contract':'P6_PARTIAL_SOURCE_TO_REJECTION_AUDIT_V1','profile':'EXPERIMENTAL_RISK_ACCEPTED_5Y','result':'PASS','total_cells':6000,'months':60,'status_counts':dict(sorted(Counter(r['status'] for r in p3).items())),'verified_original_archives':checked_archives,'verified_selected_members':len(checked_members),'verified_fact_occurrences':facts_checked,'verified_canonical_thb_prices':checked_thb,'member_identity_inventory_sha256':hashlib.sha256(encoded([{'archive':a,'member':m,'sha256':digest} for (a,m),digest in sorted(checked_members.items())])).hexdigest(),'p3_sha256':sha(artifact_dir/'p3_cells.jsonl.gz'),'p4_sha256':sha(artifact_dir/'p4_cells.jsonl.gz'),'audit_producer_sha256':sha(__file__),'nav_trade_conservation_audited':False,'p6_full_completed':False,'authoritative_claim_allowed':False,'limitations':['Semantic numerical mapping is bound to the versioned semantic artifact, not independently remapped for every report by this audit.','No portfolio/NAV conservation claim until an actual P5 artifact is separately audited.']}
+    return {'contract':'P6_PARTIAL_SOURCE_TO_REJECTION_AUDIT_V1','profile':'EXPERIMENTAL_RISK_ACCEPTED_5Y','result':'PASS','total_cells':6000,'months':60,'status_counts':dict(sorted(Counter(r['status'] for r in p3).items())),'verified_original_archives':checked_archives,'verified_selected_members':len(checked_members),'verified_fact_occurrences':facts_checked,'verified_canonical_thb_prices':checked_thb,'verified_yahoo_raw_close_occurrences':len(checked_yahoo),'verified_yahoo_raw_close_inventory_sha256':hashlib.sha256(encoded(sorted(checked_yahoo))).hexdigest(),'member_identity_inventory_sha256':hashlib.sha256(encoded([{'archive':a,'member':m,'sha256':digest} for (a,m),digest in sorted(checked_members.items())])).hexdigest(),'p3_sha256':sha(artifact_dir/'p3_cells.jsonl.gz'),'p4_sha256':sha(artifact_dir/'p4_cells.jsonl.gz'),'audit_producer_sha256':sha(__file__),'nav_trade_conservation_audited':False,'p6_full_completed':False,'authoritative_claim_allowed':False,'limitations':['Semantic numerical mapping is bound to the versioned semantic artifact, not independently remapped for every report by this audit.','No portfolio/NAV conservation claim until an actual P5 artifact is separately audited.']}
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--artifact-dir',type=Path,required=True);parser.add_argument('--semantic-dir',type=Path,required=True);parser.add_argument('--raw-dir',type=Path,default=ROOT/'private/reconstructed_kap_archives');parser.add_argument('--output',type=Path,required=True);parser.add_argument('--workers',type=int,default=4);args=parser.parse_args()

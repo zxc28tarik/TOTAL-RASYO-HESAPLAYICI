@@ -1,0 +1,29 @@
+{
+  "contract": "EXPERIMENTAL_MATERIALIZATION_V3_REGRESSION_RESULT_V1",
+  "full_windows_regression": {
+    "command": "py -X utf8 -m pytest -q",
+    "python": "3.14",
+    "passed": 1969,
+    "skipped": 233,
+    "warnings": 1,
+    "status": "PASS"
+  },
+  "bank_v47_regression": {
+    "command": "$env:PYTHONPATH = (Resolve-Path 'src\\analytics\\bank_v47').Path; py -X utf8 -m pytest -q vendor\\v47_roe_belirsizlik",
+    "passed": 277,
+    "xfailed": 1,
+    "status": "PASS"
+  },
+  "price_level_mutation_audit": {
+    "baseline": "PASS",
+    "killed": 26,
+    "survived": 0,
+    "status": "PASS"
+  },
+  "independent_materialization_audit": {
+    "cells": 6000,
+    "months": 60,
+    "verified_yahoo_raw_close_occurrences": 5129,
+    "status": "PASS"
+  }
+}

@@ -7,6 +7,9 @@ from scripts.experimental_core_module_materializer import _time, _json
 from src.analytics.historical_valuation_price_supplement import CATALOG, materialize_historical_price_level_v2
 from src.analytics.price_level_adapter import normalize_price_level_input, valuation_basis_receipt
 from src.analytics.price_level_action_evidence import SOURCE_SHARE_BASIS
+from src.analytics.verified_yahoo_raw_close import (
+    price_level_input_from_yahoo_receipt, verify_yahoo_raw_close,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -62,6 +65,16 @@ def build_m2_source_gate(selected_report, ownfacts, dated_nominal_share_evidence
         result['share_source'] = source
     else:
         result['reasons'].append('DATED_NOMINAL_SHARE_EVIDENCE_MISSING')
+    verified_yahoo = None
+    if canonical is None and pricecandidate is not None:
+        try:
+            verified_yahoo = verify_yahoo_raw_close(
+                ticker=ticker, candidate=pricecandidate, analysis_at=analysis)
+            result['raw_close_basis_verified'] = True
+            result['price_source'] = verified_yahoo
+        except (ValueError, TypeError, OSError) as exc:
+            result['reasons'].append('RAW_CLOSE_BASIS_EVIDENCE_MISSING')
+            result['price_evidence_error'] = str(exc)
     try:
         if canonical is not None and source:
             result['production_gate'] = 'materialize_historical_price_level_v2'
@@ -78,13 +91,13 @@ def build_m2_source_gate(selected_report, ownfacts, dated_nominal_share_evidence
             result['raw_close_basis_verified'] = True
         else:
             result['production_gate'] = 'normalize_price_level_input'
-            # No supported primary raw-price provenance is supplied for generic
-            # candidates. A label alone must not turn Yahoo CLOSE into raw THB.
-            result['reasons'].append('RAW_CLOSE_BASIS_EVIDENCE_MISSING')
             if pricecandidate is None:
+                result['reasons'].append('RAW_CLOSE_BASIS_EVIDENCE_MISSING')
                 result['reasons'].append('PRICE_MISSING')
-            candidate = dict(pricecandidate or {}, ticker=ticker,
-                price_basis='UNVERIFIED_SOURCE_PRICE_BASIS')
+            candidate = (price_level_input_from_yahoo_receipt(
+                verified_yahoo, (pricecandidate or {}).get('action_bundle'))
+                if verified_yahoo else dict(pricecandidate or {}, ticker=ticker,
+                    price_basis='UNVERIFIED_SOURCE_PRICE_BASIS'))
             value = normalize_price_level_input(ticker=ticker,
                 shares_out=source['source_shares_out'] if source else None,
                 source_date=date.fromisoformat(source['source_date']) if source else None,
