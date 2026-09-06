@@ -28,7 +28,8 @@ ROOT = Path(__file__).resolve().parents[1]
 # general statements can describe holdings/GYO; changing the RSC routing does
 # not rename their semantic facts or reinterpret their exact mapped fields.
 ALLOWED_ECONOMIC_TECHNICAL_PAIRS = frozenset({
-    ('HOLDING', 'HOLDING'), ('HOLDING', 'NONFIN'), ('GYO', 'NONFIN'),
+    ('NONFIN', 'NONFIN'), ('HOLDING', 'HOLDING'),
+    ('HOLDING', 'NONFIN'), ('GYO', 'NONFIN'),
 })
 
 
@@ -67,7 +68,24 @@ def _fact(raw):
     return SemanticFinancialFact(**data)
 
 
-def build_core_modules(reports, analysis_at, tickers):
+def _dated_nonfin_family(routes, ticker, period_end):
+    """Positive family evidence from a verified broad historical route."""
+    if routes is None or routes.empty:
+        return None
+    required = {'ticker', 'valid_from', 'valid_to', 'sector_index_code', 'source_id'}
+    if set(routes.columns) != required:
+        raise ValueError('HISTORICAL_FAMILY_ROUTE_SCHEMA_MISMATCH')
+    day = pd.Timestamp(period_end).normalize()
+    frame = routes[routes.ticker.astype(str).str.upper().eq(str(ticker).upper())].copy()
+    frame['valid_from'] = pd.to_datetime(frame.valid_from, errors='raise').dt.normalize()
+    frame['valid_to'] = pd.to_datetime(frame.valid_to.replace('', pd.NA), errors='coerce').dt.normalize()
+    matches = frame[frame.valid_from.le(day) & (frame.valid_to.isna() | frame.valid_to.gt(day))]
+    if len(matches) != 1:
+        return None
+    return 'NONFIN' if matches.iloc[0].sector_index_code in {'XUSIN','XUHIZ','XUTEK'} else None
+
+
+def build_core_modules(reports, analysis_at, tickers, family_routes=None):
     """Return deterministic JSON-safe diagnostics for every requested ticker.
 
     Shared ratio version tags identify the *as-of scoring cohort*, not a report
@@ -91,7 +109,16 @@ def build_core_modules(reports, analysis_at, tickers):
         if _time(report['published_at']) <= analysis:
             targets = {target for token in entity_tokens(ticker) for target in targets_by_source.get(token, [])}
             for target in sorted(targets):
-                selected[target].append(item)
+                selected_item = item
+                if item.get('historical_family') is None:
+                    report_month = int(report['report_period'][1]) * 3
+                    report_end = date(int(report['report_year']), report_month,
+                                      calendar.monthrange(int(report['report_year']), report_month)[1])
+                    inferred = _dated_nonfin_family(family_routes, target, report_end)
+                    if inferred is not None:
+                        selected_item = dict(item, historical_family=inferred,
+                            historical_family_source='HISTORICAL_M3_BROAD_SECTOR_ROUTE')
+                selected[target].append(selected_item)
     result = {'contract': 'EXPERIMENTAL_PARTIAL_CORE_MODULES_V1',
               'diagnostic_only': True, 'analysis_at': analysis.isoformat(),
               'allowed_economic_technical_pairs': sorted(ALLOWED_ECONOMIC_TECHNICAL_PAIRS),

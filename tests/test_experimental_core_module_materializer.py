@@ -2,8 +2,9 @@ from copy import deepcopy
 from datetime import datetime, timezone
 import hashlib
 import json
+import pandas as pd
 
-from scripts.experimental_core_module_materializer import build_core_modules
+from scripts.experimental_core_module_materializer import build_core_modules, _dated_nonfin_family
 
 
 def report(ticker='AAA', multiplier=1, family='HOLDING', period='Q1', technical='HOLDING'):
@@ -89,10 +90,27 @@ def test_general_technical_schema_retains_dated_holding_or_gyo_economic_family()
 
 
 def test_general_schema_never_automatically_routes_nonfin_or_specialist_bank():
-    for family in (None, 'NONFIN', 'BANK', 'INSURANCE', 'FINANCIAL'):
+    for family in (None, 'BANK', 'INSURANCE', 'FINANCIAL'):
         reports = [report('T'+str(i), family=family, technical='NONFIN') for i in range(5)]
         result = build_core_modules(reports, CUTOFF, ['T'+str(i) for i in range(5)])
         assert all(not d['rsc'] and d['core_ratios'] for d in result['per_ticker'].values())
+
+
+def test_verified_nonfinancial_route_can_supply_economic_family_but_xumal_cannot():
+    columns=['ticker','valid_from','valid_to','sector_index_code','source_id']
+    routes=pd.DataFrame([
+        ['AAA','2020-07-27','','XUSIN','HIST'],
+        ['BBB','2020-07-27','','XUMAL','HIST'],
+    ],columns=columns)
+    assert _dated_nonfin_family(routes,'AAA','2025-03-31') == 'NONFIN'
+    assert _dated_nonfin_family(routes,'BBB','2025-03-31') is None
+    assert _dated_nonfin_family(routes,'AAA','2020-06-30') is None
+
+
+def test_explicit_nonfin_family_and_technical_schema_reach_real_m1_ek1():
+    reports = [report('T'+str(i), family='NONFIN', technical='NONFIN') for i in range(5)]
+    result = build_core_modules(reports, CUTOFF, ['T'+str(i) for i in range(5)])
+    assert all(d['rsc'] and d['m1'] and d['ek1'] for d in result['per_ticker'].values())
 
 
 def test_unused_old_scope_cannot_block_current_derivation_history():

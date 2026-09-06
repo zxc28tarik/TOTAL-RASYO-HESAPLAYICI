@@ -27,15 +27,18 @@ python -m scripts.materialize_experimental_financial_facts --catalog data/backte
 python -m scripts.materialize_experimental_alias_facts --raw-dir private/reconstructed_kap_archives --output-dir private/experimental_semantic_second
 python -m scripts.materialize_experimental_entity_facts --raw-dir private/reconstructed_kap_archives --output-dir private/experimental_semantic_second --workers 4
 python -m scripts.audit_experimental_semantic_rebuild --first data/backtest_sources/experimental_semantic_facts_v1 --second private/experimental_semantic_second --output data/backtest_sources/experimental_semantic_facts_v1/rebuild_audit.json
-python -m scripts.materialize_experimental_p3_p4 --semantic-dir data/backtest_sources/experimental_semantic_facts_v1 --output-dir data/audit/experimental_materialization_v1
-python -m scripts.materialize_experimental_p3_p4 --semantic-dir private/experimental_semantic_second --output-dir private/experimental_materialization_second
-python -m scripts.audit_experimental_cell_rebuild --first data/audit/experimental_materialization_v1 --second private/experimental_materialization_second --semantic-audit data/backtest_sources/experimental_semantic_facts_v1/rebuild_audit.json --output data/audit/experimental_materialization_v1/rebuild_audit.json
-python -m scripts.audit_experimental_materialization --artifact-dir data/audit/experimental_materialization_v1 --semantic-dir data/backtest_sources/experimental_semantic_facts_v1 --raw-dir private/reconstructed_kap_archives --output data/audit/experimental_materialization_v1/independent_audit.json
-python -m scripts.replay_experimental_portfolio --p4-cells data/audit/experimental_materialization_v1/p4_cells.jsonl.gz --output-dir data/audit/experimental_portfolio_v1
-python -m scripts.summarize_experimental_dependencies --artifact-dir data/audit/experimental_materialization_v1
-python -m scripts.audit_experimental_readiness --p4-cells data/audit/experimental_materialization_v1/p4_cells.jsonl.gz --output-dir data/audit/experimental_readiness_v1
+python -m scripts.materialize_experimental_p3_p4 --semantic-dir data/backtest_sources/experimental_semantic_facts_v1 --output-dir data/audit/experimental_materialization_v2
+python -m scripts.materialize_experimental_p3_p4 --semantic-dir data/backtest_sources/experimental_semantic_facts_v1 --output-dir private/experimental_materialization_v2_second
+python -m scripts.audit_experimental_cell_rebuild --first data/audit/experimental_materialization_v2 --second private/experimental_materialization_v2_second --semantic-audit data/backtest_sources/experimental_semantic_facts_v1/rebuild_audit.json --output data/audit/experimental_materialization_v2/rebuild_audit.json
+python -m scripts.audit_experimental_materialization --artifact-dir data/audit/experimental_materialization_v2 --semantic-dir data/backtest_sources/experimental_semantic_facts_v1 --raw-dir private/reconstructed_kap_archives --output data/audit/experimental_materialization_v2/independent_audit.json
+python -m scripts.build_experimental_unlock_matrix --artifact-dir data/audit/experimental_materialization_v2 --output data/audit/experimental_materialization_v2/unlock_matrix.json --stage family_m3_core_wiring
 python -m scripts.audit_p7_version_pair
 ```
+
+The v1 materialization and its cash-only P5 diagnostic are retained as immutable
+historical comparison artifacts. Do not overwrite or relabel them as v2 strategy
+performance. Run P5 only after P4 contains valid scores and the monthly candidate
+minimum is met.
 
 Compare the first and second materialization receipts and every listed gzip
 output by SHA256. Do not compare incomplete running gzip files. Neither repeat

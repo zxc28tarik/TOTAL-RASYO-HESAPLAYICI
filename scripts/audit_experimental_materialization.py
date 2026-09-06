@@ -19,14 +19,18 @@ import re
 from pathlib import Path
 import sys
 from zipfile import ZipFile
+import pandas as pd
 ROOT=Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
 from scripts.build_historical_m3_source_package import _historical_membership
+from src.analytics.historical_m3_source_package import verify_historical_m3_source_package
 from src.analytics.historical_cutoff_execution_policy import build_authorized_cutoff_execution_schedule
 from src.ingest.kap_bulk_financial_export import parse_kap_bulk_export_report
 
 WEIGHTS={'M2':.40,'M1':.18,'M3':.12,'Ek4':.16,'Ek1':.08,'Ek9':.06}
 CAT=ROOT/'data/backtest_sources/reconstructed_experimental_kap_v1'
+M3_MANIFEST=ROOT/'data/backtest_sources/m3_source_package/manifest.json'
+M3_ROUTES=ROOT/'data/backtest_sources/m3_source_package/sector_routes.csv.gz'
 
 def encoded(value):
     return (json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False)+'\n').encode()
@@ -52,6 +56,37 @@ def independent_latest(reports,cutoff):
         if published<=cutoff and end<=cutoff.date():
             eligible.append(((end,published,int(report['notification_id'])),report))
     return max(eligible,key=lambda item:item[0])[1] if eligible else None
+
+def validate_historical_family(cell,semantic,routes,routes_sha256):
+    """Rebuild the family claim from its dated source instead of trusting P3."""
+    family=cell.get('historical_family');source=cell.get('historical_family_source')
+    lineage=cell.get('historical_family_lineage')
+    if family is None:
+        if source is not None or lineage is not None:raise ValueError('FAMILY_LINEAGE_WITHOUT_FAMILY')
+        return
+    if source=='DATED_REPORT':
+        if lineage is not None or not semantic or family!=semantic.get('historical_family'):
+            raise ValueError('CURRENT_OR_CHANGED_SECTOR')
+        return
+    if source!='HISTORICAL_M3_BROAD_SECTOR_ROUTE' or family!='NONFIN' or not lineage:
+        raise ValueError('CURRENT_OR_CHANGED_SECTOR')
+    signal=pd.Timestamp(cell['signal_date']).normalize()
+    frame=routes.loc[routes.ticker.eq(cell['ticker'])].copy()
+    frame['valid_from']=pd.to_datetime(frame.valid_from,errors='coerce').dt.normalize()
+    frame['valid_to']=pd.to_datetime(frame.valid_to.replace('',pd.NA),errors='coerce').dt.normalize()
+    matches=frame.loc[frame.valid_from.le(signal)&(frame.valid_to.isna()|frame.valid_to.gt(signal))]
+    if len(matches)!=1:raise ValueError('HISTORICAL_FAMILY_ROUTE_INTERVAL_MISMATCH')
+    route=matches.iloc[0];code=str(route.sector_index_code)
+    if code not in {'XUSIN','XUHIZ','XUTEK'}:raise ValueError('HISTORICAL_FAMILY_NOT_POSITIVE_NONFIN_ROUTE')
+    expected={'ticker':cell['ticker'],'cutoff_day':cell['signal_date'],'family':'NONFIN',
+        'effective_from':route.valid_from.date().isoformat(),
+        'effective_to':None if pd.isna(route.valid_to) else route.valid_to.date().isoformat(),
+        'source_identity':str(route.source_id),
+        'source_path':'data/backtest_sources/m3_source_package/sector_routes.csv.gz',
+        'source_hash':routes_sha256,
+        'mapping_version':'HISTORICAL_BROAD_INDEX_TO_ECONOMIC_FAMILY_V1',
+        'sector_index_code':code}
+    if lineage!=expected:raise ValueError('HISTORICAL_FAMILY_LINEAGE_MISMATCH')
 
 @lru_cache(maxsize=1)
 def official_code_change_sources():
@@ -292,6 +327,14 @@ def audit(artifact_dir,semantic_dir,raw_dir,workers=4):
     index_path=ROOT/'data/backtest_sources/m3_source_package/index_closes.csv.gz'
     index=pd.read_csv(index_path);index['trade_date']=pd.to_datetime(index.trade_date)
     calendar=index.loc[index.index_code.eq('XU100'),['trade_date']].sort_values('trade_date')
+    verified=verify_historical_m3_source_package(
+        manifest_path=M3_MANIFEST,repo_root=ROOT,
+        historical_membership=members,trading_calendar=calendar,require_closed=True)
+    if not verified.closed:raise ValueError('HISTORICAL_M3_SOURCE_PACKAGE_NOT_CLOSED')
+    routes_sha256=sha(M3_ROUTES)
+    if receipt['source_hashes'].get('m3_manifest')!=sha(M3_MANIFEST) or receipt['source_hashes'].get('m3_sector_routes')!=routes_sha256:
+        raise ValueError('HISTORICAL_M3_PACKAGE_RECEIPT_HASH_MISMATCH')
+    routes=pd.read_csv(M3_ROUTES,dtype=str,keep_default_na=False)
     schedule=build_authorized_cutoff_execution_schedule(members[['month','signal_date','index_code']].drop_duplicates(),calendar)
     times={pd.Timestamp(r.signal_date).date().isoformat():r for r in schedule.itertuples()}
     catalog=rows(CAT/'reports.jsonl.gz');by_ticker=defaultdict(list)
@@ -349,8 +392,6 @@ def audit(artifact_dir,semantic_dir,raw_dir,workers=4):
                 if report.source_entity_code!=chosen['source_entity_code'] or report.published_at.isoformat()!=chosen['published_at'] or report.company_name!=chosen['company_name']:raise ValueError('RAW_REPORT_IDENTITY_MISMATCH')
                 checked_members[key]=digest
             semantic=semantic_by_key.get(key)
-            if cell.get('historical_family') is not None:
-                if cell.get('historical_family_source')!='DATED_REPORT' or not semantic or cell['historical_family']!=semantic.get('historical_family'):raise ValueError('CURRENT_OR_CHANGED_SECTOR')
             semantic_fact_ticker=validate_semantic_entity_mapping(semantic) if semantic else chosen['source_entity_code']
             fact_hashes={hashlib.sha256(encoded(f)).hexdigest() for f in semantic['facts']} if semantic else set()
             for fact in cell['own_period_semantic_facts']:
@@ -362,6 +403,7 @@ def audit(artifact_dir,semantic_dir,raw_dir,workers=4):
                 if not Decimal(str(fact['value'])).is_finite():raise ValueError('NONFINITE_FINANCIAL_FACT')
                 facts_checked+=1
         elif cell['own_period_semantic_facts']:raise ValueError('FACTS_WITHOUT_SELECTED_REPORT')
+        validate_historical_family(cell,semantic if chosen else None,routes,routes_sha256)
         monthly[cell['month']].append(scored)
     if len(monthly)!=60:raise ValueError('MONTH_COUNT_MISMATCH')
     for month,month_rows in sorted(monthly.items()):

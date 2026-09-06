@@ -1,4 +1,10 @@
-"""Source-bound partial market modules without a current sector snapshot."""
+"""Source-bound market modules using the closed historical M3 route package.
+
+The package is not a naked current-sector fallback.  Its canonical intervals
+are rebuilt from a hash-locked KAP snapshot, the archived Borsa sector-change
+announcement inventory, and the dated GRTHO change disclosure.  The full
+package validator is called by the P3/P4 entry point before these rows arrive.
+"""
 from datetime import datetime, date, timedelta
 from functools import lru_cache
 import hashlib
@@ -22,6 +28,44 @@ LINEAGE_SHA = '8d71a1d442a1389fd0f0d65414d21fd10b6f95403aa29bda147c638a3e98fa4e'
 PUBLICATION = datetime(2024, 9, 6, 16, 34, 9, tzinfo=ZoneInfo('Europe/Istanbul'))
 EFFECTIVE = date(2024, 9, 9)
 RENAME = date(2024, 10, 1)
+
+
+def package_route(routes, ticker, day):
+    """Select exactly one half-open, ticker-exact route for ``day``.
+
+    Keeping selection here (rather than joining on today's ticker/sector)
+    makes wrong-ticker, future-effective and expired-route mutations fail
+    closed in both the materializer and focused tests.
+    """
+    when = pd.Timestamp(day).normalize()
+    if routes is None or routes.empty:
+        return None, 'HISTORICAL_SECTOR_INDEX_EVIDENCE_MISSING', None
+    required = {'ticker', 'valid_from', 'valid_to', 'sector_index_code', 'source_id'}
+    if set(routes.columns) != required:
+        return None, 'HISTORICAL_ROUTE_SCHEMA_MISMATCH', None
+    frame = routes.copy()
+    frame['ticker'] = frame.ticker.astype(str).str.strip().str.upper()
+    frame['valid_from'] = pd.to_datetime(frame.valid_from, errors='coerce').dt.normalize()
+    frame['valid_to'] = pd.to_datetime(
+        frame.valid_to.replace('', pd.NA), errors='coerce').dt.normalize()
+    if frame.valid_from.isna().any():
+        return None, 'HISTORICAL_ROUTE_EFFECTIVE_DATE_INVALID', None
+    matches = frame.loc[
+        frame.ticker.eq(str(ticker).strip().upper())
+        & frame.valid_from.le(when)
+        & (frame.valid_to.isna() | frame.valid_to.gt(when))]
+    if len(matches) != 1:
+        return None, ('HISTORICAL_SECTOR_INDEX_EVIDENCE_MISSING' if matches.empty
+                      else 'HISTORICAL_ROUTE_INTERVAL_AMBIGUOUS'), None
+    row = matches.iloc[0]
+    receipt = {
+        'sector_index_code': str(row.sector_index_code),
+        'valid_from': row.valid_from.date().isoformat(),
+        'valid_to': None if pd.isna(row.valid_to) else row.valid_to.date().isoformat(),
+        'source_id': str(row.source_id),
+        'mapping_version': 'HISTORICAL_M3_SOURCE_PACKAGE_V1',
+    }
+    return receipt['sector_index_code'], None, receipt
 
 
 @lru_cache(maxsize=1)
@@ -60,7 +104,7 @@ def dated_route(cutoff, ticker, *, source_path=SOURCE, lineage_path=LINEAGE):
     return 'XUMAL', None
 
 
-def build_market_modules(cutoff, tickers, calendar, prices, indices):
+def build_market_modules(cutoff, tickers, calendar, prices, indices, *, sector_routes=None):
     analysis = _time(cutoff)
     signal_day = analysis.astimezone(ZoneInfo('Europe/Istanbul')).date()
     # The monthly policy explicitly authorizes the three half-day closes at
@@ -119,14 +163,18 @@ def build_market_modules(cutoff, tickers, calendar, prices, indices):
     run('Ek9', run_historical_pit_ek9_replay, wanted, universe=pd.DataFrame({'ticker': wanted}))
     routes = []
     for ticker in wanted:
-        try:
-            code, reason = dated_route(analysis, ticker)
-        except (ValueError, OSError) as exc:
-            code, reason = None, str(exc)
+        route_receipt = None
+        if sector_routes is not None:
+            code, reason, route_receipt = package_route(sector_routes, ticker, signal_day)
+        else:
+            try:
+                code, reason = dated_route(analysis, ticker)
+            except (ValueError, OSError) as exc:
+                code, reason = None, str(exc)
         if code:
             routes.append({'ticker': ticker, 'sector_index_code': code})
-            result['per_ticker'][ticker]['route'] = {'sector_index_code': code,
-                'source_id': 'KAP_BILDIRIM_1331451',
+            result['per_ticker'][ticker]['route'] = route_receipt or {
+                'sector_index_code': code, 'source_id': 'KAP_BILDIRIM_1331451',
                 'risk_id': 'SUBSEQUENT_SECTOR_CHANGE_ENUMERATION_UNPROVEN'}
         else:
             for name in ('M3', 'Ek4'):

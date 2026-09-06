@@ -1,6 +1,9 @@
 from datetime import datetime
 import pytest
-from scripts.materialize_experimental_p3_p4 import select_report, financial_selection
+from scripts.materialize_experimental_p3_p4 import (
+    select_report, financial_selection, apply_core_module_outputs,
+    family_from_historical_market_route,
+)
 from scripts.materialize_experimental_financial_facts import economic_family
 
 def report(year,period,publication,**extra):
@@ -53,6 +56,51 @@ def test_general_schema_is_not_current_sector_fallback():
     assert economic_family('EXAMPLE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.',['general_role_210015'])=='GYO'
     assert economic_family('EXAMPLE HOLDİNG A.Ş.',['general_role_210015'])=='HOLDING'
     assert economic_family('EXAMPLE HOLDING SIGORTA A.S.',['general_role_210015']) is None
+
+
+def test_real_core_outputs_are_wired_without_neutral_fill():
+    values={key:None for key in ('M2','M1','M3','Ek4','Ek1','Ek9')}
+    reasons={key:'MODULE_INPUT_INSUFFICIENT' for key in ('M1','M3','Ek4','Ek1','Ek9')}
+    count=apply_core_module_outputs(values,reasons,{
+        'm1':[{'m1':0.61,'good_count_ge8':8}],
+        'ek1':[{'ek1':0.44,'good_count_ge8':8}],
+    })
+    assert count == 8
+    assert values == {'M2':None,'M1':0.61,'M3':None,'Ek4':None,'Ek1':0.44,'Ek9':None}
+    assert reasons['M1'] is None and reasons['Ek1'] is None
+
+
+def test_core_outputs_reject_conflicting_veto_lineage():
+    values={key:None for key in ('M2','M1','M3','Ek4','Ek1','Ek9')}
+    reasons={key:'missing' for key in ('M1','M3','Ek4','Ek1','Ek9')}
+    with pytest.raises(ValueError,match='GOOD_COUNT_CONFLICT'):
+        apply_core_module_outputs(values,reasons,{
+            'm1':[{'m1':0.61,'good_count_ge8':8}],
+            'ek1':[{'ek1':0.44,'good_count_ge8':9}],
+        })
+
+
+def test_nonfinancial_broad_route_is_positive_dated_family_evidence():
+    route={'mapping_version':'HISTORICAL_M3_SOURCE_PACKAGE_V1',
+           'sector_index_code':'XUSIN','valid_from':'2020-07-27','valid_to':None,
+           'source_id':'KAP_SEKTORLER_2026_08_24'}
+    family,lineage=family_from_historical_market_route('AAA','2022-01-03',route,'a'*64)
+    assert family == 'NONFIN'
+    assert lineage['ticker'] == 'AAA' and lineage['cutoff_day'] == '2022-01-03'
+    assert lineage['source_hash'] == 'a'*64
+
+
+@pytest.mark.parametrize('code',['XUMAL','XU100','XBANK'])
+def test_financial_or_generic_index_never_becomes_nonfin_by_exclusion(code):
+    route={'mapping_version':'HISTORICAL_M3_SOURCE_PACKAGE_V1',
+           'sector_index_code':code,'valid_from':'2020-07-27','valid_to':None,
+           'source_id':'SOURCE'}
+    assert family_from_historical_market_route('AAA','2022-01-03',route,'a'*64) == (None,None)
+
+
+def test_wrong_route_version_cannot_supply_historical_family():
+    route={'mapping_version':'CURRENT_SNAPSHOT','sector_index_code':'XUSIN'}
+    assert family_from_historical_market_route('AAA','2022-01-03',route,'a'*64) == (None,None)
 
 
 def test_forward_financial_alias_preserves_original_report_and_fact_identity():

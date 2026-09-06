@@ -5,6 +5,33 @@
 > sonraki işler için aşağıdaki Claude adıyla denetim şartının yerini alır.
 > Teknik kapanışlar henüz ilan edilmedi; entegrasyon dalı `codex/astra-v24-finalize`.
 
+## Astra kilit açma sonucu — 2026-09-06
+
+Mevcut P3/P4 üreticilerindeki iki gerçek bağlantı eksiği kapatıldı. Kapalı M3
+kaynak paketinin 210 tarih aralıklı rotası artık her hücrede ticker-exact ve
+yarı-açık geçerlilik aralığıyla tüketiliyor. Finansal CORE tanısında zaten
+hesaplanan M1/Ek1 değerleri ile `good_count_ge8` de P4 modül bağlamına taşınıyor.
+Yalnız XUSIN/XUHIZ/XUTEK pozitif rotaları NONFIN kanıtı sayılıyor; XUMAL'dan
+banka/holding/GYO tahmini yapılmıyor.
+
+- M1: **0 → 3.267**, M3: **16 → 5.811**, Ek1: **0 → 3.267**,
+  Ek4: **16 → 5.820**, Ek9: **5.598 → 5.598**; M2: **0**.
+- En az bir gerçek modülü olan hücre: **5.904**; en az dört: **3.174**;
+  en az beş: **3.017**.
+- 3.017 hücrede Total önündeki tek eksik modül M2'dir. Bununla birlikte ham
+  kapanış bazının, tarihli ayarlanmamış payın ve eksiksiz kurumsal aksiyon
+  envanterinin birlikte kanıtı repo içinde yoktur. 509 BANK hücresinde ayrıca
+  tarihli model varsayımı kanıtı yoktur.
+- Geçerli Total skor hâlâ **0**; dolayısıyla P5 strateji ve tam P6 başlatılmadı.
+  Kapı gevşetilmedi, nötr/sahte M2 üretilmedi ve mevcut P5 nakit tanısı performans
+  sonucu olarak yeniden etiketlenmedi.
+- Güncel 6.000 hücre kaynak/P3/P4 denetimi **PASS**; tarihli aile rotası bağımsız
+  olarak yeniden seçiliyor ve yanlış hash/ticker/kod/etkinlik tarihi mutasyonları
+  reddediliyor.
+
+Ayrıntılar: [kilit açma sonucu](ASTRA_V24_UNLOCK_RESULT.md). Önceki v1 artifact
+ve sonuç bölümü tarihsel karşılaştırma olarak aşağıda korunur.
+
 ## Gerçek deneysel artifact zinciri — 2026-09-06
 
 Bu bölüm aktif başlangıç durumudur; aşağıdaki eski kayıtların önüne geçer.

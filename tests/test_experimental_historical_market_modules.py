@@ -2,7 +2,9 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from scripts.experimental_historical_market_modules import dated_route, build_market_modules, SOURCE
+from scripts.experimental_historical_market_modules import (
+    dated_route, build_market_modules, package_route, SOURCE,
+)
 
 
 def test_dated_route_enforces_publication_effective_and_ticker_identity():
@@ -18,6 +20,30 @@ def test_invalid_source_is_rejected_even_when_tokens_survive(tmp_path):
     path = tmp_path/'changed.html'; path.write_bytes(SOURCE.read_bytes()+b' ')
     with pytest.raises(ValueError, match='HASH_MISMATCH'):
         dated_route('2025-01-03T10:00:00+03:00', 'GRTHO', source_path=path)
+
+
+def test_package_route_is_ticker_exact_and_half_open():
+    routes = pd.DataFrame([
+        {'ticker':'AAA','valid_from':'2021-01-01','valid_to':'2024-01-01',
+         'sector_index_code':'XUSIN','source_id':'OLD'},
+        {'ticker':'AAA','valid_from':'2024-01-01','valid_to':'',
+         'sector_index_code':'XUHIZ','source_id':'NEW'},
+    ])
+    assert package_route(routes, 'AAA', '2023-12-31')[0] == 'XUSIN'
+    code, _, receipt = package_route(routes, 'AAA', '2024-01-01')
+    assert code == 'XUHIZ' and receipt['source_id'] == 'NEW'
+    assert package_route(routes, 'BBB', '2024-01-01')[0] is None
+
+
+def test_package_route_rejects_overlapping_or_future_effective_mutations():
+    overlap = pd.DataFrame([
+        {'ticker':'AAA','valid_from':'2021-01-01','valid_to':'',
+         'sector_index_code':'XUSIN','source_id':'ONE'},
+        {'ticker':'AAA','valid_from':'2023-01-01','valid_to':'',
+         'sector_index_code':'XUHIZ','source_id':'TWO'},
+    ])
+    assert package_route(overlap, 'AAA', '2024-01-01')[1] == 'HISTORICAL_ROUTE_INTERVAL_AMBIGUOUS'
+    assert package_route(overlap.iloc[[1]], 'AAA', '2022-01-01')[0] is None
 
 
 def frames(end='2025-01-02'):

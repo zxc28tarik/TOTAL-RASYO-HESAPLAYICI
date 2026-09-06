@@ -47,6 +47,44 @@ def test_rank_tie_break_mutation_fails():
     with pytest.raises(ValueError,match='TIEBREAK'):validate_rankings(rows)
 
 
+def route_family_cell():
+    import pandas as pd
+    from scripts.audit_experimental_materialization import sha,M3_ROUTES
+    route=pd.read_csv(M3_ROUTES,dtype=str,keep_default_na=False).query("ticker == 'ADEL'").iloc[0]
+    signal='2021-08-02'
+    lineage={'ticker':'ADEL','cutoff_day':signal,'family':'NONFIN',
+        'effective_from':route.valid_from,'effective_to':route.valid_to or None,
+        'source_identity':route.source_id,
+        'source_path':'data/backtest_sources/m3_source_package/sector_routes.csv.gz',
+        'source_hash':sha(M3_ROUTES),
+        'mapping_version':'HISTORICAL_BROAD_INDEX_TO_ECONOMIC_FAMILY_V1',
+        'sector_index_code':route.sector_index_code}
+    return {'ticker':'ADEL','signal_date':signal,'historical_family':'NONFIN',
+        'historical_family_source':'HISTORICAL_M3_BROAD_SECTOR_ROUTE',
+        'historical_family_lineage':lineage}
+
+
+def test_historical_nonfin_family_is_independently_rebuilt():
+    import pandas as pd
+    from scripts.audit_experimental_materialization import validate_historical_family,sha,M3_ROUTES
+    routes=pd.read_csv(M3_ROUTES,dtype=str,keep_default_na=False)
+    validate_historical_family(route_family_cell(),None,routes,sha(M3_ROUTES))
+
+
+@pytest.mark.parametrize('mutation',['family','code','hash','ticker','future'])
+def test_historical_family_route_mutations_fail(mutation):
+    import pandas as pd
+    from scripts.audit_experimental_materialization import validate_historical_family,sha,M3_ROUTES
+    cell=route_family_cell();routes=pd.read_csv(M3_ROUTES,dtype=str,keep_default_na=False)
+    if mutation=='family':cell['historical_family']='BANK'
+    if mutation=='code':cell['historical_family_lineage']['sector_index_code']='XUMAL'
+    if mutation=='hash':cell['historical_family_lineage']['source_hash']='0'*64
+    if mutation=='ticker':cell['historical_family_lineage']['ticker']='OTHER'
+    if mutation=='future':cell['signal_date']='2019-01-01';cell['historical_family_lineage']['cutoff_day']='2019-01-01'
+    with pytest.raises(ValueError,match='CURRENT_OR_CHANGED_SECTOR|HISTORICAL_FAMILY'):
+        validate_historical_family(cell,None,routes,sha(M3_ROUTES))
+
+
 def canonical_thb_cell(evidence):
     price={'ticker':evidence.ticker,'signal_date':str(evidence.signal_date),'trade_date':str(evidence.trade_date),'raw_close':evidence.raw_close,'archive_sha256':evidence.archive_sha256,'member_sha256':evidence.member_sha256}
     return {'ticker':evidence.ticker,'signal_date':str(evidence.signal_date),'knowledge_cutoff_at':evidence.cutoff_local.isoformat(),'price':{**price,'valuation_basis_verified':True},'m2_source_gate':{'raw_close_basis_verified':True,'price_source':price}}
