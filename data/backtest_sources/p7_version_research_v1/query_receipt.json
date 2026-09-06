@@ -1,0 +1,7 @@
+{
+  "http_status": 200,
+  "request_sha256": "a47d0fa32278b014f7373ee0c696edbac4efa49e4f013db9b3bd3204bc272f1e",
+  "response_http_date": "Sun, 06 Sep 2026 02:36:34 GMT",
+  "response_sha256": "29bb3d7bd3bef0e07c4a1855416751b85ba61affc2d04e973873a16a59f69305",
+  "url": "https://kap.org.tr/tr/api/disclosure/members/byCriteria"
+}

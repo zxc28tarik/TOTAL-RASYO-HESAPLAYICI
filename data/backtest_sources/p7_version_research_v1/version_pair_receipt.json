@@ -1,0 +1,85 @@
+{
+  "authoritative_performance_allowed": false,
+  "changed_numeric_slots": [
+    {
+      "numeric_slot_zero_based": 199,
+      "original_row_text": "Kontrol Gücü Olmayan Paylar 1.833.392 2.079.640",
+      "original_value": "1833392",
+      "revised_row_text": "Kontrol Gücü Olmayan Paylar -76 -155",
+      "revised_value": "-76"
+    },
+    {
+      "numeric_slot_zero_based": 200,
+      "original_row_text": "Kontrol Gücü Olmayan Paylar 1.833.392 2.079.640",
+      "original_value": "2079640",
+      "revised_row_text": "Kontrol Gücü Olmayan Paylar -76 -155",
+      "revised_value": "-155"
+    },
+    {
+      "numeric_slot_zero_based": 201,
+      "original_row_text": "Ana Ortaklık Payları -76 -155",
+      "original_value": "-76",
+      "revised_row_text": "Ana Ortaklık Payları 1.833.392 2.079.640",
+      "revised_value": "1833392"
+    },
+    {
+      "numeric_slot_zero_based": 202,
+      "original_row_text": "Ana Ortaklık Payları -76 -155",
+      "original_value": "-155",
+      "revised_row_text": "Ana Ortaklık Payları 1.833.392 2.079.640",
+      "revised_value": "2079640"
+    }
+  ],
+  "contract": "P7_RECOVERED_FINANCIAL_CORRECTION_PAIR_V1",
+  "correction_relation": {
+    "label": "Düzeltilmiş Bildirim",
+    "newer": "1126845",
+    "older": "1122417"
+  },
+  "demonstrated_cutoffs": [
+    {
+      "cutoff": "2023-03-10T18:10:00+03:00",
+      "selected_disclosure_id": "1122417"
+    },
+    {
+      "cutoff": "2023-03-22T18:10:00+03:00",
+      "selected_disclosure_id": "1126845"
+    }
+  ],
+  "historical_global_version_enumeration_proven": false,
+  "limitations": [
+    "A current bounded query with correction metadata is not a retention or exhaustive historical-version guarantee.",
+    "One recoverable explicit correction pair does not enumerate versions for every selected report across 6000 cells.",
+    "Numeric evidence proves economically material differences; replacing the earlier parent-profit fact with the later revision would leak information.",
+    "The selector demonstrates ordering within this recovered pair only; it cannot certify an undiscovered earlier or intermediate version does not exist."
+  ],
+  "numeric_slots_compared": 437,
+  "query_response_sha256": "29bb3d7bd3bef0e07c4a1855416751b85ba61affc2d04e973873a16a59f69305",
+  "query_rows": 1336,
+  "query_rows_with_modify_status": 30,
+  "query_scope": "2023-03-01 through 2023-03-31, FR, all members",
+  "raw_details_sha256": "53f4bad3f3dd694e609491f4722a85ec89f31a6449d1ad58d19cbeab6b7c9f49",
+  "status": "POSITIVE_PAIR_RECOVERY_GLOBAL_ENUMERATION_STILL_BLOCKED",
+  "versions": [
+    {
+      "disclosure_id": "1122417",
+      "financial_period": "2022-12-31",
+      "published_at": "2023-03-09T18:36:13+03:00",
+      "query_modify_status": "DUZELTILEN",
+      "source_sha256": "57e576ffe750c1c62b8f0a2fe051d7d62c66083c96dff5fda74484cd96875125",
+      "source_url": "https://kap.org.tr/tr/api/notification/export/excel/1122417",
+      "table_unit": "1000_TRY",
+      "ticker": "KORTS"
+    },
+    {
+      "disclosure_id": "1126845",
+      "financial_period": "2022-12-31",
+      "published_at": "2023-03-21T18:32:11+03:00",
+      "query_modify_status": "DUZENLENEN",
+      "source_sha256": "01815c9db233fce2ad717f87dfe0787d2bec9aebe64555bb6780a80dd8d843e5",
+      "source_url": "https://kap.org.tr/tr/api/notification/export/excel/1126845",
+      "table_unit": "1000_TRY",
+      "ticker": "KORTS"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "authoritative": false,
+  "contract": "EXPERIMENTAL_YAHOO_RAW_XU100_CHART_V1",
+  "price_basis": "RAW_QUOTE_OPEN_CLOSE_NOT_ADJCLOSE",
+  "response_http_date": "Sun, 06 Sep 2026 02:29:17 GMT",
+  "sha256": "3c56a4827ab1c41121ed773ba937aebc8bb5853a85f38497953d76aabf5dd4ac",
+  "url": "https://query1.finance.yahoo.com/v8/finance/chart/XU100.IS?period1=1627689600&period2=1785542400&interval=1d"
+}

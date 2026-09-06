@@ -1,0 +1,2 @@
+# Optional versioned acceleration for experimental archive materialization only.
+lxml==6.1.3
