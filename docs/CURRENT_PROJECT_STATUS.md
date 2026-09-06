@@ -30,6 +30,8 @@ banka/holding/GYO tahmini yapılmıyor.
   reddediliyor.
 - İki ayrı tam süreç aynı receipt'i ve receipt'te listelenen 64 gzip artifact'ı
   bayt düzeyinde aynı üretti: yeniden üretim denetimi **PASS**.
+- Son yerel Windows tam regresyonu: **1.959 passed, 233 skipped, 0 failed**.
+  Skip'ler DSN/haricî doğrulama artifact'ı gerektiren mevcut testlerdir.
 
 Ayrıntılar: [kilit açma sonucu](ASTRA_V24_UNLOCK_RESULT.md). Önceki v1 artifact
 ve sonuç bölümü tarihsel karşılaştırma olarak aşağıda korunur.

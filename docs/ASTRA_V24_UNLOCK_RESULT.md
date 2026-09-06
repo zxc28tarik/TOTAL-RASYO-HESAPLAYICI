@@ -23,6 +23,10 @@ geçerli Total Rasyo skoru üretmemiştir. M2 kanıt kapısı korunmuştur.
 artifact'ı bayt düzeyinde aynı üretti. `EXPERIMENTAL_P3_P4_TWO_COMPLETE_REBUILDS_V1`
 denetimi PASS'tir.
 
+Son yerel Windows tam regresyonu **1.959 passed, 233 skipped, 0 failed** verdi.
+Atlanan testler mevcut PostgreSQL DSN ve haricî doğrulama artifact koşullarına
+bağlıdır. Değiştirilen replay/denetim kapsamındaki odaklı paket ayrıca 88/88 geçti.
+
 M3/Ek4'teki eski 16 hücrelik sonuç, üreticinin kapalı M3 paketini tüketmeyip
 yalnız tek bir GRTRK/GRTHO olayına bağlı kalmasından kaynaklanıyordu. Yeni akış
 paket manifestini önce kapalı olarak doğrular, sonra 210 rotayı tam ticker ve
