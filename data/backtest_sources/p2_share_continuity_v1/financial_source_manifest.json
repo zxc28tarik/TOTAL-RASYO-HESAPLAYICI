@@ -1,0 +1,42 @@
+[
+  {
+    "original_archive": "KAP_2022_9A.zip",
+    "original_archive_member": "INVES_1075609_2022_3.xls",
+    "original_archive_sha256": "623d3364855db39c611e7d9ec434ba072cb5abfd999afbe701f2b09943cb665c",
+    "path": "INVES_1075609_2022_3.xls",
+    "sha256": "693a9533f16267c24754c10358a22bb7fdb2c0bb5065cdc8009e7ac879996064",
+    "size_bytes": 1320635
+  },
+  {
+    "original_archive": "KAP_2023_6A.zip",
+    "original_archive_member": "KLRHO_1187434_2023_2.xls",
+    "original_archive_sha256": "2ccd51309f33db95b41d2b4e5e4512f15564603a3189c95bcdba97653d311088",
+    "path": "KLRHO_1187434_2023_2.xls",
+    "sha256": "dc342f4bb366fa2e6f7861d2d1cfd69f7cfe8b3b9788918ba0971e460028fb6a",
+    "size_bytes": 1351685
+  },
+  {
+    "original_archive": "KAP_2023_9A.zip",
+    "original_archive_member": "KLRHO_1216056_2023_3.xls",
+    "original_archive_sha256": "d6aef26f4b837146e1f658126159e909b277ee879f9183d09a7023504e6f5316",
+    "path": "KLRHO_1216056_2023_3.xls",
+    "sha256": "641a7a7dde3c42f4c72927e589edecfc082e93bae1a5b7c4ad67c4191752d653",
+    "size_bytes": 1333152
+  },
+  {
+    "original_archive": "KAP_2023_Y.zip",
+    "original_archive_member": "ASGYO_1283788_2023_4.xls",
+    "original_archive_sha256": "9d8a26d43d16c31248b50635e29af0f6820e8bb361dd44eff5ba7d96106e6088",
+    "path": "ASGYO_1283788_2023_4.xls",
+    "sha256": "64d32a9fb8906a154deba465d039c812a4a7a6f449bad257d71904031e316daa",
+    "size_bytes": 1238368
+  },
+  {
+    "original_archive": "KAP_2024_3A.zip",
+    "original_archive_member": "ASGYO_1297837_2024_1.xls",
+    "original_archive_sha256": "4199758e36f9e25c174d9fa9920ae06a45fe7d58407938d644eb0b5a7a6db0d0",
+    "path": "ASGYO_1297837_2024_1.xls",
+    "sha256": "1d5fd73db30861ac3cccdc66bd6fd02f1446b63a80d957b669b9fa026cda8a6e",
+    "size_bytes": 1243902
+  }
+]

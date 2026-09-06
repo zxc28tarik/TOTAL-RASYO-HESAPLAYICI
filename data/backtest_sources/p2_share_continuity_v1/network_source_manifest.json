@@ -1,0 +1,23 @@
+[
+  {
+    "path": "kap_1139424.html",
+    "response_http_date": "Sun, 06 Sep 2026 02:21:25 GMT",
+    "sha256": "bc09edd9f8e499cc34a03759ec82f1b501577e57b778729fee87b8fa8d00413f",
+    "size_bytes": 125538,
+    "source_url": "https://kap.org.tr/tr/Bildirim/1139424"
+  },
+  {
+    "path": "kap_1155805.html",
+    "response_http_date": "Sun, 06 Sep 2026 02:21:26 GMT",
+    "sha256": "daa88ffb41a47b1d8f0525573c4931973fc5d792574146e8168726fa81a19c9b",
+    "size_bytes": 127953,
+    "source_url": "https://kap.org.tr/tr/Bildirim/1155805"
+  },
+  {
+    "path": "kap_1156058.html",
+    "response_http_date": "Sun, 06 Sep 2026 02:21:26 GMT",
+    "sha256": "6a58efa547917eb3bdff10de91083b3b01083f602e3b932bb7365c688cc0907a",
+    "size_bytes": 133849,
+    "source_url": "https://kap.org.tr/tr/Bildirim/1156058"
+  }
+]
