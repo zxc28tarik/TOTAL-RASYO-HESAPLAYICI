@@ -209,7 +209,7 @@ def validate_semantic_entity_mapping(semantic):
 
 def validate_semantic_report_identity(report,catalog_report):
     if catalog_report is None:raise ValueError('SEMANTIC_REPORT_NOT_IN_ACCEPTED_CATALOG')
-    for field in ('archive_name','member_name','archive_sha256','member_sha256','source_entity_code','report_year','report_period','statement_scope','presentation_currency','presentation_scale','company_name'):
+    for field in ('archive_name','member_name','archive_sha256','member_sha256','notification_id','source_entity_code','report_year','report_period','statement_scope','presentation_currency','presentation_scale','company_name'):
         if report.get(field)!=catalog_report.get(field):raise ValueError('SEMANTIC_REPORT_RAW_IDENTITY_MISMATCH')
     if datetime.fromisoformat(report['published_at'])!=datetime.fromisoformat(catalog_report['published_at']):
         raise ValueError('SEMANTIC_REPORT_RAW_PUBLICATION_MISMATCH')
@@ -355,6 +355,7 @@ def audit(artifact_dir,semantic_dir,raw_dir,workers=4):
             fact_hashes={hashlib.sha256(encoded(f)).hexdigest() for f in semantic['facts']} if semantic else set()
             for fact in cell['own_period_semantic_facts']:
                 if hashlib.sha256(encoded(fact)).hexdigest() not in fact_hashes:raise ValueError('FACT_NOT_IN_SOURCE_SEMANTIC_ARTIFACT')
+                if fact['disclosure_id']!='KAP:'+str(chosen['notification_id']):raise ValueError('FACT_DISCLOSURE_ID_MISMATCH')
                 if fact['ticker']!=semantic_fact_ticker or datetime.fromisoformat(fact['published_at'])>cutoff or datetime.fromisoformat(fact['published_at'])!=datetime.fromisoformat(chosen['published_at']) or fact['period_end']!=period_end(chosen).isoformat():raise ValueError('FACT_TICKER_PERIOD_OR_PUBLICATION_MISMATCH')
                 for field in ('archive_name','archive_sha256','member_name','member_sha256','source_entity_code'):
                     if fact['dimensions'][field]!=chosen[field]:raise ValueError('FACT_RAW_LINEAGE_MISMATCH')

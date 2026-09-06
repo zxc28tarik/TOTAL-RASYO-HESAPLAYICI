@@ -5,7 +5,22 @@
 > sonraki işler için aşağıdaki Claude adıyla denetim şartının yerini alır.
 > Teknik kapanışlar henüz ilan edilmedi; entegrasyon dalı `codex/astra-v24-finalize`.
 
-## Veri kurtarma araştırması — 2026-09-06
+## Gerçek deneysel artifact zinciri — 2026-09-06
+
+Bu bölüm aktif başlangıç durumudur; aşağıdaki eski kayıtların önüne geçer.
+
+- 26 özgün KAP arşivinden ayrı reconstructed katalog: 15.109 rapor. İki drift arşivi kabul edilmedi; eski immutable hash'ler değiştirilmedi.
+- Ana/önceki ticker/birleşik kaynak kodu paketleri: **5.052 rapor, 199.969 semantic veri**; iki bağımsız ham okumada aynı baytlar.
+- **P3: 6.000 gerçek hücre**, 5.633 hücrede görünür kendi dönem finansalları; 0 hazır + 6.000 açık ret. Global eksik-katalog reddi yok.
+- **P4: 60 × 100 gerçek skor/ret kaydı**; 64 gzip artifact iki ayrı hesaplamada birebir aynı. Sayısal sıralamalar boş: 0 Total skor.
+- 4.798 gerçek CORE tanısı; M3/Ek4 16'şar, Ek9 5.598 dolu sonuç. Yeni HOLDING/GYO aday sayısı 1.113, kullanılabilir tam M2 0.
+- Bağımsız kısmi P6 PASS: 2.115 rapor, 118.434 finansal veri kullanımı, 12 THB kapanışı ve tüm P3/P4 bağlantıları doğrulandı.
+- P5 yalnız nakit tanısı: 60 ay, 1.715.833,40 TL katkı/NAV, 0 işlem. **Strateji performansı tamamlanmadı.** V24-G **BLOCKED**; 174 execution hücresi ve authoritative registry eksik.
+- KORTS için gerçek ilk/düzeltilmiş rapor çifti kurtarıldı; tarihsel sürüm enumeration'ı hâlâ kanıtlanmadı.
+- P3/P4'ün eksiksiz artifact kapsamı geçti; P2 kullanılabilir değerleme, P5 strateji, tam P6 ve authoritative P7 açık. PR #40 taslak; `main` değişmedi.
+- [Sonuç, ret dağılımı ve kaynak kanıtları](ASTRA_EXPERIMENTAL_MATERIALIZATION_RESULT.md), [yeniden üretim komutları](EXPERIMENTAL_MATERIALIZATION_RUNBOOK.md).
+
+## Veri kurtarma araştırması — önceki 2026-09-06 kaydı
 
 - Tüm 1078 yerel Git blobu, 71 Actions artifact içeriği, 31 eski workflow logu, 28 release ZIP dizini ve ilgili yerel paketler araştırıldı; beş özgün katalog bulunamadı.
 - INVES/KLRHO/ASGYO için altı gerçek KAP raporundan tarihli pay kaynakları çıkarıldı; 12 P2 hücresinin aralıkları ve cutoff öncesi yayınları kayıtlı.

@@ -1,0 +1,469 @@
+{
+  "code_head": "62a315295150f8347ae3ee6769d6768fbf5cfaf6",
+  "runs": [
+    {
+      "id": 34009122023,
+      "name": "V24 PIT Total Rasyo Replay CI",
+      "head_sha": "62a315295150f8347ae3ee6769d6768fbf5cfaf6",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34009122023",
+      "artifacts": []
+    },
+    {
+      "id": 34009122012,
+      "name": "V24 Real Data CI",
+      "head_sha": "62a315295150f8347ae3ee6769d6768fbf5cfaf6",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34009122012",
+      "artifacts": []
+    },
+    {
+      "id": 34009122029,
+      "name": "Astra V24 Integration Audit",
+      "head_sha": "62a315295150f8347ae3ee6769d6768fbf5cfaf6",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34009122029",
+      "artifacts": [
+        {
+          "name": "astra-windows-evidence",
+          "id": 9981960183,
+          "archive_sha256": "d5c9ac5cbdab23f27085ab5ed9d868c3567c5617a12bb9c54b0cbfb98b8c6079",
+          "members": [
+            {
+              "name": "astra-windows.xml",
+              "sha256": "cf451c685209223b3a697f4378b3d6d05426ea5c8c0ea5c5517fd687fedbe7bb",
+              "test_suites": [
+                {
+                  "name": "pytest",
+                  "errors": "0",
+                  "failures": "0",
+                  "skipped": "233",
+                  "tests": "2173",
+                  "time": "227.881",
+                  "timestamp": "2026-09-06T03:30:33.138267+00:00",
+                  "hostname": "runnervmeef0v"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "astra-integration-evidence",
+          "id": 9981951014,
+          "archive_sha256": "24baae03a6fbee37e585063961c8d01c09253ae8f437e30b771bb03dec6bdf4c",
+          "members": [
+            {
+              "name": "astra-full.xml",
+              "sha256": "ab615116aa6c89513038d7bccf394536443dfaef7f9880dc76320321e7056719",
+              "test_suites": [
+                {
+                  "name": "pytest",
+                  "errors": "0",
+                  "failures": "0",
+                  "skipped": "7",
+                  "tests": "2177",
+                  "time": "185.778",
+                  "timestamp": "2026-09-06T03:30:06.947879+00:00",
+                  "hostname": "runnervmejwal"
+                }
+              ]
+            },
+            {
+              "name": "astra-mutations.json",
+              "sha256": "cbfc481e2ea7fc09ddfe2c949d7926af1425c8fbf7e43fcef0b36c1baa82cfc3",
+              "result": {
+                "contract": "PRICE_LEVEL_MUTATION_AUDIT_V1",
+                "results": [
+                  {
+                    "failures": 0,
+                    "name": "baseline",
+                    "status": "PASS"
+                  },
+                  {
+                    "failures": 7,
+                    "name": "manifest_hash_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "source_hash_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 6,
+                    "name": "future_publication_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 6,
+                    "name": "wrong_ticker_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "wrong_share_basis_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 2,
+                    "name": "completeness_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 6,
+                    "name": "wrong_source_date_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 7,
+                    "name": "wrong_price_date_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "event_set_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "event_identity_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 2,
+                    "name": "event_date_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 3,
+                    "name": "rights_as_split",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "price_cutoff_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 2,
+                    "name": "dividend_changes_shares",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 9,
+                    "name": "split_not_applied",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 7,
+                    "name": "adjusted_price_for_market_cap",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "nonfin_adjusted_query",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "nonfin_split_not_applied",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "holding_adjusted_query",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "holding_split_not_applied",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "gyo_adjusted_query",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "gyo_split_not_applied",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "insurance_adjusted_query",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "insurance_split_not_applied",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "financial_institution_adjusted_query",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "financial_institution_split_not_applied",
+                    "status": "KILLED"
+                  }
+                ],
+                "source_sha256": {
+                  "src/analytics/financial_institution_batch_pipeline.py": "8e88c74a57cc633a8216538ca1be742d3c4112eb969e88a66ff38159ea4ae306",
+                  "src/analytics/gyo_batch_pipeline.py": "0122c2ebd7a9728cdbaf60b93b666fbe3c6743afa98462c4ef5db0ba7e93b966",
+                  "src/analytics/holding_batch_pipeline.py": "27598a7f9dc24cfb2b102a548eab2adc61bf8a00fc7a81107653f23fbaac5436",
+                  "src/analytics/insurance_batch_pipeline.py": "ce5d4f2db6ac61d31371ec8e56cb3cc6246553eb4afd3cfe5fc269d08797a20c",
+                  "src/analytics/nonfin_batch_pipeline.py": "2ade3f8dff8d56d8c1ad6f4985fda497e91cafcffa1fbcac47557b9332a04b27",
+                  "src/analytics/price_level_action_evidence.py": "e43f2826e20eb3ab7b80d82198436f91cc661e69a0fbfcaa238a7711ac8185d2",
+                  "src/analytics/price_level_valuation_basis.py": "16c633db9d0dfc00b238762e6fe0deaf8a300af4c95a5d018c778b584701e5fd"
+                },
+                "tests_sha256": {
+                  "tests/test_price_level_action_evidence.py": "da5c715e186c0277e1eb97aaa04690b3eba4c2904b624fdb4c3a8936e401f051",
+                  "tests/test_price_level_family_adapters.py": "bd0b75887ca389cc52e3659869d4e33d892e317d2f25d2c4309b025d29e696f0",
+                  "tests/test_price_level_valuation_basis.py": "e08f896afdc2cd118a02ee2a201ea76a005b3b5f3326e6fb3eacb525c0050ccd"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 34009122019,
+      "name": "V24 KAP Semantic Family CI",
+      "head_sha": "62a315295150f8347ae3ee6769d6768fbf5cfaf6",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34009122019",
+      "artifacts": []
+    },
+    {
+      "id": 34009122015,
+      "name": "V24 Real Sector M2 CI",
+      "head_sha": "62a315295150f8347ae3ee6769d6768fbf5cfaf6",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34009122015",
+      "artifacts": []
+    },
+    {
+      "id": 34009120250,
+      "name": "Astra V24 Integration Audit",
+      "head_sha": "62a315295150f8347ae3ee6769d6768fbf5cfaf6",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34009120250",
+      "artifacts": [
+        {
+          "name": "astra-integration-evidence",
+          "id": 9981960842,
+          "archive_sha256": "2f165c81daea42a6ee91889fceb6824879e5297dd91d481d94766f2f865ebdc8",
+          "members": [
+            {
+              "name": "astra-full.xml",
+              "sha256": "fbe268909d71fb9194a4e84d41c9628132c1a78d9f06b00a9dc7d4dbbd6ff34d",
+              "test_suites": [
+                {
+                  "name": "pytest",
+                  "errors": "0",
+                  "failures": "0",
+                  "skipped": "7",
+                  "tests": "2177",
+                  "time": "206.083",
+                  "timestamp": "2026-09-06T03:30:32.725063+00:00",
+                  "hostname": "runnervmejwal"
+                }
+              ]
+            },
+            {
+              "name": "astra-mutations.json",
+              "sha256": "cbfc481e2ea7fc09ddfe2c949d7926af1425c8fbf7e43fcef0b36c1baa82cfc3",
+              "result": {
+                "contract": "PRICE_LEVEL_MUTATION_AUDIT_V1",
+                "results": [
+                  {
+                    "failures": 0,
+                    "name": "baseline",
+                    "status": "PASS"
+                  },
+                  {
+                    "failures": 7,
+                    "name": "manifest_hash_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "source_hash_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 6,
+                    "name": "future_publication_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 6,
+                    "name": "wrong_ticker_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "wrong_share_basis_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 2,
+                    "name": "completeness_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 6,
+                    "name": "wrong_source_date_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 7,
+                    "name": "wrong_price_date_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "event_set_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "event_identity_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 2,
+                    "name": "event_date_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 3,
+                    "name": "rights_as_split",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "price_cutoff_bypass",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 2,
+                    "name": "dividend_changes_shares",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 9,
+                    "name": "split_not_applied",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 7,
+                    "name": "adjusted_price_for_market_cap",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "nonfin_adjusted_query",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "nonfin_split_not_applied",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "holding_adjusted_query",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "holding_split_not_applied",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "gyo_adjusted_query",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "gyo_split_not_applied",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "insurance_adjusted_query",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "insurance_split_not_applied",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "financial_institution_adjusted_query",
+                    "status": "KILLED"
+                  },
+                  {
+                    "failures": 1,
+                    "name": "financial_institution_split_not_applied",
+                    "status": "KILLED"
+                  }
+                ],
+                "source_sha256": {
+                  "src/analytics/financial_institution_batch_pipeline.py": "8e88c74a57cc633a8216538ca1be742d3c4112eb969e88a66ff38159ea4ae306",
+                  "src/analytics/gyo_batch_pipeline.py": "0122c2ebd7a9728cdbaf60b93b666fbe3c6743afa98462c4ef5db0ba7e93b966",
+                  "src/analytics/holding_batch_pipeline.py": "27598a7f9dc24cfb2b102a548eab2adc61bf8a00fc7a81107653f23fbaac5436",
+                  "src/analytics/insurance_batch_pipeline.py": "ce5d4f2db6ac61d31371ec8e56cb3cc6246553eb4afd3cfe5fc269d08797a20c",
+                  "src/analytics/nonfin_batch_pipeline.py": "2ade3f8dff8d56d8c1ad6f4985fda497e91cafcffa1fbcac47557b9332a04b27",
+                  "src/analytics/price_level_action_evidence.py": "e43f2826e20eb3ab7b80d82198436f91cc661e69a0fbfcaa238a7711ac8185d2",
+                  "src/analytics/price_level_valuation_basis.py": "16c633db9d0dfc00b238762e6fe0deaf8a300af4c95a5d018c778b584701e5fd"
+                },
+                "tests_sha256": {
+                  "tests/test_price_level_action_evidence.py": "da5c715e186c0277e1eb97aaa04690b3eba4c2904b624fdb4c3a8936e401f051",
+                  "tests/test_price_level_family_adapters.py": "bd0b75887ca389cc52e3659869d4e33d892e317d2f25d2c4309b025d29e696f0",
+                  "tests/test_price_level_valuation_basis.py": "e08f896afdc2cd118a02ee2a201ea76a005b3b5f3326e6fb3eacb525c0050ccd"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "astra-windows-evidence",
+          "id": 9981952569,
+          "archive_sha256": "9b4701a1faeafc7e6cfa5d020936f1e8df0ab33d1614b3cdd21f8585d3980d1c",
+          "members": [
+            {
+              "name": "astra-windows.xml",
+              "sha256": "9b3ee7d19e8e4814d390a1f36f531a7b77163ef7abb7dc8cb4901d24dd40e908",
+              "test_suites": [
+                {
+                  "name": "pytest",
+                  "errors": "0",
+                  "failures": "0",
+                  "skipped": "233",
+                  "tests": "2173",
+                  "time": "196.179",
+                  "timestamp": "2026-09-06T03:30:27.385052+00:00",
+                  "hostname": "runnervmeef0v"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

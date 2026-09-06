@@ -214,7 +214,7 @@ def test_entity_supplement_receipt_and_mapping_are_verified(tmp_path):
     with pytest.raises(ValueError,match='ENTITY_SOURCE_HASH'):verified_semantic_rows(tmp_path,hashes,'a'*64)
 
 
-@pytest.mark.parametrize('field',['source_entity_code','member_sha256','published_at'])
+@pytest.mark.parametrize('field',['source_entity_code','member_sha256','published_at','notification_id'])
 def test_semantic_report_must_match_accepted_catalog_identity(field):
     from scripts.audit_experimental_materialization import validate_semantic_report_identity
     original=base_report();changed=deepcopy(original)

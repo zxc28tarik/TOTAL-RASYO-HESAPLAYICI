@@ -29,6 +29,7 @@ python -m scripts.materialize_experimental_entity_facts --raw-dir private/recons
 python -m scripts.audit_experimental_semantic_rebuild --first data/backtest_sources/experimental_semantic_facts_v1 --second private/experimental_semantic_second --output data/backtest_sources/experimental_semantic_facts_v1/rebuild_audit.json
 python -m scripts.materialize_experimental_p3_p4 --semantic-dir data/backtest_sources/experimental_semantic_facts_v1 --output-dir data/audit/experimental_materialization_v1
 python -m scripts.materialize_experimental_p3_p4 --semantic-dir private/experimental_semantic_second --output-dir private/experimental_materialization_second
+python -m scripts.audit_experimental_cell_rebuild --first data/audit/experimental_materialization_v1 --second private/experimental_materialization_second --semantic-audit data/backtest_sources/experimental_semantic_facts_v1/rebuild_audit.json --output data/audit/experimental_materialization_v1/rebuild_audit.json
 python -m scripts.audit_experimental_materialization --artifact-dir data/audit/experimental_materialization_v1 --semantic-dir data/backtest_sources/experimental_semantic_facts_v1 --raw-dir private/reconstructed_kap_archives --output data/audit/experimental_materialization_v1/independent_audit.json
 python -m scripts.replay_experimental_portfolio --p4-cells data/audit/experimental_materialization_v1/p4_cells.jsonl.gz --output-dir data/audit/experimental_portfolio_v1
 python -m scripts.summarize_experimental_dependencies --artifact-dir data/audit/experimental_materialization_v1

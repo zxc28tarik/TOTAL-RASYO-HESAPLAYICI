@@ -1,0 +1,8 @@
+{
+  "authoritative_registry_created": false,
+  "generator_sha256": "ffbb6aaf8d77365c7fcf573ccfe35449d69554780f963dacf1f05b565ec29b02",
+  "independent_rebuild_bytes_identical": true,
+  "output_sha256": "cff56ec758dd1a6585f1768e05602aded934b35235f64abb12337c4820ca3f9a",
+  "p4_sha256": "72f18890435e0a2f22e30dafc17ee7e6b55d9b63b3ea1acdeee3e094d3e99531",
+  "production_auditor_sha256": "5c720d6f0996c33a29ce88ff6bc6f92ce8b7b14be8794c062fcc5086d83f5048"
+}

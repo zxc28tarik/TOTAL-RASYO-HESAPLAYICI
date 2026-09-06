@@ -56,6 +56,10 @@ def run_audit(cells):
     prices['trade_date'] = pd.to_datetime(prices.trade_date)
     dates = set(pd.to_datetime(members.signal_date))
     prices = prices.loc[prices.trade_date.isin(dates)]
+    price_counts = prices.groupby(['trade_date','ticker']).size().to_dict()
+    missing_execution_cells = [dict(signal_date=str(r.signal_date),ticker=r.ticker,
+        reason='EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING') for r in members.itertuples()
+        if (pd.Timestamp(r.signal_date),r.ticker) not in price_counts]
     # Source artifact rows remain rejected. Null run_id means no registry
     # identity exists; no success/scope/persistence records are manufactured.
     results = pd.DataFrame([dict(run_id=None, analysis_at=r['knowledge_cutoff_at'], ticker=r['ticker'],
@@ -80,6 +84,7 @@ def run_audit(cells):
         p4_rejection_reasons=dict(sorted(Counter(reason for r in cells for reason in r.get('reasons',[])).items())),
         registry_rows=0, registry_rows_created=0, database_writes_performed=False,
         execution_price_rows_observed=len(prices), benchmark_source=benchmark_source,
+        missing_execution_cell_count=len(missing_execution_cells), missing_execution_cells=missing_execution_cells,
         source_hashes={str(p.relative_to(ROOT)):sha256(p.read_bytes()).hexdigest() for p in source_paths},
         limitations=['V24-G requires authoritative FULL_UNIVERSE registry evidence; none exists for these experimental artifacts.',
                      'One-day membership intervals represent only verified signal-day membership; no tradability history is invented.',
