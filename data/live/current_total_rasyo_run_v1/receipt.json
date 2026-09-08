@@ -1,0 +1,43 @@
+{
+  "completed_at": "2026-09-08T19:15:06.218743+00:00",
+  "contract": "CURRENT_TOTAL_RASYO_RUN_V1",
+  "database_available": false,
+  "historical_pit_mixed_into_current": false,
+  "m2_blocker": "CURRENT_NONFIN_CANDIDATE_SET_EMPTY_AFTER_SAFE_MARKET_CAP_GATE",
+  "mode": "OFFLINE_HASH_VERIFIED",
+  "neutral_score_injection": false,
+  "receipts": {
+    "nonfin_valuation": {
+      "path": "data/live/current_nonfin_valuation_v1/receipt.json",
+      "sha256": "5543ed8644e1db541ce41a6b029f84c3d4b8e28948b61b0a6e7958e842780b48"
+    },
+    "price_level_basis": {
+      "path": "data/live/current_price_level_basis_v1/receipt.json",
+      "sha256": "b34df19cb68cc01c22139f443f9e85e87fa1c5a2695466c75ec329fb1188865d"
+    },
+    "prices": {
+      "path": "data/live/current_raw_close_v1/receipt.json",
+      "sha256": "b6b485a3e2426a9fa739c7c4375b2b21d0dfcf9d279d88d5f70ce46525be7950"
+    },
+    "readiness": {
+      "path": "data/live/current_total_rasyo_v1/receipt.json",
+      "sha256": "3c2689e1a8daae983c56f374d34a4083e18ae6b76f730fc9a718e8d81a06bf88"
+    },
+    "shares": {
+      "path": "data/live/current_share_basis_v1/receipt.json",
+      "sha256": "0a2c4bdf7748678ec8b8cb008a5e14a6076f42f71bc10eb0a61d40c149922449"
+    }
+  },
+  "run_date": "2026-09-08",
+  "stage_counts": {
+    "explicit_share_basis": 25,
+    "m2": 0,
+    "market_cap": 9,
+    "nonfin_valuation": 0,
+    "ranking": 0,
+    "raw_close": 629,
+    "total_rasyo": 0,
+    "universe": 807,
+    "usable_nonfin_valuation": 0
+  }
+}

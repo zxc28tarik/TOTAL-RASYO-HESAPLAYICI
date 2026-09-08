@@ -1,0 +1,133 @@
+{
+  "adjusted_close_used_for_market_cap": false,
+  "analysis_at": "2026-09-08T19:14:11.061890+00:00",
+  "contract": "CURRENT_PRICE_LEVEL_BASIS_MATERIALIZATION_V1",
+  "empty_same_day_action_interval_only": true,
+  "materialized_market_cap_count": 9,
+  "nominal_value_per_share_assumed": false,
+  "outputs": {
+    "action_bundle_index.json": "76ed084f2c8ef32e45365c50e18e7397a72aaa259fc4d4b58588bcab2d0c7f54",
+    "market_caps.csv": "1c0daeaa8ee3876b7216ffe43a25a52576c85ce9629dbc091315e6fd810e59fd"
+  },
+  "production_action_bundle_loader_verified": true,
+  "rejection_count": 16,
+  "rejections": [
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "AKCNS"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "ALKIM"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "ANHYT"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "ASUZU"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "AVHOL"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "AYGAZ"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "11250000",
+        "230625000"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "BNTAS"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "BTCIM"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "DYOBY"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "EGEEN"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "GOLTS"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "GSDDE"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "GSDHO"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "0.01"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "INTEK"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "53611826"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "SEKUR"
+    },
+    {
+      "explicit_nominal_values_try": [
+        "3000000",
+        "8500000",
+        "88000000"
+      ],
+      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
+      "ticker": "TUREX"
+    }
+  ],
+  "share_candidate_count": 25,
+  "source_availability_basis": "KAP_RESPONSE_HTTP_DATE"
+}

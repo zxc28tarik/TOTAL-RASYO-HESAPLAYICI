@@ -79,7 +79,27 @@ def _decimal(value: object) -> Decimal:
     if isinstance(value, bool) or value is None:
         raise ValueError("MISSING_DECIMAL")
     try:
-        number = Decimal(str(value).replace(".", "").replace(",", "."))
+        if isinstance(value, (int, float, Decimal)):
+            text = str(value)
+        else:
+            text = str(value).strip().replace(" ", "")
+            if "," in text and "." in text:
+                if text.rfind(",") > text.rfind("."):
+                    text = text.replace(".", "").replace(",", ".")
+                else:
+                    text = text.replace(",", "")
+            elif "," in text:
+                text = text.replace(",", ".")
+            elif text.count(".") > 1:
+                groups = text.split(".")
+                if not groups[0].lstrip("-").isdigit() or not all(
+                    group.isdigit() and len(group) == 3 for group in groups[1:]
+                ):
+                    raise ValueError("AMBIGUOUS_DECIMAL_SEPARATORS")
+                text = "".join(groups)
+            # A lone dot in KAP JSON is a decimal separator.  Treating it as
+            # a thousands separator inflated share counts by powers of ten.
+        number = Decimal(text)
     except InvalidOperation as exc:
         raise ValueError("INVALID_DECIMAL") from exc
     if not number.is_finite():

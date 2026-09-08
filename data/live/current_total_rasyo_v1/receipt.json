@@ -1,0 +1,69 @@
+{
+  "captured_at": "2026-09-08T19:15:06.151625+00:00",
+  "contract": "LIVE_TOTAL_RASYO_INPUT_READINESS_V1",
+  "current_financial_archive": {
+    "member_count": 757,
+    "parse_rejected_count": 0,
+    "parsed_report_count": 757,
+    "path": "private/reconstructed_kap_archives/KAP_2026_6A.zip",
+    "sha256": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2",
+    "source_url": "https://kap.org.tr/tr/api/financialTable/download/2026/2"
+  },
+  "current_market_cap_artifact": {
+    "path": "data/live/current_price_level_basis_v1/market_caps.csv",
+    "sha256": "1c0daeaa8ee3876b7216ffe43a25a52576c85ce9629dbc091315e6fd810e59fd"
+  },
+  "current_raw_close_artifact": {
+    "path": "data/live/current_raw_close_v1/raw_close.csv.gz",
+    "sha256": "e05ee5ba5067e273e56104132d74a5de6c10bce7a5c02419880a0a72009b3cb4"
+  },
+  "current_share_basis_artifact": {
+    "path": "data/live/current_share_basis_v1/ticker_share_basis.jsonl.gz",
+    "sha256": "1955c02305eeff63338bf9a6539f8041152ecc3533bf04a74f9cfcfccc4637cc"
+  },
+  "database_available": false,
+  "explicit_rejection_count": 807,
+  "explicit_share_basis_count": 25,
+  "family_counts": {
+    "BANK": 62,
+    "CURRENT_FINANCIAL_ENTITY_UNBOUND": 50,
+    "FINANCIAL": 46,
+    "GENERAL_SCHEMA_NOT_ECONOMIC_NONFIN_PROOF": 534,
+    "GYO": 52,
+    "HOLDING": 56,
+    "INSURANCE": 7
+  },
+  "financial_report_family_counts": {
+    "BANK": 56,
+    "FINANCIAL": 46,
+    "GENERAL_UNRESOLVED": 510,
+    "GYO": 77,
+    "HOLDING": 56,
+    "INSURANCE": 12
+  },
+  "historical_p5_authorized": false,
+  "market_cap_ready_count": 9,
+  "mode": "CURRENT_LIVE_SEPARATE_FROM_HISTORICAL_PIT",
+  "module_coverage": {
+    "Ek1": 0,
+    "Ek4": 0,
+    "Ek9": 0,
+    "M1": 0,
+    "M2": 0,
+    "M3": 0
+  },
+  "neutral_score_injection": false,
+  "outputs": {
+    "rejections.jsonl": "3f894929ec3fdc7025bf230d9109b9d0376970320f8bd8bbb6722a99ec799049",
+    "universe.csv": "52d38b69a462e19604f2ad8c5400e18696cb6e7a6f3fdf7b46333180442c1da6",
+    "universe.csv.meta.json": "487153dca36cb9e29ddc6a71231ff262280e235fa473f0e99d236d35030df6f9"
+  },
+  "price_and_share_ready_count": 25,
+  "ranking_count": 0,
+  "raw_close_count": 629,
+  "silent_drop_count": 0,
+  "total_rasyo_count": 0,
+  "universe_count": 807,
+  "universe_fetch_error": "KapUniverseError:offline run requested",
+  "universe_source_mode": "CACHED_HASH_VERIFIED_OFFLINE"
+}

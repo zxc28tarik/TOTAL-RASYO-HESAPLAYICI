@@ -1,0 +1,30 @@
+{
+  "analysis_at": "2026-09-08T19:14:11.311593+00:00",
+  "archive_hashes": {
+    "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
+    "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
+    "KAP_2025_9A.zip": "421317ffb4edb55e1656773a5e6c8d4d9e2e79225888e2ff71556490dc817163",
+    "KAP_2025_Y.zip": "bef9ac8c5159db2fba8d388a1c4c1bf14f50c24bfef79c782b7efce93ef4e5c5",
+    "KAP_2026_3A.zip": "d7a53002009bc1c4672b80c272554412487d1abb21d95e69fed698cf8be2e82f",
+    "KAP_2026_6A.zip": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2"
+  },
+  "contract": "CURRENT_NONFIN_RELATIVE_VALUATION_V1",
+  "derivation_rejections": [],
+  "derived_financial_ticker_count": 0,
+  "financial_report_count": 0,
+  "m2_blocker": "CURRENT_NONFIN_CANDIDATE_SET_EMPTY_AFTER_SAFE_MARKET_CAP_GATE",
+  "m2_materialized_count": 0,
+  "neutral_follow_or_m2_materialized": false,
+  "outputs": {
+    "valuations.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "peer_group": "XUSIN",
+  "production_valuation_count": 0,
+  "route_source_sha256": "f0c28c7babd018eb8994afdf4911a9d338dad43b291a1084a7acc47a3919c478",
+  "routed_candidate_count": 0,
+  "routed_tickers": [],
+  "snapshot_count": 0,
+  "snapshot_rejections": [],
+  "unsafe_issued_capital_share_fields_scrubbed": true,
+  "usable_valuation_count": 0
+}

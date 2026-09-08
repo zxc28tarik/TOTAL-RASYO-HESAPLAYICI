@@ -35,6 +35,7 @@ HTML = """
 class Response:
     def __init__(self, text=HTML, status=200):
         self.text = text
+        self.content = text.encode("utf-8")
         self.status_code = status
 
     def raise_for_status(self):
@@ -93,6 +94,17 @@ def test_fetch_retries_and_rejects_suspiciously_small_universe():
     )
     with pytest.raises(KapUniverseError, match="beklenenden kucuk"):
         client.fetch()
+
+
+def test_fetch_decodes_official_utf8_bytes_without_mojibake():
+    html = HTML.replace("LOGO YAZILIM", "ŞİRKET İLETİŞİM")
+    snapshot = KapPublicUniverseClient(
+        session=Session([Response(html)]), minimum_rows=4,
+        clock=lambda: datetime(2026, 8, 4, 12, 0, tzinfo=timezone.utc),
+    ).fetch()
+    assert "ŞİRKET İLETİŞİM" in snapshot.frame.loc[
+        snapshot.frame.ticker.eq("LOGO"), "company_name"
+    ].iloc[0]
 
 
 def test_snapshot_write_is_atomic_and_has_reproducibility_metadata(tmp_path):

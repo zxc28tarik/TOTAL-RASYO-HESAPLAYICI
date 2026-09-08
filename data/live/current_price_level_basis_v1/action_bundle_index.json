@@ -1,0 +1,131 @@
+{
+  "contract": "PRICE_LEVEL_ACTION_BUNDLE_INDEX_V1",
+  "entries": [
+    {
+      "events_path": "events/BIMAS.json",
+      "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "manifest_path": "manifests/BIMAS.json",
+      "manifest_sha256": "f394b39f26d810eb9590f6755df137afe47479c47fe3a62a8a02b4733f84c20c",
+      "sources": [
+        {
+          "path": "sources/4028e4a140e95be70140ee1b7b030119.json",
+          "sha256": "1808d214a85381e00601f97a523a8111203bb02bb61022e82a39ce73bd9c0f20",
+          "source_ref": "CURRENT_KAP_SHARE_HISTORY:4028e4a140e95be70140ee1b7b030119"
+        }
+      ],
+      "ticker": "BIMAS"
+    },
+    {
+      "events_path": "events/DGGYO.json",
+      "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "manifest_path": "manifests/DGGYO.json",
+      "manifest_sha256": "838618ef1cb2273f9688c6c9a1eb8dfcdea9de9e3441e0311ab9f92a77a0e198",
+      "sources": [
+        {
+          "path": "sources/4028e4a140e8cfa00140e9497d32002f.json",
+          "sha256": "a5a7165a216bb5c9f4b55135b707f52e50dbc2d8f4757278a451b98d29990800",
+          "source_ref": "CURRENT_KAP_SHARE_HISTORY:4028e4a140e8cfa00140e9497d32002f"
+        }
+      ],
+      "ticker": "DGGYO"
+    },
+    {
+      "events_path": "events/GATEG.json",
+      "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "manifest_path": "manifests/GATEG.json",
+      "manifest_sha256": "260121c816f470f10d313e539b84515ac19cbfb99048b1430d839a3e03b4a1ee",
+      "sources": [
+        {
+          "path": "sources/402821824bf524dd014c27907cd65b79.json",
+          "sha256": "c38ba6c31426f71ab5c7286a73d4ff8d699310e1133e6dd791394e588f84dcc2",
+          "source_ref": "CURRENT_KAP_SHARE_HISTORY:402821824bf524dd014c27907cd65b79"
+        }
+      ],
+      "ticker": "GATEG"
+    },
+    {
+      "events_path": "events/IZINV.json",
+      "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "manifest_path": "manifests/IZINV.json",
+      "manifest_sha256": "c02407b5765b8b5006184bcba96454833c9486cec39d0a35016ae15578b239ed",
+      "sources": [
+        {
+          "path": "sources/1DE05DAA82FC073AE0530A4A622A2EBD.json",
+          "sha256": "6a5082d69a471b19d2b6ddbc0779abd06237db82eba80b925719cdaf180665a0",
+          "source_ref": "CURRENT_KAP_SHARE_HISTORY:1DE05DAA82FC073AE0530A4A622A2EBD"
+        }
+      ],
+      "ticker": "IZINV"
+    },
+    {
+      "events_path": "events/KLSYN.json",
+      "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "manifest_path": "manifests/KLSYN.json",
+      "manifest_sha256": "e20b605d0c59b1384572aaddb1d43c50f95178a61da0f29b975e2c24db3e60f1",
+      "sources": [
+        {
+          "path": "sources/402821814da3a99c014f3b4e25ff608e.json",
+          "sha256": "48fc62e4bed63b9845330ffbf22e2e650686e8b6889f23d601a2eae135f7cf39",
+          "source_ref": "CURRENT_KAP_SHARE_HISTORY:402821814da3a99c014f3b4e25ff608e"
+        }
+      ],
+      "ticker": "KLSYN"
+    },
+    {
+      "events_path": "events/PSDTC.json",
+      "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "manifest_path": "manifests/PSDTC.json",
+      "manifest_sha256": "c55af17191579fdd1090ac1af6ff9cfda1b32f148a6fe0c831749d7a6fbca009",
+      "sources": [
+        {
+          "path": "sources/1DE05DAA8399073AE0530A4A622A2EBD.json",
+          "sha256": "482ef1386ffc6db1e106f865415db02c879be6592ba095c4fa46efca6abc0436",
+          "source_ref": "CURRENT_KAP_SHARE_HISTORY:1DE05DAA8399073AE0530A4A622A2EBD"
+        }
+      ],
+      "ticker": "PSDTC"
+    },
+    {
+      "events_path": "events/SEYKM.json",
+      "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "manifest_path": "manifests/SEYKM.json",
+      "manifest_sha256": "523f6ea5a4bd71a15d0ed54d42c645d73df15a633c48fa6c393ee47c2ff76eab",
+      "sources": [
+        {
+          "path": "sources/402821824da3aa97014f16c428d14bcf.json",
+          "sha256": "2306706b4b70c7c34fac7a96cd733784a79f684a1e64ea1fb78cf61f38a68226",
+          "source_ref": "CURRENT_KAP_SHARE_HISTORY:402821824da3aa97014f16c428d14bcf"
+        }
+      ],
+      "ticker": "SEYKM"
+    },
+    {
+      "events_path": "events/SMRVA.json",
+      "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "manifest_path": "manifests/SMRVA.json",
+      "manifest_sha256": "d84b06904bb0ff0e2caf069118eb59ed6b1a5ceb3230f88b021ef4f48eefc371",
+      "sources": [
+        {
+          "path": "sources/402821814da3a99c014eb57bdd604a6f.json",
+          "sha256": "27c832cdbb92832b6d2d68f1d8f9f79c65e90d99409fa6f93a6981734ffa84bd",
+          "source_ref": "CURRENT_KAP_SHARE_HISTORY:402821814da3a99c014eb57bdd604a6f"
+        }
+      ],
+      "ticker": "SMRVA"
+    },
+    {
+      "events_path": "events/TURSG.json",
+      "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "manifest_path": "manifests/TURSG.json",
+      "manifest_sha256": "7200819d53ebb6ede0db38b0afaff78973da4a3b290b67b498847b05ece93a32",
+      "sources": [
+        {
+          "path": "sources/4028e4a140e95be70140ee2f466d0159.json",
+          "sha256": "33ea71db11d676737b2ccb12fde3c71aefc6ba0917563909eaf6c8cd488a7cb7",
+          "source_ref": "CURRENT_KAP_SHARE_HISTORY:4028e4a140e95be70140ee2f466d0159"
+        }
+      ],
+      "ticker": "TURSG"
+    }
+  ]
+}

@@ -1,0 +1,714 @@
+[
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ACP"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ADB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ADBNK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ADLVY"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "AFB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "AKCVR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "AKDFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "AKFK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "AKM"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "AKMEN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "AKSFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "AKTIF"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "AKTVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ALJF"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ALK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ALNUS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ANC"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ARSNF"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ARSVY"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ATA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ATAVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ATAYM"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ATLFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "AYTEM"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "BLKOM"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "BLS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "BLSMD"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "BNPPI"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "BRGAN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "BRGFK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "BRKT"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "BUR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "CAGFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "CLKMT"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "CMSAN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DENFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DENVA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DFKTR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DGRVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DIMES"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DKVRL"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DKYVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DMD"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DMLKT"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DNFIN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DNYVA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DNZEN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DOGVY"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DRPHN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DSYAT"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DVRLK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "DYBNK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ECZIP"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "EKER"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "EKOFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "EKTVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "EMIRV"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "EMVAR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ERGLI"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "EXIMB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "FAIRF"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "FBB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "FBBNK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "FIGOF"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "FIN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "FKPET"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "GARFL"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "GGBVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "GLB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "GRM"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "GRYAT"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "GSIPD"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "GYVAR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "HALKF"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "HALKI"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "HAYVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "HDFFL"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "HDFVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "HDFYB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "HLVKS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "HLY"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "HUZFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "HYB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "IAZ"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ICB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "INALR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "INVAZ"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ISFAK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ISKUR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ISTFK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ISTVY"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "IYF"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "IYM"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KATVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KFILO"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KLN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KLVKS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KNTFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KOCFN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KOD"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KORTS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KPTGY"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KSFIN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KTKVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "KTSVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MBFTR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MDASM"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MDIAZ"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MDS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MEKMD"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MILKS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MINTF"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MNGFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MRBAS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MRBKF"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MRMAG"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MRS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MSA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MSY"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "MSYBN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "NRBNK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "NURVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "NYB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "OMD"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "OPET"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ORFIN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "OSVKS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "OTOSR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "OYA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "PBT"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "PBTR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "PRFFK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "QNBFF"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "QNBVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "QUFIN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "QYATB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "QYHOL"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "SARTN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "SEK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "SKY"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "SMRFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TAC"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TAE"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TAMFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TARFN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TCRYT"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TEBFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TEVKS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TFNVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TGB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "THL"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "THR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TIB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TIMUR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TRA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TRBNK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TRFFA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TRKFN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TRKNT"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TRMEN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TRYKI"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TSK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TV8TV"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TVB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "TVM"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "VAKVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "VDFAS"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "VDFLO"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "YATVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "YBQ"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "YKB"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "YKFIN"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "YKFKT"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "YKR"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "YKYAT"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "YYA"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ZKBVK"
+  },
+  {
+    "reason": "RAW_CLOSE_NOT_RETURNED",
+    "ticker": "ZKBVR"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "captured_at": "2026-09-08T19:14:10.993810+00:00",
+  "contract": "CURRENT_KAP_EXPLICIT_SHARE_BASIS_V1",
+  "economic_rule": "SUM(class_nominal_value / explicit_class_nominal_value_per_share)",
+  "issued_capital_over_assumed_nominal_allowed": false,
+  "issuer_attempted_count": 0,
+  "issuer_fetch_failure_count": 715,
+  "issuer_fetch_success_count": 41,
+  "multi_ticker_issuer_single_price_market_cap_allowed": false,
+  "outputs": {
+    "bist_member_roster.html.gz": "58b4e7cf229a7d00b789d7c822f1d77ea358503ff09056da2f8862c654f04cce",
+    "issuer_responses.jsonl.gz": "e03c97dbb5a7f7e67404fa689525ae16df6ca2465fbfc6503932fc91fc11565b",
+    "ticker_share_basis.jsonl.gz": "1955c02305eeff63338bf9a6539f8041152ecc3533bf04a74f9cfcfccc4637cc"
+  },
+  "roster_matched_ticker_count": 806,
+  "source_http_date_max": "Tue, 08 Sep 2026 18:51:19 GMT",
+  "source_http_date_min": "Tue, 08 Sep 2026 18:39:38 GMT",
+  "status_counts": {
+    "CURRENT_EXPLICIT_CLASS_NOMINALS_RECONCILED": 25,
+    "MKK_MEMBER_OID_MISSING": 1,
+    "MULTI_TICKER_ISSUER_MARKET_CAP_AMBIGUOUS": 2,
+    "NOT_ATTEMPTED_NO_NETWORK": 760,
+    "NO_USABLE_EXPLICIT_CLASS_NOMINAL_STATE": 19
+  },
+  "stopped_for_global_rate_limit": false,
+  "unique_issuer_count": 756,
+  "universe_count": 807,
+  "usable_single_ticker_share_basis_count": 25
+}

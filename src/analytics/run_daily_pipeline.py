@@ -413,7 +413,7 @@ def _upsert_module_scores(
             r.ek1, None, r.ek4, None, r.ek9,
             r.base_score, r.final_score,
             int(r.good_count_ge8) if r.good_count_ge8 is not None else None,
-            r.decision, bool(r.veto_flag), analysis_at, source_run_key
+            r.decision, _sql_value(r.veto_flag), analysis_at, source_run_key
         )))
     with conn:
         with conn.cursor() as cur:
@@ -578,11 +578,12 @@ def run_daily_pipeline(
     df = df.merge(ek1, on="ticker", how="left", suffixes=("", "_ek1"))
     df = df.merge(ek4, on="ticker", how="left")
     df = df.merge(ek9, on="ticker", how="left")
-    df = df.fillna({"m1":0.0, "m2":0.5, "m3":0.5, "ek1":0.0, "ek4":0.5, "ek9":0.5, "good_count_ge8":0})
+    # Missing modules remain missing.  A neutral value is still a numeric
+    # opinion and must never be manufactured merely because a source row is
+    # absent.  The authoritative Total orchestrator will surface each missing
+    # component as an explicit insufficiency.
     if "m2_source" not in df.columns:
-        df["m2_source"] = "NEUTRAL_FALLBACK"
-    else:
-        df["m2_source"] = df["m2_source"].fillna("NEUTRAL_FALLBACK")
+        df["m2_source"] = None
     if "m2_score_inputs" not in df.columns:
         df["m2_score_inputs"] = None
 
@@ -612,6 +613,13 @@ def run_daily_pipeline(
             "decision": result["decision"],
         })
 
-    totals = df.apply(total_for_row, axis=1)
-    df[["base_score", "veto_flag", "final_score", "decision"]] = totals
+    required_scores = ["m2", "m1", "m3", "ek4", "ek1", "ek9"]
+    complete = df[required_scores].notna().all(axis=1) & df["good_count_ge8"].notna()
+    df["base_score"] = None
+    df["veto_flag"] = None
+    df["final_score"] = None
+    df["decision"] = "YETERSIZ_VERI"
+    if complete.any():
+        totals = df.loc[complete].apply(total_for_row, axis=1)
+        df.loc[complete, ["base_score", "veto_flag", "final_score", "decision"]] = totals
     _upsert_module_scores(conn, df, asof, horizon_days, analysis_at=analysis_ts)
