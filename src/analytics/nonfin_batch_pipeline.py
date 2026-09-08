@@ -246,8 +246,14 @@ def build_nonfin_snapshots_from_frames(
             if group.empty:
                 raise NonfinValuationError("hedef anchor donemi bulunamadi")
             latest = group.iloc[-1]
+            shares_basis_date = latest.get("shares_basis_date", latest["period_end"])
+            if pd.isna(shares_basis_date):
+                shares_basis_date = latest["period_end"]
+            shares_basis_date = pd.Timestamp(shares_basis_date).date()
+            if shares_basis_date > analysis.date():
+                raise NonfinValuationError("shares_basis_date analysis_at sonrasinda olamaz")
             basis = normalize_price_level_input(
-                ticker=ticker, shares_out=latest["shares_out"], source_date=latest["period_end"],
+                ticker=ticker, shares_out=latest["shares_out"], source_date=shares_basis_date,
                 source_share_basis=SOURCE_SHARE_BASIS, price=price, analysis_at=analysis)
             normalized_group = group.copy()
             normalized_group.loc[normalized_group.index[-1], "shares_out"] = basis.normalized_shares_out

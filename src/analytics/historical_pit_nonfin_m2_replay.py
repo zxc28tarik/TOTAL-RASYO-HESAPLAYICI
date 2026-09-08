@@ -135,6 +135,14 @@ def _prepare_financials(
     analysis_day = analysis_utc.tz_localize(None).normalize()
     if (out["period_end"] > analysis_day).any():
         raise HistoricalPitNonfinM2ReplayError("analysis_at sonrasi period_end M2'ye sizdi")
+    if "shares_basis_date" in out.columns:
+        try:
+            share_dates = pd.to_datetime(out["shares_basis_date"], errors="raise").dt.normalize()
+        except Exception as exc:
+            raise HistoricalPitNonfinM2ReplayError("shares_basis_date gecersiz") from exc
+        if share_dates.isna().any() or (share_dates > analysis_day).any():
+            raise HistoricalPitNonfinM2ReplayError("analysis_at sonrasi shares_basis_date M2'ye sizdi")
+        out["shares_basis_date"] = share_dates.dt.date
 
     profiles = out["derivation_profile"].astype(str)
     versions = pd.to_numeric(out["derivation_version"], errors="coerce")
@@ -284,6 +292,12 @@ def run_historical_pit_nonfin_m2_replay(
             raise HistoricalPitNonfinM2ReplayError("NONFIN m2_source beklenmeyen deger")
         if m2.get("analysis_at") != analysis or valuation.get("analysis_at") != analysis:
             raise HistoricalPitNonfinM2ReplayError("NONFIN report analysis_at degistirdi")
+        if m2.get("valuation_usable") is not True:
+            rejected.append({
+                "ticker": ticker,
+                "reason": "VALUATION_NOT_USABLE:" + str(valuation.get("reason") or valuation.get("status")),
+            })
+            continue
         result_tickers.add(ticker)
         result_rows.append(
             {

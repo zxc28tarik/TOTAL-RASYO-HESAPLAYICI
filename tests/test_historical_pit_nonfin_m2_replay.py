@@ -307,3 +307,28 @@ def test_missing_action_evidence_rejects_without_follow_context_crash():
     assert replay.m2_scores.empty
     assert set(replay.rejections["ticker"]) == set(TICKERS)
     assert replay.rejections["reason"].eq("ACTION_COMPLETENESS_EVIDENCE_MISSING").all()
+
+
+def test_insufficient_peer_valuation_is_explicit_rejection_not_neutral_m2():
+    universe = _universe().iloc[[0]].copy()
+    financials = _financials().loc[lambda frame: frame.ticker == TICKERS[0]].copy()
+    prices = _prices().loc[lambda frame: frame.ticker == TICKERS[0]].copy()
+    replay = run_historical_pit_nonfin_m2_replay(
+        analysis_at=ANALYSIS, universe=universe, financials=financials,
+        prices=prices, config=_config(),
+    )
+    assert replay.m2_scores.empty
+    assert replay.rejections.to_dict("records") == [{
+        "ticker": TICKERS[0], "reason": "VALUATION_NOT_USABLE:YETERSIZ_MULTIPLE_KAPSAMI",
+    }]
+
+
+def test_future_share_basis_date_is_rejected_before_valuation():
+    financials = _financials()
+    financials["shares_basis_date"] = "2023-01-02"
+    financials.loc[financials.index[-1], "shares_basis_date"] = "2023-01-04"
+    with pytest.raises(HistoricalPitNonfinM2ReplayError, match="shares_basis_date"):
+        run_historical_pit_nonfin_m2_replay(
+            analysis_at=ANALYSIS, universe=_universe(), financials=financials,
+            prices=_prices(), config=_config(),
+        )
