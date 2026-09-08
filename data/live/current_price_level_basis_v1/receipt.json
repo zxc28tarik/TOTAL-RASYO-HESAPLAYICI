@@ -1,133 +1,98 @@
 {
   "adjusted_close_used_for_market_cap": false,
-  "analysis_at": "2026-09-08T19:14:11.061890+00:00",
+  "analysis_at": "2026-09-08T21:46:40.718216+00:00",
   "contract": "CURRENT_PRICE_LEVEL_BASIS_MATERIALIZATION_V1",
   "empty_same_day_action_interval_only": true,
-  "materialized_market_cap_count": 9,
+  "legal_share_count_equated_to_nominal_try": false,
+  "market_cap_formula": "raw_close * total_explicit_class_nominal_value_try / 1 TRY",
+  "materialized_market_cap_count": 305,
   "nominal_value_per_share_assumed": false,
   "outputs": {
-    "action_bundle_index.json": "76ed084f2c8ef32e45365c50e18e7397a72aaa259fc4d4b58588bcab2d0c7f54",
-    "market_caps.csv": "1c0daeaa8ee3876b7216ffe43a25a52576c85ce9629dbc091315e6fd810e59fd"
+    "action_bundle_index.json": "8eeb9f01b92b93b2274e0d06600e36bf0785acac5f0deba1b2e03d2da5dae8ea",
+    "market_caps.csv": "1e35c921414cf65571f154b41956af0482d5a47d94abda06eb22967d647558aa"
   },
   "production_action_bundle_loader_verified": true,
-  "rejection_count": 16,
+  "quote_unit_contract": "BORSA_PAY_PRICE_PER_1_TRY_NOMINAL_V1",
+  "quote_unit_source_pdf_sha256": "9777f6d7e4b650c4f6af9f494bfbcabf4e3e9f3cc083ff2effb060cc27a196de",
+  "rejection_count": 19,
   "rejections": [
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "AKCNS"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "AGHOL"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "ALKIM"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "AKFGY"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "ANHYT"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "AKYHO"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "ASUZU"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "BALAT"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "AVHOL"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "BIGTK"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "AYGAZ"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "BLUME"
     },
     {
-      "explicit_nominal_values_try": [
-        "11250000",
-        "230625000"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "BNTAS"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "BRISA"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "BTCIM"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "DOGUB"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "DYOBY"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "DUNYH"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "EGEEN"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "IEYHO"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "GOLTS"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "KLSER"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "GSDDE"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "KSTUR"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "GSDHO"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "LYDHO"
     },
     {
-      "explicit_nominal_values_try": [
-        "0.01"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "INTEK"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "LYDYE"
     },
     {
-      "explicit_nominal_values_try": [
-        "53611826"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "SEKUR"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "MERKO"
     },
     {
-      "explicit_nominal_values_try": [
-        "3000000",
-        "8500000",
-        "88000000"
-      ],
-      "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-      "ticker": "TUREX"
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "PINSU"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "PRKAB"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "RAYSG"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "SRVGY"
     }
   ],
-  "share_candidate_count": 25,
+  "share_candidate_count": 324,
   "source_availability_basis": "KAP_RESPONSE_HTTP_DATE"
 }

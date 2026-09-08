@@ -33,6 +33,9 @@ DEFAULT_OUTPUT = ROOT / "data/live/current_total_rasyo_v1"
 DEFAULT_SHARES = ROOT / "data/live/current_share_basis_v1/ticker_share_basis.jsonl.gz"
 DEFAULT_PRICES = ROOT / "data/live/current_raw_close_v1/raw_close.csv.gz"
 DEFAULT_MARKET_CAPS = ROOT / "data/live/current_price_level_basis_v1/market_caps.csv"
+DEFAULT_CORE_MODULES = ROOT / "data/live/current_core_modules_v1/modules.jsonl"
+DEFAULT_MARKET_MODULES = ROOT / "data/live/current_market_modules_v1/modules.csv"
+DEFAULT_TOTAL_RECEIPT = ROOT / "data/live/current_total_scores_v1/receipt.json"
 
 
 def _sha(path: Path) -> str:
@@ -82,6 +85,9 @@ def inspect_archive(path: Path) -> tuple[list[dict], dict]:
 
 def audit(*, output_dir: Path, archive: Path, shares: Path = DEFAULT_SHARES,
           prices: Path = DEFAULT_PRICES, market_caps: Path = DEFAULT_MARKET_CAPS,
+          core_modules: Path = DEFAULT_CORE_MODULES,
+          market_modules: Path = DEFAULT_MARKET_MODULES,
+          total_receipt: Path = DEFAULT_TOTAL_RECEIPT,
           refresh_universe: bool = True) -> dict:
     output_dir = output_dir.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -116,6 +122,11 @@ def audit(*, output_dir: Path, archive: Path, shares: Path = DEFAULT_SHARES,
     share_rows = [] if not shares.exists() else [
         json.loads(line) for line in gzip.decompress(shares.read_bytes()).splitlines()
     ]
+    share_receipt_path = shares.parent / "receipt.json"
+    share_capture_summary = (
+        None if not share_receipt_path.exists()
+        else json.loads(share_receipt_path.read_text(encoding="utf-8"))
+    )
     share_tickers = {
         row["ticker"] for row in share_rows if row.get("usable_for_single_ticker_market_cap") is True
     }
@@ -125,12 +136,36 @@ def audit(*, output_dir: Path, archive: Path, shares: Path = DEFAULT_SHARES,
     market_cap_tickers = (
         set() if market_cap_frame is None else set(market_cap_frame["ticker"].astype(str))
     )
+    core_rows = [] if not core_modules.exists() else [
+        json.loads(line) for line in core_modules.read_text(encoding="utf-8").splitlines()
+    ]
+    market_frame = None if not market_modules.exists() else pd.read_csv(market_modules)
+    module_tickers = {
+        "M1": {row["ticker"] for row in core_rows if row.get("m1") is not None},
+        "Ek1": {row["ticker"] for row in core_rows if row.get("ek1") is not None},
+        "M3": set() if market_frame is None else set(
+            market_frame.loc[market_frame.m3.notna(), "ticker"].astype(str)
+        ),
+        "Ek4": set() if market_frame is None else set(
+            market_frame.loc[market_frame.ek4.notna(), "ticker"].astype(str)
+        ),
+        "Ek9": set() if market_frame is None else set(
+            market_frame.loc[market_frame.ek9.notna(), "ticker"].astype(str)
+        ),
+    }
     readiness, rejections = build_live_readiness(
         universe_rows=universe_frame.to_dict("records"), report_rows=reports,
         database_available=database_available,
         share_basis_tickers=share_tickers, raw_close_tickers=price_tickers,
         market_cap_tickers=market_cap_tickers,
+        module_tickers=module_tickers,
     )
+    total_summary = None if not total_receipt.exists() else json.loads(
+        total_receipt.read_text(encoding="utf-8")
+    )
+    if total_summary is not None:
+        readiness["total_rasyo_count"] = total_summary["total_valid_count"]
+        readiness["ranking_count"] = total_summary["ranking_count"]
     rejection_path = output_dir / "rejections.jsonl"
     rejection_path.write_text(
         "".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rejections),
@@ -148,6 +183,16 @@ def audit(*, output_dir: Path, archive: Path, shares: Path = DEFAULT_SHARES,
             row["family"] or ("GENERAL_UNRESOLVED" if row["schema"] == "GENERAL" else "SCHEMA_UNRESOLVED")
             for row in reports
         ).items())),
+        "share_capture_summary": None if share_capture_summary is None else {
+            key: share_capture_summary.get(key) for key in (
+                "capture_scope", "unique_issuer_count", "issuer_attempted_count",
+                "issuer_fetch_success_count", "issuer_fetch_failure_count",
+                "issuer_not_attempted_count", "disposition_counts", "status_counts",
+            )
+        },
+        "top_readiness_rejection_reasons": dict(Counter(
+            reason for row in rejections for reason in row["reasons"]
+        ).most_common(20)),
         "historical_p5_authorized": False,
         "current_share_basis_artifact": None if not shares.exists() else {
             "path": str(shares.resolve().relative_to(ROOT)).replace("\\", "/"), "sha256": _sha(shares),
@@ -158,6 +203,18 @@ def audit(*, output_dir: Path, archive: Path, shares: Path = DEFAULT_SHARES,
         "current_market_cap_artifact": None if not market_caps.exists() else {
             "path": str(market_caps.resolve().relative_to(ROOT)).replace("\\", "/"),
             "sha256": _sha(market_caps),
+        },
+        "current_core_modules_artifact": None if not core_modules.exists() else {
+            "path": str(core_modules.resolve().relative_to(ROOT)).replace("\\", "/"),
+            "sha256": _sha(core_modules),
+        },
+        "current_market_modules_artifact": None if not market_modules.exists() else {
+            "path": str(market_modules.resolve().relative_to(ROOT)).replace("\\", "/"),
+            "sha256": _sha(market_modules),
+        },
+        "current_total_scores_receipt": None if not total_receipt.exists() else {
+            "path": str(total_receipt.resolve().relative_to(ROOT)).replace("\\", "/"),
+            "sha256": _sha(total_receipt),
         },
         "outputs": {
             universe_path.name: _sha(universe_path),
@@ -180,11 +237,17 @@ def main() -> None:
     parser.add_argument("--shares", type=Path, default=DEFAULT_SHARES)
     parser.add_argument("--prices", type=Path, default=DEFAULT_PRICES)
     parser.add_argument("--market-caps", type=Path, default=DEFAULT_MARKET_CAPS)
+    parser.add_argument("--core-modules", type=Path, default=DEFAULT_CORE_MODULES)
+    parser.add_argument("--market-modules", type=Path, default=DEFAULT_MARKET_MODULES)
+    parser.add_argument("--total-receipt", type=Path, default=DEFAULT_TOTAL_RECEIPT)
     parser.add_argument("--offline-universe", action="store_true")
     args = parser.parse_args()
     print(json.dumps(audit(
         output_dir=args.output_dir, archive=args.archive, shares=args.shares, prices=args.prices,
         market_caps=args.market_caps,
+        core_modules=args.core_modules,
+        market_modules=args.market_modules,
+        total_receipt=args.total_receipt,
         refresh_universe=not args.offline_universe,
     ), ensure_ascii=False, indent=2))
 

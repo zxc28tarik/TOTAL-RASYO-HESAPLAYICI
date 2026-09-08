@@ -21,6 +21,7 @@ from src.analytics.historical_backtest_corporate_action_events import (
 
 CONTRACT = "PRICE_LEVEL_ACTION_COVERAGE_V1"
 SOURCE_SHARE_BASIS = "DATED_UNADJUSTED_SHARES_V1"
+SOURCE_QUOTED_NOMINAL_BASIS = "DATED_UNADJUSTED_QUOTED_NOMINAL_UNITS_V1"
 
 
 class ActionEvidenceError(ValueError):
@@ -76,7 +77,8 @@ class PriceLevelActionEvidence:
             raise ActionEvidenceError("unsupported coverage contract")
         if payload.get("ticker") != ticker:
             raise ActionEvidenceError("coverage ticker mismatch")
-        if payload.get("source_share_basis") != SOURCE_SHARE_BASIS:
+        source_basis = payload.get("source_share_basis")
+        if source_basis not in {SOURCE_SHARE_BASIS, SOURCE_QUOTED_NOMINAL_BASIS}:
             raise ActionEvidenceError("source share basis mismatch")
         source_shares = payload.get("source_shares_out")
         if (isinstance(source_shares, bool) or not isinstance(source_shares, (int, float))
@@ -88,6 +90,12 @@ class PriceLevelActionEvidence:
             raise ActionEvidenceError("coverage end must equal price date")
         if shares_basis_date > price_trade_date:
             raise ActionEvidenceError("coverage interval reversed")
+        if source_basis == SOURCE_QUOTED_NOMINAL_BASIS and (
+            shares_basis_date != price_trade_date or events
+        ):
+            raise ActionEvidenceError(
+                "quoted nominal unit basis only supports an empty same-day action interval"
+            )
         if payload.get("enumeration_complete") is not True:
             raise ActionEvidenceError("event enumeration incomplete")
         sources = payload.get("sources")

@@ -17,7 +17,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.analytics.price_level_action_evidence import (
-    CONTRACT as ACTION_CONTRACT, SOURCE_SHARE_BASIS, PriceLevelActionEvidence,
+    CONTRACT as ACTION_CONTRACT, SOURCE_QUOTED_NOMINAL_BASIS, PriceLevelActionEvidence,
 )
 from src.analytics.price_level_adapter import BUNDLE_CONTRACT, PriceLevelActionBundle, load_action_bundles
 from src.analytics.price_level_valuation_basis import (
@@ -29,6 +29,8 @@ CONTRACT = "CURRENT_PRICE_LEVEL_BASIS_MATERIALIZATION_V1"
 DEFAULT_SHARES = ROOT / "data/live/current_share_basis_v1"
 DEFAULT_PRICES = ROOT / "data/live/current_raw_close_v1/raw_close.csv.gz"
 DEFAULT_OUTPUT = ROOT / "data/live/current_price_level_basis_v1"
+DEFAULT_QUOTE_UNIT = ROOT / "data/live/current_quote_unit_v1"
+QUOTE_CONTRACT = "BORSA_PAY_PRICE_PER_1_TRY_NOMINAL_V1"
 
 
 def _encoded(value: object, *, indent: int | None = None) -> bytes:
@@ -41,18 +43,8 @@ def _sha(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
 
 
-def explicit_nominal_quote_unit_is_proven(classes: list[dict]) -> bool:
-    """Accept only an explicit, uniform one-TRY legal-share quote unit."""
-    if not classes:
-        return False
-    try:
-        explicit_nominals = {Decimal(row["nominal_value_per_share_try"]) for row in classes}
-    except (KeyError, TypeError, ValueError):
-        return False
-    return explicit_nominals == {Decimal("1")}
-
-
-def materialize(*, share_dir: Path, prices_path: Path, output_dir: Path) -> dict:
+def materialize(*, share_dir: Path, prices_path: Path, output_dir: Path,
+                quote_unit_dir: Path = DEFAULT_QUOTE_UNIT) -> dict:
     share_dir = share_dir.resolve()
     output_dir = output_dir.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -63,6 +55,15 @@ def materialize(*, share_dir: Path, prices_path: Path, output_dir: Path) -> dict
     share_receipt = json.loads((share_dir / "receipt.json").read_text(encoding="utf-8"))
     captured_at = datetime.fromisoformat(share_receipt["captured_at"])
     analysis_at = max(datetime.now(timezone.utc), captured_at)
+    quote_receipt = json.loads((quote_unit_dir / "receipt.json").read_text(encoding="utf-8"))
+    if quote_receipt.get("contract") != QUOTE_CONTRACT:
+        raise ValueError("unsupported Borsa quote-unit contract")
+    quote_source = gzip.decompress((quote_unit_dir / "pay_piyasasi_proseduru.pdf.gz").read_bytes())
+    if _sha(quote_source) != quote_receipt.get("source_pdf_sha256"):
+        raise ValueError("Borsa quote-unit source hash mismatch")
+    quoted_nominal_unit = Decimal(str(quote_receipt.get("quoted_nominal_unit_try")))
+    if quoted_nominal_unit != Decimal("1"):
+        raise ValueError("unsupported quoted nominal unit")
     share_rows = [
         json.loads(line)
         for line in gzip.decompress((share_dir / "ticker_share_basis.jsonl.gz").read_bytes()).splitlines()
@@ -94,15 +95,12 @@ def materialize(*, share_dir: Path, prices_path: Path, output_dir: Path) -> dict
             rejected.append({"ticker": ticker, "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER"})
             continue
         classes = share["latest_explicit_state"].get("classes") or []
-        explicit_nominals = {Decimal(row["nominal_value_per_share_try"]) for row in classes}
-        if not explicit_nominal_quote_unit_is_proven(classes):
-            rejected.append({
-                "ticker": ticker,
-                "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
-                "explicit_nominal_values_try": sorted(map(str, explicit_nominals)),
-            })
+        total_nominal_try = Decimal(share["latest_explicit_state"]["total_nominal_value_try"])
+        if total_nominal_try <= 0:
+            rejected.append({"ticker": ticker, "reason": "TOTAL_EXPLICIT_NOMINAL_NOT_POSITIVE"})
             continue
         shares_out = int(raw_shares)
+        quoted_units = total_nominal_try / quoted_nominal_unit
         issuer = issuers[share["mkk_member_oid"]]
         http_date = issuer.get("http_date")
         try:
@@ -127,8 +125,8 @@ def materialize(*, share_dir: Path, prices_path: Path, output_dir: Path) -> dict
         source_path.write_bytes(source_bytes)
         manifest = {
             "contract": ACTION_CONTRACT, "ticker": ticker,
-            "source_share_basis": SOURCE_SHARE_BASIS,
-            "source_shares_out": shares_out,
+            "source_share_basis": SOURCE_QUOTED_NOMINAL_BASIS,
+            "source_shares_out": float(quoted_units),
             "shares_basis_date": trade_date.isoformat(),
             "complete_through": trade_date.isoformat(),
             "enumeration_complete": True,
@@ -157,16 +155,21 @@ def materialize(*, share_dir: Path, prices_path: Path, output_dir: Path) -> dict
             adjusted_close=float(price["adjusted_close_diagnostic"]),
         )
         basis = materialize_price_level_market_cap(
-            price=observation, shares_out=shares_out, shares_basis_date=trade_date,
+            price=observation, shares_out=float(quoted_units), shares_basis_date=trade_date,
             corporate_actions=(), events_complete_through=trade_date,
             evidence=evidence, cutoff=analysis_at,
         )
         caps.append({
             "ticker": ticker, "trade_date": trade_date.isoformat(),
-            "raw_close": basis.raw_close, "shares_out": shares_out,
+            "raw_close": basis.raw_close, "shares_out": float(quoted_units),
+            "legal_shares_out": shares_out,
             "normalized_shares_out": basis.normalized_shares_out,
+            "quoted_nominal_units_out": float(quoted_units),
+            "total_nominal_value_try": str(total_nominal_try),
             "market_cap": basis.market_cap,
-            "price_basis": basis.price_basis, "share_basis": basis.share_basis,
+            "price_basis": basis.price_basis,
+            "price_quote_unit_basis": "BORSA_CLOSE_PER_1_TRY_NOMINAL_V1",
+            "share_basis": basis.share_basis,
             "action_evidence_sha256": basis.action_evidence_sha256,
         })
         entries.append({
@@ -184,8 +187,10 @@ def materialize(*, share_dir: Path, prices_path: Path, output_dir: Path) -> dict
         raise ValueError("current action bundle index verification failed")
     caps_path = output_dir / "market_caps.csv"
     cap_columns = (
-        "ticker", "trade_date", "raw_close", "shares_out", "normalized_shares_out",
-        "market_cap", "price_basis", "share_basis", "action_evidence_sha256",
+        "ticker", "trade_date", "raw_close", "shares_out", "legal_shares_out",
+        "normalized_shares_out",
+        "quoted_nominal_units_out", "total_nominal_value_try", "market_cap",
+        "price_basis", "price_quote_unit_basis", "share_basis", "action_evidence_sha256",
     )
     pd.DataFrame(caps, columns=cap_columns).sort_values("ticker").to_csv(caps_path, index=False)
     live_paths = {
@@ -205,6 +210,10 @@ def materialize(*, share_dir: Path, prices_path: Path, output_dir: Path) -> dict
         "share_candidate_count": len(safe), "materialized_market_cap_count": len(caps),
         "rejection_count": len(rejected), "rejections": rejected,
         "nominal_value_per_share_assumed": False,
+        "legal_share_count_equated_to_nominal_try": False,
+        "quote_unit_contract": QUOTE_CONTRACT,
+        "quote_unit_source_pdf_sha256": quote_receipt["source_pdf_sha256"],
+        "market_cap_formula": quote_receipt["market_cap_formula"],
         "adjusted_close_used_for_market_cap": False,
         "empty_same_day_action_interval_only": True,
         "source_availability_basis": "KAP_RESPONSE_HTTP_DATE",
@@ -223,9 +232,11 @@ def main() -> None:
     parser.add_argument("--share-dir", type=Path, default=DEFAULT_SHARES)
     parser.add_argument("--prices", type=Path, default=DEFAULT_PRICES)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--quote-unit-dir", type=Path, default=DEFAULT_QUOTE_UNIT)
     args = parser.parse_args()
     print(json.dumps(materialize(
         share_dir=args.share_dir, prices_path=args.prices, output_dir=args.output_dir,
+        quote_unit_dir=args.quote_unit_dir,
     ), ensure_ascii=False, indent=2))
 
 

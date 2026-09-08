@@ -1,5 +1,5 @@
 {
-  "analysis_at": "2026-09-08T19:14:11.311593+00:00",
+  "analysis_at": "2026-09-08T21:46:48.805573+00:00",
   "archive_hashes": {
     "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
     "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
@@ -9,22 +9,152 @@
     "KAP_2026_6A.zip": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2"
   },
   "contract": "CURRENT_NONFIN_RELATIVE_VALUATION_V1",
-  "derivation_rejections": [],
-  "derived_financial_ticker_count": 0,
-  "financial_report_count": 0,
-  "m2_blocker": "CURRENT_NONFIN_CANDIDATE_SET_EMPTY_AFTER_SAFE_MARKET_CAP_GATE",
+  "current_price_denominator_basis": "BORSA_QUOTED_NOMINAL_UNITS_OUT",
+  "derivation_rejections": [
+    {
+      "reason": "ValueError:max() iterable argument is empty",
+      "ticker": "TCELL"
+    }
+  ],
+  "derived_financial_ticker_count": 77,
+  "financial_report_count": 489,
+  "legal_share_count_used_as_price_denominator": false,
+  "m2_blocker": "CURRENT_NONFIN_VALUATION_COVERAGE_INSUFFICIENT",
   "m2_materialized_count": 0,
   "neutral_follow_or_m2_materialized": false,
   "outputs": {
-    "valuations.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "valuations.jsonl": "c6651ab612b28e1fc38b91a773c8bf8a9b519858669c8582c9a8ff04a0a9f3ad"
   },
-  "peer_group": "XUSIN",
-  "production_valuation_count": 0,
+  "peer_groups": [
+    "XUHIZ",
+    "XUSIN",
+    "XUTEK"
+  ],
+  "production_valuation_count": 77,
   "route_source_sha256": "f0c28c7babd018eb8994afdf4911a9d338dad43b291a1084a7acc47a3919c478",
-  "routed_candidate_count": 0,
-  "routed_tickers": [],
-  "snapshot_count": 0,
-  "snapshot_rejections": [],
+  "routed_candidate_count": 84,
+  "routed_candidate_counts_by_peer_group": {
+    "XUHIZ": 26,
+    "XUSIN": 54,
+    "XUTEK": 4
+  },
+  "routed_tickers": [
+    "ADEL",
+    "ADESE",
+    "AEFES",
+    "AFYON",
+    "AKCNS",
+    "AKSA",
+    "AKSEN",
+    "ALKIM",
+    "ARCLK",
+    "ASELS",
+    "ASUZU",
+    "AYGAZ",
+    "BAGFS",
+    "BFREN",
+    "BIMAS",
+    "BJKAS",
+    "BRSAN",
+    "BSOKE",
+    "BTCIM",
+    "BUCIM",
+    "CCOLA",
+    "CEMAS",
+    "CEMTS",
+    "CIMSA",
+    "DEVA",
+    "DOAS",
+    "EGEEN",
+    "ENERY",
+    "ENKAI",
+    "ERBOS",
+    "EREGL",
+    "FENER",
+    "FROTO",
+    "GOLTS",
+    "GSRAY",
+    "GUBRF",
+    "HEKTS",
+    "IHLGM",
+    "INDES",
+    "ISDMR",
+    "IZMDC",
+    "JANTS",
+    "KARSN",
+    "KARTN",
+    "KAYSE",
+    "KCAER",
+    "KONYA",
+    "KORDS",
+    "KUTPO",
+    "KUYAS",
+    "LOGO",
+    "MAVI",
+    "MGROS",
+    "MPARK",
+    "NETAS",
+    "NUHCM",
+    "ODAS",
+    "PARSN",
+    "PETKM",
+    "RGYAS",
+    "SARKY",
+    "SASA",
+    "SAYAS",
+    "SELEC",
+    "TABGD",
+    "TCELL",
+    "THYAO",
+    "TKNSA",
+    "TMSN",
+    "TOASO",
+    "TSPOR",
+    "TTKOM",
+    "TTRAK",
+    "TUKAS",
+    "TUPRS",
+    "TUREX",
+    "ULKER",
+    "ULUUN",
+    "VESBE",
+    "VESTL",
+    "YATAS",
+    "YEOTK",
+    "YYLGD",
+    "ZOREN"
+  ],
+  "snapshot_count": 77,
+  "snapshot_rejections": [
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "BJKAS"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "FENER"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "GSRAY"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "KAYSE"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "MAVI"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "TCELL"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "TSPOR"
+    }
+  ],
   "unsafe_issued_capital_share_fields_scrubbed": true,
   "usable_valuation_count": 0
 }

@@ -9,6 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+import threading
 import time
 
 import pandas as pd
@@ -37,8 +38,9 @@ def _sha(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
 
 
-def capture(*, universe_path: Path, output_dir: Path, workers: int = 8,
-            no_fetch: bool = False) -> dict:
+def capture(*, universe_path: Path, output_dir: Path, workers: int = 2,
+            no_fetch: bool = False, minimum_request_interval: float = 0.25,
+            max_retries: int = 5) -> dict:
     output_dir = output_dir.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     universe = pd.read_csv(universe_path, dtype=str)
@@ -67,45 +69,86 @@ def capture(*, universe_path: Path, output_dir: Path, workers: int = 8,
             for row in (json.loads(line) for line in gzip.decompress(cache_path.read_bytes()).splitlines())
         }
 
-    def fetch(oid: str) -> tuple[str, dict | None, str | None]:
+    local = threading.local()
+    rate_lock = threading.Lock()
+    next_request_at = [time.monotonic()]
+
+    def worker_session() -> requests.Session:
+        if not hasattr(local, "session"):
+            local.session = requests.Session()
+            local.session.headers.update(headers)
+        return local.session
+
+    def wait_for_slot() -> None:
+        with rate_lock:
+            now = time.monotonic()
+            delay = max(0.0, next_request_at[0] - now)
+            next_request_at[0] = max(now, next_request_at[0]) + minimum_request_interval
+        if delay:
+            time.sleep(delay)
+
+    def fetch(oid: str) -> tuple[str, dict | None, dict | None]:
         if oid in cached:
             return oid, cached[oid], None
         url = HISTORY_URL.format(mkk_member_oid=oid)
-        for attempt in range(2):
+        for attempt in range(max_retries):
             try:
-                response = requests.get(url, headers=headers, timeout=20)
+                wait_for_slot()
+                response = worker_session().get(url, timeout=30)
+                if response.status_code == 429:
+                    retry_after = response.headers.get("Retry-After")
+                    try:
+                        delay = min(60.0, max(1.0, float(retry_after)))
+                    except (TypeError, ValueError):
+                        delay = min(60.0, 2.0 ** (attempt + 1))
+                    if attempt + 1 < max_retries:
+                        time.sleep(delay)
+                        continue
+                    return oid, None, {
+                        "disposition": "RATE_LIMIT", "reason": "HTTP_429",
+                        "attempt_count": attempt + 1, "url": url,
+                    }
                 response.raise_for_status()
                 payload = response.json()
                 if not isinstance(payload, list):
-                    raise ValueError("NOT_ARRAY")
+                    return oid, None, {
+                        "disposition": "PARSE_REJECTION", "reason": "NOT_ARRAY",
+                        "attempt_count": attempt + 1, "url": url,
+                    }
                 return oid, {
                     "mkk_member_oid": oid, "url": url,
                     "http_date": response.headers.get("Date"),
                     "response_sha256": _sha(response.content), "response": payload,
+                    "capture_disposition": "CAPTURE_EMPTY" if not payload else "CAPTURE_SUCCESS",
+                    "attempt_count": attempt + 1,
                 }, None
-            except (requests.RequestException, ValueError) as exc:
-                if attempt < 1:
-                    time.sleep(0.5 * (attempt + 1))
+            except requests.RequestException as exc:
+                if attempt + 1 < max_retries:
+                    time.sleep(min(30.0, 2.0 ** attempt))
                     continue
-                return oid, None, f"{type(exc).__name__}:{exc}"
+                return oid, None, {
+                    "disposition": "HTTP_FAILURE", "reason": f"{type(exc).__name__}:{exc}",
+                    "attempt_count": attempt + 1, "url": url,
+                }
         raise AssertionError("retry loop exhausted")
 
     pending = [] if no_fetch else sorted(oid for oid in by_oid if oid not in cached)
-    errors: dict[str, str] = {}
+    errors: dict[str, dict] = {}
     def checkpoint() -> None:
         raw_rows = [cached[oid] for oid in sorted(cached) if oid in by_oid]
         cache_path.write_bytes(gzip.compress(b"".join(_encoded(row) for row in raw_rows), mtime=0))
 
     attempted: set[str] = set()
     stopped_for_rate_limit = False
-    for offset in range(0, len(pending), 50):
-        batch = pending[offset:offset + 50]
+    batch_size = 25
+    for offset in range(0, len(pending), batch_size):
+        batch = pending[offset:offset + batch_size]
         batch_success = 0
         with ThreadPoolExecutor(max_workers=workers) as pool:
             for oid, row, error in pool.map(fetch, batch):
                 attempted.add(oid)
                 if row is None:
-                    errors[oid] = error or "UNKNOWN_ERROR"
+                    errors[oid] = error or {"disposition": "OTHER_EXPLICIT_REASON", "reason": "UNKNOWN"}
                 else:
                     cached[oid] = row
                     batch_success += 1
@@ -115,7 +158,9 @@ def capture(*, universe_path: Path, output_dir: Path, workers: int = 8,
             f"captured={sum(oid in cached for oid in by_oid)} failed={len(errors)}",
             flush=True,
         )
-        if batch_success == 0 and batch and all("429" in errors.get(oid, "") for oid in batch):
+        if batch_success == 0 and batch and all(
+            errors.get(oid, {}).get("disposition") == "RATE_LIMIT" for oid in batch
+        ):
             stopped_for_rate_limit = True
             print("global KAP rate limit detected; remaining issuers left unattempted", flush=True)
             break
@@ -142,7 +187,11 @@ def capture(*, universe_path: Path, output_dir: Path, workers: int = 8,
                 status = "NOT_ATTEMPTED_NO_NETWORK" if no_fetch else "NOT_ATTEMPTED_AFTER_GLOBAL_RATE_LIMIT"
                 observations.append({**base, "status": status})
             else:
-                observations.append({**base, "status": "HISTORY_FETCH_FAILED", "reason": errors.get(oid)})
+                observations.append({
+                    **base, "status": "HISTORY_FETCH_FAILED",
+                    "reason": errors.get(oid, {}).get("reason"),
+                    "capture_disposition": errors.get(oid, {}).get("disposition"),
+                })
             continue
         validated = [validate_history_row(ticker, item) for item in row["response"]]
         usable = [item for item in validated if item["usable"]]
@@ -167,6 +216,32 @@ def capture(*, universe_path: Path, output_dir: Path, workers: int = 8,
     observation_path.write_bytes(gzip.compress(
         b"".join(_encoded(row) for row in observations), mtime=0,
     ))
+    disposition_rows = []
+    for oid in sorted(by_oid):
+        if oid in cached:
+            disposition = cached[oid].get("capture_disposition") or (
+                "CAPTURE_EMPTY" if not cached[oid].get("response") else "CAPTURE_SUCCESS"
+            )
+            disposition_rows.append({
+                "mkk_member_oid": oid, "tickers": sorted(by_oid[oid]),
+                "disposition": disposition, "cached_response": oid not in attempted,
+                "response_sha256": cached[oid].get("response_sha256"),
+                "http_date": cached[oid].get("http_date"), "url": cached[oid].get("url"),
+            })
+        elif oid in errors:
+            disposition_rows.append({
+                "mkk_member_oid": oid, "tickers": sorted(by_oid[oid]), **errors[oid],
+            })
+        else:
+            disposition_rows.append({
+                "mkk_member_oid": oid, "tickers": sorted(by_oid[oid]),
+                "disposition": "NOT_ATTEMPTED_NO_NETWORK" if no_fetch else "RATE_LIMIT",
+                "reason": "OFFLINE_MODE" if no_fetch else "GLOBAL_RATE_LIMIT_STOP",
+            })
+    disposition_path = output_dir / "issuer_dispositions.jsonl.gz"
+    disposition_path.write_bytes(gzip.compress(
+        b"".join(_encoded(row) for row in disposition_rows), mtime=0,
+    ))
     status_counts = pd.Series([row["status"] for row in observations]).value_counts().sort_index().to_dict()
     source_http_dates = sorted(
         str(row["http_date"]) for oid, row in cached.items()
@@ -181,6 +256,13 @@ def capture(*, universe_path: Path, output_dir: Path, workers: int = 8,
         "issuer_fetch_success_count": sum(oid in cached for oid in by_oid),
         "issuer_fetch_failure_count": sum(oid not in cached for oid in by_oid),
         "issuer_attempted_count": len(attempted),
+        "issuer_not_attempted_count": len(by_oid) - len(cached) - len(errors),
+        "capture_scope": "OFFLINE_CACHE_REBUILD" if no_fetch else "ONLINE_INCREMENTAL_CAPTURE",
+        "disposition_counts": {
+            key: int(value) for key, value in pd.Series(
+                [row["disposition"] for row in disposition_rows]
+            ).value_counts().sort_index().to_dict().items()
+        },
         "stopped_for_global_rate_limit": stopped_for_rate_limit,
         "source_http_date_min": source_http_dates[0] if source_http_dates else None,
         "source_http_date_max": source_http_dates[-1] if source_http_dates else None,
@@ -195,6 +277,7 @@ def capture(*, universe_path: Path, output_dir: Path, workers: int = 8,
             cache_path.name: _sha(cache_path.read_bytes()),
             roster_path.name: _sha(roster_path.read_bytes()),
             observation_path.name: _sha(observation_path.read_bytes()),
+            disposition_path.name: _sha(disposition_path.read_bytes()),
         },
     }
     (output_dir / "receipt.json").write_text(
@@ -207,12 +290,15 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--universe", type=Path, default=DEFAULT_UNIVERSE)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument("--workers", type=int, default=8)
+    parser.add_argument("--workers", type=int, default=2)
+    parser.add_argument("--minimum-request-interval", type=float, default=0.25)
+    parser.add_argument("--max-retries", type=int, default=5)
     parser.add_argument("--no-fetch", action="store_true")
     args = parser.parse_args()
     print(json.dumps(capture(
         universe_path=args.universe, output_dir=args.output_dir, workers=args.workers,
         no_fetch=args.no_fetch,
+        minimum_request_interval=args.minimum_request_interval, max_retries=args.max_retries,
     ), ensure_ascii=False, indent=2))
 
 

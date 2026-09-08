@@ -1,0 +1,25 @@
+{
+  "contract": "CURRENT_TOTAL_RASYO_MATERIALIZATION_V1",
+  "explicit_rejection_count": 807,
+  "materialized_at": "2026-09-08T21:58:28.214597+00:00",
+  "missing_module_counts": {
+    "Ek1": 676,
+    "Ek4": 661,
+    "Ek9": 796,
+    "M1": 676,
+    "M2": 807,
+    "M3": 661
+  },
+  "neutral_fill": false,
+  "outputs": {
+    "ranking.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rejections.jsonl": "14d32260eb706b190a39659e443503b751540a5ec4478dc5f6e1e5c1df3e5bf5",
+    "totals.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "production_formula": "src.analytics.total_rasyo_score.compute_total_rasyo",
+  "ranking_count": 0,
+  "ranking_order": "final_score DESC, ticker ASC",
+  "total_valid_count": 0,
+  "universe_count": 807,
+  "weight_redistribution": false
+}

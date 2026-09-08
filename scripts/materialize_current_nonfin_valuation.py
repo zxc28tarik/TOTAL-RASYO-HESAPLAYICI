@@ -28,6 +28,7 @@ from src.ingest.kap_bulk_financial_export import parse_kap_bulk_export_report
 
 
 CONTRACT = "CURRENT_NONFIN_RELATIVE_VALUATION_V1"
+NONFIN_INDICES = frozenset({"XUSIN", "XUHIZ", "XUTEK"})
 ARCHIVE_NAMES = (
     "KAP_2025_3A.zip", "KAP_2025_6A.zip", "KAP_2025_9A.zip",
     "KAP_2025_Y.zip", "KAP_2026_3A.zip", "KAP_2026_6A.zip",
@@ -83,12 +84,12 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
     analysis_day = pd.Timestamp(analysis_at.date())
     active = routes.loc[
         routes.ticker.isin(caps.ticker)
-        & routes.sector_index_code.eq("XUSIN")
+        & routes.sector_index_code.isin(NONFIN_INDICES)
         & routes.valid_from.le(analysis_day)
         & (routes.valid_to.isna() | routes.valid_to.gt(analysis_day))
     ].copy()
     if active.duplicated("ticker").any():
-        raise ValueError("current XUSIN route ambiguous")
+        raise ValueError("current NONFIN route ambiguous")
     tickers = set(active.ticker)
     reports, archive_hashes = _mapped_reports(archive_dir, tickers)
     by_ticker: dict[str, list[dict]] = {ticker: [] for ticker in tickers}
@@ -125,7 +126,11 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
             values["shares_out"] = None
             values["shares_basis_date"] = quarter.period_end
             if index == len(quarters) - 1:
-                values["shares_out"] = int(cap_by_ticker[ticker]["shares_out"])
+                # The production snapshot's per-price-unit denominator must
+                # match the Borsa quote unit. Legal share count is retained in
+                # the price-basis artifact but must not be paired with a price
+                # announced per 1 TRY nominal value.
+                values["shares_out"] = float(cap_by_ticker[ticker]["quoted_nominal_units_out"])
                 values["shares_basis_date"] = cap_by_ticker[ticker]["trade_date"]
             financial_rows.append({
                 "ticker": ticker, "period_end": quarter.period_end,
@@ -144,8 +149,9 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
             "current_price": cap["raw_close"], "price_basis": cap["price_basis"],
             "action_bundle": bundles.get(ticker),
         })
+    peer_group_by_ticker = active.set_index("ticker")["sector_index_code"].to_dict()
     universe = pd.DataFrame([{
-        "ticker": ticker, "peer_group": "XUSIN", "sector_family": "NONFIN",
+        "ticker": ticker, "peer_group": peer_group_by_ticker[ticker], "sector_family": "NONFIN",
     } for ticker in sorted(tickers)], columns=("ticker", "peer_group", "sector_family"))
     if tickers:
         snapshots, snapshot_rejections = build_nonfin_snapshots_from_frames(
@@ -172,7 +178,10 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
     ), encoding="utf-8")
     receipt = {
         "contract": CONTRACT, "analysis_at": analysis_at.isoformat(),
-        "peer_group": "XUSIN", "route_source_sha256": _sha(routes_path),
+        "peer_groups": sorted(NONFIN_INDICES), "route_source_sha256": _sha(routes_path),
+        "routed_candidate_counts_by_peer_group": {
+            key: int(value) for key, value in active.sector_index_code.value_counts().sort_index().items()
+        },
         "routed_candidate_count": len(tickers), "routed_tickers": sorted(tickers),
         "financial_report_count": len(reports),
         "derived_financial_ticker_count": len({row["ticker"] for row in financial_rows}),
@@ -182,10 +191,16 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
         "m2_materialized_count": 0,
         "m2_blocker": (
             "CURRENT_FOLLOW_AXIS_NOT_MATERIALIZED"
-            if valuations else "CURRENT_NONFIN_CANDIDATE_SET_EMPTY_AFTER_SAFE_MARKET_CAP_GATE"
+            if any(row["status"] == "OK" for row in valuations)
+            else (
+                "CURRENT_NONFIN_VALUATION_COVERAGE_INSUFFICIENT"
+                if valuations else "CURRENT_NONFIN_CANDIDATE_SET_EMPTY_AFTER_SAFE_MARKET_CAP_GATE"
+            )
         ),
         "neutral_follow_or_m2_materialized": False,
         "unsafe_issued_capital_share_fields_scrubbed": True,
+        "current_price_denominator_basis": "BORSA_QUOTED_NOMINAL_UNITS_OUT",
+        "legal_share_count_used_as_price_denominator": False,
         "derivation_rejections": derivation_rejections,
         "snapshot_rejections": snapshot_rejections,
         "archive_hashes": archive_hashes,

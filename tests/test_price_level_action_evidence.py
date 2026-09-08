@@ -7,7 +7,8 @@ import pytest
 
 from src.analytics.historical_backtest_corporate_action_events import HistoricalCorporateAction
 from src.analytics.price_level_action_evidence import (
-    CONTRACT, SOURCE_SHARE_BASIS, ActionEvidenceError, PriceLevelActionEvidence,
+    CONTRACT, SOURCE_QUOTED_NOMINAL_BASIS, SOURCE_SHARE_BASIS,
+    ActionEvidenceError, PriceLevelActionEvidence,
 )
 from src.analytics.price_level_valuation_basis import (
     PriceLevelValuationBasisError, build_price_level_observation, materialize_price_level_market_cap,
@@ -69,6 +70,18 @@ def test_economics(kind, shares):
 def test_date_only_completeness_is_not_proof():
     with pytest.raises(PriceLevelValuationBasisError, match="evidence required"):
         materialize(evidence=None)
+
+
+def test_quoted_nominal_units_require_empty_same_day_interval():
+    data = payload()
+    data["source_share_basis"] = SOURCE_QUOTED_NOMINAL_BASIS
+    data["shares_basis_date"] = PRICE_DATE.isoformat()
+    result = materialize(data=data, shares_basis_date=PRICE_DATE)
+    assert result.market_cap == 1_000_000_000
+
+    data["shares_basis_date"] = BASIS.isoformat()
+    with pytest.raises(ActionEvidenceError, match="empty same-day"):
+        materialize(data=data)
 
 
 @pytest.mark.parametrize("key,value,match", [

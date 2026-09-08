@@ -21,6 +21,8 @@ universe hash and row count. The pipeline emits explicit rejection/readiness led
 under `data/live/`; a zero M2 or Total count remains zero and is never synthesized.
 
 Market capitalisation is emitted only when KAP supplies explicit per-class nominal
-values, the legal share count reconciles, the issuer maps to a single ticker, and the
-observed nominal unit is explicitly `1 TRY`. Other quote-unit relationships are
-rejected rather than inferred.
+values, the legal share count reconciles, and the issuer maps to a single ticker.
+The separate official Borsa quote-unit contract states that the announced price is
+per `1 TRY` nominal value. Therefore market cap is raw close times total explicit
+class nominal TRY; legal share count is retained separately and is never equated to
+nominal TRY.

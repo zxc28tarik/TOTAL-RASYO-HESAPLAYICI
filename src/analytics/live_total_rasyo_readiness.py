@@ -56,6 +56,7 @@ def build_live_readiness(
     share_basis_tickers: Iterable[str] = (),
     raw_close_tickers: Iterable[str] = (),
     market_cap_tickers: Iterable[str] = (),
+    module_tickers: Mapping[str, Iterable[str]] | None = None,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     universe = list(universe_rows)
     tickers = [str(row.get("ticker") or "").strip().upper() for row in universe]
@@ -65,6 +66,11 @@ def build_live_readiness(
     share_ready = {str(value).strip().upper() for value in share_basis_tickers}
     price_ready = {str(value).strip().upper() for value in raw_close_tickers}
     market_cap_ready = {str(value).strip().upper() for value in market_cap_tickers}
+    provided_modules = module_tickers or {}
+    module_ready = {
+        key: {str(value).strip().upper() for value in provided_modules.get(key, ())}
+        for key in MODULE_KEYS
+    }
     rejections: list[dict[str, Any]] = []
     for ticker in sorted(tickers):
         binding = bindings[ticker]
@@ -78,7 +84,10 @@ def build_live_readiness(
         if ticker not in market_cap_ready:
             reasons.append("CURRENT_PRICE_LEVEL_MARKET_CAP_NOT_MATERIALIZED")
         if not database_available:
-            reasons.append("MODULE_CONTEXT_DATABASE_NOT_CONFIGURED")
+            reasons.append("PERSISTENCE_DATABASE_NOT_CONFIGURED")
+        for module in MODULE_KEYS:
+            if ticker not in module_ready[module]:
+                reasons.append(f"CURRENT_{module.upper()}_NOT_MATERIALIZED")
         if binding["family"] == "HOLDING":
             reasons.append("CURRENT_HOLDING_NAV_NOT_MATERIALIZED")
         elif binding["family"] == "GYO":
@@ -86,10 +95,15 @@ def build_live_readiness(
         rejections.append({**binding, "reasons": reasons, "total_materialized": False})
 
     family_counts = Counter((row["family"] or row["family_status"]) for row in bindings.values())
+    covered_per_ticker = {
+        ticker: sum(ticker in module_ready[key] for key in MODULE_KEYS) for ticker in tickers
+    }
     receipt = {
         "universe_count": len(tickers),
         "family_counts": dict(sorted(family_counts.items())),
-        "module_coverage": {key: 0 for key in MODULE_KEYS},
+        "module_coverage": {key: len(set(tickers) & module_ready[key]) for key in MODULE_KEYS},
+        "at_least_4_modules_count": sum(value >= 4 for value in covered_per_ticker.values()),
+        "at_least_5_modules_count": sum(value >= 5 for value in covered_per_ticker.values()),
         "total_rasyo_count": 0,
         "ranking_count": 0,
         "explicit_rejection_count": len(rejections),
