@@ -99,8 +99,10 @@ def audit(output_dir: Path = OUT) -> dict:
         "total_scores_materialized": 0,
         "p5_backtest_started": False,
         "explicit_rejections": len(dispositions) - proven,
-        "proven_but_not_materialized_reason": (
-            "VERIFIED_SHARE_PEER_COHORT_INSUFFICIENT" if proven else None),
+        "proven_but_not_materialized_reasons": ([
+            "VERIFIED_SHARE_PEER_COHORT_INSUFFICIENT",
+            "SOURCE_DERIVATION_PROFILE_MISMATCH",
+        ] if proven else []),
         "primary_blocker_counts": dict(sorted(blockers.items())),
         "fail_closed_preserved": True,
         "one_try_equals_one_share_assumed": False,

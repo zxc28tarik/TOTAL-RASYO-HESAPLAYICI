@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-09-08T17:11:20.587745+00:00",
+  "captured_at": "2026-09-08T17:23:22.345462+00:00",
   "contract": "M2_FREE_EVIDENCE_EXHAUSTION_V1",
   "explicit_rejections": 3016,
   "fail_closed_preserved": true,
@@ -25,7 +25,10 @@
     "PIT_NAV_AND_PROPERTY_PORTFOLIO_SOURCE_MISSING": 66,
     "PIT_NAV_SOURCE_MISSING": 778
   },
-  "proven_but_not_materialized_reason": "VERIFIED_SHARE_PEER_COHORT_INSUFFICIENT",
+  "proven_but_not_materialized_reasons": [
+    "VERIFIED_SHARE_PEER_COHORT_INSUFFICIENT",
+    "SOURCE_DERIVATION_PROFILE_MISMATCH"
+  ],
   "share_action_prerequisites_proven_cells": 1,
   "target_cells": 3017,
   "target_definition": "P4 module_count=5 and missing_modules contains M2",

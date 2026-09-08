@@ -1,0 +1,25 @@
+{
+  "applied_share_action_ids": [],
+  "contract": "ZERO_INTERVAL_VERIFIED_SHARE_BASIS_V1",
+  "empty_interval_only": true,
+  "knowledge_cutoff_at": "2023-07-31T18:10:00+03:00",
+  "m2_blockers": [
+    "VERIFIED_SHARE_PEER_COHORT_INSUFFICIENT",
+    "SOURCE_DERIVATION_PROFILE_MISMATCH:artifact=KAP_BULK_GENERAL_HOLDING_CORE_EXACT_V1;config=KAP_NONBANK_CORE_EXAMPLE"
+  ],
+  "m2_materialized": false,
+  "market_cap": 12996126462.249756,
+  "month": "2023-08",
+  "nominal_value_per_share_assumed": false,
+  "nonempty_action_completeness_claimed": false,
+  "normalized_shares_out": 605880000.0,
+  "outputs": {
+    "action_coverage_manifest.json": "16cdd21c8695b4fb3fcf0feb880377bd1f1bd25c0582d667cb393be5e96a2af3",
+    "smrtg_kap_share_history.json": "aa5390a9ed75cc8315dedbccc88a1ddcd5fd854a1e4e12f4d2cd1e42ffda8555"
+  },
+  "price_trade_date": "2023-07-31",
+  "raw_close": 21.450000762939453,
+  "share_state_published_at": "2023-07-31T17:49:42+03:00",
+  "shares_out": 605880000,
+  "ticker": "SMRTG"
+}

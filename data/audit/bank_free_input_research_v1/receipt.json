@@ -4,6 +4,15 @@
   "coe": {
     "covered_cells": 0,
     "demo_value_rejected": 0.3705,
+    "free_source_exhaustion": {
+      "bist_historical_index_access": "OFFICIAL_PAGE_REDIRECTS_HISTORICAL_DATA_TO_PAID_DATASTORE",
+      "bist_index_source": "https://www.borsaistanbul.com/endeksler/endeks-verileri",
+      "evds_status": "OPEN_PLATFORM_EXISTS_BUT_NO_OFFICIAL_BANK_COE_SERIES_OR_VERSIONED_REPO_POLICY_FOUND",
+      "evds_source": "https://evds3.tcmb.gov.tr/hakkinda",
+      "tcmb_input_disclosure": "PAPER_STATES_ALL_MONTHLY_INPUTS_WERE_OBTAINED_FROM_BLOOMBERG_TERMINAL",
+      "tcmb_method": "CAPM_WITH_10Y_TL_BOND_RISK_FREE;BETA_USES_XU100_XBANK_AND_2Y_TL_BOND",
+      "usable_free_cutoff_dated_coe_series_found": false
+    },
     "rejection": "COE_METHODOLOGY_UNVERSIONED_AND_INPUT_LINEAGE_INCOMPLETE",
     "repo_source_status": "MANUAL_DEMO_ONLY",
     "research_source": "https://tcmb.gov.tr/wps/wcm/connect/8a9020a0-b752-4442-aca2-ec2a7aea5b7b/T%C3%BCrk%2BBankalar%C4%B1n%C4%B1n%2B%C3%96zkaynak%2BMaliyeti_Ahmet%2BDeryol.pdf"
