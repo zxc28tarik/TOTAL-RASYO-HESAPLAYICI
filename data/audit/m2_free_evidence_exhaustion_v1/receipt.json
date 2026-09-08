@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-09-08T17:23:22.345462+00:00",
+  "captured_at": "2026-09-08T17:26:17.871621+00:00",
   "contract": "M2_FREE_EVIDENCE_EXHAUSTION_V1",
   "explicit_rejections": 3016,
   "fail_closed_preserved": true,
@@ -10,13 +10,13 @@
   },
   "inputs": {
     "data/audit/m2_priority_matrix_v1/m2_priority_cells.jsonl.gz": "7d0f2b8ff24016daa558b905f8e213335610f8b06d10b445eb997cb8aa553933",
-    "data/backtest_sources/borsa_thb_action_bridge_v1/cell_bridges.jsonl.gz": "34a0d3ad3a788f9e827b7a4243cdaa93d8700d4aa1631bd49544d22ed307bd76",
+    "data/backtest_sources/borsa_thb_action_bridge_v1/cell_bridges.jsonl.gz": "fbacb21e46c71c7fe86994d9e4d90c70137bb0a9544cf760333390915af73e8f",
     "data/backtest_sources/kap_share_class_history_v1/share_class_observations.jsonl.gz": "cc2175d25b835d993e925ea9f5cdc4514819e79874efd32f25ff2a219c55cf0b"
   },
   "m2_authoritative_cells_materialized": 0,
   "one_try_equals_one_share_assumed": false,
   "outputs": {
-    "cell_dispositions.jsonl.gz": "4d92d5ec1be4df990b7eae71c86216ae49e39e0df6bc628a40c0e20b28e283f4"
+    "cell_dispositions.jsonl.gz": "a2821a49aa256f888e42b0308a0ace01a1d8bebaa7b20467c7f0d375b7e959e1"
   },
   "p5_backtest_started": false,
   "primary_blocker_counts": {

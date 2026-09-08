@@ -112,7 +112,7 @@ def parse_thb_archive(raw: bytes, required_tickers: set[str]) -> tuple[list[dict
     rows = list(csv.reader(io.StringIO(text), delimiter=";"))
     if not rows:
         raise ValueError("THB_EMPTY_CSV")
-    normalized = [value.strip().replace("İ", "I") for value in rows[0]]
+    normalized = [value.strip().lstrip("\ufeffï»¿").replace("İ", "I") for value in rows[0]]
     try:
         ticker_i = normalized.index("ISLEM  KODU")
         action_i = normalized.index("OZSERMAYE HALI")
