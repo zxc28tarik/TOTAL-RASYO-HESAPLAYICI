@@ -9,7 +9,6 @@ from pathlib import Path
 import sys
 
 import requests
-from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[1]
 URL = "https://www.borsaistanbul.com/files/pay-piyasasi-proseduru.pdf"
@@ -18,6 +17,8 @@ CONTRACT = "BORSA_PAY_PRICE_PER_1_TRY_NOMINAL_V1"
 
 
 def capture(output_dir: Path = OUTPUT) -> dict:
+    from pypdf import PdfReader
+
     response = requests.get(URL, timeout=90, headers={"User-Agent": "TOTAL-RASYO evidence capture/1"})
     response.raise_for_status()
     raw = response.content
