@@ -50,4 +50,3 @@ def test_module_upsert_preserves_missing_m2_and_total_instead_of_neutralizing(mo
     assert row[15] is None
     assert row[17] == "YETERSIZ_VERI"
     assert row[18] is None
-

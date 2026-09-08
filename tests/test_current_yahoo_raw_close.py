@@ -24,4 +24,3 @@ def test_current_price_rejects_future_only_or_missing_symbol():
     frame = pd.DataFrame([[10.0, 8.0]], index=pd.to_datetime(["2026-09-09"]), columns=columns)
     assert extract_latest(frame, "SAFE", cutoff=date(2026, 9, 8)) is None
     assert extract_latest(frame, "OTHER", cutoff=date(2026, 9, 8)) is None
-

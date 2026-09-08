@@ -41,6 +41,17 @@ def _sha(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
 
 
+def explicit_nominal_quote_unit_is_proven(classes: list[dict]) -> bool:
+    """Accept only an explicit, uniform one-TRY legal-share quote unit."""
+    if not classes:
+        return False
+    try:
+        explicit_nominals = {Decimal(row["nominal_value_per_share_try"]) for row in classes}
+    except (KeyError, TypeError, ValueError):
+        return False
+    return explicit_nominals == {Decimal("1")}
+
+
 def materialize(*, share_dir: Path, prices_path: Path, output_dir: Path) -> dict:
     share_dir = share_dir.resolve()
     output_dir = output_dir.resolve()
@@ -84,7 +95,7 @@ def materialize(*, share_dir: Path, prices_path: Path, output_dir: Path) -> dict
             continue
         classes = share["latest_explicit_state"].get("classes") or []
         explicit_nominals = {Decimal(row["nominal_value_per_share_try"]) for row in classes}
-        if explicit_nominals != {Decimal("1")}:
+        if not explicit_nominal_quote_unit_is_proven(classes):
             rejected.append({
                 "ticker": ticker,
                 "reason": "PRICE_QUOTE_UNIT_TO_LEGAL_SHARE_UNPROVEN",
