@@ -1,0 +1,28 @@
+{
+  "authoritative_bank_m2_claim_allowed": false,
+  "bank_cells": 509,
+  "coe": {
+    "covered_cells": 0,
+    "demo_value_rejected": 0.3705,
+    "rejection": "COE_METHODOLOGY_UNVERSIONED_AND_INPUT_LINEAGE_INCOMPLETE",
+    "repo_source_status": "MANUAL_DEMO_ONLY",
+    "research_source": "https://tcmb.gov.tr/wps/wcm/connect/8a9020a0-b752-4442-aca2-ec2a7aea5b7b/T%C3%BCrk%2BBankalar%C4%B1n%C4%B1n%2B%C3%96zkaynak%2BMaliyeti_Ahmet%2BDeryol.pdf"
+  },
+  "contract": "BANK_FREE_INPUT_RESEARCH_V1",
+  "macro_cap": {
+    "covered_cells_if_raw_official_pdfs_are_bound": 509,
+    "definition": "latest_cutoff_eligible_OVP_last_forecast_nominal_GDP / previous_forecast_nominal_GDP - 1",
+    "official_archive": "https://www.sbb.gov.tr/orta-vadeli-programlar-ve-orta-vadeli-mali-planlar/?device=2",
+    "template_value_rejected": 0.140135,
+    "vintages": [
+      {"cells": 18, "gdp_last": 7021, "gdp_previous": 6310, "ovp": "2021-2023", "ratio": "0.1126782884310618066561014263"},
+      {"cells": 102, "gdp_last": 10287, "gdp_previous": 9041, "ovp": "2022-2024", "ratio": "0.1378166132065037053423293883"},
+      {"cells": 108, "gdp_last": 27440, "gdp_previous": 23438, "ovp": "2023-2025", "ratio": "0.1707483573683761413089854083"},
+      {"cells": 105, "gdp_last": 62997, "gdp_previous": 52942, "ovp": "2024-2026", "ratio": "0.1899248233916353745615957085"},
+      {"cells": 96, "gdp_last": 83132, "gdp_previous": 72915, "ovp": "2025-2027", "ratio": "0.1401220599334841939244325585"},
+      {"cells": 80, "gdp_last": 101397, "gdp_previous": 89406, "ovp": "2026-2028", "ratio": "0.1341185155369885689998434109"}
+    ]
+  },
+  "priority_3017_overlap_cells": 0,
+  "total_score_unlock_upper_bound_from_coe_macro_only": 0
+}
