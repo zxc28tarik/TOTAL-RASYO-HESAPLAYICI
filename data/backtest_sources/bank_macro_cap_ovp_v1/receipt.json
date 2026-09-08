@@ -1,0 +1,80 @@
+{
+  "bank_cells": 509,
+  "bank_m2_materialized": 0,
+  "captured_at": "2026-09-08T17:18:20.399354+00:00",
+  "coe_status": "EXPLICIT_REJECTION:COE_METHODOLOGY_UNVERSIONED_AND_INPUT_LINEAGE_INCOMPLETE",
+  "contract": "BANK_OFFICIAL_OVP_MACRO_CAP_V1",
+  "covered_cells": 509,
+  "definition": "latest cutoff-eligible OVP last forecast nominal GDP / previous forecast nominal GDP - 1",
+  "outputs": {
+    "bank_macro_cap_cells.jsonl.gz": "b45046cc64a0f41a3f70d30b1b992f4790a9e8b4f86365ed03caa10f99ea8d7c"
+  },
+  "priority_3017_overlap_cells": 0,
+  "raw_source_bytes_committed": false,
+  "source_bytes_policy": "URL_AND_CAPTURE_SHA256_RECORDED;RAW_PDFS_REMOVED_TO_AVOID_92MB_GIT_BLOAT",
+  "sources": {
+    "2021-2023": {
+      "filename": "ovp_2021_2023.pdf",
+      "gdp_last_billion_try": 7021,
+      "gdp_previous_billion_try": 6310,
+      "published_at": "2020-09-29T23:59:59+03:00",
+      "sha256": "9c3db77e9b250c9a2a3864e5992cb3c88b25138e730594fa28f98ac8164b7ae4",
+      "size_bytes": 46965270,
+      "url": "https://www.sbb.gov.tr/wp-content/uploads/2021/08/YeniEkonomiProgrami_OVP_2021-2023.pdf"
+    },
+    "2022-2024": {
+      "filename": "ovp_2022_2024.pdf",
+      "gdp_last_billion_try": 10287,
+      "gdp_previous_billion_try": 9041,
+      "published_at": "2021-09-05T23:59:59+03:00",
+      "sha256": "b3e1560b31f02c042eda11941faa554a3bdff34325080517f051c1fb12395e02",
+      "size_bytes": 1761863,
+      "url": "https://www.sbb.gov.tr/wp-content/uploads/2021/09/Orta-Vadeli-Program-2022-2024.pdf"
+    },
+    "2023-2025": {
+      "filename": "ovp_2023_2025.pdf",
+      "gdp_last_billion_try": 27440,
+      "gdp_previous_billion_try": 23438,
+      "published_at": "2022-09-04T23:59:59+03:00",
+      "sha256": "311998cbc5764fed5d6a849357a1e9a0ebd84ae567d15dbb4147e6606e47f499",
+      "size_bytes": 2088769,
+      "url": "https://www.sbb.gov.tr/wp-content/uploads/2022/09/Orta-Vadeli-Program-2023-2025.pdf"
+    },
+    "2024-2026": {
+      "filename": "ovp_2024_2026.pdf",
+      "gdp_last_billion_try": 62997,
+      "gdp_previous_billion_try": 52942,
+      "published_at": "2023-09-06T23:59:59+03:00",
+      "sha256": "6d85f7be37d4f29fbcaff420429cd4c25b785e7139a8e827edf717f17b8a0abf",
+      "size_bytes": 3519367,
+      "url": "https://www.sbb.gov.tr/wp-content/uploads/2023/09/Orta-Vadeli-Program_2024-2026.pdf"
+    },
+    "2025-2027": {
+      "filename": "ovp_2025_2027.pdf",
+      "gdp_last_billion_try": 83132,
+      "gdp_previous_billion_try": 72915,
+      "published_at": "2024-09-05T23:59:59+03:00",
+      "sha256": "d94ad326abd556d0186b43cd779bc70404f432cbb632003c31e319c31988b1a8",
+      "size_bytes": 6835237,
+      "url": "https://www.sbb.gov.tr/wp-content/uploads/2024/09/Orta-Vadeli-Program_2025-2027.pdf"
+    },
+    "2026-2028": {
+      "filename": "ovp_2026_2028.pdf",
+      "gdp_last_billion_try": 101397,
+      "gdp_previous_billion_try": 89406,
+      "published_at": "2025-09-07T23:59:59+03:00",
+      "sha256": "4bb3bb9802926196e68cc00c21bc85aa3b76c3a3aa2a84def52617aea01c23f1",
+      "size_bytes": 31171339,
+      "url": "https://www.sbb.gov.tr/wp-content/uploads/2025/09/Orta-Vadeli-Program-2026-2028.pdf"
+    }
+  },
+  "total_score_unlock_upper_bound_from_macro_cap_only": 0,
+  "vintage_cell_counts": {
+    "2021-2023": 18,
+    "2022-2024": 102,
+    "2023-2025": 108,
+    "2024-2026": 105,
+    "2025-2027": 96,
+    "2026-2028": 80
+  }
+}
