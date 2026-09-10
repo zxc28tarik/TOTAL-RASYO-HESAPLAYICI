@@ -19,8 +19,12 @@ if str(ROOT) not in sys.path:
 
 from scripts.experimental_core_module_materializer import _fact
 from scripts.materialize_experimental_financial_facts import map_report
+from src.analytics.current_nonfin_follow import materialize_current_nonfin_follow
 from src.analytics.nonfin_batch_pipeline import build_nonfin_snapshots_from_frames
-from src.analytics.nonfin_valuation import NonfinValuationConfig, value_nonfin_snapshot
+from src.analytics.nonfin_valuation import (
+    NonfinValuationConfig, build_nonfin_snapshot, combine_nonfin_m2,
+    value_nonfin_snapshot,
+)
 from src.analytics.price_level_adapter import load_action_bundles
 from src.ingest.company_fact_materializer import derive_company_quarters
 from src.ingest.kap_bulk_exact_semantic_mapping import build_bulk_exact_company_derivation_config
@@ -37,6 +41,7 @@ DEFAULT_ARCHIVES = ROOT / "private/reconstructed_kap_archives"
 DEFAULT_BASIS = ROOT / "data/live/current_price_level_basis_v1"
 DEFAULT_ROUTES = ROOT / "data/backtest_sources/m3_source_package/sector_routes.csv.gz"
 DEFAULT_OUTPUT = ROOT / "data/live/current_nonfin_valuation_v1"
+DEFAULT_STOCK_PRICES = ROOT / "data/live/current_market_modules_v1/stock_prices.csv.gz"
 CONFIG = ROOT / "config/nonfin_valuation.kap_bulk_exact_v1.json"
 
 
@@ -70,6 +75,47 @@ def _mapped_reports(archive_dir: Path, tickers: set[str]) -> tuple[list[dict], d
                 }
                 output.append(map_report((str(path), row)))
     return output, hashes
+
+
+def _previous_quarter_end(value):
+    if value.month == 3:
+        return value.replace(year=value.year - 1, month=12, day=31)
+    days = {6: 31, 9: 30, 12: 30}
+    return value.replace(month=value.month - 3, day=days[value.month])
+
+
+def _previous_period_valuations(snapshots, financial_rows, config):
+    frame = pd.DataFrame(financial_rows)
+    output = []
+    rejections = []
+    prior_snapshots = []
+    for current in snapshots:
+        prior_anchor = _previous_quarter_end(current.anchor_period_end)
+        group = frame.loc[
+            (frame.ticker == current.ticker)
+            & (pd.to_datetime(frame.period_end).dt.date <= prior_anchor)
+        ].sort_values("period_end").tail(4).copy()
+        try:
+            if len(group) != 4 or pd.Timestamp(group.iloc[-1].period_end).date() != prior_anchor:
+                raise ValueError("PREVIOUS_FOUR_QUARTERS_MISSING")
+            group.loc[group.index[-1], "shares_out"] = current.shares_out
+            prior_snapshots.append(build_nonfin_snapshot(
+                ticker=current.ticker, analysis_at=current.analysis_at,
+                sector_code=current.sector_code, current_price=current.current_price,
+                price_trade_date=current.price_trade_date,
+                quarters=group.to_dict("records"),
+            ))
+        except (ValueError, TypeError, OverflowError) as exc:
+            rejections.append({"ticker": current.ticker, "reason": str(exc)})
+    for target in prior_snapshots:
+        peers = [
+            peer for peer in prior_snapshots
+            if peer.ticker != target.ticker
+            and peer.anchor_period_end == target.anchor_period_end
+            and peer.sector_code == target.sector_code
+        ]
+        output.append(value_nonfin_snapshot(target, peers, config))
+    return output, rejections
 
 
 def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
@@ -171,11 +217,37 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
             and peer.sector_code == target.sector_code
         ]
         valuations.append(value_nonfin_snapshot(target, peers, config))
+    previous_valuations, previous_rejections = _previous_period_valuations(
+        snapshots, financial_rows, config
+    )
+    follow_rows, follow_rejections = materialize_current_nonfin_follow(
+        current_valuations=valuations, previous_valuations=previous_valuations,
+        adjusted_prices=pd.read_csv(DEFAULT_STOCK_PRICES),
+    )
+    follow_map = {row["ticker"]: row for row in follow_rows}
+    m2_rows = [
+        combine_nonfin_m2(
+            row, follow_score=follow_map[row["ticker"]]["follow_score"],
+            follow_active=True, config=config,
+        )
+        for row in valuations
+        if row["status"] == "OK" and row["ticker"] in follow_map
+    ]
     valuation_path = output_dir / "valuations.jsonl"
     valuation_path.write_text("".join(
         json.dumps(row, ensure_ascii=False, sort_keys=True, default=str) + "\n"
         for row in sorted(valuations, key=lambda row: row["ticker"])
     ), encoding="utf-8")
+    previous_path = output_dir / "previous_valuations.jsonl"
+    follow_path = output_dir / "follow.jsonl"
+    m2_path = output_dir / "m2.jsonl"
+    for path, rows in (
+        (previous_path, previous_valuations), (follow_path, follow_rows), (m2_path, m2_rows),
+    ):
+        path.write_text("".join(
+            json.dumps(row, ensure_ascii=False, sort_keys=True, default=str) + "\n"
+            for row in sorted(rows, key=lambda item: item["ticker"])
+        ), encoding="utf-8")
     receipt = {
         "contract": CONTRACT, "analysis_at": analysis_at.isoformat(),
         "peer_groups": sorted(NONFIN_INDICES), "route_source_sha256": _sha(routes_path),
@@ -188,23 +260,31 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
         "snapshot_count": len(snapshots),
         "production_valuation_count": len(valuations),
         "usable_valuation_count": sum(row["status"] == "OK" for row in valuations),
-        "m2_materialized_count": 0,
+        "previous_period_valuation_count": len(previous_valuations),
+        "usable_previous_period_valuation_count": sum(row["status"] == "OK" for row in previous_valuations),
+        "follow_materialized_count": len(follow_rows),
+        "m2_materialized_count": len(m2_rows),
         "m2_blocker": (
-            "CURRENT_FOLLOW_AXIS_NOT_MATERIALIZED"
-            if any(row["status"] == "OK" for row in valuations)
+            None
+            if m2_rows
             else (
                 "CURRENT_NONFIN_VALUATION_COVERAGE_INSUFFICIENT"
                 if valuations else "CURRENT_NONFIN_CANDIDATE_SET_EMPTY_AFTER_SAFE_MARKET_CAP_GATE"
             )
         ),
         "neutral_follow_or_m2_materialized": False,
+        "follow_contract": "CURRENT_NONFIN_FOLLOW_AXIS_V1",
+        "follow_rejections": follow_rejections,
+        "previous_period_rejections": previous_rejections,
         "unsafe_issued_capital_share_fields_scrubbed": True,
         "current_price_denominator_basis": "BORSA_QUOTED_NOMINAL_UNITS_OUT",
         "legal_share_count_used_as_price_denominator": False,
         "derivation_rejections": derivation_rejections,
         "snapshot_rejections": snapshot_rejections,
         "archive_hashes": archive_hashes,
-        "outputs": {valuation_path.name: _sha(valuation_path)},
+        "outputs": {path.name: _sha(path) for path in (
+            valuation_path, previous_path, follow_path, m2_path,
+        )},
     }
     (output_dir / "receipt.json").write_text(
         json.dumps(receipt, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8"

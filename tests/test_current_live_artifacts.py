@@ -35,10 +35,17 @@ def test_current_market_artifact_cutoff_covers_every_official_source_timestamp()
     assert receipt["ek4_valid_count"] > 0
 
 
-def test_current_total_artifact_is_fail_closed_while_m2_is_missing():
+def test_current_total_artifact_uses_real_m2_and_keeps_incomplete_rows_fail_closed():
+    m2_receipt = _receipt("data/live/current_nonfin_valuation_v1/receipt.json")
     receipt = _receipt("data/live/current_total_scores_v1/receipt.json")
-    assert receipt["universe_count"] == receipt["explicit_rejection_count"] == 807
-    assert receipt["missing_module_counts"]["M2"] == 807
-    assert receipt["total_valid_count"] == receipt["ranking_count"] == 0
+    assert m2_receipt["usable_valuation_count"] == 49
+    assert m2_receipt["follow_materialized_count"] == 48
+    assert m2_receipt["m2_materialized_count"] == 48
+    assert m2_receipt["neutral_follow_or_m2_materialized"] is False
+    assert receipt["universe_count"] == 807
+    assert receipt["total_valid_count"] == receipt["ranking_count"] == 2
+    assert receipt["explicit_rejection_count"] == 805
+    assert receipt["total_valid_count"] + receipt["explicit_rejection_count"] == receipt["universe_count"]
+    assert receipt["missing_module_counts"]["M2"] == 759
     assert receipt["neutral_fill"] is False
     assert receipt["weight_redistribution"] is False

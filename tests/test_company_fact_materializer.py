@@ -133,6 +133,49 @@ def test_ytd_is_converted_to_independent_quarters_without_compression():
     assert q2.diagnostics["field_sources"]["revenue"] == "YTD_DIFFERENCE"
 
 
+def test_date_bounded_quarter_column_is_preferred_over_parallel_cumulative_ytd():
+    rows = basic_facts()
+    rows.append(fact(
+        "REVENUE", Q2, "155", nature="YTD", period_start=date(2025, 4, 1),
+        disclosure_id="Q2", published_at=datetime(2025, 8, 10, 9, tzinfo=UTC),
+        lineage_char="0",
+    ))
+    derived = derive_company_quarters(
+        rows, config=cfg(), ticker="AAA", analysis_at=ANALYSIS, anchor_period_end=Q2,
+    )
+    q2 = next(row for row in derived if row.period_end == Q2)
+    assert q2.values["revenue"] == 155.0
+    assert q2.diagnostics["field_sources"]["revenue"] == "DIRECT_QUARTER_DURATION"
+
+
+def test_cumulative_ytd_uses_prior_with_same_period_start_not_newer_quarter_column():
+    rows = basic_facts()
+    rows.extend([
+        fact(
+            "REVENUE", Q2, "155", nature="YTD", period_start=date(2025, 4, 1),
+            disclosure_id="Q3", published_at=datetime(2025, 11, 10, 9, tzinfo=UTC),
+            lineage_char="0",
+        ),
+        fact(
+            "REVENUE", Q3, "500", nature="YTD", period_start=YEAR_START,
+            disclosure_id="Q3", published_at=datetime(2025, 11, 10, 9, tzinfo=UTC),
+            lineage_char="7",
+        ),
+    ])
+    derived = derive_company_quarters(
+        rows,
+        config=cfg(
+            target_periods=3, history_periods=4,
+            required_fields=["revenue"],
+            minimum_present_fields=["revenue"], minimum_present_count=1,
+        ),
+        ticker="AAA", analysis_at=ANALYSIS, anchor_period_end=Q3,
+    )
+    q3 = next(row for row in derived if row.period_end == Q3)
+    assert q3.values["revenue"] == 250.0
+    assert q3.diagnostics["field_sources"]["revenue"] == "YTD_DIFFERENCE"
+
+
 def test_missing_prior_ytd_does_not_turn_cumulative_value_into_quarter_value():
     rows = [row for row in basic_facts() if not (
         row.disclosure_id == "Q2" and row.period_end == Q1 and row.canonical_field == "REVENUE"

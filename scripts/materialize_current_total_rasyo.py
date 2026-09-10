@@ -24,16 +24,21 @@ def _sha(path: Path) -> str:
 
 
 def materialize(output_dir: Path = OUTPUT) -> dict:
-    universe = pd.read_csv(ROOT / "data/live/current_total_rasyo_v1/universe.csv")
+    universe_path = ROOT / "data/live/current_total_rasyo_v1/universe.csv"
+    core_path = ROOT / "data/live/current_core_modules_v1/modules.jsonl"
+    market_path = ROOT / "data/live/current_market_modules_v1/modules.csv"
+    m2_path = ROOT / "data/live/current_nonfin_valuation_v1/m2.jsonl"
+    universe = pd.read_csv(universe_path)
     core = [json.loads(line) for line in (
-        ROOT / "data/live/current_core_modules_v1/modules.jsonl"
+        core_path
     ).read_text(encoding="utf-8").splitlines()]
-    market = pd.read_csv(ROOT / "data/live/current_market_modules_v1/modules.csv")
+    market = pd.read_csv(market_path)
     core_map = {row["ticker"]: row for row in core}
     market_map = market.set_index("ticker").to_dict("index")
-    # No current M2 row is emitted from an unusable valuation or a missing
-    # follow axis. This map remains empty until a separate M2 receipt exists.
-    m2_map: dict[str, float] = {}
+    m2_rows = [json.loads(line) for line in (
+        m2_path
+    ).read_text(encoding="utf-8").splitlines()]
+    m2_map = {row["ticker"]: row["m2"] for row in m2_rows}
     totals, rejections = [], []
     for ticker in sorted(set(universe.ticker.astype(str))):
         c, m = core_map.get(ticker, {}), market_map.get(ticker, {})
@@ -73,6 +78,10 @@ def materialize(output_dir: Path = OUTPUT) -> dict:
             module for row in rejections for module in row["missing_modules"]
         )),
         "production_formula": "src.analytics.total_rasyo_score.compute_total_rasyo",
+        "m2_input_count": len(m2_rows),
+        "inputs": {path.name: _sha(path) for path in (
+            universe_path, core_path, market_path, m2_path,
+        )},
         "weight_redistribution": False, "neutral_fill": False,
         "ranking_order": "final_score DESC, ticker ASC",
         "outputs": {p.name: _sha(p) for p in (total_path, ranking_path, rejection_path)},
