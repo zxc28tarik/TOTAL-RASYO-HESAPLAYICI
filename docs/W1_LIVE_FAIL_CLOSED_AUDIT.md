@@ -69,7 +69,13 @@ daily pipeline. No production database deployment is claimed here.
 - BANK v4.7 locally: 277 passed, 1 expected failure.
 - First full local regression: 2062 passed, 234 skipped, 1 failure: the
   migration-inventory test still expected 37 rather than 38 migrations. Its
-  count and explicit 043 entry were updated; final full rerun/CI pending.
+  count and explicit 043 entry were updated. Final local rerun: **2063 passed,
+  234 skipped**, no failures. Local DB-dependent cases still need CI.
+- First V24 Real Data CI on `7132392`: 406 passed, 1 failed in the new test
+  harness because it nested psycopg2 transaction contexts around the production
+  upsert. The harness now uses connection closing only; production transaction
+  ownership is unchanged. The same NULL/recovery/rejection DB test remains
+  enabled, with no assertion skipped or weakened; exact-head CI rerun pending.
 - [mutations.json](../data/audit/w1_live_fail_closed_v1/mutations.json): 6/6
   production mutations killed, clean test baseline. Mutants run only in
   temporary checkouts with database access disabled.

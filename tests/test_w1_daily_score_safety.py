@@ -127,10 +127,12 @@ def test_actual_daily_orchestration_preserves_rejected_row(monkeypatch, missing)
 
 @pytest.mark.skipif(not os.getenv("TOTAL_RASYO_TEST_DSN"), reason="requires CI PostgreSQL")
 def test_nullable_db_sources_and_rejection_roundtrip():
+    from contextlib import closing
     import psycopg2
     ticker = "W1_" + uuid.uuid4().hex
     asof = date(2026, 9, 8)
-    with psycopg2.connect(os.environ["TOTAL_RASYO_TEST_DSN"]) as conn:
+    # The production upsert owns its transaction context; only close here.
+    with closing(psycopg2.connect(os.environ["TOTAL_RASYO_TEST_DSN"])) as conn:
         try:
             with conn.cursor() as cur:
                 cur.execute("INSERT INTO analytics.m2_period_comparison(ticker,asof_date,m2_final) VALUES (%s,%s,NULL)", (ticker, asof))

@@ -65,7 +65,7 @@
   },
   "tests_sha256": {
     "tests/test_ek9_live_compatibility.py": "d97586dce9495435aafd0c5837e90b7dd67acb947215032c190d9cb44c0c39f7",
-    "tests/test_w1_daily_score_safety.py": "67cc682f7fb6d8975b636192d2aa1d1b8b29e1bce11a429d4124eda8a5a6b15a",
+    "tests/test_w1_daily_score_safety.py": "9c8787cd1f01323fc695b5aa70c4a2b43c74d27bb77aa88b092af96f8b2b97d3",
     "tests/test_w1_ek9_safety.py": "671b19b0895a30efe66421106eaf22f8fa250e15e4a64542d126ad8e3f789fed"
   }
 }
