@@ -135,7 +135,12 @@ Kabul: Bu belge ve Issue #37 aynı head/durum bilgisini gösterir.
 
 ### W1 — Pre-change baseline ve canlı M2/M3/Ek9 fail-closed güvenliği
 
-Durum: **TODO — ANA HAT**
+Durum: **IN_PROGRESS — ANA HAT**
+
+W1-0 baseline, üretim kodu değiştirilmeden `0db6cc1` üzerinde alındı:
+[baseline.json](../data/audit/w1_live_fail_closed_v1/baseline.json).
+48 M2 / 48 FOLLOW / 11 Ek9 / 2 Total / 805 ret korunuyor; baseline yeniden
+yazılamaz. W1-A/B/C test ve düzeltmeleri sürüyor; kapanış henüz yok.
 
 #### W1-0 — Değişiklik öncesi immutable baseline
 
