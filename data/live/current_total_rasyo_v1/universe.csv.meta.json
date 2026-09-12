@@ -1,9 +1,7 @@
 {
-  "csv_sha256": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1",
+  "csv_sha256": "52d38b69a462e19604f2ad8c5400e18696cb6e7a6f3fdf7b46333180442c1da6",
   "fetched_at": "2026-09-08T18:37:14.218184+00:00",
   "html_sha256": "5f38c2def1fcc9626f92d9ae34a4aa56bce405f99a75cf8bc36ddc2b4470bf15",
-  "line_ending_reconciliation": "VERIFIED_ORIGINAL_CRLF_TO_REPOSITORY_LF",
-  "original_capture_csv_sha256": "52d38b69a462e19604f2ad8c5400e18696cb6e7a6f3fdf7b46333180442c1da6",
   "row_count": 807,
   "source_url": "https://kap.org.tr/tr/bist-sirketler",
   "tickers_sha256": "92180dbc789885c6c5f8a544ef47c72fe07a5e1a8a550193e43bf8c91df08e20"

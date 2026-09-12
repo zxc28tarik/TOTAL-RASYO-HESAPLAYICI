@@ -1,6 +1,6 @@
 {
   "at_least_4_modules_count": 131,
-  "at_least_5_modules_count": 55,
+  "at_least_5_modules_count": 11,
   "captured_at": "2026-09-08T21:59:07.686595+00:00",
   "contract": "LIVE_TOTAL_RASYO_INPUT_READINESS_V1",
   "current_core_modules_artifact": {
@@ -21,7 +21,7 @@
   },
   "current_market_modules_artifact": {
     "path": "data/live/current_market_modules_v1/modules.csv",
-    "sha256": "42456921f778eca74710e413e450eeada40fbed64a13885dd9ec6190de880299"
+    "sha256": "ff4bb222ac34465923410a8f6886bc06f4982b7cef10833db670c391e5c2cfd8"
   },
   "current_raw_close_artifact": {
     "path": "data/live/current_raw_close_v1/raw_close.csv.gz",
@@ -33,7 +33,7 @@
   },
   "current_total_scores_receipt": {
     "path": "data/live/current_total_scores_v1/receipt.json",
-    "sha256": "92f570fe3b6df4483b765304a248f6e65f111203eef560fbf52d676039511565"
+    "sha256": "26cb22a119d227567305d56a38c4c229cf9e64557a8d6d15d33f2432cb02cf84"
   },
   "database_available": false,
   "explicit_rejection_count": 807,
@@ -61,19 +61,19 @@
   "module_coverage": {
     "Ek1": 131,
     "Ek4": 146,
-    "Ek9": 55,
+    "Ek9": 11,
     "M1": 131,
-    "M2": 48,
+    "M2": 0,
     "M3": 146
   },
   "neutral_score_injection": false,
   "outputs": {
-    "rejections.jsonl": "1f77362e4e4925a2d85d5bbca3670a5cc479c24c6f327640535f27c1e20ad36e",
-    "universe.csv": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1",
-    "universe.csv.meta.json": "7d72dda9ecc426f9a078ba09718b92e7a5116447f7783845a38fd0335bf9ea4b"
+    "rejections.jsonl": "df8da563976b280311ff35c1ac1838f794845c7afbc6b857f7507c8f5b6e7f46",
+    "universe.csv": "52d38b69a462e19604f2ad8c5400e18696cb6e7a6f3fdf7b46333180442c1da6",
+    "universe.csv.meta.json": "487153dca36cb9e29ddc6a71231ff262280e235fa473f0e99d236d35030df6f9"
   },
   "price_and_share_ready_count": 324,
-  "ranking_count": 46,
+  "ranking_count": 0,
   "raw_close_count": 629,
   "share_capture_summary": {
     "capture_scope": "ONLINE_INCREMENTAL_CAPTURE",
@@ -97,25 +97,23 @@
     "unique_issuer_count": 756
   },
   "silent_drop_count": 0,
-  "summary_refresh_scope": "CURRENT_MODULE_AND_TOTAL_ARTIFACTS_NON_MODULE_EVIDENCE_PRESERVED",
-  "summary_refreshed_at": "2026-09-12T15:30:25.320868+00:00",
   "top_readiness_rejection_reasons": {
     "CURRENT_EK1_NOT_MATERIALIZED": 676,
     "CURRENT_EK4_NOT_MATERIALIZED": 661,
-    "CURRENT_EK9_NOT_MATERIALIZED": 752,
+    "CURRENT_EK9_NOT_MATERIALIZED": 796,
     "CURRENT_EXPLICIT_SHARE_BASIS_NOT_CAPTURED": 483,
     "CURRENT_FINANCIAL_ENTITY_UNBOUND": 50,
     "CURRENT_GYO_NAV_NOT_MATERIALIZED": 52,
     "CURRENT_HOLDING_NAV_NOT_MATERIALIZED": 56,
     "CURRENT_M1_NOT_MATERIALIZED": 676,
-    "CURRENT_M2_NOT_MATERIALIZED": 759,
+    "CURRENT_M2_NOT_MATERIALIZED": 807,
     "CURRENT_M3_NOT_MATERIALIZED": 661,
     "CURRENT_PRICE_LEVEL_MARKET_CAP_NOT_MATERIALIZED": 502,
     "CURRENT_RAW_CLOSE_NOT_CAPTURED": 178,
     "GENERAL_SCHEMA_NOT_ECONOMIC_NONFIN_PROOF": 534,
     "PERSISTENCE_DATABASE_NOT_CONFIGURED": 807
   },
-  "total_rasyo_count": 46,
+  "total_rasyo_count": 0,
   "universe_count": 807,
   "universe_fetch_error": "KapUniverseError:offline run requested",
   "universe_source_mode": "CACHED_HASH_VERIFIED_OFFLINE"
