@@ -1,0 +1,66 @@
+{
+  "analysis_at": "2026-09-12T15:12:44.725921+00:00",
+  "contract": "CURRENT_EK9_GAP_REPAIR_V1",
+  "cutoff_date": "2026-09-08",
+  "ek9_valid_after": 11,
+  "ek9_valid_before": 11,
+  "input_line_ending_reconciliations": [
+    {
+      "path": "data/live/current_market_modules_v1/modules.csv",
+      "recorded_crlf_sha256": "ff4bb222ac34465923410a8f6886bc06f4982b7cef10833db670c391e5c2cfd8",
+      "repository_lf_sha256": "11207bb002152cb3626fca8810e213c0cd9f2e670a81788f4a3bdac607d8763b",
+      "transformation": "GIT_EOL_LF_FROM_VERIFIED_CRLF"
+    },
+    {
+      "path": "data/live/current_market_modules_v1/rejections.jsonl",
+      "recorded_crlf_sha256": "5b00ea29c007830d5bda12df2c9a1ef3e3efff1baa51050c4ef8766427b83646",
+      "repository_lf_sha256": "d7365ef09000b8f11f7c26e50eb3f44af6163c6c364de4a34508020b8dec3cc0",
+      "transformation": "GIT_EOL_LF_FROM_VERIFIED_CRLF"
+    },
+    {
+      "path": "data/live/current_total_scores_v1/ranking.jsonl",
+      "recorded_crlf_sha256": "bd8cf33a288511c136d89450d0516c9e38974d55496add051c2ce1d70c19703b",
+      "repository_lf_sha256": "f5ce19600828794611f2540ebbc489a657fcbf1149bd3d107ae993092a5290ed",
+      "transformation": "GIT_EOL_LF_FROM_VERIFIED_CRLF"
+    },
+    {
+      "path": "data/live/current_total_scores_v1/rejections.jsonl",
+      "recorded_crlf_sha256": "8c8c73b075c508ac08f7116e2173c72aa1648f5dccdfde12f10565706288b987",
+      "repository_lf_sha256": "acd9027f21ec7f17c6c6887554cc0d5c1d20509636852251c417337d5d885c6f",
+      "transformation": "GIT_EOL_LF_FROM_VERIFIED_CRLF"
+    },
+    {
+      "path": "data/live/current_total_scores_v1/totals.jsonl",
+      "recorded_crlf_sha256": "bd8cf33a288511c136d89450d0516c9e38974d55496add051c2ce1d70c19703b",
+      "repository_lf_sha256": "f5ce19600828794611f2540ebbc489a657fcbf1149bd3d107ae993092a5290ed",
+      "transformation": "GIT_EOL_LF_FROM_VERIFIED_CRLF"
+    }
+  ],
+  "inputs": {
+    "data/live/current_market_modules_v1/index_prices.csv.gz": "091b265ee73194585f5a70f189f9cbe713e63ca97b1db845dc19c78e015f6d1d",
+    "data/live/current_market_modules_v1/modules.csv": "11207bb002152cb3626fca8810e213c0cd9f2e670a81788f4a3bdac607d8763b",
+    "data/live/current_market_modules_v1/receipt.json": "12e293d1f5d2f3871c6f5dfb9a001f26b19e4c7a30e797a900abe752e73b2e0c",
+    "data/live/current_market_modules_v1/stock_prices.csv.gz": "12e44f9c515136eb35c593af1733c4de7d17b6c0e10a0054c98c799eeb8fe98a",
+    "data/live/current_total_scores_v1/receipt.json": "ce6b37842fc262b94a0cfe9e0a410c408c718c2d4d86c620b844d55e8e2a5f7a",
+    "data/live/current_total_scores_v1/rejections.jsonl": "acd9027f21ec7f17c6c6887554cc0d5c1d20509636852251c417337d5d885c6f"
+  },
+  "market_asof_date": "2026-09-08",
+  "missing_day_counts": {
+    "2026-09-07": 44
+  },
+  "mode": "EXISTING_ARTIFACT_AUDIT",
+  "neutral_fill": false,
+  "outputs": {
+    "captures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "ek9_scores.csv": "e0be54b3952c79611555c5628f5ced139e081123a39be203ff3ad31ed3dc5cb5",
+    "ticker_audit.jsonl": "dccc44940818af06c5e1157fdaa7bb10a00dcd74323ffed5e98284a482f2d1cd"
+  },
+  "priority_count": 44,
+  "priority_ek9_valid_after": 0,
+  "priority_ek9_valid_before": 0,
+  "production_engine": "run_historical_pit_ek9_replay",
+  "threshold_relaxation": false,
+  "weight_redistribution": false,
+  "window_end": "2026-09-08",
+  "window_start": "2026-06-10"
+}
