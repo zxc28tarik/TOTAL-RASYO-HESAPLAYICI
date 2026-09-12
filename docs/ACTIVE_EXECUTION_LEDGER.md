@@ -18,6 +18,11 @@ birlikte güncellenir.
   ağacını `fad20cccc88f230628999c1a06770c0f7329a12c` ile birebir eşitler.
 - PR #40: draft, mergeable; `main` değiştirilmedi.
 - `e55d1df` üzerindeki gerekli GitHub kontrolleri başarılıdır.
+- İlk kanonik yürütme-defteri commit'i
+  `6336681bc17abaa669b228429f0101076348856f` üzerindeki altı GitHub workflow'u
+  da başarılıdır. Yeni bir çalışma head'i oluştuğunda panoda ayrıca
+  `current_head` ve `last_ci_pass_head` tutulur; bu iki değer farklıysa durum
+  `CI_PENDING` kabul edilir.
 - Aktif canlı/current sonuç: 49 kullanılabilir NONFIN valuation, 48 FOLLOW,
   48 gerçek M2, 11 Ek9, 2 Total/ranking (`RGYAS`, `TABGD`) ve 805 açık ret.
 - Tarihsel PIT M2 hâlâ 0'dır. Canlı 48 M2 ile tarihsel sonuçlar aynı başarı
@@ -56,38 +61,62 @@ Her `Wn` işi için aynı sıra izlenir:
 
 1. Başlangıç head'i, temiz/kirli çalışma ağacı ve ilgili artifact hashleri
    kaydedilir.
-2. Sorun kod yolu ve gerçek çağıran üzerinden yeniden üretilir; yalnız teorik
+2. Davranış değiştiren ilk editten **önce** immutable baseline artifact ve
+   receipt alınır. Sonradan üretilen "before" çıktısı baseline sayılmaz.
+3. Sorun kod yolu ve gerçek çağıran üzerinden yeniden üretilir; yalnız teorik
    iddia düzeltme gerekçesi sayılmaz.
-3. Önce pozitif/negatif test ve gerekli mutasyon testi yazılır.
-4. En dar güvenli düzeltme uygulanır; değişmeyen sözleşmeler açıklanır.
-5. Hedef test, ilgili birleşik test ve tam regresyon çalıştırılır.
-6. Önce/sonra artifact karşılaştırması ve provenance etkisi üretilir.
-7. Receipt; komut, commit, kaynak SHA, çıktı SHA, kapsam ve ret dağılımını içerir.
-8. Küçük ve anlamlı commit push edilir; PR #40 ve Issue #37 aynı adımda
+4. Önce pozitif/negatif test ve gerekli mutasyon testi yazılır.
+5. En dar güvenli düzeltme uygulanır; değişmeyen sözleşmeler açıklanır. Risk
+   gerçek üretim çağrı zincirinden erişilemiyorsa kod sırf teorik temizlik için
+   değiştirilmez; `NO_PRODUCTION_REACHABILITY` kanıtı bırakılır.
+6. Hedef test, ilgili birleşik test ve davranış değişikliğinde tam regresyon
+   çalıştırılır.
+7. Önce/sonra artifact karşılaştırması ve provenance etkisi üretilir.
+8. Receipt; komut, commit, kaynak SHA, çıktı SHA, kapsam ve ret dağılımını içerir.
+9. Küçük ve anlamlı commit push edilir; PR #40 ve Issue #37 aynı adımda
    güncellenir.
-9. Gerekli GitHub CI tamamlanmadan iş `DONE` veya teknik kapanış sayılmaz.
+10. Gerekli GitHub CI tamamlanmadan iş `DONE` veya teknik kapanış sayılmaz.
 
 Durum değerleri: `TODO`, `IN_PROGRESS`, `BLOCKED`, `DONE`.
 `BLOCKED` kaydı; tam hedefi, etkilenen hücreleri, tüketilen repo-içi/ücretsiz
 kanıt yollarını, son kanıtı ve yeniden açma koşulunu içermek zorundadır.
 
-## 4. Zorunlu yürütme sırası
+## 4. Kesin yürütme ve bağımlılık kararı
 
 ```text
+ANA HAT — M2 önceliği
 W0 durum kilidi
-  -> W1 canlı fail-closed denetimi/düzeltmesi
-      -> W2 mevcut canlı sonuç etki denetimi
-          -> W3 174 fiyat hücresi ve ticker lineage
-          -> W4 Ek4 fiyat/getiri sözleşmesi
-              -> W5 tarihsel SMRTG M2 canary
-                  -> W6 tarihsel M2 kapsam genişletme
-                      -> W7 tarihsel Total/P4
-                          -> W8 P5 60 aylık backtest
-                              -> W9 P6 final denetim
+  -> W1 pre-change baseline + canlı fail-closed denetimi/düzeltmesi
+      -> W2 canlı sonuç provenance/etki denetimi
+          -> W5 tarihsel SMRTG M2 canary
+              -> W6 tarihsel M2 kapsam genişletme
+                  -> W7-A ilk gerçek tarihsel Total canary
+                  -> W7-B artımlı gerçek P4 skor/sıralama
+                      -> W8 deneysel P5 60 aylık ledger
+                          -> W9 P6 final denetim
 
-W6-B BANK ve W10 authoritative P7, bağımlılıkları elverdiğinde paralel
-araştırılabilir; ana fail-closed zincirini atlatamaz.
+PARALEL, ANA M2 HATTINI BLOKLAMAZ
+W3 fiyat popülasyonları + ticker lineage -------> W8 seçili işlemler kapısı
+                                              \-> W9 tam V24-G kapısı
+W4 Ek4 sözleşme denetimi ----------------------> W7-B final kabul kapısı
+W6-B BANK coe/macro_cap -----------------------> BANK kapsamı; NONFIN'i bloklamaz
+W10 authoritative P7 --------------------------> authoritative etiket; deneysel
+                                                  W5-W9 hattını bloklamaz
 ```
+
+Karar gerekçesi:
+
+- Kullanıcının birincil hedefi 3.017 adet 5/6 hücreyi M2 ile açmaktır. Bu
+  nedenle execution-price ve Ek4 araştırması tarihsel SMRTG/M2'nin önüne
+  geçirilemez.
+- W1 güvenlik işi önce gelir; yeni skor üretmeden önce eksik verinin gerçek
+  skora dönüşemediği kanıtlanmalıdır.
+- W7 bütün W6 araştırmasının bitmesini beklemez. İlk gerçek tarihsel M2 ile
+  canary Total; her yeni güvenli grup ile artımlı P4 üretilir.
+- W8 için bütün evrenin fiyatının var olması şart koşulmaz: deneysel portföyde
+  yalnız gerçekten seçilen alış/satışların exact execution fiyatı zorunludur.
+  Buna karşılık tam V24-G/authoritative readiness bütün gerekli registry ve
+  execution-price kapsamını W9'da ister.
 
 ## 5. İş paketleri ve kabul ölçütleri
 
@@ -104,9 +133,18 @@ Durum: **DONE** (bu defterin ilk sürümü)
 
 Kabul: Bu belge ve Issue #37 aynı head/durum bilgisini gösterir.
 
-### W1 — Canlı M2, M3 ve Ek9 fail-closed güvenliği
+### W1 — Pre-change baseline ve canlı M2/M3/Ek9 fail-closed güvenliği
 
-Durum: **TODO**
+Durum: **TODO — ANA HAT**
+
+#### W1-0 — Değişiklik öncesi immutable baseline
+
+- Current valuation/FOLLOW/M2/M3/Ek9/Total/ranking artifact'larının mevcut
+  dosya hashleri ve satır sayıları kod değişmeden kaydedilir.
+- Aktif 48 M2, 11 Ek9 ve iki Total satırı baseline dataset olarak dondurulur.
+- Kaynak tablo/kolon nullability envanteri ile çalıştırma komutu receipt'e
+  yazılır.
+- Bu baseline alınmadan W1-A/B/C davranış değişikliği yapılamaz.
 
 #### W1-A — M2 NULL/NaN çağrı zinciri
 
@@ -116,11 +154,14 @@ Durum: **TODO**
 - Eksik M2, Total'e gerçek skor olarak giremez; explicit rejection/provenance
   sonucu üretir.
 - Gerçek `0.5` skoru ile eksik değerin semantik olarak ayrıldığı test edilir.
+- Gerçek çağrı zinciri riske ulaşmıyorsa `NO_PRODUCTION_REACHABILITY` olarak
+  kanıtlanır ve gereksiz veri modeli değişikliği yapılmaz.
 
 #### W1-B — M3 NULL/NaN çağrı zinciri
 
 - M3'teki eşdeğer `fillna(0.5)` yolları ayrı denetlenir.
 - Eksik M3, gerçek nötr skor gibi davranamaz.
+- M2 sonucu M3 için kanıt sayılmaz; iki yol ayrı test ve receipt alır.
 
 #### W1-C — Canlı Ek9 seyrek fiyat yolu
 
@@ -128,6 +169,8 @@ Durum: **TODO**
   seri ve NaN standart sapma testleri yazılır.
 - `NaN std -> 0 volatilite -> Ek9=1` yolu kapatılır.
 - Tarihsel replay'in 64 fiyat/63 sonlu getiri fail-closed davranışı korunur.
+- Canlı risk ile tarihsel `STOCK_WINDOW_PRICE_MISSING` popülasyonu birbirine
+  karıştırılmaz.
 
 Kabul:
 
@@ -138,10 +181,10 @@ Kabul:
 
 ### W2 — Canlı 48 M2 / 2 Total provenance ve etki denetimi
 
-Durum: **TODO**
+Durum: **BLOCKED BY W1 — ANA HAT**
 
-- W1 düzeltmelerinden hemen önce ve sonra current artifact zinciri yeniden
-  üretilir.
+- W1-0 immutable baseline ile her W1-A/B/C alt değişikliğinden sonraki current
+  artifact ayrı karşılaştırılır; yalnız toplu son karşılaştırmaya güvenilmez.
 - 48 M2, 11 Ek9 ve iki Total satırının hangi tablo/fonksiyon/kaynak satırından
   geldiği izlenir.
 - Her satır `UNAFFECTED`, `CHANGED_VALID`, `REJECTED_AFTER_FIX` veya
@@ -152,12 +195,25 @@ Durum: **TODO**
 Kabul: Eski ve yeni artifact farkı, satır bazında reason/provenance ve toplam
 sayılarla yayımlanır; açıklanamayan fark kalmaz.
 
-### W3 — 174 execution fiyat hücresi ve ticker lineage
+### W3 — Ayrı fiyat popülasyonları ve ticker lineage
 
-Durum: **TODO**
+Durum: **TODO / PARALLEL — W5/W6'YI BLOKLAMAZ**
 
-Her hücre ticker+cutoff+execution tarihiyle aşağıdaki tekil nedenlerden birine
-atanır:
+Önce aşağıdaki üç sayı ayrı sözleşme ve anahtarla yeniden üretilir. Kesişim
+raporu çıkarılmadan birbirinin yerine kullanılamaz veya toplanamaz:
+
+| Popülasyon | Mevcut sayı | Anlamı | Anahtar | Etkilediği kapı |
+|---|---:|---|---|---|
+| `PRICE_MISSING` | 163 | P3/P4 materialization içindeki fiyat/M2 kaynak reddi | ticker + cutoff/month | İlgili M2 hücresi |
+| `EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING` | 174 | 52 ayda readiness/execution açığı | ticker + signal/execution date | Seçili işlem ve tam V24-G |
+| `STOCK_WINDOW_PRICE_MISSING` | 402 | Ek9 lookback penceresi eksiği | ticker + analysis window | Tarihsel Ek9 |
+
+163 hücre ana M2 işinin önüne topluca geçirilmez. W6 sırasında doğrudan gerçek
+Total'e dönüşebilecek bir hücreyi bloke ediyorsa hücre bazında ele alınır;
+aksi halde paralel fiyat hattında kalır.
+
+174 execution hücresi ticker+signal/execution tarihiyle aşağıdaki tekil
+nedenlerden birine atanır:
 
 - `TICKER_LINEAGE`
 - `NO_TRADING_SESSION_OR_NO_TRADE`
@@ -178,12 +234,18 @@ atanır:
   varsayımı olmadan hücre bazında ele alınır.
 - Ücretsiz/resmî Borsa İstanbul, KAP ve repo-içi THB kanıt yolları tüketilir.
 
-Kabul: 174/174 hücre reason-code exhaustiveness; düzelen her hücre için kaynak
-ve tarih kanıtı; çözülemeyenler için ayrıntılı `BLOCKED` listesi.
+Kabul:
+
+- Üç popülasyonun üretici artifact'ı, anahtarı, kesişimi ve farkı yayımlanır.
+- 174/174 execution hücresi reason-code exhaustiveness kazanır.
+- Düzelen her hücre için kaynak ve tarih kanıtı; çözülemeyenler için ayrıntılı
+  `BLOCKED` listesi bulunur.
+- Deneysel P5 yalnız seçilen işlemlerin exact fiyatını gerektirir; tam
+  V24-G/authoritative kapanışta gerekli 174 kapsamı ve registry eksiksizdir.
 
 ### W4 — Ek4 fiyat/getiri sözleşmesi ve asimetri denetimi
 
-Durum: **TODO**
+Durum: **TODO / PARALLEL — W7-B FINAL KABUL KAPISI**
 
 - Hisse tarafındaki `COALESCE(adj_close, close)` ile raw sektör endeksi
   kullanımının mevcut kilitli sözleşmeye uyumu incelenir.
@@ -202,7 +264,7 @@ kanıtsız matematik/model değişikliği yapılmaz.
 
 ### W5 — Tarihsel SMRTG M2 canary
 
-Durum: **TODO**
+Durum: **BLOCKED BY W2 — ANA HAT**
 
 - `SMRTG 2023-08` için pay/action kapısını geçen mevcut gerçek kanıt yeniden
   doğrulanır.
@@ -214,10 +276,12 @@ Durum: **TODO**
 
 Kabul: Canary ya gerçek tarihsel M2+provenance üretir ya da tam neden ve yeniden
 açma koşuluyla `BLOCKED` kalır. Sonuç canlı 48 M2/2 Total'den ayrı artifact'tır.
+Gerçek M2 çıkarsa aynı commit serisinde W7-A canary Total denenir; W6'nın tam
+bitmesi beklenmez.
 
 ### W6 — Tarihsel M2 kapsamını mümkün olan en yükseğe çıkarma
 
-Durum: **TODO**
+Durum: **BLOCKED BY W5 INITIAL AUDIT — ANA HAT**
 
 Öncelik 3.017 adet 5/6 modüllü hücredir. Son doğrulanmış araştırma dağılımı:
 
@@ -240,8 +304,12 @@ Toplam NONFIN 2.173 hücredir; `1.749 + 423 = 2.172`, kalan hücre canary'dir.
   üzerinden çıkarılır.
 - Her hücre başarı veya explicit rejection üretir; M2'nin 6.000 hücrede tam
   olması beklenmez.
-- Yeterli gerçek tarihsel M2 oluşur oluşmaz W7 başlatılır; çözülemeyen diğer
+- Her yeni gerçek M2 kohortu W7-B'ye artımlı olarak aktarılır; çözülemeyen diğer
   hücreler çalışmayı topluca durdurmaz.
+- "Yeterli M2" için kanıtsız tek sayı eşiği icat edilmez. Hazırlık katmanları:
+  `M2_CANARY_READY` (en az bir gerçek M2), `P4_INCREMENTAL_READY` (en az bir
+  altı-modüllü gerçek Total) ve aylık kapsam raporuyla `P5_INPUT_READY` olarak
+  ayrı ilan edilir.
 
 Kabul: Tarihsel gerçek M2 sayısı, cohort dağılımı, rejection dağılımı,
 provenance ve deterministik ikinci üretim yayımlanır.
@@ -261,7 +329,16 @@ aralığı; aksi halde hücre bazlı `BLOCKED`.
 
 ### W7 — Gerçek tarihsel Total ve P4 scored/ranking
 
-Durum: **BLOCKED BY W5/W6**
+Durum: **W7-A BLOCKED BY W5; W7-B W6 İLE ARTIMLI — ANA HAT**
+
+#### W7-A — Canary Total
+
+- İlk gerçek tarihsel M2'nin diğer beş gerçek modülü varsa aynı hücre mevcut
+  production combiner'a verilir.
+- Başarı tek hücrelik motor/provenance kanıtıdır; 60 aylık backtest başarısı
+  diye sunulmaz.
+
+#### W7-B — Artımlı P4 scored/ranking
 
 - Yeterli gerçek M2 taşıyan hücreler mevcut production combiner ile hesaplanır.
 - Eksik modül neutral-fill edilmez, ağırlık yeniden dağıtılmaz.
@@ -270,12 +347,17 @@ Durum: **BLOCKED BY W5/W6**
   zor olduğu sonuç dağılımında görünür kılınır; bu aşamada kural değiştirilmez.
 - Aylık sıralama skor azalan, ticker artan deterministik tie-break ile üretilir.
 
-Kabul: Gerçek scored/rejected hücreler, aylık sıralamalar, iki bit-level aynı
-üretim, full regression ve CI.
+Kabul:
+
+- Canary için en az bir gerçek altı-modüllü Total veya kanıtlı blocker.
+- Ölçekli çıktı için 60 ayın her birinde `RANKING_AVAILABLE`,
+  `NO_VALID_TOTAL_CASH` veya `BLOCKED` durumu bulunur.
+- Gerçek scored/rejected hücreler, aylık sıralamalar, iki bit-level aynı üretim,
+  W4 sözleşme kararı, full regression ve CI bulunur.
 
 ### W8 — P5 60 aylık gerçek backtest
 
-Durum: **BLOCKED BY W7**
+Durum: **BLOCKED BY W7-B; SELECTED-TRADE PRICE DEPENDS ON W3 — ANA HAT**
 
 - 2021-08..2026-07, `TOTAL_RASYO_MONTHLY_OPEN_V1`, en fazla altı hisse,
   AL/İZLE/UZAK ve mevcut katkı kuralları korunur.
@@ -283,13 +365,21 @@ Durum: **BLOCKED BY W7**
 - XU100 benchmark, nakit/faiz varsayımı, temettü/kurumsal işlem muhasebesi,
   işlem maliyeti ve vergi kapsamı açıkça belirtilir; varsayılanlar gizlenmez.
 - Yalnız nakit kalan aylar performans başarısı diye etiketlenmez.
+- Bütün 174 evren hücresinin çözülmesi deneysel P5'i otomatik bloklamaz. Ancak
+  seçilmiş/alınmış/satılmış her ticker+tarih için exact execution price şarttır;
+  eksikse o ay sessizce başka hisseye kaydırılmaz ve `EXECUTION_BLOCKED` olur.
+- P5 durumları ayrı tutulur:
+  `P5_STARTED` (en az bir gerçek trade-eligible ranking),
+  `P5_60M_LEDGER_COMPLETE` (60 ayın tamamı deterministik trade/cash/blocker),
+  `P5_PERFORMANCE_INTERPRETABLE` (seçili işlem fiyatları eksiksiz ve kapsam
+  sınırlamaları açık).
 
 Kabul: 60 aylık score/decision snapshot, trade ledger, portfolio NAV, benchmark,
 nakit korunumu, look-ahead mutasyonları ve yeniden üretim receipt'i.
 
 ### W9 — P6 final denetim ve kapanış kararı
 
-Durum: **BLOCKED BY W8**
+Durum: **BLOCKED BY W8; FULL V24-G ALSO DEPENDS ON W3/W10**
 
 - Source -> module -> Total -> decision -> trade -> NAV lineage bağımsız olarak
   yeniden oynatılır veya hash/contract ile doğrulanır.
@@ -298,6 +388,8 @@ Durum: **BLOCKED BY W8**
   aynı final head'e bağlanır.
 - Experimental ve authoritative sonuç etiketleri karıştırılmaz.
 - Gerekli CI tamamlanmadan teknik kapanış ilan edilmez.
+- Deneysel P5 tamamlanması tam V24-G anlamına gelmez. Tam V24-G; gerekli bütün
+  execution-price/registry kapsamını ve authoritative kapıları ayrıca ister.
 
 Kabul: `PASS`, `PASS_WITH_EXPLICIT_RISK` veya kanıtlı `BLOCKED` kararı; açık iş
 varken `DONE`/V24-G READY iddiası yoktur.
@@ -315,11 +407,25 @@ Durum: **TODO / PARALLEL**
 
 Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `BLOCKED`.
 
-## 6. İlerleme kaydı
+## 6. Kesin karar kaydı
+
+| Karar | Sonuç |
+|---|---|
+| Ana öncelik | Canlı fail-closed güvenliği sonrası doğrudan SMRTG ve tarihsel M2 |
+| Fiyat eksikleri | 163, 174 ve 402 ayrı popülasyon; ana M2 hattını topluca bloke etmez |
+| Ek4 | Paralel sözleşme denetimi; W7-B final kabulünden önce kapanır |
+| P4 başlama kapısı | İlk gerçek altı-modüllü tarihsel hücre; W6'nın bütünü beklenmez |
+| P5 başlama kapısı | En az bir gerçek trade-eligible aylık ranking |
+| P5 execution kuralı | Yalnız seçilen her işlem için exact fiyat zorunlu; eksikse ay blocker |
+| Tam V24-G | Gerekli full registry/execution kapsamı ve W10 authoritative sınırı ayrı |
+| BANK | Paralel; NONFIN M2 ilerlemesini bloklamaz |
+| Model değişikliği | Bu yürütme planı kapsamında yok; ayrı açık kullanıcı kararı gerekir |
+
+## 7. İlerleme kaydı
 
 | Tarih | Head | İş | Durum | Kanıt |
 |---|---|---|---|---|
-| 2026-09-12 | `e55d1df` | W0 durum/yönetişim kilidi | DONE | PR #40 CI başarılı; Issue #37 ve bu defter senkronize edilecek |
+| 2026-09-12 | `6336681` | W0 durum/yönetişim kilidi | DONE | Issue #37/PR #40 senkronize; altı workflow SUCCESS |
+| 2026-09-12 | bu belge commit'i | Plan bağımlılık denetimi | DONE | M2 ana hattı düzeltildi; üç fiyat popülasyonu ve artımlı P4/P5 kapıları ayrıştırıldı |
 
 Sonraki zorunlu adım: **W1 — canlı M2/M3/Ek9 fail-closed denetimi**.
-
