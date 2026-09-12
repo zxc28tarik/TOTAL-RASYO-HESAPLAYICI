@@ -110,7 +110,11 @@ def baseline(output):
         output.mkdir(parents=True, exist_ok=True)
         with target.open("xb") as stream:
             stream.write(encoded(doc))
-    return read(target)
+    doc = read(target)
+    for entry in doc["live_files"]:
+        if fingerprint(ROOT / entry["path"])["lf_sha256"] != entry["lf_sha256"]:
+            raise ValueError("W2_FROZEN_INPUT_CHANGED:"+entry["path"])
+    return doc
 
 
 def primary_replay(output, archive_dir):
@@ -317,6 +321,12 @@ def assemble(output):
     regenerated = {name: indexed(value) for name, value in rebuilt.items()}
     original_core = indexed(rows(LIVE / "current_core_modules_v1/modules.jsonl"))
     regenerated_core = indexed(evidence["regenerated"]["core"])
+    old_core = json.loads(gzip.decompress((output / "original_core_replay.json.gz").read_bytes()))
+    if old_core["differences_from_archived_core"] or differences(
+            list(original_core.values()), old_core["regenerated_core"]):
+        raise ValueError("ORIGINAL_CORE_ARTIFACT_NOT_REPRODUCED")
+    validate_lineage(dict(reports=evidence["reports"], used_facts=old_core["used_facts"],
+        nonfin_quarters={}, core_diagnostics=old_core["original_core_diagnostics"]))
     original_market = pd.read_csv(LIVE / "current_market_modules_v1/modules.csv").set_index("ticker")
     totals = rows(LIVE / "current_total_scores_v1/totals.jsonl")
     changed = set(git("diff", "--name-only", BASE, START, "--", "src", "scripts").splitlines())
@@ -334,6 +344,10 @@ def assemble(output):
     caps = pd.read_csv(LIVE / "current_price_level_basis_v1/market_caps.csv").set_index("ticker")
     bundles = {r["ticker"]: r for r in read(LIVE / "current_price_level_basis_v1/action_bundle_index.json")["entries"]}
     for ticker, row in original["m2"].items():
+        if (row["score_inputs"]["follow_active"] is not True or
+            original["valuations"][ticker]["status"] != "OK" or
+            original["previous_valuations"][ticker]["status"] != "OK"):
+            raise ValueError("CONSUMED_M2_AXIS_NOT_VALID")
         diffs = {key: differences(original[key].get(ticker), regenerated[key].get(ticker)) for key in rebuilt}
         trace = {
             "generator": "scripts/materialize_current_nonfin_valuation.py:materialize",
@@ -384,6 +398,9 @@ def assemble(output):
             "classification": "UNRESOLVED" if component_changes else "UNAFFECTED",
             "before": row["final_score"], "after_w1_only": phase_values["W1_C"],
             "latest_core_replay_total": latest, "differences": component_changes,
+            "w1_effect": "UNAFFECTED",
+            "source_provenance_status": "REPRODUCED_WITH_ORIGINAL_GENERATOR",
+            "current_engine_consistency": "STALE_CORE_REFRESH_REQUIRED" if component_changes else "MATCH",
             "phases": phase_values, "provenance": {"original_module_inputs": row,
                 "original_core_row": original_core[ticker], "latest_core_replay_row": core,
                 "core_generator_commit": git("log", "-1", "--format=%H", START, "--", "data/live/current_core_modules_v1/modules.jsonl"),
@@ -409,6 +426,17 @@ def assemble(output):
         "network_access": False, "production_or_live_artifacts_modified": False,
         "target_counts": dict(Counter(r["module"] for r in output_rows)),
         "classification_counts": dict(Counter(r["classification"] for r in output_rows)),
+        "w1_only_changed_target_count": sum(bool(differences(r["phases"]["BASELINE"], r["phases"]["W1_C"]))
+            for r in output_rows if r["module"] in {"Ek9", "Total"}),
+        "audit_result": "SOURCE_AUDIT_COMPLETE_WITH_REQUIRED_CORE_REFRESH",
+        "clean_current_score_acceptance": False,
+        "root_cause": {"original_core_commit": old_core["generator_commit"],
+            "original_core_replayed_rows": len(old_core["regenerated_core"]),
+            "original_core_differences": [],
+            "derivation_fix_commit": "fad20cccc88f230628999c1a06770c0f7329a12c",
+            "reason": "CORE_ARTIFACT_NOT_REGENERATED_AFTER_PRE_W1_FLOW_DERIVATION_FIX"},
+        "generator_source_blobs_at_start": {p: git("rev-parse", START+":"+p)
+            for p in sorted(set().union(*map(set, closures.values())))},
         "core_replay_changed_ticker_count": len(core_changes),
         "source_replay_count": {k: len(v) for k, v in evidence["regenerated"].items()},
         "primary_bytes_replayed_locally": True, "primary_archives_available_in_ci": False,
@@ -416,10 +444,35 @@ def assemble(output):
         "stale_run_receipt": {"path": "data/live/current_total_rasyo_run_v1/receipt.json",
             "status": "STALE_2026_09_08_RUN_NOT_CURRENT_COMPONENT_ASSEMBLY",
             "old_m2": 0, "old_total": 0, "current_m2": 48, "current_total": 2},
-        "outputs": {p.name: sha(p) for p in (output / "primary_replay.json.gz", output / "rows.jsonl", output / "phases.json")}}
+        "outputs": {p.name: sha(p) for p in (output / "primary_replay.json.gz", output / "original_core_replay.json.gz",
+                    output / "rows.jsonl", output / "phases.json")}}
     (output / "receipt.json").write_bytes(encoded(summary))
     print(json.dumps(summary), flush=True)
     return summary
+
+
+def check_artifacts(output):
+    """Second process/pass: verify committed hashes, then independently rerun snapshots/phases."""
+    import shutil
+    baseline(output)
+    receipt = read(output / "receipt.json")
+    for name, expected in receipt["outputs"].items():
+        if sha(output / name) != expected:
+            raise ValueError("W2_EVIDENCE_HASH_MISMATCH:"+name)
+    if sha(output / "baseline.json") != receipt["input_baseline_sha256"]:
+        raise ValueError("W2_BASELINE_HASH_MISMATCH")
+    with tempfile.TemporaryDirectory(prefix="rasyo-w2-second-pass-") as directory:
+        replay = Path(directory)
+        for name in ("baseline.json", "primary_replay.json.gz", "original_core_replay.json.gz"):
+            shutil.copyfile(output / name, replay / name)
+        regenerated = assemble(replay)
+        changes = differences(rows(output / "rows.jsonl"), rows(replay / "rows.jsonl"))
+        if changes:
+            raise ValueError("W2_ROW_REPLAY_MISMATCH:"+str(changes[:10]))
+        for key in ("target_counts", "classification_counts", "root_cause", "core_replay_changed_ticker_count"):
+            if differences(receipt[key], regenerated[key]):
+                raise ValueError("W2_RECEIPT_REPLAY_MISMATCH:"+key)
+    print("W2 second pass PASS: source hashes + 61 rows + separate W1 phases; 2 stale CORE totals remain explicit", flush=True)
 
 
 def main():
@@ -428,6 +481,7 @@ def main():
     parser.add_argument("--archive-dir", type=Path, default=ROOT / "private/reconstructed_kap_archives")
     parser.add_argument("--primary-replay", action="store_true")
     parser.add_argument("--assemble", action="store_true")
+    parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     baseline(args.output_dir)
     if args.primary_replay:
@@ -438,6 +492,8 @@ def main():
             print(name, "differences", differences(rows(source), actual)[:30], flush=True)
     if args.assemble:
         assemble(args.output_dir)
+    if args.check:
+        check_artifacts(args.output_dir)
 
 
 if __name__ == "__main__":

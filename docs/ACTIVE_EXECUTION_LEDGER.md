@@ -199,16 +199,24 @@ Kabul:
 
 ### W2 — Canlı 48 M2 / 2 Total provenance ve etki denetimi
 
-Durum: **IN_PROGRESS — ANA HAT**
+Durum: **BLOCKED — CORE ARTIFACT YENİLEMESİ GEREKLİ**
 
 Başlangıç head'i `f3731ce`; 849 ham KAP raporundan 20.580 kullanılan olgu
 yeniden türetildi. 48 M2/FOLLOW ve 11 Ek9 W1-A/B/C'den etkilenmiyor.
 Ancak 8 Eylül CORE artifact'ı güncel türetmeyle 130/131 satırda farklı:
-RGYAS/TABGD Total girdileri de etkileniyor. Eski üretim commit'iyle ek
-doğrulama sürüyor; iki Total henüz güncel kaynak kapanışı almıyor.
+RGYAS/TABGD Total girdileri de etkileniyor. Eski üretim commit'i `e93b7c5`
+ile 131/131 satır birebir yeniden üretildi; neden, W1 öncesi `fad20cc` akış
+türetme düzeltmesinden sonra CORE'un yenilenmemesi olarak doğrulandı.
+59 hedef satır UNAFFECTED; iki Total güncel-kod uyumu açısından UNRESOLVED.
+[W2 tam denetim ve düzeltme planı](W2_CURRENT_PROVENANCE_AUDIT.md).
 [W2 satır denetimi](../data/audit/w2_current_provenance_v1/rows.jsonl) ve
 [phase receipt](../data/audit/w2_current_provenance_v1/receipt.json).
 Canlı artifact, model ve eşikler değiştirilmedi; W5 başlatılmadı.
+
+Yeniden açma: audit bulgusuna dayanarak CORE → Total/ranking → güncel assembly
+receipt yenilemesi yetkilendirilmeli; aynı donmuş kaynaklarla üretilip final
+CI geçmelidir. Ücretli veri veya yeni tarihsel tarama gerekmiyor. Ayrıntılı
+hücre/alan farkları ve tüketilen kanıt yolları W2 raporunda kayıtlıdır.
 
 - W1-0 immutable baseline ile her W1-A/B/C alt değişikliğinden sonraki current
   artifact ayrı karşılaştırılır; yalnız toplu son karşılaştırmaya güvenilmez.
@@ -456,6 +464,6 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-12 | bu belge commit'i | Plan bağımlılık denetimi | DONE | M2 ana hattı düzeltildi; üç fiyat popülasyonu ve artımlı P4/P5 kapıları ayrıştırıldı |
 
 | 2026-09-12 | `f3731ce` | W1 canlı fail-closed kapanışı | DONE | Altı final-head CI PASS; Issue #37 |
-| 2026-09-13 | W2 başlangıcı `f3731ce` | W2 kaynak/etki denetimi | IN_PROGRESS | Ham KAP replay ve 61 satır karşılaştırması; eski CORE üretimi ayrıca doğrulanıyor |
+| 2026-09-13 | W2 başlangıcı `f3731ce` | W2 kaynak/etki denetimi | BLOCKED | Kaynak denetimi tamamlandı; 130/131 eski CORE ve 2 Total için yetkili artifact yenilemesi gerekiyor |
 
-Sonraki zorunlu adım: **W2 — kaynak/etki denetimini bulgularıyla kapatmak**.
+Sonraki zorunlu adım: **W2 düzeltmesi — onay sonrası CORE → Total/ranking → receipt yenilemesi**.

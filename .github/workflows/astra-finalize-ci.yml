@@ -34,6 +34,8 @@ jobs:
       TOTAL_RASYO_TEST_DSN: postgresql://postgres:postgres@localhost:5432/total_rasyo_test
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # W2 replays the pinned pre-W1 modules from Git history.
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -56,6 +58,9 @@ jobs:
       - name: W1 frozen current output smoke check
         if: '!cancelled()'
         run: python scripts/audit_w1_frozen_outputs.py --output w1-frozen-outputs.json
+      - name: W2 current provenance and original-code phase replay
+        if: '!cancelled()'
+        run: python scripts/audit_w2_current_provenance.py --check
       - uses: actions/upload-artifact@v4
         if: always()
         with:

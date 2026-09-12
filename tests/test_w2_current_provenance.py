@@ -1,6 +1,3 @@
-import copy
-from pathlib import Path
-
 import pytest
 
 from scripts.audit_w2_current_provenance import differences, indexed, validate_lineage
@@ -45,3 +42,18 @@ def test_tampered_primary_lineage_is_rejected(mutation):
             "KAP:456" if mutation == "disclosure" else "2026-09-02T00:00:00+00:00")
     with pytest.raises(ValueError, match="IDENTITY_MISMATCH"):
         validate_lineage(data)
+
+
+@pytest.mark.parametrize("replacement,changed", [(b"original\r\n", False), (b"changed\n", True)])
+def test_baseline_allows_only_checkout_newlines(monkeypatch, tmp_path, replacement, changed):
+    from scripts import audit_w2_current_provenance as audit
+    monkeypatch.setattr(audit, "ROOT", tmp_path)
+    source = tmp_path / "source.txt"
+    source.write_bytes(b"original\n")
+    (tmp_path / "baseline.json").write_bytes(audit.encoded({"live_files": [audit.fingerprint(source)]}))
+    source.write_bytes(replacement)
+    if changed:
+        with pytest.raises(ValueError, match="W2_FROZEN_INPUT_CHANGED"):
+            audit.baseline(tmp_path)
+    else:
+        audit.baseline(tmp_path)
