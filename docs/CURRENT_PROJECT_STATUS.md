@@ -1,5 +1,18 @@
 # Total Rasyo Hesaplayıcı — Güncel Proje Durumu
 
+> **2026-09-12 aktif yürütme kaydı:** Kalan bütün teknik işler, sıraları,
+> değiştirilemez güvenlik kuralları ve adım bazlı kabul ölçütleri artık
+> [ACTIVE_EXECUTION_LEDGER.md](ACTIVE_EXECUTION_LEDGER.md) içinde tutulur.
+> GitHub [Issue #37](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/issues/37)
+> kısa ve canlı ana panodur. Her anlamlı adımda belge + issue + PR + receipt +
+> commit/push + CI durumu birlikte güncellenmeden iş kapanmış sayılmaz.
+>
+> Doğrulanmış başlangıç `e55d1df`'dir: bu revert, aktif dosya ağacını
+> `fad20cc` ile birebir aynı duruma getirir. Aktif canlı sonuç 48 gerçek M2,
+> 11 Ek9 ve 2 Total/ranking'dir; tarihsel PIT M2 hâlâ 0'dır. Bu iki sonuç hattı
+> birbirine eklenmez. `e55d1df` sabit taban değildir; her yeni çalışma uzak
+> dalın daha yeni doğrulanmış head'ini koruyarak başlar.
+
 > 2026-09-05: Kalan işler kullanıcı kararıyla Codex/Astra'ya devredildi.
 > [Yetki ve ikinci denetim sözleşmesi](ASTRA_EXECUTION_AUTHORIZATION.md) bundan
 > sonraki işler için aşağıdaki Claude adıyla denetim şartının yerini alır.
