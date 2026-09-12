@@ -26,9 +26,7 @@ jobs:
       - name: Verify gap and production Ek9 regression
         run: python -m pytest -q tests/test_current_ek9_gap_repair.py tests/test_historical_pit_ek9_replay.py tests/test_ek9_live_compatibility.py
       - name: Capture exact missing prices and verify overlapping price bases
-        run: python scripts/repair_current_ek9_gaps.py --capture
-      - name: Recompute current Total and upper receipt from current artifacts
-        run: python scripts/run_current_total_rasyo.py --date 2026-09-08 --offline --reuse-current-core --reuse-derived
+        run: python scripts/repair_current_ek9_gaps.py --capture --combine-current
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -40,4 +38,5 @@ jobs:
             data/live/current_total_rasyo_run_v1/
             data/live/current_total_rasyo_v1/receipt.json
             data/live/current_total_rasyo_v1/rejections.jsonl
+            data/live/current_total_rasyo_v1/universe.csv.meta.json
           retention-days: 30
