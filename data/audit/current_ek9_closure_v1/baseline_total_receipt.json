@@ -1,0 +1,32 @@
+{
+  "contract": "CURRENT_TOTAL_RASYO_MATERIALIZATION_V1",
+  "explicit_rejection_count": 805,
+  "inputs": {
+    "m2.jsonl": "eafd5edfa363a65ec2810ae15d42ac5e7b84bc0666ac0ae67ab79f9ee4af0b06",
+    "modules.csv": "ff4bb222ac34465923410a8f6886bc06f4982b7cef10833db670c391e5c2cfd8",
+    "modules.jsonl": "2a808eaa367db556ce81e295b8529f4cb7e05da8002ca83052b8867b2bddd935",
+    "universe.csv": "52d38b69a462e19604f2ad8c5400e18696cb6e7a6f3fdf7b46333180442c1da6"
+  },
+  "m2_input_count": 48,
+  "materialized_at": "2026-09-10T20:29:06.346647+00:00",
+  "missing_module_counts": {
+    "Ek1": 676,
+    "Ek4": 661,
+    "Ek9": 796,
+    "M1": 676,
+    "M2": 759,
+    "M3": 661
+  },
+  "neutral_fill": false,
+  "outputs": {
+    "ranking.jsonl": "bd8cf33a288511c136d89450d0516c9e38974d55496add051c2ce1d70c19703b",
+    "rejections.jsonl": "8c8c73b075c508ac08f7116e2173c72aa1648f5dccdfde12f10565706288b987",
+    "totals.jsonl": "bd8cf33a288511c136d89450d0516c9e38974d55496add051c2ce1d70c19703b"
+  },
+  "production_formula": "src.analytics.total_rasyo_score.compute_total_rasyo",
+  "ranking_count": 2,
+  "ranking_order": "final_score DESC, ticker ASC",
+  "total_valid_count": 2,
+  "universe_count": 807,
+  "weight_redistribution": false
+}

@@ -1,0 +1,25 @@
+{
+  "baseline_head": "fad20cccc88f230628999c1a06770c0f7329a12c",
+  "explicit_rejections": 761,
+  "independent_ek9_replay_count": 55,
+  "local_tests": {
+    "deselected": 1,
+    "deselected_reason": "official_quote_pdf_not_materialized_in_partial_local_checkout",
+    "passed": 34
+  },
+  "m3_ek4_unchanged": true,
+  "neutral_fill": false,
+  "old_ek9_exactly_preserved": true,
+  "old_stock_rows_preserved": 72949,
+  "old_totals_exactly_preserved_except_rank": true,
+  "production_math_changed": false,
+  "real_dated_rows_added": 44,
+  "source_artifact_id": 10300189340,
+  "source_capture_head": "c75d471afcaea501001d0c7cf0891249d6e6ea4b",
+  "source_run_id": 34701961016,
+  "source_zip_sha256": "43163326eab66765205a0fc817919e3f7af415a8ee13aec6ccade812980fd266",
+  "status": "PASS",
+  "total_count": 46,
+  "upper_child_hashes_verified": 10,
+  "weight_redistribution": false
+}

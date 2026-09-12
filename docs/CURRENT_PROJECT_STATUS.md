@@ -5,6 +5,23 @@
 > sonraki işler için aşağıdaki Claude adıyla denetim şartının yerini alır.
 > Teknik kapanışlar henüz ilan edilmedi; entegrasyon dalı `codex/astra-v24-finalize`.
 
+## Current/live Ek9 sonucu — 2026-09-12
+
+Bu bölüm güncel canlı sonucu gösterir; aşağıdaki tarihsel kayıtların current
+M2 ve Total sayıları için kullanılması uygun değildir.
+
+- Başlangıç `fad20cc`; dal `codex/astra-v24-finalize`, PR #40 taslak.
+- 49 kullanılabilir valuation, 48 FOLLOW, 48 M2 korundu.
+- Ek9: **11 → 55**; yalnız Ek9 eksik 44 M2 şirketinin **44/44'ü** tamamlandı.
+- Total/ranking: **2 → 46**; açık ret: **805 → 761 / 807**.
+- 7 Eylül 2026 eksik gözlemleri ücretsiz Yahoo/Mynet yakalamalarının hash
+  doğrulamalı replay'iyle kapatıldı. 64 fiyat / 63 getiri şartı korundu.
+- M1/M3/Ek1/Ek4, üretim matematiği, veto ve ağırlıklar korundu.
+- Üst current receipt'ler eski M2=0 / Total=0 özetinden gerçek current
+  artifact'lara bağlandı. Tarihsel PIT hattı ve P5/P6 yetkileri değişmedi.
+- Kalan M2 şirketleri: DEVA/JANTS; M1/Ek1/Ek9 ve good_count eksik.
+- [Sonuç, kaynak kontrolleri ve yeniden üretim](CURRENT_EK9_CLOSURE.md).
+
 ## Astra kilit açma sonucu — 2026-09-06
 
 Mevcut P3/P4 üreticilerindeki iki gerçek bağlantı eksiği kapatıldı. Kapalı M3
@@ -38,7 +55,7 @@ ve sonuç bölümü tarihsel karşılaştırma olarak aşağıda korunur.
 
 ## Gerçek deneysel artifact zinciri — 2026-09-06
 
-Bu bölüm aktif başlangıç durumudur; aşağıdaki eski kayıtların önüne geçer.
+Bu bölüm 6 Eylül tarihsel artifact durumunun kaydıdır; current/live sonuç yukarıdadır.
 
 - 26 özgün KAP arşivinden ayrı reconstructed katalog: 15.109 rapor. İki drift arşivi kabul edilmedi; eski immutable hash'ler değiştirilmedi.
 - Ana/önceki ticker/birleşik kaynak kodu paketleri: **5.052 rapor, 199.969 semantic veri**; iki bağımsız ham okumada aynı baytlar.

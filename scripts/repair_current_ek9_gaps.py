@@ -98,6 +98,9 @@ MONTHS = {
     "Ocak": 1, "Şubat": 2, "Mart": 3, "Nisan": 4, "Mayıs": 5, "Haziran": 6,
     "Temmuz": 7, "Ağustos": 8, "Eylül": 9, "Ekim": 10, "Kasım": 11, "Aralık": 12,
 }
+MONTHS.update({name: number for number, name in enumerate((
+    "January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"), start=1)})
 
 
 def parse_mynet_rows(raw: bytes, ticker: str) -> pd.DataFrame:
@@ -136,7 +139,12 @@ def complete_with_mynet(candidate: pd.DataFrame, mynet: pd.DataFrame,
     overlap = candidate.merge(mynet, on=["ticker", "trade_date"], suffixes=("_yahoo", "_mynet"))
     if len(overlap) < 2:
         return candidate, "MYNET_OVERLAP_UNAVAILABLE"
-    if not np.allclose(overlap.close_yahoo.round(2), overlap.close_mynet, rtol=0, atol=1e-9):
+    raw_matches = np.allclose(overlap.close_yahoo.round(2), overlap.close_mynet, rtol=0, atol=1e-9)
+    adjusted_matches = (overlap.adj_close.notna().all() and np.allclose(
+        overlap.adj_close.round(2), overlap.close_mynet, rtol=0, atol=1e-9))
+    # Some Mynet historical tables reflect prior cash-dividend adjustments.
+    # Require one consistent basis across the entire overlapping window.
+    if not raw_matches and not adjusted_matches:
         return candidate, "MYNET_RAW_CLOSE_BASIS_MISMATCH"
     additions = []
     for gap in gaps:
@@ -200,7 +208,7 @@ def mynet_links(output_dir: Path):
     return session, links
 
 
-def run(*, capture: bool = False, market_dir: Path = MARKET,
+def run(*, capture: bool = False, replay_dir: Path | None = None, market_dir: Path = MARKET,
         output_dir: Path = OUTPUT) -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
     market_receipt = json.loads((market_dir / "receipt.json").read_text())
@@ -232,8 +240,22 @@ def run(*, capture: bool = False, market_dir: Path = MARKET,
     }
     audit_rows = []
     captures = []
+    if replay_dir is not None:
+        replay_receipt = json.loads((replay_dir / "receipt.json").read_text())
+        verify_outputs(replay_dir, replay_receipt)
+        if replay_receipt["cutoff_date"] != cutoff.isoformat() or replay_receipt["market_asof_date"] != market_asof.isoformat():
+            raise ValueError("replay capture period mismatch")
+        import shutil
+        for source in replay_dir.iterdir():
+            if source.name.startswith(("yahoo_", "mynet_")):
+                shutil.copyfile(source, output_dir / source.name)
+        captures = json.loads((replay_dir / "captures.json").read_text())
+    if not priority and (output_dir / "receipt.json").exists():
+        existing = json.loads((output_dir / "receipt.json").read_text())
+        verify_outputs(output_dir, existing)
+        return existing
     mynet_session, links = None, {}
-    if capture:
+    if capture and replay_dir is None:
         try:
             mynet_session, links = mynet_links(output_dir)
         except Exception as exc:
@@ -242,7 +264,16 @@ def run(*, capture: bool = False, market_dir: Path = MARKET,
     for ticker in priority:
         gaps = missing_days(stocks, ticker, window)
         disposition = "EXISTING_ARTIFACT_PRICE_GAP"
-        if capture and gaps:
+        if replay_dir is not None and gaps:
+            candidate = pd.read_csv(replay_dir / f"yahoo_{ticker}_window.csv")
+            raw_path = replay_dir / f"mynet_{ticker}.html.gz"
+            mynet = parse_mynet_rows(gzip.decompress(raw_path.read_bytes()), ticker)
+            candidate, source_disposition = complete_with_mynet(candidate, mynet, window)
+            repaired, disposition = merge_verified(repaired, ticker, window, candidate)
+            captures.append({"ticker": ticker, "provider": "HASH_VERIFIED_CAPTURE_REPLAY",
+                             "disposition": disposition, "source_disposition": source_disposition,
+                             "source_snapshot_path": raw_path.name, "source_snapshot_sha256": sha(raw_path)})
+        elif capture and gaps:
             import yfinance as yf
             captured_frame = pd.DataFrame()
             failure = None
@@ -320,7 +351,8 @@ def run(*, capture: bool = False, market_dir: Path = MARKET,
         "contract": "CURRENT_EK9_GAP_REPAIR_V1",
         "analysis_at": analysis.isoformat(), "cutoff_date": cutoff.isoformat(),
         "market_asof_date": market_asof.isoformat(),
-        "mode": "TARGETED_FREE_YAHOO_AND_MYNET_CAPTURE" if capture else "EXISTING_ARTIFACT_AUDIT",
+        "mode": "HASH_VERIFIED_FREE_CAPTURE_REPLAY" if replay_dir is not None else (
+            "TARGETED_FREE_YAHOO_AND_MYNET_CAPTURE" if capture else "EXISTING_ARTIFACT_AUDIT"),
         "priority_count": len(priority),
         "priority_ek9_valid_before": sum(t in set(previous.index) for t in priority),
         "priority_ek9_valid_after": sum(t in set(scores.index) for t in priority),
@@ -331,9 +363,21 @@ def run(*, capture: bool = False, market_dir: Path = MARKET,
         "inputs": input_hashes, "production_engine": "run_historical_pit_ek9_replay",
         "neutral_fill": False, "weight_redistribution": False, "threshold_relaxation": False,
     }
-    if capture and len(scores) > len(previous):
-        modules["ek9"] = modules.ticker.map(scores)
-        modules.to_csv(market_dir / "modules.csv", index=False)
+    if replay_dir is not None:
+        receipt["replay_source_receipt_sha256"] = sha(replay_dir / "receipt.json")
+        receipt["replay_source_analysis_at"] = replay_receipt["analysis_at"]
+    if (capture or replay_dir is not None) and len(scores) > len(previous):
+        import csv
+        import io
+        # Preserve all prior score fields exactly as serialized in the artifact.
+        rows = list(csv.reader(io.StringIO((market_dir / "modules.csv").read_text())))
+        ticker_column, ek9_column = rows[0].index("ticker"), rows[0].index("ek9")
+        for row in rows[1:]:
+            if not row[ek9_column] and row[ticker_column] in scores.index:
+                row[ek9_column] = str(float(scores[row[ticker_column]]))
+        buffer = io.StringIO()
+        csv.writer(buffer, lineterminator="\n").writerows(rows)
+        (market_dir / "modules.csv").write_text(buffer.getvalue(), encoding="utf-8")
         (market_dir / "stock_prices.csv.gz").write_bytes(gzip.compress(
             repaired.to_csv(index=False).encode(), mtime=0))
         old_rejections = [json.loads(line) for line in (market_dir / "rejections.jsonl").read_text().splitlines()]
@@ -347,6 +391,7 @@ def run(*, capture: bool = False, market_dir: Path = MARKET,
             "stock_price_row_count": len(repaired),
             "rejection_counts": dict(Counter(row["module"] + ":" + row["reason"] for row in current_rejections)),
             "ek9_gap_repair": {"path": "data/live/current_ek9_gap_repair_v1/receipt.json"},
+            "supplemental_stock_source": "MYNET_FORINVEST_DATED_CLOSE_WITH_VERIFIED_PRODUCTION_PRICE_BASIS_V1",
         })
         market_receipt["outputs"] = {name: sha(market_dir / name)
                                      for name in market_receipt["outputs"]}
@@ -455,7 +500,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--capture", action="store_true")
     parser.add_argument("--combine-current", action="store_true")
+    parser.add_argument("--replay-dir", type=Path)
     args = parser.parse_args()
-    print(json.dumps(run(capture=args.capture), indent=2))
+    print(json.dumps(run(capture=args.capture, replay_dir=args.replay_dir), indent=2))
     if args.combine_current:
         print(json.dumps(combine_current(), indent=2))

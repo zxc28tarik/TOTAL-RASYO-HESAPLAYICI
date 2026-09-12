@@ -6,6 +6,29 @@ import pandas as pd
 from scripts.repair_current_ek9_gaps import merge_verified, missing_days
 
 
+def test_mynet_dividend_adjusted_history_requires_one_consistent_whole_window_basis():
+    from scripts.repair_current_ek9_gaps import complete_with_mynet
+    window, full, _ = fixture()
+    full["adj_close"] = full["close"]
+    full.loc[:30, "adj_close"] = full.loc[:30, "close"] - 15
+    old = full.drop(index=62).copy()
+    mynet = full[["ticker", "trade_date", "adj_close"]].rename(columns={"adj_close": "close"})
+    candidate, reason = complete_with_mynet(old, mynet, window)
+    assert reason == "MYNET_REAL_RAW_CLOSE_COALESCE"
+    repaired, reason = merge_verified(old, "ABC", window, candidate)
+    assert reason == "VERIFIED_DATED_PRICE_GAP_REPAIRED"
+    assert missing_days(repaired, "ABC", window) == []
+    mynet.loc[0, "close"] = full.loc[0, "close"]
+    _, reason = complete_with_mynet(old, mynet, window)
+    assert reason == "MYNET_RAW_CLOSE_BASIS_MISMATCH"
+
+
+def test_mynet_explicit_english_month_preserves_the_same_trade_date():
+    from scripts.repair_current_ek9_gaps import parse_mynet_rows
+    raw = '<title>ABC Tarihsel Veriler</title><table><tr><th>Tarih</th><th>Son Fiyat</th></tr><tr><td>07 September 2026</td><td>18,79</td><td>18,40</td><td>18,87</td><td>100</td></tr></table>'.encode()
+    assert parse_mynet_rows(raw, "ABC").iloc[0].trade_date == "2026-09-07"
+
+
 def fixture():
     window = pd.bdate_range("2026-06-10", periods=64).strftime("%Y-%m-%d").tolist()
     full = pd.DataFrame({"ticker": "ABC", "trade_date": window,
