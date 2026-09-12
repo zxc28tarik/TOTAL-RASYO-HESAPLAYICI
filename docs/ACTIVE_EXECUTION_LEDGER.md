@@ -135,16 +135,24 @@ Kabul: Bu belge ve Issue #37 aynı head/durum bilgisini gösterir.
 
 ### W1 — Pre-change baseline ve canlı M2/M3/Ek9 fail-closed güvenliği
 
-Durum: **IN_PROGRESS — ANA HAT**
+Durum: **DONE — ANA HAT** (kod/test head'i `7ea6a1f`)
+
+`7ea6a1f` üzerindeki altı CI koşusu başarılıdır. Bu kapanış kaydını taşıyan
+yeni head için de Bölüm 1'deki `current_head == last_ci_pass_head` kapısı
+zorunludur; eşitlenene kadar panonun durumu `CI_PENDING`, teknik kapanış
+beklemededir. Nihai kabul, Issue #37'de exact-head CI kanıtıyla kaydedilir.
 
 W1-0 baseline, üretim kodu değiştirilmeden `0db6cc1` üzerinde alındı:
 [baseline.json](../data/audit/w1_live_fail_closed_v1/baseline.json).
 48 M2 / 48 FOLLOW / 11 Ek9 / 2 Total / 805 ret korunuyor; baseline yeniden
-yazılamaz. W1-A/B/C kod düzeltmeleri ve 83 hedef test tamamlandı; 6/6 mutasyon
-yakalandı. Tam regresyon/son-head CI kapısı henüz kapanmadı.
+yazılamaz. W1-A/B/C düzeltildi: Linux/PostgreSQL 2294 PASS/7 SKIP,
+Windows 2063 PASS/234 SKIP, BANK 277 PASS/1 XFAIL, W1 mutasyon 6/6 KILLED.
+NULL → geçerli skor → yeniden ret veritabanı güncelleme zinciri de geçti.
 [W1 denetim raporu](W1_LIVE_FAIL_CLOSED_AUDIT.md),
 [mutasyon receipt](../data/audit/w1_live_fail_closed_v1/mutations.json),
 [dondurulmuş çıktı kontrolü](../data/audit/w1_live_fail_closed_v1/frozen_outputs.json).
+[Kabul receipt'i](../data/audit/w1_live_fail_closed_v1/receipt.json) kaynak ve
+çıktı hashlerini, kod head'ini ve altı başarılı CI bağlantısını içerir.
 W2 ve W5 başlatılmadı; model/evren/eşik değişikliği yok.
 
 #### W1-0 — Değişiklik öncesi immutable baseline
@@ -191,7 +199,7 @@ Kabul:
 
 ### W2 — Canlı 48 M2 / 2 Total provenance ve etki denetimi
 
-Durum: **BLOCKED BY W1 — ANA HAT**
+Durum: **TODO — SIRADAKİ ANA HAT** (W1 kapanış-head CI kapısından sonra)
 
 - W1-0 immutable baseline ile her W1-A/B/C alt değişikliğinden sonraki current
   artifact ayrı karşılaştırılır; yalnız toplu son karşılaştırmaya güvenilmez.

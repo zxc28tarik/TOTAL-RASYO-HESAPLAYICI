@@ -1,0 +1,229 @@
+{
+  "contract": "W1_LIVE_FAIL_CLOSED_ACCEPTANCE_V1",
+  "scope": "W1_ONLY_NOT_W2_OR_W5",
+  "production_baseline_commit": "0db6cc19a357892afdd43b2fa103968d30ce1825",
+  "immutable_baseline_commit": "8d38aa5ca48799b0bd164559319ab78fc6de16c1",
+  "implementation_commit": "713239243aee522c2240464826db0bb78b7cb26c",
+  "accepted_code_and_test_commit": "7ea6a1f72155b73da3269d6b08282c57cfb6a736",
+  "code_acceptance": "PASS_ALL_SIX_CI_RUNS",
+  "final_tracking_head_gate": "Issue #37 current_head must equal last_ci_pass_head before final closure; receipt cannot contain its own commit hash.",
+  "source_and_artifact_fingerprints": [
+    {
+      "path": "src/analytics/run_daily_pipeline.py",
+      "sha256": "d02dfa01a2e88f94c6462274ccc3deb1311aeac48cf5a52b3a524e86964461c0",
+      "git_blob": "17ddfa4050d1fd3542c4017e61d5783872c8654d"
+    },
+    {
+      "path": "src/analytics/ek9_volatility.py",
+      "sha256": "a9754096328e21045cbbad11ba95403a238a710f46dd82d1e77f3a250477db9f",
+      "git_blob": "e6d67fde1ec2eb131c7df3e8d2414d1b81e89e9d"
+    },
+    {
+      "path": "src/analytics/historical_pit_ek9_replay.py",
+      "sha256": "0dfb1b7ef576c4afb99329cef81a82c7bd96786edba541c0a517645f6cfc00c6",
+      "git_blob": "9436d07ecb21d10404edc74ec15178b82ff27ef6"
+    },
+    {
+      "path": "src/analytics/total_rasyo_score.py",
+      "sha256": "256d6c6e328b994c6129fa80f2a6d41803db7462cfca989a6e79b3ee9736c3e7",
+      "git_blob": "35648c11e1cebbddf1652de67aef112fa995b89d"
+    },
+    {
+      "path": "config/weights.json",
+      "sha256": "7a026cd2373d43ba5391abe2bf5f9bc0a0ba6cd258c1543c78ccefd4f8898c32",
+      "git_blob": "cb441bdd6037a675478afd0f839d58f62bde792e"
+    },
+    {
+      "path": "sql/043_module_score_rejections.sql",
+      "sha256": "3c5eade1986cb4298db87502460a2cf298a40590a4b74ec95e31f3cd5f7ef4bf",
+      "git_blob": "937d36ef8a7725d7a6cf69b630a946c284c1d6be"
+    },
+    {
+      "path": "tests/test_w1_daily_score_safety.py",
+      "sha256": "9c8787cd1f01323fc695b5aa70c4a2b43c74d27bb77aa88b092af96f8b2b97d3",
+      "git_blob": "fc9add8aa00a8a3cc72ff9474460fc9132a4f5fb"
+    },
+    {
+      "path": "tests/test_w1_ek9_safety.py",
+      "sha256": "671b19b0895a30efe66421106eaf22f8fa250e15e4a64542d126ad8e3f789fed",
+      "git_blob": "7e36f7eabf76fae3c7cfada960ee6f47e001b607"
+    },
+    {
+      "path": "data/audit/w1_live_fail_closed_v1/baseline.json",
+      "sha256": "de89e23b117f785918fb4ca5912d96c51ff64995e6fb4b0f9523026f206289a6",
+      "git_blob": "f9b4316df3c323170af9c53d456fc346abf06c2a"
+    },
+    {
+      "path": "data/audit/w1_live_fail_closed_v1/mutations.json",
+      "sha256": "20c8288b19dac4cd876a1be60e622911dddf23b3e0d4445dcd724db9e20d8275",
+      "git_blob": "0df4af17151ad8e178527f5672df7cbfd31cd7f4"
+    },
+    {
+      "path": "data/audit/w1_live_fail_closed_v1/frozen_outputs.json",
+      "sha256": "33c7de7a3665fa585bf23ea3bc1496d692739f2f39f676e39539943cc037287e",
+      "git_blob": "496639dead63867a1f9bafaf1e59bd5eb262e2d1"
+    }
+  ],
+  "ci_runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 34716702707,
+      "headSha": "7ea6a1f72155b73da3269d6b08282c57cfb6a736",
+      "name": "V24 PIT Total Rasyo Replay CI",
+      "status": "completed",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34716702707"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 34716702670,
+      "headSha": "7ea6a1f72155b73da3269d6b08282c57cfb6a736",
+      "name": "Astra V24 Integration Audit",
+      "status": "completed",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34716702670"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 34716702591,
+      "headSha": "7ea6a1f72155b73da3269d6b08282c57cfb6a736",
+      "name": "V24 KAP Semantic Family CI",
+      "status": "completed",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34716702591"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 34716702594,
+      "headSha": "7ea6a1f72155b73da3269d6b08282c57cfb6a736",
+      "name": "V24 Real Sector M2 CI",
+      "status": "completed",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34716702594"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 34716702607,
+      "headSha": "7ea6a1f72155b73da3269d6b08282c57cfb6a736",
+      "name": "V24 Real Data CI",
+      "status": "completed",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34716702607"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 34716698395,
+      "headSha": "7ea6a1f72155b73da3269d6b08282c57cfb6a736",
+      "name": "Astra V24 Integration Audit",
+      "status": "completed",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/actions/runs/34716698395"
+    }
+  ],
+  "ci_integration_evidence": {
+    "run_id": 34716702670,
+    "artifact": "astra-integration-evidence",
+    "full_junit_sha256": "220b7818e9066668f9077afebdaad0fad378b0ff661959f6a79d8cb78e671617",
+    "linux_postgresql": {
+      "passed": 2294,
+      "skipped": 7,
+      "failed": 0
+    },
+    "windows": {
+      "passed": 2063,
+      "skipped": 234,
+      "failed": 0
+    },
+    "w1_db_roundtrip": "PASS: source NULL -> rejected insert -> valid recovery/cleared diagnostics -> renewed Ek9 rejection through ON CONFLICT",
+    "bank_v47": {
+      "passed": 277,
+      "xfailed": 1
+    },
+    "existing_price_mutations": {
+      "killed": 26,
+      "total": 26
+    },
+    "w1_mutations": {
+      "killed": 6,
+      "total": 6,
+      "db_access": false
+    },
+    "frozen_outputs": {
+      "ek9_valid": 11,
+      "ek9_rejected": 140,
+      "total_valid": 2,
+      "total_rejected": 805,
+      "universe": 807,
+      "content_identical": true,
+      "linux_checkout_newline_only_differences": 18
+    }
+  },
+  "local_evidence": {
+    "pre_fix_m2_m3": {
+      "passed": 2,
+      "failed": 24,
+      "skipped": 1,
+      "junit_sha256": "2723cd6c4830e123c4324a7398fecca60a2c3a76590252a2c47014392e406136",
+      "note": "Includes absent proposed diagnostics interfaces, not 24 distinct production defects."
+    },
+    "pre_fix_ek9": {
+      "passed": 5,
+      "failed": 29,
+      "raw_evidence": "DELEGATED_TOOL_SESSION_ONLY_NO_SEPARATE_JUNIT"
+    },
+    "targeted": {
+      "passed": 83,
+      "skipped": 1,
+      "junit_sha256": "96470bdfb9ed5a59d16930d7f8e7a34e272befe645264df6f6f87911f5f75a50"
+    },
+    "full": {
+      "passed": 2063,
+      "skipped": 234,
+      "failed": 0,
+      "junit_sha256": "ab050368186e1274ba303153a1e28d8151d667930a152f047e56ee2604637b2c"
+    }
+  },
+  "resolved_verification_failures": [
+    {
+      "check": "local full initial",
+      "reason": "migration inventory expected37 instead of38 after additive migration043",
+      "resolution": "expected count updated and explicit migration043 assertion added"
+    },
+    {
+      "run_id": 34716479429,
+      "reason": "new DB test nested psycopg2 transaction context around production upsert",
+      "resolution": "test uses contextlib.closing; production transaction ownership and all assertions preserved"
+    }
+  ],
+  "independent_second_pass": {
+    "kind": "SAME_MODEL_CODEX_REVIEW_NOT_CLAUDE",
+    "finding": "NO_MATERIAL_FINDINGS_IN_BOUNDED_W1_ROOT_DIFF_AND_AUDIT_WIRING",
+    "limitations": "Six chosen mutations are not exhaustive; root separately reviewed delegated Ek9; detailed W2 financial source provenance not performed."
+  },
+  "invariants": {
+    "config_and_total_formula_and_live_data_git_diff_from_baseline": "EMPTY",
+    "weights_changed": false,
+    "veto_changed": false,
+    "peer_coverage_thresholds_changed": false,
+    "universe_reduced": false,
+    "ek9_global_gate": 65,
+    "ek9_selected_prices": 64,
+    "ek9_returns": 63,
+    "volatility_ddof": 1,
+    "volatility_cap": 0.06,
+    "historical_m2_count": 0,
+    "current_m2_snapshot_count": 48,
+    "current_follow_snapshot_count": 48,
+    "current_m2_follow_rederived": false,
+    "production_database_deployed": false
+  },
+  "remaining": [
+    "W2: trace current 48 M2/11 Ek9/2 Total rows, separate subchange impact; stale Sep8 run receipt remains explicitly identified.",
+    "Apply migration043 before deploying updated daily pipeline; verified only on disposable CI PostgreSQL.",
+    "Observed calendar cannot detect sessions absent from both stock and index sources; isolated corrupt stock date can conservatively reject shared calendar.",
+    "W3-W10 including historical SMRTG, M2 expansion, Total/P4/P5/P6 remain open."
+  ],
+  "commands": [
+    "python scripts/audit_w1_baseline.py --check",
+    "python -m pytest -q --junitxml=w1-full.xml",
+    "make core migrate (disposable CI PostgreSQL)",
+    "make test-bank-v47",
+    "python scripts/audit_w1_mutations.py --output w1-mutations.json",
+    "python scripts/audit_w1_frozen_outputs.py --output w1-frozen-outputs.json",
+    "git diff --exit-code 0db6cc19a357892afdd43b2fa103968d30ce1825 HEAD -- config data/live src/analytics/total_rasyo_score.py"
+  ]
+}

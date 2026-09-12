@@ -1,7 +1,9 @@
 # W1 — Live M2/M3/Ek9 fail-closed audit
 
 Date: 2026-09-12. Scope: W1 only; W2 financial provenance and W5 historical
-SMRTG are not started. Final acceptance is gated by exact-head CI in Issue #37.
+SMRTG are not started. All six CI runs on code/test head `7ea6a1f` passed.
+The final tracking-head gate is recorded separately in Issue #37: no final
+closure until its current_head equals last_ci_pass_head.
 
 ## Immutable starting point
 
@@ -75,7 +77,13 @@ daily pipeline. No production database deployment is claimed here.
   harness because it nested psycopg2 transaction contexts around the production
   upsert. The harness now uses connection closing only; production transaction
   ownership is unchanged. The same NULL/recovery/rejection DB test remains
-  enabled, with no assertion skipped or weakened; exact-head CI rerun pending.
+  enabled, with no assertion skipped or weakened. Rerun on `7ea6a1f` passed,
+  including real rejected insert → valid recovery → renewed rejection updates.
+- Final code CI: Linux/PostgreSQL **2294 passed, 7 skipped**; Windows
+  **2063 passed, 234 skipped**; BANK **277 passed, 1 xfailed**; existing
+  price mutations **26/26 killed**, W1 mutations **6/6 killed**. All six CI
+  runs succeeded; exact links and source/artifact hashes are in the
+  [acceptance receipt](../data/audit/w1_live_fail_closed_v1/receipt.json).
 - [mutations.json](../data/audit/w1_live_fail_closed_v1/mutations.json): 6/6
   production mutations killed, clean test baseline. Mutants run only in
   temporary checkouts with database access disabled.
@@ -102,7 +110,8 @@ python scripts/audit_w1_frozen_outputs.py --output w1-frozen-outputs.json
 
 Separate Codex second pass found no material defect in root M2/M3, finalizer,
 SQL persistence or migration changes; 63 tests passed/1 DB test skipped in that
-bounded review. Root separately reviewed delegated Ek9 changes. This is not a
+  bounded review. The final addendum also reviewed mutation/frozen-output
+  scripts and CI wiring. Root separately reviewed delegated Ek9 changes. This is not a
 Claude or cross-model approval. Integration workflows run Linux PostgreSQL,
 pandas 2.2.3, Windows, BANK and mutation checks; final-head results are required.
 
