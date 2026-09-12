@@ -140,7 +140,12 @@ Durum: **IN_PROGRESS — ANA HAT**
 W1-0 baseline, üretim kodu değiştirilmeden `0db6cc1` üzerinde alındı:
 [baseline.json](../data/audit/w1_live_fail_closed_v1/baseline.json).
 48 M2 / 48 FOLLOW / 11 Ek9 / 2 Total / 805 ret korunuyor; baseline yeniden
-yazılamaz. W1-A/B/C test ve düzeltmeleri sürüyor; kapanış henüz yok.
+yazılamaz. W1-A/B/C kod düzeltmeleri ve 83 hedef test tamamlandı; 6/6 mutasyon
+yakalandı. Tam regresyon/son-head CI kapısı henüz kapanmadı.
+[W1 denetim raporu](W1_LIVE_FAIL_CLOSED_AUDIT.md),
+[mutasyon receipt](../data/audit/w1_live_fail_closed_v1/mutations.json),
+[dondurulmuş çıktı kontrolü](../data/audit/w1_live_fail_closed_v1/frozen_outputs.json).
+W2 ve W5 başlatılmadı; model/evren/eşik değişikliği yok.
 
 #### W1-0 — Değişiklik öncesi immutable baseline
 

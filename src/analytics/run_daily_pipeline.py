@@ -284,7 +284,7 @@ def _compute_m2_from_period_comparison(
         return pd.DataFrame(columns=["ticker", "m2", "m2_source", "m2_score_inputs"])
     df = pd.concat(frames, ignore_index=True)
     df["ticker"] = df["ticker"].astype(str)
-    df["m2"] = pd.to_numeric(df["m2"], errors="coerce").fillna(0.5).clip(0.0, 1.0)
+    df["m2"] = _validated_score_values(df["m2"])
     return df[["ticker", "m2", "m2_source", "m2_score_inputs"]]
 
 
@@ -299,8 +299,53 @@ def _compute_m3_from_trailing_alpha(conn, asof: date, window_days: int = 63) -> 
     )
     if df.empty:
         return pd.DataFrame(columns=["ticker", "m3"])
-    df["m3"] = pd.to_numeric(df["m3"], errors="coerce").fillna(0.5).clip(0.0, 1.0)
+    df["m3"] = _validated_score_values(df["m3"])
     return df[["ticker", "m3"]]
+
+
+def _validated_score_values(values: pd.Series) -> pd.Series:
+    """Keep actual scores; missing, nonfinite and out-of-domain inputs are not scores."""
+    numeric = pd.to_numeric(values, errors="coerce")
+    valid = (np.isfinite(numeric) & numeric.between(0.0, 1.0)
+             & ~values.map(lambda value: isinstance(value, (bool, np.bool_))))
+    return numeric.where(valid, np.nan)
+
+
+def _finalize_module_scores(df: pd.DataFrame, weights: Dict[str, float]) -> pd.DataFrame:
+    """Preserve every universe row and explain each unavailable Total input."""
+    df = df.copy()
+    keys = ("M2", "M1", "M3", "Ek4", "Ek1", "Ek9")
+    for key in keys:
+        df[key.lower()] = _validated_score_values(df[key.lower()])
+    df["base_score"] = None
+    df["veto_flag"] = None
+    df["final_score"] = None
+    df["decision"] = "YETERSIZ_VERI"
+    df["module_rejections"] = pd.Series([{} for _ in range(len(df))], index=df.index, dtype=object)
+    for index, row in df.iterrows():
+        reasons = {}
+        for key in keys:
+            if pd.isna(row[key.lower()]):
+                source_reason = row.get(f"{key.lower()}_rejection_reason")
+                reasons[key] = (str(source_reason) if pd.notna(source_reason)
+                                else "MODULE_SCORE_MISSING_OR_INVALID")
+        count = row["good_count_ge8"]
+        try:
+            count_valid = (not isinstance(count, (bool, np.bool_)) and
+                           np.isfinite(float(count)) and float(count) >= 0 and
+                           float(count).is_integer())
+        except (TypeError, ValueError, OverflowError):
+            count_valid = False
+        if not count_valid:
+            reasons["good_count_ge8"] = "GOOD_COUNT_MISSING_OR_INVALID"
+            df.at[index, "good_count_ge8"] = np.nan
+        df.at[index, "module_rejections"] = reasons
+        if not reasons:
+            result = compute_total_rasyo({key: row[key.lower()] for key in keys},
+                                        good_count_ge8=count, weights=weights)
+            for field in ("base_score", "veto_flag", "final_score", "decision"):
+                df.at[index, field] = result[field]
+    return df
 
 
 def _compute_ek4_momentum(conn, asof: date, lookback: int = 20) -> pd.DataFrame:
@@ -376,6 +421,11 @@ def _compute_ek1_goodcount(conn, asof: date) -> pd.DataFrame:
 
 
 def _compute_ek9_vol(conn, asof: date, lookback: int = 63) -> pd.DataFrame:
+    """Score complete stock windows on the observed XU100 session axis.
+
+    The index supplies dates only, never a replacement stock price. Sessions
+    absent from both datasets cannot be discovered from these tables alone.
+    """
     p = pd.read_sql(
         """
         SELECT ticker, trade_date, COALESCE(adj_close, close) AS px
@@ -384,17 +434,77 @@ def _compute_ek9_vol(conn, asof: date, lookback: int = 63) -> pd.DataFrame:
         """,
         conn, params={"asof": asof}
     )
+    columns = ["ticker", "ek9", "ek9_rejection_reason"]
     if p.empty:
-        return pd.DataFrame(columns=["ticker","ek9"])
-    p["trade_date"] = pd.to_datetime(p["trade_date"]).dt.date
-    spx = p.pivot_table(index="trade_date", columns="ticker", values="px", aggfunc="last").sort_index()
-    ret = spx.pct_change()
-    if ret.shape[0] < lookback + 2:
-        return pd.DataFrame(columns=["ticker","ek9"])
-    window = ret.tail(lookback)
-    scored = compute_ek9_volatility_scores(window)
-    ek9 = scored["ek9"]
-    return pd.DataFrame({"ticker": ek9.index.astype(str), "ek9": ek9.values})
+        return pd.DataFrame(columns=columns)
+    p = p.copy()
+    p["ticker"] = p["ticker"].astype(str)
+    tickers = sorted(p["ticker"].unique())
+    result = pd.DataFrame({"ticker": tickers, "ek9": np.nan,
+                           "ek9_rejection_reason": None}).set_index("ticker")
+
+    def reject_all(reason: str) -> pd.DataFrame:
+        result["ek9_rejection_reason"] = reason
+        return result.reset_index()
+
+    calendar = pd.read_sql(
+        """
+        SELECT trade_date FROM core.index_prices_daily
+        WHERE index_code='XU100' AND trade_date <= %(asof)s
+        ORDER BY trade_date
+        """,
+        conn, params={"asof": asof},
+    )
+    if calendar.empty:
+        return reject_all("EK9_CALENDAR_UNAVAILABLE")
+    days = pd.to_datetime(calendar["trade_date"], errors="coerce").dt.date
+    if days.isna().any() or days.duplicated().any() or (days > asof).any():
+        return reject_all("EK9_CALENDAR_INVALID")
+    days = sorted(days.tolist())
+    # Retain the existing global guard; the calculation uses only 64 prices.
+    if len(days) < lookback + 2:
+        return reject_all("EK9_WINDOW_UNAVAILABLE")
+    window_dates = days[-(lookback + 1):]
+    wanted = set(window_dates)
+    p["trade_date"] = pd.to_datetime(p["trade_date"], errors="coerce").dt.date
+    invalid_dates = p["trade_date"].isna() | (p["trade_date"] > asof)
+    invalid_date_tickers = set(p.loc[invalid_dates, "ticker"])
+    p = p.loc[~invalid_dates]
+    observed = p.loc[p["trade_date"] >= window_dates[0]]
+    if not set(observed["trade_date"]).issubset(set(days)):
+        return reject_all("EK9_CALENDAR_STOCK_MISMATCH")
+
+    prices: dict[str, pd.Series] = {}
+    for ticker in tickers:
+        reason = None
+        sub = p.loc[(p["ticker"] == ticker) & p["trade_date"].isin(wanted)]
+        if ticker in invalid_date_tickers:
+            reason = "STOCK_PRICE_DATE_INVALID"
+        elif sub["trade_date"].duplicated().any():
+            reason = "STOCK_WINDOW_PRICE_DUPLICATE"
+        elif set(sub["trade_date"]) != wanted:
+            reason = "STOCK_WINDOW_PRICE_MISSING"
+        else:
+            px = pd.to_numeric(sub.set_index("trade_date")["px"], errors="coerce")
+            px = px.reindex(window_dates).astype(float)
+            if not (np.isfinite(px) & (px > 0)).all():
+                reason = "STOCK_WINDOW_PRICE_INVALID"
+            else:
+                prices[ticker] = px
+        result.loc[ticker, "ek9_rejection_reason"] = reason
+
+    if prices:
+        spx = pd.DataFrame(prices, index=window_dates)
+        with np.errstate(over="ignore", divide="ignore", invalid="ignore"):
+            window = spx.pct_change(fill_method=None).iloc[1:]
+        scored = compute_ek9_volatility_scores(window)
+        for ticker in prices:
+            score = scored.loc[ticker, "ek9"]
+            if len(window) != lookback or not np.isfinite(score):
+                result.loc[ticker, "ek9_rejection_reason"] = "STOCK_RETURN_WINDOW_INVALID"
+            else:
+                result.loc[ticker, "ek9"] = float(score)
+    return result.reset_index()
 
 
 def _upsert_module_scores(
@@ -412,8 +522,9 @@ def _upsert_module_scores(
             _json_text_or_none(r.m2_score_inputs),
             r.ek1, None, r.ek4, None, r.ek9,
             r.base_score, r.final_score,
-            int(r.good_count_ge8) if r.good_count_ge8 is not None else None,
-            r.decision, _sql_value(r.veto_flag), analysis_at, source_run_key
+            int(r.good_count_ge8) if pd.notna(r.good_count_ge8) else None,
+            r.decision, _sql_value(r.veto_flag),
+            _json_text_or_none(getattr(r, "module_rejections", None)), analysis_at, source_run_key
         )))
     with conn:
         with conn.cursor() as cur:
@@ -423,7 +534,7 @@ def _upsert_module_scores(
                 INSERT INTO analytics.module_scores
                   (ticker,asof_date,period_end,horizon_days,m1,m2,m3,m2_source,m2_score_inputs,
                    ek1,ek3,ek4,ek5_dilution,ek9,base_score,final_score,good_count_ge8,decision,veto_flag,
-                   analysis_at,source_run_key)
+                   module_rejections,analysis_at,source_run_key)
                 VALUES %s
                 ON CONFLICT (ticker, asof_date, horizon_days)
                 DO UPDATE SET
@@ -443,6 +554,7 @@ def _upsert_module_scores(
                   good_count_ge8=EXCLUDED.good_count_ge8,
                   decision=EXCLUDED.decision,
                   veto_flag=EXCLUDED.veto_flag,
+                  module_rejections=EXCLUDED.module_rejections,
                   analysis_at=EXCLUDED.analysis_at,
                   source_run_key=EXCLUDED.source_run_key
                 WHERE analytics.module_scores.analysis_at IS NULL
@@ -592,34 +704,5 @@ def run_daily_pipeline(
         pe = pd.read_sql("SELECT ticker, MAX(period_end) AS period_end FROM core.financials_quarterly GROUP BY ticker", conn)
         df = df.drop(columns=[c for c in ["period_end"] if c in df.columns]).merge(pe, on="ticker", how="left")
 
-    W = _load_weights(weights_json_path)
-    def total_for_row(row: pd.Series) -> pd.Series:
-        result = compute_total_rasyo(
-            {
-                "M2": row["m2"],
-                "M1": row["m1"],
-                "M3": row["m3"],
-                "Ek4": row["ek4"],
-                "Ek1": row["ek1"],
-                "Ek9": row["ek9"],
-            },
-            good_count_ge8=row["good_count_ge8"],
-            weights=W,
-        )
-        return pd.Series({
-            "base_score": result["base_score"],
-            "veto_flag": result["veto_flag"],
-            "final_score": result["final_score"],
-            "decision": result["decision"],
-        })
-
-    required_scores = ["m2", "m1", "m3", "ek4", "ek1", "ek9"]
-    complete = df[required_scores].notna().all(axis=1) & df["good_count_ge8"].notna()
-    df["base_score"] = None
-    df["veto_flag"] = None
-    df["final_score"] = None
-    df["decision"] = "YETERSIZ_VERI"
-    if complete.any():
-        totals = df.loc[complete].apply(total_for_row, axis=1)
-        df.loc[complete, ["base_score", "veto_flag", "final_score", "decision"]] = totals
+    df = _finalize_module_scores(df, _load_weights(weights_json_path))
     _upsert_module_scores(conn, df, asof, horizon_days, analysis_at=analysis_ts)

@@ -50,6 +50,12 @@ jobs:
       - name: Production-code mutation audit
         if: '!cancelled()'
         run: python scripts/audit_price_level_mutations.py --output astra-mutations.json
+      - name: W1 missing-score production mutations
+        if: '!cancelled()'
+        run: python scripts/audit_w1_mutations.py --output w1-mutations.json
+      - name: W1 frozen current output smoke check
+        if: '!cancelled()'
+        run: python scripts/audit_w1_frozen_outputs.py --output w1-frozen-outputs.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -57,6 +63,8 @@ jobs:
           path: |
             astra-full.xml
             astra-mutations.json
+            w1-mutations.json
+            w1-frozen-outputs.json
 
   windows:
     runs-on: windows-latest
