@@ -236,7 +236,39 @@ sayılarla yayımlanır; açıklanamayan fark kalmaz.
 
 ### W3 — Ayrı fiyat popülasyonları ve ticker lineage
 
-Durum: **TODO / PARALLEL — W5/W6'YI BLOKLAMAZ**
+Durum: **DONE — PARALLEL / CLAUDE HATTI** (dal `claude/inspiring-cannon-ecxilb`)
+
+Üç popülasyon kendi üreticisinden kendi anahtarıyla yeniden üretildi ve kesişim
+raporu yayımlandı: birleşim **402**, naif toplam 739, **337 mükerrer**.
+`EXECUTION ⊆ STOCK_WINDOW` ve `PRICE_MISSING ⊆ STOCK_WINDOW`; birleşim
+`STOCK_WINDOW`'a eşit. `PRICE_MISSING \ EXECUTION` tek hücre: `EFOR 2025-11-03`
+(lineage sınırında sinyal-günü kapsaması cutoff-öncesi pencereyi kanıtlamıyor).
+Düz "402" etiketi üç ayrı pencereyi gizliyordu: Ek9 402, M3 189, Ek4 180; ikisi
+de Ek9'un alt kümesi.
+
+174/174 execution hücresi kapalı taksonomide tek nedene atandı:
+**162 `TICKER_LINEAGE` + 12 `SOURCE_SYMBOL_GAP`**, `UNRESOLVED_BLOCKED` = 0.
+162 hücrede fiyat satırı **vardır**, yalnız `BORSA_LINEAGE_YAHOO_ALIAS`
+çözünürlüğünde olduğu için exact-ticker kapısından geçmez; sorun veri yokluğu
+değil lineage kabul-edilebilirliğidir. 12 hücre INVES/KLRHO/ASGYO'nun bilinen
+Issue #31 boşluğudur ve açık ret olarak kalır.
+
+Beş alias'ın dördünde kimlik, beşinde etkinlik tarihi ve kaynak sembol resmî
+Borsa workbook'u + KAP pay sınıfı geçmişiyle kanıtlandı; **kurumsal işlem
+sürekliliği 0/5 kanıtlandı** (`ACTION_CONTINUITY_UNPROVEN`). Bu nedenle
+**0/5 alias kabul edilebilir, 162 hücre `BLOCKED`**. KERVT→BESLR (2025-06-02) ve
+EFORC→EFOR (2025-11-03) Koza kümesinden (2025-11-24) ayrı tutuldu; BESLR için
+pay sınıfı gözlemi olmadığından KERVT kimliği de kanıtlanamadı.
+
+Hedef test 35 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
+aynı. W1/W2 kanıt zinciri korunuyor (131 CORE / 48 M2 / 11 Ek9 / 2 Total / 805 ret).
+Üretim kodu, model, ağırlık, veto, eşik ve evren değişmedi; hiçbir hücre düzeltilmedi.
+
+[W3 denetim raporu](W3_PRICE_POPULATIONS_AUDIT.md) ·
+kanıt `data/audit/w3_price_populations_v1/` ·
+[receipt](../data/audit/w3_price_populations_v1/receipt.json).
+
+Aşağıdaki özgün sözleşme, kabul ölçütlerinin kaydı olarak korunur.
 
 Önce aşağıdaki üç sayı ayrı sözleşme ve anahtarla yeniden üretilir. Kesişim
 raporu çıkarılmadan birbirinin yerine kullanılamaz veya toplanamaz:
@@ -469,5 +501,15 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 
 | 2026-09-12 | `f3731ce` | W1 canlı fail-closed kapanışı | DONE | Altı final-head CI PASS; Issue #37 |
 | 2026-09-13 | `6a73096` | W2 kaynak/etki denetimi ve düzeltme | DONE | 41 hedef test ve 6/6 final-head CI PASS; eski snapshot korundu |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W3 fiyat popülasyonları + ticker lineage | DONE | 174/174 reason-code; 0/5 alias kabul edilebilir; 35 test, 11/11 mutasyon KILLED |
 
-Sonraki zorunlu adım: **W5 — SMRTG 2023-08 tarihsel M2 canary**.
+Sonraki zorunlu **ana hat** adımı: **W5 — SMRTG 2023-08 tarihsel M2 canary**
+(Codex/Astra hattı; W3 bu adımı başlatmaz ve bloklamaz).
+
+### Paralel hat sahipliği
+
+Karışıklığı önlemek için paralel W3/W4/W6-B/W10 paketleri
+`claude/inspiring-cannon-ecxilb` dalında yürütülür ve `codex/astra-v24-finalize`
+dalına PR ile gelir. `main`, `v24-real-data-work` ve `codex/*` dallarına bu
+hattan doğrudan push yapılmaz. Yeni kanıt yalnız `data/audit/w3_*`, `w4_*`,
+`w6b_*`, `w10_*` dizinlerine yazılır; `data/audit/w1_*` ve `w2_*` salt okunurdur.

@@ -1,0 +1,229 @@
+{
+  "admissible_alias_count": 0,
+  "aliases": [
+    {
+      "admissible_as_exact_execution_price": false,
+      "affected_execution_cells": 7,
+      "conditions": {
+        "corporate_action_continuity": {
+          "blocker": "ACTION_CONTINUITY_UNPROVEN",
+          "evidence": "yahoo_member_actions inventory is not continuous across the boundary",
+          "predecessor_action_rows": 0,
+          "successor_action_rows": 1,
+          "verified": false
+        },
+        "event_date": {
+          "effective_date": "2025-11-03",
+          "event_sha256": "62e76ef96a786eac3ee125733cac71f5c965d1e741403509c69692c285526a5e",
+          "evidence": "official Borsa Istanbul ticker-change workbook row",
+          "source_workbook_sha256": "cb5e2fc5ed8bd69b75db7707f0078facc3b900ae14cb51e8f3a286e13cf239b5",
+          "verified": true
+        },
+        "same_company_or_share_class_identity": {
+          "evidence": "kap_share_class_history_v1 observations under the successor code",
+          "predecessor_share_class_observations": 0,
+          "successor_share_class_observations": 2,
+          "verified": true
+        },
+        "source_symbol": {
+          "evidence": "historical_price_aliases fail-closed resolver bound to the lineage row",
+          "successor_symbol": "EFOR",
+          "verified": true
+        }
+      },
+      "conditions_unverified": [
+        "corporate_action_continuity"
+      ],
+      "conditions_verified": [
+        "event_date",
+        "same_company_or_share_class_identity",
+        "source_symbol"
+      ],
+      "effective_date": "2025-11-03",
+      "new_ticker": "EFOR",
+      "old_ticker": "EFORC",
+      "reopen_condition": "a dated, source-hashed corporate-action inventory that is continuous across EFORC->EFOR on 2025-11-03",
+      "status": "BLOCKED"
+    },
+    {
+      "admissible_as_exact_execution_price": false,
+      "affected_execution_cells": 37,
+      "conditions": {
+        "corporate_action_continuity": {
+          "blocker": "ACTION_CONTINUITY_UNPROVEN",
+          "evidence": "yahoo_member_actions inventory is not continuous across the boundary",
+          "predecessor_action_rows": 0,
+          "successor_action_rows": 0,
+          "verified": false
+        },
+        "event_date": {
+          "effective_date": "2025-11-24",
+          "event_sha256": "84b696d97db64eb5ed6538fcf1d70e1e6a50ba0988c308ff7b46cb030b278965",
+          "evidence": "official Borsa Istanbul ticker-change workbook row",
+          "source_workbook_sha256": "cb5e2fc5ed8bd69b75db7707f0078facc3b900ae14cb51e8f3a286e13cf239b5",
+          "verified": true
+        },
+        "same_company_or_share_class_identity": {
+          "evidence": "kap_share_class_history_v1 observations under the successor code",
+          "predecessor_share_class_observations": 0,
+          "successor_share_class_observations": 2,
+          "verified": true
+        },
+        "source_symbol": {
+          "evidence": "historical_price_aliases fail-closed resolver bound to the lineage row",
+          "successor_symbol": "TRENJ",
+          "verified": true
+        }
+      },
+      "conditions_unverified": [
+        "corporate_action_continuity"
+      ],
+      "conditions_verified": [
+        "event_date",
+        "same_company_or_share_class_identity",
+        "source_symbol"
+      ],
+      "effective_date": "2025-11-24",
+      "new_ticker": "TRENJ",
+      "old_ticker": "IPEKE",
+      "reopen_condition": "a dated, source-hashed corporate-action inventory that is continuous across IPEKE->TRENJ on 2025-11-24",
+      "status": "BLOCKED"
+    },
+    {
+      "admissible_as_exact_execution_price": false,
+      "affected_execution_cells": 14,
+      "conditions": {
+        "corporate_action_continuity": {
+          "blocker": "ACTION_CONTINUITY_UNPROVEN",
+          "evidence": "yahoo_member_actions inventory is not continuous across the boundary",
+          "predecessor_action_rows": 0,
+          "successor_action_rows": 0,
+          "verified": false
+        },
+        "event_date": {
+          "effective_date": "2025-06-02",
+          "event_sha256": "f3c7c7fb8f0b07378d3b717fa7ca99529aa9137b33825ecb5bde15e97588fc84",
+          "evidence": "official Borsa Istanbul ticker-change workbook row",
+          "source_workbook_sha256": "cb5e2fc5ed8bd69b75db7707f0078facc3b900ae14cb51e8f3a286e13cf239b5",
+          "verified": true
+        },
+        "same_company_or_share_class_identity": {
+          "evidence": "kap_share_class_history_v1 observations under the successor code",
+          "predecessor_share_class_observations": 0,
+          "successor_share_class_observations": 0,
+          "verified": false
+        },
+        "source_symbol": {
+          "evidence": "historical_price_aliases fail-closed resolver bound to the lineage row",
+          "successor_symbol": "BESLR",
+          "verified": true
+        }
+      },
+      "conditions_unverified": [
+        "corporate_action_continuity",
+        "same_company_or_share_class_identity"
+      ],
+      "conditions_verified": [
+        "event_date",
+        "source_symbol"
+      ],
+      "effective_date": "2025-06-02",
+      "new_ticker": "BESLR",
+      "old_ticker": "KERVT",
+      "reopen_condition": "a dated, source-hashed corporate-action inventory that is continuous across KERVT->BESLR on 2025-06-02",
+      "status": "BLOCKED"
+    },
+    {
+      "admissible_as_exact_execution_price": false,
+      "affected_execution_cells": 52,
+      "conditions": {
+        "corporate_action_continuity": {
+          "blocker": "ACTION_CONTINUITY_UNPROVEN",
+          "evidence": "yahoo_member_actions inventory is not continuous across the boundary",
+          "predecessor_action_rows": 0,
+          "successor_action_rows": 0,
+          "verified": false
+        },
+        "event_date": {
+          "effective_date": "2025-11-24",
+          "event_sha256": "3884d03e3ff879a34875b8e78a14c35eb458bb5709c2c54ae1bf9c3bc858ecb5",
+          "evidence": "official Borsa Istanbul ticker-change workbook row",
+          "source_workbook_sha256": "cb5e2fc5ed8bd69b75db7707f0078facc3b900ae14cb51e8f3a286e13cf239b5",
+          "verified": true
+        },
+        "same_company_or_share_class_identity": {
+          "evidence": "kap_share_class_history_v1 observations under the successor code",
+          "predecessor_share_class_observations": 0,
+          "successor_share_class_observations": 2,
+          "verified": true
+        },
+        "source_symbol": {
+          "evidence": "historical_price_aliases fail-closed resolver bound to the lineage row",
+          "successor_symbol": "TRMET",
+          "verified": true
+        }
+      },
+      "conditions_unverified": [
+        "corporate_action_continuity"
+      ],
+      "conditions_verified": [
+        "event_date",
+        "same_company_or_share_class_identity",
+        "source_symbol"
+      ],
+      "effective_date": "2025-11-24",
+      "new_ticker": "TRMET",
+      "old_ticker": "KOZAA",
+      "reopen_condition": "a dated, source-hashed corporate-action inventory that is continuous across KOZAA->TRMET on 2025-11-24",
+      "status": "BLOCKED"
+    },
+    {
+      "admissible_as_exact_execution_price": false,
+      "affected_execution_cells": 52,
+      "conditions": {
+        "corporate_action_continuity": {
+          "blocker": "ACTION_CONTINUITY_UNPROVEN",
+          "evidence": "yahoo_member_actions inventory is not continuous across the boundary",
+          "predecessor_action_rows": 0,
+          "successor_action_rows": 2,
+          "verified": false
+        },
+        "event_date": {
+          "effective_date": "2025-11-24",
+          "event_sha256": "ed77b42000bbba72650a29ff6dceeb3b4e6f6cc728a764552c3e3fad8d6c0e54",
+          "evidence": "official Borsa Istanbul ticker-change workbook row",
+          "source_workbook_sha256": "cb5e2fc5ed8bd69b75db7707f0078facc3b900ae14cb51e8f3a286e13cf239b5",
+          "verified": true
+        },
+        "same_company_or_share_class_identity": {
+          "evidence": "kap_share_class_history_v1 observations under the successor code",
+          "predecessor_share_class_observations": 0,
+          "successor_share_class_observations": 3,
+          "verified": true
+        },
+        "source_symbol": {
+          "evidence": "historical_price_aliases fail-closed resolver bound to the lineage row",
+          "successor_symbol": "TRALT",
+          "verified": true
+        }
+      },
+      "conditions_unverified": [
+        "corporate_action_continuity"
+      ],
+      "conditions_verified": [
+        "event_date",
+        "same_company_or_share_class_identity",
+        "source_symbol"
+      ],
+      "effective_date": "2025-11-24",
+      "new_ticker": "TRALT",
+      "old_ticker": "KOZAL",
+      "reopen_condition": "a dated, source-hashed corporate-action inventory that is continuous across KOZAL->TRALT on 2025-11-24",
+      "status": "BLOCKED"
+    }
+  ],
+  "blocked_execution_cells": 162,
+  "contract": "W3_PRICE_POPULATION_RECONCILIATION_V1",
+  "koza_cluster_note": "KERVT is a separate 2025-06-02 KERVT->BESLR event and is never folded into the 2025-11-24 Koza cluster. EFORC->EFOR on 2025-11-03 is likewise its own event.",
+  "rule": "A ticker change is not permission to carry a price. All four conditions must be verified before an alias-resolved row may serve as an exact historical execution price."
+}
