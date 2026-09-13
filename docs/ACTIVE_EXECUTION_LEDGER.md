@@ -199,7 +199,7 @@ Kabul:
 
 ### W2 — Canlı 48 M2 / 2 Total provenance ve etki denetimi
 
-Durum: **BLOCKED — CORE ARTIFACT YENİLEMESİ GEREKLİ**
+Durum: **IN_PROGRESS — DÜZELTME UYGULANDI, FINAL-HEAD CI BEKLENİYOR**
 
 Başlangıç head'i `f3731ce`; 849 ham KAP raporundan 20.580 kullanılan olgu
 yeniden türetildi. 48 M2/FOLLOW ve 11 Ek9 W1-A/B/C'den etkilenmiyor.
@@ -207,16 +207,20 @@ Ancak 8 Eylül CORE artifact'ı güncel türetmeyle 130/131 satırda farklı:
 RGYAS/TABGD Total girdileri de etkileniyor. Eski üretim commit'i `e93b7c5`
 ile 131/131 satır birebir yeniden üretildi; neden, W1 öncesi `fad20cc` akış
 türetme düzeltmesinden sonra CORE'un yenilenmemesi olarak doğrulandı.
-59 hedef satır UNAFFECTED; iki Total güncel-kod uyumu açısından UNRESOLVED.
+59 hedef satır UNAFFECTED idi; iki Total güncel-kod uyumu açısından UNRESOLVED
+olarak bırakılmıştı. Kullanıcı kalan W2 düzeltmesini yetkilendirdi. Aynı donmuş
+kaynak/saat ile CORE yeniden üretildi; iki Total ve ranking yenilendi. RGYAS
+46.2949460644 → 46.6021011290, TABGD 40.7156025426 → 43.9061751217; kararlar
+UZAK, sıralama ve 807/2/805 kapsamı değişmedi.
 [W2 tam denetim ve düzeltme planı](W2_CURRENT_PROVENANCE_AUDIT.md).
+[W2 uygulanmış düzeltme kaydı](W2_CURRENT_CORRECTION.md).
 [W2 satır denetimi](../data/audit/w2_current_provenance_v1/rows.jsonl) ve
 [phase receipt](../data/audit/w2_current_provenance_v1/receipt.json).
 Canlı artifact, model ve eşikler değiştirilmedi; W5 başlatılmadı.
 
-Yeniden açma: audit bulgusuna dayanarak CORE → Total/ranking → güncel assembly
-receipt yenilemesi yetkilendirilmeli; aynı donmuş kaynaklarla üretilip final
-CI geçmelidir. Ücretli veri veya yeni tarihsel tarama gerekmiyor. Ayrıntılı
-hücre/alan farkları ve tüketilen kanıt yolları W2 raporunda kayıtlıdır.
+Kapanış kapısı: uygulama commit'i final-head CI'da geçmelidir. Eski sekiz
+artifact ayrı snapshot'ta korunur; yeni assembly receipt düzeltmeyi yeni veri
+çekimi olarak sunmaz. Ücretli veri veya yeni tarihsel tarama kullanılmadı.
 
 - W1-0 immutable baseline ile her W1-A/B/C alt değişikliğinden sonraki current
   artifact ayrı karşılaştırılır; yalnız toplu son karşılaştırmaya güvenilmez.
@@ -464,6 +468,6 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-12 | bu belge commit'i | Plan bağımlılık denetimi | DONE | M2 ana hattı düzeltildi; üç fiyat popülasyonu ve artımlı P4/P5 kapıları ayrıştırıldı |
 
 | 2026-09-12 | `f3731ce` | W1 canlı fail-closed kapanışı | DONE | Altı final-head CI PASS; Issue #37 |
-| 2026-09-13 | W2 başlangıcı `f3731ce` | W2 kaynak/etki denetimi | BLOCKED | Kaynak denetimi tamamlandı; 130/131 eski CORE ve 2 Total için yetkili artifact yenilemesi gerekiyor |
+| 2026-09-13 | W2 başlangıcı `f3731ce` | W2 kaynak/etki denetimi ve düzeltme | IN_PROGRESS | Düzeltme uygulandı; 41 hedef test PASS, final-head CI bekleniyor |
 
-Sonraki zorunlu adım: **W2 düzeltmesi — onay sonrası CORE → Total/ranking → receipt yenilemesi**.
+Sonraki zorunlu adım: **W2 uygulama commit'i için final-head CI ve kapanış kaydı**.

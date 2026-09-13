@@ -1,14 +1,24 @@
 {
   "contract": "CURRENT_TOTAL_RASYO_MATERIALIZATION_V1",
+  "correction": {
+    "completed_at": "2026-09-13T00:11:14.319876+00:00",
+    "contract": "W2_FROZEN_CORE_TOTAL_CORRECTION_V1",
+    "derivation_fix_commit": "fad20cccc88f230628999c1a06770c0f7329a12c",
+    "model_policy_changed": false,
+    "new_market_capture": false,
+    "root_cause": "CORE_ARTIFACT_NOT_REGENERATED_AFTER_PRE_W1_FLOW_DERIVATION_FIX",
+    "source_audit_head": "9b4d8fe64bb05e32786c9f469696eb1d6cf5fd59",
+    "universe_changed": false
+  },
   "explicit_rejection_count": 805,
   "inputs": {
-    "m2.jsonl": "eafd5edfa363a65ec2810ae15d42ac5e7b84bc0666ac0ae67ab79f9ee4af0b06",
-    "modules.csv": "ff4bb222ac34465923410a8f6886bc06f4982b7cef10833db670c391e5c2cfd8",
-    "modules.jsonl": "2a808eaa367db556ce81e295b8529f4cb7e05da8002ca83052b8867b2bddd935",
-    "universe.csv": "52d38b69a462e19604f2ad8c5400e18696cb6e7a6f3fdf7b46333180442c1da6"
+    "m2.jsonl": "58b6eb0ab56b4d11aefa86f322b79b8117ff2e66bb48a55327f79269571af01c",
+    "modules.csv": "11207bb002152cb3626fca8810e213c0cd9f2e670a81788f4a3bdac607d8763b",
+    "modules.jsonl": "07bc933892427439b727fb2bdae9b940c4c6b99e36f0bcfa006015ed499ecb16",
+    "universe.csv": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1"
   },
   "m2_input_count": 48,
-  "materialized_at": "2026-09-10T20:29:06.346647+00:00",
+  "materialized_at": "2026-09-13T00:11:14.319876+00:00",
   "missing_module_counts": {
     "Ek1": 676,
     "Ek4": 661,
@@ -19,9 +29,9 @@
   },
   "neutral_fill": false,
   "outputs": {
-    "ranking.jsonl": "bd8cf33a288511c136d89450d0516c9e38974d55496add051c2ce1d70c19703b",
-    "rejections.jsonl": "8c8c73b075c508ac08f7116e2173c72aa1648f5dccdfde12f10565706288b987",
-    "totals.jsonl": "bd8cf33a288511c136d89450d0516c9e38974d55496add051c2ce1d70c19703b"
+    "ranking.jsonl": "39852c1cc6e5aacaf4f4456d3b5341a8062b1d806d16a432efc98de3ff290813",
+    "rejections.jsonl": "acd9027f21ec7f17c6c6887554cc0d5c1d20509636852251c417337d5d885c6f",
+    "totals.jsonl": "39852c1cc6e5aacaf4f4456d3b5341a8062b1d806d16a432efc98de3ff290813"
   },
   "production_formula": "src.analytics.total_rasyo_score.compute_total_rasyo",
   "ranking_count": 2,

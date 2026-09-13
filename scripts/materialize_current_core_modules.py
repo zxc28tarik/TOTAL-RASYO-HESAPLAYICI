@@ -94,10 +94,10 @@ def materialize(*, archive_dir: Path, routes_path: Path, route_manifest_path: Pa
     rejections_path = output_dir / "rejections.jsonl"
     modules_path.write_text("".join(
         json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in module_rows
-    ), encoding="utf-8")
+    ), encoding="utf-8", newline="\n")
     rejections_path.write_text("".join(
         json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rejection_rows
-    ), encoding="utf-8")
+    ), encoding="utf-8", newline="\n")
     reason_counts = Counter(reason for row in rejection_rows for reason in row["reasons"])
     receipt = {
         "contract": CONTRACT,
@@ -124,7 +124,7 @@ def materialize(*, archive_dir: Path, routes_path: Path, route_manifest_path: Pa
     }
     (output_dir / "receipt.json").write_text(
         json.dumps(receipt, ensure_ascii=False, sort_keys=True, indent=2) + "\n",
-        encoding="utf-8",
+        encoding="utf-8", newline="\n",
     )
     return receipt
 

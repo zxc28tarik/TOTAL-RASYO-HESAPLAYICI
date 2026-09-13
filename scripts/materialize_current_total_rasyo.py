@@ -20,14 +20,27 @@ OUTPUT = ROOT / "data/live/current_total_scores_v1"
 
 
 def _sha(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
-def materialize(output_dir: Path = OUTPUT) -> dict:
-    universe_path = ROOT / "data/live/current_total_rasyo_v1/universe.csv"
-    core_path = ROOT / "data/live/current_core_modules_v1/modules.jsonl"
-    market_path = ROOT / "data/live/current_market_modules_v1/modules.csv"
-    m2_path = ROOT / "data/live/current_nonfin_valuation_v1/m2.jsonl"
+def materialize(
+    output_dir: Path = OUTPUT,
+    *,
+    universe_path: Path | None = None,
+    core_path: Path | None = None,
+    market_path: Path | None = None,
+    m2_path: Path | None = None,
+    materialized_at: datetime | None = None,
+    receipt_metadata: dict | None = None,
+) -> dict:
+    """Materialize totals, with injectable paths/clock for frozen corrections."""
+    universe_path = universe_path or ROOT / "data/live/current_total_rasyo_v1/universe.csv"
+    core_path = core_path or ROOT / "data/live/current_core_modules_v1/modules.jsonl"
+    market_path = market_path or ROOT / "data/live/current_market_modules_v1/modules.csv"
+    m2_path = m2_path or ROOT / "data/live/current_nonfin_valuation_v1/m2.jsonl"
+    materialized_at = materialized_at or datetime.now(timezone.utc)
+    if materialized_at.tzinfo is None or materialized_at.utcoffset() is None:
+        raise ValueError("materialized_at timezone-aware olmali")
     universe = pd.read_csv(universe_path)
     core = [json.loads(line) for line in (
         core_path
@@ -67,11 +80,11 @@ def materialize(output_dir: Path = OUTPUT) -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
     total_path, ranking_path = output_dir / "totals.jsonl", output_dir / "ranking.jsonl"
     rejection_path = output_dir / "rejections.jsonl"
-    total_path.write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in totals), encoding="utf-8")
-    ranking_path.write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in ranking), encoding="utf-8")
-    rejection_path.write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in rejections), encoding="utf-8")
+    total_path.write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in totals), encoding="utf-8", newline="\n")
+    ranking_path.write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in ranking), encoding="utf-8", newline="\n")
+    rejection_path.write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in rejections), encoding="utf-8", newline="\n")
     receipt = {
-        "contract": CONTRACT, "materialized_at": datetime.now(timezone.utc).isoformat(),
+        "contract": CONTRACT, "materialized_at": materialized_at.isoformat(),
         "universe_count": len(universe), "total_valid_count": len(totals),
         "ranking_count": len(ranking), "explicit_rejection_count": len(rejections),
         "missing_module_counts": dict(Counter(
@@ -86,7 +99,9 @@ def materialize(output_dir: Path = OUTPUT) -> dict:
         "ranking_order": "final_score DESC, ticker ASC",
         "outputs": {p.name: _sha(p) for p in (total_path, ranking_path, rejection_path)},
     }
-    (output_dir / "receipt.json").write_text(json.dumps(receipt, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+    if receipt_metadata:
+        receipt["correction"] = receipt_metadata
+    (output_dir / "receipt.json").write_text(json.dumps(receipt, sort_keys=True, indent=2) + "\n", encoding="utf-8", newline="\n")
     return receipt
 
 

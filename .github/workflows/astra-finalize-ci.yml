@@ -58,9 +58,9 @@ jobs:
       - name: W1 frozen current output smoke check
         if: '!cancelled()'
         run: python scripts/audit_w1_frozen_outputs.py --output w1-frozen-outputs.json
-      - name: W2 current provenance and original-code phase replay
+      - name: W2 corrected CORE Total and assembly receipt verification
         if: '!cancelled()'
-        run: python scripts/audit_w2_current_provenance.py --check
+        run: python scripts/materialize_w2_current_correction.py --check
       - uses: actions/upload-artifact@v4
         if: always()
         with:

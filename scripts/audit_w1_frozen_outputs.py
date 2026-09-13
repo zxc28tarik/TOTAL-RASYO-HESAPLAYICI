@@ -25,14 +25,17 @@ def digest(path):
 
 def run():
     baseline_path = ROOT / "data/audit/w1_live_fail_closed_v1/baseline.json"
+    correction_snapshot = ROOT / "data/audit/w2_current_correction_v1/pre_correction"
     baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
     live = {p: item for p, item in baseline["files"].items() if p.startswith("data/live/")}
     changed, newline_only = [], []
     for p, item in live.items():
-        if digest(ROOT / p) == item["sha256"]:
+        frozen = correction_snapshot / p.removeprefix("data/live/")
+        candidate = frozen if frozen.exists() else ROOT / p
+        if digest(candidate) == item["sha256"]:
             continue
         canonical = subprocess.check_output(["git", "cat-file", "blob", item["git_blob"]], cwd=ROOT)
-        if (ROOT / p).read_bytes().replace(b"\r\n", b"\n") == canonical.replace(b"\r\n", b"\n"):
+        if candidate.read_bytes().replace(b"\r\n", b"\n") == canonical.replace(b"\r\n", b"\n"):
             newline_only.append(p)
         else:
             changed.append(p)
@@ -61,9 +64,12 @@ def run():
     total_matches = {}
     with tempfile.TemporaryDirectory(prefix="rasyo-w1-totals-") as directory:
         regenerated = Path(directory)
-        total_receipt = materialize(output_dir=regenerated)
+        total_receipt = materialize(
+            output_dir=regenerated,
+            core_path=correction_snapshot / "current_core_modules_v1/modules.jsonl",
+        )
         for name in ("totals.jsonl", "ranking.jsonl", "rejections.jsonl"):
-            original = ROOT / "data/live/current_total_scores_v1" / name
+            original = correction_snapshot / "current_total_scores_v1" / name
             # Compare decoded JSON, not platform-specific newline bytes.
             old = [json.loads(s) for s in original.read_text().splitlines()]
             new = [json.loads(s) for s in (regenerated / name).read_text().splitlines()]
@@ -76,6 +82,7 @@ def run():
             "frozen_artifacts_byte_identical": not newline_only,
             "frozen_artifacts_content_identical": True,
             "checkout_newline_only_differences": newline_only,
+            "w2_pre_correction_snapshot_used": correction_snapshot.exists(),
             "frozen_artifact_count": len(live),
             "m2_follow": {"m2": baseline["counts"]["m2"], "follow": baseline["counts"]["follow"],
                           "check": "IMMUTABLE_SNAPSHOT_ONLY_NOT_REDERIVED"},

@@ -118,16 +118,16 @@ metadata in the experimental mapper is not treated as a real ingestion clock.
 The unused issued-capital/1 share field remains diagnostic: current valuation
 uses independently certified quoted nominal units, not assumed legal shares.
 
-## Required correction before clean W2 closure
+## Correction disposition
 
 Reason: `CORE_ARTIFACT_NOT_REGENERATED_AFTER_PRE_W1_FLOW_DERIVATION_FIX`.
 Evidence paths have been exhausted for this discrepancy: same primary archives,
 publication cutoffs, source/peer lineages, original generation commit and
 current generation have all been replayed. This is **not a paid-data blocker**.
 
-The audit request does not authorize silently replacing published current
-results. W2 therefore remains BLOCKED for clean-current acceptance until the
-following narrowly scoped correction is authorized and completed:
+The audit initially left clean-current acceptance blocked rather than silently
+replacing published results. The user subsequently authorized completion of
+the remaining W2 work. The following narrow correction has now been applied:
 
 1. Preserve current CORE/Total/receipt artifacts as the pre-correction snapshot.
 2. Regenerate CORE with the corrected flow derivation, the same frozen inputs
@@ -137,4 +137,8 @@ following narrowly scoped correction is authorized and completed:
 4. Bind the corrected component receipts in a current-assembly receipt without
    overwriting or mislabeling the September 8 run evidence.
 5. Verify rows, source/score hashes, full regression, final-head CI and update
-   Issue #37/this ledger. Only then grant clean W2 acceptance and start W5.
+   Issue #37/this ledger. W5 remains unstarted.
+
+The implementation and its additional acceptance gates are documented in
+[W2 frozen CORE / Total correction](W2_CURRENT_CORRECTION.md). At the
+implementation commit stage, clean W2 closure awaits final-head CI only.

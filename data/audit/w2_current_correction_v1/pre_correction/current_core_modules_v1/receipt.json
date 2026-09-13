@@ -9,16 +9,6 @@
     "KAP_2026_6A.zip": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2"
   },
   "contract": "CURRENT_CORE_M1_EK1_V1",
-  "correction": {
-    "completed_at": "2026-09-13T00:11:14.319876+00:00",
-    "contract": "W2_FROZEN_CORE_TOTAL_CORRECTION_V1",
-    "derivation_fix_commit": "fad20cccc88f230628999c1a06770c0f7329a12c",
-    "model_policy_changed": false,
-    "new_market_capture": false,
-    "root_cause": "CORE_ARTIFACT_NOT_REGENERATED_AFTER_PRE_W1_FLOW_DERIVATION_FIX",
-    "source_audit_head": "9b4d8fe64bb05e32786c9f469696eb1d6cf5fd59",
-    "universe_changed": false
-  },
   "economic_family_contract": "CURRENT_OPEN_ENDED_KAP_SECTOR_ROUTE_NONFIN_V1",
   "economic_route_raw_sha256": "686b8465a78be55e7ddcec900db21c8e581e6e58e99bc69ba2f0e382b2237c8c",
   "economic_route_retrieved_at": "2026-08-24T16:48:00+00:00",
@@ -28,8 +18,8 @@
   "mode": "CURRENT_ONLY_NO_HISTORICAL_FINANCIAL_FALLBACK",
   "neutral_score_injection": false,
   "outputs": {
-    "modules.jsonl": "07bc933892427439b727fb2bdae9b940c4c6b99e36f0bcfa006015ed499ecb16",
-    "rejections.jsonl": "e36b176190257d724ed34e8bdde522a09660bd17ac2de7b22887f6202e207366"
+    "modules.jsonl": "2a808eaa367db556ce81e295b8529f4cb7e05da8002ca83052b8867b2bddd935",
+    "rejections.jsonl": "4da9ea3bcff5de0865ae994b3ad0523f3811717d97e614271eb3f11659221b94"
   },
   "production_engines": [
     "compute_company_core_ratios_from_frame",
