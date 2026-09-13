@@ -1,0 +1,42 @@
+{
+  "contract": "CURRENT_TOTAL_RASYO_MATERIALIZATION_V1",
+  "correction": {
+    "completed_at": "2026-09-13T00:11:14.319876+00:00",
+    "contract": "W2_FROZEN_CORE_TOTAL_CORRECTION_V1",
+    "derivation_fix_commit": "fad20cccc88f230628999c1a06770c0f7329a12c",
+    "model_policy_changed": false,
+    "new_market_capture": false,
+    "root_cause": "CORE_ARTIFACT_NOT_REGENERATED_AFTER_PRE_W1_FLOW_DERIVATION_FIX",
+    "source_audit_head": "9b4d8fe64bb05e32786c9f469696eb1d6cf5fd59",
+    "universe_changed": false
+  },
+  "explicit_rejection_count": 805,
+  "inputs": {
+    "m2.jsonl": "58b6eb0ab56b4d11aefa86f322b79b8117ff2e66bb48a55327f79269571af01c",
+    "modules.csv": "11207bb002152cb3626fca8810e213c0cd9f2e670a81788f4a3bdac607d8763b",
+    "modules.jsonl": "07bc933892427439b727fb2bdae9b940c4c6b99e36f0bcfa006015ed499ecb16",
+    "universe.csv": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1"
+  },
+  "m2_input_count": 48,
+  "materialized_at": "2026-09-13T00:11:14.319876+00:00",
+  "missing_module_counts": {
+    "Ek1": 676,
+    "Ek4": 661,
+    "Ek9": 796,
+    "M1": 676,
+    "M2": 759,
+    "M3": 661
+  },
+  "neutral_fill": false,
+  "outputs": {
+    "ranking.jsonl": "39852c1cc6e5aacaf4f4456d3b5341a8062b1d806d16a432efc98de3ff290813",
+    "rejections.jsonl": "acd9027f21ec7f17c6c6887554cc0d5c1d20509636852251c417337d5d885c6f",
+    "totals.jsonl": "39852c1cc6e5aacaf4f4456d3b5341a8062b1d806d16a432efc98de3ff290813"
+  },
+  "production_formula": "src.analytics.total_rasyo_score.compute_total_rasyo",
+  "ranking_count": 2,
+  "ranking_order": "final_score DESC, ticker ASC",
+  "total_valid_count": 2,
+  "universe_count": 807,
+  "weight_redistribution": false
+}

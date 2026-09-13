@@ -8,25 +8,27 @@ observation.
 
 ## Locked production arithmetic
 
-The live database path keeps its existing price query, pivot, `pct_change()` call,
-row-count guard and 63-row tail unchanged. Only the arithmetic after that tail is
-moved to the shared pure function
-`src.analytics.ek9_volatility.compute_ek9_volatility_scores`.
+The live and historical paths share the pure function
+`src.analytics.ek9_volatility.compute_ek9_volatility_scores`. W1 safety hardening
+supersedes the former live permissive missing-data compatibility. Valid complete
+windows retain the same arithmetic and the existing global row-count guard.
 
 For each ticker's return window:
 
 ```text
 volatility = std(daily_returns, ddof=1)
-volatility = replace(+/-inf, NaN); fill NaN with 0.0
 Ek9        = 1 - clip(volatility / 0.06, 0, 1)
 ```
 
 There is no annualization and the denominator is exactly `0.06`.
 
-The historical adapter reuses this arithmetic but does **not** copy the live
-path's permissive missing-data preprocessing. The legacy live behavior remains
-unchanged for compatibility; the historical path validates a complete PIT window
-before it computes returns.
+The shared helper requires at least two finite observations and rejects a column
+containing any missing/non-numeric/non-finite return. A non-finite standard
+deviation, including numerical overflow on finite returns, stays missing rather
+than becoming zero volatility. A genuinely constant valid series still has zero
+volatility and receives Ek9=1. Both callers require the complete 63-return window.
+The historical adapter turns undefined helper output into
+`STOCK_RETURN_WINDOW_INVALID` while preserving its score/rejection partition.
 
 ## Exact 63-return window
 
@@ -46,6 +48,22 @@ prevents a missing historical observation from becoming a synthetic zero return.
 
 A missing price produces `STOCK_WINDOW_PRICE_MISSING`; it is never forward-filled
 or borrowed from another series.
+
+The live caller likewise selects 64 positions from the observed XU100 date rows
+in `core.index_prices_daily`, bounded by its supplied `asof`. It requires 65
+global date rows, positive finite stock prices at every selected position, and
+`pct_change(fill_method=None)`. Duplicate stock keys reject the affected ticker;
+missing/invalid/duplicate calendar data and stock/calendar disagreement in the
+selected interval reject the calculation. Retained ticker rows have a missing
+`ek9` plus an explicit `ek9_rejection_reason` for downstream provenance. A ticker
+absent from the entire stock-price table is left missing by the universe join.
+
+This is an **observed session axis**, not an independent official exchange
+calendar: a session absent from both stock and XU100 datasets cannot be detected
+from these tables alone. No weekdays, freshness horizon or session dates are
+invented. Index prices are not used in stock returns. Null index closes do not
+erase observed date rows. Stock dates inside the chosen interval that are absent
+from the XU100 axis are rejected rather than silently bridged.
 
 ## XU100 and fallback policy
 
@@ -90,9 +108,12 @@ The permanent CI gate runs:
 
 - `tests/test_historical_pit_ek9_replay.py`;
 - `tests/test_ek9_live_compatibility.py`.
+- `tests/test_w1_ek9_safety.py`.
 
 The tests lock DB-free structure, no index-price fallback path, 64-price/63-return
-windowing, `ddof=1`, the 0.06 cap, no annualization, live legacy `pct_change()`
-preprocessing, explicit missing-price rejection, future-data rejection,
+windowing, `ddof=1`, the 0.06 cap, no annualization, exact valid-score compatibility,
+explicit no-fill live/historical preprocessing, missing-price rejection, future-data rejection,
 current-universe isolation, deterministic exhaustive coverage and pandas 2.2.3
-compatibility.
+compatibility. W1 regressions additionally cover sparse/all-missing/constant
+series, whole missing stock sessions, duplicate/mismatched calendars and
+non-finite or overflowed arithmetic.

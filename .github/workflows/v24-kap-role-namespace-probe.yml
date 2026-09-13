@@ -1,0 +1,78 @@
+name: V24 KAP Role Namespace Probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/p1-kap-semantic-family-coverage
+    paths:
+      - 'scripts/discover_kap_bulk_role_namespaces_targeted.py'
+      - 'tests/test_kap_bulk_role_namespaces_targeted.py'
+      - '.github/workflows/v24-kap-role-namespace-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  namespace-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      RELEASE_TAG: 'kap-bulk-byte-evidence-run-33568804543'
+      PUBLIC_EVIDENCE: 'data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/run_33568804543.json'
+      SHA256SUMS_OBSERVED: 'data/backtest_sources/kap_bulk_financial_source_capture/public_byte_evidence/SHA256SUMS.run_33568804543.observed'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Namespace probe guards
+        run: python -m pytest -q tests/test_kap_bulk_role_namespaces_targeted.py
+      - name: Download exact public release raw ZIP assets
+        run: |
+          mkdir -p kap-current
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --pattern 'KAP_*.zip' --dir kap-current
+          test "$(find kap-current -maxdepth 1 -type f -name 'KAP_*.zip' | wc -l)" -eq 28
+      - name: Re-verify exact current-snapshot bytes
+        run: |
+          (cd kap-current && sha256sum -c "$GITHUB_WORKSPACE/$SHA256SUMS_OBSERVED")
+      - name: Probe 2021Q1 role namespaces
+        run: |
+          mapfile -t archives < <(find kap-current -maxdepth 1 -type f -name 'KAP_*.zip' | sort)
+          args=()
+          for archive in "${archives[@]}"; do args+=(--archive "$archive"); done
+          python -m scripts.discover_kap_bulk_role_namespaces_targeted \
+            "${args[@]}" \
+            --scan-archive-name KAP_2021_3A.zip \
+            --public-evidence "$PUBLIC_EVIDENCE" \
+            --output kap-role-namespaces-2021q1.json
+      - name: Enforce discovery-only boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result = json.loads(Path('kap-role-namespaces-2021q1.json').read_text())
+          assert result['contract'] == 'KAP_BULK_ROLE_NAMESPACE_TARGETED_DISCOVERY_V1'
+          assert result['archive_count'] == 28
+          assert result['scan_archive_name'] == 'KAP_2021_3A.zip'
+          assert result['namespace_count'] > 0
+          assert result['current_snapshot_public_evidence_verified'] is True
+          assert result['semantic_mapping_authorized'] is False
+          assert result['pit_materialization_authorized'] is False
+          assert result['real_60_cutoff_scoring_authorized'] is False
+          print('namespaces=', [row['namespace'] for row in result['namespaces']])
+          PY
+      - name: Upload namespace evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kap-role-namespaces-2021q1-${{ github.sha }}
+          path: kap-role-namespaces-2021q1.json
+          if-no-files-found: error
+          retention-days: 90

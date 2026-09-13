@@ -98,6 +98,7 @@ def main():
     ap.add_argument("--mapping-config", default=None)
     ap.add_argument("--semantic-config", default=None)
     ap.add_argument("--derivation-config", default=None)
+    ap.add_argument("--action-bundle-index", default=None, help="Reviewed hash-pinned PIT corporate-action bundle index")
     ap.add_argument("--valuation-config", default=None)
     ap.add_argument("--routing-config", default=None)
     ap.add_argument("--source-mapping-profile", default=None)
@@ -1292,8 +1293,9 @@ def main():
         elif args.cmd == "run-insurance-batch":
             from src.analytics.insurance_batch_pipeline import run_insurance_batch
             analysis_at, tickers, valuation_config, routing_config = insurance_batch_request
+            from src.analytics.price_level_adapter import load_action_bundles
             report = run_insurance_batch(
-                conn, analysis_at=analysis_at, config=valuation_config,
+                conn, action_bundles=load_action_bundles(args.action_bundle_index), analysis_at=analysis_at, config=valuation_config,
                 tickers=tickers, routing_config=routing_config, persist=not args.no_persist,
             )
             output = {
@@ -1323,8 +1325,9 @@ def main():
                 run_financial_institution_batch,
             )
             analysis_at, tickers, valuation_config, routing_config = fi_batch_request
+            from src.analytics.price_level_adapter import load_action_bundles
             report = run_financial_institution_batch(
-                conn, analysis_at=analysis_at, config=valuation_config,
+                conn, action_bundles=load_action_bundles(args.action_bundle_index), analysis_at=analysis_at, config=valuation_config,
                 tickers=tickers, routing_config=routing_config, persist=not args.no_persist,
             )
             output = {
@@ -1354,8 +1357,9 @@ def main():
         elif args.cmd == "run-gyo-batch":
             from src.analytics.gyo_batch_pipeline import run_gyo_batch
             analysis_at, tickers, valuation_config, routing_config = gyo_batch_request
+            from src.analytics.price_level_adapter import load_action_bundles
             report = run_gyo_batch(
-                conn, analysis_at=analysis_at, config=valuation_config,
+                conn, action_bundles=load_action_bundles(args.action_bundle_index), analysis_at=analysis_at, config=valuation_config,
                 tickers=tickers, routing_config=routing_config, persist=not args.no_persist,
             )
             output = {
@@ -1380,8 +1384,9 @@ def main():
         elif args.cmd == "run-holding-batch":
             from src.analytics.holding_batch_pipeline import run_holding_batch
             analysis_at, tickers, valuation_config, routing_config = holding_batch_request
+            from src.analytics.price_level_adapter import load_action_bundles
             report = run_holding_batch(
-                conn, analysis_at=analysis_at, config=valuation_config,
+                conn, action_bundles=load_action_bundles(args.action_bundle_index), analysis_at=analysis_at, config=valuation_config,
                 tickers=tickers, routing_config=routing_config,
                 persist=not args.no_persist,
             )
@@ -1411,8 +1416,9 @@ def main():
         elif args.cmd == "run-nonfin-batch":
             from src.analytics.nonfin_batch_pipeline import run_nonfin_batch
             analysis_at, anchor, tickers, valuation_config, routing_config = nonfin_batch_request
+            from src.analytics.price_level_adapter import load_action_bundles
             report = run_nonfin_batch(
-                conn, analysis_at=analysis_at, config=valuation_config,
+                conn, action_bundles=load_action_bundles(args.action_bundle_index), analysis_at=analysis_at, config=valuation_config,
                 anchor_period_end=anchor, tickers=tickers,
                 routing_config=routing_config, persist=not args.no_persist,
             )

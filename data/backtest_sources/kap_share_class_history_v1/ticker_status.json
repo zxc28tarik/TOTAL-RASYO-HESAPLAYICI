@@ -1,0 +1,1003 @@
+[
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "4028e4a240e8d16e0140e8f159dc0033",
+    "status": "CAPTURED",
+    "ticker": "ADEL",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140e95bea0140ed2fde10009d",
+    "status": "CAPTURED",
+    "ticker": "AEFES",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 7,
+    "mkk_member_oid": "4028e4a240f2ef4c014101b18dc000f7",
+    "status": "CAPTURED",
+    "ticker": "AGHOL",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c48b2fa259018bb9e449415e84",
+    "status": "CAPTURED",
+    "ticker": "AGROT",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a14203278a0142095715f914d0",
+    "status": "CAPTURED",
+    "ticker": "AHGAZ",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c48304fe9e0186a66e7a9568ea",
+    "status": "CAPTURED",
+    "ticker": "AKFYE",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a241733d42014179341a147ddb",
+    "status": "CAPTURED",
+    "ticker": "AKSEN",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "4028e4a241462fd80141500c738e36be",
+    "status": "CAPTURED",
+    "ticker": "ALARK",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c5830502c30183559e2336223e",
+    "status": "CAPTURED",
+    "ticker": "ALFAS",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 6,
+    "mkk_member_oid": "4028e4a241462fd801415005df1c3612",
+    "status": "CAPTURED",
+    "ticker": "ALGYO",
+    "usable_history_rows": 6
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c58b2fa64e018f3d2d712476e2",
+    "status": "CAPTURED",
+    "ticker": "ALTNY",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c47afb298b017ccb97632144e5",
+    "status": "CAPTURED",
+    "ticker": "ARASE",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 1,
+    "mkk_member_oid": "4028e4a240e95dc90140ed55b43900cf",
+    "status": "CAPTURED",
+    "ticker": "ARCLK",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c46d7599a6016dde9d93aa2b52",
+    "status": "CAPTURED",
+    "ticker": "ARDYZ",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 6,
+    "mkk_member_oid": "4028e4a1413b7ef401413bc2251e0047",
+    "status": "CAPTURED",
+    "ticker": "ASELS",
+    "usable_history_rows": 6
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c562329bd10164405fe6c17996",
+    "status": "CAPTURED",
+    "ticker": "ASTOR",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "4028e4a140e95be70140ed43c4fe00a9",
+    "status": "CAPTURED",
+    "ticker": "ASUZU",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c4782a4d580178b56e7c5c4404",
+    "status": "CAPTURED",
+    "ticker": "AYDEM",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a240f2ef4701410810f53601c4",
+    "status": "CAPTURED",
+    "ticker": "BAGFS",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c580e9103101811f4715cc1821",
+    "status": "CAPTURED",
+    "ticker": "BALSU",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a240f2ef4701413a3410a605ce",
+    "status": "CAPTURED",
+    "ticker": "BASGZ",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a241733d42014174023cb0192b",
+    "status": "CAPTURED",
+    "ticker": "BERA",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "4028e4a140e95bea0140ee30fb6001b9",
+    "status": "CAPTURED",
+    "ticker": "BFREN",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a24a5df6e7014ba1e60b464173",
+    "status": "CAPTURED",
+    "ticker": "BIENY",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140e95be70140ee1b7b030119",
+    "status": "CAPTURED",
+    "ticker": "BIMAS",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c48b2fa25a018bba0a5034596d",
+    "status": "CAPTURED",
+    "ticker": "BINHO",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c4780814e2017826e1e07318d8",
+    "status": "CAPTURED",
+    "ticker": "BIOEN",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c4782a4d560178d45481dc5948",
+    "status": "CAPTURED",
+    "ticker": "BOBET",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 6,
+    "mkk_member_oid": "4028e4a140f2ed7201412ac9ca5d06e6",
+    "status": "CAPTURED",
+    "ticker": "BRSAN",
+    "usable_history_rows": 5
+  },
+  {
+    "history_rows": 6,
+    "mkk_member_oid": "4028e4a24158e42401415920fc3308c5",
+    "status": "CAPTURED",
+    "ticker": "BSOKE",
+    "usable_history_rows": 6
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "4028e4a140e95be70140ee07044700eb",
+    "status": "CAPTURED",
+    "ticker": "BTCIM",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 6,
+    "mkk_member_oid": "4028e4a140ee35c00140ee41a5e4000f",
+    "status": "CAPTURED",
+    "ticker": "BUCIM",
+    "usable_history_rows": 6
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "8acae2c578080f31017811f4dca6032d",
+    "status": "CAPTURED",
+    "ticker": "CANTE",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140ee35c00140ee586bdd0034",
+    "status": "CAPTURED",
+    "ticker": "CCOLA",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140ee84900140f1f334ce0025",
+    "status": "CAPTURED",
+    "ticker": "CEMTS",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a240ee866c0140f1f64bdb0014",
+    "status": "CAPTURED",
+    "ticker": "CIMSA",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140ee84900140f1f1584c0015",
+    "status": "CAPTURED",
+    "ticker": "CLEBI",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "8acae2c586d22c510187381ba299429a",
+    "status": "CAPTURED",
+    "ticker": "CVKMD",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "8acae2c56faf888c016fd6c2036e0a5d",
+    "status": "CAPTURED",
+    "ticker": "CWENE",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c47d3bee4e017ea0492b6a0595",
+    "status": "CAPTURED",
+    "ticker": "DAPGM",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 0,
+    "mkk_member_oid": "fb4e3f58d05d4f01a5f15679e90748e9",
+    "status": "NO_HISTORY_ROWS",
+    "ticker": "DEVA",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a240e8d16e0140e951bf04007b",
+    "status": "CAPTURED",
+    "ticker": "DOAS",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a141462df201414ff732983087",
+    "status": "CAPTURED",
+    "ticker": "DOHOL",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a1415f4d9901416012a278321f",
+    "status": "CAPTURED",
+    "ticker": "ECZYT",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c5819d0efb0182923c4c307fbf",
+    "status": "CAPTURED",
+    "ticker": "EFOR",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "1DE05DAA8254073AE0530A4A622A2EBD",
+    "status": "CAPTURED",
+    "ticker": "EGEEN",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a241733d4201417937d4337e22",
+    "status": "CAPTURED",
+    "ticker": "ENERY",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a1422d98690142bceaa31957cf",
+    "status": "CAPTURED",
+    "ticker": "ENJSA",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 6,
+    "mkk_member_oid": "4028e4a240e95dc90140ed3883fe0093",
+    "status": "CAPTURED",
+    "ticker": "ENKAI",
+    "usable_history_rows": 6
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "4028e4a240e95dc90140ede4c12a0133",
+    "status": "CAPTURED",
+    "ticker": "EREGL",
+    "usable_history_rows": 5
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c57436079f0174486159f4072f",
+    "status": "CAPTURED",
+    "ticker": "ESEN",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 1,
+    "mkk_member_oid": "8acae2c486d22a3b01875b5644ea61c4",
+    "status": "CAPTURED",
+    "ticker": "EUPWR",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c580e91030018105632b470bcd",
+    "status": "CAPTURED",
+    "ticker": "EUREN",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "4028e4a140f2ed71014106890fae0138",
+    "status": "CAPTURED",
+    "ticker": "FROTO",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c5794d3d6a017a89f2678a1118",
+    "status": "CAPTURED",
+    "ticker": "GENIL",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c4794d364a017af66863e41bae",
+    "status": "CAPTURED",
+    "ticker": "GESAN",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 1,
+    "mkk_member_oid": "4028e4a1416e696301416f392897603f",
+    "status": "CAPTURED",
+    "ticker": "GLRMK",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "4028e4a140e95bea0140ee21b10d0188",
+    "status": "CAPTURED",
+    "ticker": "GLYHO",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140e95be70140ee27ccd40129",
+    "status": "CAPTURED",
+    "ticker": "GOLTS",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 1,
+    "mkk_member_oid": "8acae2c47d3bee50017f2c2fc65150e6",
+    "status": "CAPTURED",
+    "ticker": "GRSEL",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "4028e4a140e95be70140ee2be54b014a",
+    "status": "CAPTURED",
+    "ticker": "GSDHO",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a241733d4a01417989f3760a4d",
+    "status": "CAPTURED",
+    "ticker": "GUBRF",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c46d7599a6016dee0b5aec36b2",
+    "status": "CAPTURED",
+    "ticker": "GWIND",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 0,
+    "mkk_member_oid": "8acae2c48c3efabf018d10fc19010119",
+    "status": "NO_HISTORY_ROWS",
+    "ticker": "HEKTS",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140f2ed7201410d315d200314",
+    "status": "CAPTURED",
+    "ticker": "IEYHO",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140ee84900140f1fbc6b1004f",
+    "status": "CAPTURED",
+    "ticker": "IHLAS",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a2416e696c01416ee8eb7b3770",
+    "status": "CAPTURED",
+    "ticker": "ISDMR",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "4028e4a140f2ed7201412acbeb8b06f7",
+    "status": "CAPTURED",
+    "ticker": "ISGYO",
+    "usable_history_rows": 5
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c5534651ff0153612ea22a02ec",
+    "status": "CAPTURED",
+    "ticker": "IZENR",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140f275550140f27e319401ca",
+    "status": "CAPTURED",
+    "ticker": "IZMDC",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "4028e4a140f275530140f2e357a501f7",
+    "status": "CAPTURED",
+    "ticker": "KARSN",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a2416f888d01416f9ea04a058f",
+    "status": "CAPTURED",
+    "ticker": "KCAER",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140f2ed710140f2f4d6c70039",
+    "status": "CAPTURED",
+    "ticker": "KCHOL",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a1415f4d990141600b4b5331e2",
+    "status": "CAPTURED",
+    "ticker": "KLRHO",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 1,
+    "mkk_member_oid": "4028e4a140f275550140f285f6cf0246",
+    "status": "CAPTURED",
+    "ticker": "KLSER",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c47d3bee4e017da32a238f235f",
+    "status": "CAPTURED",
+    "ticker": "KMPUR",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "8acae2c5745d76320174c4879b101cb2",
+    "status": "CAPTURED",
+    "ticker": "KONTR",
+    "usable_history_rows": 5
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140f2ed720140f3014c9400cf",
+    "status": "CAPTURED",
+    "ticker": "KONYA",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140f2ed720140f30606a700ec",
+    "status": "CAPTURED",
+    "ticker": "KORDS",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140f2ed7201412ace3ada0707",
+    "status": "CAPTURED",
+    "ticker": "KRDMD",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a246b4c5a90148127e32eb47e9",
+    "status": "CAPTURED",
+    "ticker": "KRVGD",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "4028e4a241a25fd60141a2bf974c04e8",
+    "status": "CAPTURED",
+    "ticker": "KUYAS",
+    "usable_history_rows": 5
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "8acae2c5794d3d66017aadf2b6b719cb",
+    "status": "CAPTURED",
+    "ticker": "KZBGY",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c5570aaa2b0157be3a3ef749af",
+    "status": "CAPTURED",
+    "ticker": "LIDER",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 1,
+    "mkk_member_oid": "8acae2c58b2fa64e018d8cfe461558d3",
+    "status": "CAPTURED",
+    "ticker": "LMKDC",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 0,
+    "mkk_member_oid": "4028e4a140f2ed7101413af95c8c047c",
+    "status": "NO_HISTORY_ROWS",
+    "ticker": "MAGEN",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 0,
+    "mkk_member_oid": "8acae2c4782a4d580178a723f5383685",
+    "status": "NO_HISTORY_ROWS",
+    "ticker": "MGROS",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "8acae2c47afb298a017cbcef284245ba",
+    "status": "CAPTURED",
+    "ticker": "MIATK",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 0,
+    "mkk_member_oid": "8acae2c482b7ea0b0182f949649916a8",
+    "status": "NO_HISTORY_ROWS",
+    "ticker": "MPARK",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140f2ed7101412ba0829f034d",
+    "status": "CAPTURED",
+    "ticker": "NTHOL",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 7,
+    "mkk_member_oid": "4028e4a1416e696301416f6100e76fb9",
+    "status": "CAPTURED",
+    "ticker": "NUGYO",
+    "usable_history_rows": 6
+  },
+  {
+    "history_rows": 0,
+    "mkk_member_oid": "4028e4a1415f4d9901416dc894a66313",
+    "status": "NO_HISTORY_ROWS",
+    "ticker": "OBAMS",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "4028e4a2416e696c01416edd70713183",
+    "status": "CAPTURED",
+    "ticker": "ODAS",
+    "usable_history_rows": 5
+  },
+  {
+    "history_rows": 1,
+    "mkk_member_oid": "8acae2c58b2fa64e018e1cbdc7e02623",
+    "status": "CAPTURED",
+    "ticker": "ODINE",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140ee35c70140ee4316b3001d",
+    "status": "CAPTURED",
+    "ticker": "OTKAR",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "4028e4a140f2ed720140f32377aa016c",
+    "status": "CAPTURED",
+    "ticker": "OYAKC",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 1,
+    "mkk_member_oid": "8acae2c4998f24d8019a5ffde32b0e5a",
+    "status": "CAPTURED",
+    "ticker": "PAHOL",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c46e7fdc6a016e93286c5304b5",
+    "status": "CAPTURED",
+    "ticker": "PAPIL",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 0,
+    "mkk_member_oid": "4028e4a14184e9c9014192aa6c1c1e03",
+    "status": "NO_HISTORY_ROWS",
+    "ticker": "PASEU",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c58b2fa64e018d63b9afbd4e6c",
+    "status": "CAPTURED",
+    "ticker": "PATEK",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a14184e9c9014198033c094251",
+    "status": "CAPTURED",
+    "ticker": "PENTA",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "4028e4a240f2ef470141165c566a03e4",
+    "status": "CAPTURED",
+    "ticker": "PETKM",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "4028e4a2422d9a78014232e751bc22a4",
+    "status": "CAPTURED",
+    "ticker": "PGSUS",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 8,
+    "mkk_member_oid": "8acae2c4794d364a017a51e9e5d256c9",
+    "status": "CAPTURED",
+    "ticker": "PSGYO",
+    "usable_history_rows": 8
+  },
+  {
+    "history_rows": 6,
+    "mkk_member_oid": "8acae2c469cee2a4016b1c1dc11f2b03",
+    "status": "CAPTURED",
+    "ticker": "QUAGR",
+    "usable_history_rows": 6
+  },
+  {
+    "history_rows": 6,
+    "mkk_member_oid": "4028e4a240f2ef4c0141029be169015f",
+    "status": "CAPTURED",
+    "ticker": "RALYH",
+    "usable_history_rows": 6
+  },
+  {
+    "history_rows": 1,
+    "mkk_member_oid": "8acae2c586d22c53018a73739d9104a8",
+    "status": "CAPTURED",
+    "ticker": "REEDR",
+    "usable_history_rows": 0
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a241b612d80141d9a52e2a2727",
+    "status": "CAPTURED",
+    "ticker": "RGYAS",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a240ee37a90140ee50087e000b",
+    "status": "CAPTURED",
+    "ticker": "SAHOL",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 7,
+    "mkk_member_oid": "4028e4a140f2ed7101410294f924012d",
+    "status": "CAPTURED",
+    "ticker": "SARKY",
+    "usable_history_rows": 7
+  },
+  {
+    "history_rows": 14,
+    "mkk_member_oid": "4028e4a240ee866c0140f20abd9500cc",
+    "status": "CAPTURED",
+    "ticker": "SASA",
+    "usable_history_rows": 14
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a1415f4d9901416000c2de30f0",
+    "status": "CAPTURED",
+    "ticker": "SAYAS",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a2416e697d01416ec00e101dce",
+    "status": "CAPTURED",
+    "ticker": "SELEC",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "4028e4a140f2ed710140f385d5690102",
+    "status": "CAPTURED",
+    "ticker": "SISE",
+    "usable_history_rows": 5
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "8acae2c47d3bee4e017f49ce882e7b01",
+    "status": "CAPTURED",
+    "ticker": "SMRTG",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 6,
+    "mkk_member_oid": "4028e4a14184e9cf01419c0168dd5a87",
+    "status": "CAPTURED",
+    "ticker": "SNGYO",
+    "usable_history_rows": 5
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a241a25fcb0141a7c4a064241c",
+    "status": "CAPTURED",
+    "ticker": "SOKM",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 1,
+    "mkk_member_oid": "4028e4a141e536460141e5aa84740938",
+    "status": "CAPTURED",
+    "ticker": "TABGD",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "8acae2c586d22c510189bf5827490281",
+    "status": "CAPTURED",
+    "ticker": "TATEN",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140f2ed720140f31195ef010e",
+    "status": "CAPTURED",
+    "ticker": "TAVHL",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a1486ec80a0148c55510d71d31",
+    "status": "CAPTURED",
+    "ticker": "TCELL",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140f2ed720140f376bebb01a7",
+    "status": "CAPTURED",
+    "ticker": "THYAO",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140f2ed720140f31367840112",
+    "status": "CAPTURED",
+    "ticker": "TKFEN",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a240f2ef470140f31ac6aa006f",
+    "status": "CAPTURED",
+    "ticker": "TKNSA",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a141e536460141e53904b50025",
+    "status": "CAPTURED",
+    "ticker": "TMSN",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140f2ed710140f328bed700a5",
+    "status": "CAPTURED",
+    "ticker": "TOASO",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a2422d9a6e0142bd91d3687a69",
+    "status": "CAPTURED",
+    "ticker": "TRALT",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a2422d9a6e0142bd9255a37a70",
+    "status": "CAPTURED",
+    "ticker": "TRENJ",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 6,
+    "mkk_member_oid": "4028e4a1413b7ef5014144f83882011f",
+    "status": "CAPTURED",
+    "ticker": "TRGYO",
+    "usable_history_rows": 1
+  },
+  {
+    "history_rows": 4,
+    "mkk_member_oid": "8acae2c575a1b5b601773ec6c0030b66",
+    "status": "CAPTURED",
+    "ticker": "TRILC",
+    "usable_history_rows": 4
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a2422d9a6e0142bd921d307a6d",
+    "status": "CAPTURED",
+    "ticker": "TRMET",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a241e538ab0141ea9c96912c8b",
+    "status": "CAPTURED",
+    "ticker": "TTKOM",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140f2ed720140f3790d6a01ad",
+    "status": "CAPTURED",
+    "ticker": "TTRAK",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "4028e4a240f2ef470140f373b77f00ac",
+    "status": "CAPTURED",
+    "ticker": "TUKAS",
+    "usable_history_rows": 5
+  },
+  {
+    "history_rows": 5,
+    "mkk_member_oid": "4028e4a140f2ed720140f37f139c01bc",
+    "status": "CAPTURED",
+    "ticker": "TUPRS",
+    "usable_history_rows": 5
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "402821824bf524dd014d7babc2134829",
+    "status": "CAPTURED",
+    "ticker": "TUREX",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a14184e9c901419801438a422b",
+    "status": "CAPTURED",
+    "ticker": "ULKER",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a2422d9a78014275ba7f133b05",
+    "status": "CAPTURED",
+    "ticker": "VERUS",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140f2ed7201412c223c9707e6",
+    "status": "CAPTURED",
+    "ticker": "VESBE",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a140f2ed7201412c2000c507db",
+    "status": "CAPTURED",
+    "ticker": "VESTL",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 3,
+    "mkk_member_oid": "4028e4a140f2ed7101413af3da8c0440",
+    "status": "CAPTURED",
+    "ticker": "YEOTK",
+    "usable_history_rows": 3
+  },
+  {
+    "history_rows": 2,
+    "mkk_member_oid": "4028e4a2420a2daf014213d4625d3edc",
+    "status": "CAPTURED",
+    "ticker": "YYLGD",
+    "usable_history_rows": 2
+  },
+  {
+    "history_rows": 7,
+    "mkk_member_oid": "4028e4a140f2ed7201412c19687407a7",
+    "status": "CAPTURED",
+    "ticker": "ZOREN",
+    "usable_history_rows": 7
+  }
+]

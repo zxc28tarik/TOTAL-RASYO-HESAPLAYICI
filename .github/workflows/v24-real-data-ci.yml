@@ -87,6 +87,9 @@ on:
       - 'tests/test_ek1_live_compatibility.py'
       - 'tests/test_historical_pit_ek9_replay.py'
       - 'tests/test_ek9_live_compatibility.py'
+      - 'tests/test_w1_ek9_safety.py'
+      - 'tests/test_w1_daily_score_safety.py'
+      - 'sql/043_module_score_rejections.sql'
       - 'tests/test_historical_pit_total_rasyo_replay.py'
       - 'tests/test_historical_pit_total_rasyo_mutations.py'
       - 'tests/test_historical_cutoff_execution_policy.py'
@@ -165,6 +168,9 @@ on:
       - 'tests/test_ek1_live_compatibility.py'
       - 'tests/test_historical_pit_ek9_replay.py'
       - 'tests/test_ek9_live_compatibility.py'
+      - 'tests/test_w1_ek9_safety.py'
+      - 'tests/test_w1_daily_score_safety.py'
+      - 'sql/043_module_score_rejections.sql'
       - 'tests/test_historical_pit_total_rasyo_replay.py'
       - 'tests/test_historical_pit_total_rasyo_mutations.py'
       - 'tests/test_historical_cutoff_execution_policy.py'
@@ -231,6 +237,8 @@ jobs:
             tests/test_ek1_live_compatibility.py \
             tests/test_historical_pit_ek9_replay.py \
             tests/test_ek9_live_compatibility.py \
+            tests/test_w1_ek9_safety.py \
+            tests/test_w1_daily_score_safety.py \
             tests/test_historical_pit_total_rasyo_replay.py \
             tests/test_historical_pit_total_rasyo_mutations.py \
             tests/test_historical_cutoff_execution_policy.py \
@@ -296,6 +304,8 @@ jobs:
             tests/test_ek1_live_compatibility.py \
             tests/test_historical_pit_ek9_replay.py \
             tests/test_ek9_live_compatibility.py \
+            tests/test_w1_ek9_safety.py \
+            tests/test_w1_daily_score_safety.py \
             tests/test_historical_pit_total_rasyo_replay.py \
             tests/test_historical_pit_total_rasyo_mutations.py \
             tests/test_historical_cutoff_execution_policy.py \

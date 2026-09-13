@@ -5,6 +5,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import pytest
+from price_level_fixtures import certify_frames, SHARE_BASIS
 
 from src.analytics.holding_batch_pipeline import (
     HoldingBatchError,
@@ -27,7 +28,7 @@ def cfg():
         "valuation_version": 1,
         "source_nav_profile": "HOLDING_ADJUSTED_NAV",
         "source_nav_version": 1,
-        "share_basis": "ADJUSTED_PRICE_SERIES_V1",
+        "share_basis": SHARE_BASIS,
         "minimum_peer_count": 3,
         "full_confidence_peer_count": 5,
     })
@@ -64,6 +65,7 @@ def frames():
         "follow_score": [0.5, 0.5, 0.5, 0.5],
         "follow_active": [True, True, True, True],
     })
+    certify_frames(navs, prices, ANALYSIS, "nav_asof_date")
     return universe, navs, prices, follow
 
 

@@ -1,0 +1,130 @@
+{
+  "candidate_993_recomputed": false,
+  "contract": "P2_RAW_CLOSE_PIT_AUDIT_V2",
+  "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "proxy_is_canonical_nav": false,
+  "row_count": 12,
+  "rows": [
+    {
+      "archive_sha256": "b6e1aaf788041569fd117cf2eb1b04a7974476971358e838279d99bea78e992d",
+      "member_sha256": "8f05fbe456c15cfe78ac2e63079f25baa092ea57073cf23be88141fdc3188cc7",
+      "raw_close": 37.36,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2022-07-01",
+      "status": "REJECTED",
+      "ticker": "INVES",
+      "trade_date": "2022-06-29"
+    },
+    {
+      "archive_sha256": "50b824a92da98e59781d012256026f10ae658c458485a5630d3fd379a065427f",
+      "member_sha256": "af620393c07fcc2902706d108cfc20655862c8e3b39a8b7cf35abea6d0d8a8e5",
+      "raw_close": 40.82,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2022-08-01",
+      "status": "REJECTED",
+      "ticker": "INVES",
+      "trade_date": "2022-07-28"
+    },
+    {
+      "archive_sha256": "d6117bc61f4bd43afad4e3cdd92dd41d6d648f006248284512343c4135374d09",
+      "member_sha256": "a64641a5e513dba123a4d3965da00c2779840414ab33763ae7e97d0ec4947ac4",
+      "raw_close": 41.08,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2022-09-01",
+      "status": "REJECTED",
+      "ticker": "INVES",
+      "trade_date": "2022-08-29"
+    },
+    {
+      "archive_sha256": "841ba686e617a6e381e4a68e0f4947acdf1bf7bf5cc893c620d2d4403c8a0210",
+      "member_sha256": "36f7e5759ce79acf24ce46caed2b46d30f44b0c5769ac9d2e1d6d009f4d23956",
+      "raw_close": 26.8,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2023-01-02",
+      "status": "REJECTED",
+      "ticker": "KLRHO",
+      "trade_date": "2022-12-29"
+    },
+    {
+      "archive_sha256": "7a381ec6c559fc27358e4ddac9342c54d19d0a226d38ce57c5943ec4f581fea5",
+      "member_sha256": "b16e3e41fe8f55c242c447163bd2c8d9bd1cfb7515f6f3a09bb26b32ae1a3f15",
+      "raw_close": 26.2,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2023-02-01",
+      "status": "REJECTED",
+      "ticker": "KLRHO",
+      "trade_date": "2023-01-30"
+    },
+    {
+      "archive_sha256": "8f8f35ca1da3297840031b053227d7b85f674d2afb32dc2a81a492458c39f01b",
+      "member_sha256": "6b808a68403701b6a4e866f3cf2f017f265f2ba3e8d45389743df808de282d1f",
+      "raw_close": 21.18,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2023-03-01",
+      "status": "REJECTED",
+      "ticker": "KLRHO",
+      "trade_date": "2023-02-27"
+    },
+    {
+      "archive_sha256": "e347c27fdea27fc1470764b7c5a23235644aa057f0eec986d313ce7b6484dc41",
+      "member_sha256": "861e6b5bd0e965b04e9da6d3ea984b5f0fcd2c141f6581930d5ce8a65c6c971b",
+      "raw_close": 27.82,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2023-04-03",
+      "status": "REJECTED",
+      "ticker": "KLRHO",
+      "trade_date": "2023-03-30"
+    },
+    {
+      "archive_sha256": "881c45080ece57034a31dff1a85bed823bca3a2e14d21efa4143a2a2d490639e",
+      "member_sha256": "9ca728a7054848f2281d1537785d629537ff609686ed61674c50e2f003445fe0",
+      "raw_close": 25.6,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2023-05-02",
+      "status": "REJECTED",
+      "ticker": "KLRHO",
+      "trade_date": "2023-04-27"
+    },
+    {
+      "archive_sha256": "81fdc68a9473bdfa134b9275e5cad6ae77d36a0ddabb44c2b4f19de1c94118c0",
+      "member_sha256": "60a986ce437417c93dbdc8ab971d0986790c86486025edb70fd779198fdb1057",
+      "raw_close": 34.18,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2023-06-01",
+      "status": "REJECTED",
+      "ticker": "KLRHO",
+      "trade_date": "2023-05-30"
+    },
+    {
+      "archive_sha256": "c11a3d91d361df4a4b0e2fe01b9b5066469a9995ea005fa10dd209635398c6a0",
+      "member_sha256": "292e74e04e44fcb19ac7da1a401ea4f28123ab56b07898a4ea6ed0b8f9fb82dd",
+      "raw_close": 13.76,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2024-01-02",
+      "status": "REJECTED",
+      "ticker": "ASGYO",
+      "trade_date": "2023-12-28"
+    },
+    {
+      "archive_sha256": "e6482cee5147742c0bb2c485cc098d5e651eed302541c8867a40bbff98998b56",
+      "member_sha256": "7793ae3cc962e04331bf36deffa197e6c49451cc2febcc69ba33316534427333",
+      "raw_close": 16.22,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2024-02-01",
+      "status": "REJECTED",
+      "ticker": "ASGYO",
+      "trade_date": "2024-01-30"
+    },
+    {
+      "archive_sha256": "dd6a236aa787d6ccf5005fa8bb42cd9f3436c1f049687a9b64a65b6e328fd722",
+      "member_sha256": "cdf005f8e3e53e885a1f6885cea1e327a08fb8af9d8d92b98e2db1fb00b47ab3",
+      "raw_close": 15.5,
+      "reason": "ACTION_COMPLETENESS_EVIDENCE_MISSING",
+      "signal_date": "2024-03-01",
+      "status": "REJECTED",
+      "ticker": "ASGYO",
+      "trade_date": "2024-02-28"
+    }
+  ],
+  "status": "BLOCKED"
+}

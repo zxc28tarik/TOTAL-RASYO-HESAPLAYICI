@@ -1,0 +1,12 @@
+{
+  "archive": "KAP_2022_Y.zip",
+  "archive_sha256": "841531a7c3a2918fbb6e51729c36862c252e80b811c875fafa07d78822894956",
+  "bulk_and_current_revised_numeric_slots_identical": true,
+  "equals_current_revised_export_bytes": false,
+  "matching_members": [
+    "KORTS_1126845_2022_4.xls"
+  ],
+  "member_sha256": "6ea451996e07abadb1027b4f2ab5b0020a6ce63608000581175ef01aa7802c0e",
+  "numeric_slot_count": 437,
+  "original_disclosure_in_bulk_archive": false
+}

@@ -1,0 +1,26 @@
+{
+  "bdkMemberOidList": [],
+  "bdkReview": "",
+  "disclosureClass": "",
+  "disclosureIndexList": [],
+  "fromDate": "2023-09-30",
+  "fromSrc": false,
+  "inactiveMkkMemberOidList": [],
+  "index": "",
+  "isLate": "",
+  "mainSector": "",
+  "marketOid": "",
+  "memberType": "",
+  "mkkMemberOidList": [
+    "8acae2c562329bd1016464c3796e08a0"
+  ],
+  "period": "",
+  "ruleType": "",
+  "sector": "",
+  "srcCategory": "",
+  "subSector": "",
+  "subjectList": [],
+  "term": "",
+  "toDate": "2024-02-29",
+  "year": ""
+}

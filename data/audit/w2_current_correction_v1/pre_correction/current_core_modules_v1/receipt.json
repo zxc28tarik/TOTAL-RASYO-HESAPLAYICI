@@ -1,0 +1,38 @@
+{
+  "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+  "archive_hashes": {
+    "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
+    "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
+    "KAP_2025_9A.zip": "421317ffb4edb55e1656773a5e6c8d4d9e2e79225888e2ff71556490dc817163",
+    "KAP_2025_Y.zip": "bef9ac8c5159db2fba8d388a1c4c1bf14f50c24bfef79c782b7efce93ef4e5c5",
+    "KAP_2026_3A.zip": "d7a53002009bc1c4672b80c272554412487d1abb21d95e69fed698cf8be2e82f",
+    "KAP_2026_6A.zip": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2"
+  },
+  "contract": "CURRENT_CORE_M1_EK1_V1",
+  "economic_family_contract": "CURRENT_OPEN_ENDED_KAP_SECTOR_ROUTE_NONFIN_V1",
+  "economic_route_raw_sha256": "686b8465a78be55e7ddcec900db21c8e581e6e58e99bc69ba2f0e382b2237c8c",
+  "economic_route_retrieved_at": "2026-08-24T16:48:00+00:00",
+  "ek1_valid_count": 131,
+  "financial_report_count": 849,
+  "m1_valid_count": 131,
+  "mode": "CURRENT_ONLY_NO_HISTORICAL_FINANCIAL_FALLBACK",
+  "neutral_score_injection": false,
+  "outputs": {
+    "modules.jsonl": "2a808eaa367db556ce81e295b8529f4cb7e05da8002ca83052b8867b2bddd935",
+    "rejections.jsonl": "4da9ea3bcff5de0865ae994b3ad0523f3811717d97e614271eb3f11659221b94"
+  },
+  "production_engines": [
+    "compute_company_core_ratios_from_frame",
+    "run_historical_pit_rsc_replay",
+    "run_historical_pit_m1_replay",
+    "run_historical_pit_ek1_replay"
+  ],
+  "rejection_count": 20,
+  "route_count": 151,
+  "top_rejection_reasons": {
+    "NO_VISIBLE_OWN_REPORT": 6,
+    "OWN_REPORT_STATEMENT_SCOPE_CONFLICT": 5,
+    "RSC_HISTORICAL_FAMILY_OR_PEER_DEPTH_MISSING": 3,
+    "TECHNICAL_CORE_FAMILY_UNSUPPORTED_OR_CONFLICTING": 6
+  }
+}

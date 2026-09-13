@@ -1,0 +1,28 @@
+{
+  "contract": "VERIFIED_YAHOO_RAW_CLOSE_EVIDENCE_V1",
+  "provider": "Yahoo Finance via yfinance",
+  "acquisition_workflow": ".github/workflows/v24-historical-member-yfinance.yml",
+  "acquisition_workflow_sha256": "a2ac7c337d5834180a538f2fe5dd04f09fd64bab676522d6bd26719433faf9ac",
+  "acquisition_workflow_head_sha": "f017d6c84242268f9c7f48ecad56779f7fd384a1",
+  "acquisition_semantics": {
+    "auto_adjust": false,
+    "actions": true,
+    "repair": false,
+    "close_field": "Close",
+    "adjusted_close_field": "Adj Close",
+    "adjusted_close_is_diagnostic_only": true
+  },
+  "discovery_summary": "data/backtest_sources/yahoo_discovery/historical_member_yahoo_summary.json",
+  "discovery_summary_sha256": "7f5276ca4e6cf33c9b5c6d5e6a15a78265ab820c24daacd2d3e66515dd269241",
+  "discovery_prices": "data/backtest_sources/yahoo_discovery/historical_member_prices_yahoo_2020-07_2026-08.csv.gz",
+  "discovery_prices_sha256": "7ec75046f1c22aef6e676590c4bf885c5c80f41a655b123ebcb6ab3a4b69c55e",
+  "resolution_summary": "data/backtest_sources/yahoo_resolved/historical_price_resolution_summary.json",
+  "resolution_summary_sha256": "f1e9df5aa149050982d4d366e0bf60c0836f0767a2dbd792c507c437221f642a",
+  "resolved_prices": "data/backtest_sources/yahoo_resolved/historical_member_prices_resolved_2020-07_2026-08.csv.gz",
+  "resolved_prices_sha256": "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141",
+  "accepted_resolution": "DIRECT_YAHOO",
+  "price_basis": "POINT_IN_TIME_MARKET_CLOSE_V1",
+  "official_exchange_source_required": false,
+  "corporate_action_evidence_provided": false,
+  "share_count_evidence_provided": false
+}

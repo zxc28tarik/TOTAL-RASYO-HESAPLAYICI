@@ -1,0 +1,54 @@
+name: P2 Valuation Price Fail-Closed Gate
+
+on:
+  push:
+    branches: [codex/p2-holding-gyo-nad-price-gaps]
+    paths:
+      - 'src/analytics/historical_valuation_price_supplement.py'
+      - 'tests/test_historical_valuation_price_supplement.py'
+      - 'data/backtest_sources/p2_historical_valuation_price_evidence_receipt.json'
+      - '.github/workflows/p2-valuation-price-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# P2 gate: raw THB evidence is preserved but adjusted-basis proof remains mandatory.
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install targeted test dependency
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Run P2 valuation-price anti-leak tests
+        run: python -m pytest -q tests/test_historical_valuation_price_supplement.py
+      - name: Verify receipt payload hash and exact 12-key catalog
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          from src.analytics.historical_valuation_price_supplement import CATALOG, UNRESOLVED_REASON
+
+          path = Path('data/backtest_sources/p2_historical_valuation_price_evidence_receipt.json')
+          receipt = json.loads(path.read_text(encoding='utf-8'))
+          claimed = receipt.pop('receipt_payload_sha256')
+          canonical = json.dumps(receipt, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()
+          actual = hashlib.sha256(canonical).hexdigest()
+          assert actual == claimed, (actual, claimed)
+          assert receipt['status'] == 'BLOCKED_ADJUSTED_BASIS'
+          assert receipt['reason'] == UNRESOLVED_REASON
+          assert receipt['row_count'] == 12
+          receipt_keys = {(r['ticker'], r['signal_date']) for r in receipt['rows']}
+          code_keys = {(r.ticker, r.signal_date.isoformat()) for r in CATALOG}
+          assert receipt_keys == code_keys and len(code_keys) == 12
+          print('P2_GATE_RECEIPT_SHA256=' + claimed)
+          print('P2_GATE_KEYS=12')
+          print('P2_GATE_STATUS=BLOCKED_ADJUSTED_BASIS')
+          PY

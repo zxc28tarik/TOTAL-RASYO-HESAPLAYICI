@@ -1,0 +1,58 @@
+{
+  "completed_at": "2026-09-13T00:11:14.319876+00:00",
+  "contract": "W2_CURRENT_CORRECTION_RECEIPT_V1",
+  "counts": {
+    "core": 131,
+    "ek9": 11,
+    "m2": 48,
+    "rejections": 805,
+    "total": 2
+  },
+  "hash_mode": "LF_CANONICAL_SHA256_V1",
+  "live_files": {
+    "current_core_modules_v1/modules.jsonl": "07bc933892427439b727fb2bdae9b940c4c6b99e36f0bcfa006015ed499ecb16",
+    "current_core_modules_v1/receipt.json": "c40c798c5fc5585f5aa54adcf2c969302392f68b535311f2d8729e040211ed16",
+    "current_core_modules_v1/rejections.jsonl": "e36b176190257d724ed34e8bdde522a09660bd17ac2de7b22887f6202e207366",
+    "current_total_rasyo_run_v1/receipt.json": "c2a7044ca561266d59740eae0baf9b3bce5c3177e690cbdfe56e956d5516b499",
+    "current_total_scores_v1/ranking.jsonl": "39852c1cc6e5aacaf4f4456d3b5341a8062b1d806d16a432efc98de3ff290813",
+    "current_total_scores_v1/receipt.json": "e50e19beccffbc117d2bde670232b57dc0d0c9da86e38679ad64e8f66aa7832b",
+    "current_total_scores_v1/rejections.jsonl": "acd9027f21ec7f17c6c6887554cc0d5c1d20509636852251c417337d5d885c6f",
+    "current_total_scores_v1/totals.jsonl": "39852c1cc6e5aacaf4f4456d3b5341a8062b1d806d16a432efc98de3ff290813"
+  },
+  "policy": {
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "pre_correction_files": {
+    "current_core_modules_v1/modules.jsonl": "f7e5e58dba8d9840dc8e8a94f6fb45b946194cc2f6dbd6f425829987c3ce74f7",
+    "current_core_modules_v1/receipt.json": "790229948db933f95f927f0d1202f5c67a1302183ec62abddb5c814f7a9343d3",
+    "current_core_modules_v1/rejections.jsonl": "e36b176190257d724ed34e8bdde522a09660bd17ac2de7b22887f6202e207366",
+    "current_total_rasyo_run_v1/receipt.json": "229222ff67ee50cf714791a24e3113231805673d0221956c1f1d04182c148fbc",
+    "current_total_scores_v1/ranking.jsonl": "f5ce19600828794611f2540ebbc489a657fcbf1149bd3d107ae993092a5290ed",
+    "current_total_scores_v1/receipt.json": "ce6b37842fc262b94a0cfe9e0a410c408c718c2d4d86c620b844d55e8e2a5f7a",
+    "current_total_scores_v1/rejections.jsonl": "acd9027f21ec7f17c6c6887554cc0d5c1d20509636852251c417337d5d885c6f",
+    "current_total_scores_v1/totals.jsonl": "f5ce19600828794611f2540ebbc489a657fcbf1149bd3d107ae993092a5290ed"
+  },
+  "pre_correction_manifest_sha256": "3e5039f3c56d2e4ce08942262df2689aaaeb3dcbf892d4cf10a3cf05c5c6567e",
+  "root_cause": "CORE_ARTIFACT_NOT_REGENERATED_AFTER_PRE_W1_FLOW_DERIVATION_FIX",
+  "source_audit_head": "9b4d8fe64bb05e32786c9f469696eb1d6cf5fd59",
+  "status": "CORRECTED_AND_VERIFIED",
+  "total_changes": {
+    "RGYAS": {
+      "after": 46.602101129,
+      "before": 46.2949460644,
+      "decision": "UZAK",
+      "rank": 1
+    },
+    "TABGD": {
+      "after": 43.9061751217,
+      "before": 40.7156025426,
+      "decision": "UZAK",
+      "rank": 2
+    }
+  }
+}

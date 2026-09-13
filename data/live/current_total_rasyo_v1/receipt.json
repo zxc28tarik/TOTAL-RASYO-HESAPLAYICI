@@ -1,0 +1,120 @@
+{
+  "at_least_4_modules_count": 131,
+  "at_least_5_modules_count": 11,
+  "captured_at": "2026-09-08T21:59:07.686595+00:00",
+  "contract": "LIVE_TOTAL_RASYO_INPUT_READINESS_V1",
+  "current_core_modules_artifact": {
+    "path": "data/live/current_core_modules_v1/modules.jsonl",
+    "sha256": "2a808eaa367db556ce81e295b8529f4cb7e05da8002ca83052b8867b2bddd935"
+  },
+  "current_financial_archive": {
+    "member_count": 757,
+    "parse_rejected_count": 0,
+    "parsed_report_count": 757,
+    "path": "private/reconstructed_kap_archives/KAP_2026_6A.zip",
+    "sha256": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2",
+    "source_url": "https://kap.org.tr/tr/api/financialTable/download/2026/2"
+  },
+  "current_market_cap_artifact": {
+    "path": "data/live/current_price_level_basis_v1/market_caps.csv",
+    "sha256": "1e35c921414cf65571f154b41956af0482d5a47d94abda06eb22967d647558aa"
+  },
+  "current_market_modules_artifact": {
+    "path": "data/live/current_market_modules_v1/modules.csv",
+    "sha256": "ff4bb222ac34465923410a8f6886bc06f4982b7cef10833db670c391e5c2cfd8"
+  },
+  "current_raw_close_artifact": {
+    "path": "data/live/current_raw_close_v1/raw_close.csv.gz",
+    "sha256": "e05ee5ba5067e273e56104132d74a5de6c10bce7a5c02419880a0a72009b3cb4"
+  },
+  "current_share_basis_artifact": {
+    "path": "data/live/current_share_basis_v1/ticker_share_basis.jsonl.gz",
+    "sha256": "bbf364295cb6eb97726e7d00079a7b23b344eb81583b4e1376ed6b5c13bb61b3"
+  },
+  "current_total_scores_receipt": {
+    "path": "data/live/current_total_scores_v1/receipt.json",
+    "sha256": "26cb22a119d227567305d56a38c4c229cf9e64557a8d6d15d33f2432cb02cf84"
+  },
+  "database_available": false,
+  "explicit_rejection_count": 807,
+  "explicit_share_basis_count": 324,
+  "family_counts": {
+    "BANK": 62,
+    "CURRENT_FINANCIAL_ENTITY_UNBOUND": 50,
+    "FINANCIAL": 46,
+    "GENERAL_SCHEMA_NOT_ECONOMIC_NONFIN_PROOF": 534,
+    "GYO": 52,
+    "HOLDING": 56,
+    "INSURANCE": 7
+  },
+  "financial_report_family_counts": {
+    "BANK": 56,
+    "FINANCIAL": 46,
+    "GENERAL_UNRESOLVED": 510,
+    "GYO": 77,
+    "HOLDING": 56,
+    "INSURANCE": 12
+  },
+  "historical_p5_authorized": false,
+  "market_cap_ready_count": 305,
+  "mode": "CURRENT_LIVE_SEPARATE_FROM_HISTORICAL_PIT",
+  "module_coverage": {
+    "Ek1": 131,
+    "Ek4": 146,
+    "Ek9": 11,
+    "M1": 131,
+    "M2": 0,
+    "M3": 146
+  },
+  "neutral_score_injection": false,
+  "outputs": {
+    "rejections.jsonl": "df8da563976b280311ff35c1ac1838f794845c7afbc6b857f7507c8f5b6e7f46",
+    "universe.csv": "52d38b69a462e19604f2ad8c5400e18696cb6e7a6f3fdf7b46333180442c1da6",
+    "universe.csv.meta.json": "487153dca36cb9e29ddc6a71231ff262280e235fa473f0e99d236d35030df6f9"
+  },
+  "price_and_share_ready_count": 324,
+  "ranking_count": 0,
+  "raw_close_count": 629,
+  "share_capture_summary": {
+    "capture_scope": "ONLINE_INCREMENTAL_CAPTURE",
+    "disposition_counts": {
+      "CAPTURE_EMPTY": 64,
+      "CAPTURE_SUCCESS": 376,
+      "RATE_LIMIT": 316
+    },
+    "issuer_attempted_count": 125,
+    "issuer_fetch_failure_count": 316,
+    "issuer_fetch_success_count": 440,
+    "issuer_not_attempted_count": 291,
+    "status_counts": {
+      "CURRENT_EXPLICIT_CLASS_NOMINALS_RECONCILED": 324,
+      "HISTORY_FETCH_FAILED": 25,
+      "MKK_MEMBER_OID_MISSING": 1,
+      "MULTI_TICKER_ISSUER_MARKET_CAP_AMBIGUOUS": 37,
+      "NOT_ATTEMPTED_AFTER_GLOBAL_RATE_LIMIT": 297,
+      "NO_USABLE_EXPLICIT_CLASS_NOMINAL_STATE": 123
+    },
+    "unique_issuer_count": 756
+  },
+  "silent_drop_count": 0,
+  "top_readiness_rejection_reasons": {
+    "CURRENT_EK1_NOT_MATERIALIZED": 676,
+    "CURRENT_EK4_NOT_MATERIALIZED": 661,
+    "CURRENT_EK9_NOT_MATERIALIZED": 796,
+    "CURRENT_EXPLICIT_SHARE_BASIS_NOT_CAPTURED": 483,
+    "CURRENT_FINANCIAL_ENTITY_UNBOUND": 50,
+    "CURRENT_GYO_NAV_NOT_MATERIALIZED": 52,
+    "CURRENT_HOLDING_NAV_NOT_MATERIALIZED": 56,
+    "CURRENT_M1_NOT_MATERIALIZED": 676,
+    "CURRENT_M2_NOT_MATERIALIZED": 807,
+    "CURRENT_M3_NOT_MATERIALIZED": 661,
+    "CURRENT_PRICE_LEVEL_MARKET_CAP_NOT_MATERIALIZED": 502,
+    "CURRENT_RAW_CLOSE_NOT_CAPTURED": 178,
+    "GENERAL_SCHEMA_NOT_ECONOMIC_NONFIN_PROOF": 534,
+    "PERSISTENCE_DATABASE_NOT_CONFIGURED": 807
+  },
+  "total_rasyo_count": 0,
+  "universe_count": 807,
+  "universe_fetch_error": "KapUniverseError:offline run requested",
+  "universe_source_mode": "CACHED_HASH_VERIFIED_OFFLINE"
+}

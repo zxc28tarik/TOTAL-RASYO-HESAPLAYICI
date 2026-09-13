@@ -1,0 +1,52 @@
+{
+  "baseline_sha256": "de89e23b117f785918fb4ca5912d96c51ff64995e6fb4b0f9523026f206289a6",
+  "checkout_newline_only_differences": [],
+  "contract": "W1_FROZEN_OUTPUT_SMOKE_V1",
+  "ek9": {
+    "inputs_sha256": {
+      "index_prices.csv.gz": "091b265ee73194585f5a70f189f9cbe713e63ca97b1db845dc19c78e015f6d1d",
+      "receipt.json": "741387b423e30ea53ec1550d59ea918f14f27018bda8cd71f707cfff9dcd71a8",
+      "stock_prices.csv.gz": "12e44f9c515136eb35c593af1733c4de7d17b6c0e10a0054c98c799eeb8fe98a"
+    },
+    "max_absolute_score_delta": 4.163336342344337e-16,
+    "production_engine": "run_historical_pit_ek9_replay",
+    "rejected": 140,
+    "rejection_records_identical": true,
+    "scope": "EXISTING_CURRENT_CAPTURE_NOT_HISTORICAL_COVERAGE_GAIN",
+    "valid": 11
+  },
+  "frozen_artifact_count": 19,
+  "frozen_artifacts_byte_identical": true,
+  "frozen_artifacts_content_identical": true,
+  "known_stale_receipt": "current_total_rasyo_run_v1/receipt.json describes the older Sep 8 M2=0 run; preserved, not relabeled",
+  "live_artifacts_modified": false,
+  "m2_follow": {
+    "check": "IMMUTABLE_SNAPSHOT_ONLY_NOT_REDERIVED",
+    "follow": 48,
+    "m2": 48
+  },
+  "network_access": false,
+  "total": {
+    "outputs": {
+      "ranking.jsonl": {
+        "original_sha256": "bd8cf33a288511c136d89450d0516c9e38974d55496add051c2ce1d70c19703b",
+        "records_identical": true,
+        "rows": 2
+      },
+      "rejections.jsonl": {
+        "original_sha256": "8c8c73b075c508ac08f7116e2173c72aa1648f5dccdfde12f10565706288b987",
+        "records_identical": true,
+        "rows": 805
+      },
+      "totals.jsonl": {
+        "original_sha256": "bd8cf33a288511c136d89450d0516c9e38974d55496add051c2ce1d70c19703b",
+        "records_identical": true,
+        "rows": 2
+      }
+    },
+    "production_engine": "materialize_current_total_rasyo.materialize",
+    "universe": 807,
+    "valid": 2
+  },
+  "w2_full_source_provenance_audit": "NOT_PERFORMED"
+}

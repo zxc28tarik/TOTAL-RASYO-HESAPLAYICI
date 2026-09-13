@@ -5,6 +5,7 @@ import inspect
 
 import pandas as pd
 import pytest
+from price_level_fixtures import certify_frames
 
 from src.analytics.historical_pit_nonfin_m2_replay import (
     HistoricalPitNonfinM2ReplayError,
@@ -66,7 +67,7 @@ def _financials() -> pd.DataFrame:
 
 
 def _prices() -> pd.DataFrame:
-    return pd.DataFrame(
+    prices = pd.DataFrame(
         [
             {
                 "ticker": ticker,
@@ -76,6 +77,9 @@ def _prices() -> pd.DataFrame:
             for idx, ticker in enumerate(TICKERS, start=1)
         ]
     )
+
+    certify_frames(_financials(), prices, ANALYSIS, "period_end")
+    return prices
 
 
 def _follow() -> pd.DataFrame:
@@ -116,6 +120,7 @@ def test_historical_nonfin_m2_matches_existing_pure_production_engine_from_same_
     prepared_fin["period_end"] = pd.to_datetime(prepared_fin["period_end"]).dt.date
     prepared_prices = prices.copy()
     prepared_prices["price_trade_date"] = pd.to_datetime(prepared_prices["price_trade_date"]).dt.date
+    certify_frames(prepared_fin, prepared_prices, ANALYSIS, "period_end")
     snapshots, rejections = build_nonfin_snapshots_from_frames(
         universe=universe,
         financials=prepared_fin,
@@ -291,4 +296,39 @@ def test_historical_nonfin_m2_rejects_future_follow_context():
             prices=_prices(),
             config=_config(),
             follow_contexts=follow,
+        )
+
+
+def test_missing_action_evidence_rejects_without_follow_context_crash():
+    prices = _prices().drop(columns="action_bundle")
+    replay = run_historical_pit_nonfin_m2_replay(analysis_at=ANALYSIS,
+        universe=_universe(), financials=_financials(), prices=prices,
+        config=_config(), follow_contexts=_follow())
+    assert replay.m2_scores.empty
+    assert set(replay.rejections["ticker"]) == set(TICKERS)
+    assert replay.rejections["reason"].eq("ACTION_COMPLETENESS_EVIDENCE_MISSING").all()
+
+
+def test_insufficient_peer_valuation_is_explicit_rejection_not_neutral_m2():
+    universe = _universe().iloc[[0]].copy()
+    financials = _financials().loc[lambda frame: frame.ticker == TICKERS[0]].copy()
+    prices = _prices().loc[lambda frame: frame.ticker == TICKERS[0]].copy()
+    replay = run_historical_pit_nonfin_m2_replay(
+        analysis_at=ANALYSIS, universe=universe, financials=financials,
+        prices=prices, config=_config(),
+    )
+    assert replay.m2_scores.empty
+    assert replay.rejections.to_dict("records") == [{
+        "ticker": TICKERS[0], "reason": "VALUATION_NOT_USABLE:YETERSIZ_MULTIPLE_KAPSAMI",
+    }]
+
+
+def test_future_share_basis_date_is_rejected_before_valuation():
+    financials = _financials()
+    financials["shares_basis_date"] = "2023-01-02"
+    financials.loc[financials.index[-1], "shares_basis_date"] = "2023-01-04"
+    with pytest.raises(HistoricalPitNonfinM2ReplayError, match="shares_basis_date"):
+        run_historical_pit_nonfin_m2_replay(
+            analysis_at=ANALYSIS, universe=_universe(), financials=financials,
+            prices=_prices(), config=_config(),
         )

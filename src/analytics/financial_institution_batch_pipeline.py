@@ -22,6 +22,10 @@ from src.analytics.financial_institution_valuation import (
 )
 from src.analytics.nonfin_batch_pipeline import daily_price_cutoff_date
 from src.ingest.sector_routing import SectorRoutingConfig
+from src.analytics.price_level_adapter import (
+    normalize_price_level_input, attach_action_bundles, valuation_basis_receipt, attach_basis_receipts,
+    SOURCE_SHARE_BASIS, SHARE_BASIS,
+)
 
 
 class FinancialInstitutionBatchError(ValueError):
@@ -157,7 +161,7 @@ def fetch_financial_institution_prices(conn: Any, *, tickers: Iterable[str], ana
         """
         SELECT DISTINCT ON (ticker)
                ticker, trade_date AS price_trade_date,
-               COALESCE(adj_close, close) AS current_price
+               close AS current_price, 'POINT_IN_TIME_MARKET_CLOSE_V1' AS price_basis
         FROM core.prices_daily
         WHERE ticker = ANY(%(tickers)s::text[])
           AND trade_date <= %(cutoff)s
@@ -197,6 +201,7 @@ def build_financial_institution_snapshots_from_frames(
     metrics: pd.DataFrame,
     prices: pd.DataFrame,
     analysis_at: datetime,
+    basis_receipts: dict | None = None,
 ) -> tuple[list[FinancialInstitutionSnapshot], list[dict[str, str]]]:
     analysis = _aware_datetime("analysis_at", analysis_at)
     required_universe = {"ticker", "sector_family"}
@@ -252,13 +257,17 @@ def build_financial_institution_snapshots_from_frames(
             rejections.append({"ticker": ticker, "reason": "FIYAT_YOK"})
             continue
         try:
+            basis = normalize_price_level_input(
+                ticker=ticker, shares_out=metric["shares_out"],
+                source_date=pd.Timestamp(metric["period_end"]).date(),
+                source_share_basis=metric["share_basis"], price=price, analysis_at=analysis)
             snapshots.append(build_financial_institution_snapshot(
                 ticker=ticker,
                 analysis_at=analysis,
                 business_type=metric["business_type"],
                 currency=metric["currency"],
-                share_basis=metric["share_basis"],
-                current_price=price["current_price"],
+                share_basis=SHARE_BASIS,
+                current_price=basis.raw_close,
                 price_trade_date=pd.to_datetime(price["price_trade_date"], errors="raise").date(),
                 period_end=pd.to_datetime(metric["period_end"], errors="raise").date(),
                 published_at=_coerce_aware_datetime("published_at", metric["published_at"]),
@@ -267,7 +276,7 @@ def build_financial_institution_snapshots_from_frames(
                 average_equity=metric["average_equity"],
                 total_assets=metric["total_assets"],
                 finance_receivables=metric["finance_receivables"],
-                shares_out=metric["shares_out"],
+                shares_out=basis.normalized_shares_out,
                 npl_gross=metric["npl_gross"],
                 provisions=metric["provisions"],
                 net_finance_income_ttm=metric["net_finance_income_ttm"],
@@ -282,6 +291,8 @@ def build_financial_institution_snapshots_from_frames(
                 accounting_profile=metric["accounting_profile"],
                 accounting_version=int(metric["accounting_version"]),
             ))
+            if basis_receipts is not None:
+                basis_receipts[ticker] = valuation_basis_receipt(basis)
         except (FinancialInstitutionValuationError, TypeError, ValueError, OverflowError) as exc:
             rejections.append({"ticker": ticker, "reason": str(exc)})
     return snapshots, rejections
@@ -510,6 +521,7 @@ def run_financial_institution_batch(
     tickers: Optional[Iterable[str]] = None,
     routing_config: SectorRoutingConfig | None = None,
     persist: bool = True,
+    action_bundles=None,
 ) -> dict[str, Any]:
     if type(persist) is not bool:
         raise FinancialInstitutionBatchError("persist Python bool olmali")
@@ -519,8 +531,11 @@ def run_financial_institution_batch(
     ticker_list = universe["ticker"].astype(str).tolist() if not universe.empty else []
     metrics = fetch_financial_institution_metrics_asof(conn, tickers=ticker_list, analysis_at=analysis, config=config)
     prices = fetch_financial_institution_prices(conn, tickers=ticker_list, analysis_at=analysis)
+    prices = attach_action_bundles(prices, action_bundles)
     follow = fetch_financial_institution_follow_contexts(conn, tickers=ticker_list, analysis_at=analysis)
+    basis_receipts = {}
     snapshots, rejections = build_financial_institution_snapshots_from_frames(
+        basis_receipts=basis_receipts,
         universe=universe, metrics=metrics, prices=prices, analysis_at=analysis,
     )
     all_contexts = _follow_context_map(follow)
@@ -528,6 +543,7 @@ def run_financial_institution_batch(
     contexts = {ticker: value for ticker, value in all_contexts.items() if ticker in prepared}
     report = evaluate_financial_institution_batch(snapshots, config=config, follow_contexts=contexts)
     report.update({"analysis_at": analysis, "rejections": rejections})
+    attach_basis_receipts(report, basis_receipts)
     if persist:
         persist_financial_institution_batch(conn, report)
     return report

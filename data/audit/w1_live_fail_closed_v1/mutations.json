@@ -1,0 +1,71 @@
+{
+  "contract": "W1_FAIL_CLOSED_MUTATION_AUDIT_V1",
+  "database_access": false,
+  "results": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "name": "baseline",
+      "skipped": 1,
+      "status": "PASS",
+      "tests": 64
+    },
+    {
+      "errors": 0,
+      "failures": 11,
+      "name": "m2_missing_to_neutral",
+      "skipped": 1,
+      "status": "KILLED",
+      "tests": 64
+    },
+    {
+      "errors": 0,
+      "failures": 10,
+      "name": "m3_missing_to_neutral",
+      "skipped": 1,
+      "status": "KILLED",
+      "tests": 64
+    },
+    {
+      "errors": 0,
+      "failures": 11,
+      "name": "undefined_volatility_to_maximum_score",
+      "skipped": 1,
+      "status": "KILLED",
+      "tests": 64
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "minimum_window_relaxed",
+      "skipped": 1,
+      "status": "KILLED",
+      "tests": 64
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "calendar_disagreement_ignored",
+      "skipped": 1,
+      "status": "KILLED",
+      "tests": 64
+    },
+    {
+      "errors": 0,
+      "failures": 3,
+      "name": "persisted_rejections_not_updated",
+      "skipped": 1,
+      "status": "KILLED",
+      "tests": 64
+    }
+  ],
+  "source_sha256": {
+    "src/analytics/ek9_volatility.py": "a9754096328e21045cbbad11ba95403a238a710f46dd82d1e77f3a250477db9f",
+    "src/analytics/run_daily_pipeline.py": "d02dfa01a2e88f94c6462274ccc3deb1311aeac48cf5a52b3a524e86964461c0"
+  },
+  "tests_sha256": {
+    "tests/test_ek9_live_compatibility.py": "d97586dce9495435aafd0c5837e90b7dd67acb947215032c190d9cb44c0c39f7",
+    "tests/test_w1_daily_score_safety.py": "9c8787cd1f01323fc695b5aa70c4a2b43c74d27bb77aa88b092af96f8b2b97d3",
+    "tests/test_w1_ek9_safety.py": "671b19b0895a30efe66421106eaf22f8fa250e15e4a64542d126ad8e3f789fed"
+  }
+}

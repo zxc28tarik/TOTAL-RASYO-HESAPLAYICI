@@ -5,6 +5,8 @@ import inspect
 
 import pandas as pd
 import pytest
+from price_level_fixtures import certify_frames
+from src.analytics.price_level_adapter import SOURCE_SHARE_BASIS, SHARE_BASIS
 
 from src.analytics.financial_institution_valuation import FinancialInstitutionValuationConfig
 from src.analytics.historical_pit_financial_m2_replay import (
@@ -20,7 +22,7 @@ def _config() -> FinancialInstitutionValuationConfig:
         "valuation_profile": "FINANCIAL_INSTITUTION_PB_PE", "valuation_version": 1,
         "source_metrics_profile": "KAP_FINANCIAL_INSTITUTION_TTM", "source_metrics_version": 1,
         "accounting_profile": "TFRS_LOCAL_STATUTORY", "accounting_version": 1,
-        "share_basis": "ADJUSTED_PRICE_SERIES_V1", "currency": "TRY",
+        "share_basis": SHARE_BASIS, "currency": "TRY",
         "lower_quantile": 0.25, "upper_quantile": 0.75,
         "minimum_peer_count": 2, "full_confidence_peer_count": 6, "minimum_method_count": 1,
         "minimum_pb": 0.05, "maximum_pb": 6.0, "minimum_pe": 1.0, "maximum_pe": 60.0,
@@ -46,7 +48,7 @@ def _metrics() -> pd.DataFrame:
         rows.append({
             "ticker": ticker, "period_end": "2024-12-31", "published_at": "2025-01-02T12:00:00+00:00",
             "business_type": "FACTORING", "accounting_profile": "TFRS_LOCAL_STATUTORY", "accounting_version": 1,
-            "currency": "TRY", "shares_out": 100.0, "share_basis": "ADJUSTED_PRICE_SERIES_V1",
+            "currency": "TRY", "shares_out": 100.0, "share_basis": SOURCE_SHARE_BASIS,
             "total_equity": 1000.0 + 100.0 * i, "net_income_ttm": 100.0 + 10.0 * i,
             "average_equity": 950.0 + 100.0 * i, "total_assets": 3000.0 + 100.0 * i,
             "finance_receivables": 2200.0 + 100.0 * i, "npl_gross": 90.0,
@@ -59,11 +61,13 @@ def _metrics() -> pd.DataFrame:
 
 
 def _prices() -> pd.DataFrame:
-    return pd.DataFrame([
+    prices = pd.DataFrame([
         {"ticker": "AAA", "price_trade_date": "2025-01-02", "current_price": 5.0},
         {"ticker": "BBB", "price_trade_date": "2025-01-02", "current_price": 6.0},
     ])
 
+    certify_frames(_metrics(), prices, ANALYSIS, "period_end")
+    return prices
 
 def test_financial_replay_has_no_database_connection_parameter():
     assert "conn" not in inspect.signature(run_historical_pit_financial_m2_replay).parameters

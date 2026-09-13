@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
+from src.analytics.price_level_adapter import attach_basis_receipts
 from src.analytics.nonfin_batch_pipeline import build_nonfin_snapshots_from_frames
 from src.analytics.nonfin_valuation import (
     NonfinValuationConfig,
@@ -134,6 +135,14 @@ def _prepare_financials(
     analysis_day = analysis_utc.tz_localize(None).normalize()
     if (out["period_end"] > analysis_day).any():
         raise HistoricalPitNonfinM2ReplayError("analysis_at sonrasi period_end M2'ye sizdi")
+    if "shares_basis_date" in out.columns:
+        try:
+            share_dates = pd.to_datetime(out["shares_basis_date"], errors="raise").dt.normalize()
+        except Exception as exc:
+            raise HistoricalPitNonfinM2ReplayError("shares_basis_date gecersiz") from exc
+        if share_dates.isna().any() or (share_dates > analysis_day).any():
+            raise HistoricalPitNonfinM2ReplayError("analysis_at sonrasi shares_basis_date M2'ye sizdi")
+        out["shares_basis_date"] = share_dates.dt.date
 
     profiles = out["derivation_profile"].astype(str)
     versions = pd.to_numeric(out["derivation_version"], errors="coerce")
@@ -249,6 +258,7 @@ def run_historical_pit_nonfin_m2_replay(
         tickers=tickers,
     )
 
+    basis_receipts = {}
     try:
         snapshots, rejected = build_nonfin_snapshots_from_frames(
             universe=hist_universe,
@@ -256,8 +266,12 @@ def run_historical_pit_nonfin_m2_replay(
             prices=hist_prices,
             analysis_at=analysis,
             anchor_period_end=None,
+            basis_receipts=basis_receipts,
         )
-        report = evaluate_nonfin_batch(snapshots, config=config, follow_contexts=contexts)
+        accepted = {snapshot.ticker for snapshot in snapshots}
+        report = evaluate_nonfin_batch(snapshots, config=config,
+            follow_contexts={ticker: value for ticker, value in contexts.items() if ticker in accepted})
+        attach_basis_receipts(report, basis_receipts)
     except (NonfinValuationError, ValueError, TypeError, OverflowError) as exc:
         raise HistoricalPitNonfinM2ReplayError("NONFIN production math replay basarisiz") from exc
 
@@ -278,6 +292,12 @@ def run_historical_pit_nonfin_m2_replay(
             raise HistoricalPitNonfinM2ReplayError("NONFIN m2_source beklenmeyen deger")
         if m2.get("analysis_at") != analysis or valuation.get("analysis_at") != analysis:
             raise HistoricalPitNonfinM2ReplayError("NONFIN report analysis_at degistirdi")
+        if m2.get("valuation_usable") is not True:
+            rejected.append({
+                "ticker": ticker,
+                "reason": "VALUATION_NOT_USABLE:" + str(valuation.get("reason") or valuation.get("status")),
+            })
+            continue
         result_tickers.add(ticker)
         result_rows.append(
             {

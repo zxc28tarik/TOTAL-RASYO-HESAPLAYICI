@@ -1,0 +1,808 @@
+ticker,company_name,sector_index_code,sector_code,is_active,kap_company_id,source_url,universe_source
+A1CAP,A1 CAPİTAL YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1303,https://kap.org.tr/tr/sirket-bilgileri/ozet/1303-a1-capital-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+A1YEN,A1 YENİLENEBİLİR ENERJİ ÜRETİM A.Ş.,,,True,5376,https://kap.org.tr/tr/sirket-bilgileri/ozet/5376-a1-yenilenebilir-enerji-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+AAGYO,AĞAOĞLU AVRASYA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,6216,https://kap.org.tr/tr/sirket-bilgileri/ozet/6216-agaoglu-avrasya-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ACP,A1 CAPİTAL YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1303,https://kap.org.tr/tr/sirket-bilgileri/ozet/1303-a1-capital-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+ACSEL,ACISELSAN ACIPAYAM SELÜLOZ SANAYİ VE TİCARET A.Ş.,,,True,1626,https://kap.org.tr/tr/sirket-bilgileri/ozet/1626-aciselsan-acipayam-seluloz-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ADB,ANADOLUBANK A.Ş.,,,True,2010,https://kap.org.tr/tr/sirket-bilgileri/ozet/2010-anadolubank-a-s,KAP_PUBLIC_BIST_COMPANIES
+ADBNK,ANADOLUBANK A.Ş.,,,True,2010,https://kap.org.tr/tr/sirket-bilgileri/ozet/2010-anadolubank-a-s,KAP_PUBLIC_BIST_COMPANIES
+ADEL,ADEL KALEMCİLİK TİCARET VE SANAYİ A.Ş.,,,True,832,https://kap.org.tr/tr/sirket-bilgileri/ozet/832-adel-kalemcilik-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ADESE,ADESE GAYRİMENKUL YATIRIM A.Ş.,,,True,1560,https://kap.org.tr/tr/sirket-bilgileri/ozet/1560-adese-gayrimenkul-yatirim-a-s,KAP_PUBLIC_BIST_COMPANIES
+ADGYO,ADRA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5867,https://kap.org.tr/tr/sirket-bilgileri/ozet/5867-adra-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ADLVY,ADİL VARLIK YÖNETİM A.Ş.,,,True,6148,https://kap.org.tr/tr/sirket-bilgileri/ozet/6148-adil-varlik-yonetim-a-s,KAP_PUBLIC_BIST_COMPANIES
+AEFES,ANADOLU EFES BİRACILIK VE MALT SANAYİİ A.Ş.,,,True,858,https://kap.org.tr/tr/sirket-bilgileri/ozet/858-anadolu-efes-biracilik-ve-malt-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+AFB,AKTİF YATIRIM BANKASI A.Ş.,,,True,2212,https://kap.org.tr/tr/sirket-bilgileri/ozet/2212-aktif-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AFYON,AFYON ÇİMENTO SANAYİ T.A.Ş.,,,True,833,https://kap.org.tr/tr/sirket-bilgileri/ozet/833-afyon-cimento-sanayi-t-a-s,KAP_PUBLIC_BIST_COMPANIES
+AGESA,AGESA HAYAT VE EMEKLİLİK A.Ş.,,,True,2370,https://kap.org.tr/tr/sirket-bilgileri/ozet/2370-agesa-hayat-ve-emeklilik-a-s,KAP_PUBLIC_BIST_COMPANIES
+AGHOL,AG ANADOLU GRUBU HOLDİNG A.Ş.,,,True,1131,https://kap.org.tr/tr/sirket-bilgileri/ozet/1131-ag-anadolu-grubu-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+AGROT,AGROTECH YÜKSEK TEKNOLOJİ VE YATIRIM A.Ş.,,,True,5899,https://kap.org.tr/tr/sirket-bilgileri/ozet/5899-agrotech-yuksek-teknoloji-ve-yatirim-a-s,KAP_PUBLIC_BIST_COMPANIES
+AGYO,ATAKULE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,868,https://kap.org.tr/tr/sirket-bilgileri/ozet/868-atakule-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AHGAZ,AHLATCI DOĞAL GAZ DAĞITIM ENERJİ VE YATIRIM A.Ş.,,,True,3064,https://kap.org.tr/tr/sirket-bilgileri/ozet/3064-ahlatci-dogal-gaz-dagitim-enerji-ve-yatirim-a-s,KAP_PUBLIC_BIST_COMPANIES
+AHSGY,AHES GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,6014,https://kap.org.tr/tr/sirket-bilgileri/ozet/6014-ahes-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKBNK,AKBANK T.A.Ş.,,,True,2413,https://kap.org.tr/tr/sirket-bilgileri/ozet/2413-akbank-t-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKCNS,AKÇANSA ÇİMENTO SANAYİ VE TİCARET A.Ş.,,,True,838,https://kap.org.tr/tr/sirket-bilgileri/ozet/838-akcansa-cimento-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKCVR,AKADEMİ ÇEVRE ENTEGRE ATIK YÖNETİMİ ENDÜSTRİ A.Ş.,,,True,6131,https://kap.org.tr/tr/sirket-bilgileri/ozet/6131-akademi-cevre-entegre-atik-yonetimi-endustri-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKDFA,AKDENİZ FİNANS FAKTORİNG A.Ş.,,,True,2377,https://kap.org.tr/tr/sirket-bilgileri/ozet/2377-akdeniz-finans-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKENR,AKENERJİ ELEKTRİK ÜRETİM A.Ş.,,,True,834,https://kap.org.tr/tr/sirket-bilgileri/ozet/834-akenerji-elektrik-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKFGY,AKFEN GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1545,https://kap.org.tr/tr/sirket-bilgileri/ozet/1545-akfen-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKFIS,AKFEN İNŞAAT TURİZM VE TİCARET A.Ş.,,,True,6036,https://kap.org.tr/tr/sirket-bilgileri/ozet/6036-akfen-insaat-turizm-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKFK,AK FİNANSAL KİRALAMA A.Ş.,,,True,2215,https://kap.org.tr/tr/sirket-bilgileri/ozet/2215-ak-finansal-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKFYE,AKFEN YENİLENEBİLİR ENERJİ A.Ş.,,,True,5792,https://kap.org.tr/tr/sirket-bilgileri/ozet/5792-akfen-yenilenebilir-enerji-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKGRT,AKSİGORTA A.Ş.,,,True,841,https://kap.org.tr/tr/sirket-bilgileri/ozet/841-aksigorta-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKHAN,AKHAN UN FABRİKASI VE TARIM ÜRÜNLERİ GIDA SANAYİ TİCARET A.Ş.,,,True,6188,https://kap.org.tr/tr/sirket-bilgileri/ozet/6188-akhan-un-fabrikasi-ve-tarim-urunleri-gida-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKM,AK YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2485,https://kap.org.tr/tr/sirket-bilgileri/ozet/2485-ak-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKMEN,AK YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2485,https://kap.org.tr/tr/sirket-bilgileri/ozet/2485-ak-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKMGY,AKMERKEZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1399,https://kap.org.tr/tr/sirket-bilgileri/ozet/1399-akmerkez-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKSA,AKSA AKRİLİK KİMYA SANAYİİ A.Ş.,,,True,840,https://kap.org.tr/tr/sirket-bilgileri/ozet/840-aksa-akrilik-kimya-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKSEN,AKSA ENERJİ ÜRETİM A.Ş.,,,True,1505,https://kap.org.tr/tr/sirket-bilgileri/ozet/1505-aksa-enerji-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKSFA,AK FAKTORİNG A.Ş.,,,True,2085,https://kap.org.tr/tr/sirket-bilgileri/ozet/2085-ak-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKSGY,AKİŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1698,https://kap.org.tr/tr/sirket-bilgileri/ozet/1698-akis-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKSUE,AKSU ENERJİ VE TİCARET A.Ş.,,,True,842,https://kap.org.tr/tr/sirket-bilgileri/ozet/842-aksu-enerji-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKTIF,AKTİF YATIRIM BANKASI A.Ş.,,,True,2212,https://kap.org.tr/tr/sirket-bilgileri/ozet/2212-aktif-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKTVK,AKTİF BANK SUKUK VARLIK KİRALAMA A.Ş.,,,True,2203,https://kap.org.tr/tr/sirket-bilgileri/ozet/2203-aktif-bank-sukuk-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+AKYHO,AKDENİZ YATIRIM HOLDİNG A.Ş.,,,True,1623,https://kap.org.tr/tr/sirket-bilgileri/ozet/1623-akdeniz-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALARK,ALARKO HOLDİNG A.Ş.,,,True,846,https://kap.org.tr/tr/sirket-bilgileri/ozet/846-alarko-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALBRK,ALBARAKA TÜRK KATILIM BANKASI A.Ş.,,,True,2414,https://kap.org.tr/tr/sirket-bilgileri/ozet/2414-albaraka-turk-katilim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALBTN,ALBAYRAK HAZIR BETON SANAYİ VE TİCARET A.Ş.,,,True,6256,https://kap.org.tr/tr/sirket-bilgileri/ozet/6256-albayrak-hazir-beton-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALCAR,ALARKO CARRIER SANAYİ VE TİCARET A.Ş.,,,True,844,https://kap.org.tr/tr/sirket-bilgileri/ozet/844-alarko-carrier-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALCTL,ALCATEL LUCENT TELETAŞ TELEKOMÜNİKASYON A.Ş.,,,True,847,https://kap.org.tr/tr/sirket-bilgileri/ozet/847-alcatel-lucent-teletas-telekomunikasyon-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALFAS,ALFA SOLAR ENERJİ SANAYİ VE TİCARET A.Ş.,,,True,5675,https://kap.org.tr/tr/sirket-bilgileri/ozet/5675-alfa-solar-enerji-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALGYO,ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,845,https://kap.org.tr/tr/sirket-bilgileri/ozet/845-alarko-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALJF,ALJ FİNANSMAN A.Ş.,,,True,2378,https://kap.org.tr/tr/sirket-bilgileri/ozet/2378-alj-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALK,ALBARAKA TÜRK KATILIM BANKASI A.Ş.,,,True,2414,https://kap.org.tr/tr/sirket-bilgileri/ozet/2414-albaraka-turk-katilim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALKA,ALKİM KAĞIT SANAYİ VE TİCARET A.Ş.,,,True,850,https://kap.org.tr/tr/sirket-bilgileri/ozet/850-alkim-kagit-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALKIM,ALKİM ALKALİ KİMYA A.Ş.,,,True,849,https://kap.org.tr/tr/sirket-bilgileri/ozet/849-alkim-alkali-kimya-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALKLC,ALTINKILIÇ GIDA VE SÜT SANAYİ TİCARET A.Ş.,,,True,5966,https://kap.org.tr/tr/sirket-bilgileri/ozet/5966-altinkilic-gida-ve-sut-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALNUS,ALNUS YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1327,https://kap.org.tr/tr/sirket-bilgileri/ozet/1327-alnus-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALTNY,ALTINAY SAVUNMA TEKNOLOJİLERİ A.Ş.,,,True,5955,https://kap.org.tr/tr/sirket-bilgileri/ozet/5955-altinay-savunma-teknolojileri-a-s,KAP_PUBLIC_BIST_COMPANIES
+ALVES,ALVES KABLO SANAYİ VE TİCARET A.Ş.,,,True,5935,https://kap.org.tr/tr/sirket-bilgileri/ozet/5935-alves-kablo-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ANC,ALNUS YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1327,https://kap.org.tr/tr/sirket-bilgileri/ozet/1327-alnus-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+ANELE,ANEL ELEKTRİK PROJE TAAHHÜT VE TİCARET A.Ş.,,,True,1475,https://kap.org.tr/tr/sirket-bilgileri/ozet/1475-anel-elektrik-proje-taahhut-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ANGEN,ANATOLİA TANI VE BİYOTEKNOLOJİ ÜRÜNLERİ ARAŞTIRMA GELİŞTİRME SANAYİ VE TİCARET A.Ş.,,,True,5424,https://kap.org.tr/tr/sirket-bilgileri/ozet/5424-anatolia-tani-ve-biyoteknoloji-urunleri-arastirma-gelistirme-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ANHYT,ANADOLU HAYAT EMEKLİLİK A.Ş.,,,True,860,https://kap.org.tr/tr/sirket-bilgileri/ozet/860-anadolu-hayat-emeklilik-a-s,KAP_PUBLIC_BIST_COMPANIES
+ANSGR,ANADOLU ANONİM TÜRK SİGORTA ŞİRKETİ,,,True,856,https://kap.org.tr/tr/sirket-bilgileri/ozet/856-anadolu-anonim-turk-sigorta-sirketi,KAP_PUBLIC_BIST_COMPANIES
+ARASE,DOĞU ARAS ENERJİ YATIRIMLARI A.Ş.,,,True,5457,https://kap.org.tr/tr/sirket-bilgileri/ozet/5457-dogu-aras-enerji-yatirimlari-a-s,KAP_PUBLIC_BIST_COMPANIES
+ARCLK,ARÇELİK A.Ş.,,,True,863,https://kap.org.tr/tr/sirket-bilgileri/ozet/863-arcelik-a-s,KAP_PUBLIC_BIST_COMPANIES
+ARDYZ,ARD GRUP BİLİŞİM TEKNOLOJİLERİ A.Ş.,,,True,4967,https://kap.org.tr/tr/sirket-bilgileri/ozet/4967-ard-grup-bilisim-teknolojileri-a-s,KAP_PUBLIC_BIST_COMPANIES
+ARENA,ARENA BİLGİSAYAR SANAYİ VE TİCARET A.Ş.,,,True,864,https://kap.org.tr/tr/sirket-bilgileri/ozet/864-arena-bilgisayar-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ARFYE,ARF BİO YENİLENEBİLİR ENERJİ ÜRETİM A.Ş.,,,True,6170,https://kap.org.tr/tr/sirket-bilgileri/ozet/6170-arf-bio-yenilenebilir-enerji-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+ARMGD,ARMADA GIDA TİCARET SANAYİ A.Ş.,,,True,6049,https://kap.org.tr/tr/sirket-bilgileri/ozet/6049-armada-gida-ticaret-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ARSAN,ARSAN HOLDİNG A.Ş.,,,True,865,https://kap.org.tr/tr/sirket-bilgileri/ozet/865-arsan-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+ARSNF,ARSAN FİNANS FAKTORİNG A.Ş.,,,True,2169,https://kap.org.tr/tr/sirket-bilgileri/ozet/2169-arsan-finans-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+ARSVY,ARSAN VARLIK YÖNETİM A.Ş.,,,True,4876,https://kap.org.tr/tr/sirket-bilgileri/ozet/4876-arsan-varlik-yonetim-a-s,KAP_PUBLIC_BIST_COMPANIES
+ARTMS,ARTEMİS HALI A.Ş.,,,True,5936,https://kap.org.tr/tr/sirket-bilgileri/ozet/5936-artemis-hali-a-s,KAP_PUBLIC_BIST_COMPANIES
+ARZUM,ARZUM ELEKTRİKLİ EV ALETLERİ SANAYİ VE TİCARET A.Ş.,,,True,2087,https://kap.org.tr/tr/sirket-bilgileri/ozet/2087-arzum-elektrikli-ev-aletleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ASELS,ASELSAN ELEKTRONİK SANAYİ VE TİCARET A.Ş.,,,True,866,https://kap.org.tr/tr/sirket-bilgileri/ozet/866-aselsan-elektronik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ASGYO,ASCE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,4687,https://kap.org.tr/tr/sirket-bilgileri/ozet/4687-asce-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ASTOR,ASTOR ENERJİ A.Ş.,,,True,4680,https://kap.org.tr/tr/sirket-bilgileri/ozet/4680-astor-enerji-a-s,KAP_PUBLIC_BIST_COMPANIES
+ASUZU,ANADOLU ISUZU OTOMOTİV SANAYİ VE TİCARET A.Ş.,,,True,861,https://kap.org.tr/tr/sirket-bilgileri/ozet/861-anadolu-isuzu-otomotiv-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATA,ATA YATIRIM MENKUL KIYMETLER A.Ş.,,,True,1268,https://kap.org.tr/tr/sirket-bilgileri/ozet/1268-ata-yatirim-menkul-kiymetler-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATAGY,ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,867,https://kap.org.tr/tr/sirket-bilgileri/ozet/867-ata-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATAKP,ATAKEY PATATES GIDA SANAYİ VE TİCARET A.Ş.,,,True,5841,https://kap.org.tr/tr/sirket-bilgileri/ozet/5841-atakey-patates-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATATP,ATP YAZILIM VE TEKNOLOJİ A.Ş.,,,True,5348,https://kap.org.tr/tr/sirket-bilgileri/ozet/5348-atp-yazilim-ve-teknoloji-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATATR,ATA TURİZM İŞLETMECİLİK TAŞIMACILIK MADENCİLİK KUYUMCULUK SANAYİ VE DIŞ TİCARET A.Ş.,,,True,6194,https://kap.org.tr/tr/sirket-bilgileri/ozet/6194-ata-turizm-isletmecilik-tasimacilik-madencilik-kuyumculuk-sanayi-ve-dis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATAVK,ATA VARLIK KİRALAMA A.Ş.,,,True,6073,https://kap.org.tr/tr/sirket-bilgileri/ozet/6073-ata-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATAYM,ATA YATIRIM MENKUL KIYMETLER A.Ş.,,,True,1268,https://kap.org.tr/tr/sirket-bilgileri/ozet/1268-ata-yatirim-menkul-kiymetler-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATEKS,AKIN TEKSTİL A.Ş.,,,True,839,https://kap.org.tr/tr/sirket-bilgileri/ozet/839-akin-tekstil-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATLAS,ATLAS MENKUL KIYMETLER YATIRIM ORTAKLIĞI A.Ş.,,,True,870,https://kap.org.tr/tr/sirket-bilgileri/ozet/870-atlas-menkul-kiymetler-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATLFA,ATILIM FAKTORİNG A.Ş.,,,True,2088,https://kap.org.tr/tr/sirket-bilgileri/ozet/2088-atilim-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+ATSYH,ATLANTİS YATIRIM HOLDİNG A.Ş.,,,True,869,https://kap.org.tr/tr/sirket-bilgileri/ozet/869-atlantis-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+AVGYO,AVRASYA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,871,https://kap.org.tr/tr/sirket-bilgileri/ozet/871-avrasya-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AVHOL,AVRUPA YATIRIM HOLDİNG A.Ş.,,,True,1691,https://kap.org.tr/tr/sirket-bilgileri/ozet/1691-avrupa-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+AVOD,A.V.O.D. KURUTULMUŞ GIDA VE TARIM ÜRÜNLERİ SANAYİ TİCARET A.Ş.,,,True,1564,https://kap.org.tr/tr/sirket-bilgileri/ozet/1564-a-v-o-d-kurutulmus-gida-ve-tarim-urunleri-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+AVPGY,AVRUPAKENT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5912,https://kap.org.tr/tr/sirket-bilgileri/ozet/5912-avrupakent-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AVTUR,AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş.,,,True,1454,https://kap.org.tr/tr/sirket-bilgileri/ozet/1454-avrasya-petrol-ve-turistik-tesisler-yatirimlar-a-s,KAP_PUBLIC_BIST_COMPANIES
+AYCES,ALTIN YUNUS ÇEŞME TURİSTİK TESİSLER A.Ş.,,,True,855,https://kap.org.tr/tr/sirket-bilgileri/ozet/855-altin-yunus-cesme-turistik-tesisler-a-s,KAP_PUBLIC_BIST_COMPANIES
+AYDEM,AYDEM YENİLENEBİLİR ENERJİ A.Ş.,,,True,5317,https://kap.org.tr/tr/sirket-bilgileri/ozet/5317-aydem-yenilenebilir-enerji-a-s,KAP_PUBLIC_BIST_COMPANIES
+AYEN,AYEN ENERJİ A.Ş.,,,True,872,https://kap.org.tr/tr/sirket-bilgileri/ozet/872-ayen-enerji-a-s,KAP_PUBLIC_BIST_COMPANIES
+AYES,AYES ÇELİK HASIR VE ÇİT SANAYİ A.Ş.,,,True,1584,https://kap.org.tr/tr/sirket-bilgileri/ozet/1584-ayes-celik-hasir-ve-cit-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AYGAZ,AYGAZ A.Ş.,,,True,873,https://kap.org.tr/tr/sirket-bilgileri/ozet/873-aygaz-a-s,KAP_PUBLIC_BIST_COMPANIES
+AYTEM,AYTEMİZ YATIRIM BANKASI A.Ş.,,,True,6137,https://kap.org.tr/tr/sirket-bilgileri/ozet/6137-aytemiz-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+AZTEK,AZTEK TEKNOLOJİ ÜRÜNLERİ TİCARET A.Ş.,,,True,5649,https://kap.org.tr/tr/sirket-bilgileri/ozet/5649-aztek-teknoloji-urunleri-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BAGFS,BAGFAŞ BANDIRMA GÜBRE FABRİKALARI A.Ş.,,,True,874,https://kap.org.tr/tr/sirket-bilgileri/ozet/874-bagfas-bandirma-gubre-fabrikalari-a-s,KAP_PUBLIC_BIST_COMPANIES
+BAHKM,BAHADIR KİMYA SANAYİ VE TİCARET A.Ş.,,,True,6005,https://kap.org.tr/tr/sirket-bilgileri/ozet/6005-bahadir-kimya-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BAKAB,BAK AMBALAJ SANAYİ VE TİCARET A.Ş.,,,True,875,https://kap.org.tr/tr/sirket-bilgileri/ozet/875-bak-ambalaj-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BALAT,BALATACILAR BALATACILIK SANAYİ VE TİCARET A.Ş.,,,True,1627,https://kap.org.tr/tr/sirket-bilgileri/ozet/1627-balatacilar-balatacilik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BALSU,BALSU GIDA SANAYİ VE TİCARET A.Ş.,,,True,5614,https://kap.org.tr/tr/sirket-bilgileri/ozet/5614-balsu-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BANVT,BANVİT BANDIRMA VİTAMİNLİ YEM SANAYİ A.Ş.,,,True,876,https://kap.org.tr/tr/sirket-bilgileri/ozet/876-banvit-bandirma-vitaminli-yem-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+BARMA,BAREM AMBALAJ SANAYİ VE TİCARET A.Ş.,,,True,5567,https://kap.org.tr/tr/sirket-bilgileri/ozet/5567-barem-ambalaj-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BASCM,BAŞTAŞ BAŞKENT ÇİMENTO SANAYİ VE TİCARET A.Ş.,,,True,1582,https://kap.org.tr/tr/sirket-bilgileri/ozet/1582-bastas-baskent-cimento-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BASGZ,BAŞKENT DOĞALGAZ DAĞITIM GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,2840,https://kap.org.tr/tr/sirket-bilgileri/ozet/2840-baskent-dogalgaz-dagitim-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+BAYRK,BAYRAK EBT TABAN SANAYİ VE TİCARET A.Ş.,,,True,5054,https://kap.org.tr/tr/sirket-bilgileri/ozet/5054-bayrak-ebt-taban-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BEGYO,BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5906,https://kap.org.tr/tr/sirket-bilgileri/ozet/5906-bati-ege-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+BERA,BERA HOLDİNG A.Ş.,,,True,1693,https://kap.org.tr/tr/sirket-bilgileri/ozet/1693-bera-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+BESLR,BESLER GIDA VE KİMYA SANAYİ VE TİCARET A.Ş.,,,True,1002,https://kap.org.tr/tr/sirket-bilgileri/ozet/1002-besler-gida-ve-kimya-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BESTE,BEST BRANDS GRUP ENERJİ YATIRIM A.Ş.,,,True,6190,https://kap.org.tr/tr/sirket-bilgileri/ozet/6190-best-brands-grup-enerji-yatirim-a-s,KAP_PUBLIC_BIST_COMPANIES
+BETAE,BETA ENERJİ VE TEKNOLOJİ A.Ş.,,,True,5345,https://kap.org.tr/tr/sirket-bilgileri/ozet/5345-beta-enerji-ve-teknoloji-a-s,KAP_PUBLIC_BIST_COMPANIES
+BEYAZ,BEYAZ FİLO OTO KİRALAMA A.Ş.,,,True,1518,https://kap.org.tr/tr/sirket-bilgileri/ozet/1518-beyaz-filo-oto-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+BFREN,BOSCH FREN SİSTEMLERİ SANAYİ VE TİCARET A.Ş.,,,True,888,https://kap.org.tr/tr/sirket-bilgileri/ozet/888-bosch-fren-sistemleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BIENY,BİEN YAPI ÜRÜNLERİ SANAYİ TURİZM VE TİCARET A.Ş.,,,True,2952,https://kap.org.tr/tr/sirket-bilgileri/ozet/2952-bien-yapi-urunleri-sanayi-turizm-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BIGCH,BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş.,,,True,5819,https://kap.org.tr/tr/sirket-bilgileri/ozet/5819-buyuk-sefler-gida-turizm-tekstil-danismanlik-organizasyon-egitim-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BIGEN,BİRLEŞİM GRUP ENERJİ YATIRIMLARI A.Ş.,,,True,6059,https://kap.org.tr/tr/sirket-bilgileri/ozet/6059-birlesim-grup-enerji-yatirimlari-a-s,KAP_PUBLIC_BIST_COMPANIES
+BIGTK,BİG MEDYA TEKNOLOJİ A.Ş.,,,True,918,https://kap.org.tr/tr/sirket-bilgileri/ozet/918-big-medya-teknoloji-a-s,KAP_PUBLIC_BIST_COMPANIES
+BIMAS,BİM BİRLEŞİK MAĞAZALAR A.Ş.,,,True,1406,https://kap.org.tr/tr/sirket-bilgileri/ozet/1406-bim-birlesik-magazalar-a-s,KAP_PUBLIC_BIST_COMPANIES
+BINBN,BİN ULAŞIM VE AKILLI ŞEHİR TEKNOLOJİLERİ A.Ş.,,,True,6026,https://kap.org.tr/tr/sirket-bilgileri/ozet/6026-bin-ulasim-ve-akilli-sehir-teknolojileri-a-s,KAP_PUBLIC_BIST_COMPANIES
+BINHO,1000 YATIRIMLAR HOLDİNG A.Ş.,,,True,5900,https://kap.org.tr/tr/sirket-bilgileri/ozet/5900-1000-yatirimlar-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+BIOEN,BİOTREND ÇEVRE VE ENERJİ YATIRIMLARI A.Ş.,,,True,5289,https://kap.org.tr/tr/sirket-bilgileri/ozet/5289-biotrend-cevre-ve-enerji-yatirimlari-a-s,KAP_PUBLIC_BIST_COMPANIES
+BIZIM,BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş.,,,True,1536,https://kap.org.tr/tr/sirket-bilgileri/ozet/1536-bizim-toptan-satis-magazalari-a-s,KAP_PUBLIC_BIST_COMPANIES
+BJKAS,BEŞİKTAŞ FUTBOL YATIRIMLARI SANAYİ VE TİCARET A.Ş.,,,True,881,https://kap.org.tr/tr/sirket-bilgileri/ozet/881-besiktas-futbol-yatirimlari-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BKRGY,BAKIRCI GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,6279,https://kap.org.tr/tr/sirket-bilgileri/ozet/6279-bakirci-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+BLCYT,BİLİCİ YATIRIM SANAYİ VE TİCARET A.Ş.,,,True,1544,https://kap.org.tr/tr/sirket-bilgileri/ozet/1544-bilici-yatirim-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BLKOM,BİLKOM BİLİŞİM HİZMETLERİ A.Ş.,,,True,3592,https://kap.org.tr/tr/sirket-bilgileri/ozet/3592-bilkom-bilisim-hizmetleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+BLS,BULLS YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1343,https://kap.org.tr/tr/sirket-bilgileri/ozet/1343-bulls-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+BLSMD,BULLS YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1343,https://kap.org.tr/tr/sirket-bilgileri/ozet/1343-bulls-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+BLUME,BLUME METAL KİMYA A.Ş.,,,True,1032,https://kap.org.tr/tr/sirket-bilgileri/ozet/1032-blume-metal-kimya-a-s,KAP_PUBLIC_BIST_COMPANIES
+BMSCH,BMS ÇELİK HASIR SANAYİ VE TİCARET A.Ş.,,,True,5007,https://kap.org.tr/tr/sirket-bilgileri/ozet/5007-bms-celik-hasir-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BMSTL,BMS BİRLEŞİK METAL SANAYİ VE TİCARET A.Ş.,,,True,5590,https://kap.org.tr/tr/sirket-bilgileri/ozet/5590-bms-birlesik-metal-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BNPPI,BNP PARIBAS ISSUANCE B.V.,,,True,5822,https://kap.org.tr/tr/sirket-bilgileri/ozet/5822-bnp-paribas-issuance-b-v,KAP_PUBLIC_BIST_COMPANIES
+BNTAS,BANTAŞ BANDIRMA AMBALAJ SANAYİ VE TİCARET A.Ş.,,,True,2468,https://kap.org.tr/tr/sirket-bilgileri/ozet/2468-bantas-bandirma-ambalaj-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BOBET,BOĞAZİÇİ BETON SANAYİ VE TİCARET A.Ş.,,,True,5320,https://kap.org.tr/tr/sirket-bilgileri/ozet/5320-bogazici-beton-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BORLS,BORLEASE OTOMOTİV A.Ş.,,,True,5878,https://kap.org.tr/tr/sirket-bilgileri/ozet/5878-borlease-otomotiv-a-s,KAP_PUBLIC_BIST_COMPANIES
+BORSK,BOR ŞEKER A.Ş.,,,True,5929,https://kap.org.tr/tr/sirket-bilgileri/ozet/5929-bor-seker-a-s,KAP_PUBLIC_BIST_COMPANIES
+BOSSA,BOSSA TİCARET VE SANAYİ İŞLETMELERİ T.A.Ş.,,,True,889,https://kap.org.tr/tr/sirket-bilgileri/ozet/889-bossa-ticaret-ve-sanayi-isletmeleri-t-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRGAN,BURGAN BANK A.Ş.,,,True,2494,https://kap.org.tr/tr/sirket-bilgileri/ozet/2494-burgan-bank-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRGFK,BURGAN FİNANSAL KİRALAMA A.Ş.,,,True,2434,https://kap.org.tr/tr/sirket-bilgileri/ozet/2434-burgan-finansal-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRISA,BRİSA BRİDGESTONE SABANCI LASTİK SANAYİ VE TİCARET A.Ş.,,,True,891,https://kap.org.tr/tr/sirket-bilgileri/ozet/891-brisa-bridgestone-sabanci-lastik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRKO,BİRKO BİRLEŞİK KOYUNLULULAR MENSUCAT TİCARET VE SANAYİ A.Ş.,,,True,1493,https://kap.org.tr/tr/sirket-bilgileri/ozet/1493-birko-birlesik-koyunlulular-mensucat-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRKSN,BERKOSAN YALITIM VE TECRİT MADDELERİ ÜRETİM VE TİCARET A.Ş.,,,True,1537,https://kap.org.tr/tr/sirket-bilgileri/ozet/1537-berkosan-yalitim-ve-tecrit-maddeleri-uretim-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRKT,BEREKET VARLIK KİRALAMA A.Ş.,,,True,2278,https://kap.org.tr/tr/sirket-bilgileri/ozet/2278-bereket-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRKVY,BİRİKİM VARLIK YÖNETİM A.Ş.,,,True,4623,https://kap.org.tr/tr/sirket-bilgileri/ozet/4623-birikim-varlik-yonetim-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRLSM,BİRLEŞİM MÜHENDİSLİK ISITMA SOĞUTMA HAVALANDIRMA SANAYİ VE TİCARET A.Ş.,,,True,5391,https://kap.org.tr/tr/sirket-bilgileri/ozet/5391-birlesim-muhendislik-isitma-sogutma-havalandirma-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRMEN,BİRLİK MENSUCAT TİCARET VE SANAYİ İŞLETMESİ A.Ş.,,,True,882,https://kap.org.tr/tr/sirket-bilgileri/ozet/882-birlik-mensucat-ticaret-ve-sanayi-isletmesi-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRSAN,BORUSAN BİRLEŞİK BORU FABRİKALARI SANAYİ VE TİCARET A.Ş.,,,True,886,https://kap.org.tr/tr/sirket-bilgileri/ozet/886-borusan-birlesik-boru-fabrikalari-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BRYAT,BORUSAN YATIRIM VE PAZARLAMA A.Ş.,,,True,887,https://kap.org.tr/tr/sirket-bilgileri/ozet/887-borusan-yatirim-ve-pazarlama-a-s,KAP_PUBLIC_BIST_COMPANIES
+BSOKE,BATIÇİM ÇİMENTO SANAYİ A.Ş.,,,True,878,https://kap.org.tr/tr/sirket-bilgileri/ozet/878-baticim-cimento-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+BTCIM,BATIÇİM BATI ANADOLU SANAYİ VE TİCARET A.Ş.,,,True,877,https://kap.org.tr/tr/sirket-bilgileri/ozet/877-baticim-bati-anadolu-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BUCIM,BURSA ÇİMENTO FABRİKASI A.Ş.,,,True,895,https://kap.org.tr/tr/sirket-bilgileri/ozet/895-bursa-cimento-fabrikasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+BULGS,BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.,,,True,5458,https://kap.org.tr/tr/sirket-bilgileri/ozet/5458-bulls-girisim-sermayesi-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+BUR,BURGAN BANK A.Ş.,,,True,2494,https://kap.org.tr/tr/sirket-bilgileri/ozet/2494-burgan-bank-a-s,KAP_PUBLIC_BIST_COMPANIES
+BURCE,BURÇELİK BURSA ÇELİK DÖKÜM SANAYİİ A.Ş.,,,True,894,https://kap.org.tr/tr/sirket-bilgileri/ozet/894-burcelik-bursa-celik-dokum-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+BURVA,BURÇELİK VANA SANAYİ VE TİCARET A.Ş.,,,True,1388,https://kap.org.tr/tr/sirket-bilgileri/ozet/1388-burcelik-vana-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BVSAN,BÜLBÜLOĞLU VİNÇ SANAYİ VE TİCARET A.Ş.,,,True,5769,https://kap.org.tr/tr/sirket-bilgileri/ozet/5769-bulbuloglu-vinc-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+BYDNR,BAYDÖNER RESTORANLARI A.Ş.,,,True,5853,https://kap.org.tr/tr/sirket-bilgileri/ozet/5853-baydoner-restoranlari-a-s,KAP_PUBLIC_BIST_COMPANIES
+CAGFA,ÇAĞDAŞ FAKTORİNG A.Ş.,,,True,2150,https://kap.org.tr/tr/sirket-bilgileri/ozet/2150-cagdas-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+CANTE,ÇAN2 TERMİK A.Ş.,,,True,5284,https://kap.org.tr/tr/sirket-bilgileri/ozet/5284-can2-termik-a-s,KAP_PUBLIC_BIST_COMPANIES
+CASA,CASA EMTİA PETROL KİMYEVİ VE TÜREVLERİ SANAYİ VE TİCARET A.Ş.,,,True,1679,https://kap.org.tr/tr/sirket-bilgileri/ozet/1679-casa-emtia-petrol-kimyevi-ve-turevleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+CATES,ÇATES ELEKTRİK ÜRETİM A.Ş.,,,True,5905,https://kap.org.tr/tr/sirket-bilgileri/ozet/5905-cates-elektrik-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+CCOLA,COCA-COLA İÇECEK A.Ş.,,,True,1424,https://kap.org.tr/tr/sirket-bilgileri/ozet/1424-coca-cola-icecek-a-s,KAP_PUBLIC_BIST_COMPANIES
+CELHA,ÇELİK HALAT VE TEL SANAYİİ A.Ş.,,,True,904,https://kap.org.tr/tr/sirket-bilgileri/ozet/904-celik-halat-ve-tel-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+CEMAS,ÇEMAŞ DÖKÜM SANAYİ A.Ş.,,,True,1510,https://kap.org.tr/tr/sirket-bilgileri/ozet/1510-cemas-dokum-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+CEMTS,ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş.,,,True,905,https://kap.org.tr/tr/sirket-bilgileri/ozet/905-cemtas-celik-makina-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+CEMZY,CEM ZEYTİN A.Ş.,,,True,6019,https://kap.org.tr/tr/sirket-bilgileri/ozet/6019-cem-zeytin-a-s,KAP_PUBLIC_BIST_COMPANIES
+CEOEM,CEO EVENT MEDYA A.Ş.,,,True,4856,https://kap.org.tr/tr/sirket-bilgileri/ozet/4856-ceo-event-medya-a-s,KAP_PUBLIC_BIST_COMPANIES
+CGCAM,ÇAĞDAŞ CAM SANAYİ VE TİCARET A.Ş.,,,True,6045,https://kap.org.tr/tr/sirket-bilgileri/ozet/6045-cagdas-cam-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+CIMSA,ÇİMSA ÇİMENTO SANAYİ VE TİCARET A.Ş.,,,True,908,https://kap.org.tr/tr/sirket-bilgileri/ozet/908-cimsa-cimento-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+CITAS,ÇİTLEKÇİ MAĞAZACILIK GIDA A.Ş.,,,True,6275,https://kap.org.tr/tr/sirket-bilgileri/ozet/6275-citlekci-magazacilik-gida-a-s,KAP_PUBLIC_BIST_COMPANIES
+CLEBI,ÇELEBİ HAVA SERVİSİ A.Ş.,,,True,903,https://kap.org.tr/tr/sirket-bilgileri/ozet/903-celebi-hava-servisi-a-s,KAP_PUBLIC_BIST_COMPANIES
+CLKMT,ÇELİK MOTOR TİCARET A.Ş.,,,True,2106,https://kap.org.tr/tr/sirket-bilgileri/ozet/2106-celik-motor-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+CMBTN,ÇİMBETON HAZIRBETON VE PREFABRİK YAPI ELEMANLARI SANAYİ VE TİCARET A.Ş.,,,True,906,https://kap.org.tr/tr/sirket-bilgileri/ozet/906-cimbeton-hazirbeton-ve-prefabrik-yapi-elemanlari-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+CMENT,ÇİMENTAŞ İZMİR ÇİMENTO FABRİKASI T.A.Ş.,,,True,907,https://kap.org.tr/tr/sirket-bilgileri/ozet/907-cimentas-izmir-cimento-fabrikasi-t-a-s,KAP_PUBLIC_BIST_COMPANIES
+CMSAN,ÇAMSAN ENTEGRE AĞAÇ SANAYİ VE TİCARET A.Ş.,,,True,6165,https://kap.org.tr/tr/sirket-bilgileri/ozet/6165-camsan-entegre-agac-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+CONSE,CONSUS ENERJİ İŞLETMECİLİĞİ VE HİZMETLERİ A.Ş.,,,True,5582,https://kap.org.tr/tr/sirket-bilgileri/ozet/5582-consus-enerji-isletmeciligi-ve-hizmetleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+COSMO,COSMOS YATIRIM HOLDİNG A.Ş.,,,True,893,https://kap.org.tr/tr/sirket-bilgileri/ozet/893-cosmos-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+CRDFA,CREDITWEST FAKTORİNG A.Ş.,,,True,1097,https://kap.org.tr/tr/sirket-bilgileri/ozet/1097-creditwest-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+CRFSA,CARREFOURSA CARREFOUR SABANCI TİCARET MERKEZİ A.Ş.,,,True,1440,https://kap.org.tr/tr/sirket-bilgileri/ozet/1440-carrefoursa-carrefour-sabanci-ticaret-merkezi-a-s,KAP_PUBLIC_BIST_COMPANIES
+CUSAN,ÇUHADAROĞLU METAL SANAYİ VE PAZARLAMA A.Ş.,,,True,2592,https://kap.org.tr/tr/sirket-bilgileri/ozet/2592-cuhadaroglu-metal-sanayi-ve-pazarlama-a-s,KAP_PUBLIC_BIST_COMPANIES
+CVKMD,CVK MADEN İŞLETMELERİ SANAYİ VE TİCARET A.Ş.,,,True,5807,https://kap.org.tr/tr/sirket-bilgileri/ozet/5807-cvk-maden-isletmeleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+CWENE,CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ A.Ş.,,,True,5033,https://kap.org.tr/tr/sirket-bilgileri/ozet/5033-cw-enerji-muhendislik-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+DAGI,DAGİ GİYİM SANAYİ VE TİCARET A.Ş.,,,True,1546,https://kap.org.tr/tr/sirket-bilgileri/ozet/1546-dagi-giyim-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DAPGM,DAP GAYRİMENKUL GELİŞTİRME A.Ş.,,,True,5532,https://kap.org.tr/tr/sirket-bilgileri/ozet/5532-dap-gayrimenkul-gelistirme-a-s,KAP_PUBLIC_BIST_COMPANIES
+DARDL,DARDANEL ÖNENTAŞ GIDA SANAYİ A.Ş.,,,True,910,https://kap.org.tr/tr/sirket-bilgileri/ozet/910-dardanel-onentas-gida-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+DCTTR,DCT TRADİNG DIŞ TİCARET A.Ş.,,,True,5997,https://kap.org.tr/tr/sirket-bilgileri/ozet/5997-dct-trading-dis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DENFA,DENİZ FAKTORİNG A.Ş.,,,True,2160,https://kap.org.tr/tr/sirket-bilgileri/ozet/2160-deniz-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+DENGE,DENGE YATIRIM HOLDİNG A.Ş.,,,True,1678,https://kap.org.tr/tr/sirket-bilgileri/ozet/1678-denge-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+DENVA,DENGE VARLIK YÖNETİM A.Ş.,,,True,4972,https://kap.org.tr/tr/sirket-bilgileri/ozet/4972-denge-varlik-yonetim-a-s,KAP_PUBLIC_BIST_COMPANIES
+DERHL,DERLÜKS YATIRIM HOLDİNG A.Ş.,,,True,4864,https://kap.org.tr/tr/sirket-bilgileri/ozet/4864-derluks-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+DERIM,DERİMOD KONFEKSİYON AYAKKABI DERİ SANAYİ VE TİCARET A.Ş.,,,True,915,https://kap.org.tr/tr/sirket-bilgileri/ozet/915-derimod-konfeksiyon-ayakkabi-deri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DESA,DESA DERİ SANAYİ VE TİCARET A.Ş.,,,True,1389,https://kap.org.tr/tr/sirket-bilgileri/ozet/1389-desa-deri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DESPC,DESPEC BİLGİSAYAR PAZARLAMA VE TİCARET A.Ş.,,,True,1529,https://kap.org.tr/tr/sirket-bilgileri/ozet/1529-despec-bilgisayar-pazarlama-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DEVA,DEVA HOLDİNG A.Ş.,,,True,916,https://kap.org.tr/tr/sirket-bilgileri/ozet/916-deva-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+DFKTR,DORUK FAKTORİNG A.Ş.,,,True,3021,https://kap.org.tr/tr/sirket-bilgileri/ozet/3021-doruk-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+DGATE,DATAGATE BİLGİSAYAR MALZEMELERİ TİCARET A.Ş.,,,True,1416,https://kap.org.tr/tr/sirket-bilgileri/ozet/1416-datagate-bilgisayar-malzemeleri-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DGGYO,DOĞUŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,960,https://kap.org.tr/tr/sirket-bilgileri/ozet/960-dogus-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+DGNMO,DOĞANLAR MOBİLYA GRUBU İMALAT SANAYİ VE TİCARET A.Ş.,,,True,999,https://kap.org.tr/tr/sirket-bilgileri/ozet/999-doganlar-mobilya-grubu-imalat-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DGRVK,DEĞER VARLIK KİRALAMA A.Ş.,,,True,5245,https://kap.org.tr/tr/sirket-bilgileri/ozet/5245-deger-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+DIMES,DİMES GIDA SANAYİ VE TİCARET A.Ş.,,,True,6116,https://kap.org.tr/tr/sirket-bilgileri/ozet/6116-dimes-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DIRIT,DİRİTEKS DİRİLİŞ TEKSTİL SANAYİ VE TİCARET A.Ş.,,,True,1580,https://kap.org.tr/tr/sirket-bilgileri/ozet/1580-diriteks-dirilis-tekstil-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DITAS,DİTAŞ BDY YEDEK PARÇA İMALAT VE TEKNİK A.Ş.,,,True,917,https://kap.org.tr/tr/sirket-bilgileri/ozet/917-ditas-bdy-yedek-parca-imalat-ve-teknik-a-s,KAP_PUBLIC_BIST_COMPANIES
+DKVRL,DK VARLIK KİRALAMA A.Ş.,,,True,6133,https://kap.org.tr/tr/sirket-bilgileri/ozet/6133-dk-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+DKYVK,DK YILDIZ VARLIK KİRALAMA A.Ş.,,,True,6231,https://kap.org.tr/tr/sirket-bilgileri/ozet/6231-dk-yildiz-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+DMD,DESTEK YATIRIM MENKUL DEĞERLER A.Ş.,,,True,6039,https://kap.org.tr/tr/sirket-bilgileri/ozet/6039-destek-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+DMLKT,EMLAK KONUT DAMLA KENT GMS,,,True,6121,https://kap.org.tr/tr/sirket-bilgileri/ozet/6121-emlak-konut-damla-kent-gms,KAP_PUBLIC_BIST_COMPANIES
+DMRGD,DMR UNLU MAMULLER ÜRETİM GIDA TOPTAN PERAKENDE İHRACAT A.Ş.,,,True,5870,https://kap.org.tr/tr/sirket-bilgileri/ozet/5870-dmr-unlu-mamuller-uretim-gida-toptan-perakende-ihracat-a-s,KAP_PUBLIC_BIST_COMPANIES
+DMSAS,DEMİSAŞ DÖKÜM EMAYE MAMÜLLERİ SANAYİ A.Ş.,,,True,911,https://kap.org.tr/tr/sirket-bilgileri/ozet/911-demisas-dokum-emaye-mamulleri-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+DNFIN,DENİZ FİNANSAL KİRALAMA A.Ş.,,,True,2163,https://kap.org.tr/tr/sirket-bilgileri/ozet/2163-deniz-finansal-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+DNISI,DİNAMİK ISI MAKİNA YALITIM MALZEMELERİ SANAYİ VE TİCARET A.Ş.,,,True,5185,https://kap.org.tr/tr/sirket-bilgileri/ozet/5185-dinamik-isi-makina-yalitim-malzemeleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DNYVA,DÜNYA VARLIK YÖNETİM A.Ş.,,,True,4902,https://kap.org.tr/tr/sirket-bilgileri/ozet/4902-dunya-varlik-yonetim-a-s,KAP_PUBLIC_BIST_COMPANIES
+DNZEN,DENİZ EKO ENERJİ VE GERİ DÖNÜŞÜM A.Ş.,,,True,6164,https://kap.org.tr/tr/sirket-bilgileri/ozet/6164-deniz-eko-enerji-ve-geri-donusum-a-s,KAP_PUBLIC_BIST_COMPANIES
+DOAS,DOĞUŞ OTOMOTİV SERVİS VE TİCARET A.Ş.,,,True,1391,https://kap.org.tr/tr/sirket-bilgileri/ozet/1391-dogus-otomotiv-servis-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DOCO,DO & CO AKTIENGESELLSCHAFT,,,True,1530,https://kap.org.tr/tr/sirket-bilgileri/ozet/1530-do-co-aktiengesellschaft,KAP_PUBLIC_BIST_COMPANIES
+DOFER,DOFER YAPI MALZEMELERİ SANAYİ VE TİCARET A.Ş.,,,True,5879,https://kap.org.tr/tr/sirket-bilgileri/ozet/5879-dofer-yapi-malzemeleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DOFRB,DOF ROBOTİK SANAYİ A.Ş.,,,True,6130,https://kap.org.tr/tr/sirket-bilgileri/ozet/6130-dof-robotik-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+DOGUB,DOĞUSAN BORU SANAYİ VE TİCARET A.Ş.,,,True,921,https://kap.org.tr/tr/sirket-bilgileri/ozet/921-dogusan-boru-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DOGVY,DOĞRU VARLIK YÖNETİM A.Ş.,,,True,4862,https://kap.org.tr/tr/sirket-bilgileri/ozet/4862-dogru-varlik-yonetim-a-s,KAP_PUBLIC_BIST_COMPANIES
+DOHOL,DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş.,,,True,919,https://kap.org.tr/tr/sirket-bilgileri/ozet/919-dogan-sirketler-grubu-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+DOKTA,DÖKTAŞ DÖKÜMCÜLÜK TİCARET VE SANAYİ A.Ş.,,,True,922,https://kap.org.tr/tr/sirket-bilgileri/ozet/922-doktas-dokumculuk-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+DRPHN,T.C. HAZİNE VE MALİYE BAKANLIĞI DARPHANE VE DAMGA MATBAASI GENEL MÜDÜRLÜĞÜ,,,True,5665,https://kap.org.tr/tr/sirket-bilgileri/ozet/5665-t-c-hazine-ve-maliye-bakanligi-darphane-ve-damga-matbaasi-genel-mudurlugu,KAP_PUBLIC_BIST_COMPANIES
+DSTKF,DESTEK FİNANS FAKTORİNG A.Ş.,,,True,2191,https://kap.org.tr/tr/sirket-bilgileri/ozet/2191-destek-finans-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+DSYAT,DESTEK YATIRIM MENKUL DEĞERLER A.Ş.,,,True,6039,https://kap.org.tr/tr/sirket-bilgileri/ozet/6039-destek-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+DUNYH,DÜNYA HOLDİNG A.Ş.,,,True,1069,https://kap.org.tr/tr/sirket-bilgileri/ozet/1069-dunya-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+DURDO,DURAN DOĞAN BASIM VE AMBALAJ SANAYİ A.Ş.,,,True,923,https://kap.org.tr/tr/sirket-bilgileri/ozet/923-duran-dogan-basim-ve-ambalaj-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+DURKN,DURUKAN ŞEKERLEME SANAYİ VE TİCARET A.Ş.,,,True,6023,https://kap.org.tr/tr/sirket-bilgileri/ozet/6023-durukan-sekerleme-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DVRLK,D VARLIK KİRALAMA A.Ş.,,,True,6031,https://kap.org.tr/tr/sirket-bilgileri/ozet/6031-d-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+DYBNK,D YATIRIM BANKASI A.Ş.,,,True,5226,https://kap.org.tr/tr/sirket-bilgileri/ozet/5226-d-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+DYOBY,DYO BOYA FABRİKALARI SANAYİ VE TİCARET A.Ş.,,,True,924,https://kap.org.tr/tr/sirket-bilgileri/ozet/924-dyo-boya-fabrikalari-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+DZGYO,DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,912,https://kap.org.tr/tr/sirket-bilgileri/ozet/912-deniz-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EBEBK,EBEBEK MAĞAZACILIK A.Ş.,,,True,5861,https://kap.org.tr/tr/sirket-bilgileri/ozet/5861-ebebek-magazacilik-a-s,KAP_PUBLIC_BIST_COMPANIES
+ECILC,EİS ECZACIBAŞI İLAÇ SINAİ VE FİNANSAL YATIRIMLAR SANAYİ VE TİCARET A.Ş.,,,True,939,https://kap.org.tr/tr/sirket-bilgileri/ozet/939-eis-eczacibasi-ilac-sinai-ve-finansal-yatirimlar-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ECOGR,ECOGREEN ENERJİ HOLDİNG A.Ş.,,,True,6140,https://kap.org.tr/tr/sirket-bilgileri/ozet/6140-ecogreen-enerji-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+ECZIP,EİP ECZACIBAŞI İLAÇ PAZARLAMA A.Ş.,,,True,3175,https://kap.org.tr/tr/sirket-bilgileri/ozet/3175-eip-eczacibasi-ilac-pazarlama-a-s,KAP_PUBLIC_BIST_COMPANIES
+ECZYT,ECZACIBAŞI YATIRIM HOLDİNG ORTAKLIĞI A.Ş.,,,True,926,https://kap.org.tr/tr/sirket-bilgileri/ozet/926-eczacibasi-yatirim-holding-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EDATA,E-DATA TEKNOLOJİ PAZARLAMA A.Ş.,,,True,5333,https://kap.org.tr/tr/sirket-bilgileri/ozet/5333-e-data-teknoloji-pazarlama-a-s,KAP_PUBLIC_BIST_COMPANIES
+EDIP,EDİP GAYRİMENKUL YATIRIM SANAYİ VE TİCARET A.Ş.,,,True,928,https://kap.org.tr/tr/sirket-bilgileri/ozet/928-edip-gayrimenkul-yatirim-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EFOR,EFOR YATIRIM SANAYİ TİCARET A.Ş.,,,True,5654,https://kap.org.tr/tr/sirket-bilgileri/ozet/5654-efor-yatirim-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EGEEN,EGE ENDÜSTRİ VE TİCARET A.Ş.,,,True,930,https://kap.org.tr/tr/sirket-bilgileri/ozet/930-ege-endustri-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EGEGY,EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,6051,https://kap.org.tr/tr/sirket-bilgileri/ozet/6051-egeyapi-avrupa-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EGEPO,NASMED ÖZEL SAĞLIK HİZMETLERİ TİCARET A.Ş.,,,True,5390,https://kap.org.tr/tr/sirket-bilgileri/ozet/5390-nasmed-ozel-saglik-hizmetleri-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EGGUB,EGE GÜBRE SANAYİİ A.Ş.,,,True,931,https://kap.org.tr/tr/sirket-bilgileri/ozet/931-ege-gubre-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+EGPRO,EGE PROFİL TİCARET VE SANAYİ A.Ş.,,,True,932,https://kap.org.tr/tr/sirket-bilgileri/ozet/932-ege-profil-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EGSER,EGE SERAMİK SANAYİ VE TİCARET A.Ş.,,,True,933,https://kap.org.tr/tr/sirket-bilgileri/ozet/933-ege-seramik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EKDMR,EKİNCİLER DEMİR VE ÇELİK SANAYİ A.Ş.,,,True,3089,https://kap.org.tr/tr/sirket-bilgileri/ozet/3089-ekinciler-demir-ve-celik-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EKER,EKER SÜT ÜRÜNLERİ GIDA SANAYİ VE TİCARET A.Ş.,,,True,5933,https://kap.org.tr/tr/sirket-bilgileri/ozet/5933-eker-sut-urunleri-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EKGYO,EMLAK KONUT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1531,https://kap.org.tr/tr/sirket-bilgileri/ozet/1531-emlak-konut-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EKIM,EKİM TURİZM TİCARET VE SANAYİ A.Ş.,,,True,2444,https://kap.org.tr/tr/sirket-bilgileri/ozet/2444-ekim-turizm-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EKIZ,EKİZ KİMYA SANAYİ VE TİCARET A.Ş.,,,True,1515,https://kap.org.tr/tr/sirket-bilgileri/ozet/1515-ekiz-kimya-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EKOFA,EKO FAKTORİNG A.Ş.,,,True,2109,https://kap.org.tr/tr/sirket-bilgileri/ozet/2109-eko-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+EKOS,EKOS TEKNOLOJİ VE ELEKTRİK A.Ş.,,,True,5898,https://kap.org.tr/tr/sirket-bilgileri/ozet/5898-ekos-teknoloji-ve-elektrik-a-s,KAP_PUBLIC_BIST_COMPANIES
+EKSUN,EKSUN GIDA TARIM SANAYİ VE TİCARET A.Ş.,,,True,5796,https://kap.org.tr/tr/sirket-bilgileri/ozet/5796-eksun-gida-tarim-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EKTVK,EMLAK KATILIM VARLIK KİRALAMA A.Ş.,,,True,5064,https://kap.org.tr/tr/sirket-bilgileri/ozet/5064-emlak-katilim-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+ELITE,ELİTE NATUREL ORGANİK GIDA SANAYİ VE TİCARET A.Ş.,,,True,5392,https://kap.org.tr/tr/sirket-bilgileri/ozet/5392-elite-naturel-organik-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EMIRV,EMİR VARLIK YÖNETİM A.Ş.,,,True,4915,https://kap.org.tr/tr/sirket-bilgileri/ozet/4915-emir-varlik-yonetim-a-s,KAP_PUBLIC_BIST_COMPANIES
+EMKEL,EMEK ELEKTRİK ENDÜSTRİSİ A.Ş.,,,True,940,https://kap.org.tr/tr/sirket-bilgileri/ozet/940-emek-elektrik-endustrisi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EMNIS,EMİNİŞ AMBALAJ SANAYİ VE TİCARET A.Ş.,,,True,941,https://kap.org.tr/tr/sirket-bilgileri/ozet/941-eminis-ambalaj-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EMPAE,EMPA ELEKTRONİK SANAYİ VE TİCARET A.Ş.,,,True,4611,https://kap.org.tr/tr/sirket-bilgileri/ozet/4611-empa-elektronik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EMVAR,EMLAK VARLIK KİRALAMA A.Ş.,,,True,4944,https://kap.org.tr/tr/sirket-bilgileri/ozet/4944-emlak-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+ENDAE,ENDA ENERJİ HOLDİNG A.Ş.,,,True,6057,https://kap.org.tr/tr/sirket-bilgileri/ozet/6057-enda-enerji-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+ENERY,ENERYA ENERJİ A.Ş.,,,True,2872,https://kap.org.tr/tr/sirket-bilgileri/ozet/2872-enerya-enerji-a-s,KAP_PUBLIC_BIST_COMPANIES
+ENJSA,ENERJİSA ENERJİ A.Ş.,,,True,3494,https://kap.org.tr/tr/sirket-bilgileri/ozet/3494-enerjisa-enerji-a-s,KAP_PUBLIC_BIST_COMPANIES
+ENKAI,ENKA İNŞAAT VE SANAYİ A.Ş.,,,True,942,https://kap.org.tr/tr/sirket-bilgileri/ozet/942-enka-insaat-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ENPRA,ENPARA BANK A.Ş.,,,True,6034,https://kap.org.tr/tr/sirket-bilgileri/ozet/6034-enpara-bank-a-s,KAP_PUBLIC_BIST_COMPANIES
+ENSRI,ENSARİ SINAİ YATIRIMLAR A.Ş.,,,True,5560,https://kap.org.tr/tr/sirket-bilgileri/ozet/5560-ensari-sinai-yatirimlar-a-s,KAP_PUBLIC_BIST_COMPANIES
+ENTRA,IC ENTERRA YENİLENEBİLİR ENERJİ A.Ş.,,,True,5943,https://kap.org.tr/tr/sirket-bilgileri/ozet/5943-ic-enterra-yenilenebilir-enerji-a-s,KAP_PUBLIC_BIST_COMPANIES
+EPLAS,EGEPLAST EGE PLASTİK TİCARET VE SANAYİ A.Ş.,,,True,934,https://kap.org.tr/tr/sirket-bilgileri/ozet/934-egeplast-ege-plastik-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ERBOS,ERBOSAN ERCİYAS BORU SANAYİ VE TİCARET A.Ş.,,,True,943,https://kap.org.tr/tr/sirket-bilgileri/ozet/943-erbosan-erciyas-boru-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ERCB,ERCİYAS ÇELİK BORU SANAYİ A.Ş.,,,True,5516,https://kap.org.tr/tr/sirket-bilgileri/ozet/5516-erciyas-celik-boru-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EREGL,EREĞLİ DEMİR VE ÇELİK FABRİKALARI T.A.Ş.,,,True,944,https://kap.org.tr/tr/sirket-bilgileri/ozet/944-eregli-demir-ve-celik-fabrikalari-t-a-s,KAP_PUBLIC_BIST_COMPANIES
+ERGLI,EREĞLİ TEKSTİL TURİZM SANAYİ VE TİCARET A.Ş.,,,True,2112,https://kap.org.tr/tr/sirket-bilgileri/ozet/2112-eregli-tekstil-turizm-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ERSU,ERSU MEYVE VE GIDA SANAYİ A.Ş.,,,True,945,https://kap.org.tr/tr/sirket-bilgileri/ozet/945-ersu-meyve-ve-gida-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ESCAR,ESCAR FİLO KİRALAMA HİZMETLERİ A.Ş.,,,True,5327,https://kap.org.tr/tr/sirket-bilgileri/ozet/5327-escar-filo-kiralama-hizmetleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+ESCOM,ESCORT TEKNOLOJİ YATIRIM A.Ş.,,,True,946,https://kap.org.tr/tr/sirket-bilgileri/ozet/946-escort-teknoloji-yatirim-a-s,KAP_PUBLIC_BIST_COMPANIES
+ESEN,ESENBOĞA ELEKTRİK ÜRETİM A.Ş.,,,True,5190,https://kap.org.tr/tr/sirket-bilgileri/ozet/5190-esenboga-elektrik-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+ETILR,ETİLER GIDA VE TİCARİ YATIRIMLAR SANAYİ VE TİCARET A.Ş.,,,True,1625,https://kap.org.tr/tr/sirket-bilgileri/ozet/1625-etiler-gida-ve-ticari-yatirimlar-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ETYAT,EURO TREND YATIRIM ORTAKLIĞI A.Ş.,,,True,1471,https://kap.org.tr/tr/sirket-bilgileri/ozet/1471-euro-trend-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EUHOL,EURO YATIRIM HOLDİNG A.Ş.,,,True,1508,https://kap.org.tr/tr/sirket-bilgileri/ozet/1508-euro-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+EUKYO,EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş.,,,True,1557,https://kap.org.tr/tr/sirket-bilgileri/ozet/1557-euro-kapital-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EUPWR,EUROPOWER ENERJİ VE OTOMASYON TEKNOLOJİLERİ SANAYİ TİCARET A.Ş.,,,True,5810,https://kap.org.tr/tr/sirket-bilgileri/ozet/5810-europower-enerji-ve-otomasyon-teknolojileri-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EUREN,EUROPEN ENDÜSTRİ İNŞAAT SANAYİ VE TİCARET A.Ş.,,,True,5612,https://kap.org.tr/tr/sirket-bilgileri/ozet/5612-europen-endustri-insaat-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+EUYO,EURO MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş.,,,True,1427,https://kap.org.tr/tr/sirket-bilgileri/ozet/1427-euro-menkul-kiymet-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EXIMB,TÜRKİYE İHRACAT KREDİ BANKASI A.Ş.,,,True,2424,https://kap.org.tr/tr/sirket-bilgileri/ozet/2424-turkiye-ihracat-kredi-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+EYGYO,EYG GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5711,https://kap.org.tr/tr/sirket-bilgileri/ozet/5711-eyg-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+FADE,FADE GIDA YATIRIM SANAYİ TİCARET A.Ş.,,,True,5021,https://kap.org.tr/tr/sirket-bilgileri/ozet/5021-fade-gida-yatirim-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+FAIRF,FAİR FİNANSMAN A.Ş.,,,True,6138,https://kap.org.tr/tr/sirket-bilgileri/ozet/6138-fair-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+FBB,FİBABANKA A.Ş.,,,True,2067,https://kap.org.tr/tr/sirket-bilgileri/ozet/2067-fibabanka-a-s,KAP_PUBLIC_BIST_COMPANIES
+FBBNK,FİBABANKA A.Ş.,,,True,2067,https://kap.org.tr/tr/sirket-bilgileri/ozet/2067-fibabanka-a-s,KAP_PUBLIC_BIST_COMPANIES
+FENER,FENERBAHÇE FUTBOL A.Ş.,,,True,1383,https://kap.org.tr/tr/sirket-bilgileri/ozet/1383-fenerbahce-futbol-a-s,KAP_PUBLIC_BIST_COMPANIES
+FIGOF,FİGO FİNANS FAKTORİNG A.Ş.,,,True,2142,https://kap.org.tr/tr/sirket-bilgileri/ozet/2142-figo-finans-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+FIN,QNB BANK A.Ş.,,,True,2417,https://kap.org.tr/tr/sirket-bilgileri/ozet/2417-qnb-bank-a-s,KAP_PUBLIC_BIST_COMPANIES
+FKPET,FİKRET PETROL ÜRÜNLERİ PAZARLAMA SANAYİ VE TİCARET A.Ş.,,,True,6196,https://kap.org.tr/tr/sirket-bilgileri/ozet/6196-fikret-petrol-urunleri-pazarlama-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+FLAP,FLAP KONGRE TOPLANTI HİZMETLERİ OTOMOTİV VE TURİZM A.Ş.,,,True,1617,https://kap.org.tr/tr/sirket-bilgileri/ozet/1617-flap-kongre-toplanti-hizmetleri-otomotiv-ve-turizm-a-s,KAP_PUBLIC_BIST_COMPANIES
+FMIZP,FEDERAL MOGUL İZMİT PİSTON VE PİM ÜRETİM TESİSLERİ A.Ş.,,,True,951,https://kap.org.tr/tr/sirket-bilgileri/ozet/951-federal-mogul-izmit-piston-ve-pim-uretim-tesisleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+FONET,FONET BİLGİ TEKNOLOJİLERİ A.Ş.,,,True,4412,https://kap.org.tr/tr/sirket-bilgileri/ozet/4412-fonet-bilgi-teknolojileri-a-s,KAP_PUBLIC_BIST_COMPANIES
+FORMT,FORMET METAL VE CAM SANAYİ A.Ş.,,,True,4639,https://kap.org.tr/tr/sirket-bilgileri/ozet/4639-formet-metal-ve-cam-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+FORTE,FORTE BİLGİ İLETİŞİM TEKNOLOJİLERİ VE SAVUNMA SANAYİ A.Ş.,,,True,5598,https://kap.org.tr/tr/sirket-bilgileri/ozet/5598-forte-bilgi-iletisim-teknolojileri-ve-savunma-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+FRIGO,FRİGO-PAK GIDA MADDELERİ SANAYİ VE TİCARET A.Ş.,,,True,957,https://kap.org.tr/tr/sirket-bilgileri/ozet/957-frigo-pak-gida-maddeleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+FRMPL,FORMÜL PLASTİK VE METAL SANAYİ A.Ş.,,,True,6179,https://kap.org.tr/tr/sirket-bilgileri/ozet/6179-formul-plastik-ve-metal-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+FROTO,FORD OTOMOTİV SANAYİ A.Ş.,,,True,956,https://kap.org.tr/tr/sirket-bilgileri/ozet/956-ford-otomotiv-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+FZLGY,FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5840,https://kap.org.tr/tr/sirket-bilgileri/ozet/5840-fuzul-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+GARAN,TÜRKİYE GARANTİ BANKASI A.Ş.,,,True,2422,https://kap.org.tr/tr/sirket-bilgileri/ozet/2422-turkiye-garanti-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+GARFA,GARANTİ FAKTORİNG A.Ş.,,,True,959,https://kap.org.tr/tr/sirket-bilgileri/ozet/959-garanti-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+GARFL,GARANTİ BBVA OPERASYONEL KİRALAMA HİZMETLERİ A.Ş.,,,True,2113,https://kap.org.tr/tr/sirket-bilgileri/ozet/2113-garanti-bbva-operasyonel-kiralama-hizmetleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+GATEG,GATE GROUP TEKNOLOJİ MEDYA VE SİBER GÜVENLİK HİZMETLERİ A.Ş.,,,True,2437,https://kap.org.tr/tr/sirket-bilgileri/ozet/2437-gate-group-teknoloji-medya-ve-siber-guvenlik-hizmetleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+GEDIK,GEDİK YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1517,https://kap.org.tr/tr/sirket-bilgileri/ozet/1517-gedik-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+GEDZA,GEDİZ AMBALAJ SANAYİ VE TİCARET A.Ş.,,,True,2209,https://kap.org.tr/tr/sirket-bilgileri/ozet/2209-gediz-ambalaj-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+GENIL,GEN İLAÇ VE SAĞLIK ÜRÜNLERİ SANAYİ VE TİCARET A.Ş.,,,True,5385,https://kap.org.tr/tr/sirket-bilgileri/ozet/5385-gen-ilac-ve-saglik-urunleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+GENKM,GENTAŞ KİMYA SANAYİ VE TİCARET PAZARLAMA A.Ş.,,,True,6201,https://kap.org.tr/tr/sirket-bilgileri/ozet/6201-gentas-kimya-sanayi-ve-ticaret-pazarlama-a-s,KAP_PUBLIC_BIST_COMPANIES
+GENTS,GENTAŞ DEKORATİF YÜZEYLER SANAYİ VE TİCARET A.Ş.,,,True,963,https://kap.org.tr/tr/sirket-bilgileri/ozet/963-gentas-dekoratif-yuzeyler-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+GEREL,GERSAN ELEKTRİK TİCARET VE SANAYİ A.Ş.,,,True,964,https://kap.org.tr/tr/sirket-bilgileri/ozet/964-gersan-elektrik-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+GESAN,GİRİŞİM ELEKTRİK SANAYİ TAAHHÜT VE TİCARET A.Ş.,,,True,5400,https://kap.org.tr/tr/sirket-bilgileri/ozet/5400-girisim-elektrik-sanayi-taahhut-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+GGBVK,GOLDEN GLOBAL VARLIK KİRALAMA A.Ş.,,,True,5714,https://kap.org.tr/tr/sirket-bilgileri/ozet/5714-golden-global-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+GIPTA,GIPTA OFİS KIRTASİYE VE PROMOSYON ÜRÜNLERİ İMALAT SANAYİ A.Ş.,,,True,5864,https://kap.org.tr/tr/sirket-bilgileri/ozet/5864-gipta-ofis-kirtasiye-ve-promosyon-urunleri-imalat-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+GLB,GLOBAL MENKUL DEĞERLER A.Ş.,,,True,1554,https://kap.org.tr/tr/sirket-bilgileri/ozet/1554-global-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+GLBMD,GLOBAL MENKUL DEĞERLER A.Ş.,,,True,1554,https://kap.org.tr/tr/sirket-bilgileri/ozet/1554-global-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+GLCVY,GELECEK VARLIK YÖNETİMİ A.Ş.,,,True,4811,https://kap.org.tr/tr/sirket-bilgileri/ozet/4811-gelecek-varlik-yonetimi-a-s,KAP_PUBLIC_BIST_COMPANIES
+GLRMK,GÜLERMAK AĞIR SANAYİ İNŞAAT VE TAAHHÜT A.Ş.,,,True,3545,https://kap.org.tr/tr/sirket-bilgileri/ozet/3545-gulermak-agir-sanayi-insaat-ve-taahhut-a-s,KAP_PUBLIC_BIST_COMPANIES
+GLRYH,GÜLER YATIRIM HOLDİNG A.Ş.,,,True,1428,https://kap.org.tr/tr/sirket-bilgileri/ozet/1428-guler-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+GLYHO,GLOBAL YATIRIM HOLDİNG A.Ş.,,,True,967,https://kap.org.tr/tr/sirket-bilgileri/ozet/967-global-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+GMTAS,GİMAT MAĞAZACILIK SANAYİ VE TİCARET A.Ş.,,,True,3697,https://kap.org.tr/tr/sirket-bilgileri/ozet/3697-gimat-magazacilik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+GOKNR,GÖKNUR GIDA MADDELERİ ENERJİ İMALAT İTHALAT İHRACAT TİCARET VE SANAYİ A.Ş.,,,True,3518,https://kap.org.tr/tr/sirket-bilgileri/ozet/3518-goknur-gida-maddeleri-enerji-imalat-ithalat-ihracat-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+GOLDA,GOLDA GIDA SANAYİ VE TİCARET A.Ş.,,,True,3523,https://kap.org.tr/tr/sirket-bilgileri/ozet/3523-golda-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+GOLTS,GÖLTAŞ GÖLLER BÖLGESİ ÇİMENTO SANAYİ VE TİCARET A.Ş.,,,True,972,https://kap.org.tr/tr/sirket-bilgileri/ozet/972-goltas-goller-bolgesi-cimento-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+GOODY,GOODYEAR LASTİKLERİ T.A.Ş.,,,True,970,https://kap.org.tr/tr/sirket-bilgileri/ozet/970-goodyear-lastikleri-t-a-s,KAP_PUBLIC_BIST_COMPANIES
+GOZDE,GÖZDE GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.,,,True,1499,https://kap.org.tr/tr/sirket-bilgileri/ozet/1499-gozde-girisim-sermayesi-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+GRM,GARANTİ YATIRIM MENKUL KIYMETLER A.Ş.,,,True,1304,https://kap.org.tr/tr/sirket-bilgileri/ozet/1304-garanti-yatirim-menkul-kiymetler-a-s,KAP_PUBLIC_BIST_COMPANIES
+GRNYO,GARANTİ YATIRIM ORTAKLIĞI A.Ş.,,,True,961,https://kap.org.tr/tr/sirket-bilgileri/ozet/961-garanti-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+GRSEL,GÜR-SEL TURİZM TAŞIMACILIK VE SERVİS TİCARET A.Ş.,,,True,5553,https://kap.org.tr/tr/sirket-bilgileri/ozet/5553-gur-sel-turizm-tasimacilik-ve-servis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+GRTHO,GRAINTURK HOLDİNG A.Ş.,,,True,5717,https://kap.org.tr/tr/sirket-bilgileri/ozet/5717-grainturk-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+GRYAT,GARANTİ YATIRIM MENKUL KIYMETLER A.Ş.,,,True,1304,https://kap.org.tr/tr/sirket-bilgileri/ozet/1304-garanti-yatirim-menkul-kiymetler-a-s,KAP_PUBLIC_BIST_COMPANIES
+GSDDE,GSD DENİZCİLİK GAYRİMENKUL İNŞAAT SANAYİ VE TİCARET A.Ş.,,,True,1094,https://kap.org.tr/tr/sirket-bilgileri/ozet/1094-gsd-denizcilik-gayrimenkul-insaat-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+GSDHO,GSD HOLDİNG A.Ş.,,,True,973,https://kap.org.tr/tr/sirket-bilgileri/ozet/973-gsd-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+GSIPD,GOLDMAN SACHS INTERNATIONAL,,,True,5463,https://kap.org.tr/tr/sirket-bilgileri/ozet/5463-goldman-sachs-international,KAP_PUBLIC_BIST_COMPANIES
+GSRAY,GALATASARAY SPORTİF SINAİ VE TİCARİ YATIRIMLAR A.Ş.,,,True,958,https://kap.org.tr/tr/sirket-bilgileri/ozet/958-galatasaray-sportif-sinai-ve-ticari-yatirimlar-a-s,KAP_PUBLIC_BIST_COMPANIES
+GUBRF,GÜBRE FABRİKALARI T.A.Ş.,,,True,974,https://kap.org.tr/tr/sirket-bilgileri/ozet/974-gubre-fabrikalari-t-a-s,KAP_PUBLIC_BIST_COMPANIES
+GUNDG,GÜNDOĞDU GIDA SÜT ÜRÜNLERİ SANAYİ VE DIŞ TİCARET A.Ş.,,,True,6011,https://kap.org.tr/tr/sirket-bilgileri/ozet/6011-gundogdu-gida-sut-urunleri-sanayi-ve-dis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+GWIND,GALATA WIND ENERJİ A.Ş.,,,True,4969,https://kap.org.tr/tr/sirket-bilgileri/ozet/4969-galata-wind-enerji-a-s,KAP_PUBLIC_BIST_COMPANIES
+GYVAR,GY VARLIK KİRALAMA A.Ş.,,,True,6217,https://kap.org.tr/tr/sirket-bilgileri/ozet/6217-gy-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+GZNMI,GEZİNOMİ SEYAHAT TURİZM TİCARET A.Ş.,,,True,5519,https://kap.org.tr/tr/sirket-bilgileri/ozet/5519-gezinomi-seyahat-turizm-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+HALKB,TÜRKİYE HALK BANKASI A.Ş.,,,True,2423,https://kap.org.tr/tr/sirket-bilgileri/ozet/2423-turkiye-halk-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+HALKF,HALK FİNANSAL KİRALAMA A.Ş.,,,True,1685,https://kap.org.tr/tr/sirket-bilgileri/ozet/1685-halk-finansal-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+HALKI,HALK YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1312,https://kap.org.tr/tr/sirket-bilgileri/ozet/1312-halk-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+HATEK,HATEKS HATAY TEKSTİL İŞLETMELERİ A.Ş.,,,True,1532,https://kap.org.tr/tr/sirket-bilgileri/ozet/1532-hateks-hatay-tekstil-isletmeleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+HATSN,HAT-SAN GEMİ İNŞAA BAKIM ONARIM DENİZ NAKLİYAT SANAYİ VE TİCARET A.Ş.,,,True,5868,https://kap.org.tr/tr/sirket-bilgileri/ozet/5868-hat-san-gemi-insaa-bakim-onarim-deniz-nakliyat-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+HAYVK,HAYAT VARLIK KİRALAMA A.Ş.,,,True,6104,https://kap.org.tr/tr/sirket-bilgileri/ozet/6104-hayat-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+HDFFL,HEDEF ARAÇ KİRALAMA VE SERVİS A.Ş.,,,True,4038,https://kap.org.tr/tr/sirket-bilgileri/ozet/4038-hedef-arac-kiralama-ve-servis-a-s,KAP_PUBLIC_BIST_COMPANIES
+HDFGS,HEDEF GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.,,,True,2003,https://kap.org.tr/tr/sirket-bilgileri/ozet/2003-hedef-girisim-sermayesi-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+HDFVK,HEDEF VARLIK KİRALAMA A.Ş.,,,True,5940,https://kap.org.tr/tr/sirket-bilgileri/ozet/5940-hedef-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+HDFYB,HEDEF YATIRIM BANKASI A.Ş.,,,True,5926,https://kap.org.tr/tr/sirket-bilgileri/ozet/5926-hedef-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+HEDEF,HEDEF HOLDİNG A.Ş.,,,True,5387,https://kap.org.tr/tr/sirket-bilgileri/ozet/5387-hedef-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+HEKTS,HEKTAŞ TİCARET T.A.Ş.,,,True,978,https://kap.org.tr/tr/sirket-bilgileri/ozet/978-hektas-ticaret-t-a-s,KAP_PUBLIC_BIST_COMPANIES
+HKTM,HİDROPAR HAREKET KONTROL TEKNOLOJİLERİ MERKEZİ SANAYİ VE TİCARET A.Ş.,,,True,5625,https://kap.org.tr/tr/sirket-bilgileri/ozet/5625-hidropar-hareket-kontrol-teknolojileri-merkezi-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+HLGYO,HALK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1701,https://kap.org.tr/tr/sirket-bilgileri/ozet/1701-halk-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+HLVKS,HALK VARLIK KİRALAMA A.Ş.,,,True,4538,https://kap.org.tr/tr/sirket-bilgileri/ozet/4538-halk-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+HLY,HALK YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1312,https://kap.org.tr/tr/sirket-bilgileri/ozet/1312-halk-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+HOROZ,HOROZ LOJİSTİK KARGO HİZMETLERİ VE TİCARET A.Ş.,,,True,5964,https://kap.org.tr/tr/sirket-bilgileri/ozet/5964-horoz-lojistik-kargo-hizmetleri-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+HRKET,HAREKET PROJE TAŞIMACILIĞI VE YÜK MÜHENDİSLİĞİ A.Ş.,,,True,5959,https://kap.org.tr/tr/sirket-bilgileri/ozet/5959-hareket-proje-tasimaciligi-ve-yuk-muhendisligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+HTTBT,HİTİT BİLGİSAYAR HİZMETLERİ A.Ş.,,,True,5499,https://kap.org.tr/tr/sirket-bilgileri/ozet/5499-hitit-bilgisayar-hizmetleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+HUBVC,HUB GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.,,,True,1446,https://kap.org.tr/tr/sirket-bilgileri/ozet/1446-hub-girisim-sermayesi-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+HUNER,HUN YENİLENEBİLİR ENERJİ ÜRETİM A.Ş.,,,True,5520,https://kap.org.tr/tr/sirket-bilgileri/ozet/5520-hun-yenilenebilir-enerji-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+HURGZ,HÜRRİYET GAZETECİLİK VE MATBAACILIK A.Ş.,,,True,979,https://kap.org.tr/tr/sirket-bilgileri/ozet/979-hurriyet-gazetecilik-ve-matbaacilik-a-s,KAP_PUBLIC_BIST_COMPANIES
+HUZFA,HUZUR FAKTORİNG A.Ş.,,,True,2367,https://kap.org.tr/tr/sirket-bilgileri/ozet/2367-huzur-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+HYB,HEDEF YATIRIM BANKASI A.Ş.,,,True,5926,https://kap.org.tr/tr/sirket-bilgileri/ozet/5926-hedef-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+IAZ,INVEST-AZ YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2640,https://kap.org.tr/tr/sirket-bilgileri/ozet/2640-invest-az-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+ICB,ICBC TURKEY BANK A.Ş.,,,True,2420,https://kap.org.tr/tr/sirket-bilgileri/ozet/2420-icbc-turkey-bank-a-s,KAP_PUBLIC_BIST_COMPANIES
+ICBCT,ICBC TURKEY BANK A.Ş.,,,True,2420,https://kap.org.tr/tr/sirket-bilgileri/ozet/2420-icbc-turkey-bank-a-s,KAP_PUBLIC_BIST_COMPANIES
+ICUGS,ICU GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.,,,True,1118,https://kap.org.tr/tr/sirket-bilgileri/ozet/1118-icu-girisim-sermayesi-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+IDGYO,İDEALİST GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1506,https://kap.org.tr/tr/sirket-bilgileri/ozet/1506-idealist-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+IEYHO,IŞIKLAR ENERJİ VE YAPI HOLDİNG A.Ş.,,,True,1031,https://kap.org.tr/tr/sirket-bilgileri/ozet/1031-isiklar-enerji-ve-yapi-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+IHAAS,İHLAS HABER AJANSI A.Ş.,,,True,5420,https://kap.org.tr/tr/sirket-bilgileri/ozet/5420-ihlas-haber-ajansi-a-s,KAP_PUBLIC_BIST_COMPANIES
+IHEVA,İHLAS EV ALETLERİ İMALAT SANAYİ VE TİCARET A.Ş.,,,True,981,https://kap.org.tr/tr/sirket-bilgileri/ozet/981-ihlas-ev-aletleri-imalat-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+IHGZT,İHLAS GAZETECİLİK A.Ş.,,,True,1507,https://kap.org.tr/tr/sirket-bilgileri/ozet/1507-ihlas-gazetecilik-a-s,KAP_PUBLIC_BIST_COMPANIES
+IHLAS,İHLAS HOLDİNG A.Ş.,,,True,983,https://kap.org.tr/tr/sirket-bilgileri/ozet/983-ihlas-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+IHLGM,İHLAS GAYRİMENKUL PROJE GELİŞTİRME VE TİCARET A.Ş.,,,True,1044,https://kap.org.tr/tr/sirket-bilgileri/ozet/1044-ihlas-gayrimenkul-proje-gelistirme-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+IHYAY,İHLAS YAYIN HOLDİNG A.Ş.,,,True,1526,https://kap.org.tr/tr/sirket-bilgileri/ozet/1526-ihlas-yayin-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+IMASM,İMAŞ MAKİNA SANAYİ A.Ş.,,,True,5592,https://kap.org.tr/tr/sirket-bilgileri/ozet/5592-imas-makina-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+INALR,İNALLAR OTOMOTİV SANAYİ VE TİCARET A.Ş.,,,True,4840,https://kap.org.tr/tr/sirket-bilgileri/ozet/4840-inallar-otomotiv-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+INDES,İNDEKS BİLGİSAYAR SİSTEMLERİ MÜHENDİSLİK SANAYİ VE TİCARET A.Ş.,,,True,1390,https://kap.org.tr/tr/sirket-bilgileri/ozet/1390-indeks-bilgisayar-sistemleri-muhendislik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+INFO,İNFO YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1559,https://kap.org.tr/tr/sirket-bilgileri/ozet/1559-info-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+INGRM,INGRAM MİCRO BİLİŞİM SİSTEMLERİ A.Ş.,,,True,1435,https://kap.org.tr/tr/sirket-bilgileri/ozet/1435-ingram-micro-bilisim-sistemleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+INTEK,İNNOSA TEKNOLOJİ A.Ş.,,,True,1587,https://kap.org.tr/tr/sirket-bilgileri/ozet/1587-innosa-teknoloji-a-s,KAP_PUBLIC_BIST_COMPANIES
+INTEM,İNTEMA İNŞAAT VE TESİSAT MALZEMELERİ YATIRIM VE PAZARLAMA A.Ş.,,,True,985,https://kap.org.tr/tr/sirket-bilgileri/ozet/985-intema-insaat-ve-tesisat-malzemeleri-yatirim-ve-pazarlama-a-s,KAP_PUBLIC_BIST_COMPANIES
+INTET,İNTETRA TEKNOLOJİ VE BİLİŞİM HİZMETLERİ A.Ş.,,,True,6280,https://kap.org.tr/tr/sirket-bilgileri/ozet/6280-intetra-teknoloji-ve-bilisim-hizmetleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+INVAZ,INVEST-AZ YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2640,https://kap.org.tr/tr/sirket-bilgileri/ozet/2640-invest-az-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+INVEO,INVEO YATIRIM HOLDİNG A.Ş.,,,True,962,https://kap.org.tr/tr/sirket-bilgileri/ozet/962-inveo-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+INVES,INVESTCO HOLDİNG A.Ş.,,,True,5549,https://kap.org.tr/tr/sirket-bilgileri/ozet/5549-investco-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISATR,TÜRKİYE İŞ BANKASI A.Ş.,,,True,2425,https://kap.org.tr/tr/sirket-bilgileri/ozet/2425-turkiye-is-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISBIR,İŞBİR HOLDİNG A.Ş.,,,True,1684,https://kap.org.tr/tr/sirket-bilgileri/ozet/1684-isbir-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISBTR,TÜRKİYE İŞ BANKASI A.Ş.,,,True,2425,https://kap.org.tr/tr/sirket-bilgileri/ozet/2425-turkiye-is-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISCTR,TÜRKİYE İŞ BANKASI A.Ş.,,,True,2425,https://kap.org.tr/tr/sirket-bilgileri/ozet/2425-turkiye-is-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISDMR,İSKENDERUN DEMİR VE ÇELİK A.Ş.,,,True,2528,https://kap.org.tr/tr/sirket-bilgileri/ozet/2528-iskenderun-demir-ve-celik-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISFAK,İŞ FAKTORİNG A.Ş.,,,True,2274,https://kap.org.tr/tr/sirket-bilgileri/ozet/2274-is-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISFIN,İŞ FİNANSAL KİRALAMA A.Ş.,,,True,988,https://kap.org.tr/tr/sirket-bilgileri/ozet/988-is-finansal-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISGSY,İŞ GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.,,,True,1398,https://kap.org.tr/tr/sirket-bilgileri/ozet/1398-is-girisim-sermayesi-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISGYO,İŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,987,https://kap.org.tr/tr/sirket-bilgileri/ozet/987-is-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISKPL,IŞIK PLASTİK SANAYİ VE DIŞ TİCARET PAZARLAMA A.Ş.,,,True,5254,https://kap.org.tr/tr/sirket-bilgileri/ozet/5254-isik-plastik-sanayi-ve-dis-ticaret-pazarlama-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISKUR,TÜRKİYE İŞ BANKASI A.Ş.,,,True,2425,https://kap.org.tr/tr/sirket-bilgileri/ozet/2425-turkiye-is-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISMEN,İŞ YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1533,https://kap.org.tr/tr/sirket-bilgileri/ozet/1533-is-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISSEN,İŞBİR SENTETİK DOKUMA SANAYİ A.Ş.,,,True,4135,https://kap.org.tr/tr/sirket-bilgileri/ozet/4135-isbir-sentetik-dokuma-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISTFK,İSTANBUL FAKTORİNG A.Ş.,,,True,3221,https://kap.org.tr/tr/sirket-bilgileri/ozet/3221-istanbul-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISTVY,İSTANBUL VARLIK YÖNETİM A.Ş.,,,True,3076,https://kap.org.tr/tr/sirket-bilgileri/ozet/3076-istanbul-varlik-yonetim-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISVEA,İSVEA SERAMİK VE BANYO ÜRÜNLERİ SANAYİ A.Ş.,,,True,6235,https://kap.org.tr/tr/sirket-bilgileri/ozet/6235-isvea-seramik-ve-banyo-urunleri-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ISYAT,İŞ YATIRIM ORTAKLIĞI A.Ş.,,,True,989,https://kap.org.tr/tr/sirket-bilgileri/ozet/989-is-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+IYF,İNFO YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1559,https://kap.org.tr/tr/sirket-bilgileri/ozet/1559-info-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+IYM,İŞ YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1533,https://kap.org.tr/tr/sirket-bilgileri/ozet/1533-is-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+IZENR,İZDEMİR ENERJİ ELEKTRİK ÜRETİM A.Ş.,,,True,4131,https://kap.org.tr/tr/sirket-bilgileri/ozet/4131-izdemir-enerji-elektrik-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+IZFAS,İZMİR FIRÇA SANAYİ VE TİCARET A.Ş.,,,True,2273,https://kap.org.tr/tr/sirket-bilgileri/ozet/2273-izmir-firca-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+IZINV,İZ YATIRIM HOLDİNG A.Ş.,,,True,2060,https://kap.org.tr/tr/sirket-bilgileri/ozet/2060-iz-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+IZMDC,İZMİR DEMİR ÇELİK SANAYİ A.Ş.,,,True,991,https://kap.org.tr/tr/sirket-bilgileri/ozet/991-izmir-demir-celik-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+JANTS,JANTSA JANT SANAYİ VE TİCARET A.Ş.,,,True,1682,https://kap.org.tr/tr/sirket-bilgileri/ozet/1682-jantsa-jant-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KAPLM,KAPLAMİN AMBALAJ SANAYİ VE TİCARET A.Ş.,,,True,993,https://kap.org.tr/tr/sirket-bilgileri/ozet/993-kaplamin-ambalaj-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KARCL,KARDEMİR ÇELİK SANAYİ A.Ş.,,,True,3200,https://kap.org.tr/tr/sirket-bilgileri/ozet/3200-kardemir-celik-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KAREL,KAREL ELEKTRONİK SANAYİ VE TİCARET A.Ş.,,,True,1442,https://kap.org.tr/tr/sirket-bilgileri/ozet/1442-karel-elektronik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KARSN,KARSAN OTOMOTİV SANAYİİ VE TİCARET A.Ş.,,,True,995,https://kap.org.tr/tr/sirket-bilgileri/ozet/995-karsan-otomotiv-sanayii-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KARTN,KARTONSAN KARTON SANAYİ VE TİCARET A.Ş.,,,True,997,https://kap.org.tr/tr/sirket-bilgileri/ozet/997-kartonsan-karton-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KATMR,KATMERCİLER ARAÇ ÜSTÜ EKİPMAN SANAYİ VE TİCARET A.Ş.,,,True,1528,https://kap.org.tr/tr/sirket-bilgileri/ozet/1528-katmerciler-arac-ustu-ekipman-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KATVK,KATILIM VARLIK KİRALAMA A.Ş.,,,True,4330,https://kap.org.tr/tr/sirket-bilgileri/ozet/4330-katilim-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+KAYSE,KAYSERİ ŞEKER FABRİKASI A.Ş.,,,True,3723,https://kap.org.tr/tr/sirket-bilgileri/ozet/3723-kayseri-seker-fabrikasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KBORU,KUZEY BORU A.Ş.,,,True,5911,https://kap.org.tr/tr/sirket-bilgileri/ozet/5911-kuzey-boru-a-s,KAP_PUBLIC_BIST_COMPANIES
+KCAER,KOCAER ÇELİK SANAYİ VE TİCARET A.Ş.,,,True,3776,https://kap.org.tr/tr/sirket-bilgileri/ozet/3776-kocaer-celik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KCHOL,KOÇ HOLDİNG A.Ş.,,,True,1005,https://kap.org.tr/tr/sirket-bilgileri/ozet/1005-koc-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+KENT,KENT GIDA MADDELERİ SANAYİİ VE TİCARET A.Ş.,,,True,1000,https://kap.org.tr/tr/sirket-bilgileri/ozet/1000-kent-gida-maddeleri-sanayii-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KERVN,KERVANSARAY YATIRIM HOLDİNG A.Ş.,,,True,897,https://kap.org.tr/tr/sirket-bilgileri/ozet/897-kervansaray-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+KFEIN,KAFEİN YAZILIM HİZMETLERİ TİCARET A.Ş.,,,True,4320,https://kap.org.tr/tr/sirket-bilgileri/ozet/4320-kafein-yazilim-hizmetleri-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KFILO,KAYATUR FİLO KİRALAMA A.Ş.,,,True,6132,https://kap.org.tr/tr/sirket-bilgileri/ozet/6132-kayatur-filo-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+KGYO,KORAY GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1125,https://kap.org.tr/tr/sirket-bilgileri/ozet/1125-koray-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KIMMR,ERSAN ALIŞVERİŞ HİZMETLERİ VE GIDA SANAYİ TİCARET A.Ş.,,,True,5342,https://kap.org.tr/tr/sirket-bilgileri/ozet/5342-ersan-alisveris-hizmetleri-ve-gida-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KLGYO,KİLER GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1541,https://kap.org.tr/tr/sirket-bilgileri/ozet/1541-kiler-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KLKIM,KALEKİM KİMYEVİ MADDELER SANAYİ VE TİCARET A.Ş.,,,True,3979,https://kap.org.tr/tr/sirket-bilgileri/ozet/3979-kalekim-kimyevi-maddeler-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KLMSN,KLİMASAN KLİMA SANAYİ VE TİCARET A.Ş.,,,True,1004,https://kap.org.tr/tr/sirket-bilgileri/ozet/1004-klimasan-klima-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KLN,TÜRKİYE KALKINMA VE YATIRIM BANKASI A.Ş.,,,True,2426,https://kap.org.tr/tr/sirket-bilgileri/ozet/2426-turkiye-kalkinma-ve-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KLNMA,TÜRKİYE KALKINMA VE YATIRIM BANKASI A.Ş.,,,True,2426,https://kap.org.tr/tr/sirket-bilgileri/ozet/2426-turkiye-kalkinma-ve-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KLRHO,KİLER HOLDİNG A.Ş.,,,True,3766,https://kap.org.tr/tr/sirket-bilgileri/ozet/3766-kiler-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+KLSER,KALESERAMİK ÇANAKKALE KALEBODUR SERAMİK SANAYİ A.Ş.,,,True,2630,https://kap.org.tr/tr/sirket-bilgileri/ozet/2630-kaleseramik-canakkale-kalebodur-seramik-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KLSYN,KOLEKSİYON MOBİLYA SANAYİ A.Ş.,,,True,3651,https://kap.org.tr/tr/sirket-bilgileri/ozet/3651-koleksiyon-mobilya-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KLVKS,KALKINMA YATIRIM VARLIK KİRALAMA A.Ş.,,,True,5408,https://kap.org.tr/tr/sirket-bilgileri/ozet/5408-kalkinma-yatirim-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+KLYPV,KALYON GÜNEŞ TEKNOLOJİLERİ ÜRETİM A.Ş.,,,True,6061,https://kap.org.tr/tr/sirket-bilgileri/ozet/6061-kalyon-gunes-teknolojileri-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+KMPUR,KİMTEKS POLİÜRETAN SANAYİ VE TİCARET A.Ş.,,,True,5480,https://kap.org.tr/tr/sirket-bilgileri/ozet/5480-kimteks-poliuretan-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KNFRT,KONFRUT TARIM A.Ş.,,,True,1006,https://kap.org.tr/tr/sirket-bilgileri/ozet/1006-konfrut-tarim-a-s,KAP_PUBLIC_BIST_COMPANIES
+KNTFA,KENT FİNANS FAKTORİNG A.Ş.,,,True,2114,https://kap.org.tr/tr/sirket-bilgileri/ozet/2114-kent-finans-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+KOCFN,KOÇ FİNANSMAN A.Ş.,,,True,1438,https://kap.org.tr/tr/sirket-bilgileri/ozet/1438-koc-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+KOCMT,KOÇ METALURJİ A.Ş.,,,True,3409,https://kap.org.tr/tr/sirket-bilgileri/ozet/3409-koc-metalurji-a-s,KAP_PUBLIC_BIST_COMPANIES
+KOD,Şirket Ünvanı,,,True,,https://kap.org.tr/tr/bist-sirketler,KAP_PUBLIC_BIST_COMPANIES
+KONKA,KONYA KAĞIT SANAYİ VE TİCARET A.Ş.,,,True,3308,https://kap.org.tr/tr/sirket-bilgileri/ozet/3308-konya-kagit-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KONTR,KONTROLMATİK TEKNOLOJİ ENERJİ VE MÜHENDİSLİK A.Ş.,,,True,5206,https://kap.org.tr/tr/sirket-bilgileri/ozet/5206-kontrolmatik-teknoloji-enerji-ve-muhendislik-a-s,KAP_PUBLIC_BIST_COMPANIES
+KONYA,KONYA ÇİMENTO SANAYİİ A.Ş.,,,True,1008,https://kap.org.tr/tr/sirket-bilgileri/ozet/1008-konya-cimento-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+KOPOL,KOZA POLYESTER SANAYİ VE TİCARET A.Ş.,,,True,5806,https://kap.org.tr/tr/sirket-bilgileri/ozet/5806-koza-polyester-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KORDS,KORDSA TEKNİK TEKSTİL A.Ş.,,,True,1009,https://kap.org.tr/tr/sirket-bilgileri/ozet/1009-kordsa-teknik-tekstil-a-s,KAP_PUBLIC_BIST_COMPANIES
+KORTS,KORTEKS MENSUCAT SANAYİ VE TİCARET A.Ş.,,,True,2363,https://kap.org.tr/tr/sirket-bilgileri/ozet/2363-korteks-mensucat-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KOTON,KOTON MAĞAZACILIK TEKSTİL SANAYİ VE TİCARET A.Ş.,,,True,2365,https://kap.org.tr/tr/sirket-bilgileri/ozet/2365-koton-magazacilik-tekstil-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KPEKS,KAPEKS KİMYA SANAYİ A.Ş.,,,True,6272,https://kap.org.tr/tr/sirket-bilgileri/ozet/6272-kapeks-kimya-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KPTGY,KAPİTAL GAYRİMENKUL YATIRIMI GELİŞTİRME VE İŞLETMECİLİK A.Ş.,,,True,6155,https://kap.org.tr/tr/sirket-bilgileri/ozet/6155-kapital-gayrimenkul-yatirimi-gelistirme-ve-isletmecilik-a-s,KAP_PUBLIC_BIST_COMPANIES
+KRDMA,KARDEMİR KARABÜK DEMİR ÇELİK SANAYİ VE TİCARET A.Ş.,,,True,994,https://kap.org.tr/tr/sirket-bilgileri/ozet/994-kardemir-karabuk-demir-celik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KRDMB,KARDEMİR KARABÜK DEMİR ÇELİK SANAYİ VE TİCARET A.Ş.,,,True,994,https://kap.org.tr/tr/sirket-bilgileri/ozet/994-kardemir-karabuk-demir-celik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KRDMD,KARDEMİR KARABÜK DEMİR ÇELİK SANAYİ VE TİCARET A.Ş.,,,True,994,https://kap.org.tr/tr/sirket-bilgileri/ozet/994-kardemir-karabuk-demir-celik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KRGYO,KÖRFEZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1610,https://kap.org.tr/tr/sirket-bilgileri/ozet/1610-korfez-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KRONT,KRON TEKNOLOJİ A.Ş.,,,True,1547,https://kap.org.tr/tr/sirket-bilgileri/ozet/1547-kron-teknoloji-a-s,KAP_PUBLIC_BIST_COMPANIES
+KRPLS,KOROPLAST TEMİZLİK AMBALAJ ÜRÜNLERİ SANAYİ VE DIŞ TİCARET A.Ş.,,,True,5593,https://kap.org.tr/tr/sirket-bilgileri/ozet/5593-koroplast-temizlik-ambalaj-urunleri-sanayi-ve-dis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KRSTL,KRİSTAL KOLA VE MEŞRUBAT SANAYİ TİCARET A.Ş.,,,True,1011,https://kap.org.tr/tr/sirket-bilgileri/ozet/1011-kristal-kola-ve-mesrubat-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KRTEK,KARSU TEKSTİL SANAYİİ VE TİCARET A.Ş.,,,True,996,https://kap.org.tr/tr/sirket-bilgileri/ozet/996-karsu-tekstil-sanayii-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KRVGD,KERVAN GIDA SANAYİ VE TİCARET A.Ş.,,,True,3456,https://kap.org.tr/tr/sirket-bilgileri/ozet/3456-kervan-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+KSFIN,KOÇ STELLANTİS FİNANSMAN A.Ş.,,,True,1604,https://kap.org.tr/tr/sirket-bilgileri/ozet/1604-koc-stellantis-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+KSTUR,KUŞTUR KUŞADASI TURİZM ENDÜSTRİSİ A.Ş.,,,True,1588,https://kap.org.tr/tr/sirket-bilgileri/ozet/1588-kustur-kusadasi-turizm-endustrisi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KTKVK,KT KİRA SERTİFİKALARI VARLIK KİRALAMA A.Ş.,,,True,2058,https://kap.org.tr/tr/sirket-bilgileri/ozet/2058-kt-kira-sertifikalari-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+KTLEV,KATILIMEVİM TASARRUF FİNANSMAN A.Ş.,,,True,5763,https://kap.org.tr/tr/sirket-bilgileri/ozet/5763-katilimevim-tasarruf-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+KTSKR,KÜTAHYA ŞEKER FABRİKASI A.Ş.,,,True,5365,https://kap.org.tr/tr/sirket-bilgileri/ozet/5365-kutahya-seker-fabrikasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KTSVK,KT SUKUK VARLIK KİRALAMA A.Ş.,,,True,4409,https://kap.org.tr/tr/sirket-bilgileri/ozet/4409-kt-sukuk-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+KUTPO,KÜTAHYA PORSELEN SANAYİ A.Ş.,,,True,1012,https://kap.org.tr/tr/sirket-bilgileri/ozet/1012-kutahya-porselen-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KUVVA,KUVVA GIDA TİCARET VE SANAYİ YATIRIMLARI A.Ş.,,,True,1070,https://kap.org.tr/tr/sirket-bilgileri/ozet/1070-kuvva-gida-ticaret-ve-sanayi-yatirimlari-a-s,KAP_PUBLIC_BIST_COMPANIES
+KUYAS,KUYAŞ YATIRIM A.Ş.,,,True,1619,https://kap.org.tr/tr/sirket-bilgileri/ozet/1619-kuyas-yatirim-a-s,KAP_PUBLIC_BIST_COMPANIES
+KZBGY,KIZILBÜK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5395,https://kap.org.tr/tr/sirket-bilgileri/ozet/5395-kizilbuk-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+KZGYO,KUZUGRUP GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5857,https://kap.org.tr/tr/sirket-bilgileri/ozet/5857-kuzugrup-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+LIDER,LDR TURİZM A.Ş.,,,True,4310,https://kap.org.tr/tr/sirket-bilgileri/ozet/4310-ldr-turizm-a-s,KAP_PUBLIC_BIST_COMPANIES
+LIDFA,LİDER FAKTORİNG A.Ş.,,,True,1509,https://kap.org.tr/tr/sirket-bilgileri/ozet/1509-lider-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+LILAK,LİLA KAĞIT SANAYİ VE TİCARET A.Ş.,,,True,5953,https://kap.org.tr/tr/sirket-bilgileri/ozet/5953-lila-kagit-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+LINK,LİNK BİLGİSAYAR SİSTEMLERİ YAZILIMI VE DONANIMI SANAYİ VE TİCARET A.Ş.,,,True,1015,https://kap.org.tr/tr/sirket-bilgileri/ozet/1015-link-bilgisayar-sistemleri-yazilimi-ve-donanimi-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+LKMNH,LOKMAN HEKİM ENGÜRÜSAĞ SAĞLIK TURİZM EĞİTİM HİZMETLERİ VE İNŞAAT TAAHHÜT A.Ş.,,,True,1535,https://kap.org.tr/tr/sirket-bilgileri/ozet/1535-lokman-hekim-engurusag-saglik-turizm-egitim-hizmetleri-ve-insaat-taahhut-a-s,KAP_PUBLIC_BIST_COMPANIES
+LMKDC,LİMAK DOĞU ANADOLU ÇİMENTO SANAYİ VE TİCARET A.Ş.,,,True,5930,https://kap.org.tr/tr/sirket-bilgileri/ozet/5930-limak-dogu-anadolu-cimento-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+LOGO,LOGO YAZILIM SANAYİ VE TİCARET A.Ş.,,,True,1016,https://kap.org.tr/tr/sirket-bilgileri/ozet/1016-logo-yazilim-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+LRSHO,LORAS HOLDİNG A.Ş.,,,True,1498,https://kap.org.tr/tr/sirket-bilgileri/ozet/1498-loras-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+LUKSK,LÜKS KADİFE TİCARET VE SANAYİİ A.Ş.,,,True,1017,https://kap.org.tr/tr/sirket-bilgileri/ozet/1017-luks-kadife-ticaret-ve-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+LXGYO,LUXERA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,6197,https://kap.org.tr/tr/sirket-bilgileri/ozet/6197-luxera-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+LYDHO,LYDİA HOLDİNG A.Ş.,,,True,1035,https://kap.org.tr/tr/sirket-bilgileri/ozet/1035-lydia-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+LYDYE,LYDİA YEŞİL ENERJİ KAYNAKLARI A.Ş.,,,True,1687,https://kap.org.tr/tr/sirket-bilgileri/ozet/1687-lydia-yesil-enerji-kaynaklari-a-s,KAP_PUBLIC_BIST_COMPANIES
+MAALT,MARMARİS ALTINYUNUS TURİSTİK TESİSLER A.Ş.,,,True,1021,https://kap.org.tr/tr/sirket-bilgileri/ozet/1021-marmaris-altinyunus-turistik-tesisler-a-s,KAP_PUBLIC_BIST_COMPANIES
+MACKO,MACKOLİK İNTERNET HİZMETLERİ TİCARET A.Ş.,,,True,5679,https://kap.org.tr/tr/sirket-bilgileri/ozet/5679-mackolik-internet-hizmetleri-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MAGEN,MARGÜN ENERJİ ÜRETİM SANAYİ VE TİCARET A.Ş.,,,True,5426,https://kap.org.tr/tr/sirket-bilgileri/ozet/5426-margun-enerji-uretim-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MAKIM,MAKİM MAKİNA TEKNOLOJİLERİ SANAYİ VE TİCARET A.Ş.,,,True,5562,https://kap.org.tr/tr/sirket-bilgileri/ozet/5562-makim-makina-teknolojileri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MAKTK,MAKİNA TAKIM ENDÜSTRİSİ A.Ş.,,,True,1018,https://kap.org.tr/tr/sirket-bilgileri/ozet/1018-makina-takim-endustrisi-a-s,KAP_PUBLIC_BIST_COMPANIES
+MANAS,MANAS ENERJİ YÖNETİMİ SANAYİ VE TİCARET A.Ş.,,,True,5357,https://kap.org.tr/tr/sirket-bilgileri/ozet/5357-manas-enerji-yonetimi-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MARBL,TUREKS TURUNÇ MADENCİLİK İÇ VE DIŞ TİCARET A.Ş.,,,True,4355,https://kap.org.tr/tr/sirket-bilgileri/ozet/4355-tureks-turunc-madencilik-ic-ve-dis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MARMR,MARMARA HOLDİNG A.Ş.,,,True,6135,https://kap.org.tr/tr/sirket-bilgileri/ozet/6135-marmara-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+MARTI,MARTI OTEL İŞLETMELERİ A.Ş.,,,True,1022,https://kap.org.tr/tr/sirket-bilgileri/ozet/1022-marti-otel-isletmeleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+MASFN,MASFEN ENERJİ A.Ş.,,,True,6260,https://kap.org.tr/tr/sirket-bilgileri/ozet/6260-masfen-enerji-a-s,KAP_PUBLIC_BIST_COMPANIES
+MAVI,MAVİ GİYİM SANAYİ VE TİCARET A.Ş.,,,True,3843,https://kap.org.tr/tr/sirket-bilgileri/ozet/3843-mavi-giyim-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MBFTR,MERCEDES-BENZ FİNANSMAN TÜRK A.Ş.,,,True,2119,https://kap.org.tr/tr/sirket-bilgileri/ozet/2119-mercedes-benz-finansman-turk-a-s,KAP_PUBLIC_BIST_COMPANIES
+MCARD,METROPAL KURUMSAL HİZMETLER A.Ş.,,,True,6200,https://kap.org.tr/tr/sirket-bilgileri/ozet/6200-metropal-kurumsal-hizmetler-a-s,KAP_PUBLIC_BIST_COMPANIES
+MDASM,MİDAS MENKUL DEĞERLER A.Ş.,,,True,5314,https://kap.org.tr/tr/sirket-bilgileri/ozet/5314-midas-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+MDIAZ,MEDİAZZ YENİ MEDYA VE TEKNOLOJİ YATIRIMLARI A.Ş.,,,True,6215,https://kap.org.tr/tr/sirket-bilgileri/ozet/6215-mediazz-yeni-medya-ve-teknoloji-yatirimlari-a-s,KAP_PUBLIC_BIST_COMPANIES
+MDS,MİDAS MENKUL DEĞERLER A.Ş.,,,True,5314,https://kap.org.tr/tr/sirket-bilgileri/ozet/5314-midas-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+MEDTR,MEDİTERA TIBBİ MALZEME SANAYİ VE TİCARET A.Ş.,,,True,5364,https://kap.org.tr/tr/sirket-bilgileri/ozet/5364-meditera-tibbi-malzeme-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MEGAP,MEGA POLİETİLEN KÖPÜK SANAYİ VE TİCARET A.Ş.,,,True,1601,https://kap.org.tr/tr/sirket-bilgileri/ozet/1601-mega-polietilen-kopuk-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MEGMT,MEGA METAL SANAYİ VE TİCARET A.Ş.,,,True,4361,https://kap.org.tr/tr/sirket-bilgileri/ozet/4361-mega-metal-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MEKAG,MEKA GLOBAL MAKİNE İMALAT SANAYİ VE TİCARET A.Ş.,,,True,5875,https://kap.org.tr/tr/sirket-bilgileri/ozet/5875-meka-global-makine-imalat-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MEKMD,MEKSA YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1326,https://kap.org.tr/tr/sirket-bilgileri/ozet/1326-meksa-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+MEPET,MEPET METRO PETROL VE TESİSLERİ SANAYİ TİCARET A.Ş.,,,True,1553,https://kap.org.tr/tr/sirket-bilgileri/ozet/1553-mepet-metro-petrol-ve-tesisleri-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MERCN,MERCAN KİMYA SANAYİ VE TİCARET A.Ş.,,,True,5325,https://kap.org.tr/tr/sirket-bilgileri/ozet/5325-mercan-kimya-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MERIT,MERİT TURİZM YATIRIM VE İŞLETME A.Ş.,,,True,1594,https://kap.org.tr/tr/sirket-bilgileri/ozet/1594-merit-turizm-yatirim-ve-isletme-a-s,KAP_PUBLIC_BIST_COMPANIES
+MERKO,MERKO GIDA SANAYİ VE TİCARET A.Ş.,,,True,1029,https://kap.org.tr/tr/sirket-bilgileri/ozet/1029-merko-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+METEN,METGÜN ENERJİ YATIRIMLARI A.Ş.,,,True,6189,https://kap.org.tr/tr/sirket-bilgileri/ozet/6189-metgun-enerji-yatirimlari-a-s,KAP_PUBLIC_BIST_COMPANIES
+METRO,METRO TİCARİ VE MALİ YATIRIMLAR HOLDİNG A.Ş.,,,True,1120,https://kap.org.tr/tr/sirket-bilgileri/ozet/1120-metro-ticari-ve-mali-yatirimlar-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+MEYSU,MEYSU GIDA SANAYİ VE TİCARET A.Ş.,,,True,6175,https://kap.org.tr/tr/sirket-bilgileri/ozet/6175-meysu-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MGROS,MİGROS TİCARET A.Ş.,,,True,1494,https://kap.org.tr/tr/sirket-bilgileri/ozet/1494-migros-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MHRGY,MHR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5877,https://kap.org.tr/tr/sirket-bilgileri/ozet/5877-mhr-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+MIATK,MİA TEKNOLOJİ A.Ş.,,,True,5455,https://kap.org.tr/tr/sirket-bilgileri/ozet/5455-mia-teknoloji-a-s,KAP_PUBLIC_BIST_COMPANIES
+MILKS,MİLK ACADEMY SÜT ÜRÜNLERİ SANAYİ VE TİCARET A.Ş.,,,True,6187,https://kap.org.tr/tr/sirket-bilgileri/ozet/6187-milk-academy-sut-urunleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MINTF,MİNT FİNANSMAN A.Ş.,,,True,6153,https://kap.org.tr/tr/sirket-bilgileri/ozet/6153-mint-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+MMCAS,MMC SANAYİ VE TİCARİ YATIRIMLAR A.Ş.,,,True,1563,https://kap.org.tr/tr/sirket-bilgileri/ozet/1563-mmc-sanayi-ve-ticari-yatirimlar-a-s,KAP_PUBLIC_BIST_COMPANIES
+MNDRS,MENDERES TEKSTİL SANAYİ VE TİCARET A.Ş.,,,True,1027,https://kap.org.tr/tr/sirket-bilgileri/ozet/1027-menderes-tekstil-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MNDTR,MONDİ TURKEY OLUKLU MUKAVVA KAĞIT VE AMBALAJ SANAYİ A.Ş.,,,True,1095,https://kap.org.tr/tr/sirket-bilgileri/ozet/1095-mondi-turkey-oluklu-mukavva-kagit-ve-ambalaj-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+MNGFA,MNG FAKTORİNG A.Ş.,,,True,3020,https://kap.org.tr/tr/sirket-bilgileri/ozet/3020-mng-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+MOBTL,MOBİLTEL İLETİŞİM HİZMETLERİ SANAYİ VE TİCARET A.Ş.,,,True,5462,https://kap.org.tr/tr/sirket-bilgileri/ozet/5462-mobiltel-iletisim-hizmetleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MOGAN,MOGAN ENERJİ YATIRIM HOLDİNG A.Ş.,,,True,5180,https://kap.org.tr/tr/sirket-bilgileri/ozet/5180-mogan-enerji-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+MOPAS,MOPAŞ MARKETÇİLİK GIDA SANAYİ VE TİCARET A.Ş.,,,True,6054,https://kap.org.tr/tr/sirket-bilgileri/ozet/6054-mopas-marketcilik-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+MPARK,MLP SAĞLIK HİZMETLERİ A.Ş.,,,True,2118,https://kap.org.tr/tr/sirket-bilgileri/ozet/2118-mlp-saglik-hizmetleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+MRBAS,MARBAŞ MENKUL DEĞERLER A.Ş.,,,True,1324,https://kap.org.tr/tr/sirket-bilgileri/ozet/1324-marbas-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+MRBKF,MERCEDES BENZ KAMYON FİNANSMAN A.Ş.,,,True,5789,https://kap.org.tr/tr/sirket-bilgileri/ozet/5789-mercedes-benz-kamyon-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+MRGYO,MARTI GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1521,https://kap.org.tr/tr/sirket-bilgileri/ozet/1521-marti-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+MRMAG,MARKA MAĞAZACILIK A.Ş.,,,True,2698,https://kap.org.tr/tr/sirket-bilgileri/ozet/2698-marka-magazacilik-a-s,KAP_PUBLIC_BIST_COMPANIES
+MRS,MARBAŞ MENKUL DEĞERLER A.Ş.,,,True,1324,https://kap.org.tr/tr/sirket-bilgileri/ozet/1324-marbas-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+MRSHL,MARSHALL BOYA VE VERNİK SANAYİİ A.Ş.,,,True,1023,https://kap.org.tr/tr/sirket-bilgileri/ozet/1023-marshall-boya-ve-vernik-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+MSA,MEKSA YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1326,https://kap.org.tr/tr/sirket-bilgileri/ozet/1326-meksa-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+MSGYO,MİSTRAL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,3695,https://kap.org.tr/tr/sirket-bilgileri/ozet/3695-mistral-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+MSY,MİSYON YATIRIM BANKASI A.Ş.,,,True,5668,https://kap.org.tr/tr/sirket-bilgileri/ozet/5668-misyon-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+MSYBN,MİSYON YATIRIM BANKASI A.Ş.,,,True,5668,https://kap.org.tr/tr/sirket-bilgileri/ozet/5668-misyon-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+MTRKS,MATRİKS FİNANSAL TEKNOLOJİLER A.Ş.,,,True,5280,https://kap.org.tr/tr/sirket-bilgileri/ozet/5280-matriks-finansal-teknolojiler-a-s,KAP_PUBLIC_BIST_COMPANIES
+MTRYO,METRO YATIRIM ORTAKLIĞI A.Ş.,,,True,927,https://kap.org.tr/tr/sirket-bilgileri/ozet/927-metro-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+MZHLD,MAZHAR ZORLU HOLDİNG A.Ş.,,,True,1024,https://kap.org.tr/tr/sirket-bilgileri/ozet/1024-mazhar-zorlu-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+NATEN,NATUREL YENİLENEBİLİR ENERJİ TİCARET A.Ş.,,,True,4904,https://kap.org.tr/tr/sirket-bilgileri/ozet/4904-naturel-yenilenebilir-enerji-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+NETAS,NETAŞ TELEKOMÜNİKASYON A.Ş.,,,True,1041,https://kap.org.tr/tr/sirket-bilgileri/ozet/1041-netas-telekomunikasyon-a-s,KAP_PUBLIC_BIST_COMPANIES
+NETCD,NETCAD YAZILIM A.Ş.,,,True,5577,https://kap.org.tr/tr/sirket-bilgileri/ozet/5577-netcad-yazilim-a-s,KAP_PUBLIC_BIST_COMPANIES
+NIBAS,NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş.,,,True,1577,https://kap.org.tr/tr/sirket-bilgileri/ozet/1577-nigbas-nigde-beton-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+NRBNK,NUROL YATIRIM BANKASI A.Ş.,,,True,2200,https://kap.org.tr/tr/sirket-bilgileri/ozet/2200-nurol-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+NTGAZ,NATURELGAZ SANAYİ VE TİCARET A.Ş.,,,True,5303,https://kap.org.tr/tr/sirket-bilgileri/ozet/5303-naturelgaz-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+NTHOL,NET HOLDİNG A.Ş.,,,True,1039,https://kap.org.tr/tr/sirket-bilgileri/ozet/1039-net-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+NUGYO,NUROL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1043,https://kap.org.tr/tr/sirket-bilgileri/ozet/1043-nurol-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+NUHCM,NUH ÇİMENTO SANAYİ A.Ş.,,,True,1042,https://kap.org.tr/tr/sirket-bilgileri/ozet/1042-nuh-cimento-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+NURVK,NUROL VARLIK KİRALAMA A.Ş.,,,True,4512,https://kap.org.tr/tr/sirket-bilgileri/ozet/4512-nurol-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+NYB,NUROL YATIRIM BANKASI A.Ş.,,,True,2200,https://kap.org.tr/tr/sirket-bilgileri/ozet/2200-nurol-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+OBAMS,OBA MAKARNACILIK SANAYİ VE TİCARET A.Ş.,,,True,5934,https://kap.org.tr/tr/sirket-bilgileri/ozet/5934-oba-makarnacilik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+OBASE,OBASE BİLGİSAYAR VE DANIŞMANLIK HİZMETLERİ TİCARET A.Ş.,,,True,5596,https://kap.org.tr/tr/sirket-bilgileri/ozet/5596-obase-bilgisayar-ve-danismanlik-hizmetleri-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ODAS,ODAŞ ELEKTRİK ÜRETİM SANAYİ TİCARET A.Ş.,,,True,1887,https://kap.org.tr/tr/sirket-bilgileri/ozet/1887-odas-elektrik-uretim-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ODINE,ODİNE SOLUTİONS TEKNOLOJİ TİCARET VE SANAYİ A.Ş.,,,True,5941,https://kap.org.tr/tr/sirket-bilgileri/ozet/5941-odine-solutions-teknoloji-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+OFSYM,OFİS YEM GIDA SANAYİ TİCARET A.Ş.,,,True,5851,https://kap.org.tr/tr/sirket-bilgileri/ozet/5851-ofis-yem-gida-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+OMD,OSMANLI YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1576,https://kap.org.tr/tr/sirket-bilgileri/ozet/1576-osmanli-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+ONCSM,ONCOSEM ONKOLOJİK SİSTEMLER SANAYİ VE TİCARET A.Ş.,,,True,5624,https://kap.org.tr/tr/sirket-bilgileri/ozet/5624-oncosem-onkolojik-sistemler-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ONRYT,ONUR YÜKSEK TEKNOLOJİ A.Ş.,,,True,5962,https://kap.org.tr/tr/sirket-bilgileri/ozet/5962-onur-yuksek-teknoloji-a-s,KAP_PUBLIC_BIST_COMPANIES
+OPET,OPET PETROLCÜLÜK A.Ş.,,,True,2819,https://kap.org.tr/tr/sirket-bilgileri/ozet/2819-opet-petrolculuk-a-s,KAP_PUBLIC_BIST_COMPANIES
+ORCAY,ORÇAY ORTAKÖY ÇAY SANAYİ VE TİCARET A.Ş.,,,True,5407,https://kap.org.tr/tr/sirket-bilgileri/ozet/5407-orcay-ortakoy-cay-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ORFIN,ORFİN FİNANSMAN A.Ş.,,,True,2121,https://kap.org.tr/tr/sirket-bilgileri/ozet/2121-orfin-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+ORGE,ORGE ENERJİ ELEKTRİK TAAHHÜT A.Ş.,,,True,1603,https://kap.org.tr/tr/sirket-bilgileri/ozet/1603-orge-enerji-elektrik-taahhut-a-s,KAP_PUBLIC_BIST_COMPANIES
+ORMA,ORMA ORMAN MAHSÜLLERİ İNTEGRE SANAYİ VE TİCARET A.Ş.,,,True,1621,https://kap.org.tr/tr/sirket-bilgileri/ozet/1621-orma-orman-mahsulleri-integre-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ORZAX,ORZAKS İLAÇ VE KİMYA SANAYİ TİCARET A.Ş.,,,True,6234,https://kap.org.tr/tr/sirket-bilgileri/ozet/6234-orzaks-ilac-ve-kimya-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+OSMEN,OSMANLI YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1576,https://kap.org.tr/tr/sirket-bilgileri/ozet/1576-osmanli-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+OSTIM,OSTİM ENDÜSTRİYEL YATIRIMLAR VE İŞLETME A.Ş.,,,True,1596,https://kap.org.tr/tr/sirket-bilgileri/ozet/1596-ostim-endustriyel-yatirimlar-ve-isletme-a-s,KAP_PUBLIC_BIST_COMPANIES
+OSVKS,OSMANLI VARLIK KİRALAMA A.Ş.,,,True,6151,https://kap.org.tr/tr/sirket-bilgileri/ozet/6151-osmanli-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+OTKAR,OTOKAR OTOMOTİV VE SAVUNMA SANAYİ A.Ş.,,,True,1046,https://kap.org.tr/tr/sirket-bilgileri/ozet/1046-otokar-otomotiv-ve-savunma-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+OTOSR,OTOSOR OTOMOTİV A.Ş.,,,True,5880,https://kap.org.tr/tr/sirket-bilgileri/ozet/5880-otosor-otomotiv-a-s,KAP_PUBLIC_BIST_COMPANIES
+OTTO,OTTO HOLDİNG A.Ş.,,,True,1752,https://kap.org.tr/tr/sirket-bilgileri/ozet/1752-otto-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+OYA,OYAK YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2486,https://kap.org.tr/tr/sirket-bilgileri/ozet/2486-oyak-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+OYAKC,OYAK ÇİMENTO FABRİKALARI A.Ş.,,,True,1019,https://kap.org.tr/tr/sirket-bilgileri/ozet/1019-oyak-cimento-fabrikalari-a-s,KAP_PUBLIC_BIST_COMPANIES
+OYAYO,OYAK YATIRIM ORTAKLIĞI A.Ş.,,,True,1456,https://kap.org.tr/tr/sirket-bilgileri/ozet/1456-oyak-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+OYLUM,OYLUM SINAİ YATIRIMLAR A.Ş.,,,True,1598,https://kap.org.tr/tr/sirket-bilgileri/ozet/1598-oylum-sinai-yatirimlar-a-s,KAP_PUBLIC_BIST_COMPANIES
+OYYAT,OYAK YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2486,https://kap.org.tr/tr/sirket-bilgileri/ozet/2486-oyak-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+OZATD,ÖZATA DENİZCİLİK SANAYİ VE TİCARET A.Ş.,,,True,6018,https://kap.org.tr/tr/sirket-bilgileri/ozet/6018-ozata-denizcilik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+OZGYO,ÖZDERİCİ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1048,https://kap.org.tr/tr/sirket-bilgileri/ozet/1048-ozderici-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+OZKGY,ÖZAK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1575,https://kap.org.tr/tr/sirket-bilgileri/ozet/1575-ozak-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+OZRDN,ÖZERDEN AMBALAJ SANAYİ A.Ş.,,,True,2432,https://kap.org.tr/tr/sirket-bilgileri/ozet/2432-ozerden-ambalaj-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+OZSUB,ÖZSU BALIK ÜRETİM A.Ş.,,,True,4748,https://kap.org.tr/tr/sirket-bilgileri/ozet/4748-ozsu-balik-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+OZYSR,ÖZYAŞAR TEL VE GALVANİZLEME SANAYİ A.Ş.,,,True,5961,https://kap.org.tr/tr/sirket-bilgileri/ozet/5961-ozyasar-tel-ve-galvanizleme-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+PAGYO,PANORA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1753,https://kap.org.tr/tr/sirket-bilgileri/ozet/1753-panora-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+PAHOL,PASİFİK HOLDİNG A.Ş.,,,True,6161,https://kap.org.tr/tr/sirket-bilgileri/ozet/6161-pasifik-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+PAMEL,PAMEL YENİLENEBİLİR ELEKTRİK ÜRETİM A.Ş.,,,True,2262,https://kap.org.tr/tr/sirket-bilgileri/ozet/2262-pamel-yenilenebilir-elektrik-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+PAPIL,PAPİLON SAVUNMA TEKNOLOJİ VE TİCARET A.Ş.,,,True,4989,https://kap.org.tr/tr/sirket-bilgileri/ozet/4989-papilon-savunma-teknoloji-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PARSN,PARSAN MAKİNA PARÇALARI SANAYİİ A.Ş.,,,True,1050,https://kap.org.tr/tr/sirket-bilgileri/ozet/1050-parsan-makina-parcalari-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+PASEU,PASİFİK EURASİA LOJİSTİK DIŞ TİCARET A.Ş.,,,True,5826,https://kap.org.tr/tr/sirket-bilgileri/ozet/5826-pasifik-eurasia-lojistik-dis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PATEK,PASİFİK TEKNOLOJİ A.Ş.,,,True,5928,https://kap.org.tr/tr/sirket-bilgileri/ozet/5928-pasifik-teknoloji-a-s,KAP_PUBLIC_BIST_COMPANIES
+PBT,PASHA YATIRIM BANKASI A.Ş.,,,True,2025,https://kap.org.tr/tr/sirket-bilgileri/ozet/2025-pasha-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+PBTR,PASHA YATIRIM BANKASI A.Ş.,,,True,2025,https://kap.org.tr/tr/sirket-bilgileri/ozet/2025-pasha-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+PCILT,PC İLETİŞİM VE MEDYA HİZMETLERİ SANAYİ TİCARET A.Ş.,,,True,5299,https://kap.org.tr/tr/sirket-bilgileri/ozet/5299-pc-iletisim-ve-medya-hizmetleri-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PEKGY,PEKER GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,4584,https://kap.org.tr/tr/sirket-bilgileri/ozet/4584-peker-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+PENGD,PENGUEN GIDA SANAYİ A.Ş.,,,True,1052,https://kap.org.tr/tr/sirket-bilgileri/ozet/1052-penguen-gida-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+PENTA,PENTA TEKNOLOJİ ÜRÜNLERİ DAĞITIM TİCARET A.Ş.,,,True,3909,https://kap.org.tr/tr/sirket-bilgileri/ozet/3909-penta-teknoloji-urunleri-dagitim-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PETKM,PETKİM PETROKİMYA HOLDİNG A.Ş.,,,True,1053,https://kap.org.tr/tr/sirket-bilgileri/ozet/1053-petkim-petrokimya-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+PETUN,PINAR ENTEGRE ET VE UN SANAYİİ A.Ş.,,,True,1057,https://kap.org.tr/tr/sirket-bilgileri/ozet/1057-pinar-entegre-et-ve-un-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+PGSUS,PEGASUS HAVA TAŞIMACILIĞI A.Ş.,,,True,1710,https://kap.org.tr/tr/sirket-bilgileri/ozet/1710-pegasus-hava-tasimaciligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+PINSU,PINAR SU VE İÇECEK SANAYİ VE TİCARET A.Ş.,,,True,1058,https://kap.org.tr/tr/sirket-bilgileri/ozet/1058-pinar-su-ve-icecek-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PKART,PLASTİKKART AKILLI KART İLETİŞİM SİSTEMLERİ SANAYİ VE TİCARET A.Ş.,,,True,1402,https://kap.org.tr/tr/sirket-bilgileri/ozet/1402-plastikkart-akilli-kart-iletisim-sistemleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PKENT,PETROKENT TURİZM A.Ş.,,,True,1054,https://kap.org.tr/tr/sirket-bilgileri/ozet/1054-petrokent-turizm-a-s,KAP_PUBLIC_BIST_COMPANIES
+PLTUR,PLATFORM TURİZM TAŞIMACILIK GIDA İNŞAAT TEMİZLİK HİZMETLERİ SANAYİ VE TİCARET A.Ş.,,,True,3208,https://kap.org.tr/tr/sirket-bilgileri/ozet/3208-platform-turizm-tasimacilik-gida-insaat-temizlik-hizmetleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PNLSN,PANELSAN ÇATI CEPHE SİSTEMLERİ SANAYİ VE TİCARET A.Ş.,,,True,5487,https://kap.org.tr/tr/sirket-bilgileri/ozet/5487-panelsan-cati-cephe-sistemleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PNSUT,PINAR SÜT MAMÜLLERİ SANAYİİ A.Ş.,,,True,1059,https://kap.org.tr/tr/sirket-bilgileri/ozet/1059-pinar-sut-mamulleri-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+POLHO,POLİSAN HOLDİNG A.Ş.,,,True,1608,https://kap.org.tr/tr/sirket-bilgileri/ozet/1608-polisan-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+POLTK,POLİTEKNİK METAL SANAYİ VE TİCARET A.Ş.,,,True,2219,https://kap.org.tr/tr/sirket-bilgileri/ozet/2219-politeknik-metal-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PRDGS,PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.,,,True,5417,https://kap.org.tr/tr/sirket-bilgileri/ozet/5417-pardus-girisim-sermayesi-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+PRFFK,PARAFİNANS FAKTORİNG A.Ş.,,,True,4640,https://kap.org.tr/tr/sirket-bilgileri/ozet/4640-parafinans-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+PRKAB,TÜRK PRYSMİAN KABLO VE SİSTEMLERİ A.Ş.,,,True,1108,https://kap.org.tr/tr/sirket-bilgileri/ozet/1108-turk-prysmian-kablo-ve-sistemleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+PRKME,PARK ELEKTRİK ÜRETİM MADENCİLİK SANAYİ VE TİCARET A.Ş.,,,True,1049,https://kap.org.tr/tr/sirket-bilgileri/ozet/1049-park-elektrik-uretim-madencilik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PRZMA,PRİZMA PRES MATBAACILIK YAYINCILIK SANAYİ VE TİCARET A.Ş.,,,True,1599,https://kap.org.tr/tr/sirket-bilgileri/ozet/1599-prizma-pres-matbaacilik-yayincilik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PSDTC,PERGAMON STATUS DIŞ TİCARET A.Ş.,,,True,2371,https://kap.org.tr/tr/sirket-bilgileri/ozet/2371-pergamon-status-dis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+PSGYO,PASİFİK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5371,https://kap.org.tr/tr/sirket-bilgileri/ozet/5371-pasifik-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+QNBFF,QNB FAKTORİNG A.Ş.,,,True,2218,https://kap.org.tr/tr/sirket-bilgileri/ozet/2218-qnb-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+QNBFK,QNB FİNANSAL KİRALAMA A.Ş.,,,True,953,https://kap.org.tr/tr/sirket-bilgileri/ozet/953-qnb-finansal-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+QNBTR,QNB BANK A.Ş.,,,True,2417,https://kap.org.tr/tr/sirket-bilgileri/ozet/2417-qnb-bank-a-s,KAP_PUBLIC_BIST_COMPANIES
+QNBVK,QNB VARLIK KİRALAMA A.Ş.,,,True,4843,https://kap.org.tr/tr/sirket-bilgileri/ozet/4843-qnb-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+QUAGR,QUA GRANITE HAYAL YAPI VE ÜRÜNLERİ SANAYİ TİCARET A.Ş.,,,True,4887,https://kap.org.tr/tr/sirket-bilgileri/ozet/4887-qua-granite-hayal-yapi-ve-urunleri-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+QUFIN,QUICK FİNANSMAN A.Ş.,,,True,5613,https://kap.org.tr/tr/sirket-bilgileri/ozet/5613-quick-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+QUICK,QUİCK SİGORTA A.Ş.,,,True,6264,https://kap.org.tr/tr/sirket-bilgileri/ozet/6264-quick-sigorta-a-s,KAP_PUBLIC_BIST_COMPANIES
+QYATB,Q YATIRIM BANKASI A.Ş.,,,True,6002,https://kap.org.tr/tr/sirket-bilgileri/ozet/6002-q-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+QYHOL,Q YATIRIM HOLDİNG A.Ş.,,,True,5667,https://kap.org.tr/tr/sirket-bilgileri/ozet/5667-q-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+RALYH,RAL YATIRIM HOLDİNG A.Ş.,,,True,883,https://kap.org.tr/tr/sirket-bilgileri/ozet/883-ral-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+RAYSG,RAY SİGORTA A.Ş.,,,True,1063,https://kap.org.tr/tr/sirket-bilgileri/ozet/1063-ray-sigorta-a-s,KAP_PUBLIC_BIST_COMPANIES
+REEDR,REEDER TEKNOLOJİ SANAYİ VE TİCARET A.Ş.,,,True,5866,https://kap.org.tr/tr/sirket-bilgileri/ozet/5866-reeder-teknoloji-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+RGYAS,RÖNESANS GAYRİMENKUL YATIRIM A.Ş.,,,True,1548,https://kap.org.tr/tr/sirket-bilgileri/ozet/1548-ronesans-gayrimenkul-yatirim-a-s,KAP_PUBLIC_BIST_COMPANIES
+RNPOL,RAİNBOW POLİKARBONAT SANAYİ TİCARET A.Ş.,,,True,5418,https://kap.org.tr/tr/sirket-bilgileri/ozet/5418-rainbow-polikarbonat-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+RODRG,RODRİGO TEKSTİL SANAYİ VE TİCARET A.Ş.,,,True,1998,https://kap.org.tr/tr/sirket-bilgileri/ozet/1998-rodrigo-tekstil-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+RTALB,RTA LABORATUVARLARI BİYOLOJİK ÜRÜNLER İLAÇ VE MAKİNE SANAYİ TİCARET A.Ş.,,,True,2258,https://kap.org.tr/tr/sirket-bilgileri/ozet/2258-rta-laboratuvarlari-biyolojik-urunler-ilac-ve-makine-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+RUBNS,RUBENİS TEKSTİL SANAYİ TİCARET A.Ş.,,,True,5478,https://kap.org.tr/tr/sirket-bilgileri/ozet/5478-rubenis-tekstil-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+RUZYE,RUZY MADENCİLİK VE ENERJİ YATIRIMLARI SANAYİ VE TİCARET A.Ş.,,,True,853,https://kap.org.tr/tr/sirket-bilgileri/ozet/853-ruzy-madencilik-ve-enerji-yatirimlari-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+RYGYO,REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1514,https://kap.org.tr/tr/sirket-bilgileri/ozet/1514-reysas-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+RYSAS,REYSAŞ TAŞIMACILIK VE LOJİSTİK TİCARET A.Ş.,,,True,1415,https://kap.org.tr/tr/sirket-bilgileri/ozet/1415-reysas-tasimacilik-ve-lojistik-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SAFKR,SAFKAR EGE SOĞUTMACILIK KLİMA SOĞUK HAVA TESİSLERİ İHRACAT İTHALAT SANAYİ VE TİCARET A.Ş.,,,True,4550,https://kap.org.tr/tr/sirket-bilgileri/ozet/4550-safkar-ege-sogutmacilik-klima-soguk-hava-tesisleri-ihracat-ithalat-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SAHOL,HACI ÖMER SABANCI HOLDİNG A.Ş.,,,True,976,https://kap.org.tr/tr/sirket-bilgileri/ozet/976-haci-omer-sabanci-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+SAMAT,SARAY MATBAACILIK KAĞITÇILIK KIRTASİYECİLİK TİCARET VE SANAYİ A.Ş.,,,True,1552,https://kap.org.tr/tr/sirket-bilgileri/ozet/1552-saray-matbaacilik-kagitcilik-kirtasiyecilik-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SANEL,SAN-EL MÜHENDİSLİK ELEKTRİK TAAHHÜT SANAYİ VE TİCARET A.Ş.,,,True,2068,https://kap.org.tr/tr/sirket-bilgileri/ozet/2068-san-el-muhendislik-elektrik-taahhut-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SANFM,SANİFOAM ENDÜSTRİ VE TÜKETİM ÜRÜNLERİ SANAYİ TİCARET A.Ş.,,,True,1578,https://kap.org.tr/tr/sirket-bilgileri/ozet/1578-sanifoam-endustri-ve-tuketim-urunleri-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SANKO,SANKO PAZARLAMA İTHALAT İHRACAT A.Ş.,,,True,1066,https://kap.org.tr/tr/sirket-bilgileri/ozet/1066-sanko-pazarlama-ithalat-ihracat-a-s,KAP_PUBLIC_BIST_COMPANIES
+SARAE,ŞA-RA ENERJİ İNŞAAT TİCARET VE SANAYİ A.Ş.,,,True,6246,https://kap.org.tr/tr/sirket-bilgileri/ozet/6246-sa-ra-enerji-insaat-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SARKY,SARKUYSAN ELEKTROLİTİK BAKIR SANAYİ VE TİCARET A.Ş.,,,True,1067,https://kap.org.tr/tr/sirket-bilgileri/ozet/1067-sarkuysan-elektrolitik-bakir-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SARTN,SARTEN AMBALAJ SANAYİ VE TİCARET A.Ş.,,,True,1688,https://kap.org.tr/tr/sirket-bilgileri/ozet/1688-sarten-ambalaj-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SASA,SASA POLYESTER SANAYİ A.Ş.,,,True,1068,https://kap.org.tr/tr/sirket-bilgileri/ozet/1068-sasa-polyester-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SAYAS,SAY YENİLENEBİLİR ENERJİ EKİPMANLARI SANAYİ VE TİCARET A.Ş.,,,True,1983,https://kap.org.tr/tr/sirket-bilgileri/ozet/1983-say-yenilenebilir-enerji-ekipmanlari-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SDTTR,SDT UZAY VE SAVUNMA TEKNOLOJİLERİ A.Ş.,,,True,5686,https://kap.org.tr/tr/sirket-bilgileri/ozet/5686-sdt-uzay-ve-savunma-teknolojileri-a-s,KAP_PUBLIC_BIST_COMPANIES
+SEGMN,SEĞMEN KARDEŞLER GIDA ÜRETİM VE AMBALAJ SANAYİ A.Ş.,,,True,5976,https://kap.org.tr/tr/sirket-bilgileri/ozet/5976-segmen-kardesler-gida-uretim-ve-ambalaj-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SEGYO,ŞEKER GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5071,https://kap.org.tr/tr/sirket-bilgileri/ozet/5071-seker-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SEK,ŞEKERBANK T.A.Ş.,,,True,2418,https://kap.org.tr/tr/sirket-bilgileri/ozet/2418-sekerbank-t-a-s,KAP_PUBLIC_BIST_COMPANIES
+SEKFK,ŞEKER FİNANSAL KİRALAMA A.Ş.,,,True,1392,https://kap.org.tr/tr/sirket-bilgileri/ozet/1392-seker-finansal-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+SEKUR,SEKURO PLASTİK AMBALAJ SANAYİ A.Ş.,,,True,2050,https://kap.org.tr/tr/sirket-bilgileri/ozet/2050-sekuro-plastik-ambalaj-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SELEC,SELÇUK ECZA DEPOSU TİCARET VE SANAYİ A.Ş.,,,True,1420,https://kap.org.tr/tr/sirket-bilgileri/ozet/1420-selcuk-ecza-deposu-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SELVA,SELVA GIDA SANAYİ A.Ş.,,,True,5362,https://kap.org.tr/tr/sirket-bilgileri/ozet/5362-selva-gida-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SERNT,SERANİT GRANİT SERAMİK SANAYİ VE TİCARET A.Ş.,,,True,6058,https://kap.org.tr/tr/sirket-bilgileri/ozet/6058-seranit-granit-seramik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SEYKM,SEYİTLER KİMYA SANAYİ A.Ş.,,,True,2500,https://kap.org.tr/tr/sirket-bilgileri/ozet/2500-seyitler-kimya-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SILVR,SİLVERLİNE ENDÜSTRİ VE TİCARET A.Ş.,,,True,1436,https://kap.org.tr/tr/sirket-bilgileri/ozet/1436-silverline-endustri-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SISE,TÜRKİYE ŞİŞE VE CAM FABRİKALARI A.Ş.,,,True,1087,https://kap.org.tr/tr/sirket-bilgileri/ozet/1087-turkiye-sise-ve-cam-fabrikalari-a-s,KAP_PUBLIC_BIST_COMPANIES
+SKBNK,ŞEKERBANK T.A.Ş.,,,True,2418,https://kap.org.tr/tr/sirket-bilgileri/ozet/2418-sekerbank-t-a-s,KAP_PUBLIC_BIST_COMPANIES
+SKTAS,SÖKTAŞ TEKSTİL SANAYİ VE TİCARET A.Ş.,,,True,1073,https://kap.org.tr/tr/sirket-bilgileri/ozet/1073-soktas-tekstil-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SKY,ŞEKER YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1351,https://kap.org.tr/tr/sirket-bilgileri/ozet/1351-seker-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+SKYLP,SKYALP FİNANSAL TEKNOLOJİLER VE DANIŞMANLIK A.Ş.,,,True,1602,https://kap.org.tr/tr/sirket-bilgileri/ozet/1602-skyalp-finansal-teknolojiler-ve-danismanlik-a-s,KAP_PUBLIC_BIST_COMPANIES
+SKYMD,ŞEKER YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1351,https://kap.org.tr/tr/sirket-bilgileri/ozet/1351-seker-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+SMART,SMARTİKS YAZILIM A.Ş.,,,True,4872,https://kap.org.tr/tr/sirket-bilgileri/ozet/4872-smartiks-yazilim-a-s,KAP_PUBLIC_BIST_COMPANIES
+SMRFA,SÜMER FAKTORİNG A.Ş.,,,True,2411,https://kap.org.tr/tr/sirket-bilgileri/ozet/2411-sumer-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+SMRTG,SMART GÜNEŞ ENERJİSİ TEKNOLOJİLERİ ARAŞTIRMA GELİŞTİRME ÜRETİM SANAYİ VE TİCARET A.Ş.,,,True,5557,https://kap.org.tr/tr/sirket-bilgileri/ozet/5557-smart-gunes-enerjisi-teknolojileri-arastirma-gelistirme-uretim-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SMRVA,SÜMER VARLIK YÖNETİM A.Ş.,,,True,3660,https://kap.org.tr/tr/sirket-bilgileri/ozet/3660-sumer-varlik-yonetim-a-s,KAP_PUBLIC_BIST_COMPANIES
+SNGYO,SİNPAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1459,https://kap.org.tr/tr/sirket-bilgileri/ozet/1459-sinpas-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SNICA,SANİCA ISI SANAYİ A.Ş.,,,True,5691,https://kap.org.tr/tr/sirket-bilgileri/ozet/5691-sanica-isi-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SNPAM,SÖNMEZ PAMUKLU SANAYİİ A.Ş.,,,True,1075,https://kap.org.tr/tr/sirket-bilgileri/ozet/1075-sonmez-pamuklu-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+SODSN,SODAŞ SODYUM SANAYİİ A.Ş.,,,True,1583,https://kap.org.tr/tr/sirket-bilgileri/ozet/1583-sodas-sodyum-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+SOHOE,SOHO GİYİM VE ENERJİ A.Ş.,,,True,6233,https://kap.org.tr/tr/sirket-bilgileri/ozet/6233-soho-giyim-ve-enerji-a-s,KAP_PUBLIC_BIST_COMPANIES
+SOKE,SÖKE DEĞİRMENCİLİK SANAYİ VE TİCARET A.Ş.,,,True,4099,https://kap.org.tr/tr/sirket-bilgileri/ozet/4099-soke-degirmencilik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SOKM,ŞOK MARKETLER TİCARET A.Ş.,,,True,3913,https://kap.org.tr/tr/sirket-bilgileri/ozet/3913-sok-marketler-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SONME,SÖNMEZ FİLAMENT SENTETİK İPLİK VE ELYAF SANAYİ A.Ş.,,,True,1074,https://kap.org.tr/tr/sirket-bilgileri/ozet/1074-sonmez-filament-sentetik-iplik-ve-elyaf-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SRVGY,SERVET GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1705,https://kap.org.tr/tr/sirket-bilgileri/ozet/1705-servet-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SSAAT,SAAT VE SAAT SANAYİ VE TİCARET A.Ş.,,,True,4184,https://kap.org.tr/tr/sirket-bilgileri/ozet/4184-saat-ve-saat-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SUMAS,SUMAŞ SUNİ TAHTA VE MOBİLYA SANAYİİ A.Ş.,,,True,2801,https://kap.org.tr/tr/sirket-bilgileri/ozet/2801-sumas-suni-tahta-ve-mobilya-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+SUNTK,SUN TEKSTİL SANAYİ VE TİCARET A.Ş.,,,True,5587,https://kap.org.tr/tr/sirket-bilgileri/ozet/5587-sun-tekstil-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+SURGY,SUR TATİL EVLERİ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5910,https://kap.org.tr/tr/sirket-bilgileri/ozet/5910-sur-tatil-evleri-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+SUWEN,SUWEN TEKSTİL SANAYİ PAZARLAMA A.Ş.,,,True,5332,https://kap.org.tr/tr/sirket-bilgileri/ozet/5332-suwen-tekstil-sanayi-pazarlama-a-s,KAP_PUBLIC_BIST_COMPANIES
+SVGYO,SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,6198,https://kap.org.tr/tr/sirket-bilgileri/ozet/6198-savur-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TABGD,TAB GIDA SANAYİ VE TİCARET A.Ş.,,,True,4065,https://kap.org.tr/tr/sirket-bilgileri/ozet/4065-tab-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TAC,TACİRLER YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2522,https://kap.org.tr/tr/sirket-bilgileri/ozet/2522-tacirler-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+TAE,TERA YATIRIM BANKASI A.Ş.,,,True,5886,https://kap.org.tr/tr/sirket-bilgileri/ozet/5886-tera-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TAMFA,TAM FİNANS FAKTORİNG A.Ş.,,,True,2188,https://kap.org.tr/tr/sirket-bilgileri/ozet/2188-tam-finans-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+TARFN,TARFİN TARIM A.Ş.,,,True,6030,https://kap.org.tr/tr/sirket-bilgileri/ozet/6030-tarfin-tarim-a-s,KAP_PUBLIC_BIST_COMPANIES
+TARKM,TARKİM BİTKİ KORUMA SANAYİ VE TİCARET A.Ş.,,,True,5023,https://kap.org.tr/tr/sirket-bilgileri/ozet/5023-tarkim-bitki-koruma-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TATEN,TATLIPINAR ENERJİ ÜRETİM A.Ş.,,,True,5850,https://kap.org.tr/tr/sirket-bilgileri/ozet/5850-tatlipinar-enerji-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+TATGD,TAT GIDA SANAYİ A.Ş.,,,True,1091,https://kap.org.tr/tr/sirket-bilgileri/ozet/1091-tat-gida-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TAVHL,TAV HAVALİMANLARI HOLDİNG A.Ş.,,,True,1452,https://kap.org.tr/tr/sirket-bilgileri/ozet/1452-tav-havalimanlari-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+TBORG,TÜRK TUBORG BİRA VE MALT SANAYİİ A.Ş.,,,True,1088,https://kap.org.tr/tr/sirket-bilgileri/ozet/1088-turk-tuborg-bira-ve-malt-sanayii-a-s,KAP_PUBLIC_BIST_COMPANIES
+TCELL,TURKCELL İLETİŞİM HİZMETLERİ A.Ş.,,,True,1103,https://kap.org.tr/tr/sirket-bilgileri/ozet/1103-turkcell-iletisim-hizmetleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+TCKRC,KIRAÇ GALVANİZ TELEKOMİNİKASYON METAL MAKİNE İNŞAAT ELEKTRİK SANAYİ VE TİCARET A.Ş.,,,True,6010,https://kap.org.tr/tr/sirket-bilgileri/ozet/6010-kirac-galvaniz-telekominikasyon-metal-makine-insaat-elektrik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TCRYT,TACİRLER YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2522,https://kap.org.tr/tr/sirket-bilgileri/ozet/2522-tacirler-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+TDGYO,TREND GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,4580,https://kap.org.tr/tr/sirket-bilgileri/ozet/4580-trend-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TEBFA,TEB FAKTORİNG A.Ş.,,,True,3025,https://kap.org.tr/tr/sirket-bilgileri/ozet/3025-teb-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+TEHOL,TERA YATIRIM TEKNOLOJİ HOLDİNG A.Ş.,,,True,968,https://kap.org.tr/tr/sirket-bilgileri/ozet/968-tera-yatirim-teknoloji-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+TEKTU,TEK-ART İNŞAAT TİCARET TURİZM SANAYİ VE YATIRIMLAR A.Ş.,,,True,1092,https://kap.org.tr/tr/sirket-bilgileri/ozet/1092-tek-art-insaat-ticaret-turizm-sanayi-ve-yatirimlar-a-s,KAP_PUBLIC_BIST_COMPANIES
+TERA,TERA YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2464,https://kap.org.tr/tr/sirket-bilgileri/ozet/2464-tera-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+TEVKS,TERA VARLIK KİRALAMA A.Ş.,,,True,6193,https://kap.org.tr/tr/sirket-bilgileri/ozet/6193-tera-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+TEZOL,EUROPAP TEZOL KAĞIT SANAYİ VE TİCARET A.Ş.,,,True,4838,https://kap.org.tr/tr/sirket-bilgileri/ozet/4838-europap-tezol-kagit-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TFNVK,TF VARLIK KİRALAMA A.Ş.,,,True,1711,https://kap.org.tr/tr/sirket-bilgileri/ozet/1711-tf-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+TGB,TÜRKİYE GARANTİ BANKASI A.Ş.,,,True,2422,https://kap.org.tr/tr/sirket-bilgileri/ozet/2422-turkiye-garanti-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TGSAS,TGS DIŞ TİCARET A.Ş.,,,True,1613,https://kap.org.tr/tr/sirket-bilgileri/ozet/1613-tgs-dis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+THL,TÜRKİYE HALK BANKASI A.Ş.,,,True,2423,https://kap.org.tr/tr/sirket-bilgileri/ozet/2423-turkiye-halk-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+THR,TÜRKİYE İHRACAT KREDİ BANKASI A.Ş.,,,True,2424,https://kap.org.tr/tr/sirket-bilgileri/ozet/2424-turkiye-ihracat-kredi-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+THYAO,TÜRK HAVA YOLLARI A.O.,,,True,1107,https://kap.org.tr/tr/sirket-bilgileri/ozet/1107-turk-hava-yollari-a-o,KAP_PUBLIC_BIST_COMPANIES
+TIB,TÜRKİYE İŞ BANKASI A.Ş.,,,True,2425,https://kap.org.tr/tr/sirket-bilgileri/ozet/2425-turkiye-is-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TIMUR,TİMUR GAYRİMENKUL GELİŞTİRME YAPI VE YATIRIM A.Ş.,,,True,2473,https://kap.org.tr/tr/sirket-bilgileri/ozet/2473-timur-gayrimenkul-gelistirme-yapi-ve-yatirim-a-s,KAP_PUBLIC_BIST_COMPANIES
+TKFEN,TEKFEN HOLDİNG A.Ş.,,,True,1470,https://kap.org.tr/tr/sirket-bilgileri/ozet/1470-tekfen-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+TKNKA,TEKNİKA PLAST TEKNİK KALIP PLASTİK SANAYİ VE TİCARET A.Ş.,,,True,6274,https://kap.org.tr/tr/sirket-bilgileri/ozet/6274-teknika-plast-teknik-kalip-plastik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TKNSA,TEKNOSA İÇ VE DIŞ TİCARET A.Ş.,,,True,1607,https://kap.org.tr/tr/sirket-bilgileri/ozet/1607-teknosa-ic-ve-dis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TLMAN,TRABZON LİMAN İŞLETMECİLİĞİ A.Ş.,,,True,4570,https://kap.org.tr/tr/sirket-bilgileri/ozet/4570-trabzon-liman-isletmeciligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TMPOL,TEMAPOL POLİMER PLASTİK VE İNŞAAT SANAYİ TİCARET A.Ş.,,,True,2075,https://kap.org.tr/tr/sirket-bilgileri/ozet/2075-temapol-polimer-plastik-ve-insaat-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TMSN,TÜMOSAN MOTOR VE TRAKTÖR SANAYİ A.Ş.,,,True,1694,https://kap.org.tr/tr/sirket-bilgileri/ozet/1694-tumosan-motor-ve-traktor-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TNZTP,TAPDİ OKSİJEN ÖZEL SAĞLIK VE EĞİTİM HİZMETLERİ SANAYİ TİCARET A.Ş.,,,True,5261,https://kap.org.tr/tr/sirket-bilgileri/ozet/5261-tapdi-oksijen-ozel-saglik-ve-egitim-hizmetleri-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TOASO,TOFAŞ TÜRK OTOMOBİL FABRİKASI A.Ş.,,,True,1096,https://kap.org.tr/tr/sirket-bilgileri/ozet/1096-tofas-turk-otomobil-fabrikasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRA,TERA YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2464,https://kap.org.tr/tr/sirket-bilgileri/ozet/2464-tera-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRALT,TÜRK ALTIN İŞLETMELERİ A.Ş.,,,True,1500,https://kap.org.tr/tr/sirket-bilgileri/ozet/1500-turk-altin-isletmeleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRBNK,TERA YATIRIM BANKASI A.Ş.,,,True,5886,https://kap.org.tr/tr/sirket-bilgileri/ozet/5886-tera-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRCAS,TURCAS HOLDİNG A.Ş.,,,True,1102,https://kap.org.tr/tr/sirket-bilgileri/ozet/1102-turcas-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRENJ,TR DOĞAL ENERJİ KAYNAKLARI ARAŞTIRMA VE ÜRETİM A.Ş.,,,True,986,https://kap.org.tr/tr/sirket-bilgileri/ozet/986-tr-dogal-enerji-kaynaklari-arastirma-ve-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRFFA,TERA FİNANS FAKTORİNG A.Ş.,,,True,2463,https://kap.org.tr/tr/sirket-bilgileri/ozet/2463-tera-finans-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRGYO,TORUNLAR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1524,https://kap.org.tr/tr/sirket-bilgileri/ozet/1524-torunlar-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRHOL,TERA FİNANSAL YATIRIMLAR HOLDİNG A.Ş.,,,True,1089,https://kap.org.tr/tr/sirket-bilgileri/ozet/1089-tera-finansal-yatirimlar-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRILC,TURK İLAÇ VE SERUM SANAYİ A.Ş.,,,True,5263,https://kap.org.tr/tr/sirket-bilgileri/ozet/5263-turk-ilac-ve-serum-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRKFN,TURK FİNANSMAN A.Ş.,,,True,4952,https://kap.org.tr/tr/sirket-bilgileri/ozet/4952-turk-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRKNT,TURKNET İLETİŞİM HİZMETLERİ A.Ş.,,,True,4874,https://kap.org.tr/tr/sirket-bilgileri/ozet/4874-turknet-iletisim-hizmetleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRMEN,TRIVE YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1296,https://kap.org.tr/tr/sirket-bilgileri/ozet/1296-trive-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRMET,TR ANADOLU METAL MADENCİLİK İŞLETMELERİ A.Ş.,,,True,1010,https://kap.org.tr/tr/sirket-bilgileri/ozet/1010-tr-anadolu-metal-madencilik-isletmeleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+TRYKI,TİRYAKİ AGRO GIDA SANAYİ VE TİCARET A.Ş.,,,True,2433,https://kap.org.tr/tr/sirket-bilgileri/ozet/2433-tiryaki-agro-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TSGYO,TSKB GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1502,https://kap.org.tr/tr/sirket-bilgileri/ozet/1502-tskb-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TSK,TÜRKİYE SINAİ KALKINMA BANKASI A.Ş.,,,True,2427,https://kap.org.tr/tr/sirket-bilgileri/ozet/2427-turkiye-sinai-kalkinma-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TSKB,TÜRKİYE SINAİ KALKINMA BANKASI A.Ş.,,,True,2427,https://kap.org.tr/tr/sirket-bilgileri/ozet/2427-turkiye-sinai-kalkinma-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+TSPOR,TRABZONSPOR SPORTİF YATIRIM VE FUTBOL İŞLETMECİLİĞİ TİCARET A.Ş.,,,True,1400,https://kap.org.tr/tr/sirket-bilgileri/ozet/1400-trabzonspor-sportif-yatirim-ve-futbol-isletmeciligi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TTKOM,TÜRK TELEKOMÜNİKASYON A.Ş.,,,True,1473,https://kap.org.tr/tr/sirket-bilgileri/ozet/1473-turk-telekomunikasyon-a-s,KAP_PUBLIC_BIST_COMPANIES
+TTRAK,TÜRK TRAKTÖR VE ZİRAAT MAKİNELERİ A.Ş.,,,True,1393,https://kap.org.tr/tr/sirket-bilgileri/ozet/1393-turk-traktor-ve-ziraat-makineleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+TUCLK,TUĞÇELİK ALÜMİNYUM VE METAL MAMÜLLERİ SANAYİ VE TİCARET A.Ş.,,,True,2264,https://kap.org.tr/tr/sirket-bilgileri/ozet/2264-tugcelik-aluminyum-ve-metal-mamulleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TUKAS,TUKAŞ GIDA SANAYİ VE TİCARET A.Ş.,,,True,1101,https://kap.org.tr/tr/sirket-bilgileri/ozet/1101-tukas-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+TUPRS,TÜPRAŞ-TÜRKİYE PETROL RAFİNERİLERİ A.Ş.,,,True,1105,https://kap.org.tr/tr/sirket-bilgileri/ozet/1105-tupras-turkiye-petrol-rafinerileri-a-s,KAP_PUBLIC_BIST_COMPANIES
+TUREX,TUREKS TURİZM TAŞIMACILIK A.Ş.,,,True,3986,https://kap.org.tr/tr/sirket-bilgileri/ozet/3986-tureks-turizm-tasimacilik-a-s,KAP_PUBLIC_BIST_COMPANIES
+TURGG,TÜRKER PROJE GAYRİMENKUL VE YATIRIM GELİŞTİRME A.Ş.,,,True,1996,https://kap.org.tr/tr/sirket-bilgileri/ozet/1996-turker-proje-gayrimenkul-ve-yatirim-gelistirme-a-s,KAP_PUBLIC_BIST_COMPANIES
+TURSG,TÜRKİYE SİGORTA A.Ş.,,,True,975,https://kap.org.tr/tr/sirket-bilgileri/ozet/975-turkiye-sigorta-a-s,KAP_PUBLIC_BIST_COMPANIES
+TV8TV,TV8 TV YAYINCILIK A.Ş.,,,True,3548,https://kap.org.tr/tr/sirket-bilgileri/ozet/3548-tv8-tv-yayincilik-a-s,KAP_PUBLIC_BIST_COMPANIES
+TVB,TÜRKİYE VAKIFLAR BANKASI T.A.O.,,,True,2428,https://kap.org.tr/tr/sirket-bilgileri/ozet/2428-turkiye-vakiflar-bankasi-t-a-o,KAP_PUBLIC_BIST_COMPANIES
+TVM,TRIVE YATIRIM MENKUL DEĞERLER A.Ş.,,,True,1296,https://kap.org.tr/tr/sirket-bilgileri/ozet/1296-trive-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+UCAYM,ÜÇAY MÜHENDİSLİK ENERJİ VE İKLİMLENDİRME TEKNOLOJİLERİ A.Ş.,,,True,6182,https://kap.org.tr/tr/sirket-bilgileri/ozet/6182-ucay-muhendislik-enerji-ve-iklimlendirme-teknolojileri-a-s,KAP_PUBLIC_BIST_COMPANIES
+UFUK,UFUK YATIRIM YÖNETİM VE GAYRİMENKUL A.Ş.,,,True,1444,https://kap.org.tr/tr/sirket-bilgileri/ozet/1444-ufuk-yatirim-yonetim-ve-gayrimenkul-a-s,KAP_PUBLIC_BIST_COMPANIES
+ULAS,ULAŞLAR TURİZM ENERJİ TARIM GIDA VE İNŞAAT YATIRIMLARI A.Ş.,,,True,1677,https://kap.org.tr/tr/sirket-bilgileri/ozet/1677-ulaslar-turizm-enerji-tarim-gida-ve-insaat-yatirimlari-a-s,KAP_PUBLIC_BIST_COMPANIES
+ULKER,ÜLKER BİSKÜVİ SANAYİ A.Ş.,,,True,859,https://kap.org.tr/tr/sirket-bilgileri/ozet/859-ulker-biskuvi-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ULUFA,ULUSAL FAKTORİNG A.Ş.,,,True,2149,https://kap.org.tr/tr/sirket-bilgileri/ozet/2149-ulusal-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+ULUSE,ULUSOY ELEKTRİK İMALAT TAAHHÜT VE TİCARET A.Ş.,,,True,2374,https://kap.org.tr/tr/sirket-bilgileri/ozet/2374-ulusoy-elektrik-imalat-taahhut-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ULUUN,ULUSOY UN SANAYİ VE TİCARET A.Ş.,,,True,2375,https://kap.org.tr/tr/sirket-bilgileri/ozet/2375-ulusoy-un-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+UMPAS,UMPAŞ HOLDİNG A.Ş.,,,True,2065,https://kap.org.tr/tr/sirket-bilgileri/ozet/2065-umpas-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+UNLU,ÜNLÜ YATIRIM HOLDİNG A.Ş.,,,True,2474,https://kap.org.tr/tr/sirket-bilgileri/ozet/2474-unlu-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+USAK,UŞAK SERAMİK SANAYİ A.Ş.,,,True,1111,https://kap.org.tr/tr/sirket-bilgileri/ozet/1111-usak-seramik-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+USHOL,US YATIRIM HOLDİNG A.Ş.,,,True,1403,https://kap.org.tr/tr/sirket-bilgileri/ozet/1403-us-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+VAKBN,TÜRKİYE VAKIFLAR BANKASI T.A.O.,,,True,2428,https://kap.org.tr/tr/sirket-bilgileri/ozet/2428-turkiye-vakiflar-bankasi-t-a-o,KAP_PUBLIC_BIST_COMPANIES
+VAKFA,VAKIF FAKTORİNG A.Ş.,,,True,2556,https://kap.org.tr/tr/sirket-bilgileri/ozet/2556-vakif-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+VAKFN,VAKIF FİNANSAL KİRALAMA A.Ş.,,,True,1115,https://kap.org.tr/tr/sirket-bilgileri/ozet/1115-vakif-finansal-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+VAKKO,VAKKO TEKSTİL VE HAZIR GİYİM SANAYİ İŞLETMELERİ A.Ş.,,,True,1119,https://kap.org.tr/tr/sirket-bilgileri/ozet/1119-vakko-tekstil-ve-hazir-giyim-sanayi-isletmeleri-a-s,KAP_PUBLIC_BIST_COMPANIES
+VAKVK,VAKIF VARLIK KİRALAMA A.Ş.,,,True,4329,https://kap.org.tr/tr/sirket-bilgileri/ozet/4329-vakif-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+VANGD,VANET GIDA SANAYİ İÇ VE DIŞ TİCARET A.Ş.,,,True,1558,https://kap.org.tr/tr/sirket-bilgileri/ozet/1558-vanet-gida-sanayi-ic-ve-dis-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+VBTYZ,VBT YAZILIM A.Ş.,,,True,5369,https://kap.org.tr/tr/sirket-bilgileri/ozet/5369-vbt-yazilim-a-s,KAP_PUBLIC_BIST_COMPANIES
+VDFAS,VOLKSWAGEN DOĞUŞ FİNANSMAN A.Ş.,,,True,2153,https://kap.org.tr/tr/sirket-bilgileri/ozet/2153-volkswagen-dogus-finansman-a-s,KAP_PUBLIC_BIST_COMPANIES
+VDFLO,VDF FİLO KİRALAMA A.Ş.,,,True,5080,https://kap.org.tr/tr/sirket-bilgileri/ozet/5080-vdf-filo-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+VERTU,VERUSATURK GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.,,,True,2048,https://kap.org.tr/tr/sirket-bilgileri/ozet/2048-verusaturk-girisim-sermayesi-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+VERUS,VERUSA HOLDİNG A.Ş.,,,True,2059,https://kap.org.tr/tr/sirket-bilgileri/ozet/2059-verusa-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+VESBE,VESTEL BEYAZ EŞYA SANAYİ VE TİCARET A.Ş.,,,True,1419,https://kap.org.tr/tr/sirket-bilgileri/ozet/1419-vestel-beyaz-esya-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+VESTL,VESTEL ELEKTRONİK SANAYİ VE TİCARET A.Ş.,,,True,1122,https://kap.org.tr/tr/sirket-bilgileri/ozet/1122-vestel-elektronik-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+VEYAS,TÜRKER VANGÖLÜ ENERJİ YATIRIM A.Ş.,,,True,6273,https://kap.org.tr/tr/sirket-bilgileri/ozet/6273-turker-vangolu-enerji-yatirim-a-s,KAP_PUBLIC_BIST_COMPANIES
+VKFYO,VAKIF MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş.,,,True,1117,https://kap.org.tr/tr/sirket-bilgileri/ozet/1117-vakif-menkul-kiymet-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+VKGYO,VAKIF GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,1116,https://kap.org.tr/tr/sirket-bilgileri/ozet/1116-vakif-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+VKING,VİKİNG KAĞIT VE SELÜLOZ A.Ş.,,,True,1123,https://kap.org.tr/tr/sirket-bilgileri/ozet/1123-viking-kagit-ve-seluloz-a-s,KAP_PUBLIC_BIST_COMPANIES
+VRGYO,VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,5885,https://kap.org.tr/tr/sirket-bilgileri/ozet/5885-vera-konsept-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+VSNMD,VİŞNE MADENCİLİK ÜRETİM SANAYİ VE TİCARET A.Ş.,,,True,6060,https://kap.org.tr/tr/sirket-bilgileri/ozet/6060-visne-madencilik-uretim-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+YAPRK,YAPRAK SÜT VE BESİ ÇİFTLİKLERİ SANAYİ VE TİCARET A.Ş.,,,True,2920,https://kap.org.tr/tr/sirket-bilgileri/ozet/2920-yaprak-sut-ve-besi-ciftlikleri-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+YATAS,YATAŞ YATAK VE YORGAN SANAYİ TİCARET A.Ş.,,,True,1129,https://kap.org.tr/tr/sirket-bilgileri/ozet/1129-yatas-yatak-ve-yorgan-sanayi-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+YATVK,YATIRIM VARLIK KİRALAMA A.Ş.,,,True,4977,https://kap.org.tr/tr/sirket-bilgileri/ozet/4977-yatirim-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+YAYLA,YAYLA ENERJİ ÜRETİM TURİZM VE İNŞAAT TİCARET A.Ş.,,,True,2061,https://kap.org.tr/tr/sirket-bilgileri/ozet/2061-yayla-enerji-uretim-turizm-ve-insaat-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+YBQ,Q YATIRIM BANKASI A.Ş.,,,True,6002,https://kap.org.tr/tr/sirket-bilgileri/ozet/6002-q-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+YBTAS,YİBİTAŞ YOZGAT İŞÇİ BİRLİĞİ İNŞAAT MALZEMELERİ TİCARET VE SANAYİ A.Ş.,,,True,1595,https://kap.org.tr/tr/sirket-bilgileri/ozet/1595-yibitas-yozgat-isci-birligi-insaat-malzemeleri-ticaret-ve-sanayi-a-s,KAP_PUBLIC_BIST_COMPANIES
+YEOTK,YEO TEKNOLOJİ ENERJİ VE ENDÜSTRİ A.Ş.,,,True,2900,https://kap.org.tr/tr/sirket-bilgileri/ozet/2900-yeo-teknoloji-enerji-ve-endustri-a-s,KAP_PUBLIC_BIST_COMPANIES
+YESIL,YEŞİL YATIRIM HOLDİNG A.Ş.,,,True,1386,https://kap.org.tr/tr/sirket-bilgileri/ozet/1386-yesil-yatirim-holding-a-s,KAP_PUBLIC_BIST_COMPANIES
+YGGYO,YENİ GİMAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,2012,https://kap.org.tr/tr/sirket-bilgileri/ozet/2012-yeni-gimat-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+YIGIT,YİĞİT AKÜ MALZEMELERİ NAKLİYAT TURİZM İNŞAAT SANAYİ VE TİCARET A.Ş.,,,True,5965,https://kap.org.tr/tr/sirket-bilgileri/ozet/5965-yigit-aku-malzemeleri-nakliyat-turizm-insaat-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+YKB,YAPI VE KREDİ BANKASI A.Ş.,,,True,2429,https://kap.org.tr/tr/sirket-bilgileri/ozet/2429-yapi-ve-kredi-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+YKBNK,YAPI VE KREDİ BANKASI A.Ş.,,,True,2429,https://kap.org.tr/tr/sirket-bilgileri/ozet/2429-yapi-ve-kredi-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+YKFIN,YAPI KREDİ FİNANSAL KİRALAMA A.O.,,,True,1124,https://kap.org.tr/tr/sirket-bilgileri/ozet/1124-yapi-kredi-finansal-kiralama-a-o,KAP_PUBLIC_BIST_COMPANIES
+YKFKT,YAPI KREDİ FAKTORİNG A.Ş.,,,True,2303,https://kap.org.tr/tr/sirket-bilgileri/ozet/2303-yapi-kredi-faktoring-a-s,KAP_PUBLIC_BIST_COMPANIES
+YKR,YAPI KREDİ YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2532,https://kap.org.tr/tr/sirket-bilgileri/ozet/2532-yapi-kredi-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+YKSLN,YÜKSELEN ÇELİK A.Ş.,,,True,4873,https://kap.org.tr/tr/sirket-bilgileri/ozet/4873-yukselen-celik-a-s,KAP_PUBLIC_BIST_COMPANIES
+YKYAT,YAPI KREDİ YATIRIM MENKUL DEĞERLER A.Ş.,,,True,2532,https://kap.org.tr/tr/sirket-bilgileri/ozet/2532-yapi-kredi-yatirim-menkul-degerler-a-s,KAP_PUBLIC_BIST_COMPANIES
+YONGA,YONGA MOBİLYA SANAYİ VE TİCARET A.Ş.,,,True,1585,https://kap.org.tr/tr/sirket-bilgileri/ozet/1585-yonga-mobilya-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+YUNSA,YÜNSA YÜNLÜ SANAYİ VE TİCARET A.Ş.,,,True,1132,https://kap.org.tr/tr/sirket-bilgileri/ozet/1132-yunsa-yunlu-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+YYA,AYTEMİZ YATIRIM BANKASI A.Ş.,,,True,6137,https://kap.org.tr/tr/sirket-bilgileri/ozet/6137-aytemiz-yatirim-bankasi-a-s,KAP_PUBLIC_BIST_COMPANIES
+YYAPI,YEŞİL YAPI ENDÜSTRİSİ A.Ş.,,,True,885,https://kap.org.tr/tr/sirket-bilgileri/ozet/885-yesil-yapi-endustrisi-a-s,KAP_PUBLIC_BIST_COMPANIES
+YYLGD,YAYLA AGRO GIDA SANAYİ VE TİCARET A.Ş.,,,True,2759,https://kap.org.tr/tr/sirket-bilgileri/ozet/2759-yayla-agro-gida-sanayi-ve-ticaret-a-s,KAP_PUBLIC_BIST_COMPANIES
+ZEDUR,ZEDUR ENERJİ ELEKTRİK ÜRETİM A.Ş.,,,True,1539,https://kap.org.tr/tr/sirket-bilgileri/ozet/1539-zedur-enerji-elektrik-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+ZERGY,ZERAY GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,6166,https://kap.org.tr/tr/sirket-bilgileri/ozet/6166-zeray-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ZGYO,Z GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,6178,https://kap.org.tr/tr/sirket-bilgileri/ozet/6178-z-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES
+ZKBVK,ZİRAAT KATILIM VARLIK KİRALAMA A.Ş.,,,True,2606,https://kap.org.tr/tr/sirket-bilgileri/ozet/2606-ziraat-katilim-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+ZKBVR,ZKB VARLIK KİRALAMA A.Ş.,,,True,4771,https://kap.org.tr/tr/sirket-bilgileri/ozet/4771-zkb-varlik-kiralama-a-s,KAP_PUBLIC_BIST_COMPANIES
+ZOREN,ZORLU ENERJİ ELEKTRİK ÜRETİM A.Ş.,,,True,1133,https://kap.org.tr/tr/sirket-bilgileri/ozet/1133-zorlu-enerji-elektrik-uretim-a-s,KAP_PUBLIC_BIST_COMPANIES
+ZRGYO,ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.,,,True,4337,https://kap.org.tr/tr/sirket-bilgileri/ozet/4337-ziraat-gayrimenkul-yatirim-ortakligi-a-s,KAP_PUBLIC_BIST_COMPANIES

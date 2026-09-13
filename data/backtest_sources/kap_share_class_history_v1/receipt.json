@@ -1,0 +1,23 @@
+{
+  "action_completeness_claimed": false,
+  "authoritative_m2_claim_allowed": false,
+  "captured_at": "2026-09-08T16:50:25.867350+00:00",
+  "captured_tickers": 143,
+  "contract": "OFFICIAL_KAP_SHARE_CLASS_HISTORY_V1",
+  "economic_rule": "SUM(class_nominal_value / explicit_class_nominal_value_per_share)",
+  "forbidden_rule": "ISSUED_CAPITAL / ASSUMED_1_TRY_NOMINAL",
+  "history_rows": 447,
+  "history_url_template": "https://kap.org.tr/tr/api/company-detail/get-history/{mkk_member_oid}/kpy41_acc5_sermayeyi_temsil_eden/N",
+  "members_url": "https://kap.org.tr/tr/bist-sirketler",
+  "outputs": {
+    "bist_member_roster.html.gz": "58b4e7cf229a7d00b789d7c822f1d77ea358503ff09056da2f8862c654f04cce",
+    "raw_responses.jsonl.gz": "65cbfbd30abe68372b829a014c90e762d2d2e2201eb073af49f06e4e28846b52",
+    "share_class_observations.jsonl.gz": "cc2175d25b835d993e925ea9f5cdc4514819e79874efd32f25ff2a219c55cf0b",
+    "ticker_status.json": "cef8e983e695292a35fb44d150f2f99c41756ed62efd462c5c962398ea122511"
+  },
+  "priority_matrix_sha256": "7d0f2b8ff24016daa558b905f8e213335610f8b06d10b445eb997cb8aa553933",
+  "roster_matched_tickers": 143,
+  "target_tickers": 143,
+  "tickers_with_history": 136,
+  "usable_explicit_nominal_rows": 388
+}

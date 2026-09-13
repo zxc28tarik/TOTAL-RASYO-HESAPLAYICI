@@ -106,7 +106,11 @@ class KapPublicUniverseClient:
                     self.sleeper(min(8.0, 0.5 * (2**attempt)))
                     continue
                 response.raise_for_status()
-                text = response.text
+                try:
+                    text = response.content.decode("utf-8", errors="strict")
+                except (AttributeError, UnicodeDecodeError):
+                    # Test doubles and legacy callers may expose only text.
+                    text = response.text
                 if not isinstance(text, str) or "<html" not in text.lower():
                     raise KapUniverseError("KAP BIST sirketleri yaniti HTML degil")
                 return text

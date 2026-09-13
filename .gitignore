@@ -9,3 +9,6 @@ data/mkk_contract.lock.json
 data/mkk_backfill_plan.json
 data/mkk_suite_backfill_plan.json
 private/
+
+# Reproducible KAP bulk-archive scan outputs; keep only code and small approved evidence.
+data/backtest_sources/kap_archive_semantic_checkpoints*/

@@ -1,0 +1,75 @@
+{
+  "completed_at": "2026-09-08T21:59:07.738231+00:00",
+  "contract": "CURRENT_TOTAL_RASYO_RUN_V1",
+  "database_available": false,
+  "historical_pit_mixed_into_current": false,
+  "input_capture_modes": {
+    "prices": "CURRENT_YAHOO_RAW_CLOSE_V1",
+    "quote_unit": "BORSA_PAY_PRICE_PER_1_TRY_NOMINAL_V1",
+    "shares": "ONLINE_INCREMENTAL_CAPTURE",
+    "universe": "CACHED_HASH_VERIFIED_OFFLINE"
+  },
+  "issuer_capture_success_count": 440,
+  "issuer_not_attempted_count": 291,
+  "m2_blocker": "CURRENT_NONFIN_VALUATION_COVERAGE_INSUFFICIENT",
+  "mode": "OFFLINE_HASH_VERIFIED",
+  "neutral_score_injection": false,
+  "online_issuer_attempt_count_this_capture": 125,
+  "receipts": {
+    "core_modules": {
+      "path": "data/live/current_core_modules_v1/receipt.json",
+      "sha256": "267e068a076742337dc0464cac99b4ad02f5476ddc8d4a7c2fa7612d5b25744e"
+    },
+    "market_modules": {
+      "path": "data/live/current_market_modules_v1/receipt.json",
+      "sha256": "741387b423e30ea53ec1550d59ea918f14f27018bda8cd71f707cfff9dcd71a8"
+    },
+    "nonfin_valuation": {
+      "path": "data/live/current_nonfin_valuation_v1/receipt.json",
+      "sha256": "1fe6af1829219c0e0cf90d8771bac759f8059ee9bcf5a55946f59c28fda6401d"
+    },
+    "price_level_basis": {
+      "path": "data/live/current_price_level_basis_v1/receipt.json",
+      "sha256": "f6dbd337dd45ccccf61103e3d790c7b1ed283d684055946a83d13e9bea2410ae"
+    },
+    "prices": {
+      "path": "data/live/current_raw_close_v1/receipt.json",
+      "sha256": "b6b485a3e2426a9fa739c7c4375b2b21d0dfcf9d279d88d5f70ce46525be7950"
+    },
+    "quote_unit": {
+      "path": "data/live/current_quote_unit_v1/receipt.json",
+      "sha256": "9c4bc735289bbc026fab9d7813324e1b97174bd920087a91349ccbb34bb96e31"
+    },
+    "readiness": {
+      "path": "data/live/current_total_rasyo_v1/receipt.json",
+      "sha256": "ffcd715b07f41b49b02c27f6de26c9c7a2ee8776db2bdffdff79e341a650f57d"
+    },
+    "shares": {
+      "path": "data/live/current_share_basis_v1/receipt.json",
+      "sha256": "421d2803b4163bfbe5bcc8e950bf4ae3e665d5a38ab267d68f835c04a5b1eb21"
+    },
+    "total_scores": {
+      "path": "data/live/current_total_scores_v1/receipt.json",
+      "sha256": "26cb22a119d227567305d56a38c4c229cf9e64557a8d6d15d33f2432cb02cf84"
+    }
+  },
+  "run_date": "2026-09-08",
+  "stage_counts": {
+    "at_least_4_modules": 131,
+    "at_least_5_modules": 11,
+    "ek1": 131,
+    "ek4": 146,
+    "ek9": 11,
+    "explicit_share_basis": 324,
+    "m1": 131,
+    "m2": 0,
+    "m3": 146,
+    "market_cap": 305,
+    "nonfin_valuation": 77,
+    "ranking": 0,
+    "raw_close": 629,
+    "total_rasyo": 0,
+    "universe": 807,
+    "usable_nonfin_valuation": 0
+  }
+}

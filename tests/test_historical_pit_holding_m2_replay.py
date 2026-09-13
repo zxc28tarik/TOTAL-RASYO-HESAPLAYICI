@@ -5,6 +5,8 @@ import inspect
 
 import pandas as pd
 import pytest
+from price_level_fixtures import certify_frames
+from src.analytics.price_level_adapter import SOURCE_SHARE_BASIS, SHARE_BASIS
 
 from src.analytics.historical_pit_holding_m2_replay import (
     HistoricalPitHoldingM2ReplayError,
@@ -22,7 +24,7 @@ def _config() -> HoldingValuationConfig:
         "valuation_version": 1,
         "source_nav_profile": "HOLDING_ADJUSTED_NAV",
         "source_nav_version": 1,
-        "share_basis": "ADJUSTED_PRICE_SERIES_V1",
+        "share_basis": SHARE_BASIS,
         "currency": "TRY",
         "lower_quantile": 0.25,
         "upper_quantile": 0.75,
@@ -58,7 +60,7 @@ def _navs() -> pd.DataFrame:
             "nav_published_at": "2024-12-31T15:00:00+00:00",
             "nav_total": 1000.0,
             "shares_out": 100.0,
-            "share_basis": "ADJUSTED_PRICE_SERIES_V1",
+            "share_basis": SOURCE_SHARE_BASIS,
             "currency": "TRY",
             "source_confidence": 0.9,
             "source_document_id": f"DOC-{i}",
@@ -70,12 +72,14 @@ def _navs() -> pd.DataFrame:
 
 
 def _prices() -> pd.DataFrame:
-    return pd.DataFrame([
+    prices = pd.DataFrame([
         {"ticker": "AAA", "price_trade_date": "2025-01-02", "current_price": 5.0},
         {"ticker": "BBB", "price_trade_date": "2025-01-02", "current_price": 6.0},
         {"ticker": "CCC", "price_trade_date": "2025-01-02", "current_price": 7.0},
     ])
 
+    certify_frames(_navs(), prices, ANALYSIS, "nav_asof_date")
+    return prices
 
 def test_historical_holding_m2_has_no_database_connection_parameter():
     assert "conn" not in inspect.signature(run_historical_pit_holding_m2_replay).parameters

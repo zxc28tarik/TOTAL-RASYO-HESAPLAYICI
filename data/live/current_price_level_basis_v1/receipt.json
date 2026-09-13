@@ -1,0 +1,98 @@
+{
+  "adjusted_close_used_for_market_cap": false,
+  "analysis_at": "2026-09-08T21:46:40.718216+00:00",
+  "contract": "CURRENT_PRICE_LEVEL_BASIS_MATERIALIZATION_V1",
+  "empty_same_day_action_interval_only": true,
+  "legal_share_count_equated_to_nominal_try": false,
+  "market_cap_formula": "raw_close * total_explicit_class_nominal_value_try / 1 TRY",
+  "materialized_market_cap_count": 305,
+  "nominal_value_per_share_assumed": false,
+  "outputs": {
+    "action_bundle_index.json": "8eeb9f01b92b93b2274e0d06600e36bf0785acac5f0deba1b2e03d2da5dae8ea",
+    "market_caps.csv": "1e35c921414cf65571f154b41956af0482d5a47d94abda06eb22967d647558aa"
+  },
+  "production_action_bundle_loader_verified": true,
+  "quote_unit_contract": "BORSA_PAY_PRICE_PER_1_TRY_NOMINAL_V1",
+  "quote_unit_source_pdf_sha256": "9777f6d7e4b650c4f6af9f494bfbcabf4e3e9f3cc083ff2effb060cc27a196de",
+  "rejection_count": 19,
+  "rejections": [
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "AGHOL"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "AKFGY"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "AKYHO"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "BALAT"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "BIGTK"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "BLUME"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "BRISA"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "DOGUB"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "DUNYH"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "IEYHO"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "KLSER"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "KSTUR"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "LYDHO"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "LYDYE"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "MERKO"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "PINSU"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "PRKAB"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "RAYSG"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "SRVGY"
+    }
+  ],
+  "share_candidate_count": 324,
+  "source_availability_basis": "KAP_RESPONSE_HTTP_DATE"
+}

@@ -1,0 +1,286 @@
+{
+  "analysis_at": "2026-09-10T20:07:33.673312+00:00",
+  "archive_hashes": {
+    "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
+    "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
+    "KAP_2025_9A.zip": "421317ffb4edb55e1656773a5e6c8d4d9e2e79225888e2ff71556490dc817163",
+    "KAP_2025_Y.zip": "bef9ac8c5159db2fba8d388a1c4c1bf14f50c24bfef79c782b7efce93ef4e5c5",
+    "KAP_2026_3A.zip": "d7a53002009bc1c4672b80c272554412487d1abb21d95e69fed698cf8be2e82f",
+    "KAP_2026_6A.zip": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2"
+  },
+  "contract": "CURRENT_NONFIN_RELATIVE_VALUATION_V1",
+  "current_price_denominator_basis": "BORSA_QUOTED_NOMINAL_UNITS_OUT",
+  "derivation_rejections": [
+    {
+      "reason": "ValueError:max() iterable argument is empty",
+      "ticker": "TCELL"
+    }
+  ],
+  "derived_financial_ticker_count": 77,
+  "financial_report_count": 489,
+  "follow_contract": "CURRENT_NONFIN_FOLLOW_AXIS_V1",
+  "follow_materialized_count": 48,
+  "follow_rejections": [
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ADEL"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ALKIM"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ARCLK"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ASELS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ASUZU"
+    },
+    {
+      "reason": "PREVIOUS_VALUATION_NOT_OK",
+      "ticker": "BAGFS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BSOKE"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BTCIM"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "CEMAS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "CEMTS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "GUBRF"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "HEKTS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "INDES"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "IZMDC"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "KARTN"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "KORDS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "KUTPO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "KUYAS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "LOGO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "NETAS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ODAS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "PARSN"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "PETKM"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "SASA"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "TKNSA"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "TMSN"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "VESBE"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "VESTL"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ZOREN"
+    }
+  ],
+  "legal_share_count_used_as_price_denominator": false,
+  "m2_blocker": null,
+  "m2_materialized_count": 48,
+  "neutral_follow_or_m2_materialized": false,
+  "outputs": {
+    "follow.jsonl": "6eb17a40ada0ae9d13e4c058d76654385efc5601ebb71d9802423782d0d3f28b",
+    "m2.jsonl": "eafd5edfa363a65ec2810ae15d42ac5e7b84bc0666ac0ae67ab79f9ee4af0b06",
+    "previous_valuations.jsonl": "66ff59e4cbff4e6752b35b532423370f6005ac7568fb799e5c125b4930580e1b",
+    "valuations.jsonl": "7287ce6f79febae18019c8621d5d2dfcd8ec7afda6b84ae5553a1f9de802baf7"
+  },
+  "peer_groups": [
+    "XUHIZ",
+    "XUSIN",
+    "XUTEK"
+  ],
+  "previous_period_rejections": [],
+  "previous_period_valuation_count": 77,
+  "production_valuation_count": 77,
+  "route_source_sha256": "f0c28c7babd018eb8994afdf4911a9d338dad43b291a1084a7acc47a3919c478",
+  "routed_candidate_count": 84,
+  "routed_candidate_counts_by_peer_group": {
+    "XUHIZ": 26,
+    "XUSIN": 54,
+    "XUTEK": 4
+  },
+  "routed_tickers": [
+    "ADEL",
+    "ADESE",
+    "AEFES",
+    "AFYON",
+    "AKCNS",
+    "AKSA",
+    "AKSEN",
+    "ALKIM",
+    "ARCLK",
+    "ASELS",
+    "ASUZU",
+    "AYGAZ",
+    "BAGFS",
+    "BFREN",
+    "BIMAS",
+    "BJKAS",
+    "BRSAN",
+    "BSOKE",
+    "BTCIM",
+    "BUCIM",
+    "CCOLA",
+    "CEMAS",
+    "CEMTS",
+    "CIMSA",
+    "DEVA",
+    "DOAS",
+    "EGEEN",
+    "ENERY",
+    "ENKAI",
+    "ERBOS",
+    "EREGL",
+    "FENER",
+    "FROTO",
+    "GOLTS",
+    "GSRAY",
+    "GUBRF",
+    "HEKTS",
+    "IHLGM",
+    "INDES",
+    "ISDMR",
+    "IZMDC",
+    "JANTS",
+    "KARSN",
+    "KARTN",
+    "KAYSE",
+    "KCAER",
+    "KONYA",
+    "KORDS",
+    "KUTPO",
+    "KUYAS",
+    "LOGO",
+    "MAVI",
+    "MGROS",
+    "MPARK",
+    "NETAS",
+    "NUHCM",
+    "ODAS",
+    "PARSN",
+    "PETKM",
+    "RGYAS",
+    "SARKY",
+    "SASA",
+    "SAYAS",
+    "SELEC",
+    "TABGD",
+    "TCELL",
+    "THYAO",
+    "TKNSA",
+    "TMSN",
+    "TOASO",
+    "TSPOR",
+    "TTKOM",
+    "TTRAK",
+    "TUKAS",
+    "TUPRS",
+    "TUREX",
+    "ULKER",
+    "ULUUN",
+    "VESBE",
+    "VESTL",
+    "YATAS",
+    "YEOTK",
+    "YYLGD",
+    "ZOREN"
+  ],
+  "snapshot_count": 77,
+  "snapshot_rejections": [
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "BJKAS"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "FENER"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "GSRAY"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "KAYSE"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "MAVI"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "TCELL"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "TSPOR"
+    }
+  ],
+  "unsafe_issued_capital_share_fields_scrubbed": true,
+  "usable_previous_period_valuation_count": 52,
+  "usable_valuation_count": 49
+}

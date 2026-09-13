@@ -53,6 +53,7 @@ migrate:
 	psql -f sql/040_historical_universe_membership.sql
 	psql -f sql/041_historical_universe_truncate_guard.sql
 	psql -f sql/042_backtest_schedule_registry.sql
+	psql -f sql/043_module_score_rejections.sql
 
 fill-sector-group:
 	psql -f sql/004_fill_sector_group.sql

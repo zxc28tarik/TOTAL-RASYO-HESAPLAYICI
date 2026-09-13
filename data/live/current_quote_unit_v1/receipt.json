@@ -1,0 +1,12 @@
+{
+  "captured_at": "2026-09-08T20:36:41.784790+00:00",
+  "contract": "BORSA_PAY_PRICE_PER_1_TRY_NOMINAL_V1",
+  "legal_share_count_equated_to_nominal_try": false,
+  "market_cap_formula": "raw_close * total_explicit_class_nominal_value_try / 1 TRY",
+  "quoted_nominal_unit_try": 1,
+  "semantic_page_number": 50,
+  "source_gzip_sha256": "f0ca7d5d265b5e04350dfcede156e3cd4826b44da610ab54d68c3074b5e4628f",
+  "source_http_date": "Tue, 08 Sep 2026 20:36:36 GMT",
+  "source_pdf_sha256": "9777f6d7e4b650c4f6af9f494bfbcabf4e3e9f3cc083ff2effb060cc27a196de",
+  "source_url": "https://www.borsaistanbul.com/files/pay-piyasasi-proseduru.pdf"
+}

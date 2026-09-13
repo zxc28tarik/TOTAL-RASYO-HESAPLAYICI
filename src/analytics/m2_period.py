@@ -76,7 +76,8 @@ def _discount_score(px: Optional[float], low: Optional[float], mid: Optional[flo
     return float(np.clip(0.25 - (px - high) / max(high, 1e-9), 0.0, 0.25))
 
 
-def _follow_score(gap: Optional[float]) -> float:
+def compute_m2_follow_score(gap: Optional[float]) -> float:
+    """Production FOLLOW transform shared by DB and file materializers."""
     if gap is None or not np.isfinite(float(gap)):
         return 0.5
     # gap = band_mid_change - price_change. Positive means price lags expectation.
@@ -308,7 +309,7 @@ def compute_m2_period_comparison(conn, asof_date: str, horizon_days: int = 63) -
         alpha_support = _alpha_support_score(alpha_val) if alpha_score is None else float(alpha_score)
 
         band_score = _discount_score(current_px, c_low, c_mid, c_high)
-        follow = _follow_score(follow_gap)
+        follow = compute_m2_follow_score(follow_gap)
         quality_support = 0.5 if quality_score is None else float(np.clip(quality_score, 0.0, 1.0))
         val_norm = val_map.get(str(ticker))
         valuation_support = 0.5 if val_norm is None or not np.isfinite(float(val_norm)) else float(np.clip(val_norm, 0.0, 1.0))

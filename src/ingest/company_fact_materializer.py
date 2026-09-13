@@ -372,6 +372,33 @@ def _select_fact(
     return max(rows, key=_candidate_key)
 
 
+def _quarter_start(period_end: date) -> date:
+    quarter = (period_end.month - 1) // 3
+    return date(period_end.year, quarter * 3 + 1, 1)
+
+
+def _select_flow_fact(
+    candidates: Sequence[SemanticFinancialFact],
+    *,
+    period_end: date,
+) -> Optional[SemanticFinancialFact]:
+    """Prefer an explicitly bounded single-quarter flow when KAP exposes both columns.
+
+    Some KAP statement cells carry ``YTD`` as their semantic nature even when
+    their context dates bound exactly one quarter.  The dates are stronger
+    evidence than the coarse nature label, and avoid subtracting a cumulative
+    prior from an already-quarterly value.
+    """
+    direct = [
+        row for row in candidates
+        if row.nature in {"QUARTER", "YTD"}
+        and row.period_start == _quarter_start(period_end)
+    ]
+    if direct:
+        return max(direct, key=_candidate_key)
+    return _select_fact(candidates)
+
+
 def _lineage_item(fact: SemanticFinancialFact) -> Mapping[str, Any]:
     return {
         "source": fact.source,
@@ -398,10 +425,15 @@ def _quarter_flow_value(
         return None, (current,), f"UNSUPPORTED_FLOW_NATURE_{current.nature}"
     if current.period_start is None:
         return None, (current,), "YTD_PERIOD_START_MISSING"
+    if current.period_start == _quarter_start(current.period_end):
+        return current.value, (current,), "DIRECT_QUARTER_DURATION"
     if current.period_end.month == 3:
         return current.value, (current,), "YTD_Q1_DIRECT"
     prior_end = _shift_quarter_end(current.period_end, -1)
-    prior_candidates = candidates_by_field_period.get((current.canonical_field, prior_end), ())
+    prior_candidates = tuple(
+        row for row in candidates_by_field_period.get((current.canonical_field, prior_end), ())
+        if row.period_start == current.period_start
+    )
     prior = _select_fact(
         prior_candidates,
         preferred_disclosure_id=current.disclosure_id,
@@ -490,7 +522,11 @@ def derive_company_quarters(
 
         for core_field, canonical_field in config.field_map.items():
             candidates = by_field_period.get((canonical_field, period), ())
-            selected = _select_fact(candidates)
+            selected = (
+                _select_flow_fact(candidates, period_end=period)
+                if core_field in FLOW_CORE_FIELDS
+                else _select_fact(candidates)
+            )
             if selected is None:
                 field_reasons[core_field] = "MISSING"
                 continue

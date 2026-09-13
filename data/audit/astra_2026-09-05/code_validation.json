@@ -1,0 +1,26 @@
+{
+  "authoritative_ready": false,
+  "bank_v47": {
+    "passed": 277,
+    "xfailed": 1
+  },
+  "ci_run_id": 33986983642,
+  "ci_status": "SUCCESS",
+  "code_commit": "b928a326e458b97bb1dc8533e03e3dc57ef10ebf",
+  "contract": "ASTRA_CODE_VALIDATION_V1",
+  "cross_model_review": false,
+  "experimental_backtest_complete": false,
+  "full_regression": {
+    "passed": 1991,
+    "skipped": 7
+  },
+  "mutations": {
+    "killed": 16,
+    "total": 16
+  },
+  "reviewer": "Codex/Astra",
+  "source_gate": "BLOCKED",
+  "targeted_local": {
+    "passed": 45
+  }
+}

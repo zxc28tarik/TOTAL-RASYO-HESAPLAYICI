@@ -35,12 +35,18 @@ def test_shared_ek9_math_keeps_sample_std_and_006_cap():
     assert float(scored.loc["AAA", "ek9"]) == 0.0
 
 
-def test_shared_ek9_keeps_legacy_nonfinite_cleanup():
+def test_shared_ek9_rejects_nonfinite_input_instead_of_maximum_score():
     returns = pd.DataFrame({"AAA": [np.inf, np.inf], "BBB": [np.nan, np.nan]})
     scored = compute_ek9_volatility_scores(returns)
-    assert float(scored.loc["AAA", "volatility"]) == 0.0
-    assert float(scored.loc["AAA", "ek9"]) == 1.0
-    assert float(scored.loc["BBB", "ek9"]) == 1.0
+    assert scored.isna().all().all()
+
+
+def _mock_reads(monkeypatch, prices, days):
+    def read_sql(sql, *args, **kwargs):
+        if "core.index_prices_daily" in sql:
+            return pd.DataFrame({"trade_date": days})
+        return prices.copy()
+    monkeypatch.setattr(run_daily_pipeline.pd, "read_sql", read_sql)
 
 
 def test_live_ek9_path_calls_shared_math_and_matches_legacy(monkeypatch):
@@ -62,7 +68,7 @@ def test_live_ek9_path_calls_shared_math_and_matches_legacy(monkeypatch):
         ],
         ignore_index=True,
     )
-    monkeypatch.setattr(run_daily_pipeline.pd, "read_sql", lambda *args, **kwargs: prices)
+    _mock_reads(monkeypatch, prices, days)
 
     calls: list[pd.DataFrame] = []
     real = compute_ek9_volatility_scores
@@ -84,7 +90,7 @@ def test_live_ek9_path_calls_shared_math_and_matches_legacy(monkeypatch):
     pd.testing.assert_series_equal(actual, expected["ek9"].sort_index(), check_names=False)
 
 
-def test_live_ek9_pct_change_call_keeps_legacy_default(monkeypatch):
+def test_live_ek9_pct_change_explicitly_disables_fill(monkeypatch):
     days = pd.bdate_range("2024-01-01", periods=70)
     prices = pd.DataFrame(
         {
@@ -93,7 +99,7 @@ def test_live_ek9_pct_change_call_keeps_legacy_default(monkeypatch):
             "px": np.linspace(100.0, 130.0, len(days)),
         }
     )
-    monkeypatch.setattr(run_daily_pipeline.pd, "read_sql", lambda *args, **kwargs: prices)
+    _mock_reads(monkeypatch, prices, days)
 
     original = pd.DataFrame.pct_change
     seen: list[dict] = []
@@ -104,10 +110,10 @@ def test_live_ek9_pct_change_call_keeps_legacy_default(monkeypatch):
 
     monkeypatch.setattr(pd.DataFrame, "pct_change", spy)
     run_daily_pipeline._compute_ek9_vol(object(), days[-1].date(), lookback=63)
-    assert seen == [{}]
+    assert seen == [{"fill_method": None}]
 
 
-def test_live_ek9_insufficient_global_rows_still_returns_empty(monkeypatch):
+def test_live_ek9_insufficient_global_rows_remain_unscored(monkeypatch):
     days = pd.bdate_range("2024-01-01", periods=64)
     prices = pd.DataFrame(
         {
@@ -116,7 +122,7 @@ def test_live_ek9_insufficient_global_rows_still_returns_empty(monkeypatch):
             "px": np.linspace(100.0, 120.0, len(days)),
         }
     )
-    monkeypatch.setattr(run_daily_pipeline.pd, "read_sql", lambda *args, **kwargs: prices)
+    _mock_reads(monkeypatch, prices, days)
     result = run_daily_pipeline._compute_ek9_vol(object(), days[-1].date(), lookback=63)
-    assert list(result.columns) == ["ticker", "ek9"]
-    assert result.empty
+    assert result["ek9"].isna().all()
+    assert result["ek9_rejection_reason"].tolist() == ["EK9_WINDOW_UNAVAILABLE"]

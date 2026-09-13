@@ -10,3 +10,4 @@ yfinance>=0.2.36
 python-dotenv>=1.0
 
 beautifulsoup4>=4.12
+pypdf>=5.0

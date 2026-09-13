@@ -1,0 +1,22 @@
+{
+  "valuation_profile": "NONFIN_RELATIVE_MULTIPLES_RAW_CLOSE_PIT",
+  "valuation_version": 2,
+  "multiple_weights": {
+    "PE": 0.3,
+    "EV_EBIT": 0.3,
+    "PS": 0.2,
+    "PB": 0.2
+  },
+  "lower_quantile": 0.25,
+  "upper_quantile": 0.75,
+  "minimum_peer_count": 5,
+  "full_confidence_peer_count": 12,
+  "minimum_coverage_weight": 0.5,
+  "max_halfwidth": 1.25,
+  "band_width_shadow_mode": true,
+  "valuation_axis_weight": 0.6,
+  "follow_axis_weight": 0.4,
+  "source_derivation_profile": "KAP_NONBANK_CORE_EXAMPLE",
+  "source_derivation_version": 1,
+  "max_price_age_days": 7
+}

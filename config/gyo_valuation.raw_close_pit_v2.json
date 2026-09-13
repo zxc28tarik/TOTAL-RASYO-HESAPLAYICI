@@ -1,0 +1,23 @@
+{
+  "valuation_profile": "GYO_PD_NAV_RAW_CLOSE_PIT",
+  "valuation_version": 2,
+  "source_nav_profile": "GYO_REPORTED_NAV",
+  "source_nav_version": 1,
+  "share_basis": "POINT_IN_TIME_MARKET_CLOSE_SHARES_V1",
+  "currency": "TRY",
+  "lower_quantile": 0.25,
+  "upper_quantile": 0.75,
+  "minimum_peer_count": 3,
+  "full_confidence_peer_count": 8,
+  "minimum_pd_nav": 0.05,
+  "maximum_pd_nav": 3.0,
+  "max_nav_age_days": 200,
+  "full_freshness_days": 95,
+  "max_price_age_days": 7,
+  "minimum_source_confidence": 0.4,
+  "derived_nav_confidence_factor": 0.85,
+  "max_halfwidth": 1.25,
+  "band_width_shadow_mode": true,
+  "valuation_axis_weight": 0.65,
+  "follow_axis_weight": 0.35
+}

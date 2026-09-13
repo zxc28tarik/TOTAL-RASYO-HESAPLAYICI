@@ -1,0 +1,4631 @@
+{
+  "base_commit": "0db6cc19a357892afdd43b2fa103968d30ce1825",
+  "captured_at": "2026-09-12T19:54:52.437244+00:00",
+  "command": "python scripts/audit_w1_baseline.py --capture",
+  "contract": "W1_PRE_CHANGE_BASELINE_V1",
+  "counts": {
+    "ek9": 11,
+    "follow": 48,
+    "m2": 48,
+    "ranking": 2,
+    "rejections": 805,
+    "total": 2,
+    "universe": 807
+  },
+  "files": {
+    "data/live/current_core_modules_v1/modules.jsonl": {
+      "bytes": 28704,
+      "git_blob": "1ff4154b918974c702b9d74aeafbad4154d393c9",
+      "sha256": "2a808eaa367db556ce81e295b8529f4cb7e05da8002ca83052b8867b2bddd935"
+    },
+    "data/live/current_core_modules_v1/receipt.json": {
+      "bytes": 1781,
+      "git_blob": "c0c7e446d634456411351b9a4704d807480c1f16",
+      "sha256": "267e068a076742337dc0464cac99b4ad02f5476ddc8d4a7c2fa7612d5b25744e"
+    },
+    "data/live/current_market_modules_v1/modules.csv": {
+      "bytes": 5933,
+      "git_blob": "d560e0bedb2d464681c575e65f71ebd74a32b5ae",
+      "sha256": "ff4bb222ac34465923410a8f6886bc06f4982b7cef10833db670c391e5c2cfd8"
+    },
+    "data/live/current_market_modules_v1/receipt.json": {
+      "bytes": 2621,
+      "git_blob": "30558ccc60b858fc36a869efdb9c6ca5fe96b9ea",
+      "sha256": "741387b423e30ea53ec1550d59ea918f14f27018bda8cd71f707cfff9dcd71a8"
+    },
+    "data/live/current_nonfin_valuation_v1/follow.jsonl": {
+      "bytes": 32136,
+      "git_blob": "e1fdcfa20d150c8cf180c794b615cb5d95b3b29c",
+      "sha256": "6eb17a40ada0ae9d13e4c058d76654385efc5601ebb71d9802423782d0d3f28b"
+    },
+    "data/live/current_nonfin_valuation_v1/m2.jsonl": {
+      "bytes": 33439,
+      "git_blob": "99c595716f22f52919a39fd65ee48843817a844d",
+      "sha256": "eafd5edfa363a65ec2810ae15d42ac5e7b84bc0666ac0ae67ab79f9ee4af0b06"
+    },
+    "data/live/current_nonfin_valuation_v1/previous_valuations.jsonl": {
+      "bytes": 176565,
+      "git_blob": "9de2629e403ae93f2a122bd51f70c8cb0f95b60b",
+      "sha256": "66ff59e4cbff4e6752b35b532423370f6005ac7568fb799e5c125b4930580e1b"
+    },
+    "data/live/current_nonfin_valuation_v1/receipt.json": {
+      "bytes": 6461,
+      "git_blob": "8dfd0713bf28ce79135696be88dc16c931b42c5d",
+      "sha256": "cb011b4e84ac24398ce62d37f05ac77ffd1d405d2763698f0c7ba86ca5ceb049"
+    },
+    "data/live/current_nonfin_valuation_v1/valuations.jsonl": {
+      "bytes": 174471,
+      "git_blob": "86e89578b79eb57a9bd311dcc53391fbedf5306b",
+      "sha256": "7287ce6f79febae18019c8621d5d2dfcd8ec7afda6b84ae5553a1f9de802baf7"
+    },
+    "data/live/current_price_level_basis_v1/receipt.json": {
+      "bytes": 2862,
+      "git_blob": "3808d2666ee8e1421bd0af9d4d93b2c9a3c64a4a",
+      "sha256": "f6dbd337dd45ccccf61103e3d790c7b1ed283d684055946a83d13e9bea2410ae"
+    },
+    "data/live/current_quote_unit_v1/receipt.json": {
+      "bytes": 643,
+      "git_blob": "f82a68ec1968495b18ecb997eea162a36e9229bb",
+      "sha256": "9c4bc735289bbc026fab9d7813324e1b97174bd920087a91349ccbb34bb96e31"
+    },
+    "data/live/current_raw_close_v1/receipt.json": {
+      "bytes": 528,
+      "git_blob": "fe509bab816ef25d3469b57082045b2865be8149",
+      "sha256": "b6b485a3e2426a9fa739c7c4375b2b21d0dfcf9d279d88d5f70ce46525be7950"
+    },
+    "data/live/current_share_basis_v1/receipt.json": {
+      "bytes": 1682,
+      "git_blob": "44089cc0fd44e90ce99daef1ef965b8ce006a42f",
+      "sha256": "421d2803b4163bfbe5bcc8e950bf4ae3e665d5a38ab267d68f835c04a5b1eb21"
+    },
+    "data/live/current_total_rasyo_run_v1/receipt.json": {
+      "bytes": 2748,
+      "git_blob": "76f0fff4052b213d05aa319f20bbe92afe3d9f31",
+      "sha256": "1da4d11a8205438fbd6f499371f56a0f364849be37ca81c1db33b6feb3f8479d"
+    },
+    "data/live/current_total_rasyo_v1/receipt.json": {
+      "bytes": 4502,
+      "git_blob": "3cedaca1666cec81f2c1acd723d5525d50adbb9a",
+      "sha256": "ffcd715b07f41b49b02c27f6de26c9c7a2ee8776db2bdffdff79e341a650f57d"
+    },
+    "data/live/current_total_rasyo_v1/universe.csv": {
+      "bytes": 136784,
+      "git_blob": "caac0ee382b33d5b40a187dd29881da6585c18f8",
+      "sha256": "52d38b69a462e19604f2ad8c5400e18696cb6e7a6f3fdf7b46333180442c1da6"
+    },
+    "data/live/current_total_scores_v1/ranking.jsonl": {
+      "bytes": 703,
+      "git_blob": "6b2816ed7ae2b60f077be527ef4ce8386d3e9045",
+      "sha256": "bd8cf33a288511c136d89450d0516c9e38974d55496add051c2ce1d70c19703b"
+    },
+    "data/live/current_total_scores_v1/receipt.json": {
+      "bytes": 1249,
+      "git_blob": "3950caafe25698db66e5272100fb4c589a19a2a5",
+      "sha256": "24337f3066e3bbed4206aa04bee831e135341940644016fce11e072c08e7ea65"
+    },
+    "data/live/current_total_scores_v1/totals.jsonl": {
+      "bytes": 703,
+      "git_blob": "6b2816ed7ae2b60f077be527ef4ce8386d3e9045",
+      "sha256": "bd8cf33a288511c136d89450d0516c9e38974d55496add051c2ce1d70c19703b"
+    },
+    "sql/000_create_schemas.sql": {
+      "bytes": 39,
+      "git_blob": "48a709e2032daaf9e02820d9a10d6cbcb5cb8156",
+      "sha256": "525603aa09ca73b81d10871ff199e68ea0af554d1c5e1a999631d19a30df0d82"
+    },
+    "sql/001_create_analytics_tables.sql": {
+      "bytes": 2832,
+      "git_blob": "02117a72857faca87d824aafcff9171cdcd50e99",
+      "sha256": "abf3dd22ba6b6b2e7f93c4d0406cf673367d1117cac6043ce5a2aca876100305"
+    },
+    "sql/003_decile_thresholds.sql": {
+      "bytes": 423,
+      "git_blob": "4166465709552073af43b6e45c0305a3ebb3ae5f",
+      "sha256": "faca36193c74cc61196ec13d6337d66b09289d3210904e66b33df0ca94ab0580"
+    },
+    "sql/004_fill_sector_group.sql": {
+      "bytes": 541,
+      "git_blob": "e90638c5a46f6cd2b0b3153e238de22edad3cd67",
+      "sha256": "dae1a9035ab326a32c50c5dcf61738ef3a9cd027e0490037a2632fd33f9c3216"
+    },
+    "sql/005_backtest_tables.sql": {
+      "bytes": 763,
+      "git_blob": "34763b7d4232b0c02050d938443a7c2012a9daff",
+      "sha256": "42b0ebcd4c298070ff82505d213c9e016df4c420f7e0bffce97fceb8915c507f"
+    },
+    "sql/006_trailing_alpha_period_m2_tables.sql": {
+      "bytes": 2690,
+      "git_blob": "3e93623a995f9f064019bf6849a53ffde49171b7",
+      "sha256": "26656f3c7895a79845ee72a3e9e956dbf46fa8d521e9c540d15c75c2b5a41e27"
+    },
+    "sql/007_valuation_and_backtest_ext.sql": {
+      "bytes": 413,
+      "git_blob": "46188a361bd3b53aa4209dcee7a899fbd8c8f12e",
+      "sha256": "d8295b8e4137e889f1f63852746835b690d0baf9dd67f8f76deee219031a6527"
+    },
+    "sql/010_create_core_tables.sql": {
+      "bytes": 1740,
+      "git_blob": "95d23fd3eb2a402bf15e1be945c49e47f1e3f497",
+      "sha256": "1eb665dfdb7b221fbdad04f19b1a2ab019721beb3362e852e2f00fc531977728"
+    },
+    "sql/011_bank_valuation_integration.sql": {
+      "bytes": 7119,
+      "git_blob": "d3b0c0ad2d39c2e0a98cab4e9eb7b0cd671d41e8",
+      "sha256": "5034a627fe2bda30edabd246b08293b7a489b32ee8a7e84c0246f3e9b6d18326"
+    },
+    "sql/012_bank_point_in_time_slots.sql": {
+      "bytes": 318,
+      "git_blob": "354e5eaffb3dccd56f20bd1ec5ef93b75ad2cc23",
+      "sha256": "549a393f9ed03771291a12e1596ece89fc4355b081346e6858cf0061c3840a4d"
+    },
+    "sql/013_bank_batch_m2_integration.sql": {
+      "bytes": 7681,
+      "git_blob": "fdb3fcb01ddcff0541a8c8ef461ec9c120678eca",
+      "sha256": "e822f5fe77e916d47ee681643642fb5e1520bec5e09017d29e13ade7560fb4cb"
+    },
+    "sql/014_bank_point_in_time_slots_batch.sql": {
+      "bytes": 622,
+      "git_blob": "78e412da976c8ed6fc730193f1bcd6d7bd552a37",
+      "sha256": "0590dc00a1f176b751d7137802cfa8c2b4dc8c6ec892a770a3cfaf4f94c3f4d0"
+    },
+    "sql/015_kap_official_ingestion.sql": {
+      "bytes": 6903,
+      "git_blob": "ac8fceb0bc850b8e3d6ce373bf4d5e092a61d291",
+      "sha256": "5ae2b9d9c0f187c12b73ef9f63c4e38b6ed69b3a35e17b0224ff3fb2dc5faceb"
+    },
+    "sql/016_semantic_sector_materialization.sql": {
+      "bytes": 11472,
+      "git_blob": "547c8d97ebab6463ad835885b693a8972f9a152b",
+      "sha256": "1bc23be0a191f1f548fbeec71adead9fd0c157ae5afc124d964e91fcc75d1aba"
+    },
+    "sql/017_kap_bank_batch_persistence.sql": {
+      "bytes": 5561,
+      "git_blob": "f39ad768e7fec4d16f75d229a08849b5712fb4a0",
+      "sha256": "9a471290b1a5ae2cbd922599c1e4caf4b403d5757c900cec169233cfb08fb90a"
+    },
+    "sql/018_kap_bank_database_workflow.sql": {
+      "bytes": 1381,
+      "git_blob": "d6ddbce0622ead38fc39ea4a83a584c7d54d9dac",
+      "sha256": "010fa10c8fd0e9949f44277611bbe6b01d030529aa4e62e4bab118e3e9ca89c6"
+    },
+    "sql/019_mkk_kap_runtime_safety.sql": {
+      "bytes": 2604,
+      "git_blob": "e1021a77a74bbe5de4c875fc43f62c49415579cf",
+      "sha256": "963fbb0419f75c15c3e57d854db0f391274e68265ca21cad5242c89d9ef2bb34"
+    },
+    "sql/020_mkk_suite_sync.sql": {
+      "bytes": 2893,
+      "git_blob": "83a4d1d9093448e6afce7101b7443af13e68a09f",
+      "sha256": "a2d9b25bd0cdb25736ba305dba030186060b88a7eb498c9f00ea8aee9f10a698"
+    },
+    "sql/021_company_semantic_materialization.sql": {
+      "bytes": 3392,
+      "git_blob": "17469562cf97e51f2597c97049b775235af17d54",
+      "sha256": "64d477c358db02f0063a970dabb0ef40934514fd46f12a18d727bfa94875eccd"
+    },
+    "sql/022_nonfin_relative_valuation.sql": {
+      "bytes": 2661,
+      "git_blob": "ef1caded8a67952a684b9931d486314d8f07bbc1",
+      "sha256": "1193029e2f79d3cab6f71327ae381c8903485f182528b8aeca14147f0b0dc557"
+    },
+    "sql/023_holding_nav_valuation.sql": {
+      "bytes": 5755,
+      "git_blob": "696fbfd735c5fe16ea8ab52ca132371b68ceda0e",
+      "sha256": "90b1c2df287e26d1b546abe1f8be315a53bc3384137bb87654404d30b43ce40c"
+    },
+    "sql/024_gyo_nav_valuation.sql": {
+      "bytes": 6372,
+      "git_blob": "6db4997252ff671d0f8f64edba62f646f3283a36",
+      "sha256": "d163fc31bedc4729f6169f865a590ba9f69b71e8dafb831ed5694709edfd2bf4"
+    },
+    "sql/025_insurance_valuation.sql": {
+      "bytes": 7757,
+      "git_blob": "9440c30ed1c8ca1812473b6c09567edc1acd1053",
+      "sha256": "2374899a5fd77d792a9889df3f55ddf220ec1d1e8487b2a4f2f776384adf86de"
+    },
+    "sql/026_financial_institution_valuation.sql": {
+      "bytes": 8459,
+      "git_blob": "e017dde88ae5d8151ebc1143c538b5587dcd9486",
+      "sha256": "d57bae82eb9975059a39e8a3554074899d60c5213c4972d6d7c79d25d339965a"
+    },
+    "sql/027_total_rasyo_orchestrator.sql": {
+      "bytes": 7796,
+      "git_blob": "a7be9aa18fec4bdb422b93c29937ef62df20fdb5",
+      "sha256": "14339dd55e08393299959ff49bca418c8f944f42a5a4b5b6696465d3dc7aa84b"
+    },
+    "sql/028_total_rasyo_run_registry.sql": {
+      "bytes": 3452,
+      "git_blob": "6b20a96f3b201ec59e1f6a7b852b947ecadce457",
+      "sha256": "02ca84de8fc09e247da9bcc377e8fdf86a3882dfde0743321a7964eb16642063"
+    },
+    "sql/029_total_rasyo_status_taxonomy.sql": {
+      "bytes": 3029,
+      "git_blob": "360cad679f15623f1115b302e5dbb892f07d8f3f",
+      "sha256": "ac7d3c9cf05e13ca56a78617d09a72ed87e914a555a16b4e2445ccc792ff91f7"
+    },
+    "sql/030_total_rasyo_run_scope.sql": {
+      "bytes": 2949,
+      "git_blob": "55f15f6fa6aeff5fab4d06e7a62bce3dd45b6d3c",
+      "sha256": "41b0dc91d38d94b44c3f0c8aef0fa2c0964730872c3e2f021425971d21d9c0ad"
+    },
+    "sql/031_total_rasyo_restate.sql": {
+      "bytes": 8149,
+      "git_blob": "5372bb0d6ab3e5947353f3251f7993351aec0d56",
+      "sha256": "2eee4d5324c5c64949e5a6fa287871644de6881b94b08b4f8dfe9be4fa8381c9"
+    },
+    "sql/032_impact_plan.sql": {
+      "bytes": 7566,
+      "git_blob": "a6439c6889c3df918b0bf550ce86f0214764b316",
+      "sha256": "9931df9ad809b6667b2e4017fa19c8019af0ac7d9124a7765b62aacbc562e9bf"
+    },
+    "sql/033_impact_runtime_roles.sql": {
+      "bytes": 4950,
+      "git_blob": "8f05f371b5b262e154b3513a2ac4f9956e13726e",
+      "sha256": "517a7fcbf60ade455248a484613052425a4a9f891cb49b9d9fb1e81f21ea1cba"
+    },
+    "sql/034_module_production_lineage.sql": {
+      "bytes": 2477,
+      "git_blob": "d34bfc87fd7283d4847929e07f6f551c05a9f325",
+      "sha256": "b195f021454eb236bef96b8fa9fa111c15fea5a7c33b3be8ea1b6915a311427d"
+    },
+    "sql/035_reconciliation_impact_vs_actual.sql": {
+      "bytes": 7153,
+      "git_blob": "fff5b117b372df4f9583d7da5808400baee5dbed",
+      "sha256": "df6b8de8fac3c371e558531da6315aee2c06d38503a3b10ee6546f7d438412a1"
+    },
+    "sql/036_total_rasyo_module_input.sql": {
+      "bytes": 4946,
+      "git_blob": "e9a84f2125bbf7fec70ead68ac73b371cc8258b9",
+      "sha256": "c80403ce0d8ea20dbf1a09bc5132ef7882d58fd10a9b24cdb3cd2795224db60c"
+    },
+    "sql/037_reconciliation_module_freshness.sql": {
+      "bytes": 6877,
+      "git_blob": "2c54564f72e9b47db1375a7c146a73867d59f18e",
+      "sha256": "e286e9e9825e9915061961631d565032693cf3d0a0290446955b1d498f6a5eba"
+    },
+    "sql/038_total_rasyo_restate_hardening.sql": {
+      "bytes": 6047,
+      "git_blob": "396f06ebef0a448650104e0b3d5b656c9fc7f868",
+      "sha256": "0a4348df53b11126e38210e5099caef837ab20e8af11a91cc3958af361e96606"
+    },
+    "sql/039_restate_pit_reconciliation.sql": {
+      "bytes": 5968,
+      "git_blob": "407d0cd7ccd81d8381a67ace35da085a7deee6b6",
+      "sha256": "0a84bc716525838e2239d276fd674f8c294eb4be8e35c15158cd1ce41aac75c0"
+    },
+    "sql/040_historical_universe_membership.sql": {
+      "bytes": 3358,
+      "git_blob": "8b67f6b202a12e83cc9a75ed4b92ee881224e663",
+      "sha256": "f5193c2e8f1500834b5fc9964a80316621c69ab3bcdb95e13816d7b07b6f4779"
+    },
+    "sql/041_historical_universe_truncate_guard.sql": {
+      "bytes": 1332,
+      "git_blob": "d18bba7f09144e2bce90b9d7afdfcf0622226962",
+      "sha256": "892ab2585001c5520228dba10d38e4c02ab5d03fe65f221dde8490f2701c6916"
+    },
+    "sql/042_backtest_schedule_registry.sql": {
+      "bytes": 5276,
+      "git_blob": "a7c9d8791607c4cfe06b8acc887554c34bce9d72",
+      "sha256": "2f422a7d11504fe47f48a7cc256b6d6683356cdbf4a32ee82c684c592ef4ed66"
+    },
+    "src/analytics/ek9_volatility.py": {
+      "bytes": 944,
+      "git_blob": "d2ad2df6d56bef7aa3e641f40e36abc1e295a900",
+      "sha256": "474ea87e8824c149ea69b413aa4c801a47502908a99251e1b79a859302a9229e"
+    },
+    "src/analytics/historical_pit_ek9_replay.py": {
+      "bytes": 12040,
+      "git_blob": "c66879cc0f08acf91bbe5d637c0a8d7412dccbce",
+      "sha256": "fa460a24f5489264c142043fbf3c2a0f26f6f7a82fb4ca9f01ff230bf776fa68"
+    },
+    "src/analytics/run_daily_pipeline.py": {
+      "bytes": 26651,
+      "git_blob": "13da83273268ba3b6d0cb348665b668f8a151706",
+      "sha256": "379fffe4b808f787978fd1f8f4918519f1e0eeb65607fa933cb0e7d54cd198d4"
+    },
+    "src/analytics/total_rasyo_score.py": {
+      "bytes": 5010,
+      "git_blob": "35648c11e1cebbddf1652de67aef112fa995b89d",
+      "sha256": "256d6c6e328b994c6129fa80f2a6d41803db7462cfca989a6e79b3ee9736c3e7"
+    }
+  },
+  "known_stale_receipt": "current_total_rasyo_run_v1/receipt.json describes the older Sep 8 M2=0 run; preserved, not relabeled",
+  "production_diff_empty": true,
+  "schema_inventory_kind": "VERSIONED_DDL_NOT_LIVE_DATABASE_INSPECTION",
+  "schema_scores": {
+    "analytics.alpha_trailing.alpha_score": "NUMERIC nullable (006)",
+    "analytics.bank_m2_scores.m2_score": "NUMERIC NOT NULL (013)",
+    "analytics.financial_institution_m2_scores.m2_score": "NUMERIC NOT NULL CHECK 0..1",
+    "analytics.gyo_m2_scores.m2_score": "NUMERIC NOT NULL CHECK 0..1",
+    "analytics.holding_m2_scores.m2_score": "NUMERIC NOT NULL CHECK 0..1",
+    "analytics.insurance_m2_scores.m2_score": "NUMERIC NOT NULL CHECK 0..1",
+    "analytics.m2_period_comparison.m2_final": "NUMERIC nullable (006)",
+    "analytics.nonfin_m2_scores.m2_score": "NUMERIC NOT NULL CHECK 0..1"
+  },
+  "snapshot_sources": {
+    "core": "data/live/current_core_modules_v1/modules.jsonl",
+    "follow": "data/live/current_nonfin_valuation_v1/follow.jsonl",
+    "m2": "data/live/current_nonfin_valuation_v1/m2.jsonl",
+    "market": "data/live/current_market_modules_v1/modules.csv",
+    "ranking": "data/live/current_total_scores_v1/ranking.jsonl",
+    "totals": "data/live/current_total_scores_v1/totals.jsonl"
+  },
+  "snapshots": {
+    "core": [
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.4159981845349085,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ADEL"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.3519718036876009,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ADESE"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.5421577385191264,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "AEFES"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.6666666666666666,
+        "good_count_ge8": 12,
+        "m1": 0.6986654582677263,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "AFYON"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.7313681197239461,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "AGROT"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.5555555555555556,
+        "good_count_ge8": 10,
+        "m1": 0.49650648296395106,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "AHGAZ"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.8325393014117675,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "AKCNS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.27146766458099014,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "AKFYE"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.3712653859257762,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "AKSA"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.3775287471759686,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "AKSEN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.6111111111111112,
+        "good_count_ge8": 11,
+        "m1": 0.8117165808445769,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ALFAS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.5797820146381979,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ALKIM"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.355945468375536,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ALTNY"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.5555555555555556,
+        "good_count_ge8": 10,
+        "m1": 0.646855694124828,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ARASE"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.598011809592699,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ARCLK"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.6752450037646692,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ARDYZ"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.5245991622189909,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ASELS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.41583696744884596,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ASUZU"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3333333333333333,
+        "good_count_ge8": 6,
+        "m1": 0.5880835508779971,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "AYDEM"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.7222222222222222,
+        "good_count_ge8": 13,
+        "m1": 0.6682623970478432,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "AYGAZ"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.3575912775616467,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BAGFS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.3600032019763269,
+        "period_end": "2025-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BALSU"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.6847186410932072,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BFREN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.40711472891713907,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BIENY"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.540812956832834,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BIMAS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.35007400431187224,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BIOEN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.8034238133956462,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BOBET"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.7103568663650864,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BRISA"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.8070232411575142,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BRSAN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.3816232261959253,
+        "period_end": "2026-03-31",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BTCIM"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.7434496975799677,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "BUCIM"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3333333333333333,
+        "good_count_ge8": 6,
+        "m1": 0.6976682295179886,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "CANTE"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.7348266278325155,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "CCOLA"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.6025846413231205,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "CEMTS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.5188877942658653,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "CIMSA"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.6111111111111112,
+        "good_count_ge8": 11,
+        "m1": 0.7938307816688149,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "CLEBI"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.36766989053262933,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "CVKMD"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.2966053526614217,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "CWENE"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.7546718874728781,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "DAPGM"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.48267284286239276,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "DOAS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.5089043975095947,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "EFOR"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.580125555128713,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "EGEEN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.6878429970048427,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "EGGUB"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.36088751203178754,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ENERY"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.5238383415744767,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ENJSA"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.5354302317290949,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ENKAI"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.5192386511755065,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ERBOS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.5900905248690373,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "EREGL"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.4347764154278525,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ESEN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.4843205203360915,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "EUPWR"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.35473217704714605,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "EUREN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.26000684736234014,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "FROTO"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.6084568654870272,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "GENIL"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.5831840142988682,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "GESAN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.34910849471380734,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "GLRMK"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.6010102449453258,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "GOLTS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3888888888888889,
+        "good_count_ge8": 7,
+        "m1": 0.5202188324724784,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "GRSEL"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.7777777777777778,
+        "good_count_ge8": 14,
+        "m1": 0.8361059519930648,
+        "period_end": "2026-03-31",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "GUBRF"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.32912945390481513,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "GWIND"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.47940223067018983,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "HEKTS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.22668125679646176,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "IHLGM"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.498267994755688,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "IMASM"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.5599197288247886,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "INDES"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.3679162300765156,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ISDMR"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.2425284211460771,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "IZENR"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.3074218662205979,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "IZMDC"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.40980155389682416,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KARSN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.7485978898598906,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KARTN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.5952731315875656,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KCAER"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.38353350024041133,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KLSER"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.46351216799422,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KMPUR"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3888888888888889,
+        "good_count_ge8": 7,
+        "m1": 0.6546997220200509,
+        "period_end": "2026-03-31",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KONTR"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.6761128816890082,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KONYA"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.5134126040346828,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KORDS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.687651882569547,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KRVGD"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.43428670814364745,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KUTPO"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3888888888888889,
+        "good_count_ge8": 7,
+        "m1": 0.5465346966400364,
+        "period_end": "2026-03-31",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "KUYAS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.4444444444444444,
+        "good_count_ge8": 8,
+        "m1": 0.2965931930160245,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "LIDER"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.6998517687281216,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "LMKDC"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.5,
+        "good_count_ge8": 9,
+        "m1": 0.7206051260808185,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "LOGO"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.2620390267630405,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "MAGEN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.2424084856222783,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "MGROS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.24396417360681827,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "MIATK"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.47418100166291727,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "MPARK"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.7702507477529654,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "NETAS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.5559156436837849,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "NUHCM"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3333333333333333,
+        "good_count_ge8": 6,
+        "m1": 0.7258258766542413,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "OBAMS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.5802771730280436,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ODAS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.4090942893323116,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ODINE"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.2451781057025756,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "OTKAR"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.6957585618560486,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "OYAKC"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.34441250194799894,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "PAPIL"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.22424141278512108,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "PASEU"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.2163592293075097,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "PATEK"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.37884344651958674,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "PENTA"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.26943900625784306,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "PGSUS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.7017700280722302,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "PRKAB"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.3711529226587882,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "QUAGR"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3888888888888889,
+        "good_count_ge8": 7,
+        "m1": 0.3698368037881693,
+        "period_end": "2026-03-31",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "REEDR"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.5,
+        "good_count_ge8": 9,
+        "m1": 0.601312547254561,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "RGYAS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.3770138610965668,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "RTALB"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.4632538731454174,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "SARKY"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.3457756179803785,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "SASA"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.8888888888888888,
+        "good_count_ge8": 16,
+        "m1": 0.8523519495541474,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "SAYAS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.3170565397293913,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "SDTTR"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.817753678365632,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "SELEC"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.41821130165730963,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "SMRTG"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.16666666666666666,
+        "good_count_ge8": 3,
+        "m1": 0.5109170096721807,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "SOKM"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3333333333333333,
+        "good_count_ge8": 6,
+        "m1": 0.6183316138417225,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TABGD"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3333333333333333,
+        "good_count_ge8": 6,
+        "m1": 0.44173131078703587,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TATEN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.2884143492162586,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "THYAO"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.28481096977169845,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TKNSA"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.48616000603293746,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TMSN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.3452963248990988,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TOASO"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.5,
+        "good_count_ge8": 9,
+        "m1": 0.3887715451744732,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TRALT"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3333333333333333,
+        "good_count_ge8": 6,
+        "m1": 0.4550756920277698,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TRENJ"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.4444444444444444,
+        "good_count_ge8": 8,
+        "m1": 0.7593002144113857,
+        "period_end": "2026-03-31",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TRILC"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.3681790342635448,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TRMET"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2222222222222222,
+        "good_count_ge8": 4,
+        "m1": 0.49839638786599827,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TTKOM"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.2943335457422706,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TTRAK"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.6149919004580123,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TUKAS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.5,
+        "good_count_ge8": 9,
+        "m1": 0.8875593496157821,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TUPRS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.5555555555555556,
+        "good_count_ge8": 10,
+        "m1": 0.8266677046328336,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "TUREX"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.2777777777777778,
+        "good_count_ge8": 5,
+        "m1": 0.6087892109126037,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ULKER"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.3333333333333333,
+        "good_count_ge8": 6,
+        "m1": 0.5427195447736997,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ULUUN"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.17045934924677003,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "VESBE"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.4336079776757737,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "VESTL"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.0,
+        "good_count_ge8": 0,
+        "m1": 0.6246542384394171,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "YATAS"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.05555555555555555,
+        "good_count_ge8": 1,
+        "m1": 0.464467908071444,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "YEOTK"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.40496577349517804,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "YYLGD"
+      },
+      {
+        "analysis_at": "2026-09-08T20:50:35.449423+00:00",
+        "ek1": 0.1111111111111111,
+        "good_count_ge8": 2,
+        "m1": 0.426186418716609,
+        "period_end": "2026-06-30",
+        "route_source_id": "KAP_SEKTORLER_2026_08_24",
+        "ticker": "ZOREN"
+      }
+    ],
+    "follow": [
+      {
+        "band_mid_change_1q": -0.07258782956075316,
+        "current_adjusted_close": 0.8700000047683716,
+        "current_band_mid": 0.741575576455486,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.011622680244054218,
+        "follow_score": 0.5232453604881084,
+        "previous_adjusted_close": 0.949999988079071,
+        "previous_band_mid": 0.7996181202843783,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.08421050980480738,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "ADESE",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.1831530977201764,
+        "current_adjusted_close": 19.26000022888184,
+        "current_band_mid": 34.72282550642534,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.34052229550817714,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 16.641189575195312,
+        "previous_band_mid": 42.50836406371104,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.15736919778800074,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "AEFES",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.21218003611970693,
+        "current_adjusted_close": 12.640000343322754,
+        "current_band_mid": 5.307667093606836,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.05540889111120273,
+        "follow_score": 0.38918221777759454,
+        "previous_adjusted_close": 14.989999771118164,
+        "previous_band_mid": 6.737157392489385,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.1567711450085042,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "AFYON",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.2600625779864708,
+        "current_adjusted_close": 249.5,
+        "current_band_mid": 82.09389303329267,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.5230116190903179,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 197.55349731445312,
+        "previous_band_mid": 110.94707551065264,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.2629490411038471,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "AKCNS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.207266182501623,
+        "current_adjusted_close": 11.550000190734863,
+        "current_band_mid": 11.495589885877393,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.33128863018320576,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 10.275595664978027,
+        "previous_band_mid": 14.501197794429817,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.12402244768158277,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "AKSA",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.09866361878670382,
+        "current_adjusted_close": 80.4000015258789,
+        "current_band_mid": 33.41621814049083,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.14146521563583314,
+        "follow_score": 0.21706956872833372,
+        "previous_adjusted_close": 77.0999984741211,
+        "previous_band_mid": 37.074081149935374,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.04280159684912932,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "AKSEN",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.013767867979283088,
+        "current_adjusted_close": 324.25,
+        "current_band_mid": 470.3945525291643,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.4042052789710423,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 233.1999969482422,
+        "previous_band_mid": 476.96129263742455,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.3904374109917592,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "AYGAZ",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.08993710782752451,
+        "current_adjusted_close": 128.3000030517578,
+        "current_band_mid": 16.222225583144205,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.04030750080350831,
+        "follow_score": 0.4193849983929834,
+        "previous_adjusted_close": 135.0,
+        "previous_band_mid": 17.82538956666938,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.0496296070240162,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "BFREN",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.11763671059701064,
+        "current_adjusted_close": 420.5,
+        "current_band_mid": 555.4832038367045,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.12010887115251423,
+        "follow_score": 0.25978225769497154,
+        "previous_adjusted_close": 339.7305603027344,
+        "previous_band_mid": 497.01588948342686,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.23774558174952487,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "BIMAS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.016678537730700493,
+        "current_adjusted_close": 728.5,
+        "current_band_mid": 311.31560810399867,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.4271335232098873,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 516.5,
+        "previous_band_mid": 316.5959658660837,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.4104549854791868,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "BRSAN",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.05988714079795421,
+        "current_adjusted_close": 5.760000228881836,
+        "current_band_mid": 6.12988325468999,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.011953264316902024,
+        "follow_score": 0.47609347136619595,
+        "previous_adjusted_close": 6.050000190734863,
+        "previous_band_mid": 6.5203695436024,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.047933876481052184,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "BUCIM",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.13121434631048567,
+        "current_adjusted_close": 81.69999694824219,
+        "current_band_mid": 84.68491914322242,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.31011372278719496,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 69.30192565917969,
+        "previous_band_mid": 97.47504322106016,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.17889937647670928,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "CCOLA",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.18409672389915221,
+        "current_adjusted_close": 45.93999862670898,
+        "current_band_mid": 51.32670722089685,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.14198384335881087,
+        "follow_score": 0.21603231328237826,
+        "previous_adjusted_close": 47.959720611572266,
+        "previous_band_mid": 62.90783322526178,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.042112880540341346,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "CIMSA",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.5368431966980312,
+        "current_adjusted_close": 95.8000030517578,
+        "current_band_mid": 110.02612856116424,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.05849409337530043,
+        "follow_score": 0.38301181324939915,
+        "previous_adjusted_close": 60.04999923706055,
+        "previous_band_mid": 71.5922930833541,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.5953372900733316,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "DEVA",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.17918767266496516,
+        "current_adjusted_close": 166.6999969482422,
+        "current_band_mid": 338.3186366194807,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.18990250620143112,
+        "follow_score": 0.12019498759713776,
+        "previous_adjusted_close": 164.93276977539062,
+        "previous_band_mid": 412.1753844973476,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.010714833536465962,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "DOAS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.21829775364883552,
+        "current_adjusted_close": 5537.5,
+        "current_band_mid": 1365.1272426994337,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.19803059565712666,
+        "follow_score": 0.8960611913142533,
+        "previous_adjusted_close": 5427.5,
+        "previous_band_mid": 1120.5202000995569,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.020267157991708862,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "EGEEN",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.00772306161714309,
+        "current_adjusted_close": 10.81999969482422,
+        "current_band_mid": 5.553046245883299,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.21029340892815007,
+        "follow_score": 0.07941318214369986,
+        "previous_adjusted_close": 8.883295059204102,
+        "previous_band_mid": 5.510488404395599,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.21801647054529316,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "ENERY",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.048269920682150635,
+        "current_adjusted_close": 89.6500015258789,
+        "current_band_mid": 61.461309705627784,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.06681913715307053,
+        "follow_score": 0.6336382743061411,
+        "previous_adjusted_close": 91.34436798095705,
+        "previous_band_mid": 58.63118696149603,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.018549216470919894,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "ENKAI",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.054265564277342526,
+        "current_adjusted_close": 148.39999389648438,
+        "current_band_mid": 293.2909468937267,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.1374556287338663,
+        "follow_score": 0.7749112574677326,
+        "previous_adjusted_close": 183.6000061035156,
+        "previous_band_mid": 310.1197712755551,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.19172119301120882,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "ERBOS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.9943929125629587,
+        "current_adjusted_close": 39.91999816894531,
+        "current_band_mid": 22.486606487280696,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.5605590082877316,
+        "follow_score": 1.0,
+        "previous_adjusted_close": 27.84143829345703,
+        "previous_band_mid": 11.274912955032296,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.43383390427522706,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "EREGL",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.26004194790301594,
+        "current_adjusted_close": 82.80000305175781,
+        "current_band_mid": 116.94617889810263,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.07903308837224554,
+        "follow_score": 0.3419338232555089,
+        "previous_adjusted_close": 101.0999984741211,
+        "previous_band_mid": 158.0443358467229,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.1810088595307704,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "FROTO",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.024427125637446423,
+        "current_adjusted_close": 302.5,
+        "current_band_mid": 514.429414451263,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.16181409597273422,
+        "follow_score": 0.8236281919454684,
+        "previous_adjusted_close": 371.7317810058594,
+        "previous_band_mid": 527.3100841261038,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.18624122161018064,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "GOLTS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.27195728939765473,
+        "current_adjusted_close": 1.5800000429153442,
+        "current_band_mid": 4.2535098024717435,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.4575243016073893,
+        "follow_score": 1.0,
+        "previous_adjusted_close": 1.940000057220459,
+        "previous_band_mid": 3.34406653267896,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.1855670122097346,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "IHLGM",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.05435682220575977,
+        "current_adjusted_close": 59.650001525878906,
+        "current_band_mid": 54.354991636231325,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.47960672537648197,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 38.886192321777344,
+        "previous_band_mid": 51.552748074905374,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.5339635475822417,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "ISDMR",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.18560234026965028,
+        "current_adjusted_close": 15.75,
+        "current_band_mid": 9.539006921711191,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.2368071813501702,
+        "follow_score": 0.9736143627003404,
+        "previous_adjusted_close": 16.600000381469727,
+        "previous_band_mid": 8.045705206301857,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.051204841080519925,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "JANTS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.49304308452662593,
+        "current_adjusted_close": 14.149999618530272,
+        "current_band_mid": 7.839827607632154,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.9919837887120945,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 9.4399995803833,
+        "previous_band_mid": 15.464484985497569,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.49894070418546854,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "KARSN",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.058668804002629193,
+        "current_adjusted_close": 14.449999809265137,
+        "current_band_mid": 7.591856692839632,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.393405032814509,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 10.826108932495115,
+        "previous_band_mid": 8.065021880843771,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.3347362288118798,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "KCAER",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.05184596105400874,
+        "current_adjusted_close": 4062.5,
+        "current_band_mid": 1094.0869981444841,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.016530107322059617,
+        "follow_score": 0.46693978535588077,
+        "previous_adjusted_close": 3802.5,
+        "previous_band_mid": 1040.1589573516521,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.06837606837606836,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "KONYA",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.09087966895940591,
+        "current_adjusted_close": 539.0,
+        "current_band_mid": 677.2701685170834,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.008465914231976956,
+        "follow_score": 0.5169318284639539,
+        "previous_adjusted_close": 598.4537353515625,
+        "previous_band_mid": 744.973074952431,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.09934558319138287,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "MGROS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.017081323071256316,
+        "current_adjusted_close": 427.0,
+        "current_band_mid": 279.2993490357937,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.01355605867642673,
+        "follow_score": 0.5271121173528535,
+        "previous_adjusted_close": 425.5,
+        "previous_band_mid": 274.6086696316476,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.003525264394829586,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "MPARK",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.04565291544374439,
+        "current_adjusted_close": 216.0,
+        "current_band_mid": 82.86092018358679,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.03087549141207746,
+        "follow_score": 0.5617509828241549,
+        "previous_adjusted_close": 233.8999938964844,
+        "previous_band_mid": 86.82472186952273,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.07652840685582185,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "NUHCM",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.016402655051965365,
+        "current_adjusted_close": 197.6999969482422,
+        "current_band_mid": 295.8093285161333,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.24043137617937038,
+        "follow_score": 0.019137247641259236,
+        "previous_adjusted_close": 157.3000030517578,
+        "previous_band_mid": 291.03557241397556,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.25683403123133575,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "RGYAS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.23197629583195822,
+        "current_adjusted_close": 26.34000015258789,
+        "current_band_mid": 17.76416864452175,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.2192893400929221,
+        "follow_score": 0.06142131981415577,
+        "previous_adjusted_close": 26.678468704223636,
+        "previous_band_mid": 23.12971402850737,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.01268695573903611,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "SARKY",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.2436437530940776,
+        "current_adjusted_close": 55.79999923706055,
+        "current_band_mid": 40.19476055647067,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.6393415989159965,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 39.97999954223633,
+        "previous_band_mid": 53.142630501034525,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.3956978458219189,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "SAYAS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.4171913644053584,
+        "current_adjusted_close": 375.0,
+        "current_band_mid": 91.68466560051247,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -3.264234161669264,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 80.10380554199219,
+        "previous_band_mid": 64.6946262186565,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 3.681425526074622,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "SELEC",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.03327522465321331,
+        "current_adjusted_close": 241.1999969482422,
+        "current_band_mid": 137.34742272193174,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.01501036535123057,
+        "follow_score": 0.5300207307024611,
+        "previous_adjusted_close": 236.87353515625,
+        "previous_band_mid": 132.92433559318926,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.01826485930198274,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "TABGD",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.10390347356976948,
+        "current_adjusted_close": 305.0,
+        "current_band_mid": 903.2643299141597,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.06736991367172362,
+        "follow_score": 0.6347398273434472,
+        "previous_adjusted_close": 294.25,
+        "previous_band_mid": 818.245753854919,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.03653355989804585,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "THYAO",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.20264570421187678,
+        "current_adjusted_close": 291.75,
+        "current_band_mid": 227.04696567130554,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.268399128869411,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 273.75,
+        "previous_band_mid": 284.7504138005391,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.0657534246575342,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "TOASO",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.018135930380012377,
+        "current_adjusted_close": 54.5,
+        "current_band_mid": 114.46403654673101,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.07929009547419796,
+        "follow_score": 0.6585801909483959,
+        "previous_adjusted_close": 58.04999923706055,
+        "previous_band_mid": 112.4251027109986,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.061154165094185586,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "TTKOM",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.044163890082369095,
+        "current_adjusted_close": 437.75,
+        "current_band_mid": 157.50161077032752,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.028978288282594078,
+        "follow_score": 0.44204342343481184,
+        "previous_adjusted_close": 444.5,
+        "previous_band_mid": 164.77888744326702,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.015185601799775017,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "TTRAK",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 1.5709609984797783,
+        "current_adjusted_close": 2.049999952316284,
+        "current_band_mid": 2.9433196968430195,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 1.6678773114572063,
+        "follow_score": 1.0,
+        "previous_adjusted_close": 2.2699999809265137,
+        "previous_band_mid": 1.1448324959357294,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.09691631297742798,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "TUKAS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.26888170659208166,
+        "current_adjusted_close": 394.5,
+        "current_band_mid": 477.312102336989,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.25870783842243905,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 258.25,
+        "previous_band_mid": 376.16753386644467,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.5275895450145207,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "TUPRS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.003840724306499732,
+        "current_adjusted_close": 6.110000133514404,
+        "current_band_mid": 11.448228336091283,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.1368062491423896,
+        "follow_score": 0.7736124982847792,
+        "previous_adjusted_close": 7.110000133514404,
+        "previous_band_mid": 11.492367350714396,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.14064697344888932,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "TUREX",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": -0.20615109202361892,
+        "current_adjusted_close": 94.8499984741211,
+        "current_band_mid": 233.56436569727947,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.05281470179195491,
+        "follow_score": 0.3943705964160902,
+        "previous_adjusted_close": 112.02796173095705,
+        "previous_band_mid": 294.21765697538575,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.153336390231664,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "ULKER",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 1.17571109253082,
+        "current_adjusted_close": 8.510000228881836,
+        "current_band_mid": 27.731635586539213,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 1.051536715264702,
+        "follow_score": 1.0,
+        "previous_adjusted_close": 7.570000171661377,
+        "previous_band_mid": 12.74601011216124,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.12417437726611813,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "ULUUN",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.563352844320814,
+        "current_adjusted_close": 30.799999237060547,
+        "current_band_mid": 100.24354408158123,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.8487356673491242,
+        "follow_score": 1.0,
+        "previous_adjusted_close": 43.09999847412109,
+        "previous_band_mid": 64.12086973566817,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.2853828230283102,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "YATAS",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.17410736614469102,
+        "current_adjusted_close": 33.099998474121094,
+        "current_band_mid": 62.13163518194721,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": -0.3344448387980663,
+        "follow_score": 0.0,
+        "previous_adjusted_close": 21.94156646728516,
+        "previous_band_mid": 52.91818872235098,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": 0.5085522049427573,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "YEOTK",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      },
+      {
+        "band_mid_change_1q": 0.2361970750629654,
+        "current_adjusted_close": 10.199999809265137,
+        "current_band_mid": 24.321239669581274,
+        "current_period_end": "2026-06-30",
+        "current_price_trade_date": "2026-09-08",
+        "follow_active": true,
+        "follow_gap_1q": 0.2900004088359798,
+        "follow_score": 1.0,
+        "previous_adjusted_close": 10.779999732971191,
+        "previous_band_mid": 19.67424139742644,
+        "previous_period_end": "2026-03-31",
+        "previous_price_trade_date": "2026-03-31",
+        "price_change_since_previous_period": -0.05380333377301438,
+        "price_return_basis": "YAHOO_ADJUSTED_CLOSE_RETURN_CONTINUITY_ONLY",
+        "ticker": "YYLGD",
+        "valuation_band_basis": "COMMON_CURRENT_QUOTED_NOMINAL_UNITS"
+      }
+    ],
+    "m2": [
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 1.0715580993144416,
+          "V_low": 0.35484869199905456,
+          "V_mid": 0.741575576455486,
+          "valuation_reason": null,
+          "z_val": -0.28903253779756183
+        },
+        "m2": 0.4889145391943376,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.5232453604881084,
+          "follow_score_raw": 0.5232453604881084,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.29906652745962126,
+          "valuation_score_effective": 0.4660273249984903,
+          "valuation_score_raw": 0.386404288403367,
+          "valuation_status": "OK"
+        },
+        "ticker": "ADESE",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 77.74265124692232,
+          "V_low": 20.251404194227494,
+          "V_mid": 34.72282550642534,
+          "valuation_reason": null,
+          "z_val": 0.8762647290540995
+        },
+        "m2": 0.38106609132237784,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.44663804166056076,
+          "valuation_score_effective": 0.635110152203963,
+          "valuation_score_raw": 0.802504801654681,
+          "valuation_status": "OK"
+        },
+        "ticker": "AEFES",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 12.238667326740762,
+          "V_low": 3.268792436777845,
+          "V_mid": 5.307667093606836,
+          "valuation_reason": null,
+          "z_val": -1.314539193326495
+        },
+        "m2": 0.38441388022960615,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.38918221777759454,
+          "follow_score_raw": 0.38918221777759454,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.30357610566037113,
+          "valuation_score_effective": 0.3812349885309472,
+          "valuation_score_raw": 0.10878010734506778,
+          "valuation_status": "OK"
+        },
+        "ticker": "AFYON",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 180.25623452312738,
+          "V_low": 50.82684289701151,
+          "V_mid": 82.09389303329267,
+          "valuation_reason": null,
+          "z_val": -1.756137476727018
+        },
+        "m2": 0.21522384993167726,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3188002083552448,
+          "valuation_score_effective": 0.35870641655279545,
+          "valuation_score_raw": 0.05679582464463598,
+          "valuation_status": "OK"
+        },
+        "ticker": "AKCNS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 29.26871040831221,
+          "V_low": 6.5475975733169625,
+          "V_mid": 11.495589885877393,
+          "valuation_reason": null,
+          "z_val": -0.006306817317174577
+        },
+        "m2": 0.2994055087294083,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.392760382179759,
+          "valuation_score_effective": 0.4990091812156805,
+          "valuation_score_raw": 0.49747729447959943,
+          "valuation_status": "OK"
+        },
+        "ticker": "AKSA",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 51.77567895227026,
+          "V_low": 16.707360388228707,
+          "V_mid": 33.41621814049083,
+          "valuation_reason": null,
+          "z_val": -1.5524626100838361
+        },
+        "m2": 0.2980000713679951,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.21706956872833372,
+          "follow_score_raw": 0.21706956872833372,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3499843166749304,
+          "valuation_score_effective": 0.351953739794436,
+          "valuation_score_raw": 0.07699173033781634,
+          "valuation_status": "OK"
+        },
+        "ticker": "AKSEN",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 1085.5108980623984,
+          "V_low": 279.2741464452558,
+          "V_mid": 470.3945525291643,
+          "valuation_reason": null,
+          "z_val": 0.5481049936721231
+        },
+        "m2": 0.33752773900305305,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.30333752278135784,
+          "valuation_score_effective": 0.5625462316717551,
+          "valuation_score_raw": 0.7061935203342373,
+          "valuation_status": "OK"
+        },
+        "ticker": "AYGAZ",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 35.619669029661495,
+          "V_low": 10.0436765840788,
+          "V_mid": 16.222225583144205,
+          "valuation_reason": null,
+          "z_val": -3.267082100063452
+        },
+        "m2": 0.37313521419379,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.4193849983929834,
+          "follow_score_raw": 0.4193849983929834,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3188002083552448,
+          "valuation_score_effective": 0.342302024727661,
+          "valuation_score_raw": 0.005339171244790125,
+          "valuation_status": "OK"
+        },
+        "ticker": "BFREN",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 892.7304141252642,
+          "V_low": 231.87592310713308,
+          "V_mid": 555.4832038367045,
+          "valuation_reason": null,
+          "z_val": 0.41302212324222015
+        },
+        "m2": 0.4408528994519387,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.25978225769497154,
+          "follow_score_raw": 0.25978225769497154,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.38612369805721497,
+          "valuation_score_effective": 0.5615666606232501,
+          "valuation_score_raw": 0.6594480238665054,
+          "valuation_status": "OK"
+        },
+        "ticker": "BIMAS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 700.1304611522421,
+          "V_low": 196.41217111608202,
+          "V_mid": 311.31560810399867,
+          "valuation_reason": null,
+          "z_val": -1.3377593709940014
+        },
+        "m2": 0.1946785149163711,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.4446537115263489,
+          "valuation_score_effective": 0.3244641915272852,
+          "valuation_score_raw": 0.10523030861440798,
+          "valuation_status": "OK"
+        },
+        "ticker": "BRSAN",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 12.98893472975578,
+          "V_low": 3.6277899799300086,
+          "V_mid": 6.12988325468999,
+          "valuation_reason": null,
+          "z_val": 0.09759223896770104
+        },
+        "m2": 0.4981592511308803,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.47609347136619595,
+          "follow_score_raw": 0.47609347136619595,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.33035182388384143,
+          "valuation_score_effective": 0.5128697709740031,
+          "valuation_score_raw": 0.5389577718164146,
+          "valuation_status": "OK"
+        },
+        "ticker": "BUCIM",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 187.69046752967685,
+          "V_low": 49.1585785785577,
+          "V_mid": 84.68491914322242,
+          "valuation_reason": null,
+          "z_val": 0.0535678510768501
+        },
+        "m2": 0.3057971372442088,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.4511945665532129,
+          "valuation_score_effective": 0.5096618954070147,
+          "valuation_score_raw": 0.5214140331538659,
+          "valuation_status": "OK"
+        },
+        "ticker": "CCOLA",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 119.71894006976413,
+          "V_low": 30.069902888804336,
+          "V_mid": 51.32670722089685,
+          "valuation_reason": null,
+          "z_val": 0.16049983708234383
+        },
+        "m2": 0.397909987695895,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.21603231328237826,
+          "follow_score_raw": 0.21603231328237826,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3001086965328207,
+          "valuation_score_effective": 0.5191617706382394,
+          "valuation_score_raw": 0.5638494347535306,
+          "valuation_status": "OK"
+        },
+        "ticker": "CIMSA",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 212.35901369185183,
+          "V_low": 64.16230317586509,
+          "V_mid": 110.02612856116424,
+          "valuation_reason": null,
+          "z_val": 0.23136351875549302
+        },
+        "m2": 0.4731164610152224,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.38301181324939915,
+          "follow_score_raw": 0.38301181324939915,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3626796369688081,
+          "valuation_score_effective": 0.5331862261924379,
+          "valuation_score_raw": 0.5915028659171512,
+          "valuation_status": "OK"
+        },
+        "ticker": "DEVA",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 534.5171195333203,
+          "V_low": 164.31152937349233,
+          "V_mid": 338.3186366194807,
+          "valuation_reason": null,
+          "z_val": 1.2000553638859057
+        },
+        "m2": 0.42398947512211643,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.12019498759713776,
+          "follow_score_raw": 0.12019498759713776,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3399696561523144,
+          "valuation_score_effective": 0.6265191334721022,
+          "valuation_score_raw": 0.8721483114228838,
+          "valuation_status": "OK"
+        },
+        "ticker": "DOAS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 2254.844052579026,
+          "V_low": 876.6837912231953,
+          "V_mid": 1365.1272426994337,
+          "valuation_reason": null,
+          "z_val": -2.964561714911085
+        },
+        "m2": 0.5334819074835342,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.8960611913142533,
+          "follow_score_raw": 0.8960611913142533,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.42379386228357047,
+          "valuation_score_effective": 0.2917623849297214,
+          "valuation_score_raw": 0.008634660378960619,
+          "valuation_status": "OK"
+        },
+        "ticker": "EGEEN",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 8.51501121929558,
+          "V_low": 2.776398708328219,
+          "V_mid": 5.553046245883299,
+          "valuation_reason": null,
+          "z_val": -1.1904415036890268
+        },
+        "m2": 0.2539798715863511,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.07941318214369986,
+          "follow_score_raw": 0.07941318214369986,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3499843166749303,
+          "valuation_score_effective": 0.3703576645481186,
+          "valuation_score_raw": 0.1295767287986942,
+          "valuation_status": "OK"
+        },
+        "ticker": "ENERY",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 91.62207736062598,
+          "V_low": 31.57856258681104,
+          "V_mid": 61.461309705627784,
+          "valuation_reason": null,
+          "z_val": -0.7088012737519527
+        },
+        "m2": 0.48028655049620556,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.6336382743061411,
+          "follow_score_raw": 0.6336382743061411,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.4752611119532577,
+          "valuation_score_effective": 0.3780520679562485,
+          "valuation_score_raw": 0.24340856220581084,
+          "valuation_status": "OK"
+        },
+        "ticker": "ENKAI",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 554.8860194937664,
+          "V_low": 167.23929538319064,
+          "V_mid": 293.2909468937267,
+          "valuation_reason": null,
+          "z_val": 1.1360506730007218
+        },
+        "m2": 0.6899467371317376,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.7749112574677326,
+          "follow_score_raw": 0.7749112574677326,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3699924950585551,
+          "valuation_score_effective": 0.6333037235744077,
+          "valuation_score_raw": 0.8602876419244964,
+          "valuation_status": "OK"
+        },
+        "ticker": "ERBOS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 49.46289219227662,
+          "V_low": 14.432080599862495,
+          "V_mid": 22.486606487280696,
+          "valuation_reason": null,
+          "z_val": -0.9319238483803348
+        },
+        "m2": 0.6137393902409367,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 1.0,
+          "follow_score_raw": 1.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.45461568239618355,
+          "valuation_score_effective": 0.35623231706822783,
+          "valuation_score_raw": 0.18375995703887077,
+          "valuation_status": "OK"
+        },
+        "ticker": "EREGL",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 271.30422348105657,
+          "V_low": 71.56403954510603,
+          "V_mid": 116.94617889810263,
+          "valuation_reason": null,
+          "z_val": 0.5181949029140884
+        },
+        "m2": 0.47228796731594125,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.3419338232555089,
+          "follow_score_raw": 0.3419338232555089,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.301736272949646,
+          "valuation_score_effective": 0.5591907300228962,
+          "valuation_score_raw": 0.6961671013043037,
+          "valuation_status": "OK"
+        },
+        "ticker": "FROTO",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 1187.1284067135994,
+          "V_low": 306.52238223557,
+          "V_mid": 514.429414451263,
+          "valuation_reason": null,
+          "z_val": 0.7843077911034315
+        },
+        "m2": 0.6800744790218445,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.8236281919454684,
+          "follow_score_raw": 0.8236281919454684,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.30333752278135834,
+          "valuation_score_effective": 0.5843720037394285,
+          "valuation_score_raw": 0.7781456213059494,
+          "valuation_status": "OK"
+        },
+        "ticker": "GOLTS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 6.740540797003221,
+          "V_low": 2.026348967908514,
+          "V_mid": 4.2535098024717435,
+          "valuation_reason": null,
+          "z_val": 1.6479172595524787
+        },
+        "m2": 0.7866740292679555,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 1.0,
+          "follow_score_raw": 1.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.33347619810625384,
+          "valuation_score_effective": 0.6444567154465923,
+          "valuation_score_raw": 0.9331844859301316,
+          "valuation_status": "OK"
+        },
+        "ticker": "IHLGM",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 126.78237780157372,
+          "V_low": 31.802650842502768,
+          "V_mid": 54.354991636231325,
+          "valuation_reason": null,
+          "z_val": -0.13443664182108403
+        },
+        "m2": 0.29035421652977567,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.30010869653282085,
+          "valuation_score_effective": 0.48392369421629283,
+          "valuation_score_raw": 0.4464317230075703,
+          "valuation_status": "OK"
+        },
+        "ticker": "ISDMR",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 20.760397648598406,
+          "V_low": 6.030614165024135,
+          "V_mid": 9.539006921711191,
+          "valuation_reason": null,
+          "z_val": -0.8112791595939282
+        },
+        "m2": 0.610734991685391,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.9736143627003404,
+          "follow_score_raw": 0.9736143627003404,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.4594809349596055,
+          "valuation_score_effective": 0.36881541100875814,
+          "valuation_score_raw": 0.21449394521064363,
+          "valuation_status": "OK"
+        },
+        "ticker": "JANTS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 18.42664770852669,
+          "V_low": 4.827695337269823,
+          "V_mid": 7.839827607632154,
+          "valuation_reason": null,
+          "z_val": -0.8817158654304841
+        },
+        "m2": 0.245697907264978,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.2978229904945251,
+          "valuation_score_effective": 0.4094965121082967,
+          "valuation_score_raw": 0.19611651625206872,
+          "valuation_status": "OK"
+        },
+        "ticker": "KARSN",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 18.615109927323847,
+          "V_low": 4.808877345836257,
+          "V_mid": 7.591856692839632,
+          "valuation_reason": null,
+          "z_val": -0.9510358066570912
+        },
+        "m2": 0.22150460614307785,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.40783303039731533,
+          "valuation_score_effective": 0.3691743435717964,
+          "valuation_score_raw": 0.17921760456539818,
+          "valuation_status": "OK"
+        },
+        "ticker": "KCAER",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 2402.322453465044,
+          "V_low": 677.3827615630402,
+          "V_mid": 1094.0869981444841,
+          "valuation_reason": null,
+          "z_val": -2.0725516907324475
+        },
+        "m2": 0.39783516259344087,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.46693978535588077,
+          "follow_score_raw": 0.46693978535588077,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3188002083552448,
+          "valuation_score_effective": 0.3517654140851476,
+          "valuation_score_raw": 0.0350235601174015,
+          "valuation_status": "OK"
+        },
+        "ticker": "KONYA",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 1170.5203325443872,
+          "V_low": 334.45963552814914,
+          "V_mid": 677.2701685170834,
+          "valuation_reason": null,
+          "z_val": 0.36458366125993047
+        },
+        "m2": 0.5361906481051866,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.5169318284639539,
+          "follow_score_raw": 0.5169318284639539,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3456844192360126,
+          "valuation_score_effective": 0.5490298611993417,
+          "valuation_score_raw": 0.6418341657043763,
+          "valuation_status": "OK"
+        },
+        "ticker": "MGROS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 509.8618010074237,
+          "V_low": 138.65514161999533,
+          "V_mid": 279.2993490357937,
+          "valuation_reason": null,
+          "z_val": -0.6519984917278693
+        },
+        "m2": 0.4609150117307883,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.5271121173528535,
+          "follow_score_raw": 0.5271121173528535,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3475074305366826,
+          "valuation_score_effective": 0.41678360798274483,
+          "valuation_score_raw": 0.26053348876961385,
+          "valuation_status": "OK"
+        },
+        "ticker": "MPARK",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 177.43443344281,
+          "V_low": 54.62916667379472,
+          "V_mid": 82.86092018358679,
+          "valuation_reason": null,
+          "z_val": -1.6266347108709287
+        },
+        "m2": 0.4039272647134786,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.5617509828241549,
+          "follow_score_raw": 0.5617509828241549,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.46699458823078,
+          "valuation_score_effective": 0.29871145263969445,
+          "valuation_score_raw": 0.06897027838611161,
+          "valuation_status": "OK"
+        },
+        "ticker": "NUHCM",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 424.33964092037587,
+          "V_low": 160.49054047994053,
+          "V_mid": 295.8093285161333,
+          "valuation_reason": null,
+          "z_val": 0.8288896739430666
+        },
+        "m2": 0.37378620826048625,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.019137247641259236,
+          "follow_score_raw": 0.019137247641259236,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3797830815529241,
+          "valuation_score_effective": 0.6102188486733043,
+          "valuation_score_raw": 0.7902152676802295,
+          "valuation_status": "OK"
+        },
+        "ticker": "RGYAS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 39.57937660643441,
+          "V_low": 10.642416562365195,
+          "V_mid": 17.76416864452175,
+          "valuation_reason": null,
+          "z_val": -0.5997976151807991
+        },
+        "m2": 0.26450055432895114,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.06142131981415577,
+          "follow_score_raw": 0.06142131981415577,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.44882386150654613,
+          "valuation_score_effective": 0.3998867106721481,
+          "valuation_score_raw": 0.2769430328596918,
+          "valuation_status": "OK"
+        },
+        "ticker": "SARKY",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 87.87321043842597,
+          "V_low": 25.052511016581324,
+          "V_mid": 40.19476055647067,
+          "valuation_reason": null,
+          "z_val": -0.5228013927412505
+        },
+        "m2": 0.24573457785935657,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.4574176857306894,
+          "valuation_score_effective": 0.4095576297655943,
+          "valuation_score_raw": 0.3022761842058401,
+          "valuation_status": "OK"
+        },
+        "ticker": "SAYAS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 147.66901648198888,
+          "V_low": 44.67433612935763,
+          "V_mid": 91.68466560051247,
+          "valuation_reason": null,
+          "z_val": -2.356308612459795
+        },
+        "m2": 0.17087808670055588,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.4507161655550045,
+          "valuation_score_effective": 0.28479681116759314,
+          "valuation_score_raw": 0.02253057405338634,
+          "valuation_status": "OK"
+        },
+        "ticker": "SELEC",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 233.6197685684095,
+          "V_low": 63.88436473802596,
+          "V_mid": 137.34742272193174,
+          "valuation_reason": null,
+          "z_val": -0.8685855631682967
+        },
+        "m2": 0.4344221560159514,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.5300207307024611,
+          "follow_score_raw": 0.5300207307024611,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.43024496719033084,
+          "valuation_score_effective": 0.3706897728916116,
+          "valuation_score_raw": 0.199449762415967,
+          "valuation_status": "OK"
+        },
+        "ticker": "TABGD",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 1403.624970110421,
+          "V_low": 477.5836594578356,
+          "V_mid": 903.2643299141597,
+          "valuation_reason": null,
+          "z_val": 2.0141537066151054
+        },
+        "m2": 0.6564192686000906,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.6347398273434472,
+          "follow_score_raw": 0.6347398273434472,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.37011155046082184,
+          "valuation_score_effective": 0.6708722294378529,
+          "valuation_score_raw": 0.9616776461720845,
+          "valuation_status": "OK"
+        },
+        "ticker": "THYAO",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 519.5054274484972,
+          "V_low": 127.64867810955165,
+          "V_mid": 227.04696567130554,
+          "valuation_reason": null,
+          "z_val": -0.3572829682559402
+        },
+        "m2": 0.2635126136992129,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.43704445358044797,
+          "valuation_score_effective": 0.4391876894986882,
+          "valuation_score_raw": 0.3608555491252381,
+          "valuation_status": "OK"
+        },
+        "ticker": "TOASO",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 171.82046061793775,
+          "V_low": 60.758041808005345,
+          "V_mid": 114.46403654673101,
+          "valuation_reason": null,
+          "z_val": 1.4276552687823114
+        },
+        "m2": 0.6834990563024664,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.6585801909483959,
+          "follow_score_raw": 0.6585801909483959,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.4909942927747467,
+          "valuation_score_effective": 0.7001116332051801,
+          "valuation_score_raw": 0.9075640718231022,
+          "valuation_status": "OK"
+        },
+        "ticker": "TTKOM",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 364.6278194935699,
+          "V_low": 97.51406993700714,
+          "V_mid": 157.50161077032752,
+          "valuation_reason": null,
+          "z_val": -1.5501211771801175
+        },
+        "m2": 0.40012370334148145,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.44204342343481184,
+          "follow_score_raw": 0.44204342343481184,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.30236619820274985,
+          "valuation_score_effective": 0.37217722327926117,
+          "valuation_score_raw": 0.07725837914253875,
+          "valuation_status": "OK"
+        },
+        "ticker": "TTRAK",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 5.746280594510697,
+          "V_low": 1.5938599761948513,
+          "V_mid": 2.9433196968430195,
+          "valuation_reason": null,
+          "z_val": 0.5640985626385959
+        },
+        "m2": 0.7454944665085532,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 1.0,
+          "follow_score_raw": 1.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.3585491090982049,
+          "valuation_score_effective": 0.5758241108475887,
+          "valuation_score_raw": 0.7114748270837868,
+          "valuation_status": "OK"
+        },
+        "ticker": "TUKAS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 1026.6671366723788,
+          "V_low": 288.6809685898848,
+          "V_mid": 477.312102336989,
+          "valuation_reason": null,
+          "z_val": 0.30037644424495225
+        },
+        "m2": 0.33288526463370466,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.46491417255649903,
+          "valuation_score_effective": 0.5548087743895078,
+          "valuation_score_raw": 0.6178900916014711,
+          "valuation_status": "OK"
+        },
+        "ticker": "TUPRS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 16.96218858736709,
+          "V_low": 5.935031960057311,
+          "V_mid": 11.448228336091283,
+          "valuation_reason": null,
+          "z_val": 1.1958854776051366
+        },
+        "m2": 0.7163068287830325,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.7736124982847792,
+          "follow_score_raw": 0.7736124982847792,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.4795418471647471,
+          "valuation_score_effective": 0.6781030491152016,
+          "valuation_score_raw": 0.8714025171488613,
+          "valuation_status": "OK"
+        },
+        "ticker": "TUREX",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 529.7808461442822,
+          "V_low": 134.29561398774422,
+          "V_mid": 233.56436569727947,
+          "valuation_reason": null,
+          "z_val": 1.3132438015009626
+        },
+        "m2": 0.5611812608369449,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.3943705964160902,
+          "follow_score_raw": 0.3943705964160902,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.44086978115035474,
+          "valuation_score_effective": 0.672388370450848,
+          "valuation_score_raw": 0.8910187947131183,
+          "valuation_status": "OK"
+        },
+        "ticker": "ULKER",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 58.882065691484925,
+          "V_low": 17.223651964830182,
+          "V_mid": 27.731635586539213,
+          "valuation_reason": null,
+          "z_val": 1.9220321084037557
+        },
+        "m2": 0.8288176694146094,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 1.0,
+          "follow_score_raw": 1.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.47096913569303583,
+          "valuation_score_effective": 0.7146961156910158,
+          "valuation_score_raw": 0.9558602664590499,
+          "valuation_status": "OK"
+        },
+        "ticker": "ULUUN",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 231.3280606161107,
+          "V_low": 61.23991213568341,
+          "V_mid": 100.24354408158123,
+          "valuation_reason": null,
+          "z_val": 1.7758532548714208
+        },
+        "m2": 0.7809675709658082,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 1.0,
+          "follow_score_raw": 1.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.30333752278135806,
+          "valuation_score_effective": 0.6349459516096804,
+          "valuation_score_raw": 0.9448706192769555,
+          "valuation_status": "OK"
+        },
+        "ticker": "YATAS",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 99.00516672666139,
+          "V_low": 37.25847935448917,
+          "V_mid": 62.13163518194721,
+          "valuation_reason": null,
+          "z_val": 1.288707435316168
+        },
+        "m2": 0.42884929368200325,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 0.0,
+          "follow_score_raw": 0.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.554694775084823,
+          "valuation_score_effective": 0.7147488228033387,
+          "valuation_score_raw": 0.8871477296149035,
+          "valuation_status": "OK"
+        },
+        "ticker": "YEOTK",
+        "valuation_usable": true
+      },
+      {
+        "analysis_at": "2026-09-10 20:07:33.673312+00:00",
+        "anchor_period_end": "2026-06-30",
+        "diagnostics": {
+          "V_high": 56.237376780753074,
+          "V_low": 13.233747727697029,
+          "V_mid": 24.321239669581274,
+          "valuation_reason": null,
+          "z_val": 1.201210238437344
+        },
+        "m2": 0.7966202532599891,
+        "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+        "score_inputs": {
+          "follow_active": true,
+          "follow_axis_weight": 0.4,
+          "follow_score_effective": 1.0,
+          "follow_score_raw": 1.0,
+          "valuation_axis_weight": 0.6,
+          "valuation_confidence": 0.4324746469665541,
+          "valuation_score_effective": 0.661033755433315,
+          "valuation_score_raw": 0.8723542098082081,
+          "valuation_status": "OK"
+        },
+        "ticker": "YYLGD",
+        "valuation_usable": true
+      }
+    ],
+    "market": [
+      {
+        "ek4": "0.4625571741089286",
+        "ek9": "",
+        "m3": "0.2986077207450587",
+        "ticker": "ADEL"
+      },
+      {
+        "ek4": "0.4942331928662226",
+        "ek9": "",
+        "m3": "0.1821059333887999",
+        "ticker": "ADESE"
+      },
+      {
+        "ek4": "0.15109573676417062",
+        "ek9": "",
+        "m3": "0.27871419551869925",
+        "ticker": "AEFES"
+      },
+      {
+        "ek4": "0.4274388785474621",
+        "ek9": "",
+        "m3": "0.3249378934219628",
+        "ticker": "AFYON"
+      },
+      {
+        "ek4": "0.0017246356473037128",
+        "ek9": "0.4468040681724741",
+        "m3": "0.0",
+        "ticker": "AGROT"
+      },
+      {
+        "ek4": "0.9716341067383645",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "AHGAZ"
+      },
+      {
+        "ek4": "0.3867467227364497",
+        "ek9": "",
+        "m3": "0.7237968882083965",
+        "ticker": "AKCNS"
+      },
+      {
+        "ek4": "0.516815057954534",
+        "ek9": "",
+        "m3": "0.22500237361904368",
+        "ticker": "AKFYE"
+      },
+      {
+        "ek4": "0.18717289821762031",
+        "ek9": "",
+        "m3": "0.4568324221077387",
+        "ticker": "AKSA"
+      },
+      {
+        "ek4": "0.4861710921469532",
+        "ek9": "",
+        "m3": "0.5799894040562351",
+        "ticker": "AKSEN"
+      },
+      {
+        "ek4": "0.37828778144507563",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "ALFAS"
+      },
+      {
+        "ek4": "0.49921953819442655",
+        "ek9": "",
+        "m3": "0.21605604992537733",
+        "ticker": "ALKIM"
+      },
+      {
+        "ek4": "1.0",
+        "ek9": "0.41154744133444343",
+        "m3": "0.8024131379564711",
+        "ticker": "ALTNY"
+      },
+      {
+        "ek4": "0.7461702387617609",
+        "ek9": "",
+        "m3": "0.7045779141388958",
+        "ticker": "ARASE"
+      },
+      {
+        "ek4": "0.30887382057693297",
+        "ek9": "",
+        "m3": "0.16191665279069767",
+        "ticker": "ARCLK"
+      },
+      {
+        "ek4": "0.6811984713154796",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "ARDYZ"
+      },
+      {
+        "ek4": "0.9195676206621842",
+        "ek9": "",
+        "m3": "0.5932521554700335",
+        "ticker": "ASELS"
+      },
+      {
+        "ek4": "0.3521352081870084",
+        "ek9": "",
+        "m3": "0.25263032115000056",
+        "ticker": "ASTOR"
+      },
+      {
+        "ek4": "0.28105502183458514",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "ASUZU"
+      },
+      {
+        "ek4": "0.6914339350104471",
+        "ek9": "",
+        "m3": "0.37286510505679366",
+        "ticker": "AYDEM"
+      },
+      {
+        "ek4": "0.689826844092163",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "AYGAZ"
+      },
+      {
+        "ek4": "0.8499160103121124",
+        "ek9": "",
+        "m3": "0.5922974932993953",
+        "ticker": "BAGFS"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "0.05165763439118731",
+        "m3": "0.0",
+        "ticker": "BALSU"
+      },
+      {
+        "ek4": "0.29034451255219623",
+        "ek9": "",
+        "m3": "0.16347597088335317",
+        "ticker": "BFREN"
+      },
+      {
+        "ek4": "0.4630227790976922",
+        "ek9": "",
+        "m3": "0.08199692836599687",
+        "ticker": "BIENY"
+      },
+      {
+        "ek4": "0.7220233726276855",
+        "ek9": "",
+        "m3": "0.7658359343220541",
+        "ticker": "BIMAS"
+      },
+      {
+        "ek4": "0.7375915099811232",
+        "ek9": "",
+        "m3": "0.6491278176269866",
+        "ticker": "BIOEN"
+      },
+      {
+        "ek4": "0.9835380174274023",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "BJKAS"
+      },
+      {
+        "ek4": "1.0",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "BOBET"
+      },
+      {
+        "ek4": "0.37321616620247533",
+        "ek9": "",
+        "m3": "0.007403824528439545",
+        "ticker": "BRISA"
+      },
+      {
+        "ek4": "0.7421448958738143",
+        "ek9": "",
+        "m3": "0.6567502196120936",
+        "ticker": "BRSAN"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "BSOKE"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "BTCIM"
+      },
+      {
+        "ek4": "0.7754000514809485",
+        "ek9": "",
+        "m3": "0.26519096259892",
+        "ticker": "BUCIM"
+      },
+      {
+        "ek4": "0.729527324066488",
+        "ek9": "",
+        "m3": "0.20414206559374967",
+        "ticker": "CANTE"
+      },
+      {
+        "ek4": "0.21760415663220192",
+        "ek9": "",
+        "m3": "0.3932643811671703",
+        "ticker": "CCOLA"
+      },
+      {
+        "ek4": "0.5136064897038207",
+        "ek9": "",
+        "m3": "0.26972694463715846",
+        "ticker": "CEMAS"
+      },
+      {
+        "ek4": "0.42954456794014784",
+        "ek9": "",
+        "m3": "0.14150387729152897",
+        "ticker": "CEMTS"
+      },
+      {
+        "ek4": "0.41264235825778717",
+        "ek9": "",
+        "m3": "0.14463123141247355",
+        "ticker": "CIMSA"
+      },
+      {
+        "ek4": "0.43880646033333537",
+        "ek9": "",
+        "m3": "0.1977668517354098",
+        "ticker": "CLEBI"
+      },
+      {
+        "ek4": "0.34106539207804554",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "CVKMD"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.2034380416642559",
+        "ticker": "CWENE"
+      },
+      {
+        "ek4": "0.3495092542979437",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "DAPGM"
+      },
+      {
+        "ek4": "1.0",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "DEVA"
+      },
+      {
+        "ek4": "0.2644210753360708",
+        "ek9": "",
+        "m3": "0.18859846956327947",
+        "ticker": "DOAS"
+      },
+      {
+        "ek4": "0.13260533508232433",
+        "ek9": "0.23098672434865053",
+        "m3": "1.0",
+        "ticker": "EFOR"
+      },
+      {
+        "ek4": "",
+        "ek9": "",
+        "m3": "",
+        "ticker": "EFORC"
+      },
+      {
+        "ek4": "0.5023572352302736",
+        "ek9": "",
+        "m3": "0.29460582960628273",
+        "ticker": "EGEEN"
+      },
+      {
+        "ek4": "0.7467716511652268",
+        "ek9": "",
+        "m3": "0.35258673168670157",
+        "ticker": "EGGUB"
+      },
+      {
+        "ek4": "1.0",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "ENERY"
+      },
+      {
+        "ek4": "0.555864336015578",
+        "ek9": "",
+        "m3": "0.6932741309034948",
+        "ticker": "ENJSA"
+      },
+      {
+        "ek4": "0.5445482524423396",
+        "ek9": "",
+        "m3": "0.30381564929481053",
+        "ticker": "ENKAI"
+      },
+      {
+        "ek4": "0.2726437323534959",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "ERBOS"
+      },
+      {
+        "ek4": "0.5679620943102716",
+        "ek9": "",
+        "m3": "0.3099322354361488",
+        "ticker": "EREGL"
+      },
+      {
+        "ek4": "0.5098145918675585",
+        "ek9": "",
+        "m3": "0.22591644868677654",
+        "ticker": "ESEN"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "EUPWR"
+      },
+      {
+        "ek4": "0.49304623931596414",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "EUREN"
+      },
+      {
+        "ek4": "0.24613527028764418",
+        "ek9": "",
+        "m3": "0.17886455672386364",
+        "ticker": "FENER"
+      },
+      {
+        "ek4": "0.48565815316894867",
+        "ek9": "",
+        "m3": "0.2153176469524263",
+        "ticker": "FROTO"
+      },
+      {
+        "ek4": "0.6398707099858831",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "GENIL"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "GESAN"
+      },
+      {
+        "ek4": "0.3503953999279098",
+        "ek9": "0.5826288673275781",
+        "m3": "0.40416743560814483",
+        "ticker": "GLRMK"
+      },
+      {
+        "ek4": "0.4704288404572067",
+        "ek9": "",
+        "m3": "0.22167587284505927",
+        "ticker": "GOLTS"
+      },
+      {
+        "ek4": "0.049695435488615186",
+        "ek9": "",
+        "m3": "0.30739788438464827",
+        "ticker": "GRSEL"
+      },
+      {
+        "ek4": "0.4599195022084197",
+        "ek9": "",
+        "m3": "0.36220959860576774",
+        "ticker": "GSRAY"
+      },
+      {
+        "ek4": "0.8409051324950929",
+        "ek9": "",
+        "m3": "0.42593685433392986",
+        "ticker": "GUBRF"
+      },
+      {
+        "ek4": "0.3947069506768795",
+        "ek9": "",
+        "m3": "0.09972642427247373",
+        "ticker": "GWIND"
+      },
+      {
+        "ek4": "0.5199947433741043",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "HEKTS"
+      },
+      {
+        "ek4": "0.5003449193411303",
+        "ek9": "",
+        "m3": "0.11067411467149131",
+        "ticker": "IHLGM"
+      },
+      {
+        "ek4": "0.23396118567663174",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "IMASM"
+      },
+      {
+        "ek4": "1.0",
+        "ek9": "",
+        "m3": "0.5399611553292402",
+        "ticker": "INDES"
+      },
+      {
+        "ek4": "",
+        "ek9": "",
+        "m3": "",
+        "ticker": "IPEKE"
+      },
+      {
+        "ek4": "0.813390584897773",
+        "ek9": "",
+        "m3": "0.21893582062098577",
+        "ticker": "ISDMR"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "IZENR"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.9354765017366492",
+        "ticker": "IZMDC"
+      },
+      {
+        "ek4": "0.5554921442446038",
+        "ek9": "",
+        "m3": "0.17171843151754254",
+        "ticker": "JANTS"
+      },
+      {
+        "ek4": "1.0",
+        "ek9": "",
+        "m3": "0.7618464764560379",
+        "ticker": "KARSN"
+      },
+      {
+        "ek4": "0.21637597553609791",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "KARTN"
+      },
+      {
+        "ek4": "0.5858845056372337",
+        "ek9": "",
+        "m3": "0.11607454863753253",
+        "ticker": "KAYSE"
+      },
+      {
+        "ek4": "0.2277202766369059",
+        "ek9": "",
+        "m3": "0.2614365552153163",
+        "ticker": "KCAER"
+      },
+      {
+        "ek4": "",
+        "ek9": "",
+        "m3": "",
+        "ticker": "KERVT"
+      },
+      {
+        "ek4": "0.280828305528948",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "KLSER"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "KMPUR"
+      },
+      {
+        "ek4": "0.02931828997861166",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "KONTR"
+      },
+      {
+        "ek4": "0.6127914860422474",
+        "ek9": "",
+        "m3": "0.6112852574030448",
+        "ticker": "KONYA"
+      },
+      {
+        "ek4": "0.7517246707265325",
+        "ek9": "",
+        "m3": "0.1380291345774634",
+        "ticker": "KORDS"
+      },
+      {
+        "ek4": "",
+        "ek9": "",
+        "m3": "",
+        "ticker": "KOZAA"
+      },
+      {
+        "ek4": "",
+        "ek9": "",
+        "m3": "",
+        "ticker": "KOZAL"
+      },
+      {
+        "ek4": "0.7014978558459485",
+        "ek9": "",
+        "m3": "0.7275236856487624",
+        "ticker": "KRDMD"
+      },
+      {
+        "ek4": "0.22556532663340775",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "KRVGD"
+      },
+      {
+        "ek4": "0.3265532629618199",
+        "ek9": "",
+        "m3": "0.07108745993863075",
+        "ticker": "KUTPO"
+      },
+      {
+        "ek4": "0.6597197816834078",
+        "ek9": "",
+        "m3": "0.3788759925145886",
+        "ticker": "KUYAS"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "LIDER"
+      },
+      {
+        "ek4": "0.2422608780289541",
+        "ek9": "0.6261657946337713",
+        "m3": "0.0",
+        "ticker": "LMKDC"
+      },
+      {
+        "ek4": "0.7403033516574895",
+        "ek9": "",
+        "m3": "0.421523525576999",
+        "ticker": "LOGO"
+      },
+      {
+        "ek4": "0.5602592822430459",
+        "ek9": "",
+        "m3": "0.34153598437103916",
+        "ticker": "MAGEN"
+      },
+      {
+        "ek4": "0.2864626374430591",
+        "ek9": "",
+        "m3": "0.04749898554199987",
+        "ticker": "MAVI"
+      },
+      {
+        "ek4": "0.07429861009178959",
+        "ek9": "",
+        "m3": "0.004430061338778837",
+        "ticker": "MGROS"
+      },
+      {
+        "ek4": "1.0",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "MIATK"
+      },
+      {
+        "ek4": "0.4590503831414351",
+        "ek9": "",
+        "m3": "0.324313867733509",
+        "ticker": "MPARK"
+      },
+      {
+        "ek4": "1.0",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "NETAS"
+      },
+      {
+        "ek4": "0.3127363226105044",
+        "ek9": "",
+        "m3": "0.3966780439671209",
+        "ticker": "NUHCM"
+      },
+      {
+        "ek4": "0.6597897855522601",
+        "ek9": "0.5128289592949986",
+        "m3": "0.0",
+        "ticker": "OBAMS"
+      },
+      {
+        "ek4": "0.5243290888215869",
+        "ek9": "",
+        "m3": "0.5911676646896438",
+        "ticker": "ODAS"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "0.032401576829919954",
+        "m3": "0.0",
+        "ticker": "ODINE"
+      },
+      {
+        "ek4": "0.6930382380805834",
+        "ek9": "",
+        "m3": "0.1723878088351756",
+        "ticker": "OTKAR"
+      },
+      {
+        "ek4": "0.5523588363403937",
+        "ek9": "",
+        "m3": "0.5430318484347842",
+        "ticker": "OYAKC"
+      },
+      {
+        "ek4": "0.9810706577905829",
+        "ek9": "",
+        "m3": "0.12481602178547484",
+        "ticker": "PAPIL"
+      },
+      {
+        "ek4": "0.477441597143617",
+        "ek9": "",
+        "m3": "0.08489427347425978",
+        "ticker": "PARSN"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.8526682642829854",
+        "ticker": "PASEU"
+      },
+      {
+        "ek4": "0.9291321018225815",
+        "ek9": "0.41311539413765264",
+        "m3": "0.17156968166595427",
+        "ticker": "PATEK"
+      },
+      {
+        "ek4": "0.641984725208506",
+        "ek9": "",
+        "m3": "0.16482011169243158",
+        "ticker": "PENTA"
+      },
+      {
+        "ek4": "1.0",
+        "ek9": "",
+        "m3": "0.7373910930408312",
+        "ticker": "PETKM"
+      },
+      {
+        "ek4": "0.5322701615835896",
+        "ek9": "",
+        "m3": "0.26181698393256797",
+        "ticker": "PGSUS"
+      },
+      {
+        "ek4": "0.3950586968100701",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "PRKAB"
+      },
+      {
+        "ek4": "0.3053886319899858",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "QUAGR"
+      },
+      {
+        "ek4": "0.5275242221142535",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "REEDR"
+      },
+      {
+        "ek4": "0.4153393990878014",
+        "ek9": "0.7343778138924175",
+        "m3": "0.45568121788642296",
+        "ticker": "RGYAS"
+      },
+      {
+        "ek4": "0.35158629825455767",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "RTALB"
+      },
+      {
+        "ek4": "0.5113863949770299",
+        "ek9": "",
+        "m3": "0.1144013002914232",
+        "ticker": "SARKY"
+      },
+      {
+        "ek4": "0.7841491457487955",
+        "ek9": "",
+        "m3": "0.44398037767779996",
+        "ticker": "SASA"
+      },
+      {
+        "ek4": "0.2208263323691935",
+        "ek9": "",
+        "m3": "0.380444787858317",
+        "ticker": "SAYAS"
+      },
+      {
+        "ek4": "0.5803304503596908",
+        "ek9": "",
+        "m3": "0.5547111295218935",
+        "ticker": "SDTTR"
+      },
+      {
+        "ek4": "1.0",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "SELEC"
+      },
+      {
+        "ek4": "0.0",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "SMRTG"
+      },
+      {
+        "ek4": "0.8219068719748208",
+        "ek9": "",
+        "m3": "0.9754647403509609",
+        "ticker": "SOKM"
+      },
+      {
+        "ek4": "0.26134990392461904",
+        "ek9": "0.5711857512794505",
+        "m3": "0.1611139679710679",
+        "ticker": "TABGD"
+      },
+      {
+        "ek4": "0.13865709427344566",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "TATEN"
+      },
+      {
+        "ek4": "0.3990372667363638",
+        "ek9": "",
+        "m3": "0.3607342144202428",
+        "ticker": "TCELL"
+      },
+      {
+        "ek4": "0.46863231256502724",
+        "ek9": "",
+        "m3": "0.5312927802348011",
+        "ticker": "THYAO"
+      },
+      {
+        "ek4": "0.6532126169530534",
+        "ek9": "",
+        "m3": "0.10529901933167031",
+        "ticker": "TKNSA"
+      },
+      {
+        "ek4": "0.23363212882841808",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "TMSN"
+      },
+      {
+        "ek4": "0.5921617853632184",
+        "ek9": "",
+        "m3": "0.3743795456150141",
+        "ticker": "TOASO"
+      },
+      {
+        "ek4": "0.5711402840283359",
+        "ek9": "",
+        "m3": "0.7574173593457353",
+        "ticker": "TRALT"
+      },
+      {
+        "ek4": "0.7291440276844336",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "TRENJ"
+      },
+      {
+        "ek4": "0.06630235902625112",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "TRILC"
+      },
+      {
+        "ek4": "0.6030444301833122",
+        "ek9": "",
+        "m3": "0.9859982931289137",
+        "ticker": "TRMET"
+      },
+      {
+        "ek4": "0.4599195022084197",
+        "ek9": "",
+        "m3": "0.7609291220238859",
+        "ticker": "TSPOR"
+      },
+      {
+        "ek4": "0.392578307773309",
+        "ek9": "",
+        "m3": "0.1560725820687621",
+        "ticker": "TTKOM"
+      },
+      {
+        "ek4": "0.560913734846475",
+        "ek9": "",
+        "m3": "0.39694910596096566",
+        "ticker": "TTRAK"
+      },
+      {
+        "ek4": "0.4229201527248656",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "TUKAS"
+      },
+      {
+        "ek4": "0.791326601631145",
+        "ek9": "",
+        "m3": "1.0",
+        "ticker": "TUPRS"
+      },
+      {
+        "ek4": "0.3221284877920839",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "TUREX"
+      },
+      {
+        "ek4": "0.5611603939160454",
+        "ek9": "",
+        "m3": "0.005748507788294194",
+        "ticker": "ULKER"
+      },
+      {
+        "ek4": "0.6270002401448045",
+        "ek9": "",
+        "m3": "0.4096571360102428",
+        "ticker": "ULUUN"
+      },
+      {
+        "ek4": "0.42314416770575525",
+        "ek9": "",
+        "m3": "0.1157089831841767",
+        "ticker": "VESBE"
+      },
+      {
+        "ek4": "0.8015966321498831",
+        "ek9": "",
+        "m3": "0.4812880948555144",
+        "ticker": "VESTL"
+      },
+      {
+        "ek4": "0.2443211383797715",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "YATAS"
+      },
+      {
+        "ek4": "0.1327011848402561",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "YEOTK"
+      },
+      {
+        "ek4": "0.23030859343903073",
+        "ek9": "",
+        "m3": "0.09504928130750642",
+        "ticker": "YYLGD"
+      },
+      {
+        "ek4": "0.5902770945380194",
+        "ek9": "",
+        "m3": "0.0",
+        "ticker": "ZOREN"
+      }
+    ],
+    "ranking": [
+      {
+        "base_score": 0.4629494606439795,
+        "decision": "UZAK",
+        "ek1": 0.5,
+        "ek4": 0.4153393990878014,
+        "ek9": 0.7343778138924175,
+        "final_score": 0.4629494606439795,
+        "good_count_ge8": 9,
+        "m1": 0.601312547254561,
+        "m2": 0.37378620826048625,
+        "m3": 0.4556812178864229,
+        "rank": 1,
+        "ticker": "RGYAS",
+        "total_rasyo_100": 46.294946064397955,
+        "veto_flag": false
+      },
+      {
+        "base_score": 0.4071560254257915,
+        "decision": "UZAK",
+        "ek1": 0.3333333333333333,
+        "ek4": 0.261349903924619,
+        "ek9": 0.5711857512794505,
+        "final_score": 0.4071560254257915,
+        "good_count_ge8": 6,
+        "m1": 0.6183316138417225,
+        "m2": 0.4344221560159514,
+        "m3": 0.1611139679710679,
+        "rank": 2,
+        "ticker": "TABGD",
+        "total_rasyo_100": 40.71560254257915,
+        "veto_flag": false
+      }
+    ],
+    "totals": [
+      {
+        "base_score": 0.4629494606439795,
+        "decision": "UZAK",
+        "ek1": 0.5,
+        "ek4": 0.4153393990878014,
+        "ek9": 0.7343778138924175,
+        "final_score": 0.4629494606439795,
+        "good_count_ge8": 9,
+        "m1": 0.601312547254561,
+        "m2": 0.37378620826048625,
+        "m3": 0.4556812178864229,
+        "rank": 1,
+        "ticker": "RGYAS",
+        "total_rasyo_100": 46.294946064397955,
+        "veto_flag": false
+      },
+      {
+        "base_score": 0.4071560254257915,
+        "decision": "UZAK",
+        "ek1": 0.3333333333333333,
+        "ek4": 0.261349903924619,
+        "ek9": 0.5711857512794505,
+        "final_score": 0.4071560254257915,
+        "good_count_ge8": 6,
+        "m1": 0.6183316138417225,
+        "m2": 0.4344221560159514,
+        "m3": 0.1611139679710679,
+        "rank": 2,
+        "ticker": "TABGD",
+        "total_rasyo_100": 40.71560254257915,
+        "veto_flag": false
+      }
+    ]
+  },
+  "working_tree_at_capture": [
+    "?? scripts/audit_w1_baseline.py"
+  ]
+}

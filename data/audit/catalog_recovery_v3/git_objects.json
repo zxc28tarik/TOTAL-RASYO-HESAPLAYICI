@@ -1,0 +1,72 @@
+{
+  "all_blobs_hashed": 1078,
+  "all_objects": 3094,
+  "contract": "CATALOG_LOCAL_OBJECT_SEARCH_V1",
+  "fsck": "unreachable blob 400a9c1096fa14660f72fe6452a677efb3798acf\nunreachable blob c8ffd2020b73ec2dc0bdce9bdc4a616e79c9168f\n",
+  "gzip_blobs": [
+    {
+      "git_object": "04a633b7c493d6730cc8da4c140b3068c387a6a2",
+      "sha256": "1832428e16558272ea72f188ddf4412fe93c8fddc2bc9b9b015b18279ecb8409",
+      "size": 219002
+    },
+    {
+      "git_object": "2aba71c030171aee1efeda5543a88403f5dbd397",
+      "sha256": "e8beab165b595d9514e5561454cc0417c8dbfedeb2944695aec3f81f10954baf",
+      "size": 28842
+    },
+    {
+      "git_object": "45fabb128226dacdc4a17666f61913a4e1d8b6ab",
+      "sha256": "686b8465a78be55e7ddcec900db21c8e581e6e58e99bc69ba2f0e382b2237c8c",
+      "size": 141795
+    },
+    {
+      "git_object": "56939aff35c6e8d4918c55b3f8756821706b0d2c",
+      "sha256": "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141",
+      "size": 6569315
+    },
+    {
+      "git_object": "61e193e26d7f7d3b8334a7820dc913fe621baa84",
+      "sha256": "7ec75046f1c22aef6e676590c4bf885c5c80f41a655b123ebcb6ab3a4b69c55e",
+      "size": 6423642
+    },
+    {
+      "git_object": "7b8bfae54248aba1ef3694ecc39a60439dee1304",
+      "sha256": "32a740f7a7114e03c885d1ae75c8bacd081b5254b043521fd76ca5f8e34e786e",
+      "size": 51991
+    },
+    {
+      "git_object": "d863fed3425612bbe4cac129b8083c5ebff9d45a",
+      "sha256": "f0c28c7babd018eb8994afdf4911a9d338dad43b291a1084a7acc47a3919c478",
+      "size": 1094
+    }
+  ],
+  "head": "50c3b40691ef9dbabbd588fd95255f1f5207ee52",
+  "matches": [],
+  "reflog": [
+    "50c3b40691ef9dbabbd588fd95255f1f5207ee52 update by push",
+    "50c3b40691ef9dbabbd588fd95255f1f5207ee52 commit: Migrate five valuation families to raw close and proof-bound PIT shares",
+    "50c3b40691ef9dbabbd588fd95255f1f5207ee52 commit: Migrate five valuation families to raw close and proof-bound PIT shares",
+    "91430ffcd4718fbbbcb853592a54d129329c1add update by push",
+    "91430ffcd4718fbbbcb853592a54d129329c1add commit: Write audit receipts with platform-independent LF bytes",
+    "91430ffcd4718fbbbcb853592a54d129329c1add commit: Write audit receipts with platform-independent LF bytes",
+    "df0f974641ddad4dc8987af431fc9948dc2c9422 update by push",
+    "df0f974641ddad4dc8987af431fc9948dc2c9422 commit: Restore hash-locked source manifest and record Astra validation receipts",
+    "df0f974641ddad4dc8987af431fc9948dc2c9422 commit: Restore hash-locked source manifest and record Astra validation receipts",
+    "b928a326e458b97bb1dc8533e03e3dc57ef10ebf update by push",
+    "b928a326e458b97bb1dc8533e03e3dc57ef10ebf commit: Require verified PIT action inventory for price-level materialization",
+    "b928a326e458b97bb1dc8533e03e3dc57ef10ebf commit: Require verified PIT action inventory for price-level materialization",
+    "8af5c54f02ee1ada00206f69f837feea5b214bac commit: Record user-authorized prospective Astra review governance",
+    "8af5c54f02ee1ada00206f69f837feea5b214bac commit: Record user-authorized prospective Astra review governance",
+    "a7a846afb2836445b0858eb91b1f3f224e21f089 merge origin/codex/p1-kap-semantic-family-coverage: Merge made by the 'ort' strategy.",
+    "a7a846afb2836445b0858eb91b1f3f224e21f089 merge origin/codex/p1-kap-semantic-family-coverage: Merge made by the 'ort' strategy.",
+    "ca2d4f91525fcca3ccef2ed4a523bc812cdc5fc8 merge origin/codex/p2-holding-gyo-nad-price-gaps: Merge made by the 'ort' strategy.",
+    "d67aa24ba705a132a6bf259f3ad3b9eba0df7609 merge origin/codex/p1-price-level-valuation-basis: Merge made by the 'ort' strategy.",
+    "ca2d4f91525fcca3ccef2ed4a523bc812cdc5fc8 merge origin/codex/p2-holding-gyo-nad-price-gaps: Merge made by the 'ort' strategy.",
+    "d67aa24ba705a132a6bf259f3ad3b9eba0df7609 merge origin/codex/p1-price-level-valuation-basis: Merge made by the 'ort' strategy.",
+    "dd2028953bd24f4cd11d0beb2fda93b86ad94930 branch: Created from origin/v24-real-data-work",
+    "dd2028953bd24f4cd11d0beb2fda93b86ad94930 checkout: moving from main to codex/astra-v24-finalize",
+    "adf3f810914066af7f29087b98aa62efb95a26a1 clone: from https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI.git",
+    "adf3f810914066af7f29087b98aa62efb95a26a1 clone: from https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI.git",
+    "adf3f810914066af7f29087b98aa62efb95a26a1 clone: from https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI.git"
+  ]
+}

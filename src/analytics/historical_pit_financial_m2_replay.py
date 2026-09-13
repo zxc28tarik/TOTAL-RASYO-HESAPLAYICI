@@ -8,6 +8,8 @@ import math
 from typing import Mapping
 from zoneinfo import ZoneInfo
 
+from src.analytics.price_level_adapter import SOURCE_SHARE_BASIS, attach_basis_receipts
+
 import pandas as pd
 
 from src.analytics.financial_institution_batch_pipeline import build_financial_institution_snapshots_from_frames
@@ -135,8 +137,8 @@ def _prepare_metrics(frame: pd.DataFrame, *, analysis_at: datetime, tickers: tup
         raise HistoricalPitFinancialM2ReplayError("accounting_profile config ile ayni olmali")
     if not pd.to_numeric(out["accounting_version"], errors="coerce").eq(config.accounting_version).all():
         raise HistoricalPitFinancialM2ReplayError("accounting_version config ile ayni olmali")
-    if not out["share_basis"].astype(str).str.upper().eq(config.share_basis).all():
-        raise HistoricalPitFinancialM2ReplayError("share_basis config ile ayni olmali")
+    if not out["share_basis"].astype(str).str.upper().eq(SOURCE_SHARE_BASIS).all():
+        raise HistoricalPitFinancialM2ReplayError("share_basis dated unadjusted source olmali")
     if not out["currency"].astype(str).str.upper().eq(config.currency).all():
         raise HistoricalPitFinancialM2ReplayError("currency config ile ayni olmali")
     out["period_end"] = period_ends
@@ -207,9 +209,11 @@ def run_historical_pit_financial_m2_replay(*, analysis_at: datetime, universe: p
     hist_metrics = _prepare_metrics(metrics, analysis_at=analysis, tickers=tickers, config=config)
     hist_prices = _prepare_prices(prices, analysis_at=analysis, tickers=tickers)
     contexts = _follow(follow_contexts, analysis_at=analysis, tickers=tickers)
+    basis_receipts = {}
     try:
-        snapshots, rejected = build_financial_institution_snapshots_from_frames(universe=hist_universe, metrics=hist_metrics, prices=hist_prices, analysis_at=analysis)
-        report = evaluate_financial_institution_batch(snapshots, config=config, follow_contexts=contexts)
+        snapshots, rejected = build_financial_institution_snapshots_from_frames(basis_receipts=basis_receipts, universe=hist_universe, metrics=hist_metrics, prices=hist_prices, analysis_at=analysis)
+        report = evaluate_financial_institution_batch(snapshots, config=config, follow_contexts={k: v for k, v in contexts.items() if k in {s.ticker for s in snapshots}})
+        attach_basis_receipts(report, basis_receipts)
     except (FinancialInstitutionValuationError, ValueError, TypeError, OverflowError) as exc:
         raise HistoricalPitFinancialM2ReplayError("FINANCIAL production math replay basarisiz") from exc
     rows: list[dict[str, object]] = []

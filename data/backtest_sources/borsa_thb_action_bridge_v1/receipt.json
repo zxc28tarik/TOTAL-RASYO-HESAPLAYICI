@@ -1,0 +1,25 @@
+{
+  "authoritative_m2_claim_allowed": false,
+  "availability_policy": "ZIP_MEMBER_TIMESTAMP_MUST_BE_AT_OR_BEFORE_CELL_KNOWLEDGE_CUTOFF",
+  "candidate_cells": 1750,
+  "candidate_tickers": 94,
+  "captured_at": "2026-09-08T17:26:17.096227+00:00",
+  "captured_daily_archives": 1482,
+  "complete_before_cutoff_cells": 1,
+  "conservative_flag_policy": "ONLY_BLANK_OR_00_ACCEPTED;ALL_OTHER_CODES_REJECTED",
+  "continuity_corroborated_no_action_cells": 855,
+  "contract": "OFFICIAL_BORSA_THB_ACTION_BRIDGE_V1",
+  "explicit_rejections": 1749,
+  "historical_code_semantics_assumed": false,
+  "max_bridge_trading_days": 2000,
+  "outputs": {
+    "cell_bridges.jsonl.gz": "fbacb21e46c71c7fe86994d9e4d90c70137bb0a9544cf760333390915af73e8f",
+    "daily_thb_evidence.jsonl.gz": "82cf831eb812bb24ce6849470fd12b6e80bab214dab8cbc11b40d5fb87a92350",
+    "official_thb_schema_v1_14.pdf": "84d25d9af2bdc14cd37ef30d4e6b82c39c0a0aba91f05ccd6a34e14829d19b9f"
+  },
+  "required_daily_archives": 1482,
+  "schema_sha256": "84d25d9af2bdc14cd37ef30d4e6b82c39c0a0aba91f05ccd6a34e14829d19b9f",
+  "schema_url": "https://www.borsaistanbul.com/files/pay-piyasasi-veri-bildirim-ve-kabul-formatlari.pdf",
+  "zero_length_complete_cells": 1,
+  "zip_member_timestamp_basis": "ZIP_MEMBER_WALL_CLOCK_ASSUMED_EUROPE_ISTANBUL"
+}

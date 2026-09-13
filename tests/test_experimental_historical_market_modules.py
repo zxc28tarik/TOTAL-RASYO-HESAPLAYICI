@@ -1,0 +1,92 @@
+import numpy as np
+import pandas as pd
+import pytest
+
+from scripts.experimental_historical_market_modules import (
+    dated_route, build_market_modules, package_route, SOURCE,
+)
+
+
+def test_dated_route_enforces_publication_effective_and_ticker_identity():
+    assert dated_route('2024-09-05T12:00:00+03:00', 'GRTRK')[0] is None
+    assert dated_route('2024-09-07T12:00:00+03:00', 'GRTRK')[0] is None
+    assert dated_route('2024-09-10T12:00:00+03:00', 'GRTRK')[0] == 'XUMAL'
+    assert dated_route('2024-09-10T12:00:00+03:00', 'GRTHO')[0] is None
+    assert dated_route('2025-01-03T10:00:00+03:00', 'GRTHO')[0] == 'XUMAL'
+    assert dated_route('2025-01-03T10:00:00+03:00', 'AAA')[0] is None
+
+
+def test_invalid_source_is_rejected_even_when_tokens_survive(tmp_path):
+    path = tmp_path/'changed.html'; path.write_bytes(SOURCE.read_bytes()+b' ')
+    with pytest.raises(ValueError, match='HASH_MISMATCH'):
+        dated_route('2025-01-03T10:00:00+03:00', 'GRTHO', source_path=path)
+
+
+def test_package_route_is_ticker_exact_and_half_open():
+    routes = pd.DataFrame([
+        {'ticker':'AAA','valid_from':'2021-01-01','valid_to':'2024-01-01',
+         'sector_index_code':'XUSIN','source_id':'OLD'},
+        {'ticker':'AAA','valid_from':'2024-01-01','valid_to':'',
+         'sector_index_code':'XUHIZ','source_id':'NEW'},
+    ])
+    assert package_route(routes, 'AAA', '2023-12-31')[0] == 'XUSIN'
+    code, _, receipt = package_route(routes, 'AAA', '2024-01-01')
+    assert code == 'XUHIZ' and receipt['source_id'] == 'NEW'
+    assert package_route(routes, 'BBB', '2024-01-01')[0] is None
+
+
+def test_package_route_rejects_overlapping_or_future_effective_mutations():
+    overlap = pd.DataFrame([
+        {'ticker':'AAA','valid_from':'2021-01-01','valid_to':'',
+         'sector_index_code':'XUSIN','source_id':'ONE'},
+        {'ticker':'AAA','valid_from':'2023-01-01','valid_to':'',
+         'sector_index_code':'XUHIZ','source_id':'TWO'},
+    ])
+    assert package_route(overlap, 'AAA', '2024-01-01')[1] == 'HISTORICAL_ROUTE_INTERVAL_AMBIGUOUS'
+    assert package_route(overlap.iloc[[1]], 'AAA', '2022-01-01')[0] is None
+
+
+def frames(end='2025-01-02'):
+    days = pd.bdate_range(end=end, periods=320)
+    step = np.arange(len(days))
+    calendar = pd.DataFrame({'trade_date': days})
+    prices = pd.concat([pd.DataFrame(dict(ticker=t, trade_date=days,
+        close=50*np.exp(step*.0016), adj_close=50*np.exp(step*.0016)))
+        for t in ('GRTHO', 'AAA')], ignore_index=True)
+    indices = pd.concat([pd.DataFrame(dict(index_code=c,trade_date=days,
+        close=100*np.exp(step*r))) for c,r in [('XU100',.001),('XUMAL',.0013)]], ignore_index=True)
+    return calendar, prices, indices
+
+
+def test_dated_subset_runs_market_math_while_other_ticker_keeps_independent_ek9():
+    result = build_market_modules('2025-01-03T10:00:00+03:00', ['AAA','GRTHO'], *frames())
+    grtho = result['per_ticker']['GRTHO']; aaa = result['per_ticker']['AAA']
+    for name in ['M3','Ek4','Ek9']:
+        assert grtho[name]['value'] is not None, grtho[name]['reasons']
+    assert aaa['M3']['value'] is None
+    assert aaa['Ek4']['value'] is None
+    assert aaa['Ek9']['value'] is not None
+
+
+def test_post_cutoff_prices_do_not_leak():
+    calendar, prices, indices = frames()
+    prices.loc[0,'trade_date'] = pd.Timestamp('2025-01-03')
+    result = build_market_modules('2025-01-03T10:00:00+03:00', ['GRTHO'], calendar,prices,indices)
+    assert all(m['value'] is None and m['reasons'] == ['POST_CUTOFF_MARKET_DATA']
+        for m in result['per_ticker']['GRTHO'].values())
+
+
+@pytest.mark.parametrize('day,closing,too_early', [
+    ('2021-10-28', '12:40:00', '12:39:59'),
+    ('2023-06-27', '12:40:00', '12:39:59'),
+    ('2026-05-26', '12:40:00', '12:39:59'),
+    ('2025-01-02', '18:10:00', '18:09:59'),
+])
+def test_authorized_close_boundary_keeps_actual_session_observations(day, closing, too_early):
+    calendar, prices, indices = frames(end=day)
+    result = build_market_modules(f'{day}T{closing}+03:00', ['AAA'], calendar, prices, indices)
+    assert result['market_asof_date'] == day
+    assert result['per_ticker']['AAA']['Ek9']['value'] is not None
+    early = build_market_modules(f'{day}T{too_early}+03:00', ['AAA'], calendar, prices, indices)
+    assert all(m['value'] is None and m['reasons'] == ['POST_CUTOFF_MARKET_DATA']
+               for m in early['per_ticker']['AAA'].values())

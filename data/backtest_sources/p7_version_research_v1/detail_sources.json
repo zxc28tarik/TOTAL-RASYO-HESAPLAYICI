@@ -1,0 +1,26 @@
+[
+  {
+    "path": "kap_1122417.html",
+    "response_http_date": "Sun, 06 Sep 2026 02:36:54 GMT",
+    "sha256": "da1bf96601b91024b2aed63063429e6546425dfec10e6129b636c8270c061e6c",
+    "url": "https://kap.org.tr/tr/Bildirim/1122417"
+  },
+  {
+    "path": "kap_1126845.html",
+    "response_http_date": "Sun, 06 Sep 2026 02:36:57 GMT",
+    "sha256": "c312ad31f7415bd7f0e7ec83a6f842dbcf4310bd89a2e0c1d056901c5e9db567",
+    "url": "https://kap.org.tr/tr/Bildirim/1126845"
+  },
+  {
+    "path": "kap_1122417.xls",
+    "response_http_date": "Sun, 06 Sep 2026 02:37:20 GMT",
+    "sha256": "57e576ffe750c1c62b8f0a2fe051d7d62c66083c96dff5fda74484cd96875125",
+    "url": "https://kap.org.tr/tr/api/notification/export/excel/1122417"
+  },
+  {
+    "path": "kap_1126845.xls",
+    "response_http_date": "Sun, 06 Sep 2026 02:37:21 GMT",
+    "sha256": "01815c9db233fce2ad717f87dfe0787d2bec9aebe64555bb6780a80dd8d843e5",
+    "url": "https://kap.org.tr/tr/api/notification/export/excel/1126845"
+  }
+]

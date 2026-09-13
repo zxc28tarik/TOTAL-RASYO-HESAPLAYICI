@@ -281,6 +281,9 @@ def run_historical_pit_ek9_replay(
         scored = compute_ek9_volatility_scores(returns)
         for ticker in sorted(return_series):
             point = scored.loc[ticker]
+            if not np.isfinite(point[["volatility", "ek9"]].to_numpy(dtype=float)).all():
+                rejection_rows.append((ticker, "STOCK_RETURN_WINDOW_INVALID", start, end))
+                continue
             score_rows.append(
                 {
                     "ticker": ticker,

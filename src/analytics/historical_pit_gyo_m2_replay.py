@@ -8,6 +8,8 @@ import math
 from typing import Mapping
 from zoneinfo import ZoneInfo
 
+from src.analytics.price_level_adapter import SOURCE_SHARE_BASIS, attach_basis_receipts
+
 import pandas as pd
 
 from src.analytics.gyo_batch_pipeline import build_gyo_snapshots_from_frames
@@ -123,8 +125,8 @@ def _prepare_navs(frame: pd.DataFrame, *, analysis_at: datetime, tickers: tuple[
     versions = pd.to_numeric(out["nav_version"], errors="coerce")
     if not versions.eq(config.source_nav_version).all():
         raise HistoricalPitGyoM2ReplayError("nav_version config source_nav_version ile ayni olmali")
-    if not out["share_basis"].astype(str).str.upper().eq(config.share_basis).all():
-        raise HistoricalPitGyoM2ReplayError("share_basis config ile ayni olmali")
+    if not out["share_basis"].astype(str).str.upper().eq(SOURCE_SHARE_BASIS).all():
+        raise HistoricalPitGyoM2ReplayError("share_basis dated unadjusted source olmali")
     if not out["currency"].astype(str).str.upper().eq(config.currency).all():
         raise HistoricalPitGyoM2ReplayError("currency config ile ayni olmali")
     methods = out["nav_source_method"].astype(str).str.upper()
@@ -200,9 +202,11 @@ def run_historical_pit_gyo_m2_replay(*, analysis_at: datetime, universe: pd.Data
     hist_navs = _prepare_navs(navs, analysis_at=analysis, tickers=tickers, config=config)
     hist_prices = _prepare_prices(prices, analysis_at=analysis, tickers=tickers)
     contexts = _prepare_follow_contexts(follow_contexts, analysis_at=analysis, tickers=tickers)
+    basis_receipts = {}
     try:
-        snapshots, rejected = build_gyo_snapshots_from_frames(universe=hist_universe, navs=hist_navs, prices=hist_prices, analysis_at=analysis)
-        report = evaluate_gyo_batch(snapshots, config=config, follow_contexts=contexts)
+        snapshots, rejected = build_gyo_snapshots_from_frames(basis_receipts=basis_receipts, universe=hist_universe, navs=hist_navs, prices=hist_prices, analysis_at=analysis)
+        report = evaluate_gyo_batch(snapshots, config=config, follow_contexts={k: v for k, v in contexts.items() if k in {s.ticker for s in snapshots}})
+        attach_basis_receipts(report, basis_receipts)
     except (GyoValuationError, ValueError, TypeError, OverflowError) as exc:
         raise HistoricalPitGyoM2ReplayError("GYO production math replay basarisiz") from exc
     result_rows: list[dict[str, object]] = []

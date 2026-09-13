@@ -1,0 +1,94 @@
+name: V24 KAP Semantic Family CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [v24-real-data-work]
+    paths:
+      - 'src/ingest/kap_bulk_*.py'
+      - 'scripts/build_kap_archive_semantic_checkpoint.py'
+      - 'scripts/discover_kap_bulk_*.py'
+      - 'tests/test_kap_archive_semantic_checkpoint.py'
+      - 'tests/test_kap_bulk_*.py'
+      - 'tests/test_sector_routing.py'
+      - 'tests/test_sector_routing_missing_values.py'
+      - 'tests/test_gyo_batch_pipeline.py'
+      - '.github/workflows/v24-kap-semantic-family-ci.yml'
+  push:
+    branches:
+      - 'codex/p1-kap-semantic-family-coverage'
+    paths:
+      - 'src/ingest/kap_bulk_*.py'
+      - 'scripts/build_kap_archive_semantic_checkpoint.py'
+      - 'scripts/discover_kap_bulk_*.py'
+      - 'tests/test_kap_archive_semantic_checkpoint.py'
+      - 'tests/test_kap_bulk_*.py'
+      - 'tests/test_sector_routing.py'
+      - 'tests/test_sector_routing_missing_values.py'
+      - 'tests/test_gyo_batch_pipeline.py'
+      - '.github/workflows/v24-kap-semantic-family-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  kap-semantic:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: total_rasyo_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres -d total_rasyo_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: localhost
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: total_rasyo_test
+      TOTAL_RASYO_TEST_DSN: postgresql://postgres:postgres@localhost:5432/total_rasyo_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+      - name: Apply schema
+        run: make core migrate
+      - name: P1 KAP targeted contracts
+        run: |
+          set -o pipefail
+          python -m pytest -q \
+            tests/test_kap_archive_semantic_checkpoint.py \
+            tests/test_kap_bulk_financial_export.py \
+            tests/test_kap_bulk_semantic_adapter.py \
+            tests/test_kap_bulk_semantic_real.py \
+            tests/test_kap_bulk_schema_discovery.py \
+            tests/test_kap_bulk_bank_exact_semantic_mapping.py \
+            tests/test_kap_bulk_bank_schema_targeted.py \
+            tests/test_kap_bulk_role_namespaces_targeted.py \
+            tests/test_kap_bulk_insurance_finance_schema_targeted.py \
+            tests/test_kap_bulk_insurance_finance_exact_semantic_mapping.py \
+            tests/test_kap_bulk_financial_schema_shift_2022.py \
+            tests/test_sector_routing.py \
+            tests/test_sector_routing_missing_values.py \
+            tests/test_gyo_batch_pipeline.py | tee p1-kap-targeted.log
+      - name: Full regression
+        run: |
+          set -o pipefail
+          python -m pytest -q | tee p1-kap-full.log
+      - name: BANK v4.7 regression
+        run: |
+          set -o pipefail
+          make test-bank-v47 | tee p1-kap-bank.log

@@ -1,0 +1,118 @@
+{
+  "audit_producer_sha256": "1d6c169effb73339502473d2b1e5cfb19f5c334ccba59e5fc68da9bcd82060c8",
+  "beautifulsoup4_version": "4.15.0",
+  "contract": "EXPERIMENTAL_FAST_PARSER_REAL_DIFFERENTIAL_V1",
+  "fast_parser_sha256": "94bcd5085a47cb4915624cbdb6830659b48e4230eb4f77f686c039e3d4e8f118",
+  "lxml_version": null,
+  "original_parser_sha256": "7fda68fb3de2565562ab59e322e7910e34d6c3e0e71ebdc17b637f326f84b34f",
+  "python_version": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "reports": [
+    {
+      "archive": "KAP_2026_3A.zip",
+      "archive_sha256": "d7a53002009bc1c4672b80c272554412487d1abb21d95e69fed698cf8be2e82f",
+      "cell_count": 1579,
+      "dataclass_equality": true,
+      "family": [
+        "banks"
+      ],
+      "fast_backend": "html.parser",
+      "fast_seconds": 3.2091236000414938,
+      "member": "ADB-ADBNK_1603753_2026_1.xls",
+      "member_sha256": "9677f478b5e433f97609abe2f14df36ff24ea8eca2613bb199f03d0402aaaf4e",
+      "original_seconds": 2.418590800021775,
+      "output_sha256": "1e73acabb59fef6040b38233783b6ab2de81c56334664e7d5028cee341670e6d"
+    },
+    {
+      "archive": "KAP_2019_Y.zip",
+      "archive_sha256": "734955b9ef13b485e8da7224f04b03ba5fe08e18335774e72a4295e8b6045118",
+      "cell_count": 372,
+      "dataclass_equality": true,
+      "family": [
+        "finance"
+      ],
+      "fast_backend": "html.parser",
+      "fast_seconds": 2.284855099976994,
+      "member": "AKDFA_822138_2019_4.xls",
+      "member_sha256": "f835ed13f0b0828a6fc24e0ba749c18ff48d5dcaf76a58e02ffb3e4a772c5825",
+      "original_seconds": 2.4110751999542117,
+      "output_sha256": "194b71eff094ef66a56096cec6a784ced4ff9f4c990ba864d61a8d5bcf07c139"
+    },
+    {
+      "archive": "KAP_2019_9A.zip",
+      "archive_sha256": "c81e02d17aecfa141ee98c26a7373916d6b4531fa68476b7967a4d19fee80d41",
+      "cell_count": 504,
+      "dataclass_equality": true,
+      "family": [
+        "general"
+      ],
+      "fast_backend": "html.parser",
+      "fast_seconds": 5.134895000024699,
+      "member": "A1CAP-ACP_795720_2019_3.xls",
+      "member_sha256": "7ff4bf57fedcbb9e7068e9c2463eaac6496b3eabfff2808cd1943749411419e4",
+      "original_seconds": 7.086883399984799,
+      "output_sha256": "cfd3e23786a6a46250a9671a0d4b164229d4edab9d859b855d8c7ade59910ef4"
+    },
+    {
+      "archive": "KAP_2021_3A.zip",
+      "archive_sha256": "d953adceb72accfc4294cce4b40e79121ba10529ad2a17ef3f60e61654ecd654",
+      "cell_count": 378,
+      "dataclass_equality": true,
+      "family": [
+        "general-DOBUR-regression"
+      ],
+      "fast_backend": "html.parser",
+      "fast_seconds": 3.8134584999643266,
+      "member": "DOBUR_931938_2021_1.xls",
+      "member_sha256": "42cb317ef03cdd890a195bd3256726725076daa6f42ee152c729b2ac146b56f7",
+      "original_seconds": 3.348463900038041,
+      "output_sha256": "bd20bcd8a0c47bdfddefae5bc243284fe406229f00cf004dabe6d12e827b51aa"
+    },
+    {
+      "archive": "KAP_2019_9A.zip",
+      "archive_sha256": "c81e02d17aecfa141ee98c26a7373916d6b4531fa68476b7967a4d19fee80d41",
+      "cell_count": 606,
+      "dataclass_equality": true,
+      "family": [
+        "holding"
+      ],
+      "fast_backend": "html.parser",
+      "fast_seconds": 5.190061200060882,
+      "member": "AGHOL_797328_2019_3.xls",
+      "member_sha256": "0839817eb033ae470f47071724c364b6e435960c12eb9adeaba8068b2af87f1a",
+      "original_seconds": 6.68102799996268,
+      "output_sha256": "a8277d8223eb29485055747b55441872bc995a3ba178e11a407bd69c84e40e53"
+    },
+    {
+      "archive": "KAP_2019_Y.zip",
+      "archive_sha256": "734955b9ef13b485e8da7224f04b03ba5fe08e18335774e72a4295e8b6045118",
+      "cell_count": 1218,
+      "dataclass_equality": true,
+      "family": [
+        "insurance"
+      ],
+      "fast_backend": "html.parser",
+      "fast_seconds": 1.6265550000825897,
+      "member": "AGESA_817793_2019_4.xls",
+      "member_sha256": "0e16546bbd4adb3bc1907309138ac0a79f5aefa300ae2b4853a29edd59a0a48c",
+      "original_seconds": 3.9690953999524936,
+      "output_sha256": "d06feee51cb5fda1935cddf318705f771f1a594e1f5fd8e76ce907667983eaf4"
+    },
+    {
+      "archive": "KAP_2019_9A.zip",
+      "archive_sha256": "c81e02d17aecfa141ee98c26a7373916d6b4531fa68476b7967a4d19fee80d41",
+      "cell_count": 1120,
+      "dataclass_equality": true,
+      "family": [
+        "par-banks"
+      ],
+      "fast_backend": "html.parser",
+      "fast_seconds": 2.9787422999506816,
+      "member": "ALBRK-ALK_795504_2019_3.xls",
+      "member_sha256": "d624f4c5c59367c6b5e1cd70516f2c83cc3f958aab385ab2689b45a4fb1098e2",
+      "original_seconds": 2.1514896999578923,
+      "output_sha256": "91ac02743b49717696d31d3606e195165135b69c7c09d85e70325041a7307128"
+    }
+  ],
+  "sampled_equivalence_not_all_corpus_oracle": true,
+  "timings_are_observations_not_reproducibility_claim": true
+}

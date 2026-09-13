@@ -1,0 +1,26 @@
+{
+  "bdkMemberOidList": [],
+  "bdkReview": "",
+  "disclosureClass": "",
+  "disclosureIndexList": [],
+  "fromDate": "2022-06-01",
+  "fromSrc": false,
+  "inactiveMkkMemberOidList": [],
+  "index": "",
+  "isLate": "",
+  "mainSector": "",
+  "marketOid": "",
+  "memberType": "",
+  "mkkMemberOidList": [
+    "8acae2c47d3bee50017f0bbbbbfa3c0e"
+  ],
+  "period": "",
+  "ruleType": "",
+  "sector": "",
+  "srcCategory": "",
+  "subSector": "",
+  "subjectList": [],
+  "term": "",
+  "toDate": "2022-06-30",
+  "year": ""
+}

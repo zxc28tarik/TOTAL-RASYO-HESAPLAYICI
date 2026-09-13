@@ -1,0 +1,13 @@
+{
+  "cash_conservation": true,
+  "contract": "INDEPENDENT_EXPERIMENTAL_CASH_DIAGNOSTIC_CONSERVATION_V1",
+  "contribution_total": "1715833.40",
+  "independent_decimal_benchmark_dca_reconciles": true,
+  "input_sha256": "46e42677b10cd31d98798b153ac4fb126076758a02e4c45ca8a87fb7e1947974",
+  "positions_created": 0,
+  "rows_checked": 60,
+  "share_and_trade_conservation": true,
+  "strategy_performance_completed": false,
+  "trades_created": 0,
+  "verification_method": "Independent Decimal accumulation of exported monthly contributions and OPEN-purchased benchmark units; no simulator imported."
+}

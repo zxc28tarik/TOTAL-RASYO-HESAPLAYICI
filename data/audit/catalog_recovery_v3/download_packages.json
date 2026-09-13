@@ -1,0 +1,5298 @@
+{
+  "archive_names_enumerated_count": 51,
+  "scope": "Hash bounded members in Downloads archives whose name contains rasyo/kap/backtest/catalog/v24/source",
+  "searched": [
+    {
+      "archive": "C:\\Users\\zxc28\\Downloads\\total_rasyo_insurance_valuation_v17.zip",
+      "bytes": 650133,
+      "hashed_members": 272,
+      "matches": [],
+      "members": [
+        {
+          "bytes": 164,
+          "path": "total_rasyo_insurance_valuation_v17/.env.example"
+        },
+        {
+          "bytes": 198,
+          "path": "total_rasyo_insurance_valuation_v17/.gitignore"
+        },
+        {
+          "bytes": 1274,
+          "path": "total_rasyo_insurance_valuation_v17/FINAL_AUDIT_2_REPORT.md"
+        },
+        {
+          "bytes": 10186,
+          "path": "total_rasyo_insurance_valuation_v17/GELISTIRME_RAPORU_V3.md"
+        },
+        {
+          "bytes": 1947,
+          "path": "total_rasyo_insurance_valuation_v17/INSTALL_ADIM_ADIM_TR.md"
+        },
+        {
+          "bytes": 2886,
+          "path": "total_rasyo_insurance_valuation_v17/M2_DONEMSEL_MANTIK.md"
+        },
+        {
+          "bytes": 11019,
+          "path": "total_rasyo_insurance_valuation_v17/Makefile"
+        },
+        {
+          "bytes": 3435,
+          "path": "total_rasyo_insurance_valuation_v17/PROJECT_CHECK_REPORT.md"
+        },
+        {
+          "bytes": 30280,
+          "path": "total_rasyo_insurance_valuation_v17/README.md"
+        },
+        {
+          "bytes": 527,
+          "path": "total_rasyo_insurance_valuation_v17/config/bank_fact_derivation.example.json"
+        },
+        {
+          "bytes": 582,
+          "path": "total_rasyo_insurance_valuation_v17/config/bank_fact_derivation.official_v1.json"
+        },
+        {
+          "bytes": 650,
+          "path": "total_rasyo_insurance_valuation_v17/config/gyo_valuation.pd_nav_v1.json"
+        },
+        {
+          "bytes": 628,
+          "path": "total_rasyo_insurance_valuation_v17/config/holding_valuation.nav_discount_v1.json"
+        },
+        {
+          "bytes": 813,
+          "path": "total_rasyo_insurance_valuation_v17/config/insurance_valuation.pb_pe_v1.json"
+        },
+        {
+          "bytes": 1201,
+          "path": "total_rasyo_insurance_valuation_v17/config/kap_bank_semantic_mapping.example.json"
+        },
+        {
+          "bytes": 1112,
+          "path": "total_rasyo_insurance_valuation_v17/config/kap_bank_semantic_mapping.official_v1.json"
+        },
+        {
+          "bytes": 3713,
+          "path": "total_rasyo_insurance_valuation_v17/config/kap_nonbank_semantic_mapping.example_v1.json"
+        },
+        {
+          "bytes": 1084,
+          "path": "total_rasyo_insurance_valuation_v17/config/mkk_kap_endpoints.example.json"
+        },
+        {
+          "bytes": 730,
+          "path": "total_rasyo_insurance_valuation_v17/config/mkk_kap_financial_facts_mapping.example.json"
+        },
+        {
+          "bytes": 701,
+          "path": "total_rasyo_insurance_valuation_v17/config/mkk_product_suite.example.json"
+        },
+        {
+          "bytes": 1316,
+          "path": "total_rasyo_insurance_valuation_v17/config/nonbank_fact_derivation.example_v1.json"
+        },
+        {
+          "bytes": 563,
+          "path": "total_rasyo_insurance_valuation_v17/config/nonfin_valuation.relative_v1.json"
+        },
+        {
+          "bytes": 7469,
+          "path": "total_rasyo_insurance_valuation_v17/config/ratios.json"
+        },
+        {
+          "bytes": 252,
+          "path": "total_rasyo_insurance_valuation_v17/config/sector_routing.v1.json"
+        },
+        {
+          "bytes": 4014,
+          "path": "total_rasyo_insurance_valuation_v17/config/sectors.json"
+        },
+        {
+          "bytes": 441,
+          "path": "total_rasyo_insurance_valuation_v17/config/universe_mapping.example.json"
+        },
+        {
+          "bytes": 165,
+          "path": "total_rasyo_insurance_valuation_v17/config/weights.json"
+        },
+        {
+          "bytes": 166,
+          "path": "total_rasyo_insurance_valuation_v17/config/yfinance_symbols.example.json"
+        },
+        {
+          "bytes": 579,
+          "path": "total_rasyo_insurance_valuation_v17/data/gyo_nav.example.jsonl"
+        },
+        {
+          "bytes": 746,
+          "path": "total_rasyo_insurance_valuation_v17/data/holding_nav.example.jsonl"
+        },
+        {
+          "bytes": 953,
+          "path": "total_rasyo_insurance_valuation_v17/data/insurance_metrics.example.jsonl"
+        },
+        {
+          "bytes": 277,
+          "path": "total_rasyo_insurance_valuation_v17/data_templates/bank_metrics_quarterly.csv"
+        },
+        {
+          "bytes": 344,
+          "path": "total_rasyo_insurance_valuation_v17/data_templates/bank_valuation_assumptions.csv"
+        },
+        {
+          "bytes": 368,
+          "path": "total_rasyo_insurance_valuation_v17/data_templates/financials_quarterly.csv"
+        },
+        {
+          "bytes": 93,
+          "path": "total_rasyo_insurance_valuation_v17/data_templates/index_prices_daily.csv"
+        },
+        {
+          "bytes": 101,
+          "path": "total_rasyo_insurance_valuation_v17/data_templates/prices_daily.csv"
+        },
+        {
+          "bytes": 30,
+          "path": "total_rasyo_insurance_valuation_v17/data_templates/tickers.txt"
+        },
+        {
+          "bytes": 250,
+          "path": "total_rasyo_insurance_valuation_v17/data_templates/universe_stocks.csv"
+        },
+        {
+          "bytes": 40715,
+          "path": "total_rasyo_insurance_valuation_v17/docs/CALISMA_GUNLUGU.md"
+        },
+        {
+          "bytes": 36298,
+          "path": "total_rasyo_insurance_valuation_v17/docs/CLAUDE_DEVIR_NOTU.md"
+        },
+        {
+          "bytes": 8285,
+          "path": "total_rasyo_insurance_valuation_v17/docs/ENTEGRASYON_KABUL_OLCUTLERI.md"
+        },
+        {
+          "bytes": 5299,
+          "path": "total_rasyo_insurance_valuation_v17/docs/GYO_VALUATION_V16.md"
+        },
+        {
+          "bytes": 281,
+          "path": "total_rasyo_insurance_valuation_v17/docs/GYO_VALUATION_V16_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 2445,
+          "path": "total_rasyo_insurance_valuation_v17/docs/HOLDING_VALUATION_V15.md"
+        },
+        {
+          "bytes": 333,
+          "path": "total_rasyo_insurance_valuation_v17/docs/HOLDING_VALUATION_V15_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 7309,
+          "path": "total_rasyo_insurance_valuation_v17/docs/INSURANCE_VALUATION_V17.md"
+        },
+        {
+          "bytes": 299,
+          "path": "total_rasyo_insurance_valuation_v17/docs/INSURANCE_VALUATION_V17_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 6661,
+          "path": "total_rasyo_insurance_valuation_v17/docs/KAP_RESMI_VERI_ADAPTORU.md"
+        },
+        {
+          "bytes": 2161,
+          "path": "total_rasyo_insurance_valuation_v17/docs/KAP_XBRL_BANK_KANITLARI.md"
+        },
+        {
+          "bytes": 4746,
+          "path": "total_rasyo_insurance_valuation_v17/docs/MKK_CANLI_RUNTIME_V9.md"
+        },
+        {
+          "bytes": 4895,
+          "path": "total_rasyo_insurance_valuation_v17/docs/MKK_COKLU_URUN_V11.md"
+        },
+        {
+          "bytes": 249,
+          "path": "total_rasyo_insurance_valuation_v17/docs/MKK_ONBOARDING_V10_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 4687,
+          "path": "total_rasyo_insurance_valuation_v17/docs/MKK_SUITE_SYNC_V12.md"
+        },
+        {
+          "bytes": 284,
+          "path": "total_rasyo_insurance_valuation_v17/docs/MKK_SUITE_V11_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 5268,
+          "path": "total_rasyo_insurance_valuation_v17/docs/MKK_URUN_ONBOARDING_V10.md"
+        },
+        {
+          "bytes": 3089,
+          "path": "total_rasyo_insurance_valuation_v17/docs/NONBANK_SEMANTIC_V13.md"
+        },
+        {
+          "bytes": 2872,
+          "path": "total_rasyo_insurance_valuation_v17/docs/NONFIN_VALUATION_V14.md"
+        },
+        {
+          "bytes": 294,
+          "path": "total_rasyo_insurance_valuation_v17/docs/NONFIN_VALUATION_V14_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 22761,
+          "path": "total_rasyo_insurance_valuation_v17/docs/OZ_DENETIM_RAPORU.md"
+        },
+        {
+          "bytes": 1702,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_2026-08-04.txt"
+        },
+        {
+          "bytes": 1031,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_GYO_V16_2026-08-05.txt"
+        },
+        {
+          "bytes": 963,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_HOLDING_V15_2026-08-05.txt"
+        },
+        {
+          "bytes": 776,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_INSURANCE_V17_2026-08-05.txt"
+        },
+        {
+          "bytes": 2028,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_KAP_BANK_BATCH_V6_2026-08-04.txt"
+        },
+        {
+          "bytes": 2530,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_KAP_BANK_DB_V8_2026-08-04.txt"
+        },
+        {
+          "bytes": 1869,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_KAP_BANK_E2E_V5_2026-08-04.txt"
+        },
+        {
+          "bytes": 1635,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_KAP_BANK_PERSISTENCE_V7_2026-08-04.txt"
+        },
+        {
+          "bytes": 3205,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_KAP_V3_2026-08-04.txt"
+        },
+        {
+          "bytes": 1120,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_MKK_ONBOARDING_V10_2026-08-05.txt"
+        },
+        {
+          "bytes": 1198,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_MKK_RUNTIME_V9_2026-08-04.txt"
+        },
+        {
+          "bytes": 788,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_MKK_SUITE_SYNC_V12_2026-08-05.txt"
+        },
+        {
+          "bytes": 1381,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_MKK_SUITE_V11_2026-08-05.txt"
+        },
+        {
+          "bytes": 1176,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_NONBANK_V13_2026-08-05.txt"
+        },
+        {
+          "bytes": 1143,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_NONFIN_VALUATION_V14_2026-08-05.txt"
+        },
+        {
+          "bytes": 1166,
+          "path": "total_rasyo_insurance_valuation_v17/docs/SON_DOGRULAMA_SEMANTIC_V4_2026-08-04.txt"
+        },
+        {
+          "bytes": 56,
+          "path": "total_rasyo_insurance_valuation_v17/pytest.ini"
+        },
+        {
+          "bytes": 118,
+          "path": "total_rasyo_insurance_valuation_v17/requirements.txt"
+        },
+        {
+          "bytes": 344,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/_repo_bootstrap.py"
+        },
+        {
+          "bytes": 5722,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/generate_kap_bank_batch_fixture.py"
+        },
+        {
+          "bytes": 7338,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/run_postgres_bank_acceptance.py"
+        },
+        {
+          "bytes": 11866,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_bank_batch.py"
+        },
+        {
+          "bytes": 6875,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_bank_integration.py"
+        },
+        {
+          "bytes": 6825,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_gyo_valuation.py"
+        },
+        {
+          "bytes": 8935,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_holding_valuation.py"
+        },
+        {
+          "bytes": 8944,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_insurance_valuation.py"
+        },
+        {
+          "bytes": 7295,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_kap_bank_batch.py"
+        },
+        {
+          "bytes": 8092,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_kap_bank_db_workflow.py"
+        },
+        {
+          "bytes": 14330,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_kap_bank_e2e.py"
+        },
+        {
+          "bytes": 8994,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_kap_bank_persistence.py"
+        },
+        {
+          "bytes": 6800,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_kap_ingestion.py"
+        },
+        {
+          "bytes": 7177,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_mkk_onboarding.py"
+        },
+        {
+          "bytes": 12400,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_mkk_runtime.py"
+        },
+        {
+          "bytes": 10162,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_mkk_suite.py"
+        },
+        {
+          "bytes": 15718,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_mkk_suite_sync.py"
+        },
+        {
+          "bytes": 12277,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_nonbank_core.py"
+        },
+        {
+          "bytes": 6951,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_nonfin_valuation.py"
+        },
+        {
+          "bytes": 13451,
+          "path": "total_rasyo_insurance_valuation_v17/scripts/self_audit_semantic_bank_facts.py"
+        },
+        {
+          "bytes": 39,
+          "path": "total_rasyo_insurance_valuation_v17/sql/000_create_schemas.sql"
+        },
+        {
+          "bytes": 2832,
+          "path": "total_rasyo_insurance_valuation_v17/sql/001_create_analytics_tables.sql"
+        },
+        {
+          "bytes": 423,
+          "path": "total_rasyo_insurance_valuation_v17/sql/003_decile_thresholds.sql"
+        },
+        {
+          "bytes": 541,
+          "path": "total_rasyo_insurance_valuation_v17/sql/004_fill_sector_group.sql"
+        },
+        {
+          "bytes": 763,
+          "path": "total_rasyo_insurance_valuation_v17/sql/005_backtest_tables.sql"
+        },
+        {
+          "bytes": 2690,
+          "path": "total_rasyo_insurance_valuation_v17/sql/006_trailing_alpha_period_m2_tables.sql"
+        },
+        {
+          "bytes": 413,
+          "path": "total_rasyo_insurance_valuation_v17/sql/007_valuation_and_backtest_ext.sql"
+        },
+        {
+          "bytes": 1740,
+          "path": "total_rasyo_insurance_valuation_v17/sql/010_create_core_tables.sql"
+        },
+        {
+          "bytes": 7119,
+          "path": "total_rasyo_insurance_valuation_v17/sql/011_bank_valuation_integration.sql"
+        },
+        {
+          "bytes": 318,
+          "path": "total_rasyo_insurance_valuation_v17/sql/012_bank_point_in_time_slots.sql"
+        },
+        {
+          "bytes": 7681,
+          "path": "total_rasyo_insurance_valuation_v17/sql/013_bank_batch_m2_integration.sql"
+        },
+        {
+          "bytes": 622,
+          "path": "total_rasyo_insurance_valuation_v17/sql/014_bank_point_in_time_slots_batch.sql"
+        },
+        {
+          "bytes": 6903,
+          "path": "total_rasyo_insurance_valuation_v17/sql/015_kap_official_ingestion.sql"
+        },
+        {
+          "bytes": 11472,
+          "path": "total_rasyo_insurance_valuation_v17/sql/016_semantic_sector_materialization.sql"
+        },
+        {
+          "bytes": 5561,
+          "path": "total_rasyo_insurance_valuation_v17/sql/017_kap_bank_batch_persistence.sql"
+        },
+        {
+          "bytes": 1381,
+          "path": "total_rasyo_insurance_valuation_v17/sql/018_kap_bank_database_workflow.sql"
+        },
+        {
+          "bytes": 2604,
+          "path": "total_rasyo_insurance_valuation_v17/sql/019_mkk_kap_runtime_safety.sql"
+        },
+        {
+          "bytes": 2893,
+          "path": "total_rasyo_insurance_valuation_v17/sql/020_mkk_suite_sync.sql"
+        },
+        {
+          "bytes": 3392,
+          "path": "total_rasyo_insurance_valuation_v17/sql/021_company_semantic_materialization.sql"
+        },
+        {
+          "bytes": 2661,
+          "path": "total_rasyo_insurance_valuation_v17/sql/022_nonfin_relative_valuation.sql"
+        },
+        {
+          "bytes": 5755,
+          "path": "total_rasyo_insurance_valuation_v17/sql/023_holding_nav_valuation.sql"
+        },
+        {
+          "bytes": 6372,
+          "path": "total_rasyo_insurance_valuation_v17/sql/024_gyo_nav_valuation.sql"
+        },
+        {
+          "bytes": 7757,
+          "path": "total_rasyo_insurance_valuation_v17/sql/025_insurance_valuation.sql"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_insurance_valuation_v17/src/__init__.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/__init__.py"
+        },
+        {
+          "bytes": 4805,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/alpha_realized.py"
+        },
+        {
+          "bytes": 11749,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/backtest_runner.py"
+        },
+        {
+          "bytes": 24180,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/bank_batch_pipeline.py"
+        },
+        {
+          "bytes": 10898,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/bank_shadow_report.py"
+        },
+        {
+          "bytes": 149,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/bank_v47/__init__.py"
+        },
+        {
+          "bytes": 12574,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/bank_v47/bank_v47.py"
+        },
+        {
+          "bytes": 14788,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/bank_v47/roe_uncertainty.py"
+        },
+        {
+          "bytes": 9412,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/bank_v47/spec_v46.py"
+        },
+        {
+          "bytes": 29486,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/bank_valuation_pipeline.py"
+        },
+        {
+          "bytes": 6110,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/betas.py"
+        },
+        {
+          "bytes": 6387,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/company_ratio_pipeline.py"
+        },
+        {
+          "bytes": 5442,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/decile_map.py"
+        },
+        {
+          "bytes": 6111,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/expected_band.py"
+        },
+        {
+          "bytes": 10726,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/expected_band_periods.py"
+        },
+        {
+          "bytes": 28848,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/gyo_batch_pipeline.py"
+        },
+        {
+          "bytes": 27964,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/gyo_valuation.py"
+        },
+        {
+          "bytes": 28469,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/holding_batch_pipeline.py"
+        },
+        {
+          "bytes": 31368,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/holding_valuation.py"
+        },
+        {
+          "bytes": 25880,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/insurance_batch_pipeline.py"
+        },
+        {
+          "bytes": 38362,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/insurance_valuation.py"
+        },
+        {
+          "bytes": 8395,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/kap_bank_batch_io.py"
+        },
+        {
+          "bytes": 39491,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/kap_bank_batch_persistence.py"
+        },
+        {
+          "bytes": 23109,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/kap_bank_db_workflow.py"
+        },
+        {
+          "bytes": 22236,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/kap_bank_end_to_end.py"
+        },
+        {
+          "bytes": 2268,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/m2.py"
+        },
+        {
+          "bytes": 18259,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/m2_period.py"
+        },
+        {
+          "bytes": 18092,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/nonfin_batch_pipeline.py"
+        },
+        {
+          "bytes": 34575,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/nonfin_valuation.py"
+        },
+        {
+          "bytes": 8268,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/period_trend.py"
+        },
+        {
+          "bytes": 15808,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/ratios_calc.py"
+        },
+        {
+          "bytes": 11057,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/rsc_scoring.py"
+        },
+        {
+          "bytes": 24248,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/run_daily_pipeline.py"
+        },
+        {
+          "bytes": 5010,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/total_rasyo_score.py"
+        },
+        {
+          "bytes": 8402,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/trailing_alpha.py"
+        },
+        {
+          "bytes": 8884,
+          "path": "total_rasyo_insurance_valuation_v17/src/analytics/weight_optimizer.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_insurance_valuation_v17/src/app/__init__.py"
+        },
+        {
+          "bytes": 73179,
+          "path": "total_rasyo_insurance_valuation_v17/src/app/cli.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_insurance_valuation_v17/src/db/__init__.py"
+        },
+        {
+          "bytes": 1792,
+          "path": "total_rasyo_insurance_valuation_v17/src/db/bulk_upsert_ratios.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/__init__.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/api/__init__.py"
+        },
+        {
+          "bytes": 15035,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/api/kap_financial_facts.py"
+        },
+        {
+          "bytes": 11055,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/api/kap_public_universe.py"
+        },
+        {
+          "bytes": 15097,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/api/mkk_contract.py"
+        },
+        {
+          "bytes": 42545,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/api/mkk_kap.py"
+        },
+        {
+          "bytes": 18228,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/api/mkk_suite.py"
+        },
+        {
+          "bytes": 19576,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/api/semantic_facts.py"
+        },
+        {
+          "bytes": 3867,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/api/yfinance_prices.py"
+        },
+        {
+          "bytes": 37898,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/bank_fact_materializer.py"
+        },
+        {
+          "bytes": 227,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/bist_files.py"
+        },
+        {
+          "bytes": 2854,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/build_universe.py"
+        },
+        {
+          "bytes": 38502,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/company_fact_materializer.py"
+        },
+        {
+          "bytes": 6121,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/csv_to_core.py"
+        },
+        {
+          "bytes": 2358,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/doctor.py"
+        },
+        {
+          "bytes": 16421,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/gyo_nav.py"
+        },
+        {
+          "bytes": 14106,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/holding_nav.py"
+        },
+        {
+          "bytes": 17362,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/insurance_metrics.py"
+        },
+        {
+          "bytes": 17686,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/kap_raw.py"
+        },
+        {
+          "bytes": 10006,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/kap_sync.py"
+        },
+        {
+          "bytes": 36390,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/mkk_suite_sync.py"
+        },
+        {
+          "bytes": 5351,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/sector_routing.py"
+        },
+        {
+          "bytes": 11598,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/semantic_materialization.py"
+        },
+        {
+          "bytes": 1556,
+          "path": "total_rasyo_insurance_valuation_v17/src/ingest/validate_core.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_insurance_valuation_v17/src/utils/__init__.py"
+        },
+        {
+          "bytes": 1005,
+          "path": "total_rasyo_insurance_valuation_v17/src/utils/calendar.py"
+        },
+        {
+          "bytes": 9685,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/README.md"
+        },
+        {
+          "bytes": 1665,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/fixture_intraday_timestamptz.sql"
+        },
+        {
+          "bytes": 2806,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/fixture_pit_bank.sql"
+        },
+        {
+          "bytes": 2038,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/fixture_pit_bank_orders.sql"
+        },
+        {
+          "bytes": 14788,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/roe_uncertainty.py"
+        },
+        {
+          "bytes": 1402,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/sorgu_dogru.sql"
+        },
+        {
+          "bytes": 1100,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/sorgu_tiebreak_izole.sql"
+        },
+        {
+          "bytes": 233,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/sorgu_yanlis_sikistirma.sql"
+        },
+        {
+          "bytes": 435,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/sorgu_yanlis_son_8_kayit.sql"
+        },
+        {
+          "bytes": 451,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/sorgu_yanlis_tiebreak_karma.sql"
+        },
+        {
+          "bytes": 12913,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/entegrasyon_fikstur/test_fixture_reference.py"
+        },
+        {
+          "bytes": 1097,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/kap_bank_batch_e2e/README.md"
+        },
+        {
+          "bytes": 1302,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/kap_bank_batch_e2e/contexts.json"
+        },
+        {
+          "bytes": 44558,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/kap_bank_batch_e2e/disclosures.jsonl"
+        },
+        {
+          "bytes": 1453,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/kap_bank_batch_e2e/expected_summary.json"
+        },
+        {
+          "bytes": 385,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/kap_bank_batch_e2e/fixture_manifest.json"
+        },
+        {
+          "bytes": 521,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/mkk_contract/sample_response.example.json"
+        },
+        {
+          "bytes": 576,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/mkk_suite/corporate_actions.config.json"
+        },
+        {
+          "bytes": 1881,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/mkk_suite/corporate_actions.lock.json"
+        },
+        {
+          "bytes": 241,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/mkk_suite/corporate_actions.sample.json"
+        },
+        {
+          "bytes": 577,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/mkk_suite/financial_disclosures.config.json"
+        },
+        {
+          "bytes": 1883,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/mkk_suite/financial_disclosures.lock.json"
+        },
+        {
+          "bytes": 241,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/mkk_suite/financial_disclosures.sample.json"
+        },
+        {
+          "bytes": 901,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/mkk_suite/suite.json"
+        },
+        {
+          "bytes": 1303,
+          "path": "total_rasyo_insurance_valuation_v17/test_fixtures/production_integration/setup_bank_production_fixture.sql"
+        },
+        {
+          "bytes": 13612,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_bank_batch_pipeline.py"
+        },
+        {
+          "bytes": 4095,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_bank_fact_batch.py"
+        },
+        {
+          "bytes": 18235,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_bank_fact_materializer.py"
+        },
+        {
+          "bytes": 10164,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_bank_m2_total_bridge.py"
+        },
+        {
+          "bytes": 5308,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_bank_metrics_ingest.py"
+        },
+        {
+          "bytes": 4107,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_bank_shadow_report.py"
+        },
+        {
+          "bytes": 15322,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_bank_valuation_pipeline.py"
+        },
+        {
+          "bytes": 7070,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_company_cli.py"
+        },
+        {
+          "bytes": 16289,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_company_fact_materializer.py"
+        },
+        {
+          "bytes": 4130,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_company_ratio_pipeline.py"
+        },
+        {
+          "bytes": 5850,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_gyo_batch_pipeline.py"
+        },
+        {
+          "bytes": 3758,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_gyo_cli.py"
+        },
+        {
+          "bytes": 2102,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_gyo_m2_bridge.py"
+        },
+        {
+          "bytes": 2205,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_gyo_migration.py"
+        },
+        {
+          "bytes": 3212,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_gyo_nav_ingest.py"
+        },
+        {
+          "bytes": 6035,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_gyo_valuation.py"
+        },
+        {
+          "bytes": 12181,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_holding_batch_pipeline.py"
+        },
+        {
+          "bytes": 5130,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_holding_cli.py"
+        },
+        {
+          "bytes": 4008,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_holding_m2_bridge.py"
+        },
+        {
+          "bytes": 1911,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_holding_migration.py"
+        },
+        {
+          "bytes": 5848,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_holding_nav_ingest.py"
+        },
+        {
+          "bytes": 680,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_holding_self_audit.py"
+        },
+        {
+          "bytes": 11568,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_holding_valuation.py"
+        },
+        {
+          "bytes": 7055,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_insurance_batch_pipeline.py"
+        },
+        {
+          "bytes": 3429,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_insurance_cli.py"
+        },
+        {
+          "bytes": 2196,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_insurance_m2_bridge.py"
+        },
+        {
+          "bytes": 4786,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_insurance_metrics_ingest.py"
+        },
+        {
+          "bytes": 2794,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_insurance_migration.py"
+        },
+        {
+          "bytes": 639,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_insurance_self_audit.py"
+        },
+        {
+          "bytes": 9216,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_insurance_valuation.py"
+        },
+        {
+          "bytes": 8715,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_kap_bank_batch_end_to_end.py"
+        },
+        {
+          "bytes": 8253,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_kap_bank_batch_io.py"
+        },
+        {
+          "bytes": 9421,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_kap_bank_batch_persistence.py"
+        },
+        {
+          "bytes": 18070,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_kap_bank_db_workflow.py"
+        },
+        {
+          "bytes": 9404,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_kap_bank_end_to_end.py"
+        },
+        {
+          "bytes": 24610,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_kap_cli.py"
+        },
+        {
+          "bytes": 10867,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_kap_financial_facts.py"
+        },
+        {
+          "bytes": 5949,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_kap_public_universe.py"
+        },
+        {
+          "bytes": 11814,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_kap_raw_ingest.py"
+        },
+        {
+          "bytes": 7472,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_kap_sync.py"
+        },
+        {
+          "bytes": 6849,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_mkk_capture.py"
+        },
+        {
+          "bytes": 13640,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_mkk_cli_onboarding.py"
+        },
+        {
+          "bytes": 4799,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_mkk_contract.py"
+        },
+        {
+          "bytes": 22458,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_mkk_kap_client.py"
+        },
+        {
+          "bytes": 11410,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_mkk_suite.py"
+        },
+        {
+          "bytes": 20760,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_mkk_suite_sync.py"
+        },
+        {
+          "bytes": 946,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_nonbank_self_audit.py"
+        },
+        {
+          "bytes": 8145,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_nonfin_batch_pipeline.py"
+        },
+        {
+          "bytes": 1268,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_nonfin_migration.py"
+        },
+        {
+          "bytes": 10007,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_nonfin_valuation.py"
+        },
+        {
+          "bytes": 6486,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_official_kap_bank_mapping.py"
+        },
+        {
+          "bytes": 3267,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_postgres_acceptance_runner.py"
+        },
+        {
+          "bytes": 1797,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_ratios_calendar_quarters.py"
+        },
+        {
+          "bytes": 3486,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_sector_routing.py"
+        },
+        {
+          "bytes": 11904,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_semantic_facts.py"
+        },
+        {
+          "bytes": 3296,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_semantic_materialization.py"
+        },
+        {
+          "bytes": 793,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_sql_duplicate_columns.py"
+        },
+        {
+          "bytes": 3653,
+          "path": "total_rasyo_insurance_valuation_v17/tests/test_total_rasyo_score.py"
+        },
+        {
+          "bytes": 12333,
+          "path": "total_rasyo_insurance_valuation_v17/vendor/v47_roe_belirsizlik/test_m2_boundaries.py"
+        },
+        {
+          "bytes": 51401,
+          "path": "total_rasyo_insurance_valuation_v17/vendor/v47_roe_belirsizlik/test_roe_uncertainty.py"
+        }
+      ],
+      "sha256": "b4c96c9c7434b27837799eb7d22da1a5c3f8c5e78a1e8c4a33667515a05dc3b1",
+      "unhashed_members": []
+    },
+    {
+      "archive": "C:\\Users\\zxc28\\Downloads\\total_rasyo_hesaplayici_v4_6_valuation_pipeline (1).zip",
+      "bytes": 134427,
+      "hashed_members": 83,
+      "matches": [],
+      "members": [
+        {
+          "bytes": 3080,
+          "path": "total_rasyo_hesaplayici/M2_DEGERLEME_BORU_HATTI_RAPORU.md"
+        },
+        {
+          "bytes": 3435,
+          "path": "total_rasyo_hesaplayici/PROJECT_CHECK_REPORT.md"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/db/__init__.py"
+        },
+        {
+          "bytes": 1726,
+          "path": "total_rasyo_hesaplayici/src/db/bulk_upsert_ratios.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/__init__.py"
+        },
+        {
+          "bytes": 9313,
+          "path": "total_rasyo_hesaplayici/src/app/cli.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/app/__init__.py"
+        },
+        {
+          "bytes": 6096,
+          "path": "total_rasyo_hesaplayici/src/analytics/expected_band.py"
+        },
+        {
+          "bytes": 14458,
+          "path": "total_rasyo_hesaplayici/src/analytics/ratios_calc.py"
+        },
+        {
+          "bytes": 8893,
+          "path": "total_rasyo_hesaplayici/src/analytics/weight_optimizer.py"
+        },
+        {
+          "bytes": 4815,
+          "path": "total_rasyo_hesaplayici/src/analytics/alpha_realized.py"
+        },
+        {
+          "bytes": 24716,
+          "path": "total_rasyo_hesaplayici/src/analytics/valuation_pipeline.py"
+        },
+        {
+          "bytes": 12109,
+          "path": "total_rasyo_hesaplayici/src/analytics/period_trend.py"
+        },
+        {
+          "bytes": 18432,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2_v46.py"
+        },
+        {
+          "bytes": 22069,
+          "path": "total_rasyo_hesaplayici/src/analytics/run_daily_pipeline.py"
+        },
+        {
+          "bytes": 11424,
+          "path": "total_rasyo_hesaplayici/src/analytics/expected_band_periods.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/analytics/__init__.py"
+        },
+        {
+          "bytes": 11759,
+          "path": "total_rasyo_hesaplayici/src/analytics/backtest_runner.py"
+        },
+        {
+          "bytes": 2255,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2.py"
+        },
+        {
+          "bytes": 17892,
+          "path": "total_rasyo_hesaplayici/src/analytics/rsc_scoring.py"
+        },
+        {
+          "bytes": 8411,
+          "path": "total_rasyo_hesaplayici/src/analytics/trailing_alpha.py"
+        },
+        {
+          "bytes": 6120,
+          "path": "total_rasyo_hesaplayici/src/analytics/betas.py"
+        },
+        {
+          "bytes": 5442,
+          "path": "total_rasyo_hesaplayici/src/analytics/decile_map.py"
+        },
+        {
+          "bytes": 26481,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2_period.py"
+        },
+        {
+          "bytes": 511,
+          "path": "total_rasyo_hesaplayici/src/utils/price_contract.py"
+        },
+        {
+          "bytes": 1005,
+          "path": "total_rasyo_hesaplayici/src/utils/calendar.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/utils/__init__.py"
+        },
+        {
+          "bytes": 9943,
+          "path": "total_rasyo_hesaplayici/src/ingest/csv_to_core.py"
+        },
+        {
+          "bytes": 2892,
+          "path": "total_rasyo_hesaplayici/src/ingest/build_universe.py"
+        },
+        {
+          "bytes": 2732,
+          "path": "total_rasyo_hesaplayici/src/ingest/validate_core.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/ingest/__init__.py"
+        },
+        {
+          "bytes": 2358,
+          "path": "total_rasyo_hesaplayici/src/ingest/doctor.py"
+        },
+        {
+          "bytes": 5811,
+          "path": "total_rasyo_hesaplayici/src/ingest/api/yfinance_prices.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/ingest/api/__init__.py"
+        },
+        {
+          "bytes": 227,
+          "path": "total_rasyo_hesaplayici/src/ingest/bist_files.py"
+        },
+        {
+          "bytes": 7013,
+          "path": "total_rasyo_hesaplayici/README.md"
+        },
+        {
+          "bytes": 2439,
+          "path": "total_rasyo_hesaplayici/M2_PERIOD_V46_ENTEGRASYON_RAPORU.md"
+        },
+        {
+          "bytes": 2961,
+          "path": "total_rasyo_hesaplayici/sql/015_valuation_point_in_time_inputs.sql"
+        },
+        {
+          "bytes": 763,
+          "path": "total_rasyo_hesaplayici/sql/005_backtest_tables.sql"
+        },
+        {
+          "bytes": 39,
+          "path": "total_rasyo_hesaplayici/sql/000_create_schemas.sql"
+        },
+        {
+          "bytes": 6874,
+          "path": "total_rasyo_hesaplayici/sql/013_valuation_sector_config.sql"
+        },
+        {
+          "bytes": 3407,
+          "path": "total_rasyo_hesaplayici/sql/011_data_contracts.sql"
+        },
+        {
+          "bytes": 689,
+          "path": "total_rasyo_hesaplayici/sql/008_rsc_coverage.sql"
+        },
+        {
+          "bytes": 413,
+          "path": "total_rasyo_hesaplayici/sql/007_valuation_and_backtest_ext.sql"
+        },
+        {
+          "bytes": 2387,
+          "path": "total_rasyo_hesaplayici/sql/010_create_core_tables.sql"
+        },
+        {
+          "bytes": 421,
+          "path": "total_rasyo_hesaplayici/sql/004_fill_sector_group.sql"
+        },
+        {
+          "bytes": 423,
+          "path": "total_rasyo_hesaplayici/sql/003_decile_thresholds.sql"
+        },
+        {
+          "bytes": 3283,
+          "path": "total_rasyo_hesaplayici/sql/001_create_analytics_tables.sql"
+        },
+        {
+          "bytes": 3152,
+          "path": "total_rasyo_hesaplayici/sql/006_trailing_alpha_period_m2_tables.sql"
+        },
+        {
+          "bytes": 1894,
+          "path": "total_rasyo_hesaplayici/sql/012_financial_valuation_fields.sql"
+        },
+        {
+          "bytes": 4088,
+          "path": "total_rasyo_hesaplayici/sql/014_m2_v46_results.sql"
+        },
+        {
+          "bytes": 8359,
+          "path": "total_rasyo_hesaplayici/tests/test_valuation_pipeline_integration.py"
+        },
+        {
+          "bytes": 5045,
+          "path": "total_rasyo_hesaplayici/tests/test_rsc_regressions.py"
+        },
+        {
+          "bytes": 5767,
+          "path": "total_rasyo_hesaplayici/tests/test_m2_period_v46_integration.py"
+        },
+        {
+          "bytes": 2941,
+          "path": "total_rasyo_hesaplayici/tests/test_v46_merge_contracts.py"
+        },
+        {
+          "bytes": 1260,
+          "path": "total_rasyo_hesaplayici/tests/test_price_basis.py"
+        },
+        {
+          "bytes": 11219,
+          "path": "total_rasyo_hesaplayici/tests/test_m2_v46_boundaries.py"
+        },
+        {
+          "bytes": 2739,
+          "path": "total_rasyo_hesaplayici/tests/test_data_contracts.py"
+        },
+        {
+          "bytes": 2350,
+          "path": "total_rasyo_hesaplayici/DUZELTME_NOTLARI_V3_1.md"
+        },
+        {
+          "bytes": 10186,
+          "path": "total_rasyo_hesaplayici/GELISTIRME_RAPORU_V3.md"
+        },
+        {
+          "bytes": 2054,
+          "path": "total_rasyo_hesaplayici/config/sectors.json"
+        },
+        {
+          "bytes": 441,
+          "path": "total_rasyo_hesaplayici/config/universe_mapping.example.json"
+        },
+        {
+          "bytes": 7469,
+          "path": "total_rasyo_hesaplayici/config/ratios.json"
+        },
+        {
+          "bytes": 165,
+          "path": "total_rasyo_hesaplayici/config/weights.json"
+        },
+        {
+          "bytes": 166,
+          "path": "total_rasyo_hesaplayici/config/yfinance_symbols.example.json"
+        },
+        {
+          "bytes": 3247,
+          "path": "total_rasyo_hesaplayici/M2_DONEMSEL_MANTIK.md"
+        },
+        {
+          "bytes": 96,
+          "path": "total_rasyo_hesaplayici/requirements.txt"
+        },
+        {
+          "bytes": 3668,
+          "path": "total_rasyo_hesaplayici/INSTALL_ADIM_ADIM_TR.md"
+        },
+        {
+          "bytes": 32,
+          "path": "total_rasyo_hesaplayici/requirements-dev.txt"
+        },
+        {
+          "bytes": 156,
+          "path": "total_rasyo_hesaplayici/data_templates/macro_growth_cap_inputs.csv"
+        },
+        {
+          "bytes": 196,
+          "path": "total_rasyo_hesaplayici/data_templates/payout_sus_inputs.csv"
+        },
+        {
+          "bytes": 157,
+          "path": "total_rasyo_hesaplayici/data_templates/prices_daily.csv"
+        },
+        {
+          "bytes": 167,
+          "path": "total_rasyo_hesaplayici/data_templates/index_prices_daily.csv"
+        },
+        {
+          "bytes": 30,
+          "path": "total_rasyo_hesaplayici/data_templates/tickers.txt"
+        },
+        {
+          "bytes": 250,
+          "path": "total_rasyo_hesaplayici/data_templates/universe_stocks.csv"
+        },
+        {
+          "bytes": 490,
+          "path": "total_rasyo_hesaplayici/data_templates/financials_quarterly.csv"
+        },
+        {
+          "bytes": 149,
+          "path": "total_rasyo_hesaplayici/data_templates/risk_free_rate_inputs.csv"
+        },
+        {
+          "bytes": 153,
+          "path": "total_rasyo_hesaplayici/data_templates/equity_risk_premium_inputs.csv"
+        },
+        {
+          "bytes": 1274,
+          "path": "total_rasyo_hesaplayici/FINAL_AUDIT_2_REPORT.md"
+        },
+        {
+          "bytes": 84,
+          "path": "total_rasyo_hesaplayici/.env.example"
+        },
+        {
+          "bytes": 2722,
+          "path": "total_rasyo_hesaplayici/M2_V46_V3_2_BIRLESTIRME_RAPORU.md"
+        },
+        {
+          "bytes": 4035,
+          "path": "total_rasyo_hesaplayici/DUZELTME_NOTLARI_V3_2.md"
+        },
+        {
+          "bytes": 2607,
+          "path": "total_rasyo_hesaplayici/Makefile"
+        }
+      ],
+      "sha256": "276a53c5ab494910566d157894f4fe25c9fe8e06bef1b6503ae3cdaaf6017feb",
+      "unhashed_members": []
+    },
+    {
+      "archive": "C:\\Users\\zxc28\\Downloads\\total_rasyo_hesaplayici_v4_6_v3_2_merged.zip",
+      "bytes": 113770,
+      "hashed_members": 73,
+      "matches": [],
+      "members": [
+        {
+          "bytes": 3435,
+          "path": "total_rasyo_hesaplayici/PROJECT_CHECK_REPORT.md"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/db/__init__.py"
+        },
+        {
+          "bytes": 1726,
+          "path": "total_rasyo_hesaplayici/src/db/bulk_upsert_ratios.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/__init__.py"
+        },
+        {
+          "bytes": 7213,
+          "path": "total_rasyo_hesaplayici/src/app/cli.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/app/__init__.py"
+        },
+        {
+          "bytes": 6096,
+          "path": "total_rasyo_hesaplayici/src/analytics/expected_band.py"
+        },
+        {
+          "bytes": 14458,
+          "path": "total_rasyo_hesaplayici/src/analytics/ratios_calc.py"
+        },
+        {
+          "bytes": 8893,
+          "path": "total_rasyo_hesaplayici/src/analytics/weight_optimizer.py"
+        },
+        {
+          "bytes": 4815,
+          "path": "total_rasyo_hesaplayici/src/analytics/alpha_realized.py"
+        },
+        {
+          "bytes": 12109,
+          "path": "total_rasyo_hesaplayici/src/analytics/period_trend.py"
+        },
+        {
+          "bytes": 18126,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2_v46.py"
+        },
+        {
+          "bytes": 19677,
+          "path": "total_rasyo_hesaplayici/src/analytics/run_daily_pipeline.py"
+        },
+        {
+          "bytes": 11515,
+          "path": "total_rasyo_hesaplayici/src/analytics/expected_band_periods.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/analytics/__init__.py"
+        },
+        {
+          "bytes": 11759,
+          "path": "total_rasyo_hesaplayici/src/analytics/backtest_runner.py"
+        },
+        {
+          "bytes": 2255,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2.py"
+        },
+        {
+          "bytes": 17892,
+          "path": "total_rasyo_hesaplayici/src/analytics/rsc_scoring.py"
+        },
+        {
+          "bytes": 8411,
+          "path": "total_rasyo_hesaplayici/src/analytics/trailing_alpha.py"
+        },
+        {
+          "bytes": 6120,
+          "path": "total_rasyo_hesaplayici/src/analytics/betas.py"
+        },
+        {
+          "bytes": 5442,
+          "path": "total_rasyo_hesaplayici/src/analytics/decile_map.py"
+        },
+        {
+          "bytes": 18245,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2_period.py"
+        },
+        {
+          "bytes": 511,
+          "path": "total_rasyo_hesaplayici/src/utils/price_contract.py"
+        },
+        {
+          "bytes": 1005,
+          "path": "total_rasyo_hesaplayici/src/utils/calendar.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/utils/__init__.py"
+        },
+        {
+          "bytes": 8946,
+          "path": "total_rasyo_hesaplayici/src/ingest/csv_to_core.py"
+        },
+        {
+          "bytes": 2892,
+          "path": "total_rasyo_hesaplayici/src/ingest/build_universe.py"
+        },
+        {
+          "bytes": 2732,
+          "path": "total_rasyo_hesaplayici/src/ingest/validate_core.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/ingest/__init__.py"
+        },
+        {
+          "bytes": 2358,
+          "path": "total_rasyo_hesaplayici/src/ingest/doctor.py"
+        },
+        {
+          "bytes": 5811,
+          "path": "total_rasyo_hesaplayici/src/ingest/api/yfinance_prices.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/ingest/api/__init__.py"
+        },
+        {
+          "bytes": 227,
+          "path": "total_rasyo_hesaplayici/src/ingest/bist_files.py"
+        },
+        {
+          "bytes": 5934,
+          "path": "total_rasyo_hesaplayici/README.md"
+        },
+        {
+          "bytes": 763,
+          "path": "total_rasyo_hesaplayici/sql/005_backtest_tables.sql"
+        },
+        {
+          "bytes": 39,
+          "path": "total_rasyo_hesaplayici/sql/000_create_schemas.sql"
+        },
+        {
+          "bytes": 6874,
+          "path": "total_rasyo_hesaplayici/sql/013_valuation_sector_config.sql"
+        },
+        {
+          "bytes": 3407,
+          "path": "total_rasyo_hesaplayici/sql/011_data_contracts.sql"
+        },
+        {
+          "bytes": 689,
+          "path": "total_rasyo_hesaplayici/sql/008_rsc_coverage.sql"
+        },
+        {
+          "bytes": 413,
+          "path": "total_rasyo_hesaplayici/sql/007_valuation_and_backtest_ext.sql"
+        },
+        {
+          "bytes": 2387,
+          "path": "total_rasyo_hesaplayici/sql/010_create_core_tables.sql"
+        },
+        {
+          "bytes": 421,
+          "path": "total_rasyo_hesaplayici/sql/004_fill_sector_group.sql"
+        },
+        {
+          "bytes": 423,
+          "path": "total_rasyo_hesaplayici/sql/003_decile_thresholds.sql"
+        },
+        {
+          "bytes": 3283,
+          "path": "total_rasyo_hesaplayici/sql/001_create_analytics_tables.sql"
+        },
+        {
+          "bytes": 3152,
+          "path": "total_rasyo_hesaplayici/sql/006_trailing_alpha_period_m2_tables.sql"
+        },
+        {
+          "bytes": 1894,
+          "path": "total_rasyo_hesaplayici/sql/012_financial_valuation_fields.sql"
+        },
+        {
+          "bytes": 4088,
+          "path": "total_rasyo_hesaplayici/sql/014_m2_v46_results.sql"
+        },
+        {
+          "bytes": 5045,
+          "path": "total_rasyo_hesaplayici/tests/test_rsc_regressions.py"
+        },
+        {
+          "bytes": 2941,
+          "path": "total_rasyo_hesaplayici/tests/test_v46_merge_contracts.py"
+        },
+        {
+          "bytes": 1244,
+          "path": "total_rasyo_hesaplayici/tests/test_price_basis.py"
+        },
+        {
+          "bytes": 11219,
+          "path": "total_rasyo_hesaplayici/tests/test_m2_v46_boundaries.py"
+        },
+        {
+          "bytes": 2739,
+          "path": "total_rasyo_hesaplayici/tests/test_data_contracts.py"
+        },
+        {
+          "bytes": 2350,
+          "path": "total_rasyo_hesaplayici/DUZELTME_NOTLARI_V3_1.md"
+        },
+        {
+          "bytes": 10186,
+          "path": "total_rasyo_hesaplayici/GELISTIRME_RAPORU_V3.md"
+        },
+        {
+          "bytes": 2054,
+          "path": "total_rasyo_hesaplayici/config/sectors.json"
+        },
+        {
+          "bytes": 441,
+          "path": "total_rasyo_hesaplayici/config/universe_mapping.example.json"
+        },
+        {
+          "bytes": 7469,
+          "path": "total_rasyo_hesaplayici/config/ratios.json"
+        },
+        {
+          "bytes": 165,
+          "path": "total_rasyo_hesaplayici/config/weights.json"
+        },
+        {
+          "bytes": 166,
+          "path": "total_rasyo_hesaplayici/config/yfinance_symbols.example.json"
+        },
+        {
+          "bytes": 2886,
+          "path": "total_rasyo_hesaplayici/M2_DONEMSEL_MANTIK.md"
+        },
+        {
+          "bytes": 96,
+          "path": "total_rasyo_hesaplayici/requirements.txt"
+        },
+        {
+          "bytes": 2367,
+          "path": "total_rasyo_hesaplayici/INSTALL_ADIM_ADIM_TR.md"
+        },
+        {
+          "bytes": 32,
+          "path": "total_rasyo_hesaplayici/requirements-dev.txt"
+        },
+        {
+          "bytes": 157,
+          "path": "total_rasyo_hesaplayici/data_templates/prices_daily.csv"
+        },
+        {
+          "bytes": 167,
+          "path": "total_rasyo_hesaplayici/data_templates/index_prices_daily.csv"
+        },
+        {
+          "bytes": 30,
+          "path": "total_rasyo_hesaplayici/data_templates/tickers.txt"
+        },
+        {
+          "bytes": 250,
+          "path": "total_rasyo_hesaplayici/data_templates/universe_stocks.csv"
+        },
+        {
+          "bytes": 490,
+          "path": "total_rasyo_hesaplayici/data_templates/financials_quarterly.csv"
+        },
+        {
+          "bytes": 1274,
+          "path": "total_rasyo_hesaplayici/FINAL_AUDIT_2_REPORT.md"
+        },
+        {
+          "bytes": 84,
+          "path": "total_rasyo_hesaplayici/.env.example"
+        },
+        {
+          "bytes": 2722,
+          "path": "total_rasyo_hesaplayici/M2_V46_V3_2_BIRLESTIRME_RAPORU.md"
+        },
+        {
+          "bytes": 4035,
+          "path": "total_rasyo_hesaplayici/DUZELTME_NOTLARI_V3_2.md"
+        },
+        {
+          "bytes": 2144,
+          "path": "total_rasyo_hesaplayici/Makefile"
+        }
+      ],
+      "sha256": "fcc08aceabba9bcf2ba6e5296d91f8c728983014da1464a9d68ed396d00f7d3d",
+      "unhashed_members": []
+    },
+    {
+      "archive": "C:\\Users\\zxc28\\Downloads\\total_rasyo_hesaplayici_v3_2_veri_sozlesmesi(1).zip",
+      "bytes": 96497,
+      "hashed_members": 65,
+      "matches": [],
+      "members": [
+        {
+          "bytes": 1982,
+          "path": "total_rasyo_hesaplayici/Makefile"
+        },
+        {
+          "bytes": 165,
+          "path": "total_rasyo_hesaplayici/config/weights.json"
+        },
+        {
+          "bytes": 7469,
+          "path": "total_rasyo_hesaplayici/config/ratios.json"
+        },
+        {
+          "bytes": 441,
+          "path": "total_rasyo_hesaplayici/config/universe_mapping.example.json"
+        },
+        {
+          "bytes": 166,
+          "path": "total_rasyo_hesaplayici/config/yfinance_symbols.example.json"
+        },
+        {
+          "bytes": 2054,
+          "path": "total_rasyo_hesaplayici/config/sectors.json"
+        },
+        {
+          "bytes": 2350,
+          "path": "total_rasyo_hesaplayici/DUZELTME_NOTLARI_V3_1.md"
+        },
+        {
+          "bytes": 1947,
+          "path": "total_rasyo_hesaplayici/INSTALL_ADIM_ADIM_TR.md"
+        },
+        {
+          "bytes": 4933,
+          "path": "total_rasyo_hesaplayici/README.md"
+        },
+        {
+          "bytes": 30,
+          "path": "total_rasyo_hesaplayici/data_templates/tickers.txt"
+        },
+        {
+          "bytes": 167,
+          "path": "total_rasyo_hesaplayici/data_templates/index_prices_daily.csv"
+        },
+        {
+          "bytes": 398,
+          "path": "total_rasyo_hesaplayici/data_templates/financials_quarterly.csv"
+        },
+        {
+          "bytes": 157,
+          "path": "total_rasyo_hesaplayici/data_templates/prices_daily.csv"
+        },
+        {
+          "bytes": 250,
+          "path": "total_rasyo_hesaplayici/data_templates/universe_stocks.csv"
+        },
+        {
+          "bytes": 5045,
+          "path": "total_rasyo_hesaplayici/tests/test_rsc_regressions.py"
+        },
+        {
+          "bytes": 1244,
+          "path": "total_rasyo_hesaplayici/tests/test_price_basis.py"
+        },
+        {
+          "bytes": 2739,
+          "path": "total_rasyo_hesaplayici/tests/test_data_contracts.py"
+        },
+        {
+          "bytes": 423,
+          "path": "total_rasyo_hesaplayici/sql/003_decile_thresholds.sql"
+        },
+        {
+          "bytes": 2387,
+          "path": "total_rasyo_hesaplayici/sql/010_create_core_tables.sql"
+        },
+        {
+          "bytes": 413,
+          "path": "total_rasyo_hesaplayici/sql/007_valuation_and_backtest_ext.sql"
+        },
+        {
+          "bytes": 39,
+          "path": "total_rasyo_hesaplayici/sql/000_create_schemas.sql"
+        },
+        {
+          "bytes": 421,
+          "path": "total_rasyo_hesaplayici/sql/004_fill_sector_group.sql"
+        },
+        {
+          "bytes": 689,
+          "path": "total_rasyo_hesaplayici/sql/008_rsc_coverage.sql"
+        },
+        {
+          "bytes": 763,
+          "path": "total_rasyo_hesaplayici/sql/005_backtest_tables.sql"
+        },
+        {
+          "bytes": 3152,
+          "path": "total_rasyo_hesaplayici/sql/006_trailing_alpha_period_m2_tables.sql"
+        },
+        {
+          "bytes": 3283,
+          "path": "total_rasyo_hesaplayici/sql/001_create_analytics_tables.sql"
+        },
+        {
+          "bytes": 3407,
+          "path": "total_rasyo_hesaplayici/sql/011_data_contracts.sql"
+        },
+        {
+          "bytes": 96,
+          "path": "total_rasyo_hesaplayici/requirements.txt"
+        },
+        {
+          "bytes": 3435,
+          "path": "total_rasyo_hesaplayici/PROJECT_CHECK_REPORT.md"
+        },
+        {
+          "bytes": 4035,
+          "path": "total_rasyo_hesaplayici/DUZELTME_NOTLARI_V3_2.md"
+        },
+        {
+          "bytes": 1274,
+          "path": "total_rasyo_hesaplayici/FINAL_AUDIT_2_REPORT.md"
+        },
+        {
+          "bytes": 2886,
+          "path": "total_rasyo_hesaplayici/M2_DONEMSEL_MANTIK.md"
+        },
+        {
+          "bytes": 84,
+          "path": "total_rasyo_hesaplayici/.env.example"
+        },
+        {
+          "bytes": 10186,
+          "path": "total_rasyo_hesaplayici/GELISTIRME_RAPORU_V3.md"
+        },
+        {
+          "bytes": 5442,
+          "path": "total_rasyo_hesaplayici/src/analytics/decile_map.py"
+        },
+        {
+          "bytes": 8411,
+          "path": "total_rasyo_hesaplayici/src/analytics/trailing_alpha.py"
+        },
+        {
+          "bytes": 2255,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2.py"
+        },
+        {
+          "bytes": 8893,
+          "path": "total_rasyo_hesaplayici/src/analytics/weight_optimizer.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/analytics/__init__.py"
+        },
+        {
+          "bytes": 11515,
+          "path": "total_rasyo_hesaplayici/src/analytics/expected_band_periods.py"
+        },
+        {
+          "bytes": 4815,
+          "path": "total_rasyo_hesaplayici/src/analytics/alpha_realized.py"
+        },
+        {
+          "bytes": 14458,
+          "path": "total_rasyo_hesaplayici/src/analytics/ratios_calc.py"
+        },
+        {
+          "bytes": 18245,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2_period.py"
+        },
+        {
+          "bytes": 19677,
+          "path": "total_rasyo_hesaplayici/src/analytics/run_daily_pipeline.py"
+        },
+        {
+          "bytes": 12109,
+          "path": "total_rasyo_hesaplayici/src/analytics/period_trend.py"
+        },
+        {
+          "bytes": 6120,
+          "path": "total_rasyo_hesaplayici/src/analytics/betas.py"
+        },
+        {
+          "bytes": 6096,
+          "path": "total_rasyo_hesaplayici/src/analytics/expected_band.py"
+        },
+        {
+          "bytes": 17892,
+          "path": "total_rasyo_hesaplayici/src/analytics/rsc_scoring.py"
+        },
+        {
+          "bytes": 11759,
+          "path": "total_rasyo_hesaplayici/src/analytics/backtest_runner.py"
+        },
+        {
+          "bytes": 1726,
+          "path": "total_rasyo_hesaplayici/src/db/bulk_upsert_ratios.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/db/__init__.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/app/__init__.py"
+        },
+        {
+          "bytes": 7213,
+          "path": "total_rasyo_hesaplayici/src/app/cli.py"
+        },
+        {
+          "bytes": 227,
+          "path": "total_rasyo_hesaplayici/src/ingest/bist_files.py"
+        },
+        {
+          "bytes": 2732,
+          "path": "total_rasyo_hesaplayici/src/ingest/validate_core.py"
+        },
+        {
+          "bytes": 8355,
+          "path": "total_rasyo_hesaplayici/src/ingest/csv_to_core.py"
+        },
+        {
+          "bytes": 2892,
+          "path": "total_rasyo_hesaplayici/src/ingest/build_universe.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/ingest/__init__.py"
+        },
+        {
+          "bytes": 2358,
+          "path": "total_rasyo_hesaplayici/src/ingest/doctor.py"
+        },
+        {
+          "bytes": 5811,
+          "path": "total_rasyo_hesaplayici/src/ingest/api/yfinance_prices.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/ingest/api/__init__.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/__init__.py"
+        },
+        {
+          "bytes": 1005,
+          "path": "total_rasyo_hesaplayici/src/utils/calendar.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/utils/__init__.py"
+        },
+        {
+          "bytes": 511,
+          "path": "total_rasyo_hesaplayici/src/utils/price_contract.py"
+        }
+      ],
+      "sha256": "25ad4a93cace67ade907dbef33676db1c1bf82789ffad328e565742441bfcd51",
+      "unhashed_members": []
+    },
+    {
+      "archive": "C:\\Users\\zxc28\\Downloads\\total_rasyo_hesaplayici_v3_1_aktif_hata_duzeltmeleri.zip",
+      "bytes": 86856,
+      "hashed_members": 61,
+      "matches": [],
+      "members": [
+        {
+          "bytes": 1946,
+          "path": "total_rasyo_hesaplayici/Makefile"
+        },
+        {
+          "bytes": 165,
+          "path": "total_rasyo_hesaplayici/config/weights.json"
+        },
+        {
+          "bytes": 7469,
+          "path": "total_rasyo_hesaplayici/config/ratios.json"
+        },
+        {
+          "bytes": 441,
+          "path": "total_rasyo_hesaplayici/config/universe_mapping.example.json"
+        },
+        {
+          "bytes": 166,
+          "path": "total_rasyo_hesaplayici/config/yfinance_symbols.example.json"
+        },
+        {
+          "bytes": 2054,
+          "path": "total_rasyo_hesaplayici/config/sectors.json"
+        },
+        {
+          "bytes": 2350,
+          "path": "total_rasyo_hesaplayici/DUZELTME_NOTLARI_V3_1.md"
+        },
+        {
+          "bytes": 1947,
+          "path": "total_rasyo_hesaplayici/INSTALL_ADIM_ADIM_TR.md"
+        },
+        {
+          "bytes": 4692,
+          "path": "total_rasyo_hesaplayici/README.md"
+        },
+        {
+          "bytes": 30,
+          "path": "total_rasyo_hesaplayici/data_templates/tickers.txt"
+        },
+        {
+          "bytes": 93,
+          "path": "total_rasyo_hesaplayici/data_templates/index_prices_daily.csv"
+        },
+        {
+          "bytes": 368,
+          "path": "total_rasyo_hesaplayici/data_templates/financials_quarterly.csv"
+        },
+        {
+          "bytes": 101,
+          "path": "total_rasyo_hesaplayici/data_templates/prices_daily.csv"
+        },
+        {
+          "bytes": 250,
+          "path": "total_rasyo_hesaplayici/data_templates/universe_stocks.csv"
+        },
+        {
+          "bytes": 3255,
+          "path": "total_rasyo_hesaplayici/tests/test_rsc_regressions.py"
+        },
+        {
+          "bytes": 901,
+          "path": "total_rasyo_hesaplayici/tests/test_price_basis.py"
+        },
+        {
+          "bytes": 423,
+          "path": "total_rasyo_hesaplayici/sql/003_decile_thresholds.sql"
+        },
+        {
+          "bytes": 1740,
+          "path": "total_rasyo_hesaplayici/sql/010_create_core_tables.sql"
+        },
+        {
+          "bytes": 413,
+          "path": "total_rasyo_hesaplayici/sql/007_valuation_and_backtest_ext.sql"
+        },
+        {
+          "bytes": 39,
+          "path": "total_rasyo_hesaplayici/sql/000_create_schemas.sql"
+        },
+        {
+          "bytes": 421,
+          "path": "total_rasyo_hesaplayici/sql/004_fill_sector_group.sql"
+        },
+        {
+          "bytes": 689,
+          "path": "total_rasyo_hesaplayici/sql/008_rsc_coverage.sql"
+        },
+        {
+          "bytes": 763,
+          "path": "total_rasyo_hesaplayici/sql/005_backtest_tables.sql"
+        },
+        {
+          "bytes": 2809,
+          "path": "total_rasyo_hesaplayici/sql/006_trailing_alpha_period_m2_tables.sql"
+        },
+        {
+          "bytes": 2932,
+          "path": "total_rasyo_hesaplayici/sql/001_create_analytics_tables.sql"
+        },
+        {
+          "bytes": 96,
+          "path": "total_rasyo_hesaplayici/requirements.txt"
+        },
+        {
+          "bytes": 3435,
+          "path": "total_rasyo_hesaplayici/PROJECT_CHECK_REPORT.md"
+        },
+        {
+          "bytes": 1274,
+          "path": "total_rasyo_hesaplayici/FINAL_AUDIT_2_REPORT.md"
+        },
+        {
+          "bytes": 2886,
+          "path": "total_rasyo_hesaplayici/M2_DONEMSEL_MANTIK.md"
+        },
+        {
+          "bytes": 84,
+          "path": "total_rasyo_hesaplayici/.env.example"
+        },
+        {
+          "bytes": 10186,
+          "path": "total_rasyo_hesaplayici/GELISTIRME_RAPORU_V3.md"
+        },
+        {
+          "bytes": 5442,
+          "path": "total_rasyo_hesaplayici/src/analytics/decile_map.py"
+        },
+        {
+          "bytes": 8381,
+          "path": "total_rasyo_hesaplayici/src/analytics/trailing_alpha.py"
+        },
+        {
+          "bytes": 2248,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2.py"
+        },
+        {
+          "bytes": 8863,
+          "path": "total_rasyo_hesaplayici/src/analytics/weight_optimizer.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/analytics/__init__.py"
+        },
+        {
+          "bytes": 10705,
+          "path": "total_rasyo_hesaplayici/src/analytics/expected_band_periods.py"
+        },
+        {
+          "bytes": 4785,
+          "path": "total_rasyo_hesaplayici/src/analytics/alpha_realized.py"
+        },
+        {
+          "bytes": 14360,
+          "path": "total_rasyo_hesaplayici/src/analytics/ratios_calc.py"
+        },
+        {
+          "bytes": 18238,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2_period.py"
+        },
+        {
+          "bytes": 17063,
+          "path": "total_rasyo_hesaplayici/src/analytics/run_daily_pipeline.py"
+        },
+        {
+          "bytes": 9760,
+          "path": "total_rasyo_hesaplayici/src/analytics/period_trend.py"
+        },
+        {
+          "bytes": 6090,
+          "path": "total_rasyo_hesaplayici/src/analytics/betas.py"
+        },
+        {
+          "bytes": 6089,
+          "path": "total_rasyo_hesaplayici/src/analytics/expected_band.py"
+        },
+        {
+          "bytes": 13169,
+          "path": "total_rasyo_hesaplayici/src/analytics/rsc_scoring.py"
+        },
+        {
+          "bytes": 11729,
+          "path": "total_rasyo_hesaplayici/src/analytics/backtest_runner.py"
+        },
+        {
+          "bytes": 1726,
+          "path": "total_rasyo_hesaplayici/src/db/bulk_upsert_ratios.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/db/__init__.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/app/__init__.py"
+        },
+        {
+          "bytes": 7213,
+          "path": "total_rasyo_hesaplayici/src/app/cli.py"
+        },
+        {
+          "bytes": 227,
+          "path": "total_rasyo_hesaplayici/src/ingest/bist_files.py"
+        },
+        {
+          "bytes": 1556,
+          "path": "total_rasyo_hesaplayici/src/ingest/validate_core.py"
+        },
+        {
+          "bytes": 4064,
+          "path": "total_rasyo_hesaplayici/src/ingest/csv_to_core.py"
+        },
+        {
+          "bytes": 2892,
+          "path": "total_rasyo_hesaplayici/src/ingest/build_universe.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/ingest/__init__.py"
+        },
+        {
+          "bytes": 2358,
+          "path": "total_rasyo_hesaplayici/src/ingest/doctor.py"
+        },
+        {
+          "bytes": 3867,
+          "path": "total_rasyo_hesaplayici/src/ingest/api/yfinance_prices.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/ingest/api/__init__.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/__init__.py"
+        },
+        {
+          "bytes": 1005,
+          "path": "total_rasyo_hesaplayici/src/utils/calendar.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/utils/__init__.py"
+        }
+      ],
+      "sha256": "afc5da350fcaf0de38b468c63ec2e4b63ea20f6fa137e7132a55eb53a6de0636",
+      "unhashed_members": []
+    },
+    {
+      "archive": "C:\\Users\\zxc28\\Downloads\\total_rasyo_hesaplayici_v3.zip",
+      "bytes": 97385,
+      "hashed_members": 64,
+      "matches": [],
+      "members": [
+        {
+          "bytes": 3435,
+          "path": "total_rasyo_hesaplayici/PROJECT_CHECK_REPORT.md"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/db/__init__.py"
+        },
+        {
+          "bytes": 1726,
+          "path": "total_rasyo_hesaplayici/src/db/bulk_upsert_ratios.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/__init__.py"
+        },
+        {
+          "bytes": 7213,
+          "path": "total_rasyo_hesaplayici/src/app/cli.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/app/__init__.py"
+        },
+        {
+          "bytes": 6111,
+          "path": "total_rasyo_hesaplayici/src/analytics/expected_band.py"
+        },
+        {
+          "bytes": 14384,
+          "path": "total_rasyo_hesaplayici/src/analytics/ratios_calc.py"
+        },
+        {
+          "bytes": 8884,
+          "path": "total_rasyo_hesaplayici/src/analytics/weight_optimizer.py"
+        },
+        {
+          "bytes": 4805,
+          "path": "total_rasyo_hesaplayici/src/analytics/alpha_realized.py"
+        },
+        {
+          "bytes": 8268,
+          "path": "total_rasyo_hesaplayici/src/analytics/period_trend.py"
+        },
+        {
+          "bytes": 17828,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2_v46.py"
+        },
+        {
+          "bytes": 15863,
+          "path": "total_rasyo_hesaplayici/src/analytics/run_daily_pipeline.py"
+        },
+        {
+          "bytes": 10726,
+          "path": "total_rasyo_hesaplayici/src/analytics/expected_band_periods.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/analytics/__init__.py"
+        },
+        {
+          "bytes": 11749,
+          "path": "total_rasyo_hesaplayici/src/analytics/backtest_runner.py"
+        },
+        {
+          "bytes": 2268,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2.py"
+        },
+        {
+          "bytes": 10840,
+          "path": "total_rasyo_hesaplayici/src/analytics/rsc_scoring.py"
+        },
+        {
+          "bytes": 8402,
+          "path": "total_rasyo_hesaplayici/src/analytics/trailing_alpha.py"
+        },
+        {
+          "bytes": 6110,
+          "path": "total_rasyo_hesaplayici/src/analytics/betas.py"
+        },
+        {
+          "bytes": 5442,
+          "path": "total_rasyo_hesaplayici/src/analytics/decile_map.py"
+        },
+        {
+          "bytes": 18259,
+          "path": "total_rasyo_hesaplayici/src/analytics/m2_period.py"
+        },
+        {
+          "bytes": 1005,
+          "path": "total_rasyo_hesaplayici/src/utils/calendar.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/utils/__init__.py"
+        },
+        {
+          "bytes": 4600,
+          "path": "total_rasyo_hesaplayici/src/ingest/csv_to_core.py"
+        },
+        {
+          "bytes": 2892,
+          "path": "total_rasyo_hesaplayici/src/ingest/build_universe.py"
+        },
+        {
+          "bytes": 1556,
+          "path": "total_rasyo_hesaplayici/src/ingest/validate_core.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/ingest/__init__.py"
+        },
+        {
+          "bytes": 2358,
+          "path": "total_rasyo_hesaplayici/src/ingest/doctor.py"
+        },
+        {
+          "bytes": 3867,
+          "path": "total_rasyo_hesaplayici/src/ingest/api/yfinance_prices.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_hesaplayici/src/ingest/api/__init__.py"
+        },
+        {
+          "bytes": 227,
+          "path": "total_rasyo_hesaplayici/src/ingest/bist_files.py"
+        },
+        {
+          "bytes": 5520,
+          "path": "total_rasyo_hesaplayici/README.md"
+        },
+        {
+          "bytes": 763,
+          "path": "total_rasyo_hesaplayici/sql/005_backtest_tables.sql"
+        },
+        {
+          "bytes": 39,
+          "path": "total_rasyo_hesaplayici/sql/000_create_schemas.sql"
+        },
+        {
+          "bytes": 6874,
+          "path": "total_rasyo_hesaplayici/sql/009_valuation_sector_config.sql"
+        },
+        {
+          "bytes": 2088,
+          "path": "total_rasyo_hesaplayici/sql/008_financial_valuation_fields.sql"
+        },
+        {
+          "bytes": 413,
+          "path": "total_rasyo_hesaplayici/sql/007_valuation_and_backtest_ext.sql"
+        },
+        {
+          "bytes": 1894,
+          "path": "total_rasyo_hesaplayici/sql/010_create_core_tables.sql"
+        },
+        {
+          "bytes": 421,
+          "path": "total_rasyo_hesaplayici/sql/004_fill_sector_group.sql"
+        },
+        {
+          "bytes": 423,
+          "path": "total_rasyo_hesaplayici/sql/003_decile_thresholds.sql"
+        },
+        {
+          "bytes": 2832,
+          "path": "total_rasyo_hesaplayici/sql/001_create_analytics_tables.sql"
+        },
+        {
+          "bytes": 2690,
+          "path": "total_rasyo_hesaplayici/sql/006_trailing_alpha_period_m2_tables.sql"
+        },
+        {
+          "bytes": 3896,
+          "path": "total_rasyo_hesaplayici/sql/011_m2_v46_results.sql"
+        },
+        {
+          "bytes": 11219,
+          "path": "total_rasyo_hesaplayici/tests/test_m2_v46_boundaries.py"
+        },
+        {
+          "bytes": 10186,
+          "path": "total_rasyo_hesaplayici/GELISTIRME_RAPORU_V3.md"
+        },
+        {
+          "bytes": 2054,
+          "path": "total_rasyo_hesaplayici/config/sectors.json"
+        },
+        {
+          "bytes": 441,
+          "path": "total_rasyo_hesaplayici/config/universe_mapping.example.json"
+        },
+        {
+          "bytes": 7469,
+          "path": "total_rasyo_hesaplayici/config/ratios.json"
+        },
+        {
+          "bytes": 165,
+          "path": "total_rasyo_hesaplayici/config/weights.json"
+        },
+        {
+          "bytes": 166,
+          "path": "total_rasyo_hesaplayici/config/yfinance_symbols.example.json"
+        },
+        {
+          "bytes": 2886,
+          "path": "total_rasyo_hesaplayici/M2_DONEMSEL_MANTIK.md"
+        },
+        {
+          "bytes": 96,
+          "path": "total_rasyo_hesaplayici/requirements.txt"
+        },
+        {
+          "bytes": 2073,
+          "path": "total_rasyo_hesaplayici/INSTALL_ADIM_ADIM_TR.md"
+        },
+        {
+          "bytes": 32,
+          "path": "total_rasyo_hesaplayici/requirements-dev.txt"
+        },
+        {
+          "bytes": 3013,
+          "path": "total_rasyo_hesaplayici/M2_V46_UYGULAMA_RAPORU.md"
+        },
+        {
+          "bytes": 101,
+          "path": "total_rasyo_hesaplayici/data_templates/prices_daily.csv"
+        },
+        {
+          "bytes": 93,
+          "path": "total_rasyo_hesaplayici/data_templates/index_prices_daily.csv"
+        },
+        {
+          "bytes": 30,
+          "path": "total_rasyo_hesaplayici/data_templates/tickers.txt"
+        },
+        {
+          "bytes": 250,
+          "path": "total_rasyo_hesaplayici/data_templates/universe_stocks.csv"
+        },
+        {
+          "bytes": 472,
+          "path": "total_rasyo_hesaplayici/data_templates/financials_quarterly.csv"
+        },
+        {
+          "bytes": 1274,
+          "path": "total_rasyo_hesaplayici/FINAL_AUDIT_2_REPORT.md"
+        },
+        {
+          "bytes": 84,
+          "path": "total_rasyo_hesaplayici/.env.example"
+        },
+        {
+          "bytes": 2069,
+          "path": "total_rasyo_hesaplayici/Makefile"
+        }
+      ],
+      "sha256": "74f6c8905569729eba0b1f8cf1a09b5d38eaba72b76b4892ea37157da02963a0",
+      "unhashed_members": []
+    },
+    {
+      "archive": "C:\\Users\\zxc28\\Downloads\\total_rasyo_financial_institution_v18.zip",
+      "bytes": 708899,
+      "hashed_members": 290,
+      "matches": [],
+      "members": [
+        {
+          "bytes": 5561,
+          "path": "total_rasyo_financial_institution_v18/sql/017_kap_bank_batch_persistence.sql"
+        },
+        {
+          "bytes": 5755,
+          "path": "total_rasyo_financial_institution_v18/sql/023_holding_nav_valuation.sql"
+        },
+        {
+          "bytes": 6903,
+          "path": "total_rasyo_financial_institution_v18/sql/015_kap_official_ingestion.sql"
+        },
+        {
+          "bytes": 2604,
+          "path": "total_rasyo_financial_institution_v18/sql/019_mkk_kap_runtime_safety.sql"
+        },
+        {
+          "bytes": 2893,
+          "path": "total_rasyo_financial_institution_v18/sql/020_mkk_suite_sync.sql"
+        },
+        {
+          "bytes": 11472,
+          "path": "total_rasyo_financial_institution_v18/sql/016_semantic_sector_materialization.sql"
+        },
+        {
+          "bytes": 413,
+          "path": "total_rasyo_financial_institution_v18/sql/007_valuation_and_backtest_ext.sql"
+        },
+        {
+          "bytes": 7757,
+          "path": "total_rasyo_financial_institution_v18/sql/025_insurance_valuation.sql"
+        },
+        {
+          "bytes": 3392,
+          "path": "total_rasyo_financial_institution_v18/sql/021_company_semantic_materialization.sql"
+        },
+        {
+          "bytes": 541,
+          "path": "total_rasyo_financial_institution_v18/sql/004_fill_sector_group.sql"
+        },
+        {
+          "bytes": 8459,
+          "path": "total_rasyo_financial_institution_v18/sql/026_financial_institution_valuation.sql"
+        },
+        {
+          "bytes": 7119,
+          "path": "total_rasyo_financial_institution_v18/sql/011_bank_valuation_integration.sql"
+        },
+        {
+          "bytes": 763,
+          "path": "total_rasyo_financial_institution_v18/sql/005_backtest_tables.sql"
+        },
+        {
+          "bytes": 1381,
+          "path": "total_rasyo_financial_institution_v18/sql/018_kap_bank_database_workflow.sql"
+        },
+        {
+          "bytes": 1740,
+          "path": "total_rasyo_financial_institution_v18/sql/010_create_core_tables.sql"
+        },
+        {
+          "bytes": 2690,
+          "path": "total_rasyo_financial_institution_v18/sql/006_trailing_alpha_period_m2_tables.sql"
+        },
+        {
+          "bytes": 2832,
+          "path": "total_rasyo_financial_institution_v18/sql/001_create_analytics_tables.sql"
+        },
+        {
+          "bytes": 6372,
+          "path": "total_rasyo_financial_institution_v18/sql/024_gyo_nav_valuation.sql"
+        },
+        {
+          "bytes": 7681,
+          "path": "total_rasyo_financial_institution_v18/sql/013_bank_batch_m2_integration.sql"
+        },
+        {
+          "bytes": 423,
+          "path": "total_rasyo_financial_institution_v18/sql/003_decile_thresholds.sql"
+        },
+        {
+          "bytes": 318,
+          "path": "total_rasyo_financial_institution_v18/sql/012_bank_point_in_time_slots.sql"
+        },
+        {
+          "bytes": 622,
+          "path": "total_rasyo_financial_institution_v18/sql/014_bank_point_in_time_slots_batch.sql"
+        },
+        {
+          "bytes": 2661,
+          "path": "total_rasyo_financial_institution_v18/sql/022_nonfin_relative_valuation.sql"
+        },
+        {
+          "bytes": 39,
+          "path": "total_rasyo_financial_institution_v18/sql/000_create_schemas.sql"
+        },
+        {
+          "bytes": 77646,
+          "path": "total_rasyo_financial_institution_v18/src/app/cli.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_financial_institution_v18/src/app/__init__.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_financial_institution_v18/src/__init__.py"
+        },
+        {
+          "bytes": 19041,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/financial_institution_metrics.py"
+        },
+        {
+          "bytes": 10006,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/kap_sync.py"
+        },
+        {
+          "bytes": 16421,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/gyo_nav.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/__init__.py"
+        },
+        {
+          "bytes": 19576,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/api/semantic_facts.py"
+        },
+        {
+          "bytes": 42545,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/api/mkk_kap.py"
+        },
+        {
+          "bytes": 11055,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/api/kap_public_universe.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/api/__init__.py"
+        },
+        {
+          "bytes": 18228,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/api/mkk_suite.py"
+        },
+        {
+          "bytes": 15097,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/api/mkk_contract.py"
+        },
+        {
+          "bytes": 3867,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/api/yfinance_prices.py"
+        },
+        {
+          "bytes": 15035,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/api/kap_financial_facts.py"
+        },
+        {
+          "bytes": 1556,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/validate_core.py"
+        },
+        {
+          "bytes": 6121,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/csv_to_core.py"
+        },
+        {
+          "bytes": 2358,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/doctor.py"
+        },
+        {
+          "bytes": 37898,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/bank_fact_materializer.py"
+        },
+        {
+          "bytes": 11598,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/semantic_materialization.py"
+        },
+        {
+          "bytes": 36390,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/mkk_suite_sync.py"
+        },
+        {
+          "bytes": 17686,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/kap_raw.py"
+        },
+        {
+          "bytes": 8038,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/sector_routing.py"
+        },
+        {
+          "bytes": 227,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/bist_files.py"
+        },
+        {
+          "bytes": 38502,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/company_fact_materializer.py"
+        },
+        {
+          "bytes": 2854,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/build_universe.py"
+        },
+        {
+          "bytes": 14106,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/holding_nav.py"
+        },
+        {
+          "bytes": 17362,
+          "path": "total_rasyo_financial_institution_v18/src/ingest/insurance_metrics.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_financial_institution_v18/src/db/__init__.py"
+        },
+        {
+          "bytes": 1792,
+          "path": "total_rasyo_financial_institution_v18/src/db/bulk_upsert_ratios.py"
+        },
+        {
+          "bytes": 1005,
+          "path": "total_rasyo_financial_institution_v18/src/utils/calendar.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_financial_institution_v18/src/utils/__init__.py"
+        },
+        {
+          "bytes": 2386,
+          "path": "total_rasyo_financial_institution_v18/src/utils/missing_values.py"
+        },
+        {
+          "bytes": 10726,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/expected_band_periods.py"
+        },
+        {
+          "bytes": 6111,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/expected_band.py"
+        },
+        {
+          "bytes": 24180,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/bank_batch_pipeline.py"
+        },
+        {
+          "bytes": 18092,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/nonfin_batch_pipeline.py"
+        },
+        {
+          "bytes": 38447,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/insurance_valuation.py"
+        },
+        {
+          "bytes": 5010,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/total_rasyo_score.py"
+        },
+        {
+          "bytes": 10898,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/bank_shadow_report.py"
+        },
+        {
+          "bytes": 5442,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/decile_map.py"
+        },
+        {
+          "bytes": 6110,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/betas.py"
+        },
+        {
+          "bytes": 2268,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/m2.py"
+        },
+        {
+          "bytes": 29486,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/bank_valuation_pipeline.py"
+        },
+        {
+          "bytes": 0,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/__init__.py"
+        },
+        {
+          "bytes": 8884,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/weight_optimizer.py"
+        },
+        {
+          "bytes": 27964,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/gyo_valuation.py"
+        },
+        {
+          "bytes": 6387,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/company_ratio_pipeline.py"
+        },
+        {
+          "bytes": 18259,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/m2_period.py"
+        },
+        {
+          "bytes": 8268,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/period_trend.py"
+        },
+        {
+          "bytes": 11057,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/rsc_scoring.py"
+        },
+        {
+          "bytes": 28848,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/gyo_batch_pipeline.py"
+        },
+        {
+          "bytes": 28469,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/holding_batch_pipeline.py"
+        },
+        {
+          "bytes": 8402,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/trailing_alpha.py"
+        },
+        {
+          "bytes": 23109,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/kap_bank_db_workflow.py"
+        },
+        {
+          "bytes": 31368,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/holding_valuation.py"
+        },
+        {
+          "bytes": 39491,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/kap_bank_batch_persistence.py"
+        },
+        {
+          "bytes": 34660,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/nonfin_valuation.py"
+        },
+        {
+          "bytes": 4805,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/alpha_realized.py"
+        },
+        {
+          "bytes": 22236,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/kap_bank_end_to_end.py"
+        },
+        {
+          "bytes": 15808,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/ratios_calc.py"
+        },
+        {
+          "bytes": 9412,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/bank_v47/spec_v46.py"
+        },
+        {
+          "bytes": 149,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/bank_v47/__init__.py"
+        },
+        {
+          "bytes": 14788,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/bank_v47/roe_uncertainty.py"
+        },
+        {
+          "bytes": 12574,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/bank_v47/bank_v47.py"
+        },
+        {
+          "bytes": 25880,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/insurance_batch_pipeline.py"
+        },
+        {
+          "bytes": 11749,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/backtest_runner.py"
+        },
+        {
+          "bytes": 27133,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/financial_institution_batch_pipeline.py"
+        },
+        {
+          "bytes": 44817,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/financial_institution_valuation.py"
+        },
+        {
+          "bytes": 8395,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/kap_bank_batch_io.py"
+        },
+        {
+          "bytes": 25183,
+          "path": "total_rasyo_financial_institution_v18/src/analytics/run_daily_pipeline.py"
+        },
+        {
+          "bytes": 118,
+          "path": "total_rasyo_financial_institution_v18/requirements.txt"
+        },
+        {
+          "bytes": 166,
+          "path": "total_rasyo_financial_institution_v18/config/yfinance_symbols.example.json"
+        },
+        {
+          "bytes": 730,
+          "path": "total_rasyo_financial_institution_v18/config/mkk_kap_financial_facts_mapping.example.json"
+        },
+        {
+          "bytes": 7469,
+          "path": "total_rasyo_financial_institution_v18/config/ratios.json"
+        },
+        {
+          "bytes": 701,
+          "path": "total_rasyo_financial_institution_v18/config/mkk_product_suite.example.json"
+        },
+        {
+          "bytes": 3713,
+          "path": "total_rasyo_financial_institution_v18/config/kap_nonbank_semantic_mapping.example_v1.json"
+        },
+        {
+          "bytes": 1316,
+          "path": "total_rasyo_financial_institution_v18/config/nonbank_fact_derivation.example_v1.json"
+        },
+        {
+          "bytes": 4014,
+          "path": "total_rasyo_financial_institution_v18/config/sectors.json"
+        },
+        {
+          "bytes": 582,
+          "path": "total_rasyo_financial_institution_v18/config/bank_fact_derivation.official_v1.json"
+        },
+        {
+          "bytes": 165,
+          "path": "total_rasyo_financial_institution_v18/config/weights.json"
+        },
+        {
+          "bytes": 813,
+          "path": "total_rasyo_financial_institution_v18/config/insurance_valuation.pb_pe_v1.json"
+        },
+        {
+          "bytes": 650,
+          "path": "total_rasyo_financial_institution_v18/config/gyo_valuation.pd_nav_v1.json"
+        },
+        {
+          "bytes": 989,
+          "path": "total_rasyo_financial_institution_v18/config/financial_institution_valuation.pb_pe_v1.json"
+        },
+        {
+          "bytes": 527,
+          "path": "total_rasyo_financial_institution_v18/config/bank_fact_derivation.example.json"
+        },
+        {
+          "bytes": 628,
+          "path": "total_rasyo_financial_institution_v18/config/holding_valuation.nav_discount_v1.json"
+        },
+        {
+          "bytes": 441,
+          "path": "total_rasyo_financial_institution_v18/config/universe_mapping.example.json"
+        },
+        {
+          "bytes": 442,
+          "path": "total_rasyo_financial_institution_v18/config/sector_routing.v1.json"
+        },
+        {
+          "bytes": 1201,
+          "path": "total_rasyo_financial_institution_v18/config/kap_bank_semantic_mapping.example.json"
+        },
+        {
+          "bytes": 1112,
+          "path": "total_rasyo_financial_institution_v18/config/kap_bank_semantic_mapping.official_v1.json"
+        },
+        {
+          "bytes": 1084,
+          "path": "total_rasyo_financial_institution_v18/config/mkk_kap_endpoints.example.json"
+        },
+        {
+          "bytes": 563,
+          "path": "total_rasyo_financial_institution_v18/config/nonfin_valuation.relative_v1.json"
+        },
+        {
+          "bytes": 2886,
+          "path": "total_rasyo_financial_institution_v18/M2_DONEMSEL_MANTIK.md"
+        },
+        {
+          "bytes": 11568,
+          "path": "total_rasyo_financial_institution_v18/Makefile"
+        },
+        {
+          "bytes": 56,
+          "path": "total_rasyo_financial_institution_v18/pytest.ini"
+        },
+        {
+          "bytes": 1274,
+          "path": "total_rasyo_financial_institution_v18/FINAL_AUDIT_2_REPORT.md"
+        },
+        {
+          "bytes": 101,
+          "path": "total_rasyo_financial_institution_v18/data_templates/prices_daily.csv"
+        },
+        {
+          "bytes": 277,
+          "path": "total_rasyo_financial_institution_v18/data_templates/bank_metrics_quarterly.csv"
+        },
+        {
+          "bytes": 250,
+          "path": "total_rasyo_financial_institution_v18/data_templates/universe_stocks.csv"
+        },
+        {
+          "bytes": 368,
+          "path": "total_rasyo_financial_institution_v18/data_templates/financials_quarterly.csv"
+        },
+        {
+          "bytes": 30,
+          "path": "total_rasyo_financial_institution_v18/data_templates/tickers.txt"
+        },
+        {
+          "bytes": 93,
+          "path": "total_rasyo_financial_institution_v18/data_templates/index_prices_daily.csv"
+        },
+        {
+          "bytes": 344,
+          "path": "total_rasyo_financial_institution_v18/data_templates/bank_valuation_assumptions.csv"
+        },
+        {
+          "bytes": 30280,
+          "path": "total_rasyo_financial_institution_v18/README.md"
+        },
+        {
+          "bytes": 1947,
+          "path": "total_rasyo_financial_institution_v18/INSTALL_ADIM_ADIM_TR.md"
+        },
+        {
+          "bytes": 6951,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_nonfin_valuation.py"
+        },
+        {
+          "bytes": 15718,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_mkk_suite_sync.py"
+        },
+        {
+          "bytes": 7177,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_mkk_onboarding.py"
+        },
+        {
+          "bytes": 11866,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_bank_batch.py"
+        },
+        {
+          "bytes": 14330,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_kap_bank_e2e.py"
+        },
+        {
+          "bytes": 7295,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_kap_bank_batch.py"
+        },
+        {
+          "bytes": 8092,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_kap_bank_db_workflow.py"
+        },
+        {
+          "bytes": 12400,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_mkk_runtime.py"
+        },
+        {
+          "bytes": 8935,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_holding_valuation.py"
+        },
+        {
+          "bytes": 12848,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_financial_institution_valuation.py"
+        },
+        {
+          "bytes": 8994,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_kap_bank_persistence.py"
+        },
+        {
+          "bytes": 344,
+          "path": "total_rasyo_financial_institution_v18/scripts/_repo_bootstrap.py"
+        },
+        {
+          "bytes": 13451,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_semantic_bank_facts.py"
+        },
+        {
+          "bytes": 12277,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_nonbank_core.py"
+        },
+        {
+          "bytes": 6875,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_bank_integration.py"
+        },
+        {
+          "bytes": 5722,
+          "path": "total_rasyo_financial_institution_v18/scripts/generate_kap_bank_batch_fixture.py"
+        },
+        {
+          "bytes": 6825,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_gyo_valuation.py"
+        },
+        {
+          "bytes": 7338,
+          "path": "total_rasyo_financial_institution_v18/scripts/run_postgres_bank_acceptance.py"
+        },
+        {
+          "bytes": 8944,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_insurance_valuation.py"
+        },
+        {
+          "bytes": 10162,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_mkk_suite.py"
+        },
+        {
+          "bytes": 6800,
+          "path": "total_rasyo_financial_institution_v18/scripts/self_audit_kap_ingestion.py"
+        },
+        {
+          "bytes": 198,
+          "path": "total_rasyo_financial_institution_v18/.gitignore"
+        },
+        {
+          "bytes": 10186,
+          "path": "total_rasyo_financial_institution_v18/GELISTIRME_RAPORU_V3.md"
+        },
+        {
+          "bytes": 3296,
+          "path": "total_rasyo_financial_institution_v18/tests/test_semantic_materialization.py"
+        },
+        {
+          "bytes": 946,
+          "path": "total_rasyo_financial_institution_v18/tests/test_nonbank_self_audit.py"
+        },
+        {
+          "bytes": 10164,
+          "path": "total_rasyo_financial_institution_v18/tests/test_bank_m2_total_bridge.py"
+        },
+        {
+          "bytes": 10867,
+          "path": "total_rasyo_financial_institution_v18/tests/test_kap_financial_facts.py"
+        },
+        {
+          "bytes": 11410,
+          "path": "total_rasyo_financial_institution_v18/tests/test_mkk_suite.py"
+        },
+        {
+          "bytes": 2794,
+          "path": "total_rasyo_financial_institution_v18/tests/test_insurance_migration.py"
+        },
+        {
+          "bytes": 3486,
+          "path": "total_rasyo_financial_institution_v18/tests/test_sector_routing.py"
+        },
+        {
+          "bytes": 7055,
+          "path": "total_rasyo_financial_institution_v18/tests/test_insurance_batch_pipeline.py"
+        },
+        {
+          "bytes": 3267,
+          "path": "total_rasyo_financial_institution_v18/tests/test_postgres_acceptance_runner.py"
+        },
+        {
+          "bytes": 22458,
+          "path": "total_rasyo_financial_institution_v18/tests/test_mkk_kap_client.py"
+        },
+        {
+          "bytes": 15799,
+          "path": "total_rasyo_financial_institution_v18/tests/test_financial_institution_valuation.py"
+        },
+        {
+          "bytes": 3653,
+          "path": "total_rasyo_financial_institution_v18/tests/test_total_rasyo_score.py"
+        },
+        {
+          "bytes": 4008,
+          "path": "total_rasyo_financial_institution_v18/tests/test_holding_m2_bridge.py"
+        },
+        {
+          "bytes": 9216,
+          "path": "total_rasyo_financial_institution_v18/tests/test_insurance_valuation.py"
+        },
+        {
+          "bytes": 793,
+          "path": "total_rasyo_financial_institution_v18/tests/test_sql_duplicate_columns.py"
+        },
+        {
+          "bytes": 12181,
+          "path": "total_rasyo_financial_institution_v18/tests/test_holding_batch_pipeline.py"
+        },
+        {
+          "bytes": 1911,
+          "path": "total_rasyo_financial_institution_v18/tests/test_holding_migration.py"
+        },
+        {
+          "bytes": 6486,
+          "path": "total_rasyo_financial_institution_v18/tests/test_official_kap_bank_mapping.py"
+        },
+        {
+          "bytes": 13640,
+          "path": "total_rasyo_financial_institution_v18/tests/test_mkk_cli_onboarding.py"
+        },
+        {
+          "bytes": 8715,
+          "path": "total_rasyo_financial_institution_v18/tests/test_kap_bank_batch_end_to_end.py"
+        },
+        {
+          "bytes": 1797,
+          "path": "total_rasyo_financial_institution_v18/tests/test_ratios_calendar_quarters.py"
+        },
+        {
+          "bytes": 11814,
+          "path": "total_rasyo_financial_institution_v18/tests/test_kap_raw_ingest.py"
+        },
+        {
+          "bytes": 4799,
+          "path": "total_rasyo_financial_institution_v18/tests/test_mkk_contract.py"
+        },
+        {
+          "bytes": 11568,
+          "path": "total_rasyo_financial_institution_v18/tests/test_holding_valuation.py"
+        },
+        {
+          "bytes": 6377,
+          "path": "total_rasyo_financial_institution_v18/tests/test_missing_value_contract.py"
+        },
+        {
+          "bytes": 11904,
+          "path": "total_rasyo_financial_institution_v18/tests/test_semantic_facts.py"
+        },
+        {
+          "bytes": 8145,
+          "path": "total_rasyo_financial_institution_v18/tests/test_nonfin_batch_pipeline.py"
+        },
+        {
+          "bytes": 7472,
+          "path": "total_rasyo_financial_institution_v18/tests/test_kap_sync.py"
+        },
+        {
+          "bytes": 3429,
+          "path": "total_rasyo_financial_institution_v18/tests/test_insurance_cli.py"
+        },
+        {
+          "bytes": 1268,
+          "path": "total_rasyo_financial_institution_v18/tests/test_nonfin_migration.py"
+        },
+        {
+          "bytes": 9421,
+          "path": "total_rasyo_financial_institution_v18/tests/test_kap_bank_batch_persistence.py"
+        },
+        {
+          "bytes": 2205,
+          "path": "total_rasyo_financial_institution_v18/tests/test_gyo_migration.py"
+        },
+        {
+          "bytes": 680,
+          "path": "total_rasyo_financial_institution_v18/tests/test_holding_self_audit.py"
+        },
+        {
+          "bytes": 3212,
+          "path": "total_rasyo_financial_institution_v18/tests/test_gyo_nav_ingest.py"
+        },
+        {
+          "bytes": 5850,
+          "path": "total_rasyo_financial_institution_v18/tests/test_gyo_batch_pipeline.py"
+        },
+        {
+          "bytes": 24610,
+          "path": "total_rasyo_financial_institution_v18/tests/test_kap_cli.py"
+        },
+        {
+          "bytes": 7070,
+          "path": "total_rasyo_financial_institution_v18/tests/test_company_cli.py"
+        },
+        {
+          "bytes": 5100,
+          "path": "total_rasyo_financial_institution_v18/tests/test_sector_routing_missing_values.py"
+        },
+        {
+          "bytes": 4095,
+          "path": "total_rasyo_financial_institution_v18/tests/test_bank_fact_batch.py"
+        },
+        {
+          "bytes": 13612,
+          "path": "total_rasyo_financial_institution_v18/tests/test_bank_batch_pipeline.py"
+        },
+        {
+          "bytes": 6849,
+          "path": "total_rasyo_financial_institution_v18/tests/test_mkk_capture.py"
+        },
+        {
+          "bytes": 8253,
+          "path": "total_rasyo_financial_institution_v18/tests/test_kap_bank_batch_io.py"
+        },
+        {
+          "bytes": 10863,
+          "path": "total_rasyo_financial_institution_v18/tests/test_financial_institution_robustness.py"
+        },
+        {
+          "bytes": 5949,
+          "path": "total_rasyo_financial_institution_v18/tests/test_kap_public_universe.py"
+        },
+        {
+          "bytes": 4130,
+          "path": "total_rasyo_financial_institution_v18/tests/test_company_ratio_pipeline.py"
+        },
+        {
+          "bytes": 639,
+          "path": "total_rasyo_financial_institution_v18/tests/test_insurance_self_audit.py"
+        },
+        {
+          "bytes": 2102,
+          "path": "total_rasyo_financial_institution_v18/tests/test_gyo_m2_bridge.py"
+        },
+        {
+          "bytes": 6035,
+          "path": "total_rasyo_financial_institution_v18/tests/test_gyo_valuation.py"
+        },
+        {
+          "bytes": 2196,
+          "path": "total_rasyo_financial_institution_v18/tests/test_insurance_m2_bridge.py"
+        },
+        {
+          "bytes": 4798,
+          "path": "total_rasyo_financial_institution_v18/tests/test_financial_institution_m2_bridge.py"
+        },
+        {
+          "bytes": 9404,
+          "path": "total_rasyo_financial_institution_v18/tests/test_kap_bank_end_to_end.py"
+        },
+        {
+          "bytes": 20760,
+          "path": "total_rasyo_financial_institution_v18/tests/test_mkk_suite_sync.py"
+        },
+        {
+          "bytes": 3021,
+          "path": "total_rasyo_financial_institution_v18/tests/test_financial_institution_migration.py"
+        },
+        {
+          "bytes": 4786,
+          "path": "total_rasyo_financial_institution_v18/tests/test_insurance_metrics_ingest.py"
+        },
+        {
+          "bytes": 7637,
+          "path": "total_rasyo_financial_institution_v18/tests/test_financial_institution_batch_pipeline.py"
+        },
+        {
+          "bytes": 16289,
+          "path": "total_rasyo_financial_institution_v18/tests/test_company_fact_materializer.py"
+        },
+        {
+          "bytes": 5130,
+          "path": "total_rasyo_financial_institution_v18/tests/test_holding_cli.py"
+        },
+        {
+          "bytes": 4107,
+          "path": "total_rasyo_financial_institution_v18/tests/test_bank_shadow_report.py"
+        },
+        {
+          "bytes": 5848,
+          "path": "total_rasyo_financial_institution_v18/tests/test_holding_nav_ingest.py"
+        },
+        {
+          "bytes": 15322,
+          "path": "total_rasyo_financial_institution_v18/tests/test_bank_valuation_pipeline.py"
+        },
+        {
+          "bytes": 18070,
+          "path": "total_rasyo_financial_institution_v18/tests/test_kap_bank_db_workflow.py"
+        },
+        {
+          "bytes": 18235,
+          "path": "total_rasyo_financial_institution_v18/tests/test_bank_fact_materializer.py"
+        },
+        {
+          "bytes": 10007,
+          "path": "total_rasyo_financial_institution_v18/tests/test_nonfin_valuation.py"
+        },
+        {
+          "bytes": 3758,
+          "path": "total_rasyo_financial_institution_v18/tests/test_gyo_cli.py"
+        },
+        {
+          "bytes": 4842,
+          "path": "total_rasyo_financial_institution_v18/tests/test_financial_institution_persistence.py"
+        },
+        {
+          "bytes": 5308,
+          "path": "total_rasyo_financial_institution_v18/tests/test_bank_metrics_ingest.py"
+        },
+        {
+          "bytes": 8794,
+          "path": "total_rasyo_financial_institution_v18/data/financial_institution_metrics.example.jsonl"
+        },
+        {
+          "bytes": 953,
+          "path": "total_rasyo_financial_institution_v18/data/insurance_metrics.example.jsonl"
+        },
+        {
+          "bytes": 746,
+          "path": "total_rasyo_financial_institution_v18/data/holding_nav.example.jsonl"
+        },
+        {
+          "bytes": 579,
+          "path": "total_rasyo_financial_institution_v18/data/gyo_nav.example.jsonl"
+        },
+        {
+          "bytes": 3435,
+          "path": "total_rasyo_financial_institution_v18/PROJECT_CHECK_REPORT.md"
+        },
+        {
+          "bytes": 164,
+          "path": "total_rasyo_financial_institution_v18/.env.example"
+        },
+        {
+          "bytes": 51401,
+          "path": "total_rasyo_financial_institution_v18/vendor/v47_roe_belirsizlik/test_roe_uncertainty.py"
+        },
+        {
+          "bytes": 12333,
+          "path": "total_rasyo_financial_institution_v18/vendor/v47_roe_belirsizlik/test_m2_boundaries.py"
+        },
+        {
+          "bytes": 1097,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/kap_bank_batch_e2e/README.md"
+        },
+        {
+          "bytes": 44558,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/kap_bank_batch_e2e/disclosures.jsonl"
+        },
+        {
+          "bytes": 385,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/kap_bank_batch_e2e/fixture_manifest.json"
+        },
+        {
+          "bytes": 1302,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/kap_bank_batch_e2e/contexts.json"
+        },
+        {
+          "bytes": 1453,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/kap_bank_batch_e2e/expected_summary.json"
+        },
+        {
+          "bytes": 521,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/mkk_contract/sample_response.example.json"
+        },
+        {
+          "bytes": 1303,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/production_integration/setup_bank_production_fixture.sql"
+        },
+        {
+          "bytes": 2038,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/fixture_pit_bank_orders.sql"
+        },
+        {
+          "bytes": 14788,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/roe_uncertainty.py"
+        },
+        {
+          "bytes": 9685,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/README.md"
+        },
+        {
+          "bytes": 1665,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/fixture_intraday_timestamptz.sql"
+        },
+        {
+          "bytes": 1100,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/sorgu_tiebreak_izole.sql"
+        },
+        {
+          "bytes": 233,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/sorgu_yanlis_sikistirma.sql"
+        },
+        {
+          "bytes": 435,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/sorgu_yanlis_son_8_kayit.sql"
+        },
+        {
+          "bytes": 1402,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/sorgu_dogru.sql"
+        },
+        {
+          "bytes": 2806,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/fixture_pit_bank.sql"
+        },
+        {
+          "bytes": 451,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/sorgu_yanlis_tiebreak_karma.sql"
+        },
+        {
+          "bytes": 12913,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/entegrasyon_fikstur/test_fixture_reference.py"
+        },
+        {
+          "bytes": 576,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/mkk_suite/corporate_actions.config.json"
+        },
+        {
+          "bytes": 577,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/mkk_suite/financial_disclosures.config.json"
+        },
+        {
+          "bytes": 1881,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/mkk_suite/corporate_actions.lock.json"
+        },
+        {
+          "bytes": 241,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/mkk_suite/financial_disclosures.sample.json"
+        },
+        {
+          "bytes": 901,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/mkk_suite/suite.json"
+        },
+        {
+          "bytes": 1883,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/mkk_suite/financial_disclosures.lock.json"
+        },
+        {
+          "bytes": 241,
+          "path": "total_rasyo_financial_institution_v18/test_fixtures/mkk_suite/corporate_actions.sample.json"
+        },
+        {
+          "bytes": 4687,
+          "path": "total_rasyo_financial_institution_v18/docs/MKK_SUITE_SYNC_V12.md"
+        },
+        {
+          "bytes": 4746,
+          "path": "total_rasyo_financial_institution_v18/docs/MKK_CANLI_RUNTIME_V9.md"
+        },
+        {
+          "bytes": 1031,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_GYO_V16_2026-08-05.txt"
+        },
+        {
+          "bytes": 294,
+          "path": "total_rasyo_financial_institution_v18/docs/NONFIN_VALUATION_V14_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 963,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_HOLDING_V15_2026-08-05.txt"
+        },
+        {
+          "bytes": 7309,
+          "path": "total_rasyo_financial_institution_v18/docs/INSURANCE_VALUATION_V17.md"
+        },
+        {
+          "bytes": 1869,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_KAP_BANK_E2E_V5_2026-08-04.txt"
+        },
+        {
+          "bytes": 6661,
+          "path": "total_rasyo_financial_institution_v18/docs/KAP_RESMI_VERI_ADAPTORU.md"
+        },
+        {
+          "bytes": 1635,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_KAP_BANK_PERSISTENCE_V7_2026-08-04.txt"
+        },
+        {
+          "bytes": 776,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_INSURANCE_V17_2026-08-05.txt"
+        },
+        {
+          "bytes": 364,
+          "path": "total_rasyo_financial_institution_v18/docs/SELF_AUDIT_FINANCIAL_INSTITUTION_V18.json"
+        },
+        {
+          "bytes": 5268,
+          "path": "total_rasyo_financial_institution_v18/docs/MKK_URUN_ONBOARDING_V10.md"
+        },
+        {
+          "bytes": 2445,
+          "path": "total_rasyo_financial_institution_v18/docs/HOLDING_VALUATION_V15.md"
+        },
+        {
+          "bytes": 3089,
+          "path": "total_rasyo_financial_institution_v18/docs/NONBANK_SEMANTIC_V13.md"
+        },
+        {
+          "bytes": 788,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_MKK_SUITE_SYNC_V12_2026-08-05.txt"
+        },
+        {
+          "bytes": 284,
+          "path": "total_rasyo_financial_institution_v18/docs/MKK_SUITE_V11_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 299,
+          "path": "total_rasyo_financial_institution_v18/docs/INSURANCE_VALUATION_V17_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 1166,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_SEMANTIC_V4_2026-08-04.txt"
+        },
+        {
+          "bytes": 333,
+          "path": "total_rasyo_financial_institution_v18/docs/HOLDING_VALUATION_V15_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 8285,
+          "path": "total_rasyo_financial_institution_v18/docs/ENTEGRASYON_KABUL_OLCUTLERI.md"
+        },
+        {
+          "bytes": 2872,
+          "path": "total_rasyo_financial_institution_v18/docs/NONFIN_VALUATION_V14.md"
+        },
+        {
+          "bytes": 249,
+          "path": "total_rasyo_financial_institution_v18/docs/MKK_ONBOARDING_V10_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 3205,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_KAP_V3_2026-08-04.txt"
+        },
+        {
+          "bytes": 5299,
+          "path": "total_rasyo_financial_institution_v18/docs/GYO_VALUATION_V16.md"
+        },
+        {
+          "bytes": 1381,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_MKK_SUITE_V11_2026-08-05.txt"
+        },
+        {
+          "bytes": 22761,
+          "path": "total_rasyo_financial_institution_v18/docs/OZ_DENETIM_RAPORU.md"
+        },
+        {
+          "bytes": 1198,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_MKK_RUNTIME_V9_2026-08-04.txt"
+        },
+        {
+          "bytes": 2530,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_KAP_BANK_DB_V8_2026-08-04.txt"
+        },
+        {
+          "bytes": 1176,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_NONBANK_V13_2026-08-05.txt"
+        },
+        {
+          "bytes": 1702,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_2026-08-04.txt"
+        },
+        {
+          "bytes": 1143,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_NONFIN_VALUATION_V14_2026-08-05.txt"
+        },
+        {
+          "bytes": 2161,
+          "path": "total_rasyo_financial_institution_v18/docs/KAP_XBRL_BANK_KANITLARI.md"
+        },
+        {
+          "bytes": 4895,
+          "path": "total_rasyo_financial_institution_v18/docs/MKK_COKLU_URUN_V11.md"
+        },
+        {
+          "bytes": 41465,
+          "path": "total_rasyo_financial_institution_v18/docs/CALISMA_GUNLUGU.md"
+        },
+        {
+          "bytes": 1120,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_MKK_ONBOARDING_V10_2026-08-05.txt"
+        },
+        {
+          "bytes": 5731,
+          "path": "total_rasyo_financial_institution_v18/docs/CLAUDE_DEVIR_NOTU.md"
+        },
+        {
+          "bytes": 5739,
+          "path": "total_rasyo_financial_institution_v18/docs/FINANCIAL_INSTITUTION_VALUATION_V18.md"
+        },
+        {
+          "bytes": 2028,
+          "path": "total_rasyo_financial_institution_v18/docs/SON_DOGRULAMA_KAP_BANK_BATCH_V6_2026-08-04.txt"
+        },
+        {
+          "bytes": 281,
+          "path": "total_rasyo_financial_institution_v18/docs/GYO_VALUATION_V16_SELF_AUDIT.json"
+        }
+      ],
+      "sha256": "ca1160203240a9edd628e8d336c8f369c91332cec14846b99bf85994cf75b3f1",
+      "unhashed_members": []
+    },
+    {
+      "archive": "C:\\Users\\zxc28\\Downloads\\TOTAL-RASYO-HESAPLAYICI-main.zip",
+      "bytes": 1023914,
+      "hashed_members": 395,
+      "matches": [],
+      "members": [
+        {
+          "bytes": 164,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/.env.example"
+        },
+        {
+          "bytes": 3886,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/.github/workflows/total-rasyo-production-ci.yml"
+        },
+        {
+          "bytes": 198,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/.gitignore"
+        },
+        {
+          "bytes": 1048,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/E2E_AUDIT_CHANGE_IMPACT_V20.json"
+        },
+        {
+          "bytes": 389,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/E2E_AUDIT_RECONCILIATION_V21.json"
+        },
+        {
+          "bytes": 568,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/E2E_AUDIT_RECONCILIATION_V22B.json"
+        },
+        {
+          "bytes": 412,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/E2E_AUDIT_RESTATE_PIT_V23B.json"
+        },
+        {
+          "bytes": 1274,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/FINAL_AUDIT_2_REPORT.md"
+        },
+        {
+          "bytes": 10186,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/GELISTIRME_RAPORU_V3.md"
+        },
+        {
+          "bytes": 1947,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/INSTALL_ADIM_ADIM_TR.md"
+        },
+        {
+          "bytes": 2886,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/M2_DONEMSEL_MANTIK.md"
+        },
+        {
+          "bytes": 12995,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/Makefile"
+        },
+        {
+          "bytes": 3435,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/PROJECT_CHECK_REPORT.md"
+        },
+        {
+          "bytes": 30280,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/README.md"
+        },
+        {
+          "bytes": 2740,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/SELF_AUDIT_CHANGE_IMPACT_V20.json"
+        },
+        {
+          "bytes": 1833,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/SELF_AUDIT_RECONCILIATION_V21.json"
+        },
+        {
+          "bytes": 1850,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/SELF_AUDIT_RECONCILIATION_V22B.json"
+        },
+        {
+          "bytes": 1576,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/SELF_AUDIT_RESTATE_PIT_V23B.json"
+        },
+        {
+          "bytes": 913,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/SELF_AUDIT_TOTAL_RASYO_V19.json"
+        },
+        {
+          "bytes": 6053,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/V20_LIVE_VERIFICATION.json"
+        },
+        {
+          "bytes": 527,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/bank_fact_derivation.example.json"
+        },
+        {
+          "bytes": 582,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/bank_fact_derivation.official_v1.json"
+        },
+        {
+          "bytes": 989,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/financial_institution_valuation.pb_pe_v1.json"
+        },
+        {
+          "bytes": 650,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/gyo_valuation.pd_nav_v1.json"
+        },
+        {
+          "bytes": 628,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/holding_valuation.nav_discount_v1.json"
+        },
+        {
+          "bytes": 813,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/insurance_valuation.pb_pe_v1.json"
+        },
+        {
+          "bytes": 1201,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/kap_bank_semantic_mapping.example.json"
+        },
+        {
+          "bytes": 1112,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/kap_bank_semantic_mapping.official_v1.json"
+        },
+        {
+          "bytes": 3713,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/kap_nonbank_semantic_mapping.example_v1.json"
+        },
+        {
+          "bytes": 1084,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/mkk_kap_endpoints.example.json"
+        },
+        {
+          "bytes": 730,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/mkk_kap_financial_facts_mapping.example.json"
+        },
+        {
+          "bytes": 701,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/mkk_product_suite.example.json"
+        },
+        {
+          "bytes": 1316,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/nonbank_fact_derivation.example_v1.json"
+        },
+        {
+          "bytes": 563,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/nonfin_valuation.relative_v1.json"
+        },
+        {
+          "bytes": 7469,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/ratios.json"
+        },
+        {
+          "bytes": 442,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/sector_routing.v1.json"
+        },
+        {
+          "bytes": 4014,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/sectors.json"
+        },
+        {
+          "bytes": 441,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/universe_mapping.example.json"
+        },
+        {
+          "bytes": 165,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/weights.json"
+        },
+        {
+          "bytes": 166,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/config/yfinance_symbols.example.json"
+        },
+        {
+          "bytes": 8794,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data/financial_institution_metrics.example.jsonl"
+        },
+        {
+          "bytes": 579,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data/gyo_nav.example.jsonl"
+        },
+        {
+          "bytes": 746,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data/holding_nav.example.jsonl"
+        },
+        {
+          "bytes": 953,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data/insurance_metrics.example.jsonl"
+        },
+        {
+          "bytes": 277,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data_templates/bank_metrics_quarterly.csv"
+        },
+        {
+          "bytes": 344,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data_templates/bank_valuation_assumptions.csv"
+        },
+        {
+          "bytes": 368,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data_templates/financials_quarterly.csv"
+        },
+        {
+          "bytes": 93,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data_templates/index_prices_daily.csv"
+        },
+        {
+          "bytes": 101,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data_templates/prices_daily.csv"
+        },
+        {
+          "bytes": 30,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data_templates/tickers.txt"
+        },
+        {
+          "bytes": 250,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/data_templates/universe_stocks.csv"
+        },
+        {
+          "bytes": 46673,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/CALISMA_GUNLUGU.md"
+        },
+        {
+          "bytes": 42109,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/CLAUDE_DEVIR_NOTU.md"
+        },
+        {
+          "bytes": 8285,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/ENTEGRASYON_KABUL_OLCUTLERI.md"
+        },
+        {
+          "bytes": 5739,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/FINANCIAL_INSTITUTION_VALUATION_V18.md"
+        },
+        {
+          "bytes": 5299,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/GYO_VALUATION_V16.md"
+        },
+        {
+          "bytes": 281,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/GYO_VALUATION_V16_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 2445,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/HOLDING_VALUATION_V15.md"
+        },
+        {
+          "bytes": 333,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/HOLDING_VALUATION_V15_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 7309,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/INSURANCE_VALUATION_V17.md"
+        },
+        {
+          "bytes": 299,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/INSURANCE_VALUATION_V17_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 6661,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/KAP_RESMI_VERI_ADAPTORU.md"
+        },
+        {
+          "bytes": 2161,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/KAP_XBRL_BANK_KANITLARI.md"
+        },
+        {
+          "bytes": 4746,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/MKK_CANLI_RUNTIME_V9.md"
+        },
+        {
+          "bytes": 4895,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/MKK_COKLU_URUN_V11.md"
+        },
+        {
+          "bytes": 249,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/MKK_ONBOARDING_V10_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 4687,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/MKK_SUITE_SYNC_V12.md"
+        },
+        {
+          "bytes": 284,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/MKK_SUITE_V11_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 5268,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/MKK_URUN_ONBOARDING_V10.md"
+        },
+        {
+          "bytes": 3089,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/NONBANK_SEMANTIC_V13.md"
+        },
+        {
+          "bytes": 2872,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/NONFIN_VALUATION_V14.md"
+        },
+        {
+          "bytes": 294,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/NONFIN_VALUATION_V14_SELF_AUDIT.json"
+        },
+        {
+          "bytes": 22761,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/OZ_DENETIM_RAPORU.md"
+        },
+        {
+          "bytes": 364,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SELF_AUDIT_FINANCIAL_INSTITUTION_V18.json"
+        },
+        {
+          "bytes": 1702,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_2026-08-04.txt"
+        },
+        {
+          "bytes": 1031,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_GYO_V16_2026-08-05.txt"
+        },
+        {
+          "bytes": 963,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_HOLDING_V15_2026-08-05.txt"
+        },
+        {
+          "bytes": 776,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_INSURANCE_V17_2026-08-05.txt"
+        },
+        {
+          "bytes": 2028,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_KAP_BANK_BATCH_V6_2026-08-04.txt"
+        },
+        {
+          "bytes": 2530,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_KAP_BANK_DB_V8_2026-08-04.txt"
+        },
+        {
+          "bytes": 1869,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_KAP_BANK_E2E_V5_2026-08-04.txt"
+        },
+        {
+          "bytes": 1635,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_KAP_BANK_PERSISTENCE_V7_2026-08-04.txt"
+        },
+        {
+          "bytes": 3205,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_KAP_V3_2026-08-04.txt"
+        },
+        {
+          "bytes": 1120,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_MKK_ONBOARDING_V10_2026-08-05.txt"
+        },
+        {
+          "bytes": 1198,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_MKK_RUNTIME_V9_2026-08-04.txt"
+        },
+        {
+          "bytes": 788,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_MKK_SUITE_SYNC_V12_2026-08-05.txt"
+        },
+        {
+          "bytes": 1381,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_MKK_SUITE_V11_2026-08-05.txt"
+        },
+        {
+          "bytes": 1176,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_NONBANK_V13_2026-08-05.txt"
+        },
+        {
+          "bytes": 1143,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_NONFIN_VALUATION_V14_2026-08-05.txt"
+        },
+        {
+          "bytes": 1166,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/SON_DOGRULAMA_SEMANTIC_V4_2026-08-04.txt"
+        },
+        {
+          "bytes": 2185,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/TOTAL_RASYO_CURRENT_PRODUCTION.md"
+        },
+        {
+          "bytes": 13511,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/TOTAL_RASYO_ORCHESTRATOR_V19.md"
+        },
+        {
+          "bytes": 426,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/docs/TOTAL_RASYO_PRODUCTION_CI_EVIDENCE.json"
+        },
+        {
+          "bytes": 56,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/pytest.ini"
+        },
+        {
+          "bytes": 359,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/requirements.txt"
+        },
+        {
+          "bytes": 344,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/_repo_bootstrap.py"
+        },
+        {
+          "bytes": 5722,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/generate_kap_bank_batch_fixture.py"
+        },
+        {
+          "bytes": 1196,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/ingest_backtest_schedule.py"
+        },
+        {
+          "bytes": 778,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/ingest_historical_universe.py"
+        },
+        {
+          "bytes": 7338,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/run_postgres_bank_acceptance.py"
+        },
+        {
+          "bytes": 11866,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_bank_batch.py"
+        },
+        {
+          "bytes": 6875,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_bank_integration.py"
+        },
+        {
+          "bytes": 12848,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_financial_institution_valuation.py"
+        },
+        {
+          "bytes": 6825,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_gyo_valuation.py"
+        },
+        {
+          "bytes": 8935,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_holding_valuation.py"
+        },
+        {
+          "bytes": 8944,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_insurance_valuation.py"
+        },
+        {
+          "bytes": 7295,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_kap_bank_batch.py"
+        },
+        {
+          "bytes": 8092,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_kap_bank_db_workflow.py"
+        },
+        {
+          "bytes": 14330,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_kap_bank_e2e.py"
+        },
+        {
+          "bytes": 8994,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_kap_bank_persistence.py"
+        },
+        {
+          "bytes": 6800,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_kap_ingestion.py"
+        },
+        {
+          "bytes": 7177,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_mkk_onboarding.py"
+        },
+        {
+          "bytes": 12400,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_mkk_runtime.py"
+        },
+        {
+          "bytes": 10162,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_mkk_suite.py"
+        },
+        {
+          "bytes": 15718,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_mkk_suite_sync.py"
+        },
+        {
+          "bytes": 12277,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_nonbank_core.py"
+        },
+        {
+          "bytes": 6951,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_nonfin_valuation.py"
+        },
+        {
+          "bytes": 13451,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/scripts/self_audit_semantic_bank_facts.py"
+        },
+        {
+          "bytes": 39,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/000_create_schemas.sql"
+        },
+        {
+          "bytes": 2832,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/001_create_analytics_tables.sql"
+        },
+        {
+          "bytes": 423,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/003_decile_thresholds.sql"
+        },
+        {
+          "bytes": 541,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/004_fill_sector_group.sql"
+        },
+        {
+          "bytes": 763,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/005_backtest_tables.sql"
+        },
+        {
+          "bytes": 2690,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/006_trailing_alpha_period_m2_tables.sql"
+        },
+        {
+          "bytes": 413,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/007_valuation_and_backtest_ext.sql"
+        },
+        {
+          "bytes": 1740,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/010_create_core_tables.sql"
+        },
+        {
+          "bytes": 7119,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/011_bank_valuation_integration.sql"
+        },
+        {
+          "bytes": 318,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/012_bank_point_in_time_slots.sql"
+        },
+        {
+          "bytes": 7681,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/013_bank_batch_m2_integration.sql"
+        },
+        {
+          "bytes": 622,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/014_bank_point_in_time_slots_batch.sql"
+        },
+        {
+          "bytes": 6903,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/015_kap_official_ingestion.sql"
+        },
+        {
+          "bytes": 11472,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/016_semantic_sector_materialization.sql"
+        },
+        {
+          "bytes": 5561,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/017_kap_bank_batch_persistence.sql"
+        },
+        {
+          "bytes": 1381,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/018_kap_bank_database_workflow.sql"
+        },
+        {
+          "bytes": 2604,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/019_mkk_kap_runtime_safety.sql"
+        },
+        {
+          "bytes": 2893,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/020_mkk_suite_sync.sql"
+        },
+        {
+          "bytes": 3392,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/021_company_semantic_materialization.sql"
+        },
+        {
+          "bytes": 2661,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/022_nonfin_relative_valuation.sql"
+        },
+        {
+          "bytes": 5755,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/023_holding_nav_valuation.sql"
+        },
+        {
+          "bytes": 6372,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/024_gyo_nav_valuation.sql"
+        },
+        {
+          "bytes": 7757,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/025_insurance_valuation.sql"
+        },
+        {
+          "bytes": 8459,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/026_financial_institution_valuation.sql"
+        },
+        {
+          "bytes": 7796,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/027_total_rasyo_orchestrator.sql"
+        },
+        {
+          "bytes": 3452,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/028_total_rasyo_run_registry.sql"
+        },
+        {
+          "bytes": 3029,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/029_total_rasyo_status_taxonomy.sql"
+        },
+        {
+          "bytes": 2949,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/030_total_rasyo_run_scope.sql"
+        },
+        {
+          "bytes": 8149,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/031_total_rasyo_restate.sql"
+        },
+        {
+          "bytes": 7566,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/032_impact_plan.sql"
+        },
+        {
+          "bytes": 4950,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/033_impact_runtime_roles.sql"
+        },
+        {
+          "bytes": 2477,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/034_module_production_lineage.sql"
+        },
+        {
+          "bytes": 7153,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/035_reconciliation_impact_vs_actual.sql"
+        },
+        {
+          "bytes": 4946,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/036_total_rasyo_module_input.sql"
+        },
+        {
+          "bytes": 6877,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/037_reconciliation_module_freshness.sql"
+        },
+        {
+          "bytes": 6047,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/038_total_rasyo_restate_hardening.sql"
+        },
+        {
+          "bytes": 5968,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/039_restate_pit_reconciliation.sql"
+        },
+        {
+          "bytes": 3358,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/040_historical_universe_membership.sql"
+        },
+        {
+          "bytes": 1332,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/041_historical_universe_truncate_guard.sql"
+        },
+        {
+          "bytes": 5276,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/sql/042_backtest_schedule_registry.sql"
+        },
+        {
+          "bytes": 0,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/__init__.py"
+        },
+        {
+          "bytes": 0,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/__init__.py"
+        },
+        {
+          "bytes": 4805,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/alpha_realized.py"
+        },
+        {
+          "bytes": 11749,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/backtest_runner.py"
+        },
+        {
+          "bytes": 24180,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/bank_batch_pipeline.py"
+        },
+        {
+          "bytes": 10898,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/bank_shadow_report.py"
+        },
+        {
+          "bytes": 149,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/bank_v47/__init__.py"
+        },
+        {
+          "bytes": 12574,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/bank_v47/bank_v47.py"
+        },
+        {
+          "bytes": 14788,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/bank_v47/roe_uncertainty.py"
+        },
+        {
+          "bytes": 9412,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/bank_v47/spec_v46.py"
+        },
+        {
+          "bytes": 29486,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/bank_valuation_pipeline.py"
+        },
+        {
+          "bytes": 6110,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/betas.py"
+        },
+        {
+          "bytes": 10196,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/change_impact_bridge.py"
+        },
+        {
+          "bytes": 22089,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/change_impact_detector.py"
+        },
+        {
+          "bytes": 25146,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/change_impact_e2e_audit.py"
+        },
+        {
+          "bytes": 3373,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/change_impact_periods.py"
+        },
+        {
+          "bytes": 8771,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/change_impact_persistence.py"
+        },
+        {
+          "bytes": 20711,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/change_impact_registry.py"
+        },
+        {
+          "bytes": 29321,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/change_impact_self_audit.py"
+        },
+        {
+          "bytes": 6387,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/company_ratio_pipeline.py"
+        },
+        {
+          "bytes": 5442,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/decile_map.py"
+        },
+        {
+          "bytes": 6111,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/expected_band.py"
+        },
+        {
+          "bytes": 10726,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/expected_band_periods.py"
+        },
+        {
+          "bytes": 27133,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/financial_institution_batch_pipeline.py"
+        },
+        {
+          "bytes": 44817,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/financial_institution_valuation.py"
+        },
+        {
+          "bytes": 28848,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/gyo_batch_pipeline.py"
+        },
+        {
+          "bytes": 27964,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/gyo_valuation.py"
+        },
+        {
+          "bytes": 15282,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/historical_backtest_db.py"
+        },
+        {
+          "bytes": 17786,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/historical_backtest_inputs.py"
+        },
+        {
+          "bytes": 7740,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/historical_backtest_schedule_db.py"
+        },
+        {
+          "bytes": 28469,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/holding_batch_pipeline.py"
+        },
+        {
+          "bytes": 31368,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/holding_valuation.py"
+        },
+        {
+          "bytes": 25880,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/insurance_batch_pipeline.py"
+        },
+        {
+          "bytes": 38447,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/insurance_valuation.py"
+        },
+        {
+          "bytes": 8395,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/kap_bank_batch_io.py"
+        },
+        {
+          "bytes": 39491,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/kap_bank_batch_persistence.py"
+        },
+        {
+          "bytes": 23109,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/kap_bank_db_workflow.py"
+        },
+        {
+          "bytes": 22236,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/kap_bank_end_to_end.py"
+        },
+        {
+          "bytes": 2268,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/m2.py"
+        },
+        {
+          "bytes": 18259,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/m2_period.py"
+        },
+        {
+          "bytes": 4999,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/module_producer_lineage.py"
+        },
+        {
+          "bytes": 16092,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/monthly_total_rasyo_portfolio.py"
+        },
+        {
+          "bytes": 18092,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/nonfin_batch_pipeline.py"
+        },
+        {
+          "bytes": 34660,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/nonfin_valuation.py"
+        },
+        {
+          "bytes": 8268,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/period_trend.py"
+        },
+        {
+          "bytes": 15808,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/ratios_calc.py"
+        },
+        {
+          "bytes": 12504,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/reconciliation_e2e_audit.py"
+        },
+        {
+          "bytes": 9184,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/reconciliation_impact_orchestrator.py"
+        },
+        {
+          "bytes": 5525,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/reconciliation_module_collector.py"
+        },
+        {
+          "bytes": 11424,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/reconciliation_module_freshness.py"
+        },
+        {
+          "bytes": 12082,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/reconciliation_module_freshness_e2e_audit.py"
+        },
+        {
+          "bytes": 17665,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/reconciliation_module_freshness_self_audit.py"
+        },
+        {
+          "bytes": 4474,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/reconciliation_module_persistence.py"
+        },
+        {
+          "bytes": 9169,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/reconciliation_persistence.py"
+        },
+        {
+          "bytes": 16259,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/reconciliation_self_audit.py"
+        },
+        {
+          "bytes": 3097,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/restate_pit_collector.py"
+        },
+        {
+          "bytes": 4420,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/restate_pit_persistence.py"
+        },
+        {
+          "bytes": 8901,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/restate_pit_reconciliation.py"
+        },
+        {
+          "bytes": 10567,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/restate_pit_reconciliation_e2e_audit.py"
+        },
+        {
+          "bytes": 15334,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/restate_pit_reconciliation_self_audit.py"
+        },
+        {
+          "bytes": 11057,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/rsc_scoring.py"
+        },
+        {
+          "bytes": 26025,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/run_daily_pipeline.py"
+        },
+        {
+          "bytes": 17738,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_combine.py"
+        },
+        {
+          "bytes": 11099,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_engine_isolation.py"
+        },
+        {
+          "bytes": 7994,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_module_input_snapshot.py"
+        },
+        {
+          "bytes": 10678,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_module_reader.py"
+        },
+        {
+          "bytes": 17426,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_orchestrator.py"
+        },
+        {
+          "bytes": 14864,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_persistence.py"
+        },
+        {
+          "bytes": 9608,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_restate_calculator.py"
+        },
+        {
+          "bytes": 6704,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_restate_persistence.py"
+        },
+        {
+          "bytes": 8123,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_restate_reader.py"
+        },
+        {
+          "bytes": 5010,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_score.py"
+        },
+        {
+          "bytes": 37318,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/total_rasyo_self_audit.py"
+        },
+        {
+          "bytes": 8402,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/trailing_alpha.py"
+        },
+        {
+          "bytes": 25437,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/v20_live_verification.py"
+        },
+        {
+          "bytes": 11660,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/val_ratios_pit.py"
+        },
+        {
+          "bytes": 8884,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/analytics/weight_optimizer.py"
+        },
+        {
+          "bytes": 0,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/app/__init__.py"
+        },
+        {
+          "bytes": 77646,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/app/cli.py"
+        },
+        {
+          "bytes": 0,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/db/__init__.py"
+        },
+        {
+          "bytes": 1792,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/db/bulk_upsert_ratios.py"
+        },
+        {
+          "bytes": 0,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/__init__.py"
+        },
+        {
+          "bytes": 0,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/api/__init__.py"
+        },
+        {
+          "bytes": 15035,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/api/kap_financial_facts.py"
+        },
+        {
+          "bytes": 11055,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/api/kap_public_universe.py"
+        },
+        {
+          "bytes": 15097,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/api/mkk_contract.py"
+        },
+        {
+          "bytes": 42545,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/api/mkk_kap.py"
+        },
+        {
+          "bytes": 18228,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/api/mkk_suite.py"
+        },
+        {
+          "bytes": 19576,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/api/semantic_facts.py"
+        },
+        {
+          "bytes": 3867,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/api/yfinance_prices.py"
+        },
+        {
+          "bytes": 37898,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/bank_fact_materializer.py"
+        },
+        {
+          "bytes": 227,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/bist_files.py"
+        },
+        {
+          "bytes": 2854,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/build_universe.py"
+        },
+        {
+          "bytes": 38502,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/company_fact_materializer.py"
+        },
+        {
+          "bytes": 6121,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/csv_to_core.py"
+        },
+        {
+          "bytes": 2358,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/doctor.py"
+        },
+        {
+          "bytes": 19041,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/financial_institution_metrics.py"
+        },
+        {
+          "bytes": 16421,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/gyo_nav.py"
+        },
+        {
+          "bytes": 15376,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/historical_backtest_schedules.py"
+        },
+        {
+          "bytes": 11142,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/historical_universe.py"
+        },
+        {
+          "bytes": 14106,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/holding_nav.py"
+        },
+        {
+          "bytes": 17362,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/insurance_metrics.py"
+        },
+        {
+          "bytes": 17686,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/kap_raw.py"
+        },
+        {
+          "bytes": 10006,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/kap_sync.py"
+        },
+        {
+          "bytes": 36390,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/mkk_suite_sync.py"
+        },
+        {
+          "bytes": 8038,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/sector_routing.py"
+        },
+        {
+          "bytes": 11598,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/semantic_materialization.py"
+        },
+        {
+          "bytes": 1556,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/ingest/validate_core.py"
+        },
+        {
+          "bytes": 0,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/utils/__init__.py"
+        },
+        {
+          "bytes": 1005,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/utils/calendar.py"
+        },
+        {
+          "bytes": 2386,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/src/utils/missing_values.py"
+        },
+        {
+          "bytes": 9685,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/README.md"
+        },
+        {
+          "bytes": 1665,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/fixture_intraday_timestamptz.sql"
+        },
+        {
+          "bytes": 2806,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/fixture_pit_bank.sql"
+        },
+        {
+          "bytes": 2038,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/fixture_pit_bank_orders.sql"
+        },
+        {
+          "bytes": 14788,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/roe_uncertainty.py"
+        },
+        {
+          "bytes": 1402,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/sorgu_dogru.sql"
+        },
+        {
+          "bytes": 1100,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/sorgu_tiebreak_izole.sql"
+        },
+        {
+          "bytes": 233,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/sorgu_yanlis_sikistirma.sql"
+        },
+        {
+          "bytes": 435,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/sorgu_yanlis_son_8_kayit.sql"
+        },
+        {
+          "bytes": 451,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/sorgu_yanlis_tiebreak_karma.sql"
+        },
+        {
+          "bytes": 12913,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/entegrasyon_fikstur/test_fixture_reference.py"
+        },
+        {
+          "bytes": 1097,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/kap_bank_batch_e2e/README.md"
+        },
+        {
+          "bytes": 1302,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/kap_bank_batch_e2e/contexts.json"
+        },
+        {
+          "bytes": 44558,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/kap_bank_batch_e2e/disclosures.jsonl"
+        },
+        {
+          "bytes": 1453,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/kap_bank_batch_e2e/expected_summary.json"
+        },
+        {
+          "bytes": 385,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/kap_bank_batch_e2e/fixture_manifest.json"
+        },
+        {
+          "bytes": 521,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/mkk_contract/sample_response.example.json"
+        },
+        {
+          "bytes": 576,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/mkk_suite/corporate_actions.config.json"
+        },
+        {
+          "bytes": 1881,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/mkk_suite/corporate_actions.lock.json"
+        },
+        {
+          "bytes": 241,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/mkk_suite/corporate_actions.sample.json"
+        },
+        {
+          "bytes": 577,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/mkk_suite/financial_disclosures.config.json"
+        },
+        {
+          "bytes": 1883,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/mkk_suite/financial_disclosures.lock.json"
+        },
+        {
+          "bytes": 241,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/mkk_suite/financial_disclosures.sample.json"
+        },
+        {
+          "bytes": 901,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/mkk_suite/suite.json"
+        },
+        {
+          "bytes": 1303,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/test_fixtures/production_integration/setup_bank_production_fixture.sql"
+        },
+        {
+          "bytes": 11534,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_audit_evidence_metadata.py"
+        },
+        {
+          "bytes": 13612,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_bank_batch_pipeline.py"
+        },
+        {
+          "bytes": 4095,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_bank_fact_batch.py"
+        },
+        {
+          "bytes": 18235,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_bank_fact_materializer.py"
+        },
+        {
+          "bytes": 11682,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_bank_m2_total_bridge.py"
+        },
+        {
+          "bytes": 5308,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_bank_metrics_ingest.py"
+        },
+        {
+          "bytes": 4107,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_bank_shadow_report.py"
+        },
+        {
+          "bytes": 15322,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_bank_valuation_pipeline.py"
+        },
+        {
+          "bytes": 13413,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_change_impact_bridge.py"
+        },
+        {
+          "bytes": 18221,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_change_impact_detector.py"
+        },
+        {
+          "bytes": 15382,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_change_impact_persistence.py"
+        },
+        {
+          "bytes": 7070,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_company_cli.py"
+        },
+        {
+          "bytes": 16289,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_company_fact_materializer.py"
+        },
+        {
+          "bytes": 4130,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_company_ratio_pipeline.py"
+        },
+        {
+          "bytes": 7637,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_financial_institution_batch_pipeline.py"
+        },
+        {
+          "bytes": 4798,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_financial_institution_m2_bridge.py"
+        },
+        {
+          "bytes": 3021,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_financial_institution_migration.py"
+        },
+        {
+          "bytes": 4842,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_financial_institution_persistence.py"
+        },
+        {
+          "bytes": 10863,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_financial_institution_robustness.py"
+        },
+        {
+          "bytes": 15799,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_financial_institution_valuation.py"
+        },
+        {
+          "bytes": 5850,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_gyo_batch_pipeline.py"
+        },
+        {
+          "bytes": 3758,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_gyo_cli.py"
+        },
+        {
+          "bytes": 2102,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_gyo_m2_bridge.py"
+        },
+        {
+          "bytes": 2205,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_gyo_migration.py"
+        },
+        {
+          "bytes": 3212,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_gyo_nav_ingest.py"
+        },
+        {
+          "bytes": 6035,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_gyo_valuation.py"
+        },
+        {
+          "bytes": 8170,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_historical_backtest_db.py"
+        },
+        {
+          "bytes": 7655,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_historical_backtest_db_live.py"
+        },
+        {
+          "bytes": 10342,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_historical_backtest_inputs.py"
+        },
+        {
+          "bytes": 3035,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_historical_backtest_schedule_constraints_live.py"
+        },
+        {
+          "bytes": 5023,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_historical_backtest_schedules.py"
+        },
+        {
+          "bytes": 11942,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_historical_backtest_schedules_live.py"
+        },
+        {
+          "bytes": 2918,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_historical_universe.py"
+        },
+        {
+          "bytes": 3835,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_historical_universe_live.py"
+        },
+        {
+          "bytes": 562,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_historical_universe_truncate_live.py"
+        },
+        {
+          "bytes": 12181,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_holding_batch_pipeline.py"
+        },
+        {
+          "bytes": 5130,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_holding_cli.py"
+        },
+        {
+          "bytes": 4008,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_holding_m2_bridge.py"
+        },
+        {
+          "bytes": 1911,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_holding_migration.py"
+        },
+        {
+          "bytes": 5848,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_holding_nav_ingest.py"
+        },
+        {
+          "bytes": 680,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_holding_self_audit.py"
+        },
+        {
+          "bytes": 11568,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_holding_valuation.py"
+        },
+        {
+          "bytes": 6691,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_impact_runtime_roles.py"
+        },
+        {
+          "bytes": 7055,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_insurance_batch_pipeline.py"
+        },
+        {
+          "bytes": 3429,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_insurance_cli.py"
+        },
+        {
+          "bytes": 2196,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_insurance_m2_bridge.py"
+        },
+        {
+          "bytes": 4786,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_insurance_metrics_ingest.py"
+        },
+        {
+          "bytes": 2794,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_insurance_migration.py"
+        },
+        {
+          "bytes": 639,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_insurance_self_audit.py"
+        },
+        {
+          "bytes": 9216,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_insurance_valuation.py"
+        },
+        {
+          "bytes": 8715,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_kap_bank_batch_end_to_end.py"
+        },
+        {
+          "bytes": 8253,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_kap_bank_batch_io.py"
+        },
+        {
+          "bytes": 9421,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_kap_bank_batch_persistence.py"
+        },
+        {
+          "bytes": 18070,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_kap_bank_db_workflow.py"
+        },
+        {
+          "bytes": 9404,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_kap_bank_end_to_end.py"
+        },
+        {
+          "bytes": 24610,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_kap_cli.py"
+        },
+        {
+          "bytes": 10867,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_kap_financial_facts.py"
+        },
+        {
+          "bytes": 5949,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_kap_public_universe.py"
+        },
+        {
+          "bytes": 11814,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_kap_raw_ingest.py"
+        },
+        {
+          "bytes": 7472,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_kap_sync.py"
+        },
+        {
+          "bytes": 6377,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_missing_value_contract.py"
+        },
+        {
+          "bytes": 6849,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_mkk_capture.py"
+        },
+        {
+          "bytes": 13640,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_mkk_cli_onboarding.py"
+        },
+        {
+          "bytes": 4799,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_mkk_contract.py"
+        },
+        {
+          "bytes": 22458,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_mkk_kap_client.py"
+        },
+        {
+          "bytes": 11410,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_mkk_suite.py"
+        },
+        {
+          "bytes": 20760,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_mkk_suite_sync.py"
+        },
+        {
+          "bytes": 2935,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_module_producer_lineage.py"
+        },
+        {
+          "bytes": 10644,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_monthly_total_rasyo_portfolio.py"
+        },
+        {
+          "bytes": 946,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_nonbank_self_audit.py"
+        },
+        {
+          "bytes": 8145,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_nonfin_batch_pipeline.py"
+        },
+        {
+          "bytes": 1268,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_nonfin_migration.py"
+        },
+        {
+          "bytes": 10007,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_nonfin_valuation.py"
+        },
+        {
+          "bytes": 6486,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_official_kap_bank_mapping.py"
+        },
+        {
+          "bytes": 3267,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_postgres_acceptance_runner.py"
+        },
+        {
+          "bytes": 1797,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_ratios_calendar_quarters.py"
+        },
+        {
+          "bytes": 9304,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_reconciliation_impact_orchestrator.py"
+        },
+        {
+          "bytes": 18412,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_reconciliation_live.py"
+        },
+        {
+          "bytes": 9592,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_reconciliation_module_freshness.py"
+        },
+        {
+          "bytes": 13889,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_reconciliation_module_freshness_live.py"
+        },
+        {
+          "bytes": 6993,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_restate_pit_reconciliation.py"
+        },
+        {
+          "bytes": 13288,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_restate_pit_reconciliation_live.py"
+        },
+        {
+          "bytes": 3486,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_sector_routing.py"
+        },
+        {
+          "bytes": 9065,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_sector_routing_missing_values.py"
+        },
+        {
+          "bytes": 11904,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_semantic_facts.py"
+        },
+        {
+          "bytes": 3296,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_semantic_materialization.py"
+        },
+        {
+          "bytes": 793,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_sql_duplicate_columns.py"
+        },
+        {
+          "bytes": 14676,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_total_rasyo_combine.py"
+        },
+        {
+          "bytes": 8348,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_total_rasyo_engine_isolation.py"
+        },
+        {
+          "bytes": 9822,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_total_rasyo_module_reader.py"
+        },
+        {
+          "bytes": 29710,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_total_rasyo_orchestrator.py"
+        },
+        {
+          "bytes": 21204,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_total_rasyo_persistence.py"
+        },
+        {
+          "bytes": 6706,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_total_rasyo_restate_calculator.py"
+        },
+        {
+          "bytes": 14418,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_total_rasyo_restate_live.py"
+        },
+        {
+          "bytes": 14726,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_total_rasyo_restate_separation.py"
+        },
+        {
+          "bytes": 3653,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_total_rasyo_score.py"
+        },
+        {
+          "bytes": 14025,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_v22a_module_lineage_live.py"
+        },
+        {
+          "bytes": 5364,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_val_ratios_pit.py"
+        },
+        {
+          "bytes": 15027,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/tests/test_val_ratios_pit_live.py"
+        },
+        {
+          "bytes": 12333,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/vendor/v47_roe_belirsizlik/test_m2_boundaries.py"
+        },
+        {
+          "bytes": 51401,
+          "path": "TOTAL-RASYO-HESAPLAYICI-main/vendor/v47_roe_belirsizlik/test_roe_uncertainty.py"
+        }
+      ],
+      "sha256": "a37ec66c31513dcfe2e128e795ac55563d1f77884076f51fe4cd5069ee197724",
+      "unhashed_members": []
+    }
+  ]
+}

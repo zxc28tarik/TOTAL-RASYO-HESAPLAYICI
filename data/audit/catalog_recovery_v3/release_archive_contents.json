@@ -1,0 +1,389 @@
+{
+  "assets": [
+    {
+      "bytes": 38439,
+      "github_digest": "sha256:4fc1d631b944bc21e4d9bc36119c171c8f971d228feaf8fb854b2aaeb2d88292",
+      "name": "kap-bulk-acquisition-receipt.json",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/kap-bulk-acquisition-receipt.json"
+    },
+    {
+      "bytes": 16235475,
+      "github_digest": "sha256:c81e02d17aecfa141ee98c26a7373916d6b4531fa68476b7967a4d19fee80d41",
+      "matching_catalog_names": [],
+      "member_count": 432,
+      "member_name_list_sha256": "0c1c41bbb804b16fad79d42286589984fdc6138e4be5d6840c3e07060a768682",
+      "member_suffix_counts": {
+        ".xls": 432
+      },
+      "name": "KAP_2019_9A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2019_9A.zip"
+    },
+    {
+      "bytes": 17497008,
+      "github_digest": "sha256:734955b9ef13b485e8da7224f04b03ba5fe08e18335774e72a4295e8b6045118",
+      "matching_catalog_names": [],
+      "member_count": 502,
+      "member_name_list_sha256": "7ed63ac866004594be8586dda267cb3b5e1d41628a89499dddc5205026e3ffda",
+      "member_suffix_counts": {
+        ".xls": 502
+      },
+      "name": "KAP_2019_Y.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2019_Y.zip"
+    },
+    {
+      "bytes": 15086931,
+      "github_digest": "sha256:f12e00d22d3575584301e0970e96fd9e455b6cc86b765c0deb1a8bfd4c11e115",
+      "matching_catalog_names": [],
+      "member_count": 425,
+      "member_name_list_sha256": "7741eb9f53710e42a879e1ab9834f74e9f6849c5a6af1ba569bb364faa1791e3",
+      "member_suffix_counts": {
+        ".xls": 425
+      },
+      "name": "KAP_2020_3A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2020_3A.zip"
+    },
+    {
+      "bytes": 18556936,
+      "github_digest": "sha256:150b539ff6b380eef66514995fd16536434596a69c97c03108885b08734f841f",
+      "matching_catalog_names": [],
+      "member_count": 512,
+      "member_name_list_sha256": "40603c8eb9372e8177c5d5e1feb84ff4066e977c50febc220a97d2ca7be2e1b3",
+      "member_suffix_counts": {
+        ".xls": 512
+      },
+      "name": "KAP_2020_6A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2020_6A.zip"
+    },
+    {
+      "bytes": 16256591,
+      "github_digest": "sha256:ed627acc050f9fbbf0cf8c74d8801b2c45411a1eb60eb9819317e61a8d4cdbb0",
+      "matching_catalog_names": [],
+      "member_count": 432,
+      "member_name_list_sha256": "c8c9a00b16d01c9b1c0a08f02ef48cac78cf9022a15123eba672b797d2620ffd",
+      "member_suffix_counts": {
+        ".xls": 432
+      },
+      "name": "KAP_2020_9A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2020_9A.zip"
+    },
+    {
+      "bytes": 18141479,
+      "github_digest": "sha256:6a6da9e47ed6918a292117ec1c700ca785b0416e52b3db44b290ff754e148fce",
+      "matching_catalog_names": [],
+      "member_count": 519,
+      "member_name_list_sha256": "bcb46c4190f07edb0cc3bb73c5c6bf74fe60c1cf8eed3aaf08d217f4f371a758",
+      "member_suffix_counts": {
+        ".xls": 519
+      },
+      "name": "KAP_2020_Y.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2020_Y.zip"
+    },
+    {
+      "bytes": 16573084,
+      "github_digest": "sha256:d953adceb72accfc4294cce4b40e79121ba10529ad2a17ef3f60e61654ecd654",
+      "matching_catalog_names": [],
+      "member_count": 466,
+      "member_name_list_sha256": "13da5653795e2df05485f2d33c1464db7a48c9dafe53bba1c1ad9a5f9979902c",
+      "member_suffix_counts": {
+        ".xls": 466
+      },
+      "name": "KAP_2021_3A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2021_3A.zip"
+    },
+    {
+      "bytes": 20195066,
+      "github_digest": "sha256:8ebb059e19d31f56ea23c4eaafe383761a8fac2ec2160e3dec656d32da0afc7d",
+      "matching_catalog_names": [],
+      "member_count": 554,
+      "member_name_list_sha256": "7d7286edcdc2cfde1c36b25a1aba5621161d663f643d169d56e15cd08eee832d",
+      "member_suffix_counts": {
+        ".xls": 554
+      },
+      "name": "KAP_2021_6A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2021_6A.zip"
+    },
+    {
+      "bytes": 18781780,
+      "github_digest": "sha256:ac7cf0cc65b5dd567e2a3fb1e6261db73ec953d08ce47355b191d1c150679806",
+      "matching_catalog_names": [],
+      "member_count": 498,
+      "member_name_list_sha256": "2f12a7aeb71ece4bf5996426ad61e64277fc019a7238c89509f5757f8b14725f",
+      "member_suffix_counts": {
+        ".xls": 498
+      },
+      "name": "KAP_2021_9A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2021_9A.zip"
+    },
+    {
+      "bytes": 20293992,
+      "github_digest": "sha256:e6798fe4f673eb835d97325f405ec0cb168f20d9a6d33283622cc4fdf26e8f98",
+      "matching_catalog_names": [],
+      "member_count": 575,
+      "member_name_list_sha256": "654b696ba3c06d76d52a3497500f04cfcffcefe1871e74694eb3f9c53ed31557",
+      "member_suffix_counts": {
+        ".xls": 575
+      },
+      "name": "KAP_2021_Y.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2021_Y.zip"
+    },
+    {
+      "bytes": 18710612,
+      "github_digest": "sha256:62de63b62f939feed7eb31ae4832a6ef884777eb796ee13c347eb5e8f860a4fc",
+      "matching_catalog_names": [],
+      "member_count": 522,
+      "member_name_list_sha256": "454e777766fb80b5e109500652c2f1040e9bcdf671e676a3aa4f3ccd075125f5",
+      "member_suffix_counts": {
+        ".xls": 522
+      },
+      "name": "KAP_2022_3A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_3A.zip"
+    },
+    {
+      "bytes": 22910458,
+      "github_digest": "sha256:81b08fce506533f890fba1638b3d1a1101450a4d56b88d92da8cbc99bbee9a91",
+      "matching_catalog_names": [],
+      "member_count": 620,
+      "member_name_list_sha256": "1a96cbb39d6f8f8e16c37d53344af7ecc567509e273227fdd767a48a1857a91f",
+      "member_suffix_counts": {
+        ".xls": 620
+      },
+      "name": "KAP_2022_6A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_6A.zip"
+    },
+    {
+      "bytes": 20654632,
+      "github_digest": "sha256:623d3364855db39c611e7d9ec434ba072cb5abfd999afbe701f2b09943cb665c",
+      "matching_catalog_names": [],
+      "member_count": 539,
+      "member_name_list_sha256": "102e12c8ea34157efdba6da7bd91a64463e1ddef76b0cc6e28480b0109c09e0d",
+      "member_suffix_counts": {
+        ".xls": 539
+      },
+      "name": "KAP_2022_9A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_9A.zip"
+    },
+    {
+      "bytes": 22477370,
+      "github_digest": "sha256:841531a7c3a2918fbb6e51729c36862c252e80b811c875fafa07d78822894956",
+      "matching_catalog_names": [],
+      "member_count": 631,
+      "member_name_list_sha256": "a3c4a8ef64ab335d7842410caef4cc3e64440dfe12c95d17060fd27585c2f517",
+      "member_suffix_counts": {
+        ".xls": 631
+      },
+      "name": "KAP_2022_Y.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2022_Y.zip"
+    },
+    {
+      "bytes": 20116678,
+      "github_digest": "sha256:bccb5496f7ed249c37db3a294de9ccd4855c50395851c72ab539bcc543052133",
+      "matching_catalog_names": [],
+      "member_count": 556,
+      "member_name_list_sha256": "ed158988f37bf5aa2092b4d077b0362f92da38edc1889b96f50e991e0ff192e1",
+      "member_suffix_counts": {
+        ".xls": 556
+      },
+      "name": "KAP_2023_3A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_3A.zip"
+    },
+    {
+      "bytes": 24637205,
+      "github_digest": "sha256:2ccd51309f33db95b41d2b4e5e4512f15564603a3189c95bcdba97653d311088",
+      "matching_catalog_names": [],
+      "member_count": 656,
+      "member_name_list_sha256": "547c9251ff3258532a7a0a7f219cb1332de59d1a0f1bd763fbd4c40f42f3176c",
+      "member_suffix_counts": {
+        ".xls": 656
+      },
+      "name": "KAP_2023_6A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_6A.zip"
+    },
+    {
+      "bytes": 22842796,
+      "github_digest": "sha256:d6aef26f4b837146e1f658126159e909b277ee879f9183d09a7023504e6f5316",
+      "matching_catalog_names": [],
+      "member_count": 592,
+      "member_name_list_sha256": "594f0eefcf13feb19a95cbf7779c1d3f6b49daf7e058db24d658828a20ba7fe7",
+      "member_suffix_counts": {
+        ".xls": 592
+      },
+      "name": "KAP_2023_9A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_9A.zip"
+    },
+    {
+      "bytes": 23986807,
+      "github_digest": "sha256:9d8a26d43d16c31248b50635e29af0f6820e8bb361dd44eff5ba7d96106e6088",
+      "matching_catalog_names": [],
+      "member_count": 685,
+      "member_name_list_sha256": "58ed3ba2a4dca7906eea07ee81d13d2df2150604ea8fd5df69cd9b45b2fdc9c5",
+      "member_suffix_counts": {
+        ".xls": 685
+      },
+      "name": "KAP_2023_Y.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2023_Y.zip"
+    },
+    {
+      "bytes": 21954398,
+      "github_digest": "sha256:4199758e36f9e25c174d9fa9920ae06a45fe7d58407938d644eb0b5a7a6db0d0",
+      "matching_catalog_names": [],
+      "member_count": 616,
+      "member_name_list_sha256": "2a673505c93408a10e6398f5e07dee5bff5cb9a7e8e927783613d867cd54a7b2",
+      "member_suffix_counts": {
+        ".xls": 616
+      },
+      "name": "KAP_2024_3A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2024_3A.zip"
+    },
+    {
+      "bytes": 26152529,
+      "github_digest": "sha256:1e09aceddd6edb14909e4f3db081ad084c0417fa2f203625b3dc571f77a237c6",
+      "matching_catalog_names": [],
+      "member_count": 705,
+      "member_name_list_sha256": "9ca326b2eaed4d1a397cca62f1a103dc4fae41cdecd7f4358febfca131f338d1",
+      "member_suffix_counts": {
+        ".xls": 705
+      },
+      "name": "KAP_2024_6A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2024_6A.zip"
+    },
+    {
+      "bytes": 24046861,
+      "github_digest": "sha256:94a04df809937e6291b6081c074e01cbafb4492a84fafd0ce24f4ab8afbcfd31",
+      "matching_catalog_names": [],
+      "member_count": 633,
+      "member_name_list_sha256": "612704b7f44bc29aa2617c2db3807f7648dbbcacad9be25a1909094d175bf3a8",
+      "member_suffix_counts": {
+        ".xls": 633
+      },
+      "name": "KAP_2024_9A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2024_9A.zip"
+    },
+    {
+      "bytes": 25881075,
+      "github_digest": "sha256:5e63acec0eb83e3e32df9faf5f7c0205c420e6b742407dd9c9aa4f6191944cf8",
+      "matching_catalog_names": [],
+      "member_count": 731,
+      "member_name_list_sha256": "1a1ae761b0c9ae6c42ce5289dcc9b297d3f63600041ec6e34360ff44e7136e47",
+      "member_suffix_counts": {
+        ".xls": 731
+      },
+      "name": "KAP_2024_Y.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2024_Y.zip"
+    },
+    {
+      "bytes": 23167013,
+      "github_digest": "sha256:c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
+      "matching_catalog_names": [],
+      "member_count": 648,
+      "member_name_list_sha256": "c10ed63afcebd489bc5a0a6cecdc1d06c457101e41b131e01144f0f609f33b88",
+      "member_suffix_counts": {
+        ".xls": 648
+      },
+      "name": "KAP_2025_3A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2025_3A.zip"
+    },
+    {
+      "bytes": 27367724,
+      "github_digest": "sha256:6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
+      "matching_catalog_names": [],
+      "member_count": 738,
+      "member_name_list_sha256": "d4a8d0edc4a3e19894ec70fc64d0967504a35977438ff065cf1c54222f6eb4fa",
+      "member_suffix_counts": {
+        ".xls": 738
+      },
+      "name": "KAP_2025_6A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2025_6A.zip"
+    },
+    {
+      "bytes": 24914340,
+      "github_digest": "sha256:421317ffb4edb55e1656773a5e6c8d4d9e2e79225888e2ff71556490dc817163",
+      "matching_catalog_names": [],
+      "member_count": 655,
+      "member_name_list_sha256": "5243504c1fa3f52ad614d97cf1a464f0d4d1e6b4f52849014c148428ba5bdf46",
+      "member_suffix_counts": {
+        ".xls": 655
+      },
+      "name": "KAP_2025_9A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2025_9A.zip"
+    },
+    {
+      "bytes": 27013792,
+      "github_digest": "sha256:bef9ac8c5159db2fba8d388a1c4c1bf14f50c24bfef79c782b7efce93ef4e5c5",
+      "matching_catalog_names": [],
+      "member_count": 765,
+      "member_name_list_sha256": "900701e35741ce4c26deda5e9c8887b6e07d29a5cbd58ec4c559daae2a968895",
+      "member_suffix_counts": {
+        ".xls": 765
+      },
+      "name": "KAP_2025_Y.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2025_Y.zip"
+    },
+    {
+      "bytes": 23833516,
+      "github_digest": "sha256:d7a53002009bc1c4672b80c272554412487d1abb21d95e69fed698cf8be2e82f",
+      "matching_catalog_names": [],
+      "member_count": 667,
+      "member_name_list_sha256": "b52f1893296a74f8541b7de965cd00638bde6cede8aa00d8accd8b0b925c4971",
+      "member_suffix_counts": {
+        ".xls": 667
+      },
+      "name": "KAP_2026_3A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2026_3A.zip"
+    },
+    {
+      "bytes": 27815898,
+      "github_digest": "sha256:fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2",
+      "matching_catalog_names": [],
+      "member_count": 757,
+      "member_name_list_sha256": "78c02551f90b73e8c7e526c068229137c400dc59322eb9d7649d639a89b89eec",
+      "member_suffix_counts": {
+        ".xls": 757
+      },
+      "name": "KAP_2026_6A.zip",
+      "status": "CENTRAL_DIRECTORY_INSPECTED_PAYLOAD_NOT_HASHED",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/KAP_2026_6A.zip"
+    },
+    {
+      "bytes": 32870,
+      "github_digest": "sha256:22f85e20a21d0ce50425061a7cb62fe3e8da6a8022d1a3b23dd440321d4a7d97",
+      "name": "public_byte_evidence.json",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/public_byte_evidence.json"
+    },
+    {
+      "bytes": 2289,
+      "github_digest": "sha256:743a644e54d03e19e7afbd7af0285f9566b7e81fba7c6bea4a165ac3d797ef38",
+      "name": "SHA256SUMS.observed",
+      "url": "https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/releases/download/kap-bulk-byte-evidence-run-33568804543/SHA256SUMS.observed"
+    }
+  ],
+  "releases": [
+    "kap-bulk-byte-evidence-run-33568804543"
+  ]
+}

@@ -1,0 +1,1311 @@
+{
+  "benchmark_source": {
+    "authoritative": false,
+    "contract": "EXPERIMENTAL_YAHOO_RAW_XU100_CHART_V1",
+    "price_basis": "RAW_QUOTE_OPEN_CLOSE_NOT_ADJCLOSE",
+    "response_http_date": "Sun, 06 Sep 2026 02:29:17 GMT",
+    "sha256": "3c56a4827ab1c41121ed773ba937aebc8bb5853a85f38497953d76aabf5dd4ac",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/XU100.IS?period1=1627689600&period2=1785542400&interval=1d"
+  },
+  "category_counts": {
+    "BENCHMARK": 0,
+    "CUTOFF": 0,
+    "PRICE": 52,
+    "TOTAL_RASYO": 1,
+    "UNIVERSE": 0,
+    "WAGE": 0
+  },
+  "checked_months": 60,
+  "contract": "EXPERIMENTAL_V24_G_FRAME_READINESS_AUDIT_V1",
+  "database_writes_performed": false,
+  "execution_price_rows_observed": 10917,
+  "expected_months": 60,
+  "findings": [
+    {
+      "category": "TOTAL_RASYO",
+      "code": "AUTHORITY_INVALID",
+      "detail": "authoritative FULL_UNIVERSE Total Rasyo run yok",
+      "month": "*",
+      "signal_date": null
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2021-08",
+      "signal_date": "2021-08-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2021-09",
+      "signal_date": "2021-09-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KERVT', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2021-10",
+      "signal_date": "2021-10-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KERVT', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2021-11",
+      "signal_date": "2021-11-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KERVT', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2021-12",
+      "signal_date": "2021-12-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-01",
+      "signal_date": "2022-01-03"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-02",
+      "signal_date": "2022-02-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-03",
+      "signal_date": "2022-03-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-04",
+      "signal_date": "2022-04-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-05",
+      "signal_date": "2022-05-05"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-06",
+      "signal_date": "2022-06-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['INVES', 'IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-07",
+      "signal_date": "2022-07-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['INVES', 'IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-08",
+      "signal_date": "2022-08-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['INVES', 'IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-09",
+      "signal_date": "2022-09-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-10",
+      "signal_date": "2022-10-03"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-11",
+      "signal_date": "2022-11-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2022-12",
+      "signal_date": "2022-12-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KLRHO', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-01",
+      "signal_date": "2023-01-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KLRHO', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-02",
+      "signal_date": "2023-02-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KLRHO', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-03",
+      "signal_date": "2023-03-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KLRHO', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-04",
+      "signal_date": "2023-04-03"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KLRHO', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-05",
+      "signal_date": "2023-05-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KERVT', 'KLRHO', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-06",
+      "signal_date": "2023-06-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-07",
+      "signal_date": "2023-07-03"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-08",
+      "signal_date": "2023-08-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-09",
+      "signal_date": "2023-09-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-10",
+      "signal_date": "2023-10-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-11",
+      "signal_date": "2023-11-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2023-12",
+      "signal_date": "2023-12-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['ASGYO', 'IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-01",
+      "signal_date": "2024-01-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['ASGYO', 'IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-02",
+      "signal_date": "2024-02-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['ASGYO', 'IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-03",
+      "signal_date": "2024-03-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-04",
+      "signal_date": "2024-04-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-05",
+      "signal_date": "2024-05-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-06",
+      "signal_date": "2024-06-03"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-07",
+      "signal_date": "2024-07-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-08",
+      "signal_date": "2024-08-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-09",
+      "signal_date": "2024-09-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-10",
+      "signal_date": "2024-10-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-11",
+      "signal_date": "2024-11-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2024-12",
+      "signal_date": "2024-12-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-01",
+      "signal_date": "2025-01-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-02",
+      "signal_date": "2025-02-03"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-03",
+      "signal_date": "2025-03-03"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['EFORC', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-04",
+      "signal_date": "2025-04-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['EFORC', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-05",
+      "signal_date": "2025-05-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['EFORC', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-06",
+      "signal_date": "2025-06-02"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['EFORC', 'IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-07",
+      "signal_date": "2025-07-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['EFORC', 'IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-08",
+      "signal_date": "2025-08-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['EFORC', 'IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-09",
+      "signal_date": "2025-09-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['EFORC', 'IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-10",
+      "signal_date": "2025-10-01"
+    },
+    {
+      "category": "PRICE",
+      "code": "EXACT_DAY_COVERAGE",
+      "detail": "missing=['IPEKE', 'KOZAA', 'KOZAL'] duplicate=[] invalid=[]",
+      "month": "2025-11",
+      "signal_date": "2025-11-03"
+    }
+  ],
+  "limitations": [
+    "V24-G requires authoritative FULL_UNIVERSE registry evidence; none exists for these experimental artifacts.",
+    "One-day membership intervals represent only verified signal-day membership; no tradability history is invented.",
+    "Stock and index execution observations are secondary Yahoo raw quote OPEN/CLOSE fields. Numeric availability is not certification of corporate-action basis or historical source completeness.",
+    "Rejected Total Rasyo rows remain rejected and cannot become authoritative through frame adaptation."
+  ],
+  "missing_execution_cell_count": 174,
+  "missing_execution_cells": [
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-08-02",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-08-02",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-08-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-08-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-09-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-09-01",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-09-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-09-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-10-01",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-10-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-10-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-11-01",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-11-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-11-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-12-01",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-12-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2021-12-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-01-03",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-01-03",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-01-03",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-01-03",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-02-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-02-01",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-02-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-02-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-03-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-03-01",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-03-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-03-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-04-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-04-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-04-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-05-05",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-05-05",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-05-05",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-06-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-06-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-06-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-07-01",
+      "ticker": "INVES"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-07-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-07-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-07-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-08-01",
+      "ticker": "INVES"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-08-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-08-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-08-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-09-01",
+      "ticker": "INVES"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-09-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-09-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-09-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-10-03",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-10-03",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-10-03",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-11-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-11-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-11-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-12-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-12-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2022-12-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-01-02",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-01-02",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-01-02",
+      "ticker": "KLRHO"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-01-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-01-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-02-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-02-01",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-02-01",
+      "ticker": "KLRHO"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-02-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-02-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-03-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-03-01",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-03-01",
+      "ticker": "KLRHO"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-03-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-03-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-04-03",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-04-03",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-04-03",
+      "ticker": "KLRHO"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-04-03",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-04-03",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-05-02",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-05-02",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-05-02",
+      "ticker": "KLRHO"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-05-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-05-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-06-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-06-01",
+      "ticker": "KERVT"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-06-01",
+      "ticker": "KLRHO"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-06-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-06-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-07-03",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-07-03",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-07-03",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-08-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-08-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-08-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-09-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-09-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-09-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-10-02",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-10-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-10-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-11-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-11-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-11-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-12-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-12-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2023-12-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-01-02",
+      "ticker": "ASGYO"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-01-02",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-01-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-01-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-02-01",
+      "ticker": "ASGYO"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-02-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-02-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-02-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-03-01",
+      "ticker": "ASGYO"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-03-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-03-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-03-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-04-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-04-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-04-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-05-02",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-05-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-05-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-06-03",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-06-03",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-06-03",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-07-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-07-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-08-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-08-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-09-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-09-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-10-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-10-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-11-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-11-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-12-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2024-12-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-01-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-01-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-02-03",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-02-03",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-03-03",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-03-03",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-04-02",
+      "ticker": "EFORC"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-04-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-04-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-05-02",
+      "ticker": "EFORC"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-05-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-05-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-06-02",
+      "ticker": "EFORC"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-06-02",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-06-02",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-07-01",
+      "ticker": "EFORC"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-07-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-07-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-07-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-08-01",
+      "ticker": "EFORC"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-08-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-08-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-08-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-09-01",
+      "ticker": "EFORC"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-09-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-09-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-09-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-10-01",
+      "ticker": "EFORC"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-10-01",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-10-01",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-10-01",
+      "ticker": "KOZAL"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-11-03",
+      "ticker": "IPEKE"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-11-03",
+      "ticker": "KOZAA"
+    },
+    {
+      "reason": "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING",
+      "signal_date": "2025-11-03",
+      "ticker": "KOZAL"
+    }
+  ],
+  "p4_rejection_reasons": {
+    "ACTION_COMPLETENESS_EVIDENCE_MISSING": 12,
+    "BANK_PIT_ASSUMPTIONS_EVIDENCE_MISSING": 509,
+    "DATED_NOMINAL_SHARE_EVIDENCE_MISSING": 1231,
+    "FINANCIAL_SOURCE_PRIMARY_BYTES_MISSING": 227,
+    "HISTORICAL_SECTOR_FAMILY_EVIDENCE_MISSING": 4241,
+    "HISTORICAL_SECTOR_INDEX_EVIDENCE_MISSING": 5984,
+    "MODULE_INPUT_INSUFFICIENT": 35,
+    "PIT_PUBLICATION_AFTER_CUTOFF": 3,
+    "PRICE_BASIS_MISMATCH: raw market close required": 7,
+    "PRICE_MISSING": 163,
+    "RAW_CLOSE_BASIS_EVIDENCE_MISSING": 1238,
+    "SEMANTIC_MAPPING_UNRESOLVED": 137,
+    "SOURCE_SHARE_BASIS_MISMATCH: dated unadjusted shares required": 1231,
+    "STOCK_WINDOW_PRICE_MISSING": 402
+  },
+  "p4_status_counts": {
+    "EXPLICIT_REJECTION": 6000
+  },
+  "production_auditor": "src.analytics.historical_backtest_readiness.audit_backtest_readiness_frames",
+  "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "ready": false,
+  "registry_rows": 0,
+  "registry_rows_created": 0,
+  "source_hashes": {
+    "data\\backtest_sources\\bist100_nonperiodic_events_2021-08_2026-08.json": "0bfde28bef9dcc8d83fe27b253f81e4879691725b4780101ed184f392f9de49c",
+    "data\\backtest_sources\\bist100_periodic_events_2021Q3_2026Q3.json": "d5a16b7e9658c0a21cd23a9c4f674e3ae80bb70e72d30c27aaea4afe948915b8",
+    "data\\backtest_sources\\bist100_snapshot_2026-08-17.csv": "0108b0f29ddc6479afc37bbff21bb712fbe3851d465c137b3f39b775540b781d",
+    "data\\backtest_sources\\bist_ticker_code_changes_2021-08_2026-08.csv": "8d71a1d442a1389fd0f0d65414d21fd10b6f95403aa29bda147c638a3e98fa4e",
+    "data\\backtest_sources\\experimental_xu100_ohlc_v1\\yahoo_chart.json": "3c56a4827ab1c41121ed773ba937aebc8bb5853a85f38497953d76aabf5dd4ac",
+    "data\\backtest_sources\\m3_source_package\\index_closes.csv.gz": "32a740f7a7114e03c885d1ae75c8bacd081b5254b043521fd76ca5f8e34e786e",
+    "data\\backtest_sources\\minimum_wage_csgb_2021_2026.csv": "601152fcfb6f6c920666f7672de1495dc42131c35585ae473b4cc0b26d6148cd",
+    "data\\backtest_sources\\xu100_signal_dates_yahoo_2021-08_2026-07.csv": "320682828756e23e556177a9642a7b4056679edba351eb1b418c94612b1fb185",
+    "data\\backtest_sources\\yahoo_resolved\\historical_member_prices_resolved_2020-07_2026-08.csv.gz": "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141"
+  },
+  "status": "BLOCKED"
+}

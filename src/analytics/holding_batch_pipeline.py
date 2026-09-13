@@ -22,6 +22,10 @@ from src.analytics.holding_valuation import (
 )
 from src.analytics.nonfin_batch_pipeline import daily_price_cutoff_date
 from src.ingest.sector_routing import SectorRoutingConfig
+from src.analytics.price_level_adapter import (
+    normalize_price_level_input, attach_action_bundles, valuation_basis_receipt, attach_basis_receipts,
+    SOURCE_SHARE_BASIS, SHARE_BASIS,
+)
 
 
 class HoldingBatchError(ValueError):
@@ -160,7 +164,7 @@ def fetch_holding_prices(
         """
         SELECT DISTINCT ON (ticker)
                ticker, trade_date AS price_trade_date,
-               COALESCE(adj_close, close) AS current_price
+               close AS current_price, 'POINT_IN_TIME_MARKET_CLOSE_V1' AS price_basis
         FROM core.prices_daily
         WHERE ticker = ANY(%(tickers)s::text[])
           AND trade_date <= %(cutoff)s
@@ -205,6 +209,7 @@ def build_holding_snapshots_from_frames(
     navs: pd.DataFrame,
     prices: pd.DataFrame,
     analysis_at: datetime,
+    basis_receipts: dict | None = None,
 ) -> tuple[list[HoldingSnapshot], list[dict[str, str]]]:
     analysis = _aware_datetime("analysis_at", analysis_at)
     required_universe = {"ticker", "peer_group", "sector_family"}
@@ -256,24 +261,30 @@ def build_holding_snapshots_from_frames(
             rejections.append({"ticker": ticker, "reason": "FIYAT_YOK"})
             continue
         try:
+            basis = normalize_price_level_input(
+                ticker=ticker, shares_out=nav["shares_out"],
+                source_date=pd.Timestamp(nav["nav_asof_date"]).date(),
+                source_share_basis=nav["share_basis"], price=price, analysis_at=analysis)
             snapshots.append(build_holding_snapshot(
                 ticker=ticker,
                 analysis_at=analysis,
                 peer_group=universe_rows[ticker]["peer_group"],
                 currency=nav["currency"],
-                share_basis=nav["share_basis"],
-                current_price=price["current_price"],
+                share_basis=SHARE_BASIS,
+                current_price=basis.raw_close,
                 price_trade_date=pd.to_datetime(price["price_trade_date"], errors="raise").date(),
                 nav_asof_date=pd.to_datetime(nav["nav_asof_date"], errors="raise").date(),
                 nav_published_at=_coerce_aware_datetime("nav_published_at", nav["nav_published_at"]),
                 nav_total=nav["nav_total"],
-                shares_out=nav["shares_out"],
+                shares_out=basis.normalized_shares_out,
                 source_confidence=nav["source_confidence"],
                 source_document_id=nav["source_document_id"],
                 source_sha256=nav["source_sha256"],
                 nav_profile=nav["nav_profile"],
                 nav_version=nav["nav_version"],
             ))
+            if basis_receipts is not None:
+                basis_receipts[ticker] = valuation_basis_receipt(basis)
         except (HoldingValuationError, TypeError, ValueError, OverflowError) as exc:
             rejections.append({"ticker": ticker, "reason": str(exc)})
     return snapshots, rejections
@@ -584,6 +595,7 @@ def run_holding_batch(
     tickers: Optional[Iterable[str]] = None,
     routing_config: SectorRoutingConfig | None = None,
     persist: bool = True,
+    action_bundles=None,
 ) -> dict[str, Any]:
     if type(persist) is not bool:
         raise HoldingBatchError("persist Python bool olmali")
@@ -593,8 +605,11 @@ def run_holding_batch(
     ticker_list = universe["ticker"].astype(str).tolist() if not universe.empty else []
     navs = fetch_holding_navs_asof(conn, tickers=ticker_list, analysis_at=analysis, config=config)
     prices = fetch_holding_prices(conn, tickers=ticker_list, analysis_at=analysis)
+    prices = attach_action_bundles(prices, action_bundles)
     follow = fetch_holding_follow_contexts(conn, tickers=ticker_list, analysis_at=analysis)
+    basis_receipts = {}
     snapshots, rejections = build_holding_snapshots_from_frames(
+        basis_receipts=basis_receipts,
         universe=universe, navs=navs, prices=prices, analysis_at=analysis,
     )
     all_contexts = _follow_context_map(follow)
@@ -604,6 +619,7 @@ def run_holding_batch(
         snapshots, config=config, follow_contexts=prepared_contexts,
     )
     report.update({"analysis_at": analysis, "rejections": rejections})
+    attach_basis_receipts(report, basis_receipts)
     if persist:
         persist_holding_batch(conn, report)
     return report
