@@ -199,7 +199,7 @@ Kabul:
 
 ### W2 — Canlı 48 M2 / 2 Total provenance ve etki denetimi
 
-Durum: **IN_PROGRESS — DÜZELTME UYGULANDI, FINAL-HEAD CI BEKLENİYOR**
+Durum: **DONE — DÜZELTME DOĞRULANDI**
 
 Başlangıç head'i `f3731ce`; 849 ham KAP raporundan 20.580 kullanılan olgu
 yeniden türetildi. 48 M2/FOLLOW ve 11 Ek9 W1-A/B/C'den etkilenmiyor.
@@ -218,9 +218,9 @@ UZAK, sıralama ve 807/2/805 kapsamı değişmedi.
 [phase receipt](../data/audit/w2_current_provenance_v1/receipt.json).
 Canlı artifact, model ve eşikler değiştirilmedi; W5 başlatılmadı.
 
-Kapanış kapısı: uygulama commit'i final-head CI'da geçmelidir. Eski sekiz
-artifact ayrı snapshot'ta korunur; yeni assembly receipt düzeltmeyi yeni veri
-çekimi olarak sunmaz. Ücretli veri veya yeni tarihsel tarama kullanılmadı.
+Uygulama head'i `6a73096` altı CI kontrolünde PASS. Eski sekiz artifact ayrı
+snapshot'ta korunur; yeni assembly receipt düzeltmeyi yeni veri çekimi olarak
+sunmaz. Ücretli veri veya yeni tarihsel tarama kullanılmadı. W2 kabulü verildi.
 
 - W1-0 immutable baseline ile her W1-A/B/C alt değişikliğinden sonraki current
   artifact ayrı karşılaştırılır; yalnız toplu son karşılaştırmaya güvenilmez.
@@ -468,6 +468,6 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-12 | bu belge commit'i | Plan bağımlılık denetimi | DONE | M2 ana hattı düzeltildi; üç fiyat popülasyonu ve artımlı P4/P5 kapıları ayrıştırıldı |
 
 | 2026-09-12 | `f3731ce` | W1 canlı fail-closed kapanışı | DONE | Altı final-head CI PASS; Issue #37 |
-| 2026-09-13 | W2 başlangıcı `f3731ce` | W2 kaynak/etki denetimi ve düzeltme | IN_PROGRESS | Düzeltme uygulandı; 41 hedef test PASS, final-head CI bekleniyor |
+| 2026-09-13 | `6a73096` | W2 kaynak/etki denetimi ve düzeltme | DONE | 41 hedef test ve 6/6 final-head CI PASS; eski snapshot korundu |
 
-Sonraki zorunlu adım: **W2 uygulama commit'i için final-head CI ve kapanış kaydı**.
+Sonraki zorunlu adım: **W5 — SMRTG 2023-08 tarihsel M2 canary**.

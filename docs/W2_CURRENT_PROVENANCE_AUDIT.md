@@ -140,5 +140,5 @@ the remaining W2 work. The following narrow correction has now been applied:
    Issue #37/this ledger. W5 remains unstarted.
 
 The implementation and its additional acceptance gates are documented in
-[W2 frozen CORE / Total correction](W2_CURRENT_CORRECTION.md). At the
-implementation commit stage, clean W2 closure awaits final-head CI only.
+[W2 frozen CORE / Total correction](W2_CURRENT_CORRECTION.md). Implementation
+head `6a73096` passed all six required CI checks; clean W2 acceptance is granted.

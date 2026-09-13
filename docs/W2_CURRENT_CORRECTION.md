@@ -66,3 +66,6 @@ preserved pre-correction snapshot. This retains the original W1 claim without
 pretending W2's authorized correction never happened. W5 and all historical
 coverage work remain unstarted.
 
+Implementation head `6a73096` passed all six required GitHub CI workflows:
+PIT Total, KAP Semantic, Real Sector M2, Real Data, and both push/PR integration
+audits. W2 is accepted as `DONE`; this does not start or claim W5.
