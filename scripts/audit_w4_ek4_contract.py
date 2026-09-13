@@ -185,7 +185,7 @@ def build_contract_compliance() -> dict:
     violations = sorted(name for name, value in checks.items() if not value["verified"])
     return {
         "contract": CONTRACT,
-        "locked_contract_doc": str(EK4_CONTRACT_DOC.relative_to(ROOT)),
+        "locked_contract_doc": EK4_CONTRACT_DOC.relative_to(ROOT).as_posix(),
         "checks": checks,
         "violations": violations,
         "contract_violation_proven": bool(violations),
@@ -428,7 +428,7 @@ def build_receipt(content: dict[str, bytes]) -> dict:
         "commit": git_head(),
         "generator_sha256": sha_file(Path(__file__)),
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "source_paths": {name: str(path.relative_to(ROOT)) for name, path in sorted(SOURCES.items())},
+        "source_paths": {name: path.relative_to(ROOT).as_posix() for name, path in sorted(SOURCES.items())},
         "source_sha256": source_hashes(),
         "output_sha256": {name: sha_bytes(payload) for name, payload in sorted(content.items())},
         "mutations_sha256": (

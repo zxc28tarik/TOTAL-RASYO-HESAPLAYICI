@@ -301,3 +301,13 @@ def test_every_cell_row_stays_blocked_and_carries_its_evidence():
     assert all(len(row["ovp_source_sha256"]) == 64 for row in rows)
     assert all(row["ovp_published_at"] <= row["knowledge_cutoff_at"] for row in rows)
     assert all("M2" in row["modules_missing"] for row in rows)
+
+
+def test_no_windows_path_separator_leaks_into_the_artifacts():
+    """A str(Path) on Windows would embed a backslash and change every hash."""
+    for name in CONTENT_FILES:
+        assert "\\" not in (AUDIT / name).read_text(encoding="utf-8"), name
+
+
+def test_receipt_source_paths_are_posix(receipt):
+    assert all("\\" not in value for value in receipt["source_paths"].values())

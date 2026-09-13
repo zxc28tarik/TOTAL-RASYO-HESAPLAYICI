@@ -619,6 +619,14 @@ W10 BLOCKED (kanıtlı, yeniden açma koşuluyla). Dördü de
 ve 43/43 mutasyon KILLED. Hiçbiri ana M2 hattını başlatmadı veya bloklamadı.
 Sıradaki zorunlu ana hat adımı değişmedi: **W5**.
 
+İlk CI koşusu Linux tarafında geçti (PostgreSQL'li tam regresyon, BANK v4.7,
+dört `--check`, dört mutasyon suite'i) fakat Windows'ta tek bir test düştü:
+denetçiler yol dizesini `str(Path)` ile yazıyordu ve Windows'ta ters bölü
+artifact'a sızıp `contract_compliance.json` hash'ini değiştiriyordu. Dördünde de
+`as_posix()`'e çevrildi; dört test dosyasına da artifact'ta ters bölü
+bulunmadığını doğrulayan koruma eklendi. Bulgular ve içerik hash'leri değişmedi —
+Linux'ta iki yazım zaten aynı diziyi üretiyordu.
+
 CI kapısı: mevcut workflow'ların hiçbiri `claude/**` dallarında tetiklenmiyordu
 (hepsi `v24-real-data-work` veya `codex/*` kapsamlı). Bu yüzden paralel hat için
 ayrı bir workflow eklendi: `.github/workflows/claude-parallel-line-ci.yml`

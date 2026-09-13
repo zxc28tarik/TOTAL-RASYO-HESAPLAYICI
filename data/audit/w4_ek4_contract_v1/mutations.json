@@ -1,7 +1,7 @@
 {
   "all_killed": true,
   "auditor": "scripts/audit_w4_ek4_contract.py",
-  "auditor_sha256": "cf586b3948ea17e6798d74dd2440edeca152683ed9959bd8c6c28348052caa13",
+  "auditor_sha256": "3711cebf30ef0b1335b1317da70e6b929e7122bdcfc22e0a2684eba9d5115263",
   "contract": "W4_EK4_CONTRACT_MUTATION_AUDIT_V1",
   "database_access": false,
   "mutations_killed": 10,
@@ -13,7 +13,7 @@
       "name": "baseline",
       "skipped": 0,
       "status": "PASS",
-      "tests": 23
+      "tests": 26
     },
     {
       "errors": 0,
@@ -21,7 +21,7 @@
       "name": "recorded_return_reproduction_gate_removed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 23
+      "tests": 26
     },
     {
       "errors": 0,
@@ -29,7 +29,7 @@
       "name": "missing_endpoint_price_tolerated",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 23
+      "tests": 26
     },
     {
       "errors": 0,
@@ -37,7 +37,7 @@
       "name": "materiality_band_collapsed_to_everything",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 23
+      "tests": 26
     },
     {
       "errors": 0,
@@ -45,7 +45,7 @@
       "name": "anomalous_negative_band_hidden",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 23
+      "tests": 26
     },
     {
       "errors": 0,
@@ -53,7 +53,7 @@
       "name": "direction_flag_hardcoded",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 23
+      "tests": 26
     },
     {
       "errors": 0,
@@ -61,7 +61,7 @@
       "name": "contract_verdict_hardcoded_compliant",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 23
+      "tests": 26
     },
     {
       "errors": 0,
@@ -69,7 +69,7 @@
       "name": "shared_formula_check_assumed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 23
+      "tests": 26
     },
     {
       "errors": 0,
@@ -77,7 +77,7 @@
       "name": "violation_list_suppressed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 23
+      "tests": 26
     },
     {
       "errors": 0,
@@ -85,7 +85,7 @@
       "name": "live_fallback_finding_suppressed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 23
+      "tests": 26
     },
     {
       "errors": 0,
@@ -93,7 +93,7 @@
       "name": "sector_leg_rebased_to_adjusted",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 23
+      "tests": 26
     }
   ]
 }

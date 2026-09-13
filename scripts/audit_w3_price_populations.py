@@ -589,7 +589,7 @@ def build_receipt(content: dict[str, bytes]) -> dict:
         "generator_sha256": sha_file(Path(__file__)),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source_paths": {
-            name: str(path.relative_to(ROOT)) for name, path in sorted(SOURCES.items())
+            name: path.relative_to(ROOT).as_posix() for name, path in sorted(SOURCES.items())
         },
         "source_sha256": source_hashes(),
         "output_sha256": {name: sha_bytes(payload) for name, payload in sorted(content.items())},

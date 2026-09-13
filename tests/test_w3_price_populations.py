@@ -396,3 +396,13 @@ def test_rows_cover_the_union_and_flag_membership(receipt):
     assert all(
         (row["execution_reason_code"] is not None) == row["in_execution_missing"] for row in rows
     )
+
+
+def test_no_windows_path_separator_leaks_into_the_artifacts():
+    """A str(Path) on Windows would embed a backslash and change every hash."""
+    for name in CONTENT_FILES:
+        assert "\\" not in (AUDIT / name).read_text(encoding="utf-8"), name
+
+
+def test_receipt_source_paths_are_posix(receipt):
+    assert all("\\" not in value for value in receipt["source_paths"].values())

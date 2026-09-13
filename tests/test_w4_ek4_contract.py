@@ -284,3 +284,20 @@ def test_rows_carry_both_bases_and_a_band(receipt):
         )
         for row in rows
     )
+
+
+def test_no_windows_path_separator_leaks_into_the_artifacts():
+    """A str(Path) on Windows would embed a backslash and change every hash."""
+    for name in CONTENT_FILES:
+        assert "\\" not in (AUDIT / name).read_text(encoding="utf-8"), name
+
+
+def test_the_contract_doc_path_is_posix_in_the_artifact(stored):
+    # str(Path) on Windows yields a backslash and silently changes the hash.
+    assert stored["contract_compliance.json"]["locked_contract_doc"] == (
+        "docs/HISTORICAL_PIT_EK4_REPLAY_CONTRACT.md"
+    )
+
+
+def test_receipt_source_paths_are_posix(receipt):
+    assert all("\\" not in value for value in receipt["source_paths"].values())

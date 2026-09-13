@@ -1,7 +1,7 @@
 {
   "all_killed": true,
   "auditor": "scripts/audit_w3_price_populations.py",
-  "auditor_sha256": "4b6a9c2392f6263dcefc7fc203343c50a87c1dd15e0a18d1632e9dd3cfab113b",
+  "auditor_sha256": "5e8ee0697a5d87add607d7e394484ae58980b22cd9f6be3c26c0cd59339d0336",
   "contract": "W3_PRICE_POPULATION_MUTATION_AUDIT_V1",
   "database_access": false,
   "mutations_killed": 11,
@@ -13,7 +13,7 @@
       "name": "baseline",
       "skipped": 0,
       "status": "PASS",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -21,7 +21,7 @@
       "name": "alias_without_official_lineage_accepted",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -29,7 +29,7 @@
       "name": "corporate_action_continuity_assumed_proven",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -37,7 +37,7 @@
       "name": "share_class_identity_assumed_proven",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -45,7 +45,7 @@
       "name": "module_union_consistency_gate_removed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -53,7 +53,7 @@
       "name": "exact_ticker_row_reported_as_lineage",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -61,7 +61,7 @@
       "name": "signal_calendar_gate_removed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -69,7 +69,7 @@
       "name": "source_series_coverage_gate_removed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -77,7 +77,7 @@
       "name": "exhaustiveness_gate_removed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -85,7 +85,7 @@
       "name": "duplicate_cell_gate_removed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -93,7 +93,7 @@
       "name": "closed_taxonomy_gate_removed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     },
     {
       "errors": 0,
@@ -101,7 +101,7 @@
       "name": "evidence_requirement_removed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 35
+      "tests": 37
     }
   ]
 }

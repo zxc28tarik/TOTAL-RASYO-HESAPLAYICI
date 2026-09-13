@@ -1,6 +1,6 @@
 {
   "command": "python scripts/audit_w3_price_populations.py --apply",
-  "commit": "0e0aa0a5074caab1bf978ab4e500059537f89bb2",
+  "commit": "c177a1db89d63369c2b2e7e6173a121e91445d04",
   "contract": "W3_PRICE_POPULATION_RECEIPT_V1",
   "coverage": {
     "admissible_alias_count": 0,
@@ -23,15 +23,15 @@
     },
     "union_cells": 402
   },
-  "generated_at": "2026-09-13T21:43:49.150678+00:00",
-  "generator_sha256": "4b6a9c2392f6263dcefc7fc203343c50a87c1dd15e0a18d1632e9dd3cfab113b",
+  "generated_at": "2026-09-13T22:39:57.262488+00:00",
+  "generator_sha256": "5e8ee0697a5d87add607d7e394484ae58980b22cd9f6be3c26c0cd59339d0336",
   "hash_mode": "LF_CANONICAL_SHA256_V1",
   "limitations": [
     "This is a reconciliation audit. It resolves no cell and produces no score.",
     "Alias-resolved price rows stay inadmissible as exact historical execution prices until corporate-action continuity is proven across the lineage boundary.",
     "An empty corporate-action inventory is recorded as unproven continuity, never as evidence that no action occurred."
   ],
-  "mutations_sha256": "6789c9036e243ed5ed8a8511007e1cf3fdc93fe598e442f52608e31e6e8b4fa4",
+  "mutations_sha256": "473ab1177e89abb8e7cee36193a3b164266ad82b1b111d49f7906efec00d7d23",
   "output_sha256": {
     "execution_reason_codes.json": "bea1cdb5468e28b2b6c2c516eb5a92b8e684d20c76e625e97d92f134fe6381f5",
     "intersections.json": "78ccc443a177de90a09369de090972901067baaeef4178d1ac774168fc2c6d72",

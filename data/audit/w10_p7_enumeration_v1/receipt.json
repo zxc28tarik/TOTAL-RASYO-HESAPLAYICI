@@ -1,6 +1,6 @@
 {
   "command": "python scripts/audit_w10_p7_enumeration.py --apply",
-  "commit": "91875d70ca77c1ef7ee4f96992aeb5bfd1df1a67",
+  "commit": "c177a1db89d63369c2b2e7e6173a121e91445d04",
   "contract": "W10_P7_ENUMERATION_RECEIPT_V1",
   "coverage": {
     "distinct_selected_reports": 2115,
@@ -16,8 +16,8 @@
     "route_verdict": "BLOCKED",
     "sampled_month_contamination_detected": false
   },
-  "generated_at": "2026-09-13T22:19:38.982077+00:00",
-  "generator_sha256": "1ffc9891c663d341d0e49cbd5e66fa2a99fb4ca2b35a255c66898c5eb57ed378",
+  "generated_at": "2026-09-13T22:40:17.635745+00:00",
+  "generator_sha256": "dcfd4ec513c7ac5b2ad11d4b50117c487a97a710badb27d27e1af4af35652ce6",
   "hash_mode": "LF_CANONICAL_SHA256_V1",
   "limitations": [
     "Everything here is derived from bytes already in the repository; no new request was made.",
@@ -25,7 +25,7 @@
     "A negative contamination probe for one month says nothing about the other fifty-nine.",
     "Issue #24 stays open and the result keeps the EXPERIMENTAL_RISK_ACCEPTED_5Y label."
   ],
-  "mutations_sha256": "35fb81f38f9707c0883eb2aa902a57a0edf88fe5596f7f222b7a15fa8c40ee50",
+  "mutations_sha256": "01670efbe16825312ec835a9fced8607d7a2ef555be3d02796013e97c0fe56e7",
   "output_sha256": {
     "enumeration_gap.json": "20364fd634454859730e4eb402c09c5add88c43bc88967cdac71e0dfb0b2ab2f",
     "issue24_criteria.json": "5dbc91818f399dce4efd74f2bb378ab360391dd0cd1bdc407355c7c48b54d175",

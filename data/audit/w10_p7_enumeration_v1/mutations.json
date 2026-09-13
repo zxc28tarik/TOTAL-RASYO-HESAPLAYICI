@@ -1,7 +1,7 @@
 {
   "all_killed": true,
   "auditor": "scripts/audit_w10_p7_enumeration.py",
-  "auditor_sha256": "1ffc9891c663d341d0e49cbd5e66fa2a99fb4ca2b35a255c66898c5eb57ed378",
+  "auditor_sha256": "dcfd4ec513c7ac5b2ad11d4b50117c487a97a710badb27d27e1af4af35652ce6",
   "contract": "W10_P7_ENUMERATION_MUTATION_AUDIT_V1",
   "database_access": false,
   "mutations_killed": 11,
@@ -14,7 +14,7 @@
       "name": "baseline",
       "skipped": 0,
       "status": "PASS",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -22,7 +22,7 @@
       "name": "version_identifier_check_assumed_met",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -30,7 +30,7 @@
       "name": "lookahead_count_suppressed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -38,7 +38,7 @@
       "name": "unresolved_sector_family_ignored",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -46,7 +46,7 @@
       "name": "issue24_verdict_hardcoded",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -54,7 +54,7 @@
       "name": "fixture_source_check_removed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -62,7 +62,7 @@
       "name": "supersession_rate_counts_non_financial_rows",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -70,7 +70,7 @@
       "name": "authoritative_label_gate_removed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -78,7 +78,7 @@
       "name": "contamination_flag_hardcoded_clean",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -86,7 +86,7 @@
       "name": "probe_ignores_selected_reports",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -94,7 +94,7 @@
       "name": "superseded_rows_evidence_suppressed",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     },
     {
       "errors": 0,
@@ -102,7 +102,7 @@
       "name": "distinct_report_count_hardcoded",
       "skipped": 0,
       "status": "KILLED",
-      "tests": 25
+      "tests": 27
     }
   ]
 }

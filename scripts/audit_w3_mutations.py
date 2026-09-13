@@ -121,7 +121,15 @@ def run(root: Path) -> dict:
             shutil.copyfile(root / name, checkout / name)
         # Read-only inputs are shared, never copied or written by the auditor.
         for name in ("data", "src", "config"):
-            (checkout / name).symlink_to(root / name, target_is_directory=True)
+            try:
+                (checkout / name).symlink_to(root / name, target_is_directory=True)
+            except OSError as exc:  # Windows needs developer mode for symlinks.
+                raise RuntimeError(
+                    "MUTATION_HARNESS_REQUIRES_SYMLINK_SUPPORT: the read-only inputs are "
+                    "shared by symlink rather than copied, so this runs on Linux/macOS or on "
+                    "Windows with developer mode enabled. The audit --check and the targeted "
+                    "tests have no such requirement."
+                ) from exc
         for name, old, new in [("baseline", "", "")] + MUTATIONS:
             source = original
             if old:
