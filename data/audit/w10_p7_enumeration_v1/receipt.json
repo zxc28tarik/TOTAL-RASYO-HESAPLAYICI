@@ -1,0 +1,62 @@
+{
+  "command": "python scripts/audit_w10_p7_enumeration.py --apply",
+  "commit": "91875d70ca77c1ef7ee4f96992aeb5bfd1df1a67",
+  "contract": "W10_P7_ENUMERATION_RECEIPT_V1",
+  "coverage": {
+    "distinct_selected_reports": 2115,
+    "indicative_exposed_reports": 45,
+    "issue24_criteria_met": 6,
+    "issue24_criteria_total": 8,
+    "issue24_criteria_unmet": [
+      "pit_version_identifiers",
+      "sector_family_input_coverage"
+    ],
+    "issue24_verdict": "BLOCKED",
+    "reports_with_a_known_version_chain": 0,
+    "route_verdict": "BLOCKED",
+    "sampled_month_contamination_detected": false
+  },
+  "generated_at": "2026-09-13T22:19:38.982077+00:00",
+  "generator_sha256": "1ffc9891c663d341d0e49cbd5e66fa2a99fb4ca2b35a255c66898c5eb57ed378",
+  "hash_mode": "LF_CANONICAL_SHA256_V1",
+  "limitations": [
+    "Everything here is derived from bytes already in the repository; no new request was made.",
+    "The supersession rate comes from one month of official query bytes and is indicative only.",
+    "A negative contamination probe for one month says nothing about the other fifty-nine.",
+    "Issue #24 stays open and the result keeps the EXPERIMENTAL_RISK_ACCEPTED_5Y label."
+  ],
+  "mutations_sha256": "35fb81f38f9707c0883eb2aa902a57a0edf88fe5596f7f222b7a15fa8c40ee50",
+  "output_sha256": {
+    "enumeration_gap.json": "20364fd634454859730e4eb402c09c5add88c43bc88967cdac71e0dfb0b2ab2f",
+    "issue24_criteria.json": "5dbc91818f399dce4efd74f2bb378ab360391dd0cd1bdc407355c7c48b54d175",
+    "routes.json": "c114a1381df4e1aed9f9da052eca3fde2ab34f78194ec07514ab9e7f1bf53394",
+    "sampled_month_probe.json": "fe355e491d664031afe587202543a84dd944d622ad037e1c14e0a270413c52e4"
+  },
+  "policy": {
+    "authoritative_label_applied": false,
+    "model_changed": false,
+    "network_access_performed": false,
+    "neutral_fill": false,
+    "paid_source_used": false,
+    "production_code_changed": false,
+    "source_selection_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "source_paths": {
+    "p3_cells": "data/audit/experimental_materialization_v3/p3_cells.jsonl.gz",
+    "p7_bulk_version_comparison": "data/backtest_sources/p7_version_research_v1/bulk_version_comparison.json",
+    "p7_query_receipt": "data/backtest_sources/p7_version_research_v1/query_receipt.json",
+    "p7_query_response": "data/backtest_sources/p7_version_research_v1/financial_march2023.response.json",
+    "p7_version_pair_receipt": "data/backtest_sources/p7_version_research_v1/version_pair_receipt.json"
+  },
+  "source_sha256": {
+    "p3_cells": "9fbcca69b55d4312d163c4e135d69ec1063cd44d619f29e27f55fd596da832fe",
+    "p7_bulk_version_comparison": "8f2b1b7dbb3d7a29da14417791dfc1e2b09692c2e43ab92289d70bf9f205e33e",
+    "p7_query_receipt": "4be2032985e5a16cfcfa6835bcf661972b04f801f59e94176032fce00eaaf5e9",
+    "p7_query_response": "29bb3d7bd3bef0e07c4a1855416751b85ba61affc2d04e973873a16a59f69305",
+    "p7_version_pair_receipt": "e265681904d80325fca4d23dcc56b4a15ac1f0b7d9a1771d8fe413ada71307b2"
+  }
+}

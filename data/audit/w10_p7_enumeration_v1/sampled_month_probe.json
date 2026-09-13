@@ -1,0 +1,245 @@
+{
+  "conclusion": "No selected report in the 6000 cells is one of this month's corrected disclosures. That is a bounded negative result for one month of sixty, not a clean bill of health for the remaining fifty-nine.",
+  "contamination_detected": false,
+  "contract": "W10_P7_VERSION_ENUMERATION_AUDIT_V1",
+  "corrections_found": 19,
+  "corrections_selected_by_a_cell": 0,
+  "corrections_touching_a_universe_ticker": 1,
+  "financial_report_disclosures": 423,
+  "findings": [
+    {
+      "disclosure_index": 1126845,
+      "modify_status": "DUZENLENEN",
+      "publish_date": "21.03.2023 18:32:11",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "KORTS"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1126507,
+      "modify_status": "DUZENLENEN",
+      "publish_date": "20.03.2023 19:00:04",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "LYDYE"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1123994,
+      "modify_status": "DUZELTILEN",
+      "publish_date": "13.03.2023 21:09:09",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "LYDYE"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1122877,
+      "modify_status": "DUZENLENEN",
+      "publish_date": "10.03.2023 18:23:08",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "DAGI"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1122493,
+      "modify_status": "DUZELTILEN",
+      "publish_date": "09.03.2023 20:43:18",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "DAGI"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1122417,
+      "modify_status": "DUZELTILEN",
+      "publish_date": "09.03.2023 18:36:13",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "KORTS"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1121780,
+      "modify_status": "DUZELTILEN",
+      "publish_date": "08.03.2023 18:12:01",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "RYSAS"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1121327,
+      "modify_status": "DUZENLENEN",
+      "publish_date": "07.03.2023 20:58:05",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "OZKGY"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1120636,
+      "modify_status": "DUZELTILEN",
+      "publish_date": "06.03.2023 19:16:56",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "RYSAS"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1120591,
+      "modify_status": "DUZENLENEN",
+      "publish_date": "06.03.2023 18:19:38",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "AGYO"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1120590,
+      "modify_status": "DUZENLENEN",
+      "publish_date": "06.03.2023 18:19:11",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "AGYO"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1119392,
+      "modify_status": "DUZELTILEN",
+      "publish_date": "02.03.2023 20:14:19",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "RODRG"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1119330,
+      "modify_status": "DUZENLENEN",
+      "publish_date": "02.03.2023 18:20:22",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "BFREN"
+      ],
+      "tickers_in_universe": [
+        "BFREN"
+      ]
+    },
+    {
+      "disclosure_index": 1119292,
+      "modify_status": "DUZENLENEN",
+      "publish_date": "02.03.2023 18:11:08",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "TKYEM"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1118461,
+      "modify_status": "DUZELTILEN",
+      "publish_date": "01.03.2023 18:20:59",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "AGYO"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1118455,
+      "modify_status": "DUZELTILEN",
+      "publish_date": "01.03.2023 18:20:28",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "AGYO"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1118435,
+      "modify_status": "DUZENLENEN",
+      "publish_date": "01.03.2023 18:17:48",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "HUZFA"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1118420,
+      "modify_status": "DUZENLENEN",
+      "publish_date": "01.03.2023 18:15:12",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "DGATE"
+      ],
+      "tickers_in_universe": []
+    },
+    {
+      "disclosure_index": 1118395,
+      "modify_status": "DUZELTILEN",
+      "publish_date": "01.03.2023 18:12:45",
+      "report_period": 4,
+      "report_year": 2022,
+      "selected_by_any_cell": false,
+      "stock_codes": [
+        "TKYEM"
+      ],
+      "tickers_in_universe": []
+    }
+  ],
+  "query_http_status": 200,
+  "query_response_sha256": "29bb3d7bd3bef0e07c4a1855416751b85ba61affc2d04e973873a16a59f69305",
+  "query_url": "https://kap.org.tr/tr/api/disclosure/members/byCriteria",
+  "scope": "the single month with recovered official query bytes"
+}

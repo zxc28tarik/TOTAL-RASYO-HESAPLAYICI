@@ -531,7 +531,45 @@ varken `DONE`/V24-G READY iddiası yoktur.
 
 ### W10 — P7 authoritative historical-version hardening
 
-Durum: **TODO / PARALLEL**
+Durum: **BLOCKED — PARALLEL / CLAUDE HATTI** (dal `claude/inspiring-cannon-ecxilb`)
+
+Issue #24'ün sekiz kapanış ölçütü 6.000 hücreye karşı **ölçüldü**: 6'sı
+karşılandı (kaynak kimliği/hash 5.990/5.990 ve 2.115 farklı bildirim; 60 ay ×
+100 hücre; evren bağı; PIT yayın damgaları 5.990/5.990 ve **0 cutoff sonrası**;
+6.000/6.000 açık ret; 0 örnek/fixture kaynak). **İkisi karşılanmadı:**
+`pit_version_identifiers` (**0/5.990** sürüm tanımlayıcısı; hepsinde
+`historical_version_enumeration_complete = false`) ve
+`sector_family_input_coverage` (**187 hücrede aile çözülemedi**).
+
+Toplu arşivler bu soruya **yapısal olarak** cevap veremiyor: kurtarılan KORTS
+2022 çiftinde (1122417 → 1126845, 437 alanın 4'ü değişmiş, ana ortaklık ve
+kontrol gücü olmayan paylar yer değiştirmiş) korunmuş hash'li `KAP_2022_Y.zip`
+yalnız yeni bildirimi içeriyor — daha eski sürümün varlığı tespit bile edilemez.
+
+Resmî sorgu baytları olan tek pencerede (2023-03) supersession oranı
+**9/423 FR = %2,13**; 2.115 farklı seçili rapora uygulanırsa gösterge olarak
+**~45 rapor** maruz olabilir (tek ay örneklemi, garanti değil). Aynı ay doğrudan
+kirlenme sondası olarak kullanıldı: 19 düzeltmeden 1'i evren ticker'ına
+dokunuyor (BFREN), **0'ı herhangi bir hücrede seçili rapor** →
+`contamination_detected = false` (60 ayın 1'i için sınırlı olumsuz sonuç).
+
+Dört yol da derecelendirildi; ücretli kaynak kullanılmadı. **Olumlu bulgu:**
+resmî `disclosure/members/byCriteria` endpoint'i, yakalamadan ~3,5 yıl önceki
+bir pencere için 9 `DUZELTILEN` satırı döndürdü — tarihsel saklama artık
+varsayım değil, gösterilmiş olgu. Yine de BLOCKED: bu ücretsiz rota 60 pencerede
+çalıştırılmadı ve çalıştırılsa bile silinmiş/bağlantısız bir sürümün olmadığını
+kanıtlayamaz — Issue #24'ün tamlık ölçütü tam olarak budur.
+
+Issue #24 açık kalır; `AUTHORITATIVE_PIT_5Y` etiketi verilemez,
+`EXPERIMENTAL_RISK_ACCEPTED_5Y` korunur. Deneysel W5–W9 hattı bloklanmıyor.
+Denetim tamamen çevrimdışıdır; ağ erişimi yapılmadı.
+
+Hedef test 25 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
+aynı. [W10 denetim raporu](W10_P7_VERSION_ENUMERATION.md) ·
+kanıt `data/audit/w10_p7_enumeration_v1/` ·
+[receipt](../data/audit/w10_p7_enumeration_v1/receipt.json).
+
+Aşağıdaki özgün sözleşme, kabul ölçütlerinin kaydı olarak korunur.
 
 - Superseded historical KAP report sürümlerinin authoritative enumeration yolu
   ücretsiz/resmî kaynaklarla araştırılır.
@@ -568,11 +606,18 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W3 fiyat popülasyonları + ticker lineage | DONE | 174/174 reason-code; 0/5 alias kabul edilebilir; 35 test, 11/11 mutasyon KILLED |
 | 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W4 Ek4 fiyat/getiri sözleşmesi denetimi | DONE | Sözleşme COMPLIANT; 310/5.820 maddi sapma, maks 0,3312; 23 test, 10/10 mutasyon KILLED |
 | 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W6-B BANK coe/macro_cap araştırması | DONE | macro_cap 509/509 resmî kaynaklı; coe BLOCKED; unlock üst sınırı 0; 22 test, 11/11 mutasyon KILLED |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W10 P7 sürüm enumeration denetimi | BLOCKED | Issue #24 6/8 ölçüt; 0/2.115 sürüm zinciri; sonda kirlenme yok; 25 test, 11/11 mutasyon KILLED |
 
 Sonraki zorunlu **ana hat** adımı: **W5 — SMRTG 2023-08 tarihsel M2 canary**
 (Codex/Astra hattı; W3 bu adımı başlatmaz ve bloklamaz).
 
 ### Paralel hat sahipliği
+
+**Paralel hat 2026-09-13 itibarıyla kapandı:** W3 DONE, W4 DONE, W6-B DONE,
+W10 BLOCKED (kanıtlı, yeniden açma koşuluyla). Dördü de
+`claude/inspiring-cannon-ecxilb` dalında yürütüldü; toplam 105 hedef test PASS
+ve 43/43 mutasyon KILLED. Hiçbiri ana M2 hattını başlatmadı veya bloklamadı.
+Sıradaki zorunlu ana hat adımı değişmedi: **W5**.
 
 Karışıklığı önlemek için paralel W3/W4/W6-B/W10 paketleri
 `claude/inspiring-cannon-ecxilb` dalında yürütülür ve `codex/astra-v24-finalize`
