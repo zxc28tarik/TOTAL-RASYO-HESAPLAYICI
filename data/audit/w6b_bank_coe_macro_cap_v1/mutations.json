@@ -1,0 +1,107 @@
+{
+  "all_killed": true,
+  "auditor": "scripts/audit_w6b_bank_coe_macro_cap.py",
+  "auditor_sha256": "746f2563ea1d6e3df542ad4ecaf8f24764e3c3f9fa569b5d08634fce61193c16",
+  "contract": "W6B_BANK_COE_MACRO_CAP_MUTATION_AUDIT_V1",
+  "database_access": false,
+  "mutations_killed": 11,
+  "mutations_total": 11,
+  "results": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "name": "baseline",
+      "skipped": 0,
+      "status": "PASS",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "macro_cap_arithmetic_gate_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "lookahead_gate_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "latest_eligible_vintage_gate_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "unknown_cell_gate_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "bank_family_gate_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "unknown_vintage_tolerated",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 5,
+      "name": "macro_cap_status_hardcoded_resolved",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "coe_reason_code_hardcoded",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "priority_overlap_hardcoded_zero",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "priority_cohort_quoted_instead_of_recomputed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "raw_bytes_caveat_suppressed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 22
+    }
+  ]
+}

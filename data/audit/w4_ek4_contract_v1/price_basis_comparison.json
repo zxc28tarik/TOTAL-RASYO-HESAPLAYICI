@@ -1,0 +1,258 @@
+{
+  "applied_to_production": false,
+  "band_counts": {
+    "ADJUSTMENT_IN_WINDOW": 310,
+    "ANOMALOUS_NEGATIVE": 0,
+    "NO_ADJUSTMENT_OR_ROUNDING": 5510
+  },
+  "cells_compared": 5820,
+  "comparison": "current adjusted-stock/raw-index basis vs a raw-stock/raw-index counterfactual",
+  "contract": "W4_EK4_PRICE_RETURN_CONTRACT_AUDIT_V1",
+  "delta_excess_return": {
+    "count": 310,
+    "field": "delta_excess_return",
+    "max": 0.13249346638914006,
+    "mean": 0.02958950291861184,
+    "median": 0.020977658925327547,
+    "min": 0.000255385911661854
+  },
+  "delta_score": {
+    "count": 310,
+    "field": "delta_score",
+    "max": 0.3312336659728502,
+    "mean": 0.07159288381297305,
+    "median": 0.05166431705004332,
+    "min": 0.0
+  },
+  "direction": {
+    "interpretation": "Back-adjustment raises the stock leg's measured return whenever a distribution falls inside the window, while the price-index sector leg has no such uplift. The bias is therefore one-directional, not symmetric noise.",
+    "inverted_windows": 0,
+    "no_inverted_adjustment_beyond_rounding": true,
+    "rounding_band_max_abs_delta_score": 9.506748577248203e-07
+  },
+  "ek4_weight_in_total_rasyo": 0.16,
+  "largest_shifts": [
+    {
+      "delta_score": 0.3312336659728502,
+      "ek4_counterfactual_raw_raw": 0.563330804069214,
+      "ek4_current_adjusted_raw": 0.8945644700420642,
+      "month": "2025-04",
+      "sector_index_code": "XUMAL",
+      "ticker": "ISMEN"
+    },
+    {
+      "delta_score": 0.3208320702143991,
+      "ek4_counterfactual_raw_raw": 0.1201394597212159,
+      "ek4_current_adjusted_raw": 0.44097152993561495,
+      "month": "2022-04",
+      "sector_index_code": "XUSIN",
+      "ticker": "EREGL"
+    },
+    {
+      "delta_score": 0.30730745738019727,
+      "ek4_counterfactual_raw_raw": 0.23647656113519697,
+      "ek4_current_adjusted_raw": 0.5437840185153943,
+      "month": "2022-05",
+      "sector_index_code": "XUHIZ",
+      "ticker": "TTKOM"
+    },
+    {
+      "delta_score": 0.29938590589808933,
+      "ek4_counterfactual_raw_raw": 0.17955097138367224,
+      "ek4_current_adjusted_raw": 0.4789368772817616,
+      "month": "2025-06",
+      "sector_index_code": "XUHIZ",
+      "ticker": "DOAS"
+    },
+    {
+      "delta_score": 0.29914182939898615,
+      "ek4_counterfactual_raw_raw": 0.43779910523198307,
+      "ek4_current_adjusted_raw": 0.7369409346309692,
+      "month": "2022-04",
+      "sector_index_code": "XUSIN",
+      "ticker": "ISDMR"
+    },
+    {
+      "delta_score": 0.2814736186012501,
+      "ek4_counterfactual_raw_raw": 0.6622875366725168,
+      "ek4_current_adjusted_raw": 0.9437611552737669,
+      "month": "2023-10",
+      "sector_index_code": "XUSIN",
+      "ticker": "TUPRS"
+    },
+    {
+      "delta_score": 0.24871425891357624,
+      "ek4_counterfactual_raw_raw": 0.5274771705361532,
+      "ek4_current_adjusted_raw": 0.7761914294497294,
+      "month": "2023-04",
+      "sector_index_code": "XUMAL",
+      "ticker": "AKBNK"
+    },
+    {
+      "delta_score": 0.24724939794458722,
+      "ek4_counterfactual_raw_raw": 0.5580116235337974,
+      "ek4_current_adjusted_raw": 0.8052610214783846,
+      "month": "2022-04",
+      "sector_index_code": "XUSIN",
+      "ticker": "TTRAK"
+    },
+    {
+      "delta_score": 0.23696173518544542,
+      "ek4_counterfactual_raw_raw": 0.0,
+      "ek4_current_adjusted_raw": 0.23696173518544542,
+      "month": "2024-05",
+      "sector_index_code": "XUHIZ",
+      "ticker": "DOAS"
+    },
+    {
+      "delta_score": 0.23004907190312174,
+      "ek4_counterfactual_raw_raw": 0.48973108886968,
+      "ek4_current_adjusted_raw": 0.7197801607728017,
+      "month": "2022-05",
+      "sector_index_code": "XUHIZ",
+      "ticker": "DOAS"
+    },
+    {
+      "delta_score": 0.22770768366095095,
+      "ek4_counterfactual_raw_raw": 0.3089009128932808,
+      "ek4_current_adjusted_raw": 0.5366085965542318,
+      "month": "2021-12",
+      "sector_index_code": "XUSIN",
+      "ticker": "VESTL"
+    },
+    {
+      "delta_score": 0.22034189524050063,
+      "ek4_counterfactual_raw_raw": 0.5214376161811061,
+      "ek4_current_adjusted_raw": 0.7417795114216067,
+      "month": "2023-04",
+      "sector_index_code": "XUMAL",
+      "ticker": "YKBNK"
+    },
+    {
+      "delta_score": 0.2199792380724993,
+      "ek4_counterfactual_raw_raw": 0.3511939009021898,
+      "ek4_current_adjusted_raw": 0.5711731389746891,
+      "month": "2023-05",
+      "sector_index_code": "XUMAL",
+      "ticker": "AKBNK"
+    },
+    {
+      "delta_score": 0.21732652468125668,
+      "ek4_counterfactual_raw_raw": 0.33982432334505275,
+      "ek4_current_adjusted_raw": 0.5571508480263094,
+      "month": "2022-04",
+      "sector_index_code": "XUSIN",
+      "ticker": "TOASO"
+    },
+    {
+      "delta_score": 0.2079299513596211,
+      "ek4_counterfactual_raw_raw": 0.006091215630815855,
+      "ek4_current_adjusted_raw": 0.21402116699043697,
+      "month": "2023-06",
+      "sector_index_code": "XUMAL",
+      "ticker": "BASGZ"
+    },
+    {
+      "delta_score": 0.2028966447259295,
+      "ek4_counterfactual_raw_raw": 0.37560243450452735,
+      "ek4_current_adjusted_raw": 0.5784990792304568,
+      "month": "2024-05",
+      "sector_index_code": "XUSIN",
+      "ticker": "TOASO"
+    },
+    {
+      "delta_score": 0.2002879707051214,
+      "ek4_counterfactual_raw_raw": 0.36674452519870404,
+      "ek4_current_adjusted_raw": 0.5670324959038254,
+      "month": "2021-10",
+      "sector_index_code": "XUSIN",
+      "ticker": "VESTL"
+    },
+    {
+      "delta_score": 0.20027357882470673,
+      "ek4_counterfactual_raw_raw": 0.06672811991330976,
+      "ek4_current_adjusted_raw": 0.2670016987380165,
+      "month": "2022-05",
+      "sector_index_code": "XUMAL",
+      "ticker": "TURSG"
+    },
+    {
+      "delta_score": 0.19918036599108926,
+      "ek4_counterfactual_raw_raw": 0.21640557908215272,
+      "ek4_current_adjusted_raw": 0.415585945073242,
+      "month": "2026-05",
+      "sector_index_code": "XUMAL",
+      "ticker": "BRYAT"
+    },
+    {
+      "delta_score": 0.19644641447057382,
+      "ek4_counterfactual_raw_raw": 0.3491190773366652,
+      "ek4_current_adjusted_raw": 0.545565491807239,
+      "month": "2025-07",
+      "sector_index_code": "XUSIN",
+      "ticker": "ULKER"
+    }
+  ],
+  "material_share": 0.05326460481099656,
+  "materiality_threshold_delta_excess": 1e-06,
+  "materially_affected_months": 49,
+  "materially_affected_tickers": 103,
+  "method": "The sector leg is already raw, so it is held fixed and only the stock leg is re-based. The production compute_ek4_momentum_point is used unchanged.",
+  "monthly_material_counts": {
+    "2021-08": 7,
+    "2021-10": 1,
+    "2021-11": 3,
+    "2021-12": 4,
+    "2022-01": 2,
+    "2022-02": 2,
+    "2022-04": 12,
+    "2022-05": 22,
+    "2022-06": 14,
+    "2022-07": 4,
+    "2022-08": 6,
+    "2022-09": 3,
+    "2022-12": 5,
+    "2023-01": 1,
+    "2023-04": 9,
+    "2023-05": 16,
+    "2023-06": 19,
+    "2023-07": 5,
+    "2023-08": 4,
+    "2023-09": 5,
+    "2023-10": 5,
+    "2023-11": 1,
+    "2023-12": 6,
+    "2024-01": 4,
+    "2024-04": 2,
+    "2024-05": 14,
+    "2024-06": 11,
+    "2024-07": 9,
+    "2024-08": 7,
+    "2024-09": 4,
+    "2024-10": 3,
+    "2024-11": 2,
+    "2024-12": 4,
+    "2025-01": 4,
+    "2025-04": 8,
+    "2025-05": 14,
+    "2025-06": 10,
+    "2025-07": 9,
+    "2025-08": 3,
+    "2025-09": 4,
+    "2025-10": 2,
+    "2025-11": 2,
+    "2025-12": 4,
+    "2026-01": 4,
+    "2026-02": 1,
+    "2026-04": 6,
+    "2026-05": 7,
+    "2026-06": 9,
+    "2026-07": 7
+  },
+  "neutral_band_max_abs_delta_excess": 3.802699430899281e-07,
+  "score_shift_buckets": {
+    "gt_0_05": 163,
+    "gt_0_10": 81,
+    "gt_0_20": 18
+  }
+}

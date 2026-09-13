@@ -316,7 +316,40 @@ Kabul:
 
 ### W4 — Ek4 fiyat/getiri sözleşmesi ve asimetri denetimi
 
-Durum: **TODO / PARALLEL — W7-B FINAL KABUL KAPISI**
+Durum: **DONE — PARALLEL / CLAUDE HATTI** (dal `claude/inspiring-cannon-ecxilb`)
+
+Kilitli sözleşme ihlali **kanıtlanmadı**: verdict `COMPLIANT`, 5/5 kontrol
+kanıtlı. Canlı DB yolu ile tarihsel replay aynı formülü, aynı hisse tabanını
+(`COALESCE(adj_close, close)`) ve aynı ham routed endeks bacağını kullanıyor;
+sözleşme sektör bacağını zaten ham olarak kilitliyor ve hisse tabanını
+belirtmiyor. Dolayısıyla kod değişikliği yetkisi yok.
+
+Asimetri yalnız audit artifact'ında ölçüldü: sektör bacağı sabit tutulup hisse
+bacağı ham kapanışa yeniden tabanlandı. **310/5.820 hücre (%5,33) maddi**;
+kalan 5.510 hücrede fark yalnız `adj_close` yuvarlaması (maks. 3,8e-07).
+Δskor ortalama 0,0716, medyan 0,0517, **maksimum 0,3312**; 163 hücre >0,05,
+81 >0,10, 18 >0,20; 49/60 ay, 103 ticker. Ters yönlü pencere yok — sapma tek
+yönlü. Hiçbir Ek4 değeri yeniden yazılmadı.
+
+Tarihsel XU100 fallback yasağı korunuyor; aktif canlı artifact'ları üreten
+`materialize_current_market_modules.py` de dated rota ile fail-closed.
+**Yeni bulgu:** `run_daily_pipeline::_compute_ek4_momentum` NULL rotayı sessizce
+XU100'e çeviriyor, geçerli skor üretiyor ve kullanılan endeksi hiçbir yere
+yazmıyor. Aktif sonuçların hiçbiri bu yoldan gelmediği için
+`NO_PRODUCTION_REACHABILITY_IN_ACTIVE_ARTIFACT_CHAIN` kanıtıyla kaydedildi,
+yamalanmadı.
+
+**W7-B için:** sözleşme kapısı PASS; asimetri açık bir yönetişim kalemi olarak
+W7-B final kabulünden önce karara bağlanmalı. Issue #39 kapsamını fiyat-seviyesi
+valuation ile sınırlayıp momentumu dışarıda bıraktığı için bu kalem kendi
+kaydını gerektirir.
+
+Hedef test 23 PASS, mutasyon **10/10 KILLED**, iki bağımsız türetme bayt düzeyinde
+aynı. [W4 denetim raporu](W4_EK4_CONTRACT_AUDIT.md) ·
+kanıt `data/audit/w4_ek4_contract_v1/` ·
+[receipt](../data/audit/w4_ek4_contract_v1/receipt.json).
+
+Aşağıdaki özgün sözleşme, kabul ölçütlerinin kaydı olarak korunur.
 
 - Hisse tarafındaki `COALESCE(adj_close, close)` ile raw sektör endeksi
   kullanımının mevcut kilitli sözleşmeye uyumu incelenir.
@@ -387,7 +420,38 @@ provenance ve deterministik ikinci üretim yayımlanır.
 
 ### W6-B — BANK 509 hücre için `coe` ve `macro_cap`
 
-Durum: **TODO / PARALLEL RESEARCH**
+Durum: **DONE — PARALLEL / CLAUDE HATTI** (dal `claude/inspiring-cannon-ecxilb`)
+
+`macro_cap` **509/509 çözüldü**: resmî SBB Orta Vadeli Program arşivinden altı
+vintage, her biri URL + yayın tarihi + boyut + SHA256 ile bağlı. Beş bağımsız
+kontrolün beşi de geçti — her değer kayıtlı GSYH çiftinden yeniden hesaplandı,
+hiçbir hücre cutoff sonrası yayın kullanmıyor, her hücre en yeni cutoff-uygun
+vintage'ı seçmiş, 509/509 hücre P3'te var ve `historical_family = BANK`.
+Kayıtlı sınır: ham PDF baytları 92 MB git şişmesi nedeniyle repoda değil; zincir
+yeniden indirmeye karşı denetlenebilir, çevrimdışı bayt doğrulaması yapılamaz.
+
+`coe` **BLOCKED** (`COE_METHODOLOGY_UNVERSIONED_AND_INPUT_LINEAGE_INCOMPLETE`).
+Üç ücretsiz yol tüketildi: Borsa İstanbul tarihsel endeks verisi ücretli
+datastore'a yönleniyor; TCMB EVDS'te resmî banka CoE serisi yok; TCMB çalışma
+tebliği tüm aylık girdilerin Bloomberg terminalinden alındığını beyan ediyor.
+Repodaki tarihsiz demo sabiti (0,3705) reddedildi — tek bir günümüz sayısı 60
+tarihsel cutoff'a taşınamaz.
+
+**Kritik bulgu:** her iki parametre çözülse bile **0 Total skor açılır**.
+509 BANK hücresinin **hiçbiri** 3.017'lik öncelik kohortunda değil (kesişim 0;
+en az 4 modüllü kümeyle de kesişim 0). Hücrelerde M3 509, Ek4 509, Ek9 483 var;
+**M1, Ek1 ve M2 hepsinde eksik**. M2 çözülse en iyi hücre 3 modülden 4'e çıkar,
+Total için 6 gerekir. Asıl blocker CORE tanı katmanı: 509/509 hücre
+`NO_CORE_DIAGNOSTICS` (453 `TECHNICAL_CORE_FAMILY_UNSUPPORTED_OR_CONFLICTING`,
+56 `OWN_REPORT_STATEMENT_SCOPE_CONFLICT`).
+
+509 hücrenin tamamı açık ret/`BLOCKED` kalır; NONFIN ilerlemesi bloklanmıyor.
+Hedef test 22 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
+aynı. [W6-B araştırma raporu](W6B_BANK_COE_MACRO_CAP_RESEARCH.md) ·
+kanıt `data/audit/w6b_bank_coe_macro_cap_v1/` ·
+[receipt](../data/audit/w6b_bank_coe_macro_cap_v1/receipt.json).
+
+Aşağıdaki özgün sözleşme, kabul ölçütlerinin kaydı olarak korunur.
 
 - Repo içi ve ücretsiz tarih-doğru kaynaklardan dönemsel `coe` ve `macro_cap`
   yeniden kurulabilirliği incelenir.
@@ -502,6 +566,8 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-12 | `f3731ce` | W1 canlı fail-closed kapanışı | DONE | Altı final-head CI PASS; Issue #37 |
 | 2026-09-13 | `6a73096` | W2 kaynak/etki denetimi ve düzeltme | DONE | 41 hedef test ve 6/6 final-head CI PASS; eski snapshot korundu |
 | 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W3 fiyat popülasyonları + ticker lineage | DONE | 174/174 reason-code; 0/5 alias kabul edilebilir; 35 test, 11/11 mutasyon KILLED |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W4 Ek4 fiyat/getiri sözleşmesi denetimi | DONE | Sözleşme COMPLIANT; 310/5.820 maddi sapma, maks 0,3312; 23 test, 10/10 mutasyon KILLED |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W6-B BANK coe/macro_cap araştırması | DONE | macro_cap 509/509 resmî kaynaklı; coe BLOCKED; unlock üst sınırı 0; 22 test, 11/11 mutasyon KILLED |
 
 Sonraki zorunlu **ana hat** adımı: **W5 — SMRTG 2023-08 tarihsel M2 canary**
 (Codex/Astra hattı; W3 bu adımı başlatmaz ve bloklamaz).
