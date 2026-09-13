@@ -23,6 +23,7 @@ from datetime import datetime, timezone
 import gzip
 import hashlib
 import json
+import math
 from pathlib import Path
 import subprocess
 import sys
@@ -270,7 +271,10 @@ def build_price_basis_comparison(rows: list[dict]) -> dict:
         )
         return {
             "count": len(ordered),
-            "mean": sum(ordered) / len(ordered),
+            # CPython 3.12 switched sum() to compensated summation for floats,
+            # so a plain sum() puts a different last bit in the artifact
+            # depending on the interpreter. fsum is correctly rounded everywhere.
+            "mean": math.fsum(ordered) / len(ordered),
             "median": median,
             "max": ordered[-1],
             "min": ordered[0],

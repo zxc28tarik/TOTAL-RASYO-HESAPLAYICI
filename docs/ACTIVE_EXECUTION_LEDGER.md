@@ -260,7 +260,7 @@ sürekliliği 0/5 kanıtlandı** (`ACTION_CONTINUITY_UNPROVEN`). Bu nedenle
 EFORC→EFOR (2025-11-03) Koza kümesinden (2025-11-24) ayrı tutuldu; BESLR için
 pay sınıfı gözlemi olmadığından KERVT kimliği de kanıtlanamadı.
 
-Hedef test 35 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
+Hedef test 37 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
 aynı. W1/W2 kanıt zinciri korunuyor (131 CORE / 48 M2 / 11 Ek9 / 2 Total / 805 ret).
 Üretim kodu, model, ağırlık, veto, eşik ve evren değişmedi; hiçbir hücre düzeltilmedi.
 
@@ -344,7 +344,7 @@ W7-B final kabulünden önce karara bağlanmalı. Issue #39 kapsamını fiyat-se
 valuation ile sınırlayıp momentumu dışarıda bıraktığı için bu kalem kendi
 kaydını gerektirir.
 
-Hedef test 23 PASS, mutasyon **10/10 KILLED**, iki bağımsız türetme bayt düzeyinde
+Hedef test 27 PASS, mutasyon **10/10 KILLED**, iki bağımsız türetme bayt düzeyinde
 aynı. [W4 denetim raporu](W4_EK4_CONTRACT_AUDIT.md) ·
 kanıt `data/audit/w4_ek4_contract_v1/` ·
 [receipt](../data/audit/w4_ek4_contract_v1/receipt.json).
@@ -446,7 +446,7 @@ Total için 6 gerekir. Asıl blocker CORE tanı katmanı: 509/509 hücre
 56 `OWN_REPORT_STATEMENT_SCOPE_CONFLICT`).
 
 509 hücrenin tamamı açık ret/`BLOCKED` kalır; NONFIN ilerlemesi bloklanmıyor.
-Hedef test 22 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
+Hedef test 24 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
 aynı. [W6-B araştırma raporu](W6B_BANK_COE_MACRO_CAP_RESEARCH.md) ·
 kanıt `data/audit/w6b_bank_coe_macro_cap_v1/` ·
 [receipt](../data/audit/w6b_bank_coe_macro_cap_v1/receipt.json).
@@ -564,7 +564,7 @@ Issue #24 açık kalır; `AUTHORITATIVE_PIT_5Y` etiketi verilemez,
 `EXPERIMENTAL_RISK_ACCEPTED_5Y` korunur. Deneysel W5–W9 hattı bloklanmıyor.
 Denetim tamamen çevrimdışıdır; ağ erişimi yapılmadı.
 
-Hedef test 25 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
+Hedef test 27 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
 aynı. [W10 denetim raporu](W10_P7_VERSION_ENUMERATION.md) ·
 kanıt `data/audit/w10_p7_enumeration_v1/` ·
 [receipt](../data/audit/w10_p7_enumeration_v1/receipt.json).
@@ -603,10 +603,10 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 
 | 2026-09-12 | `f3731ce` | W1 canlı fail-closed kapanışı | DONE | Altı final-head CI PASS; Issue #37 |
 | 2026-09-13 | `6a73096` | W2 kaynak/etki denetimi ve düzeltme | DONE | 41 hedef test ve 6/6 final-head CI PASS; eski snapshot korundu |
-| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W3 fiyat popülasyonları + ticker lineage | DONE | 174/174 reason-code; 0/5 alias kabul edilebilir; 35 test, 11/11 mutasyon KILLED |
-| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W4 Ek4 fiyat/getiri sözleşmesi denetimi | DONE | Sözleşme COMPLIANT; 310/5.820 maddi sapma, maks 0,3312; 23 test, 10/10 mutasyon KILLED |
-| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W6-B BANK coe/macro_cap araştırması | DONE | macro_cap 509/509 resmî kaynaklı; coe BLOCKED; unlock üst sınırı 0; 22 test, 11/11 mutasyon KILLED |
-| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W10 P7 sürüm enumeration denetimi | BLOCKED | Issue #24 6/8 ölçüt; 0/2.115 sürüm zinciri; sonda kirlenme yok; 25 test, 11/11 mutasyon KILLED |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W3 fiyat popülasyonları + ticker lineage | DONE | 174/174 reason-code; 0/5 alias kabul edilebilir; 37 test, 11/11 mutasyon KILLED |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W4 Ek4 fiyat/getiri sözleşmesi denetimi | DONE | Sözleşme COMPLIANT; 310/5.820 maddi sapma, maks 0,3312; 27 test, 10/10 mutasyon KILLED |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W6-B BANK coe/macro_cap araştırması | DONE | macro_cap 509/509 resmî kaynaklı; coe BLOCKED; unlock üst sınırı 0; 24 test, 11/11 mutasyon KILLED |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W10 P7 sürüm enumeration denetimi | BLOCKED | Issue #24 6/8 ölçüt; 0/2.115 sürüm zinciri; sonda kirlenme yok; 27 test, 11/11 mutasyon KILLED |
 
 Sonraki zorunlu **ana hat** adımı: **W5 — SMRTG 2023-08 tarihsel M2 canary**
 (Codex/Astra hattı; W3 bu adımı başlatmaz ve bloklamaz).
@@ -615,17 +615,26 @@ Sonraki zorunlu **ana hat** adımı: **W5 — SMRTG 2023-08 tarihsel M2 canary**
 
 **Paralel hat 2026-09-13 itibarıyla kapandı:** W3 DONE, W4 DONE, W6-B DONE,
 W10 BLOCKED (kanıtlı, yeniden açma koşuluyla). Dördü de
-`claude/inspiring-cannon-ecxilb` dalında yürütüldü; toplam 105 hedef test PASS
+`claude/inspiring-cannon-ecxilb` dalında yürütüldü; toplam 115 hedef test PASS
 ve 43/43 mutasyon KILLED. Hiçbiri ana M2 hattını başlatmadı veya bloklamadı.
 Sıradaki zorunlu ana hat adımı değişmedi: **W5**.
 
-İlk CI koşusu Linux tarafında geçti (PostgreSQL'li tam regresyon, BANK v4.7,
-dört `--check`, dört mutasyon suite'i) fakat Windows'ta tek bir test düştü:
-denetçiler yol dizesini `str(Path)` ile yazıyordu ve Windows'ta ters bölü
-artifact'a sızıp `contract_compliance.json` hash'ini değiştiriyordu. Dördünde de
-`as_posix()`'e çevrildi; dört test dosyasına da artifact'ta ters bölü
-bulunmadığını doğrulayan koruma eklendi. Bulgular ve içerik hash'leri değişmedi —
-Linux'ta iki yazım zaten aynı diziyi üretiyordu.
+CI Linux tarafında baştan geçti (PostgreSQL'li tam regresyon, BANK v4.7, dört
+`--check`, dört mutasyon suite'i). Windows job'ı iki taşınabilirlik kusurunu
+ortaya çıkardı ve ikisi de düzeltildi:
+
+1. Denetçiler yol dizesini `str(Path)` ile yazıyordu; Windows'ta ters bölü
+   `contract_compliance.json` içine sızıp hash'i değiştiriyordu. Dördü de
+   `as_posix()`'e çevrildi.
+2. Özet ortalaması `sum()` ile hesaplanıyordu. CPython 3.12 float toplamasını
+   Neumaier'e çevirdiği için Linux/3.11 `0.07159288381297305`, Windows/3.14
+   `0.07159288381297303` üretiyordu. `math.fsum` doğru yuvarlanmış olduğundan
+   her sürümde aynı sonucu verir; ona geçildi.
+
+Her ikisi için de kalıcı koruma eklendi: artifact'ta ters bölü bulunmadığı ve
+ortalamanın `math.fsum` ile birebir eşleştiği test ediliyor. Dört denetim de
+Python 3.11, 3.12 ve 3.13 altında receipt'i birebir yeniden üretiyor. Bulgular
+değişmedi; W4 özetindeki tek fark ortalamanın son bitidir.
 
 CI kapısı: mevcut workflow'ların hiçbiri `claude/**` dallarında tetiklenmiyordu
 (hepsi `v24-real-data-work` veya `codex/*` kapsamlı). Bu yüzden paralel hat için

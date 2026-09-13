@@ -19,7 +19,7 @@ Hiçbir hücre düzeltilmedi, hiçbir skor üretilmedi, hiçbir eşik gevşetilm
 | Ticker lineage kabul edilebilirliği | **0/5 alias kabul edilebilir** → 162 hücre `BLOCKED` |
 | 12 P2 hücresi | `SOURCE_SYMBOL_GAP` — mevcut açık ret korunuyor |
 | Mutasyon | **11/11 KILLED** |
-| Hedef test | **35 PASS** |
+| Hedef test | **37 PASS** |
 | Canlı sonuçlar | 131 CORE / 48 M2 / 11 Ek9 / 2 Total / 805 ret — **değişmedi** |
 
 ## 2. Popülasyonlar ayrı anahtarlarla

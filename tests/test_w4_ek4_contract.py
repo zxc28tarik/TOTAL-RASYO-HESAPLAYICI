@@ -301,3 +301,22 @@ def test_the_contract_doc_path_is_posix_in_the_artifact(stored):
 
 def test_receipt_source_paths_are_posix(receipt):
     assert all("\\" not in value for value in receipt["source_paths"].values())
+
+
+def test_the_mean_is_interpreter_version_stable(stored):
+    """CPython 3.12+ sums floats differently, so the artifact must not use sum()."""
+    import math
+
+    rows = [
+        json.loads(line)
+        for line in (AUDIT / "rows.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    material = sorted(
+        row["delta_score"] for row in rows if row["band"] == BAND_MATERIAL
+    )
+    # fsum is correctly rounded, so this expectation is the same on every
+    # interpreter. A plain sum() is not: on 3.11 this data gives
+    # 0.07159288381297305 and on 3.12+ it gives 0.07159288381297303, which is
+    # exactly how the Windows job caught it.
+    expected = math.fsum(material) / len(material)
+    assert stored["price_basis_comparison.json"]["delta_score"]["mean"] == expected

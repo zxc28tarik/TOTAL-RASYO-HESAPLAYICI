@@ -19,7 +19,7 @@ hücre düzeltilmedi, hiçbir current varsayım tarihsele taşınmadı.
 
 Bu paket bağımsız bir ikinci geçiştir: önceki araştırma receipt'i yeniden
 yazılmadı, **sayılar artifact'lardan yeniden türetilerek** doğrulandı.
-Hedef test **22 PASS**, mutasyon **11/11 KILLED**.
+Hedef test **24 PASS**, mutasyon **11/11 KILLED**.
 
 ## 2. `macro_cap` — bağımsız olarak doğrulandı
 

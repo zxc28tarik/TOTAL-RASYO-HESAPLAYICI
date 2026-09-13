@@ -1,6 +1,6 @@
 {
   "command": "python scripts/audit_w4_ek4_contract.py --apply",
-  "commit": "c177a1db89d63369c2b2e7e6173a121e91445d04",
+  "commit": "e912a7d988ecd3249661a5a87a675318744748cc",
   "contract": "W4_EK4_CONTRACT_RECEIPT_V1",
   "coverage": {
     "band_counts": {
@@ -17,19 +17,19 @@
     "materially_affected_tickers": 103,
     "max_delta_score": 0.3312336659728502
   },
-  "generated_at": "2026-09-13T22:40:03.502632+00:00",
-  "generator_sha256": "3711cebf30ef0b1335b1317da70e6b929e7122bdcfc22e0a2684eba9d5115263",
+  "generated_at": "2026-09-13T22:58:09.452443+00:00",
+  "generator_sha256": "a4f9bfd1fb9fa75fc6d72215b93fa6acccb7ac446b4af0e63ebb1d696a9dfc4a",
   "hash_mode": "LF_CANONICAL_SHA256_V1",
   "limitations": [
     "The raw/raw counterfactual exists only in this artifact; no Ek4 value was rewritten.",
     "An adjusted/adjusted comparison is impossible here: the repository holds no total-return sector index series, only price indices.",
     "Issue #39 scopes itself to price-level valuation and explicitly leaves momentum alone, so this asymmetry needs its own governance record."
   ],
-  "mutations_sha256": "38c8f284cb9563eba3633e86a74d88bc650b4f4f63340208c4765b6cd588823b",
+  "mutations_sha256": "93b66fafc9f63810603915f1aa1bc89bbbd282073a40df43149d48ea671510f0",
   "output_sha256": {
     "contract_compliance.json": "ceebaca912dac9f204f81672d837962950952d28bbc68a2eca5890ebfc4b3f8c",
     "fallback_visibility.json": "d21a8ba5b45536cdee454112540d5fe5fbe21ed07679835d98f19633679616a6",
-    "price_basis_comparison.json": "fd1039aa6319e2f61afa69ba5150d5af75ae9f3ee84bb59e348e8865ba18e24f",
+    "price_basis_comparison.json": "7f3905f57ad9ba708a26482f59da8f2f0c7bc530a124c1f551f4c4f688d0e1d0",
     "rows.jsonl": "f68f0a415843424f511c272391b117e69c6f5845e149c87a19a3080a9e547e2c"
   },
   "policy": {

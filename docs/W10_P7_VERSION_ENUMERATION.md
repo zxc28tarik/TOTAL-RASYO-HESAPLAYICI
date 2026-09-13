@@ -24,7 +24,7 @@ diye etiketlenmedi.
 | Örneklenen ayda kirlenme | **YOK** — 19 düzeltmenin hiçbiri seçili rapor değil |
 | Yollar | 4/4 derecelendirildi; **ücretli kaynak kullanılmadı** |
 | Etiket | `EXPERIMENTAL_RISK_ACCEPTED_5Y` korunuyor |
-| Hedef test / mutasyon | **25 PASS** / **11/11 KILLED** |
+| Hedef test / mutasyon | **27 PASS** / **11/11 KILLED** |
 
 ## 2. Issue #24 kapanış ölçütleri — ölçülerek
 

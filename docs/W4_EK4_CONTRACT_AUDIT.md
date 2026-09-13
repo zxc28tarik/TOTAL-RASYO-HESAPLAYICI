@@ -20,7 +20,7 @@ değeri yeniden yazılmadı, model/ağırlık/eşik/evren **dokunulmadı**.
 | Tarihsel XU100 fallback yasağı | **KORUNUYOR** |
 | Yeni bulgu | Canlı DB yolundaki XU100 sektör fallback'i provenance'ta **görünmez** |
 | Kod değişikliği | **YOK** — metodolojik tercih ayrı yönetişim kararına bırakıldı |
-| Hedef test / mutasyon | **23 PASS** / **10/10 KILLED** |
+| Hedef test / mutasyon | **27 PASS** / **10/10 KILLED** |
 
 ## 2. Sözleşme uyumu — ihlal kanıtlanmadı
 
@@ -176,6 +176,12 @@ python scripts/audit_w1_frozen_outputs.py --output w1-after-w4-check.json
 Kanıt dizini: `data/audit/w4_ek4_contract_v1/` — `contract_compliance.json`,
 `price_basis_comparison.json`, `fallback_visibility.json`, `rows.jsonl`
 (5.820 hücre, iki taban ve bant), `mutations.json`, `receipt.json`.
+Özet ortalaması `math.fsum` ile hesaplanır: CPython 3.12 `sum()`'ı float'lar
+için Neumaier toplamasına çevirdiğinden düz `sum()` artifact'a yorumlayıcıya
+bağlı bir son bit yazardı (3.11 `0.07159288381297305`, 3.12+
+`0.07159288381297303`). Denetim Python 3.11, 3.12 ve 3.13 altında receipt'i
+birebir yeniden üretir; artifact'a yol dizesi de `as_posix()` ile yazılır.
+
 Hash modu `LF_CANONICAL_SHA256_V1`; `--apply` iki bağımsız türetmenin bayt
 düzeyinde aynı olmasını zorunlu tutar.
 
