@@ -619,6 +619,13 @@ W10 BLOCKED (kanıtlı, yeniden açma koşuluyla). Dördü de
 ve 43/43 mutasyon KILLED. Hiçbiri ana M2 hattını başlatmadı veya bloklamadı.
 Sıradaki zorunlu ana hat adımı değişmedi: **W5**.
 
+CI kapısı: mevcut workflow'ların hiçbiri `claude/**` dallarında tetiklenmiyordu
+(hepsi `v24-real-data-work` veya `codex/*` kapsamlı). Bu yüzden paralel hat için
+ayrı bir workflow eklendi: `.github/workflows/claude-parallel-line-ci.yml`
+(`claude/**` push + `workflow_dispatch`). PostgreSQL'li tam regresyon, BANK v4.7,
+dört `--check` yeniden üretimi, dört hedef test dosyası ve dört mutasyon suite'ini
+koşar; Codex/Astra workflow'larına dokunmaz.
+
 Karışıklığı önlemek için paralel W3/W4/W6-B/W10 paketleri
 `claude/inspiring-cannon-ecxilb` dalında yürütülür ve `codex/astra-v24-finalize`
 dalına PR ile gelir. `main`, `v24-real-data-work` ve `codex/*` dallarına bu
