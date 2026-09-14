@@ -697,18 +697,23 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W5 SMRTG 2023-08 tarihsel M2 canary | BLOCKED | Pay/aksiyon kapısı 5/5 geçti, profil kökeni CONFIG ve çözülmüş; blocker 0 güvenli peer ve 0/60 erişilebilir cutoff; 58 test, 20/20 mutasyon KILLED |
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W6 KAP kurumsal işlem envanteri + peer kapısı ölçümü | KISMEN İLERLEDİ | 595 pencere gap-free yakalandı (649.244 satır); peer kapısı (audit düzeyinde) 0/60 → 60/60; 32 test, 11/11 mutasyon KILLED |
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W7-A üretim kanıt-tarihi kapısı denetimi | BLOCKED | Gerçek üretim kodu (`PriceLevelActionEvidence.verify`) çağrılarak test edildi; her kaynağın `published_at <= cutoff` şartı bugünkü hiçbir yakalamayla karşılanamıyor; üretim-kabul edilebilir peer sayısı hâlâ ≤1/cutoff; 10 test PASS |
+| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W6-C rapor-zinciriyle boşluk küçültme (sistem geneli) | GAP_NARROWED_NOT_CLOSED | 4.203 hücrenin 3.030'unda dış çapa var; yalnız %21'inde (648) rapor zinciri doğrulama buluyor; boşluk medyanı 815→534 gün (SMRTG'nin 8 peer'lik örneği temsili değilmiş); 16 test, 8/8 mutasyon KILLED |
 
 Sonraki zorunlu **ana hat** adımı hâlâ **W6/W7-A'nın devamı — gerçek
 tarihsel M2 materyalizasyonu**, ama W7-A'nın bulduğu kapı kapatılmadan bu
 mümkün değil. Peer kohort kapısı **kanıt düzeyinde** 60/60 cutoff'ta açık
 olsa da (bkz. §W6), **üretim-kabul edilebilirlik düzeyinde** hâlâ ≤1
 peer/cutoff — 5 asgari şartın altında (bkz. §W7-A ve
-[W7A_EVIDENCE_DATING_GATE.md](W7A_EVIDENCE_DATING_GATE.md)). Gerçek yeniden
-açma koşulu: dönemin kendisinde yayımlanmış, cutoff'tan önce tarihli,
-arşivlenmiş resmî bir tamlık kaynağı — geriye dönük bir sorgu değil. P2
-araştırması bunun tek adayını (KAP kurumsal işlem takvimi) zaten tüketmişti.
-W7-A tam anlamıyla tetiklenmedi (gerçek M2 çıkmadı); bu denetim yalnız
-üretim kodunun kendi kapısını doğruladı.
+[W7A_EVIDENCE_DATING_GATE.md](W7A_EVIDENCE_DATING_GATE.md)). W6-C, rapor
+zinciriyle bu boşluğu sistem genelinde ölçtü: yalnız %21 hücrede herhangi
+bir küçülme var, ve orada bile medyan boşluk 534 güne (~1,5 yıl) düşüyor —
+sıfıra inmiyor (bkz.
+[W6C_REPORT_CORROBORATED_BASIS.md](W6C_REPORT_CORROBORATED_BASIS.md)).
+Gerçek yeniden açma koşulu değişmedi: dönemin kendisinde yayımlanmış,
+cutoff'tan önce tarihli, arşivlenmiş resmî bir tamlık kaynağı — geriye
+dönük bir sorgu değil. P2 araştırması bunun tek adayını (KAP kurumsal işlem
+takvimi) zaten tüketmişti. W7-A tam anlamıyla tetiklenmedi (gerçek M2
+çıkmadı); ne o denetim ne de W6-C üretim kodunun kendi kapısını aştı.
 
 ### Paralel hat sahipliği
 
