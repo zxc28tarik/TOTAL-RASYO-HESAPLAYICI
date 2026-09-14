@@ -411,15 +411,51 @@ sonuçlara dokunulmadı.
 **W7-A tetiklenmedi:** defter W7-A'yı yalnız "gerçek M2 çıkarsa aynı commit
 serisinde" öngörüyor; M2 çıkmadığı için W7-A başlatılmadı.
 
+**GENEL yeniden açma koşulu karşılandı (aynı gün, W6 kapsamında).** Gerçek,
+kaynağı hash'e bağlı bir KAP kurumsal işlem envanteri üretildi ve peer kapısı
+**60/60 cutoff'ta erişilebilir** hale geldi (bkz. §W6,
+[W6_CA_GATE_REACHABILITY.md](W6_CA_GATE_REACHABILITY.md)). §5'teki "0/60
+erişilebilir" bulgusu bu envanterle aşıldı — W5'in kendisi hâlâ `BLOCKED`
+kalır (o cutoff'ta gerçek M2 üretilmedi), ama sistemik blocker artık geçerli
+değil.
+
 ### W6 — Tarihsel M2 kapsamını mümkün olan en yükseğe çıkarma
 
-Durum: **AÇIK — SIRADAKİ ZORUNLU ANA HAT ADIMI**
+Durum: **KISMEN İLERLEDİ — PEER KAPISI AÇILDI, GERÇEK M2 HENÜZ ÜRETİLMEDİ**
+· dal `claude/inspiring-cannon-ecxilb` · rapor [W6_CA_GATE_REACHABILITY.md](W6_CA_GATE_REACHABILITY.md)
 
-W5 kapandı (kanıtlı `BLOCKED`) ve W6'yı serbest bıraktı, fakat W5'in sistemik
-ölçümü W6'nın tavanını da belirliyor: 60 cutoff'un **hiçbirinde** peer kapısı
-erişilebilir değil, çünkü 4.203 NONFIN aday hücresinin 0'ında güvenli pay
-türetmesi var. Bu nedenle W6 kaynak kapsamından boyutlandırılamaz; ilk iş
-kohort kapısının kendisidir. Ayrıntı: [W5_SMRTG_M2_CANARY.md](W5_SMRTG_M2_CANARY.md) §5.
+**Peer kapısı 0/60 → 60/60.** W5'in GENEL yeniden açma koşulu ("tarihli,
+hash'e bağlı, boş olmayan bir aralığı boş kanıtlayabilen kurumsal işlem
+envanteri") karşılandı:
+
+- Piyasa geneli, tarih sınırlı KAP `disclosure/members/byCriteria` sorgusu
+  ile 2016-05→2026-07 arası **gap-free** yakalandı: 595 pencere, 0 hata, 0
+  boşluk, 649.244 satır. İlk denemede bulunan 2.000 satırlık kesilme
+  (kalabalık ayların yarısını gizliyordu) uyarlamalı pencerelemeyle
+  düzeltildi — tamlık varsayılmadı, inşa yoluyla kanıtlandı.
+- Eşleştirme `disclosureType` değil **konu metni** üzerinden yapıldı: aynı
+  gerçek olay (KLRHO 2023-04-17 sermaye artırımı) hem `CA` hem `ODA` tipinde
+  görüldü; yalnız `disclosureType` filtrelemesi gerçek olayları kaçırırdı.
+  Fail-closed geniş anahtar kelime kümesi kullanıldı.
+- Sonuç: 60 cutoff'un **60'ında** peer kapısı erişilebilir (gereken 6'ya
+  karşı cutoff başına 21–36 sertifikalanabilir peer). KLRHO'nun bilinen
+  olayı doğru pencereyi engelliyor, komşu pencereyi engellemiyor —
+  doğrulandı.
+- Doğrulama: 32 hedef test PASS, 11/11 mutasyon KILLED, `--check` Python
+  3.11/3.12/3.13'te bayt düzeyinde aynı receipt.
+
+**Bu denetim hiçbir M2 üretmedi ve üretim kodunu değiştirmedi.** Kohort
+kapısının artık geçilebilir olduğunu kanıtlar; gerçek tarihsel M2'nin
+materyalize edilmesi üretim valuation combiner'ının çağrılmasını, dönem-doğru
+revenue/EBIT/FOLLOW türetmesini ve her hücrenin kalan sözleşmelerinden
+geçmesini gerektiren **ayrı, daha büyük bir yürütme turu**dur. W6'nın kabul
+ölçütü ("Tarihsel gerçek M2 sayısı, cohort dağılımı, rejection dağılımı,
+provenance ve deterministik ikinci üretim yayımlanır") henüz karşılanmadı.
+
+W5'in "0/60 erişilebilir" sistemik ölçümü artık geçerli değil (bkz. yukarıdaki
+GENEL yeniden açma notu); peer kohort kapısı artık 60/60'ta açık. W6'nın
+altındaki özgün sözleşme metni ve öncelik listesi hâlâ geçerlidir — kohort
+kapısı açıldı ama gerçek M2'nin üretilmesi hâlâ ayrı bir iştir.
 
 Öncelik 3.017 adet 5/6 modüllü hücredir. Son doğrulanmış araştırma dağılımı:
 
@@ -642,13 +678,15 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W6-B BANK coe/macro_cap araştırması | DONE | macro_cap 509/509 resmî kaynaklı; coe BLOCKED; unlock üst sınırı 0; 24 test, 11/11 mutasyon KILLED |
 | 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W10 P7 sürüm enumeration denetimi | BLOCKED | Issue #24 6/8 ölçüt; 0/2.115 sürüm zinciri; sonda kirlenme yok; 27 test, 11/11 mutasyon KILLED |
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W5 SMRTG 2023-08 tarihsel M2 canary | BLOCKED | Pay/aksiyon kapısı 5/5 geçti, profil kökeni CONFIG ve çözülmüş; blocker 0 güvenli peer ve 0/60 erişilebilir cutoff; 58 test, 20/20 mutasyon KILLED |
+| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W6 KAP kurumsal işlem envanteri + peer kapısı ölçümü | KISMEN İLERLEDİ | 595 pencere gap-free yakalandı (649.244 satır); peer kapısı 0/60 → 60/60; 32 test, 11/11 mutasyon KILLED; gerçek M2 henüz üretilmedi |
 
-Sonraki zorunlu **ana hat** adımı: **W6 — tarihsel M2 kapsam genişletme.**
-W5 kapandığı için W6 serbesttir, fakat W5'in sistemik ölçümü tavanı da
-belirliyor: 60 cutoff'un hiçbirinde peer kapısı erişilebilir değil, dolayısıyla
-W6'nın ilk işi kohort kapısının kendisidir (bkz. §W6 ve
-[W5_SMRTG_M2_CANARY.md](W5_SMRTG_M2_CANARY.md) §5). W7-A tetiklenmedi: defter
-onu yalnız gerçek M2 çıkması hâlinde öngörüyor.
+Sonraki zorunlu **ana hat** adımı: **W6'nın devamı — gerçek tarihsel M2
+materyalizasyonu.** Peer kapısı artık 60/60 cutoff'ta açık (bkz. §W6 ve
+[W6_CA_GATE_REACHABILITY.md](W6_CA_GATE_REACHABILITY.md)), fakat bu yalnız
+kohort kapısını açtı — gerçek M2 üretimi (production valuation combiner,
+dönem-doğru revenue/EBIT/FOLLOW türetmesi, her hücrenin kalan sözleşmelerinden
+geçmesi) hâlâ ayrı ve tamamlanmamış bir iştir. W7-A tetiklenmedi: defter onu
+yalnız gerçek M2 çıkması hâlinde öngörüyor.
 
 ### Paralel hat sahipliği
 

@@ -1,0 +1,13 @@
+{
+  "complete": true,
+  "contract": "W6_CA_GATE_REACHABILITY_V1",
+  "distinct_action_tickers": 699,
+  "gaps": [],
+  "manifest_sha256": "1935232295360b1026a036e725809e0e73a62253ce07145bbc1f13fd6abd1345",
+  "total_action_events": 11680,
+  "total_ca_rows": 132668,
+  "total_rows": 649244,
+  "windows_at_cap_unsplittable": 0,
+  "windows_failed": 0,
+  "windows_ok": 595
+}

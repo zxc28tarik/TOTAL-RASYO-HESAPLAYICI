@@ -1,4 +1,4 @@
-name: Claude Audit Line CI (W3 W4 W5 W6-B W10)
+name: Claude Audit Line CI (W3 W4 W5 W6 W6-B W10)
 
 # Scoped to this audit line so it never competes with the Codex/Astra
 # workflows. It proves three things the ledger requires before a package may be
@@ -63,6 +63,9 @@ jobs:
       - name: W5 SMRTG canary reproduces byte-identically
         if: '!cancelled()'
         run: python scripts/audit_w5_smrtg_canary.py --check
+      - name: W6 CA gate reachability audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w6_ca_gate_reachability.py --check
       - name: W6-B BANK coe/macro_cap audit reproduces byte-identically
         if: '!cancelled()'
         run: python scripts/audit_w6b_bank_coe_macro_cap.py --check
@@ -77,6 +80,7 @@ jobs:
           tests/test_w3_price_populations.py
           tests/test_w4_ek4_contract.py
           tests/test_w5_smrtg_canary.py
+          tests/test_w6_ca_gate_reachability.py
           tests/test_w6b_bank_coe_macro_cap.py
           tests/test_w10_p7_enumeration.py
 
@@ -96,6 +100,9 @@ jobs:
       - name: W5 mutation audit
         if: '!cancelled()'
         run: python scripts/audit_w5_mutations.py --output w5-mutations.json
+      - name: W6 mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w6_mutations.py --output w6-mutations.json
       - name: W6-B mutation audit
         if: '!cancelled()'
         run: python scripts/audit_w6b_mutations.py --output w6b-mutations.json
@@ -114,6 +121,7 @@ jobs:
             w3-mutations.json
             w4-mutations.json
             w5-mutations.json
+            w6-mutations.json
             w6b-mutations.json
             w10-mutations.json
 

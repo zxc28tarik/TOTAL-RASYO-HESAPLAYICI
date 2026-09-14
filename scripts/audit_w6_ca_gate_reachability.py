@@ -311,6 +311,9 @@ def build_receipt(content: dict[str, bytes]) -> dict:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "manifest_sha256": coverage["manifest_sha256"],
         "output_sha256": {name: sha_bytes(payload) for name, payload in sorted(content.items())},
+        "mutations_sha256": (
+            sha_file(AUDIT / "mutations.json") if (AUDIT / "mutations.json").exists() else None
+        ),
         "coverage": {
             "status": verdict["status"],
             "gate_reachable_cutoffs": systemic["gate_reachable_cutoffs"],

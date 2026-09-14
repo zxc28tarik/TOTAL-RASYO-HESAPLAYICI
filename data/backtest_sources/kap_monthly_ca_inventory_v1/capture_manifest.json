@@ -1,4 +1,16 @@
 {
+  "contract": "KAP_ADAPTIVE_WINDOW_MARKET_WIDE_CA_INVENTORY_V1",
+  "coverage": {
+    "complete": true,
+    "gaps": [],
+    "total_ca_rows": 132668,
+    "total_rows": 649244,
+    "windows_at_cap_unsplittable": 0,
+    "windows_failed": 0,
+    "windows_ok": 595
+  },
+  "window_end": "2026-07-31",
+  "window_start": "2016-05-01",
   "windows": {
     "2016-05-01_2016-05-04": {
       "ca_row_count": 0,
@@ -6455,6 +6467,94 @@
       "response_sha256": "68f9ca458b71ecc19992b374d81046cbf9b1bfeb9f9984e69636fd182dea5684",
       "row_count": 1457,
       "start": "2026-05-31",
+      "status": "OK"
+    },
+    "2026-06-07_2026-06-13": {
+      "ca_row_count": 403,
+      "captured_at": "2026-09-14T09:36:26.098350+00:00",
+      "end": "2026-06-13",
+      "request_sha256": "950bb89b6e07e3dc91207f15bf886162c421c943226a217723a6c1cf3a8d19ba",
+      "response_http_date": "Mon, 14 Sep 2026 09:36:24 GMT",
+      "response_sha256": "8d5d95731785b88c84ce6b4be2a9346cf2c8f848089b2392ef3402a038b62096",
+      "row_count": 1619,
+      "start": "2026-06-07",
+      "status": "OK"
+    },
+    "2026-06-14_2026-06-20": {
+      "ca_row_count": 402,
+      "captured_at": "2026-09-14T09:36:28.402264+00:00",
+      "end": "2026-06-20",
+      "request_sha256": "8c2f8b65bc6d74470c5ec30c1ad82d91d3c7ef646f9f4092c357ec63c5dc74be",
+      "response_http_date": "Mon, 14 Sep 2026 09:36:27 GMT",
+      "response_sha256": "a6aeaa414141628e946ebe8b793c56f19cb3aa44ffdee321137884ed3fe4d155",
+      "row_count": 1439,
+      "start": "2026-06-14",
+      "status": "OK"
+    },
+    "2026-06-21_2026-06-27": {
+      "ca_row_count": 375,
+      "captured_at": "2026-09-14T09:36:30.678464+00:00",
+      "end": "2026-06-27",
+      "request_sha256": "eb61e9556de0a007b42193a706da3c2b3e3e874bcbab39aa7bd504e2d5679d29",
+      "response_http_date": "Mon, 14 Sep 2026 09:36:29 GMT",
+      "response_sha256": "47226559974c03a4af1460f84d3e12689a0088da8a55e427e61b0baa56bec6ad",
+      "row_count": 1420,
+      "start": "2026-06-21",
+      "status": "OK"
+    },
+    "2026-06-28_2026-07-04": {
+      "ca_row_count": 381,
+      "captured_at": "2026-09-14T09:36:33.136573+00:00",
+      "end": "2026-07-04",
+      "request_sha256": "2f5ef0b6720d53c05cbd5234557163b4cd70e886fdaeaf21644e0b301caa2327",
+      "response_http_date": "Mon, 14 Sep 2026 09:36:31 GMT",
+      "response_sha256": "0336883026b7a69e15e7298717581d6ee366d84871f24d05d913bde70609b504",
+      "row_count": 1665,
+      "start": "2026-06-28",
+      "status": "OK"
+    },
+    "2026-07-05_2026-07-11": {
+      "ca_row_count": 376,
+      "captured_at": "2026-09-14T09:36:35.425460+00:00",
+      "end": "2026-07-11",
+      "request_sha256": "0859f43d500ca949f9635a05d4bded881a1d3231e0ba748e1325cf5d34440fba",
+      "response_http_date": "Mon, 14 Sep 2026 09:36:34 GMT",
+      "response_sha256": "e5084278fc5c86d96e2b91f9f5902807564a5cc1ba381c3ecc3399f912bb10eb",
+      "row_count": 1389,
+      "start": "2026-07-05",
+      "status": "OK"
+    },
+    "2026-07-12_2026-07-18": {
+      "ca_row_count": 289,
+      "captured_at": "2026-09-14T09:36:37.748800+00:00",
+      "end": "2026-07-18",
+      "request_sha256": "f41d23d82693ba2f78e09e9ae06ecd28ec2cd44bdd6c639d96a3803992272ec9",
+      "response_http_date": "Mon, 14 Sep 2026 09:36:36 GMT",
+      "response_sha256": "0662ec10b5839d99b958e9d1696c8178468d676f26b3e27eea20796579580f6b",
+      "row_count": 1045,
+      "start": "2026-07-12",
+      "status": "OK"
+    },
+    "2026-07-19_2026-07-25": {
+      "ca_row_count": 368,
+      "captured_at": "2026-09-14T09:36:40.041576+00:00",
+      "end": "2026-07-25",
+      "request_sha256": "5645f6ace2568c3240d0aacaefd98861208b161cb236d6fdf6df76d7096cf541",
+      "response_http_date": "Mon, 14 Sep 2026 09:36:38 GMT",
+      "response_sha256": "6b9b34f782ea58611a5d731a6cfb82d15c2eb43bbf5dbef519a53d6a1b56f673",
+      "row_count": 1265,
+      "start": "2026-07-19",
+      "status": "OK"
+    },
+    "2026-07-26_2026-07-31": {
+      "ca_row_count": 366,
+      "captured_at": "2026-09-14T09:36:42.343277+00:00",
+      "end": "2026-07-31",
+      "request_sha256": "fe388481c66cd26e6022f908d52b84feaf95eeb687d80f41649b07618fc1f08a",
+      "response_http_date": "Mon, 14 Sep 2026 09:36:41 GMT",
+      "response_sha256": "d919aa568ef0f0f63d6ea585231215c4b5114911f875d2be4bcc76dad77d5c83",
+      "row_count": 1831,
+      "start": "2026-07-26",
       "status": "OK"
     }
   }
