@@ -1,0 +1,84 @@
+{
+  "all_killed": true,
+  "auditor": "scripts/audit_w7b_spk_bulletin_evidence.py",
+  "auditor_sha256": "974c191bf8743bd16c94d7419c0638e1fa399b9b861c4f56cc699d5fe8a8e509",
+  "contract": "W7B_SPK_BULLETIN_EVIDENCE_MUTATION_AUDIT_V1",
+  "database_access": false,
+  "mutations_killed": 8,
+  "mutations_total": 8,
+  "network_access": false,
+  "results": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "name": "baseline",
+      "skipped": 0,
+      "status": "PASS",
+      "tests": 19
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "bulletin_hash_mismatch_check_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "bulletin_numbering_gap_check_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "duplicate_bulletin_number_check_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "unexplained_mention_check_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "known_non_action_mentions_emptied",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "empty_bulletin_window_check_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "unexpected_m2_score_guard_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "sha_raw_reverted_to_crlf_stripping_bug",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    }
+  ]
+}

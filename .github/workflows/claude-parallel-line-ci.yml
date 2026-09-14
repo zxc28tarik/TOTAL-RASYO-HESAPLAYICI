@@ -1,4 +1,4 @@
-name: Claude Audit Line CI (W3 W4 W5 W6 W6B W6C W7A W10)
+name: Claude Audit Line CI (W3 W4 W5 W6 W6B W6C W7A W7B W10)
 
 # Scoped to this audit line so it never competes with the Codex/Astra
 # workflows. It proves three things the ledger requires before a package may be
@@ -72,6 +72,9 @@ jobs:
       - name: W7-A evidence-dating-gate audit reproduces byte-identically
         if: '!cancelled()'
         run: python scripts/audit_w7a_evidence_dating_gate.py --check
+      - name: W7-B SPK bulletin evidence audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w7b_spk_bulletin_evidence.py --check
       - name: W6-B BANK coe/macro_cap audit reproduces byte-identically
         if: '!cancelled()'
         run: python scripts/audit_w6b_bank_coe_macro_cap.py --check
@@ -89,6 +92,7 @@ jobs:
           tests/test_w6_ca_gate_reachability.py
           tests/test_w6c_report_corroborated_basis.py
           tests/test_w7a_evidence_dating_gate.py
+          tests/test_w7b_spk_bulletin_evidence.py
           tests/test_w6b_bank_coe_macro_cap.py
           tests/test_w10_p7_enumeration.py
 
@@ -114,6 +118,9 @@ jobs:
       - name: W6-C mutation audit
         if: '!cancelled()'
         run: python scripts/audit_w6c_mutations.py --output w6c-mutations.json
+      - name: W7-B mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w7b_mutations.py --output w7b-mutations.json
       - name: W6-B mutation audit
         if: '!cancelled()'
         run: python scripts/audit_w6b_mutations.py --output w6b-mutations.json
@@ -135,6 +142,7 @@ jobs:
             w6-mutations.json
             w6b-mutations.json
             w6c-mutations.json
+            w7b-mutations.json
             w10-mutations.json
 
   windows:

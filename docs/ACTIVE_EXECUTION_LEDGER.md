@@ -421,10 +421,34 @@ değil.
 
 ### W6 — Tarihsel M2 kapsamını mümkün olan en yükseğe çıkarma
 
-Durum: **BLOCKED — W6 gerçek kanıt üretti, ama üretim kodunun kendi tarih
-kapısı nedeniyle gerçek M2 hâlâ üretilemiyor (bkz. W7-A düzeltmesi altta)**
+Durum: **BLOCKED (ölçek sorunu) — W7-A'nın bulduğu kanıt-tarihi kapısı W7-B
+ile gerçek arşiv verisiyle aşıldı; gerçek M2 artık ikinci, bağımsız ve çok
+daha sıradan bir kapıda (yetersiz peer sayısı) bekliyor (bkz. W7-B altta)**
 · dal `claude/inspiring-cannon-ecxilb` · rapor [W6_CA_GATE_REACHABILITY.md](W6_CA_GATE_REACHABILITY.md)
 · düzeltme [W7A_EVIDENCE_DATING_GATE.md](W7A_EVIDENCE_DATING_GATE.md)
+· kapı-aşımı [W7B_SPK_BULLETIN_EVIDENCE.md](W7B_SPK_BULLETIN_EVIDENCE.md)
+
+**İKİNCİ DÜZELTME (aynı gün, W7-B):** W7-A'nın bulduğu kapı ("bugün
+sorgulanan kaynak koşulsuz reddedilir") hâlâ doğru ve **değişmedi** — ama
+kayıtsız şartsız değilmiş: **dönemin kendisinde yayımlanmış** bir kaynak
+(bugün yapılan bir sorgu değil) bu kapıyı geçebiliyor. SPK'nın (Sermaye
+Piyasası Kurulu) 2005'ten beri arşivlenen haftalık bülteni tam olarak böyle
+bir kaynak: her sayı kendi yayım anında basılmış, ayrı tarihli bir belge.
+98 bülten (2022-06-09 → 2023-08-31, boşluksuz numaralama) arşivlendi; altı
+örnek NONFIN ticker (SMRTG, ZOREN, GESAN, ALFAS, KONTR, ENKAI) için gerçek,
+hash-doğrulanmış `PRICE_LEVEL_ACTION_COVERAGE_V1` kanıtı inşa edildi ve
+**değiştirilmemiş üretim fonksiyonları** (`PriceLevelActionEvidence.verify`,
+`materialize_price_level_market_cap`) çağrıldı: **6/6 hisse için gerçek
+piyasa değeri üretildi** — projenin sıfır olmayan bir aralık için ilk
+üretim-kabul edilebilir piyasa değeri. Negatif kontroller (erken cutoff,
+kurcalanmış kaynak) kapının gerçekten geçildiğini, zayıflatılmadığını
+doğruluyor. Ama tam `run_historical_pit_nonfin_m2_replay()` çağrısı hâlâ
+0 M2 skoru üretiyor: **ikinci, bağımsız bir kapı** (`minimum_peer_count=5`
+her çarpan için ayrı ayrı) altı ticker'la aşılamıyor — PB çarpanı 5/5'e
+ulaşıyor ama PE/EV_EBIT/PS ulaşmıyor. Bu bir **ölçek sorunu**: aynı yöntemle
+birkaç ticker daha çözülürse kapanabilir. W7-A'nın kendi bulgusu ve W6'nın
+"60/60 erişilebilir kohort" ölçümü ikisi de doğru kalıyor; W7-B üçüncü, yeni
+bir bulgu ekliyor, öncekileri geçersiz kılmıyor.
 
 **ÖNEMLİ DÜZELTME (aynı gün, W7-A):** Aşağıdaki "peer kapısı 0/60 → 60/60"
 bulgusu doğru ve geçerli kalıyor — gerçekten hash'e bağlı kanıt üretildi. Ama
@@ -698,22 +722,19 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W6 KAP kurumsal işlem envanteri + peer kapısı ölçümü | KISMEN İLERLEDİ | 595 pencere gap-free yakalandı (649.244 satır); peer kapısı (audit düzeyinde) 0/60 → 60/60; 32 test, 11/11 mutasyon KILLED |
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W7-A üretim kanıt-tarihi kapısı denetimi | BLOCKED | Gerçek üretim kodu (`PriceLevelActionEvidence.verify`) çağrılarak test edildi; her kaynağın `published_at <= cutoff` şartı bugünkü hiçbir yakalamayla karşılanamıyor; üretim-kabul edilebilir peer sayısı hâlâ ≤1/cutoff; 10 test PASS |
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W6-C rapor-zinciriyle boşluk küçültme (sistem geneli) | GAP_NARROWED_NOT_CLOSED | 4.203 hücrenin 3.030'unda dış çapa var; yalnız %21'inde (648) rapor zinciri doğrulama buluyor; boşluk medyanı 815→534 gün (SMRTG'nin 8 peer'lik örneği temsili değilmiş); 16 test, 8/8 mutasyon KILLED |
+| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W7-B SPK bülteniyle kanıt-tarihi kapısını gerçek arşiv veriyle aşma | PARTIAL_PROGRESS | 98 bülten arşivlendi (boşluksuz); 6/6 örnek ticker gerçek üretim kapısından geçti (hash-doğrulanmış piyasa değeri); negatif kontroller 6/6 doğru RET; tam batch replay hâlâ 0 M2 skoru — ikinci, bağımsız kapı (`minimum_peer_count=5`, PB 5/5 ama PE/EV_EBIT/PS altında) bir ölçek sorunu olarak kaldı; 19 test, 8/8 mutasyon KILLED |
 
-Sonraki zorunlu **ana hat** adımı hâlâ **W6/W7-A'nın devamı — gerçek
-tarihsel M2 materyalizasyonu**, ama W7-A'nın bulduğu kapı kapatılmadan bu
-mümkün değil. Peer kohort kapısı **kanıt düzeyinde** 60/60 cutoff'ta açık
-olsa da (bkz. §W6), **üretim-kabul edilebilirlik düzeyinde** hâlâ ≤1
-peer/cutoff — 5 asgari şartın altında (bkz. §W7-A ve
-[W7A_EVIDENCE_DATING_GATE.md](W7A_EVIDENCE_DATING_GATE.md)). W6-C, rapor
-zinciriyle bu boşluğu sistem genelinde ölçtü: yalnız %21 hücrede herhangi
-bir küçülme var, ve orada bile medyan boşluk 534 güne (~1,5 yıl) düşüyor —
-sıfıra inmiyor (bkz.
-[W6C_REPORT_CORROBORATED_BASIS.md](W6C_REPORT_CORROBORATED_BASIS.md)).
-Gerçek yeniden açma koşulu değişmedi: dönemin kendisinde yayımlanmış,
-cutoff'tan önce tarihli, arşivlenmiş resmî bir tamlık kaynağı — geriye
-dönük bir sorgu değil. P2 araştırması bunun tek adayını (KAP kurumsal işlem
-takvimi) zaten tüketmişti. W7-A tam anlamıyla tetiklenmedi (gerçek M2
-çıkmadı); ne o denetim ne de W6-C üretim kodunun kendi kapısını aştı.
+Sonraki zorunlu **ana hat** adımı artık **W7-B'nin ölçeklendirilmesi**: aynı,
+artık kanıtlanmış SPK-bülteni yöntemiyle birkaç NONFIN ticker daha (kısa
+raw-KAP-çapa boşluklu adaylar öncelikli) çözülüp her çarpanın (PE, EV_EBIT,
+PS, PB) bağımsız olarak `minimum_peer_count=5` **kullanılabilir** değere
+ulaşması sağlanmalı — bkz.
+[W7B_SPK_BULLETIN_EVIDENCE.md](W7B_SPK_BULLETIN_EVIDENCE.md) §9. W7-A'nın
+kendi bulgusu (bugün sorgulanan kaynak kayıtsız şartsız reddedilir) hâlâ
+doğru ve değişmedi; W7-B onu geçersiz kılmadı, yalnız niteliksel olarak
+farklı, dönemin kendisinde yayımlanmış bir kaynak türü sağladı. W6-C'nin
+"rapor zinciri boşluğu sıfıra indirmiyor" bulgusu da hâlâ geçerli — W7-B
+onun yerine geçen ayrı bir yöntem, onu düzeltmiyor.
 
 ### Paralel hat sahipliği
 

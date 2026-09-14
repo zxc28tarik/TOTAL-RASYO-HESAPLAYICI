@@ -1,0 +1,792 @@
+{
+  "captured_at": "2026-09-14",
+  "contract": "SPK_BULLETIN_ARCHIVE_V1",
+  "coverage_note": "Continuous, gap-checked bulletin numbering per year confirmed against each year's own archive listing page before capture. Covers 2022-06-09 through 2023-08-31 inclusive (98 bulletins), the span needed to bridge the six W7-B sample tickers' KAP share-certification anchors through cutoff 2023-08-31T18:10:00+03:00.",
+  "entries": [
+    {
+      "bulletin_num": 29,
+      "bulletin_year": 2022,
+      "date": "2022-06-09",
+      "filename": "bulletins/2022-29.pdf",
+      "sha256": "869180fd382784093ef4ee9ee16780796b63bce77050567cf342d17a01c2956d",
+      "source_url": "https://spk.gov.tr/data/6349a2561b41c606d0879326/2022-29.pdf"
+    },
+    {
+      "bulletin_num": 30,
+      "bulletin_year": 2022,
+      "date": "2022-06-16",
+      "filename": "bulletins/2022-30.pdf",
+      "sha256": "12dab8f0bef3fd7b2421da45b1914601c8c4dcac3f02aaf1e2ecb31d34a88073",
+      "source_url": "https://spk.gov.tr/data/6349a27b1b41c606d0879329/2022-30.pdf"
+    },
+    {
+      "bulletin_num": 31,
+      "bulletin_year": 2022,
+      "date": "2022-06-21",
+      "filename": "bulletins/2022-31.pdf",
+      "sha256": "625ef25aab9032f0610aa792d46a5244cf6bd044cafa045097c9d4378ca6b484",
+      "source_url": "https://spk.gov.tr/data/6349a3351b41c606d087932c/2022-31.pdf"
+    },
+    {
+      "bulletin_num": 32,
+      "bulletin_year": 2022,
+      "date": "2022-06-23",
+      "filename": "bulletins/2022-32.pdf",
+      "sha256": "3b0be0b8dc7db1443a332624eef162d25fe2738b6205a1213e52524643292dbf",
+      "source_url": "https://spk.gov.tr/data/6349a3aa1b41c606d087932f/2022-32.pdf"
+    },
+    {
+      "bulletin_num": 33,
+      "bulletin_year": 2022,
+      "date": "2022-06-30",
+      "filename": "bulletins/2022-33.pdf",
+      "sha256": "7db8234fb44359bbc1225e5540c71dacb72c875ce007b46cd575744c93c24a9e",
+      "source_url": "https://spk.gov.tr/data/6349a3c91b41c606d0879332/2022-33.pdf"
+    },
+    {
+      "bulletin_num": 34,
+      "bulletin_year": 2022,
+      "date": "2022-07-01",
+      "filename": "bulletins/2022-34.pdf",
+      "sha256": "8e3db468aa5deac9e268e57c3229e1338dd493883b0b7f5ffb751bf9e46661fe",
+      "source_url": "https://spk.gov.tr/data/6349a3e91b41c606d0879335/34-2022.pdf"
+    },
+    {
+      "bulletin_num": 35,
+      "bulletin_year": 2022,
+      "date": "2022-07-06",
+      "filename": "bulletins/2022-35.pdf",
+      "sha256": "eb15b26563ca3ecc94ccc13ac2ef001ccef6892fbbcef193d24bfb00ec187bfe",
+      "source_url": "https://spk.gov.tr/data/6349a4051b41c606d0879338/2022-35.pdf"
+    },
+    {
+      "bulletin_num": 36,
+      "bulletin_year": 2022,
+      "date": "2022-07-21",
+      "filename": "bulletins/2022-36.pdf",
+      "sha256": "2afa2c01ce54cf98b04a89f86dd985388edd1911d87cd8a7cbccc9a6867da1d0",
+      "source_url": "https://spk.gov.tr/data/6349a4381b41c606d087933b/2022-36.pdf"
+    },
+    {
+      "bulletin_num": 37,
+      "bulletin_year": 2022,
+      "date": "2022-07-28",
+      "filename": "bulletins/2022-37.pdf",
+      "sha256": "c0f974844e379e130501d09937350ea3ebe5e20d6973ca5b310fd2a969805cd8",
+      "source_url": "https://spk.gov.tr/data/6349a4541b41c606d087933e/2022-37.pdf"
+    },
+    {
+      "bulletin_num": 38,
+      "bulletin_year": 2022,
+      "date": "2022-08-04",
+      "filename": "bulletins/2022-38.pdf",
+      "sha256": "17b307947d4d5c163e2b785c9cbf82a1f5d6c98cfc61c16a262d7196ae7300d9",
+      "source_url": "https://spk.gov.tr/data/6349a4801b41c606d0879341/2022-38.pdf"
+    },
+    {
+      "bulletin_num": 39,
+      "bulletin_year": 2022,
+      "date": "2022-08-09",
+      "filename": "bulletins/2022-39.pdf",
+      "sha256": "82ad269ea5668b189fbceb5f186b53da4a2394875a8fe782698490bf9d46f5f9",
+      "source_url": "https://spk.gov.tr/data/6349a4a61b41c606d0879345/39-2022.pdf"
+    },
+    {
+      "bulletin_num": 40,
+      "bulletin_year": 2022,
+      "date": "2022-08-11",
+      "filename": "bulletins/2022-40.pdf",
+      "sha256": "29891569fee583c0184881df371402a39b15192231fefb94ede8b48ccbb3a2d1",
+      "source_url": "https://spk.gov.tr/data/6349a4c11b41c606d0879348/2022-40.pdf"
+    },
+    {
+      "bulletin_num": 41,
+      "bulletin_year": 2022,
+      "date": "2022-08-16",
+      "filename": "bulletins/2022-41.pdf",
+      "sha256": "7339d745071a077b4563479c387ba54c3d1a0ed50faba2ef30710187fd1712fe",
+      "source_url": "https://spk.gov.tr/data/6349a4e01b41c606d087934b/2022-41.pdf"
+    },
+    {
+      "bulletin_num": 42,
+      "bulletin_year": 2022,
+      "date": "2022-08-18",
+      "filename": "bulletins/2022-42.pdf",
+      "sha256": "6e397d4aa084d317c50213aa44c7b0330a7e00ba22417752fa309dc4c8e8db2f",
+      "source_url": "https://spk.gov.tr/data/6349a4fe1b41c606d087934e/2022-42.pdf"
+    },
+    {
+      "bulletin_num": 43,
+      "bulletin_year": 2022,
+      "date": "2022-08-25",
+      "filename": "bulletins/2022-43.pdf",
+      "sha256": "9f15f1b2b33298bac9d9f13ece13d641b03ef17ca71d007ec9a7c89355cb0ed0",
+      "source_url": "https://spk.gov.tr/data/6349a51f1b41c606d0879352/2022-43.pdf"
+    },
+    {
+      "bulletin_num": 44,
+      "bulletin_year": 2022,
+      "date": "2022-08-26",
+      "filename": "bulletins/2022-44.pdf",
+      "sha256": "ec9425c59bdf395586271cbf08488cf3d055532927252a49f12849f3cf20894c",
+      "source_url": "https://spk.gov.tr/data/6349a5521b41c606d0879355/44-2022.pdf"
+    },
+    {
+      "bulletin_num": 45,
+      "bulletin_year": 2022,
+      "date": "2022-09-01",
+      "filename": "bulletins/2022-45.pdf",
+      "sha256": "d0bb359eb90689f4bbe5e329e5c84736fb21e2504938dbbf19e82545af4d3ff3",
+      "source_url": "https://spk.gov.tr/data/6349a5981b41c606d0879358/2022-45.pdf"
+    },
+    {
+      "bulletin_num": 46,
+      "bulletin_year": 2022,
+      "date": "2022-09-02",
+      "filename": "bulletins/2022-46.pdf",
+      "sha256": "ca2c52abd04e976429419033205b8b0368cca70d91ba9a57703d71612aa0944d",
+      "source_url": "https://spk.gov.tr/data/6349a5bf1b41c606d087935b/2022-46.pdf"
+    },
+    {
+      "bulletin_num": 47,
+      "bulletin_year": 2022,
+      "date": "2022-09-08",
+      "filename": "bulletins/2022-47.pdf",
+      "sha256": "3329500711fba233b104e4eeb8db29d52ad5dea4142e875a4ecaf074deed4941",
+      "source_url": "https://spk.gov.tr/data/6349a5de1b41c606d087935e/47-2022.pdf"
+    },
+    {
+      "bulletin_num": 48,
+      "bulletin_year": 2022,
+      "date": "2022-09-15",
+      "filename": "bulletins/2022-48.pdf",
+      "sha256": "0799b5ae1c8c8db3c1a05c0324649951e8dd370ef4c9b88b9b3cc6f7e058bdb7",
+      "source_url": "https://spk.gov.tr/data/6349a6201b41c606d0879361/2022-48.pdf"
+    },
+    {
+      "bulletin_num": 49,
+      "bulletin_year": 2022,
+      "date": "2022-09-22",
+      "filename": "bulletins/2022-49.pdf",
+      "sha256": "fa875013c91913f43fde9b3cb9621b7aad7f9002963635d461be004d11026392",
+      "source_url": "https://spk.gov.tr/data/6349a63a1b41c606d0879364/2022-49.pdf"
+    },
+    {
+      "bulletin_num": 50,
+      "bulletin_year": 2022,
+      "date": "2022-09-27",
+      "filename": "bulletins/2022-50.pdf",
+      "sha256": "4ace1d71ec5cd44c0ed57511a7d1a803661d4c236636111ae2626c8162593b0c",
+      "source_url": "https://spk.gov.tr/data/6349a6571b41c606d0879367/50-2022.pdf"
+    },
+    {
+      "bulletin_num": 51,
+      "bulletin_year": 2022,
+      "date": "2022-09-29",
+      "filename": "bulletins/2022-51.pdf",
+      "sha256": "33dabac2525a979f672fe8144886356e47ca6091d1bb099b62844425326e506a",
+      "source_url": "https://spk.gov.tr/data/6349a6741b41c606d087936a/2022-51.pdf"
+    },
+    {
+      "bulletin_num": 52,
+      "bulletin_year": 2022,
+      "date": "2022-10-02",
+      "filename": "bulletins/2022-52.pdf",
+      "sha256": "bc5f9d2b8820edf694fd96c795c1d5d88e8ff3631b6db38cb01cc19207bba2d0",
+      "source_url": "https://spk.gov.tr/data/6349a6901b41c606d087936d/2022-52.pdf"
+    },
+    {
+      "bulletin_num": 53,
+      "bulletin_year": 2022,
+      "date": "2022-10-02",
+      "filename": "bulletins/2022-53.pdf",
+      "sha256": "4ced1f860ebf69600255f2db10c50606b97907270cd16ff504edfef47404b967",
+      "source_url": "https://spk.gov.tr/data/6349a6ac1b41c606d0879370/2022-53.pdf"
+    },
+    {
+      "bulletin_num": 54,
+      "bulletin_year": 2022,
+      "date": "2022-10-06",
+      "filename": "bulletins/2022-54.pdf",
+      "sha256": "f56cc92f964aaf44476a26cb66c377fae370c61386eec0a21e12d6a0f48c0467",
+      "source_url": "https://spk.gov.tr/data/6349a6cb1b41c606d0879373/2022-54.pdf"
+    },
+    {
+      "bulletin_num": 55,
+      "bulletin_year": 2022,
+      "date": "2022-10-13",
+      "filename": "bulletins/2022-55.pdf",
+      "sha256": "7fcdf80f517ddc66c77e56f56f61788fc194d0bd8de39f73711328cc02ca826f",
+      "source_url": "https://spk.gov.tr/data/63483e851b41c62ae4d2aea4/55-2022.pdf"
+    },
+    {
+      "bulletin_num": 56,
+      "bulletin_year": 2022,
+      "date": "2022-10-20",
+      "filename": "bulletins/2022-56.pdf",
+      "sha256": "ea82fc2d1654d295cec4be847d6b505dd35b9b6f9a37f2d0e3ee3684499341db",
+      "source_url": "https://spk.gov.tr/data/63517c571b41c60eec8ec851/56-2022.pdf"
+    },
+    {
+      "bulletin_num": 57,
+      "bulletin_year": 2022,
+      "date": "2022-10-24",
+      "filename": "bulletins/2022-57.pdf",
+      "sha256": "2d7491d6fe6ffea5a98400167b1a1b929bf78fb616ed7da40aefaa013310e94d",
+      "source_url": "https://spk.gov.tr/data/6356c83b1b41c628682309fc/57-2022.pdf"
+    },
+    {
+      "bulletin_num": 58,
+      "bulletin_year": 2022,
+      "date": "2022-10-26",
+      "filename": "bulletins/2022-58.pdf",
+      "sha256": "32a46f16744d9439bcd93d66504b341c4d0d6bd9b9bc82fa41e008246eae00f4",
+      "source_url": "https://spk.gov.tr/data/635973301b41c61d94d40e63/2022-58.pdf"
+    },
+    {
+      "bulletin_num": 59,
+      "bulletin_year": 2022,
+      "date": "2022-10-27",
+      "filename": "bulletins/2022-59.pdf",
+      "sha256": "abedf2b38018884b096f9a8842847161cf1edc56d71e05b6cda83c00ffc92ffe",
+      "source_url": "https://spk.gov.tr/data/635ad07c1b41c61cd431b9eb/59-2022.pdf"
+    },
+    {
+      "bulletin_num": 60,
+      "bulletin_year": 2022,
+      "date": "2022-11-02",
+      "filename": "bulletins/2022-60.pdf",
+      "sha256": "3da03b882fd1ecabc404e492ad1df0ed0f64418d92ffe2f47dd795686ba5fd73",
+      "source_url": "https://spk.gov.tr/data/6362a6bb1b41c62fb0aaa43e/2022-60.pdf"
+    },
+    {
+      "bulletin_num": 61,
+      "bulletin_year": 2022,
+      "date": "2022-11-03",
+      "filename": "bulletins/2022-61.pdf",
+      "sha256": "a321c937c751dd6219f70f956db93e15bc7eb03275a23e471e1e75ad75f29a97",
+      "source_url": "https://spk.gov.tr/data/6363da941b41c6281c3704d3/61-2022.pdf"
+    },
+    {
+      "bulletin_num": 62,
+      "bulletin_year": 2022,
+      "date": "2022-11-04",
+      "filename": "bulletins/2022-62.pdf",
+      "sha256": "57d06d0ce2a1cb39911af112938b54d725ec897a08be36368e6aeb44b18f665c",
+      "source_url": "https://spk.gov.tr/data/636543581b41c61c4c91de71/62-2022.pdf"
+    },
+    {
+      "bulletin_num": 63,
+      "bulletin_year": 2022,
+      "date": "2022-11-11",
+      "filename": "bulletins/2022-63.pdf",
+      "sha256": "243f5674ee330a75d0f5cff639e52abd094c0cfb4a3b107472c442db32e938a2",
+      "source_url": "https://spk.gov.tr/data/636e973b1b41c61a944eba74/63-2022.pdf"
+    },
+    {
+      "bulletin_num": 64,
+      "bulletin_year": 2022,
+      "date": "2022-11-17",
+      "filename": "bulletins/2022-64.pdf",
+      "sha256": "ec865b6f43f34360488c9aa658cb3e216a154b78818d4ae8e059f4ae54f64a1a",
+      "source_url": "https://spk.gov.tr/data/63765b4e1b41c62becc440fb/64-2022.pdf"
+    },
+    {
+      "bulletin_num": 65,
+      "bulletin_year": 2022,
+      "date": "2022-11-24",
+      "filename": "bulletins/2022-65.pdf",
+      "sha256": "38f90665a5402434e79e05a45bbe91e2f517cb77cada3752ec78f2c1014ef6fd",
+      "source_url": "https://spk.gov.tr/data/637f9ef81b41c61ef0af8438/65-2022.pdf"
+    },
+    {
+      "bulletin_num": 66,
+      "bulletin_year": 2022,
+      "date": "2022-12-03",
+      "filename": "bulletins/2022-66.pdf",
+      "sha256": "5bc869a38713b84989fe2d136692838b0538b348bc957cdf5816ff19580feab5",
+      "source_url": "https://spk.gov.tr/data/638a68228f95db192017e1b7/66 2022.pdf"
+    },
+    {
+      "bulletin_num": 67,
+      "bulletin_year": 2022,
+      "date": "2022-12-05",
+      "filename": "bulletins/2022-67.pdf",
+      "sha256": "872846099bc4315265a920673b3b743d051b0d50245e844d3ea21c37367082ee",
+      "source_url": "https://spk.gov.tr/data/638e22e38f95db31e4e2c006/2022-67.pdf"
+    },
+    {
+      "bulletin_num": 68,
+      "bulletin_year": 2022,
+      "date": "2022-12-08",
+      "filename": "bulletins/2022-68.pdf",
+      "sha256": "69e4f441c5322027132c64ded06b50c0f1459c3e328a3aefa8ad756a3d670fbe",
+      "source_url": "https://spk.gov.tr/data/639225d28f95db10a8567178/2022-68.pdf"
+    },
+    {
+      "bulletin_num": 69,
+      "bulletin_year": 2022,
+      "date": "2022-12-09",
+      "filename": "bulletins/2022-69.pdf",
+      "sha256": "9dc135f8f3b926049784fbe3a84465601e88390a3e5d40fddecf2c0d1e6c2b4e",
+      "source_url": "https://spk.gov.tr/data/639371df8f95db131098a051/2022-69.pdf"
+    },
+    {
+      "bulletin_num": 70,
+      "bulletin_year": 2022,
+      "date": "2022-12-15",
+      "filename": "bulletins/2022-70.pdf",
+      "sha256": "683358aec73f3a0091773eef1697b2cce45edf3a9634b3cf8d2f040198ad6edc",
+      "source_url": "https://spk.gov.tr/data/639b40dc8f95db142c294e53/2022-70.pdf"
+    },
+    {
+      "bulletin_num": 71,
+      "bulletin_year": 2022,
+      "date": "2022-12-21",
+      "filename": "bulletins/2022-71.pdf",
+      "sha256": "cfafe33d33733b769d66ceb6f7b05d09ec13aaa9f3c3e82c5d69c0fb0870aa99",
+      "source_url": "https://spk.gov.tr/data/63a354e18f95db0d64e73b32/2022 71.pdf"
+    },
+    {
+      "bulletin_num": 72,
+      "bulletin_year": 2022,
+      "date": "2022-12-22",
+      "filename": "bulletins/2022-72.pdf",
+      "sha256": "5f279560816d042d5c8a5cbddb1ff51cb2cf763f0a4af0c815522e6a6f108f76",
+      "source_url": "https://spk.gov.tr/data/63a490068f95db1cf4711adf/72-2022.pdf"
+    },
+    {
+      "bulletin_num": 73,
+      "bulletin_year": 2022,
+      "date": "2022-12-29",
+      "filename": "bulletins/2022-73.pdf",
+      "sha256": "db465b556bc4b7e52757500af4ade85a5eaa3bc22be0a8216bb8352fb7c44cd9",
+      "source_url": "https://spk.gov.tr/data/63ade0d58f95db194842a3fe/2022-73.pdf"
+    },
+    {
+      "bulletin_num": 74,
+      "bulletin_year": 2022,
+      "date": "2022-12-30",
+      "filename": "bulletins/2022-74.pdf",
+      "sha256": "00d895500cd775116387271b1a05cb9d60f92f9b498232b96feeec5390434c6c",
+      "source_url": "https://spk.gov.tr/data/63af25758f95db18145fe033/74-2022-SY.pdf"
+    },
+    {
+      "bulletin_num": 1,
+      "bulletin_year": 2023,
+      "date": "2023-01-05",
+      "filename": "bulletins/2023-01.pdf",
+      "sha256": "ae05cf64e08fd638397e83f601cc8a88fcec8ff2074f6d63a047bad4155c1264",
+      "source_url": "https://spk.gov.tr/data/63b7148e8f95db0ff8d27561/1-2023.pdf"
+    },
+    {
+      "bulletin_num": 2,
+      "bulletin_year": 2023,
+      "date": "2023-01-12",
+      "filename": "bulletins/2023-02.pdf",
+      "sha256": "3f81cfc7155b6010cf1c87b54d49bf18dca5296ba2d6723a67eb66e381b8fb00",
+      "source_url": "https://spk.gov.tr/data/63c045898f95db16e0776ee9/2-2023.pdf"
+    },
+    {
+      "bulletin_num": 3,
+      "bulletin_year": 2023,
+      "date": "2023-01-19",
+      "filename": "bulletins/2023-03.pdf",
+      "sha256": "9d2deb1237a128ff3e28cc9a3cdb1348b72ad027b6da3de12966285a84dfb782",
+      "source_url": "https://spk.gov.tr/data/63c99f638f95db1c50f7f487/3-2023.pdf"
+    },
+    {
+      "bulletin_num": 4,
+      "bulletin_year": 2023,
+      "date": "2023-01-26",
+      "filename": "bulletins/2023-04.pdf",
+      "sha256": "02bc79c730397606c43a2283d27be5ea7ae2463fdfd5252fb3f2212039782196",
+      "source_url": "https://spk.gov.tr/data/63d2a4c58f95db15184e97f7/4-2023.pdf"
+    },
+    {
+      "bulletin_num": 5,
+      "bulletin_year": 2023,
+      "date": "2023-02-02",
+      "filename": "bulletins/2023-05.pdf",
+      "sha256": "210e459aab0980ca01f38c5d70acd25d083ac3e5d48e374f10d77a94d21c357a",
+      "source_url": "https://spk.gov.tr/data/63dbfcf68f95db1c746779f1/5-2023.pdf"
+    },
+    {
+      "bulletin_num": 6,
+      "bulletin_year": 2023,
+      "date": "2023-02-06",
+      "filename": "bulletins/2023-06.pdf",
+      "sha256": "09fa0ccf16875b3451830d7a7cd221ef08aab39770c90708525159f8d0f02205",
+      "source_url": "https://spk.gov.tr/data/63e0a31d8f95db1e80628edc/6-2023.pdf"
+    },
+    {
+      "bulletin_num": 7,
+      "bulletin_year": 2023,
+      "date": "2023-02-06",
+      "filename": "bulletins/2023-07.pdf",
+      "sha256": "dc89b109672c93287a50f8919a2a37e7c0b59322d7c9b5788ac648f180163de4",
+      "source_url": "https://spk.gov.tr/data/63e15ce18f95db22acf5133e/7-2023.pdf"
+    },
+    {
+      "bulletin_num": 8,
+      "bulletin_year": 2023,
+      "date": "2023-02-08",
+      "filename": "bulletins/2023-08.pdf",
+      "sha256": "350dcb95691c426cca23c366af9169a11a1676dda564bc16024c69ae6ada581d",
+      "source_url": "https://spk.gov.tr/data/63e3cccd8f95db1ad0d272e6/8-2023.pdf"
+    },
+    {
+      "bulletin_num": 9,
+      "bulletin_year": 2023,
+      "date": "2023-02-09",
+      "filename": "bulletins/2023-09.pdf",
+      "sha256": "e8d2186410b9dd6bc6f66a3f9ecd2dc02d0965be003d5886058b46e0d575b088",
+      "source_url": "https://spk.gov.tr/data/63e538958f95db0968f0b932/9-2023.pdf"
+    },
+    {
+      "bulletin_num": 10,
+      "bulletin_year": 2023,
+      "date": "2023-02-14",
+      "filename": "bulletins/2023-10.pdf",
+      "sha256": "858915637d5ac8b6e74a2f6cee4f66299cf916bea200e017e9382fd1d8a0301f",
+      "source_url": "https://spk.gov.tr/data/63eb7d9b8f95db27b0ec6712/10-2023.pdf"
+    },
+    {
+      "bulletin_num": 11,
+      "bulletin_year": 2023,
+      "date": "2023-02-16",
+      "filename": "bulletins/2023-11.pdf",
+      "sha256": "d2614630da3bf20185072bca6ca6009be035dd12c3af0f5fa6065f87b3747329",
+      "source_url": "https://spk.gov.tr/data/63ee873f8f95db1ccc21233a/11-2023.pdf"
+    },
+    {
+      "bulletin_num": 12,
+      "bulletin_year": 2023,
+      "date": "2023-02-23",
+      "filename": "bulletins/2023-12.pdf",
+      "sha256": "a365f16bd82b0b7f25e702b8bc5ba3c7ae42734db69414c44bf3b5c048fbe8ff",
+      "source_url": "https://spk.gov.tr/data/63f7a22c8f95db217c926dca/12-2023.pdf"
+    },
+    {
+      "bulletin_num": 13,
+      "bulletin_year": 2023,
+      "date": "2023-03-02",
+      "filename": "bulletins/2023-13.pdf",
+      "sha256": "956f768bb3eee8d1ace031db81b19e88f31016ce46297ea57de77637aff8d8b4",
+      "source_url": "https://spk.gov.tr/data/6400ec9c8f95db1b9ca535fb/13-2023.pdf"
+    },
+    {
+      "bulletin_num": 14,
+      "bulletin_year": 2023,
+      "date": "2023-03-09",
+      "filename": "bulletins/2023-14.pdf",
+      "sha256": "aa3ea11f25159ae7690cc7bdc57f741f451f478160614eec21ccd45a7b36aab1",
+      "source_url": "https://spk.gov.tr/data/640a1f468f95db19ec0e92a5/14-2023.pdf"
+    },
+    {
+      "bulletin_num": 15,
+      "bulletin_year": 2023,
+      "date": "2023-03-10",
+      "filename": "bulletins/2023-15.pdf",
+      "sha256": "4c1ce2cc31ebceaa8432cbf7a9c4c8db391df8c19c55a24422697d9cbe7632a7",
+      "source_url": "https://spk.gov.tr/data/640b630b8f95db27b4097708/2023-15.pdf"
+    },
+    {
+      "bulletin_num": 16,
+      "bulletin_year": 2023,
+      "date": "2023-03-15",
+      "filename": "bulletins/2023-16.pdf",
+      "sha256": "7882f4f945bc83a6085c2ed9904054b67796aad85c3d59bcad2fbf7d9f23d443",
+      "source_url": "https://spk.gov.tr/data/6411f9a18f95db070caaed55/16-2023.pdf"
+    },
+    {
+      "bulletin_num": 17,
+      "bulletin_year": 2023,
+      "date": "2023-03-17",
+      "filename": "bulletins/2023-17.pdf",
+      "sha256": "226496134a59a44385d53a62709e4128c65aef0a07050e5f0bd2afe42e0fbcf5",
+      "source_url": "https://spk.gov.tr/data/641495138f95db1a0047ea24/17-2023.pdf"
+    },
+    {
+      "bulletin_num": 18,
+      "bulletin_year": 2023,
+      "date": "2023-03-21",
+      "filename": "bulletins/2023-18.pdf",
+      "sha256": "927f6dd465360539a89ce023f8a48b79bdaa5d6573304c77dc2086c981b91a3b",
+      "source_url": "https://spk.gov.tr/data/6419f4218f95db2bb0ac3a24/18-2023.pdf"
+    },
+    {
+      "bulletin_num": 19,
+      "bulletin_year": 2023,
+      "date": "2023-03-27",
+      "filename": "bulletins/2023-19.pdf",
+      "sha256": "f2692650615ae1ba997d21f95d4979f6ffd5b99794b5a6cf1cc6aacbe8503384",
+      "source_url": "https://spk.gov.tr/data/6421bc068f95db06f0729642/19-2023.pdf"
+    },
+    {
+      "bulletin_num": 20,
+      "bulletin_year": 2023,
+      "date": "2023-03-29",
+      "filename": "bulletins/2023-20.pdf",
+      "sha256": "0fccbae563af6b74f37181b2d56b4efdd441bca0f3b33e2ee5b230a2c9ff4edc",
+      "source_url": "https://spk.gov.tr/data/64246b1a8f95db1cd4960101/2023-20.pdf"
+    },
+    {
+      "bulletin_num": 21,
+      "bulletin_year": 2023,
+      "date": "2023-03-30",
+      "filename": "bulletins/2023-21.pdf",
+      "sha256": "259b16e5271aa92079ccc826a77789f0da57adab9b6353f13badaa3a86f42c26",
+      "source_url": "https://spk.gov.tr/data/6425db2d8f95db1e9c11aef6/21-2023.pdf"
+    },
+    {
+      "bulletin_num": 22,
+      "bulletin_year": 2023,
+      "date": "2023-04-05",
+      "filename": "bulletins/2023-22.pdf",
+      "sha256": "8fa51bc6acc65b9ad5e27a54fb52f91cdc760fed94663d4c999e08206dcd43f3",
+      "source_url": "https://spk.gov.tr/data/642daa788f95db06f4744c17/22-2023.pdf"
+    },
+    {
+      "bulletin_num": 23,
+      "bulletin_year": 2023,
+      "date": "2023-04-06",
+      "filename": "bulletins/2023-23.pdf",
+      "sha256": "a5c57258f0dc3ce6d67b0bcb75df0ea2303eb5b4352a626b4a326028a0a341c3",
+      "source_url": "https://spk.gov.tr/data/642f105c8f95db0ab0297db5/23-2023.pdf"
+    },
+    {
+      "bulletin_num": 24,
+      "bulletin_year": 2023,
+      "date": "2023-04-13",
+      "filename": "bulletins/2023-24.pdf",
+      "sha256": "27b3ec9deff028658cebf81d6df2642a2f9746d24f0c8fc45d34eb76c48e21d6",
+      "source_url": "https://spk.gov.tr/data/643854a58f95db0340085e33/24-2023.pdf"
+    },
+    {
+      "bulletin_num": 25,
+      "bulletin_year": 2023,
+      "date": "2023-04-27",
+      "filename": "bulletins/2023-25.pdf",
+      "sha256": "a8d2594eb5608eea323fff515a233d73b3a2a1a195b83575167b314c53e07866",
+      "source_url": "https://spk.gov.tr/data/644acd8d8f95db1038bd7ff4/25-2023.pdf"
+    },
+    {
+      "bulletin_num": 26,
+      "bulletin_year": 2023,
+      "date": "2023-05-06",
+      "filename": "bulletins/2023-26.pdf",
+      "sha256": "3b95e459d8bb516fcb30508c67ecb980dc4022498b64fbd658604b81a298add4",
+      "source_url": "https://spk.gov.tr/data/645574218f95db2f8865b585/26-2023.pdf"
+    },
+    {
+      "bulletin_num": 27,
+      "bulletin_year": 2023,
+      "date": "2023-05-11",
+      "filename": "bulletins/2023-27.pdf",
+      "sha256": "6698fcf12d8a6f59d06469fc614bb60fb30b54b41f50809d1fb8fda5ee92ca22",
+      "source_url": "https://spk.gov.tr/data/645d3f3c8f95db1d3c947cdd/27-2023.pdf"
+    },
+    {
+      "bulletin_num": 28,
+      "bulletin_year": 2023,
+      "date": "2023-05-17",
+      "filename": "bulletins/2023-28.pdf",
+      "sha256": "1686d524f01675d46e149e10a567764137831d17a2588a2bd3351b3e2427ca0a",
+      "source_url": "https://spk.gov.tr/data/646530898f95db1810fdf4de/28-2023.pdf"
+    },
+    {
+      "bulletin_num": 29,
+      "bulletin_year": 2023,
+      "date": "2023-06-01",
+      "filename": "bulletins/2023-29.pdf",
+      "sha256": "a032e439521c51b5a5bf0f605b19c026a144e398653a835159be409d9b519bbe",
+      "source_url": "https://spk.gov.tr/data/6478e5358f95db0b9051338c/29-2023.pdf"
+    },
+    {
+      "bulletin_num": 30,
+      "bulletin_year": 2023,
+      "date": "2023-06-05",
+      "filename": "bulletins/2023-30.pdf",
+      "sha256": "1ede26d6a3eaf5819742acdec45fc91bb361646b859d558e7a7a267a9f19e100",
+      "source_url": "https://spk.gov.tr/data/647e48d38f95db1ea0c40c3d/2023-30.pdf"
+    },
+    {
+      "bulletin_num": 31,
+      "bulletin_year": 2023,
+      "date": "2023-06-06",
+      "filename": "bulletins/2023-31.pdf",
+      "sha256": "ce3e4ab96868de2df4061c83040d947ef6e5e2baeb6bf30cc1d2e50f6b5b59cd",
+      "source_url": "https://spk.gov.tr/data/647f71518f95db248016e0a6/2023-31.pdf"
+    },
+    {
+      "bulletin_num": 32,
+      "bulletin_year": 2023,
+      "date": "2023-06-08",
+      "filename": "bulletins/2023-32.pdf",
+      "sha256": "b0403031f9ab81fcbec3adec973c608d959796b4ba255ac8ea0cd0b494db974f",
+      "source_url": "https://spk.gov.tr/data/64822e0f8f95db063823a735/32-2023.pdf"
+    },
+    {
+      "bulletin_num": 33,
+      "bulletin_year": 2023,
+      "date": "2023-06-09",
+      "filename": "bulletins/2023-33.pdf",
+      "sha256": "90d62b93aae1a24e4ae2d43cbdf0803e685ff473dde6504070175e827509e2cc",
+      "source_url": "https://spk.gov.tr/data/648360678f95db22b8323fe3/33-2023.pdf"
+    },
+    {
+      "bulletin_num": 34,
+      "bulletin_year": 2023,
+      "date": "2023-06-14",
+      "filename": "bulletins/2023-34.pdf",
+      "sha256": "4eeeb241b6d83be777755456c53ce5650464dc212245d160b1d6cda0cb094b41",
+      "source_url": "https://spk.gov.tr/data/648a1f048f95db0244b13906/34-2023.pdf"
+    },
+    {
+      "bulletin_num": 35,
+      "bulletin_year": 2023,
+      "date": "2023-06-15",
+      "filename": "bulletins/2023-35.pdf",
+      "sha256": "6965dfe87370a18c8769c74d4471e957bd36d8b8285ab8246bb0eadf2d5b834e",
+      "source_url": "https://spk.gov.tr/data/648b68b78f95db2620152311/35-2023.pdf"
+    },
+    {
+      "bulletin_num": 36,
+      "bulletin_year": 2023,
+      "date": "2023-06-21",
+      "filename": "bulletins/2023-36.pdf",
+      "sha256": "a3126ce4b065635d60edd59e3c094aee6e87d315694f85254ef44820d4c244bf",
+      "source_url": "https://spk.gov.tr/data/64935bc88f95db21d04b4393/36-2023.pdf"
+    },
+    {
+      "bulletin_num": 37,
+      "bulletin_year": 2023,
+      "date": "2023-07-05",
+      "filename": "bulletins/2023-37.pdf",
+      "sha256": "c61dc2d919604c4a769947deca21893c96185f8f76287a586d603a47fcdf725a",
+      "source_url": "https://spk.gov.tr/data/64a5b8758f95db140cad1aad/37-2023.pdf"
+    },
+    {
+      "bulletin_num": 38,
+      "bulletin_year": 2023,
+      "date": "2023-07-12",
+      "filename": "bulletins/2023-38.pdf",
+      "sha256": "f1a995c358defba03c1a02fc38695f6a38ecd3d9bb32ffaa232bee801364c1f9",
+      "source_url": "https://spk.gov.tr/data/64aed1938f95db1becdd6e5f/2023-38.pdf"
+    },
+    {
+      "bulletin_num": 39,
+      "bulletin_year": 2023,
+      "date": "2023-07-13",
+      "filename": "bulletins/2023-39.pdf",
+      "sha256": "012f66fbe5a02aa6c038b7df6ca9c4157f6fadb82a9795b2ff00549804a293b7",
+      "source_url": "https://spk.gov.tr/data/64b04f848f95db2ee0218595/39-2023.pdf"
+    },
+    {
+      "bulletin_num": 40,
+      "bulletin_year": 2023,
+      "date": "2023-07-19",
+      "filename": "bulletins/2023-40.pdf",
+      "sha256": "04c2c2fe6e0dce7a676987e3897a5ffaccb9de09d66b6309360977394c930b6c",
+      "source_url": "https://spk.gov.tr/data/64b829408f95db1db8898d7f/2023-40.pdf"
+    },
+    {
+      "bulletin_num": 41,
+      "bulletin_year": 2023,
+      "date": "2023-07-20",
+      "filename": "bulletins/2023-41.pdf",
+      "sha256": "bbfd58fd6e556997c8f3017afdb2cb3bca44ff1b1dfbb0525746746aac6784cc",
+      "source_url": "https://spk.gov.tr/data/64b970d68f95db0b6c1d0fc9/41-2023.pdf"
+    },
+    {
+      "bulletin_num": 42,
+      "bulletin_year": 2023,
+      "date": "2023-07-27",
+      "filename": "bulletins/2023-42.pdf",
+      "sha256": "b3eb320a689900d7eca5df6c87fdf9b8e4f3313ac5b551743a652fbeee8f7f01",
+      "source_url": "https://spk.gov.tr/data/64c2ae8a8f95db13a49ed2e7/42-2023.pdf"
+    },
+    {
+      "bulletin_num": 43,
+      "bulletin_year": 2023,
+      "date": "2023-07-28",
+      "filename": "bulletins/2023-43.pdf",
+      "sha256": "15ba3c98b7ac080e6ef9787a9e075dbba99de27c698168e1a9378f9ef204ba57",
+      "source_url": "https://spk.gov.tr/data/64c3e6b58f95db145cd09511/43-2023.pdf"
+    },
+    {
+      "bulletin_num": 44,
+      "bulletin_year": 2023,
+      "date": "2023-08-01",
+      "filename": "bulletins/2023-44.pdf",
+      "sha256": "a4a92a26c54da464a7b9a6a474c5cc12972556953fbc357c4e26dff55f1b2df7",
+      "source_url": "https://spk.gov.tr/data/64c949008f95db2f78f487fd/2023-44.pdf"
+    },
+    {
+      "bulletin_num": 45,
+      "bulletin_year": 2023,
+      "date": "2023-08-03",
+      "filename": "bulletins/2023-45.pdf",
+      "sha256": "86efd5d72f43b3618a7da8d7430d3d4edb6dafd3692984a1794401cbdc3fb9ae",
+      "source_url": "https://spk.gov.tr/data/64cbfa708f95db32142a0dfd/45-2023.pdf"
+    },
+    {
+      "bulletin_num": 46,
+      "bulletin_year": 2023,
+      "date": "2023-08-04",
+      "filename": "bulletins/2023-46.pdf",
+      "sha256": "83c413936d5e597ec8657f7764e21ac6f36a543d72289a7a6b88144885a8e037",
+      "source_url": "https://spk.gov.tr/data/64cd3e9b8f95db32b8f3dae1/2023-46.pdf"
+    },
+    {
+      "bulletin_num": 47,
+      "bulletin_year": 2023,
+      "date": "2023-08-09",
+      "filename": "bulletins/2023-47.pdf",
+      "sha256": "7b28e36369e400082f91acf14e310992d7aca3ec2711a6c07cead8fc48f387eb",
+      "source_url": "https://spk.gov.tr/data/64d3e7f38f95db2450de2610/47-2023.pdf"
+    },
+    {
+      "bulletin_num": 48,
+      "bulletin_year": 2023,
+      "date": "2023-08-16",
+      "filename": "bulletins/2023-48.pdf",
+      "sha256": "fd2cede1b74788359af05470bd5e71f6ca125b5b3189c3653a2203c09b1b7ddb",
+      "source_url": "https://spk.gov.tr/data/64dd2b518f95db1304e5ca3c/48-2023.pdf"
+    },
+    {
+      "bulletin_num": 49,
+      "bulletin_year": 2023,
+      "date": "2023-08-18",
+      "filename": "bulletins/2023-49.pdf",
+      "sha256": "363f8ef5f4d1d7eb71ee5bfdd8295733b5d48c303cc1a3b84022ad077da77fae",
+      "source_url": "https://spk.gov.tr/data/64df96a58f95db19287091e8/2023-49.pdf"
+    },
+    {
+      "bulletin_num": 50,
+      "bulletin_year": 2023,
+      "date": "2023-08-24",
+      "filename": "bulletins/2023-50.pdf",
+      "sha256": "b2225ba1a8cd24c2a25cd5fce38561baf7ab79d7ef08b1409401239451e8e445",
+      "source_url": "https://spk.gov.tr/data/64e7aafc8f95db2850fa015b/50-2023.pdf"
+    },
+    {
+      "bulletin_num": 51,
+      "bulletin_year": 2023,
+      "date": "2023-08-28",
+      "filename": "bulletins/2023-51.pdf",
+      "sha256": "af03229c093d683ac5381fc1b3cec3bdb8ea728b6f56d09617e0143070f4b97b",
+      "source_url": "https://spk.gov.tr/data/64ecc1bb8f95db2f3443f3fe/51-2023.pdf"
+    },
+    {
+      "bulletin_num": 52,
+      "bulletin_year": 2023,
+      "date": "2023-08-31",
+      "filename": "bulletins/2023-52.pdf",
+      "sha256": "b4840f75d98a4dad8e51e7c1b39aada08cc503fdd972e7dfaa240705a20feb20",
+      "source_url": "https://spk.gov.tr/data/64f0daee8f95db1adc1d8842/52-2023.pdf"
+    }
+  ],
+  "source": "https://www.spk.gov.tr/spk-bultenleri (+ gecmis-yillara-ait-bultenler archive)"
+}

@@ -1,0 +1,27 @@
+{
+  "command": "python scripts/audit_w7b_spk_bulletin_evidence.py --apply",
+  "commit": "1b1030a5c9b8323a1bc6a489d60797ac69452534",
+  "contract": "W7B_SPK_BULLETIN_EVIDENCE_RECEIPT_V1",
+  "generated_at": "2026-09-14T15:55:22.737358+00:00",
+  "generator_sha256": "974c191bf8743bd16c94d7419c0638e1fa399b9b861c4f56cc699d5fe8a8e509",
+  "hash_mode": "LF_CANONICAL_SHA256_V1",
+  "output_sha256": {
+    "archive.json": "f4751db5ac96fbed6f302633fd1536ff954242d03df6934a998197c700a8d661",
+    "batch_replay.json": "4564a51e83974eee894810fc81e6df44e83dba4acd6f56e4c7165618d49bb3ea",
+    "evidence.json": "419fb463db23aca97015f44f1b112d47eb6f613e23a42643252483ecad8b7124",
+    "gate_results.json": "20ae7c164caa8643ec157397991d09df6cbdb60b243ebee7a84a9f85d10193dc",
+    "negative_controls.json": "ce9c42a5d0388e9f34a02e1274c866c26ecb6e0d3152812499dce7db80fac1de",
+    "verdict.json": "07993b9aac21d6e36e11fb4051da6af6df396e5c2fbdbac85af50eabbf3c9f9d"
+  },
+  "policy": {
+    "m2_materialized": false,
+    "market_cap_materialized_non_zero_interval": true,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  }
+}

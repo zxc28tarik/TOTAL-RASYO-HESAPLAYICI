@@ -1,0 +1,18 @@
+{
+  "consequence": "W7-A's specific finding (a present-day query is unconditionally rejected) is unchanged and still correct -- this audit did not touch that code path or weaken it; it supplied a source of a qualitatively different kind. A second, independent gate (NonfinValuationConfig.minimum_peer_count=5 per multiple) then rejects all six with YETERSIZ_MULTIPLE_KAPSAMI: with only six resolved tickers, every multiple has at most five peers, and two of the four multiples (EV_EBIT, PS) have far fewer than five peers with a valid, usable value. That is a scale problem -- resolve more tickers with the identical, now-proven method -- not a recurrence of the dating problem this audit tests.",
+  "contract": "W7B_SPK_BULLETIN_EVIDENCE_V1",
+  "finding": "A genuinely period-contemporary archival source -- SPK's own weekly regulatory bulletin, each issue independently dated at its original publication -- clears the evidence-dating gate W7-A found unconditional against present-day KAP queries. All six sample tickers' real market caps materialize through the unmodified production path (materialize_price_level_market_cap), the first time this project has ever produced a non-zero-interval, production-admissible historical share basis. Negative controls (an early cutoff; a tampered future-dated source) confirm the gate still rejects what it should -- this is a genuine pass, not a weakened check.",
+  "policy": {
+    "m2_materialized": false,
+    "market_cap_materialized_non_zero_interval": true,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "reopen_condition": "Resolve additional same-sector NONFIN tickers' share basis via the same SPK-bulletin method (short raw-KAP-anchor gap preferred, to bound the bulletin count) until each of PE, EV_EBIT, PS and PB independently reaches minimum_peer_count=5 *usable* peer values -- not just five peers present. Re-run the batch replay; a nonzero m2_score_count is the reopen signal, and this audit's own derive() already refuses to pass silently if that happens without the narrative being updated.",
+  "status": "PARTIAL_PROGRESS"
+}
