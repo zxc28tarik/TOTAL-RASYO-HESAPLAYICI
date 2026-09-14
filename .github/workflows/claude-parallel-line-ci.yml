@@ -1,6 +1,6 @@
-name: Claude Parallel Line CI (W3 W4 W6-B W10)
+name: Claude Audit Line CI (W3 W4 W5 W6-B W10)
 
-# Scoped to the parallel audit line so it never competes with the Codex/Astra
+# Scoped to this audit line so it never competes with the Codex/Astra
 # workflows. It proves three things the ledger requires before a package may be
 # called DONE: the audits reproduce byte-identically, their gates are killed by
 # mutation, and the W1/W2 evidence chain is untouched.
@@ -16,7 +16,7 @@ permissions:
 jobs:
   parallel-line:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60
     services:
       postgres:
         image: postgres:16
@@ -60,6 +60,9 @@ jobs:
       - name: W4 Ek4 contract audit reproduces byte-identically
         if: '!cancelled()'
         run: python scripts/audit_w4_ek4_contract.py --check
+      - name: W5 SMRTG canary reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w5_smrtg_canary.py --check
       - name: W6-B BANK coe/macro_cap audit reproduces byte-identically
         if: '!cancelled()'
         run: python scripts/audit_w6b_bank_coe_macro_cap.py --check
@@ -67,12 +70,13 @@ jobs:
         if: '!cancelled()'
         run: python scripts/audit_w10_p7_enumeration.py --check
 
-      - name: Targeted parallel-line contracts
+      - name: Targeted audit-line contracts
         if: '!cancelled()'
         run: >-
           python -m pytest -q --junitxml=parallel-targeted.xml
           tests/test_w3_price_populations.py
           tests/test_w4_ek4_contract.py
+          tests/test_w5_smrtg_canary.py
           tests/test_w6b_bank_coe_macro_cap.py
           tests/test_w10_p7_enumeration.py
 
@@ -89,6 +93,9 @@ jobs:
       - name: W4 mutation audit
         if: '!cancelled()'
         run: python scripts/audit_w4_mutations.py --output w4-mutations.json
+      - name: W5 mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w5_mutations.py --output w5-mutations.json
       - name: W6-B mutation audit
         if: '!cancelled()'
         run: python scripts/audit_w6b_mutations.py --output w6b-mutations.json
@@ -106,6 +113,7 @@ jobs:
             w1-frozen-outputs.json
             w3-mutations.json
             w4-mutations.json
+            w5-mutations.json
             w6b-mutations.json
             w10-mutations.json
 

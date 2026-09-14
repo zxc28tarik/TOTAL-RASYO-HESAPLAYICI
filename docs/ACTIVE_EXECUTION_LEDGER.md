@@ -368,24 +368,58 @@ kanıtsız matematik/model değişikliği yapılmaz.
 
 ### W5 — Tarihsel SMRTG M2 canary
 
-Durum: **BLOCKED BY W2 — ANA HAT**
+Durum: **BLOCKED — KANITLI, YENİDEN AÇMA KOŞULLU (ANA HAT ADIMI TAMAMLANDI)**
+· dal `claude/inspiring-cannon-ecxilb` · [PR #41](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/pull/41)
+· rapor [W5_SMRTG_M2_CANARY.md](W5_SMRTG_M2_CANARY.md)
 
-- `SMRTG 2023-08` için pay/action kapısını geçen mevcut gerçek kanıt yeniden
-  doğrulanır.
-- Peer cohort ve `KAP_BULK_GENERAL_HOLDING_CORE_EXACT_V1` ile
-  `KAP_NONBANK_CORE_EXAMPLE` derivation-profile uyuşmazlığının veri mi,
-  config mi, routing/kod kusuru mu olduğu kanıtlanır.
-- Minimum peer=5 ve coverage eşikleri gevşetilmez.
-- Gerçek FOLLOW dönemi materialize edilmeden M2 üretilmez.
+Kabul ölçütü karşılandı: canary M2 üretmedi, tam neden ve yeniden açma koşuluyla
+`BLOCKED` kaldı. Sonuç canlı 48 M2 / 2 Total'den ayrı artifact'tır; canlı
+sonuçlara dokunulmadı.
 
-Kabul: Canary ya gerçek tarihsel M2+provenance üretir ya da tam neden ve yeniden
-açma koşuluyla `BLOCKED` kalır. Sonuç canlı 48 M2/2 Total'den ayrı artifact'tır.
-Gerçek M2 çıkarsa aynı commit serisinde W7-A canary Total denenir; W6'nın tam
-bitmesi beklenmez.
+- **W5-A pay/aksiyon kapısı geçti (5/5).** Pay tabanı ham KAP sınıf tablosundan
+  yeniden türetildi: dört gözlemden cutoff'tan 20 dakika önce yayımlanan
+  2023-07-31 17:49:42 / 605.880.000 seçildi, 2026-01-30 / 1.817.640.000
+  dışlandı; aynı gün olduğu için `(2023-07-31, 2023-07-31]` aralığı boştur.
+  Look-ahead kullanılsaydı taban 3× şişerdi.
+- **Ek bulgu:** CORE artifact SMRTG için güvensiz `ISSUED_CAPITAL_OVER_NOMINAL`
+  rotasıyla 306.000.000 taşıyor — sertifikalı tabanın 1/1,98'i. Kayıtlı
+  `market_cap` sertifikalı tabanı izlediği için güvensiz rota **yalnız bu
+  ticker için** geçersiz kılınmış sayıldı; başka hiçbir ticker sertifika almaz.
+- **W5-B köken: CONFIG, çözülmüş.** Artifact
+  `KAP_BULK_GENERAL_HOLDING_CORE_EXACT_V1@1` ile kendi içinde tutarlı; yalnız
+  varsayılan config `KAP_NONBANK_CORE_EXAMPLE@1` diyor. Açık sürümlü
+  `nonfin_valuation.kap_bulk_exact_v1.json` artifact'ın kendi profilini beyan
+  ediyor. Veri kusuru değil, routing/kod kusuru değil; artifact yeniden
+  adlandırılmadı, kapı zorlanmadı.
+- **W5-C blocker: peer kohortu.** 75 NONFIN aday, **0 güvenli peer**, 74
+  güvensiz, tek güvenli aday hedefin kendisi. `minimum_peer_count = 5`
+  gevşetilmedi. 59 peer'de aralık kanıtlanamıyor (medyan 810 gün; 28'inde
+  aralık içinde bilinen aksiyon var), 15 peer'de cutoff öncesi gözlem yok.
+- **Blocker yapısal, bu hücreye özgü değil.** 60 cutoff tarandı: 4.203 NONFIN
+  aday hücresinin **0'ında** güvenli pay türetmesi var (4.089
+  `ISSUED_CAPITAL_OVER_NOMINAL` + 114 boş); sıfır aralıklı sertifikasyon 56
+  cutoff'ta 0, 4 cutoff'ta 1 ticker veriyor (ODAS 2021-08, CEMTS 2023-05,
+  SMRTG 2023-07, ALARK 2026-04). Kapı için 6 gerekir → **0/60 erişilebilir**.
+- **Yeniden açma:** (1) tarihli, hash'e bağlı, boş olmayan bir aralığı boş
+  kanıtlayabilen kurumsal işlem envanteri — W3'ün eksik bulduğu kanıtla aynı;
+  (2) bu cutoff için sınırlı: BRSAN (4 gün), QUAGR (7), TUKAS (7), TTRAK (26),
+  ZOREN (46) pencerelerinde işlem olmadığının kanıtı. Dördünde Yahoo envanteri
+  altı yılda tek satır taşımıyor — kanıt yokluğu, yokluk kanıtı değil.
+- Doğrulama: **58 hedef test PASS**, **20/20 mutasyon KILLED**, `--check` bayt
+  düzeyinde yeniden üretiyor.
+
+**W7-A tetiklenmedi:** defter W7-A'yı yalnız "gerçek M2 çıkarsa aynı commit
+serisinde" öngörüyor; M2 çıkmadığı için W7-A başlatılmadı.
 
 ### W6 — Tarihsel M2 kapsamını mümkün olan en yükseğe çıkarma
 
-Durum: **BLOCKED BY W5 INITIAL AUDIT — ANA HAT**
+Durum: **AÇIK — SIRADAKİ ZORUNLU ANA HAT ADIMI**
+
+W5 kapandı (kanıtlı `BLOCKED`) ve W6'yı serbest bıraktı, fakat W5'in sistemik
+ölçümü W6'nın tavanını da belirliyor: 60 cutoff'un **hiçbirinde** peer kapısı
+erişilebilir değil, çünkü 4.203 NONFIN aday hücresinin 0'ında güvenli pay
+türetmesi var. Bu nedenle W6 kaynak kapsamından boyutlandırılamaz; ilk iş
+kohort kapısının kendisidir. Ayrıntı: [W5_SMRTG_M2_CANARY.md](W5_SMRTG_M2_CANARY.md) §5.
 
 Öncelik 3.017 adet 5/6 modüllü hücredir. Son doğrulanmış araştırma dağılımı:
 
@@ -464,7 +498,7 @@ aralığı; aksi halde hücre bazlı `BLOCKED`.
 
 ### W7 — Gerçek tarihsel Total ve P4 scored/ranking
 
-Durum: **W7-A BLOCKED BY W5; W7-B W6 İLE ARTIMLI — ANA HAT**
+Durum: **W7-A BLOCKED BY W5 (canary M2 üretmedi); W7-B W6 İLE ARTIMLI — ANA HAT**
 
 #### W7-A — Canary Total
 
@@ -607,9 +641,14 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W4 Ek4 fiyat/getiri sözleşmesi denetimi | DONE | Sözleşme COMPLIANT; 310/5.820 maddi sapma, maks 0,3312; 27 test, 10/10 mutasyon KILLED |
 | 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W6-B BANK coe/macro_cap araştırması | DONE | macro_cap 509/509 resmî kaynaklı; coe BLOCKED; unlock üst sınırı 0; 24 test, 11/11 mutasyon KILLED |
 | 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W10 P7 sürüm enumeration denetimi | BLOCKED | Issue #24 6/8 ölçüt; 0/2.115 sürüm zinciri; sonda kirlenme yok; 27 test, 11/11 mutasyon KILLED |
+| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W5 SMRTG 2023-08 tarihsel M2 canary | BLOCKED | Pay/aksiyon kapısı 5/5 geçti, profil kökeni CONFIG ve çözülmüş; blocker 0 güvenli peer ve 0/60 erişilebilir cutoff; 58 test, 20/20 mutasyon KILLED |
 
-Sonraki zorunlu **ana hat** adımı: **W5 — SMRTG 2023-08 tarihsel M2 canary**
-(Codex/Astra hattı; W3 bu adımı başlatmaz ve bloklamaz).
+Sonraki zorunlu **ana hat** adımı: **W6 — tarihsel M2 kapsam genişletme.**
+W5 kapandığı için W6 serbesttir, fakat W5'in sistemik ölçümü tavanı da
+belirliyor: 60 cutoff'un hiçbirinde peer kapısı erişilebilir değil, dolayısıyla
+W6'nın ilk işi kohort kapısının kendisidir (bkz. §W6 ve
+[W5_SMRTG_M2_CANARY.md](W5_SMRTG_M2_CANARY.md) §5). W7-A tetiklenmedi: defter
+onu yalnız gerçek M2 çıkması hâlinde öngörüyor.
 
 ### Paralel hat sahipliği
 
@@ -617,7 +656,10 @@ Sonraki zorunlu **ana hat** adımı: **W5 — SMRTG 2023-08 tarihsel M2 canary**
 W10 BLOCKED (kanıtlı, yeniden açma koşuluyla). Dördü de
 `claude/inspiring-cannon-ecxilb` dalında yürütüldü; toplam 115 hedef test PASS
 ve 43/43 mutasyon KILLED. Hiçbiri ana M2 hattını başlatmadı veya bloklamadı.
-Sıradaki zorunlu ana hat adımı değişmedi: **W5**.
+
+**Ana hat 2026-09-14'te aynı dalda devam etti:** W5 kanıtlı `BLOCKED` olarak
+kapandı (58 test, 20/20 mutasyon). Dal toplamı böylece **173 hedef test PASS**
+ve **63/63 mutasyon KILLED**. Sıradaki zorunlu ana hat adımı: **W6**.
 
 CI Linux tarafında baştan geçti (PostgreSQL'li tam regresyon, BANK v4.7, dört
 `--check`, dört mutasyon suite'i). Windows job'ı iki taşınabilirlik kusurunu
@@ -640,11 +682,13 @@ CI kapısı: mevcut workflow'ların hiçbiri `claude/**` dallarında tetiklenmiy
 (hepsi `v24-real-data-work` veya `codex/*` kapsamlı). Bu yüzden paralel hat için
 ayrı bir workflow eklendi: `.github/workflows/claude-parallel-line-ci.yml`
 (`claude/**` push + `workflow_dispatch`). PostgreSQL'li tam regresyon, BANK v4.7,
-dört `--check` yeniden üretimi, dört hedef test dosyası ve dört mutasyon suite'ini
+beş `--check` yeniden üretimi, beş hedef test dosyası ve beş mutasyon suite'ini
 koşar; Codex/Astra workflow'larına dokunmaz.
 
-Karışıklığı önlemek için paralel W3/W4/W6-B/W10 paketleri
+Karışıklığı önlemek için W3/W4/W6-B/W10 paralel paketleri ve W5 ana hat adımı
 `claude/inspiring-cannon-ecxilb` dalında yürütülür ve `codex/astra-v24-finalize`
 dalına PR ile gelir. `main`, `v24-real-data-work` ve `codex/*` dallarına bu
 hattan doğrudan push yapılmaz. Yeni kanıt yalnız `data/audit/w3_*`, `w4_*`,
-`w6b_*`, `w10_*` dizinlerine yazılır; `data/audit/w1_*` ve `w2_*` salt okunurdur.
+`w5_*`, `w6b_*`, `w10_*` dizinlerine yazılır; `data/audit/w1_*` ve `w2_*` salt
+okunurdur. W5 önceki `data/audit/smrtg_m2_canary_v1/` receipt'ini de yalnız
+okur; onu değiştirmez.

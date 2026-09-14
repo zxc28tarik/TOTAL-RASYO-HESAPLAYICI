@@ -1,0 +1,72 @@
+{
+  "active_blockers": [
+    "VERIFIED_SHARE_PEER_COHORT_INSUFFICIENT:safe_peers=0;required=5"
+  ],
+  "contract": "W5_SMRTG_HISTORICAL_M2_CANARY_VERIFICATION_V1",
+  "m2_admissible": false,
+  "m2_materialized": false,
+  "month": "2023-08",
+  "neutral_m2_materialized": false,
+  "note_on_admissibility": "ADMISSIBLE would only mean the evidence gates are clear; this auditor computes no score under any verdict.",
+  "real_follow_period_materialized": false,
+  "reopen_conditions": [
+    {
+      "condition": "A dated, source-hashed corporate-action inventory that can prove a non-empty interval empty. That would let any peer with a pre-cutoff share-class observation be certified, and it is the same evidence W3 found missing.",
+      "id": "GENERAL"
+    },
+    {
+      "candidates": [
+        {
+          "days": 4,
+          "ticker": "BRSAN",
+          "window_end": "2023-07-31T18:10:00+03:00",
+          "window_start": "2023-07-27T18:19:21",
+          "yahoo_action_rows_all_time": 0
+        },
+        {
+          "days": 7,
+          "ticker": "QUAGR",
+          "window_end": "2023-07-31T18:10:00+03:00",
+          "window_start": "2023-07-24T17:07:38",
+          "yahoo_action_rows_all_time": 0
+        },
+        {
+          "days": 7,
+          "ticker": "TUKAS",
+          "window_end": "2023-07-31T18:10:00+03:00",
+          "window_start": "2023-07-24T18:22:30",
+          "yahoo_action_rows_all_time": 0
+        },
+        {
+          "days": 26,
+          "ticker": "TTRAK",
+          "window_end": "2023-07-31T18:10:00+03:00",
+          "window_start": "2023-07-05T17:24:09",
+          "yahoo_action_rows_all_time": 6
+        },
+        {
+          "days": 46,
+          "ticker": "ZOREN",
+          "window_end": "2023-07-31T18:10:00+03:00",
+          "window_start": "2023-06-15T16:11:06",
+          "yahoo_action_rows_all_time": 0
+        }
+      ],
+      "condition": "Proof that no corporate action occurred inside each of the named short windows below. Certifying these alone would open the gate for 2023-08.",
+      "id": "BOUNDED_AT_THIS_CUTOFF"
+    }
+  ],
+  "resolved_by_this_audit": {
+    "derivation_profile_origin": "CONFIG",
+    "derivation_profile_resolved": true,
+    "share_action_gate": true,
+    "unsafe_artifact_share_route_superseded": true
+  },
+  "separate_from_live_results": true,
+  "status": "BLOCKED",
+  "structural_note": "Neither route can supply the required peers at any of the 60 cutoffs, so the blocker is structural rather than specific to SMRTG 2023-08.",
+  "thresholds_relaxed": false,
+  "ticker": "SMRTG",
+  "total_materialized": false,
+  "why_not_m2": "The target's own share and action evidence passes and the profile mismatch is resolved by an explicit versioned config, but relative valuation needs a peer cohort and there is not one safe peer at this cutoff."
+}
