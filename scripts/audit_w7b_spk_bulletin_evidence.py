@@ -30,12 +30,15 @@ The honest result, recorded here rather than glossed over: the evidence-dating
 gate is cleared for all six tickers -- six real, hash-verified market caps
 materialize through the unmodified production path for the first time this
 project has ever produced one for a non-zero interval. A second, independent
-gate then rejects all six for a different reason (YETERSIZ_MULTIPLE_KAPSAMI):
-with only six resolved tickers, each relative-valuation multiple has at most
-five peers, one peer short of two of NonfinValuationConfig's four multiples
-reaching minimum_peer_count=5 with valid (not just present) values. That is a
-scale problem, solvable by resolving more tickers with the same method -- not
-a new instance of the dating problem this audit exists to test.
+gate then rejects all six for a different reason (YETERSIZ_MULTIPLE_KAPSAMI).
+That gate is deeper than "resolve more tickers": field_completeness_census.json
+shows that at this cutoff, with the evidence-dating gate set aside entirely, no
+NONFIN sector's own CORE data carries even minimum_peer_count=5 tickers with
+revenue/ebit/net_income all populated in their latest quarter (34 tickers in
+the widest sector, only 3 complete). Those fields are None by explicit
+fail-closed refusal, not silent loss -- correct CORE behavior. The evidence
+gate this audit exists to test is genuinely cleared; the standing bottleneck
+toward a real M2 score is CORE's own YTD-derivation coverage.
 
 It produces no M2 score and changes no production code.
 """
@@ -104,7 +107,7 @@ KNOWN_NON_ACTION_MENTIONS = {
 }
 
 CONTENT_FILES = ("archive.json", "evidence.json", "gate_results.json", "negative_controls.json",
-                  "batch_replay.json", "verdict.json")
+                  "batch_replay.json", "field_completeness_census.json", "verdict.json")
 
 
 class W7BAuditError(RuntimeError):
@@ -319,6 +322,62 @@ def load_month_diagnostics() -> dict:
     raise W7BAuditError("SIGNAL_DATE_MONTH_NOT_FOUND")
 
 
+REQUIRED_MULTIPLE_FIELDS = ("revenue", "ebit", "net_income")
+
+
+def build_field_completeness_census(per_ticker: dict) -> dict:
+    """How far the *scale* framing in Sec 6 actually reaches: at this one
+    cutoff, per NONFIN sector, how many tickers carry all three fields a
+    relative-multiple peer needs (revenue for PS, ebit for EV_EBIT,
+    net_income for PE) in their own latest CORE quarter -- independent of
+    the evidence-dating gate entirely. This does not touch the six-ticker
+    sample's own result; it measures the ceiling the next scaling attempt
+    would actually be working against."""
+    sector_of = {}
+    with gzip.open(P3_CELLS, "rt", encoding="utf-8") as stream:
+        for line in stream:
+            row = json.loads(line)
+            if (row.get("historical_family") == "NONFIN"
+                    and (row.get("price") or {}).get("trade_date") == PRICE_TRADE_DATE.isoformat()):
+                sector_of[row["ticker"]] = row["historical_family_lineage"]["sector_index_code"]
+
+    by_sector_total: dict[str, int] = {}
+    by_sector_complete: dict[str, int] = {}
+    per_field_missing = {field: 0 for field in REQUIRED_MULTIPLE_FIELDS}
+    considered = 0
+    for ticker, sector in sector_of.items():
+        info = per_ticker.get(ticker)
+        quarters = (info or {}).get("quarters") or []
+        if not quarters:
+            continue
+        considered += 1
+        values = quarters[-1]["values"]
+        by_sector_total[sector] = by_sector_total.get(sector, 0) + 1
+        complete = True
+        for field in REQUIRED_MULTIPLE_FIELDS:
+            if values.get(field) is None:
+                per_field_missing[field] += 1
+                complete = False
+        if complete:
+            by_sector_complete[sector] = by_sector_complete.get(sector, 0) + 1
+
+    return {
+        "contract": CONTRACT,
+        "signal_date": SIGNAL_DATE,
+        "required_fields": list(REQUIRED_MULTIPLE_FIELDS),
+        "tickers_considered": considered,
+        "missing_field_counts": per_field_missing,
+        "by_sector": {
+            sector: {
+                "total": by_sector_total[sector],
+                "complete": by_sector_complete.get(sector, 0),
+            }
+            for sector in sorted(by_sector_total)
+        },
+        "max_complete_in_any_sector": max(by_sector_complete.values(), default=0),
+    }
+
+
 def load_prices_and_sectors() -> tuple[dict, dict]:
     prices, sectors = {}, {}
     with gzip.open(P3_CELLS, "rt", encoding="utf-8") as stream:
@@ -428,6 +487,17 @@ def derive() -> dict[str, bytes]:
     if any(reason != expected_reason for reason in batch_replay["rejection_reasons"].values()):
         raise W7BAuditError(f"UNEXPECTED_REJECTION_REASON:{batch_replay['rejection_reasons']}")
 
+    per_ticker_diag = load_month_diagnostics()
+    census = build_field_completeness_census(per_ticker_diag)
+    minimum_peer_count = NonfinValuationConfig.from_json_file(EXACT_VALUATION_CONFIG).minimum_peer_count
+    if census["max_complete_in_any_sector"] >= minimum_peer_count:
+        raise W7BAuditError(
+            f"CENSUS_CEILING_NO_LONGER_BELOW_THRESHOLD:{census['max_complete_in_any_sector']} -- "
+            "a NONFIN sector now has enough fully-populated tickers at this cutoff for the "
+            "minimum_peer_count threshold on CORE data alone; Sec 6/9's 'no sector clears the "
+            "ceiling without new tickers' narrative is stale and needs re-deriving, not silent reuse"
+        )
+
     archive_out = {
         "contract": CONTRACT, "bulletin_count": len(archive["manifest"]["entries"]),
         "span_start": min(archive["by_date"]), "span_end": max(archive["by_date"]),
@@ -440,6 +510,7 @@ def derive() -> dict[str, bytes]:
     gate_out = {"contract": CONTRACT, "results": gate_results}
     negative_out = {"contract": CONTRACT, "results": negative_controls}
     batch_out = {"contract": CONTRACT, **batch_replay}
+    census_out = census
 
     verdict = {
         "contract": CONTRACT,
@@ -461,20 +532,27 @@ def derive() -> dict[str, bytes]:
             "is unchanged and still correct -- this audit did not touch that code path or "
             "weaken it; it supplied a source of a qualitatively different kind. A second, "
             "independent gate (NonfinValuationConfig.minimum_peer_count=5 per multiple) "
-            "then rejects all six with YETERSIZ_MULTIPLE_KAPSAMI: with only six resolved "
-            "tickers, every multiple has at most five peers, and two of the four "
-            "multiples (EV_EBIT, PS) have far fewer than five peers with a valid, usable "
-            "value. That is a scale problem -- resolve more tickers with the identical, "
-            "now-proven method -- not a recurrence of the dating problem this audit tests."
+            "then rejects all six with YETERSIZ_MULTIPLE_KAPSAMI. The naive 'scale problem, "
+            "resolve more tickers' framing understates it: field_completeness_census.json "
+            "shows that at this cutoff, independent of the evidence-dating gate entirely, "
+            "no NONFIN sector's own CORE data carries even minimum_peer_count tickers with "
+            "all three of revenue/ebit/net_income populated in their latest quarter (the "
+            "widest sector, 34 tickers, has only 3; this six-ticker sample's own sector, "
+            "25 tickers, has only 1). Those fields are None by explicit fail-closed refusal "
+            "(e.g. YTD_PERIOD_START_MISMATCH), not silent loss -- correct CORE behavior, not "
+            "a bug to fix here. So the real bottleneck this audit's method leaves standing "
+            "is CORE's own YTD-derivation coverage, not evidence dating and not simply how "
+            "many tickers get an SPK-bulletin evidence bundle."
         ),
         "reopen_condition": (
-            "Resolve additional same-sector NONFIN tickers' share basis via the same "
-            "SPK-bulletin method (short raw-KAP-anchor gap preferred, to bound the "
-            "bulletin count) until each of PE, EV_EBIT, PS and PB independently reaches "
-            "minimum_peer_count=5 *usable* peer values -- not just five peers present. "
+            "Measure field_completeness_census across all 60 cutoffs (this audit only "
+            "measured 2023-08-31); if some cutoff/sector combination clears "
+            "minimum_peer_count on CORE data alone, resolve that combination's tickers via "
+            "the same, now-proven SPK-bulletin method (short raw-KAP-anchor gap preferred). "
             "Re-run the batch replay; a nonzero m2_score_count is the reopen signal, and "
-            "this audit's own derive() already refuses to pass silently if that happens "
-            "without the narrative being updated."
+            "this audit's own derive() already refuses to pass silently if that happens, or "
+            "if any sector's census count reaches minimum_peer_count, without the narrative "
+            "being updated."
         ),
         "policy": {
             "model_changed": False, "weights_changed": False, "veto_changed": False,
@@ -486,7 +564,8 @@ def derive() -> dict[str, bytes]:
     return {
         "archive.json": encode_json(archive_out), "evidence.json": encode_json(evidence_out),
         "gate_results.json": encode_json(gate_out), "negative_controls.json": encode_json(negative_out),
-        "batch_replay.json": encode_json(batch_out), "verdict.json": encode_json(verdict),
+        "batch_replay.json": encode_json(batch_out), "field_completeness_census.json": encode_json(census_out),
+        "verdict.json": encode_json(verdict),
     }
 
 

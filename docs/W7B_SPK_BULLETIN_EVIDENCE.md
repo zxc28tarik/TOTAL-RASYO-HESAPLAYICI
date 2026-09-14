@@ -123,16 +123,32 @@ artifact'ından) çalıştırıyor. Sonuç: **0 M2 skoru**, hepsi
 
 Sebep basit ve W7-A'nınkinden **tamamen farklı**: `NonfinValuationConfig`
 her çarpan için `minimum_peer_count=5` istiyor. Altı ticker'la, her hedef
-için en fazla 5 peer var -- ve PB çarpanı gerçekten 5/5'e ulaşıyor (kullanılabilir),
-ama PE (net kâr pozitif olmalı), EV_EBIT (FVÖK pozitif olmalı) ve PS
-çarpanları için yeterli sayıda **geçerli** (sadece mevcut değil) peer değeri
-yok.
+için en fazla 5 peer var -- ve PB çarpanı gerçekten 5/5'e ulaşıyor
+(kullanılabilir), ama PE, EV_EBIT ve PS çarpanları için yeterli sayıda
+**geçerli** (sadece mevcut değil) peer değeri yok.
 
-**Bu bir ölçek sorunu, W7-A'nın tarihleme sorununun bir tekrarı değil.**
-Aynı, artık kanıtlanmış SPK-bülteni yöntemiyle birkaç ticker daha çözülürse
-(kısa boşluklu adaylar: BIOEN 430 gün, AYDEM 507 gün, ve XUHIZ dışındaki
-diğer sektörlerin kendi kısa-boşluklu adayları), her çarpan 5 eşiğine
-ulaşabilir.
+**Kök sebep, kanıt kapısıyla ilgisiz, daha derin bir katmanda:** altı
+ticker'ın CORE'daki (2023-06-30 dönem sonu) en son çeyreğinde `revenue`
+5/6'sında, `net_income` 3/6'sında, `ebit` 1/6'sında **`None`**. Bu sessiz
+bir veri kaybı değil -- her `None` alanın kendi gerekçe kodu var, örn.
+KONTR için `"net_income": "YTD_PERIOD_START_MISMATCH"`: CORE'un YTD-fark
+türetmesi, karşılaştırdığı iki dönemin başlangıç tarihleri uyuşmadığında
+**tahmin üretmek yerine reddediyor** -- projenin fail-closed felsefesiyle
+tam tutarlı, düzeltilecek bir hata değil.
+
+Bu alanın gerçek boyutu bu tek cutoff'ta ölçüldü: 24 XUHIZ adayının
+**yalnız 1'i** (ALFAS), 34 XUSIN adayının **yalnız 3'ü** üçünü birden
+(`revenue`+`ebit`+`net_income`) dolu taşıyor -- `minimum_peer_count=5`'in
+**hiçbir NONFIN sektöründe, salt CORE'un kendi verisiyle, kanıt kapısına
+hiç dokunmadan bile** karşılanamadığı anlamına geliyor.
+
+**Bu bir ölçek sorunu, W7-A'nın tarihleme sorununun bir tekrarı değil --
+ama saf "birkaç ticker daha çöz" kadar basit de değil.** §9'a bakın: aynı
+cutoff'ta (2023-08-31) tüm 24 XUHIZ adayının **yalnız 1'i** (ALFAS),
+34 XUSIN adayının **yalnız 3'ü**, revenue+EBIT+net_income üçünü birden
+dolu taşıyor -- kanıt kapısına hiç dokunmadan, salt CORE'un kendi
+finansal türetme katmanında. SPK-bülteni yöntemi bu ayrı, daha derin
+sınırı ortadan kaldırmıyor; yalnız onu görünür kılıyor.
 
 ## 7. Değişmeyenler
 
@@ -144,8 +160,8 @@ bir kaynak sağladı.
 
 ## 8. Doğrulama
 
-24 hedef test PASS, 8/8 mutasyon KILLED, `--check` Python 3.11/3.12/3.13'te
-bayt düzeyinde aynı receipt.
+21 hedef test PASS, 9/9 mutasyon KILLED, `--check` bayt düzeyinde aynı
+receipt.
 
 ```bash
 python scripts/audit_w7b_spk_bulletin_evidence.py --apply
@@ -155,16 +171,33 @@ python scripts/audit_w7b_mutations.py --output data/audit/w7b_spk_bulletin_evide
 ```
 
 Artifact'lar: `data/audit/w7b_spk_bulletin_evidence_v1/{archive,evidence,
-gate_results,negative_controls,batch_replay,verdict,mutations,receipt}.json`,
+gate_results,negative_controls,batch_replay,field_completeness_census,verdict,
+mutations,receipt}.json`,
 `data/backtest_sources/spk_bulletin_archive_v1/` (98 PDF + manifest),
 `data/backtest_sources/spk_bulletin_resolved_shares_v1/` (6 ticker × pay
 sertifikası kaynağı + çapa).
 
 ## 9. Sıradaki
 
-Aynı yöntemi birkaç ticker daha için tekrarlayıp her çarpanın (PE, EV_EBIT,
-PS, PB) bağımsız olarak `minimum_peer_count=5` **kullanılabilir** değere
-ulaşmasını sağlamak. Bu denetimin kendi `derive()`'ı, sıfır olmayan bir
-`m2_score_count` çıkarsa sessizce geçmek yerine `UNEXPECTED_M2_SCORE_PRODUCED`
-ile duruyor -- yani bu eşik aşıldığında bu denetimin kendisinin de anlatısı
-güncellenmeli, sonucu sessizce kabul etmemeli.
+Naif okuma ("birkaç ticker daha çöz") §6'nın sayılarıyla düzeltilmeli: bu
+cutoff'ta hiçbir NONFIN sektörü, kanıt kapısına hiç dokunmadan, salt
+CORE'un kendi türetmesiyle bile 5 tam-finansallı ticker biriktiremiyor
+(XUSIN 34'te 3, XUHIZ 24'te 1). SPK-bülteni yöntemi kaç ticker'ın
+*kanıtlanabilir* olduğunu artık pratikte sınırsız genişletebiliyor (arşiv
+30 yıla, tüm BIST'e ölçekleniyor) -- ama darboğaz artık kanıt değil, CORE'un
+YTD-türetmesinin **hangi ticker/çeyrek kombinasyonlarında** dönem
+başlangıçları uyuştuğu. Gerçekçi sıradaki adım iki parçalı:
+
+1. **Ölçüm, tüm 60 cutoff'a genişletilsin:** bu doküman tek bir cutoff'u
+   (2023-08-31) ölçtü. `revenue`/`ebit`/`net_income` üçünün birden dolu
+   olduğu ticker sayısı ay ay değişebilir -- bazı aylarda bazı sektörlerin
+   5 eşiğini doğal olarak geçtiği bir cutoff bulunabilir; bulunamazsa bu da
+   kendi başına kaydedilmesi gereken bir sonuçtur.
+2. **Böyle bir cutoff/sektör bulunursa**, o hücrelerin SPK-bülteni
+   boşluğu (kısa olan öncelikli) bu denetimin aynı, artık kanıtlanmış
+   yöntemiyle kapatılır.
+
+Bu denetimin kendi `derive()`'ı, sıfır olmayan bir `m2_score_count`
+çıkarsa sessizce geçmek yerine `UNEXPECTED_M2_SCORE_PRODUCED` ile duruyor --
+yani bu eşik aşıldığında bu denetimin kendisinin de anlatısı güncellenmeli,
+sonucu sessizce kabul etmemeli.

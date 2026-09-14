@@ -1,17 +1,18 @@
 {
   "command": "python scripts/audit_w7b_spk_bulletin_evidence.py --apply",
-  "commit": "1b1030a5c9b8323a1bc6a489d60797ac69452534",
+  "commit": "6c3aea261e999f77d3d3612af0230bd0d82ad6d8",
   "contract": "W7B_SPK_BULLETIN_EVIDENCE_RECEIPT_V1",
-  "generated_at": "2026-09-14T15:55:22.737358+00:00",
-  "generator_sha256": "974c191bf8743bd16c94d7419c0638e1fa399b9b861c4f56cc699d5fe8a8e509",
+  "generated_at": "2026-09-14T16:54:08.702397+00:00",
+  "generator_sha256": "84948f5527e6e75a113140fe43095e88c2c177db3d3baf0f2a1cced070ae5fb2",
   "hash_mode": "LF_CANONICAL_SHA256_V1",
   "output_sha256": {
     "archive.json": "f4751db5ac96fbed6f302633fd1536ff954242d03df6934a998197c700a8d661",
     "batch_replay.json": "4564a51e83974eee894810fc81e6df44e83dba4acd6f56e4c7165618d49bb3ea",
     "evidence.json": "419fb463db23aca97015f44f1b112d47eb6f613e23a42643252483ecad8b7124",
+    "field_completeness_census.json": "4b07f51afb0183cc8791f2dab731293275dbb84c1490217d8ee8bfe3681daa85",
     "gate_results.json": "20ae7c164caa8643ec157397991d09df6cbdb60b243ebee7a84a9f85d10193dc",
     "negative_controls.json": "ce9c42a5d0388e9f34a02e1274c866c26ecb6e0d3152812499dce7db80fac1de",
-    "verdict.json": "07993b9aac21d6e36e11fb4051da6af6df396e5c2fbdbac85af50eabbf3c9f9d"
+    "verdict.json": "6d3e681fa689e8710615f1d65b01735c67ed8510557547803a79634386597ee1"
   },
   "policy": {
     "m2_materialized": false,

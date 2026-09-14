@@ -445,10 +445,21 @@ kurcalanmış kaynak) kapının gerçekten geçildiğini, zayıflatılmadığın
 doğruluyor. Ama tam `run_historical_pit_nonfin_m2_replay()` çağrısı hâlâ
 0 M2 skoru üretiyor: **ikinci, bağımsız bir kapı** (`minimum_peer_count=5`
 her çarpan için ayrı ayrı) altı ticker'la aşılamıyor — PB çarpanı 5/5'e
-ulaşıyor ama PE/EV_EBIT/PS ulaşmıyor. Bu bir **ölçek sorunu**: aynı yöntemle
-birkaç ticker daha çözülürse kapanabilir. W7-A'nın kendi bulgusu ve W6'nın
+ulaşıyor ama PE/EV_EBIT/PS ulaşmıyor. W7-A'nın kendi bulgusu ve W6'nın
 "60/60 erişilebilir kohort" ölçümü ikisi de doğru kalıyor; W7-B üçüncü, yeni
 bir bulgu ekliyor, öncekileri geçersiz kılmıyor.
+
+**AYNI GÜN İÇİNDE DAHA DA NETLEŞTİ:** bu "ölçek sorunu" ilk bakışta
+göründüğünden daha derin. Kök sebep kanıt kapısıyla ilgisiz: altı
+ticker'ın CORE'daki (2023-06-30) en son çeyreğinde `revenue` 5/6'sında,
+`net_income` 3/6'sında, `ebit` 1/6'sında `None` — her biri kendi gerekçe
+koduyla (örn. `YTD_PERIOD_START_MISMATCH`), sessiz kayıp değil, CORE'un
+fail-closed YTD-türetmesinin bilinçli reddi. Bu cutoff'ta **hiçbir NONFIN
+sektörü**, kanıt kapısına hiç dokunmadan, salt CORE'un kendi verisiyle 5
+tam-finansallı ticker biriktiremiyor (34 XUSIN'de 3, 24 XUHIZ'de 1). SPK-
+bülteni yöntemi kaç ticker'ın kanıtlanabilir olduğunu pratikte sınırsız
+genişletiyor; darboğaz artık kanıt değil, CORE'un YTD hizalaması — bkz.
+[W7B_SPK_BULLETIN_EVIDENCE.md](W7B_SPK_BULLETIN_EVIDENCE.md) §6/§9.
 
 **ÖNEMLİ DÜZELTME (aynı gün, W7-A):** Aşağıdaki "peer kapısı 0/60 → 60/60"
 bulgusu doğru ve geçerli kalıyor — gerçekten hash'e bağlı kanıt üretildi. Ama
@@ -722,14 +733,17 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W6 KAP kurumsal işlem envanteri + peer kapısı ölçümü | KISMEN İLERLEDİ | 595 pencere gap-free yakalandı (649.244 satır); peer kapısı (audit düzeyinde) 0/60 → 60/60; 32 test, 11/11 mutasyon KILLED |
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W7-A üretim kanıt-tarihi kapısı denetimi | BLOCKED | Gerçek üretim kodu (`PriceLevelActionEvidence.verify`) çağrılarak test edildi; her kaynağın `published_at <= cutoff` şartı bugünkü hiçbir yakalamayla karşılanamıyor; üretim-kabul edilebilir peer sayısı hâlâ ≤1/cutoff; 10 test PASS |
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W6-C rapor-zinciriyle boşluk küçültme (sistem geneli) | GAP_NARROWED_NOT_CLOSED | 4.203 hücrenin 3.030'unda dış çapa var; yalnız %21'inde (648) rapor zinciri doğrulama buluyor; boşluk medyanı 815→534 gün (SMRTG'nin 8 peer'lik örneği temsili değilmiş); 16 test, 8/8 mutasyon KILLED |
-| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W7-B SPK bülteniyle kanıt-tarihi kapısını gerçek arşiv veriyle aşma | PARTIAL_PROGRESS | 98 bülten arşivlendi (boşluksuz); 6/6 örnek ticker gerçek üretim kapısından geçti (hash-doğrulanmış piyasa değeri); negatif kontroller 6/6 doğru RET; tam batch replay hâlâ 0 M2 skoru — ikinci, bağımsız kapı (`minimum_peer_count=5`, PB 5/5 ama PE/EV_EBIT/PS altında) bir ölçek sorunu olarak kaldı; 19 test, 8/8 mutasyon KILLED |
+| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W7-B SPK bülteniyle kanıt-tarihi kapısını gerçek arşiv veriyle aşma | PARTIAL_PROGRESS | 98 bülten arşivlendi (boşluksuz); 6/6 örnek ticker gerçek üretim kapısından geçti (hash-doğrulanmış piyasa değeri); negatif kontroller 6/6 doğru RET; tam batch replay hâlâ 0 M2 skoru — ikinci, bağımsız kapı (`minimum_peer_count=5`) altında kalan kök sebep CORE'un kendi YTD-türetme eksikliği (34 XUSIN'de 3, 24 XUHIZ'de 1 tam-finansallı ticker); 21 test, 9/9 mutasyon KILLED |
 
-Sonraki zorunlu **ana hat** adımı artık **W7-B'nin ölçeklendirilmesi**: aynı,
-artık kanıtlanmış SPK-bülteni yöntemiyle birkaç NONFIN ticker daha (kısa
-raw-KAP-çapa boşluklu adaylar öncelikli) çözülüp her çarpanın (PE, EV_EBIT,
-PS, PB) bağımsız olarak `minimum_peer_count=5` **kullanılabilir** değere
-ulaşması sağlanmalı — bkz.
-[W7B_SPK_BULLETIN_EVIDENCE.md](W7B_SPK_BULLETIN_EVIDENCE.md) §9. W7-A'nın
+Sonraki zorunlu **ana hat** adımı artık **iki parçalı**, W7-B'nin §9'unda
+ayrıntılandırıldığı gibi: (1) `revenue`/`ebit`/`net_income` üçünün birden
+dolu olduğu ticker sayısının 60 cutoff'un hepsinde ölçülmesi — 2023-08-31
+tek örneğinde hiçbir sektör 5 eşiğine CORE'un kendi verisiyle bile
+ulaşamıyor, ama bu diğer aylarda farklı olabilir; (2) böyle bir
+cutoff/sektör bulunursa, o hücrelerin SPK-bülteni boşluğunun aynı,
+artık kanıtlanmış yöntemle kapatılması. Darboğaz artık kanıt-tarihleme
+değil, CORE'un YTD-hizalama kapsamı — bkz.
+[W7B_SPK_BULLETIN_EVIDENCE.md](W7B_SPK_BULLETIN_EVIDENCE.md) §6/§9. W7-A'nın
 kendi bulgusu (bugün sorgulanan kaynak kayıtsız şartsız reddedilir) hâlâ
 doğru ve değişmedi; W7-B onu geçersiz kılmadı, yalnız niteliksel olarak
 farklı, dönemin kendisinde yayımlanmış bir kaynak türü sağladı. W6-C'nin

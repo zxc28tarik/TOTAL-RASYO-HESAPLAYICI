@@ -1,11 +1,11 @@
 {
   "all_killed": true,
   "auditor": "scripts/audit_w7b_spk_bulletin_evidence.py",
-  "auditor_sha256": "974c191bf8743bd16c94d7419c0638e1fa399b9b861c4f56cc699d5fe8a8e509",
+  "auditor_sha256": "84948f5527e6e75a113140fe43095e88c2c177db3d3baf0f2a1cced070ae5fb2",
   "contract": "W7B_SPK_BULLETIN_EVIDENCE_MUTATION_AUDIT_V1",
   "database_access": false,
-  "mutations_killed": 8,
-  "mutations_total": 8,
+  "mutations_killed": 9,
+  "mutations_total": 9,
   "network_access": false,
   "results": [
     {
@@ -14,7 +14,7 @@
       "name": "baseline",
       "skipped": 0,
       "status": "PASS",
-      "tests": 19
+      "tests": 21
     },
     {
       "errors": 0,
@@ -76,6 +76,14 @@
       "errors": 0,
       "failures": 1,
       "name": "sha_raw_reverted_to_crlf_stripping_bug",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "census_ceiling_guard_removed",
       "skipped": 0,
       "status": "KILLED",
       "tests": 1

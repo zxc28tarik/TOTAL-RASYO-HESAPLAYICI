@@ -96,6 +96,14 @@ MUTATIONS = [
         "    return sha256(payload.replace(b\"\\r\\n\", b\"\\n\")).hexdigest()",
         ["test_sha_raw_is_not_crlf_normalized"],
     ),
+    (
+        "census_ceiling_guard_removed",
+        "    if census[\"max_complete_in_any_sector\"] >= minimum_peer_count:\n"
+        "        raise W7BAuditError(",
+        "    if False:\n"
+        "        raise W7BAuditError(",
+        ["test_census_guard_fires_if_ceiling_reaches_threshold"],
+    ),
 ]
 
 

@@ -52,6 +52,11 @@ def batch_replay_json(content):
 
 
 @pytest.fixture(scope="module")
+def census_json(content):
+    return json.loads(content["field_completeness_census.json"])
+
+
+@pytest.fixture(scope="module")
 def verdict_json(content):
     return json.loads(content["verdict.json"])
 
@@ -207,6 +212,34 @@ def test_batch_replay_shows_pb_multiple_reaches_full_peer_count(batch_replay_jso
     pb = diag["multiple_details"]["PB"]
     assert pb["peer_count"] == 5
     assert pb["usable"] is True
+
+
+def test_field_completeness_census_matches_measured_ceiling(census_json):
+    # Pins the exact, honest measurement behind Sec 6's "no sector clears
+    # minimum_peer_count on CORE data alone" claim -- independent of the
+    # evidence-dating gate entirely.
+    assert census_json["signal_date"] == w7b.SIGNAL_DATE
+    assert census_json["required_fields"] == ["revenue", "ebit", "net_income"]
+    assert census_json["max_complete_in_any_sector"] < 5
+    by_sector = census_json["by_sector"]
+    assert by_sector["XUHIZ"] == {"total": 24, "complete": 1}
+    assert by_sector["XUSIN"] == {"total": 34, "complete": 3}
+
+
+def test_census_guard_fires_if_ceiling_reaches_threshold(monkeypatch):
+    """Prove the guard in derive() is live, not decorative: if some sector's
+    census count reached minimum_peer_count, derive() must raise rather than
+    silently keep shipping the 'no sector clears it' narrative unchanged."""
+    original = w7b.build_field_completeness_census
+
+    def inflated(per_ticker):
+        result = original(per_ticker)
+        result["max_complete_in_any_sector"] = 5
+        return result
+
+    monkeypatch.setattr(w7b, "build_field_completeness_census", inflated)
+    with pytest.raises(w7b.W7BAuditError, match="CENSUS_CEILING_NO_LONGER_BELOW_THRESHOLD"):
+        w7b.derive()
 
 
 def test_unexpected_m2_score_would_raise_not_pass_silently(monkeypatch):
