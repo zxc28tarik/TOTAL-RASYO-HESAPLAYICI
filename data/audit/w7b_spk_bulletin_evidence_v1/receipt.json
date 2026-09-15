@@ -1,12 +1,12 @@
 {
   "command": "python scripts/audit_w7b_spk_bulletin_evidence.py --apply",
-  "commit": "6c3aea261e999f77d3d3612af0230bd0d82ad6d8",
+  "commit": "c405ad4224dd87be0ac5e8f77792fb5b98f11d1f",
   "contract": "W7B_SPK_BULLETIN_EVIDENCE_RECEIPT_V1",
-  "generated_at": "2026-09-14T16:54:08.702397+00:00",
+  "generated_at": "2026-09-15T16:57:39.689305+00:00",
   "generator_sha256": "84948f5527e6e75a113140fe43095e88c2c177db3d3baf0f2a1cced070ae5fb2",
   "hash_mode": "LF_CANONICAL_SHA256_V1",
   "output_sha256": {
-    "archive.json": "f4751db5ac96fbed6f302633fd1536ff954242d03df6934a998197c700a8d661",
+    "archive.json": "8f23448174272be1b824ab5808759b785648721e627ad60415bcdc08b5f388a0",
     "batch_replay.json": "4564a51e83974eee894810fc81e6df44e83dba4acd6f56e4c7165618d49bb3ea",
     "evidence.json": "419fb463db23aca97015f44f1b112d47eb6f613e23a42643252483ecad8b7124",
     "field_completeness_census.json": "4b07f51afb0183cc8791f2dab731293275dbb84c1490217d8ee8bfe3681daa85",

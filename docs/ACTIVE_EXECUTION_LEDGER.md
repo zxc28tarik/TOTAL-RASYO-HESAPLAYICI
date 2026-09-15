@@ -461,6 +461,33 @@ bülteni yöntemi kaç ticker'ın kanıtlanabilir olduğunu pratikte sınırsız
 genişletiyor; darboğaz artık kanıt değil, CORE'un YTD hizalaması — bkz.
 [W7B_SPK_BULLETIN_EVIDENCE.md](W7B_SPK_BULLETIN_EVIDENCE.md) §6/§9.
 
+**ÜÇÜNCÜ DÜZELTME (2026-09-15, W7-C): darboğaz kapatıldı, gerçek M2 üretildi.**
+W7-B'nin ölçtüğü tek cutoff'ta (2023-08-31) hiçbir NONFIN sektörü CORE'un
+kendi verisiyle `minimum_peer_count=5`'e ulaşamıyordu — ama bu ölçüm tek
+cutoff'a özgüydü, evrensel bir tavan değil. TTM-tamlık taraması
+`signal_date=2023-08-01`'de XUSIN/PE hücresinde 12 ham aday buldu; SASA
+(bayat çapa), HEKTS/IPEKE/KOZAL (çapa yok) ve OYAKC (TRY-dışı nominal
+değer) ayıklandıktan sonra **yedi genuine, aynı `anchor_period_end`'li aday**
+kaldı: BRSAN, CEMTS, QUAGR, TUKAS, KONYA, VESTL, CCOLA. Her birinin KAP
+pay-sertifikasyonu artık **her zaman ham `nominalValueOfShares`/
+`nominalValuePerShare` metninden** yeniden hesaplanıyor (önceden hesaplanmış
+`derived_shares` alanına hiç güvenilmiyor) — bu, CCOLA'nın 2019-05-14
+gözleminde ZOREN'inkiyle aynı sınıftan bir ondalık-ayraç hatası buldu
+(~686x şişirme; düzeltilmiş değer, 2016'daki kendi gözlemiyle birebir
+örtüşüyor). SPK bülten arşivi 98'den **461 bültene** genişletildi
+(2016-06-24 → 2023-08-31, boşluksuz) KONYA/VESTL/CCOLA'nın çok yıllı
+boşluklarını kapatmak için — W7-B'nin kendi altı ticker'ı bu genişlemeden
+etkilenmedi (hepsinin çapası 2022-06-08 veya sonrası).
+
+Sonuç: 7/7 kanıt kapısını geçti, 7/7 negatif kontrol doğru RET, ve tam
+`run_historical_pit_nonfin_m2_replay()` (değiştirilmemiş, W7-B'nin **aynı**
+config'iyle) **PE ve PB'yi her ticker için `peer_count=6`'yla kullanılabilir
+kılıp `minimum_coverage_weight=0.5`'i karşılıyor: 0 ret, 7 gerçek,
+sıfır olmayan M2 skoru** — projenin NONFIN göreli-değerleme yolundan
+ürettiği ilk gerçek M2. Kapsam açıkça sınırlı: kapalı yedi ticker'lık bir
+örneklem, tam evren koşusu değil. Ayrıntı:
+[W7C_REAL_M2_SCORE.md](W7C_REAL_M2_SCORE.md).
+
 **ÖNEMLİ DÜZELTME (aynı gün, W7-A):** Aşağıdaki "peer kapısı 0/60 → 60/60"
 bulgusu doğru ve geçerli kalıyor — gerçekten hash'e bağlı kanıt üretildi. Ama
 bu kanıtla gerçek M2 üretilmeye çalışılınca üretim kodunun **kendi içinde**,
@@ -734,21 +761,21 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W7-A üretim kanıt-tarihi kapısı denetimi | BLOCKED | Gerçek üretim kodu (`PriceLevelActionEvidence.verify`) çağrılarak test edildi; her kaynağın `published_at <= cutoff` şartı bugünkü hiçbir yakalamayla karşılanamıyor; üretim-kabul edilebilir peer sayısı hâlâ ≤1/cutoff; 10 test PASS |
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W6-C rapor-zinciriyle boşluk küçültme (sistem geneli) | GAP_NARROWED_NOT_CLOSED | 4.203 hücrenin 3.030'unda dış çapa var; yalnız %21'inde (648) rapor zinciri doğrulama buluyor; boşluk medyanı 815→534 gün (SMRTG'nin 8 peer'lik örneği temsili değilmiş); 16 test, 8/8 mutasyon KILLED |
 | 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W7-B SPK bülteniyle kanıt-tarihi kapısını gerçek arşiv veriyle aşma | PARTIAL_PROGRESS | 98 bülten arşivlendi (boşluksuz); 6/6 örnek ticker gerçek üretim kapısından geçti (hash-doğrulanmış piyasa değeri); negatif kontroller 6/6 doğru RET; tam batch replay hâlâ 0 M2 skoru — ikinci, bağımsız kapı (`minimum_peer_count=5`) altında kalan kök sebep CORE'un kendi YTD-türetme eksikliği (34 XUSIN'de 3, 24 XUHIZ'de 1 tam-finansallı ticker); 21 test, 9/9 mutasyon KILLED |
+| 2026-09-15 | `claude/inspiring-cannon-ecxilb` | W7-C W7-B'nin darboğazını kapatıp gerçek M2 üretme | M2_MATERIALIZED | SPK arşivi 461 bültene genişletildi (2016-06-24→2023-08-31, boşluksuz; W7-B'nin 6 ticker'ı etkilenmedi); XUSIN/PE'de 7 genuine aday (BRSAN, CEMTS, QUAGR, TUKAS, KONYA, VESTL, CCOLA) — pay sayısı artık her zaman ham KAP metninden yeniden hesaplanıyor (CCOLA'da ~686x ondalık-ayraç hatası bulundu ve düzeltildi); 7/7 kanıt kapısı geçti, 7/7 negatif kontrol doğru RET, değiştirilmemiş `run_historical_pit_nonfin_m2_replay` PE+PB'yi peer_count=6 ile kullanılabilir kılıp **7 gerçek, sıfır olmayan M2 skoru** üretti (0 ret) — kapsam kapalı 7-ticker örneklem, tam evren değil; 22 test, 11/11 mutasyon KILLED |
 
-Sonraki zorunlu **ana hat** adımı artık **iki parçalı**, W7-B'nin §9'unda
-ayrıntılandırıldığı gibi: (1) `revenue`/`ebit`/`net_income` üçünün birden
-dolu olduğu ticker sayısının 60 cutoff'un hepsinde ölçülmesi — 2023-08-31
-tek örneğinde hiçbir sektör 5 eşiğine CORE'un kendi verisiyle bile
-ulaşamıyor, ama bu diğer aylarda farklı olabilir; (2) böyle bir
-cutoff/sektör bulunursa, o hücrelerin SPK-bülteni boşluğunun aynı,
-artık kanıtlanmış yöntemle kapatılması. Darboğaz artık kanıt-tarihleme
-değil, CORE'un YTD-hizalama kapsamı — bkz.
-[W7B_SPK_BULLETIN_EVIDENCE.md](W7B_SPK_BULLETIN_EVIDENCE.md) §6/§9. W7-A'nın
-kendi bulgusu (bugün sorgulanan kaynak kayıtsız şartsız reddedilir) hâlâ
-doğru ve değişmedi; W7-B onu geçersiz kılmadı, yalnız niteliksel olarak
-farklı, dönemin kendisinde yayımlanmış bir kaynak türü sağladı. W6-C'nin
-"rapor zinciri boşluğu sıfıra indirmiyor" bulgusu da hâlâ geçerli — W7-B
-onun yerine geçen ayrı bir yöntem, onu düzeltmiyor.
+**W7-B'nin §9'unda öngörülen iki parçalı sonraki adım artık tamamlandı:**
+(1) TTM tamlığı `signal_date=2023-08-01`'de sektör × çarpan bazında tarandı
+ve XUSIN/PE hücresi 12 ham aday verdi (2023-08-31'in tek-cutoff ölçümünün
+evrensel bir tavan olmadığını doğrulayarak); (2) o hücrenin SPK-bülteni
+boşluğu aynı, artık kanıtlanmış yöntemle kapatıldı — bkz. W7-C yukarıda ve
+[W7C_REAL_M2_SCORE.md](W7C_REAL_M2_SCORE.md). Darboğaz bu XUSIN/PE
+hücresinde kapandı; **60 cutoff'un tamamına, diğer sektörlere ve BANK/HOLDING
+ailelerine genişletme hâlâ ayrı, gerçekleştirilmemiş bir iş** (W7-C §10).
+W7-A'nın kendi bulgusu (bugün sorgulanan kaynak kayıtsız şartsız reddedilir)
+hâlâ doğru ve değişmedi; W7-B ve W7-C onu geçersiz kılmadı, yalnız
+niteliksel olarak farklı, dönemin kendisinde yayımlanmış bir kaynak türü
+sağladı. W6-C'nin "rapor zinciri boşluğu sıfıra indirmiyor" bulgusu da hâlâ
+geçerli — W7-B/W7-C onun yerine geçen ayrı bir yöntem, onu düzeltmiyor.
 
 ### Paralel hat sahipliği
 

@@ -77,8 +77,14 @@ def test_sha_bytes_is_crlf_normalized_for_generated_json():
 
 def test_archive_manifest_contract_and_gap_free_numbering(archive_json):
     assert archive_json["contract"] == w7b.CONTRACT
-    assert archive_json["bulletin_count"] == 98
-    assert archive_json["span_start"] == "2022-06-09"
+    # W7-C extended this archive from 98 bulletins (2022-06-09..2023-08-31) back
+    # to 461 (2016-06-24..2023-08-31) to bridge a wider set of NONFIN tickers'
+    # KAP share-basis anchors through their cutoffs; see W7C_REAL_M2_SCORE.md.
+    # None of W7-B's own six tickers' anchor dates fall inside the newly added
+    # span (all are 2022-06-08 or later), so this is the only value here that
+    # changes -- every other assertion in this file is unaffected.
+    assert archive_json["bulletin_count"] == 461
+    assert archive_json["span_start"] == "2016-06-24"
     assert archive_json["span_end"] == "2023-08-31"
 
 
