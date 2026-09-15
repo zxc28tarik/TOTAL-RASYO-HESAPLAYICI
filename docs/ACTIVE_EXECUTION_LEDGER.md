@@ -32,6 +32,24 @@ birlikte güncellenir.
 Her yeni çalışma önce `git fetch` yapar. Uzak dal ilerideyse mevcut işi
 ezmeden en güncel doğrulanmış head'den devam eder.
 
+### 1.1 Kullanıcı kararı (2026-09-15): tarihsel PIT M2 boşluğu, canlı sistemi bloklamaz
+
+**Bu bir kullanıcı önceliklendirme kararıdır, tekrar açılmasın:** projenin
+öncelikli hedefi **bugün canlı çalışması** — bu zaten sağlanmış durumda
+(§1'deki 49 valuation / 48 M2 / 2 Total, look-ahead riski taşımayan,
+tamamen güncel veriyle üretiliyor). Tarihsel PIT M2 (60 cutoff'un
+~%99,9'unda hâlâ 0, bkz. W7-B/W7-C) yalnızca **backtest/doğrulama**
+amaçlı — "stratejiyi geçmişte çalıştırsaydık ne alır satardık" sorusuna
+cevap vermek için var, canlı işletimin bir önkoşulu **değil**. Canlı
+sistem, tarihsel replay hiç tamamlanmasa bile bugün olduğu gibi doğru
+çalışmaya devam eder; bu ikisi arasında bir bağımlılık yoktur.
+
+Sonuç: tarihsel PIT M2 kapsamını genişletme işi (W7-B/W7-C'nin izlediği
+yöntem) **kıymetli ama acil değil** — canlı sistemin çalışmasını
+beklemesi veya bloklaması gereken bir şey değil. Gelecekte biri "canlı
+sistem bu boşluk yüzünden çalışmıyor" diye bir sorun açarsa, bu not
+geçersiz kılar: ikisi bağımsız, canlı sistem zaten sorunsuz çalışıyor.
+
 ## 2. Değiştirilemez güvenlik ve kapsam kuralları
 
 Bu çalışma boyunca, ayrı ve açık bir model-yönetişimi kararı olmadan:
