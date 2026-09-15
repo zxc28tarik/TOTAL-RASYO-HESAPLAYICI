@@ -274,6 +274,63 @@ def test_unexpected_rejection_would_raise_not_pass_silently(monkeypatch):
         w7c.derive()
 
 
+def _fake_clean_batch_replay():
+    """A batch_replay result shaped like a genuine 7/7 clean pass (zero
+    rejections, every ticker's PE/PB usable with peer_count=6) -- the
+    per-guard tests below start from this and break exactly one field, so
+    each test isolates the one guard it names instead of tripping an earlier
+    one first."""
+    diagnostics_by_ticker = {
+        ticker: {
+            "status": "OK", "reason": None, "target_multiples": {"PE": 1.0, "PB": 1.0},
+            "multiple_details": {
+                "PE": {"peer_count": 6, "usable": True},
+                "PB": {"peer_count": 6, "usable": True},
+            },
+            "market_cap": 1.0,
+        }
+        for ticker in w7c.TICKERS
+    }
+    return {
+        "m2_score_count": len(w7c.TICKERS), "rejection_count": 0, "rejection_reasons": {},
+        "m2_scores": [{"ticker": t, "m2": 0.5} for t in w7c.TICKERS],
+        "diagnostics_by_ticker": diagnostics_by_ticker,
+    }
+
+
+def test_m2_score_count_mismatch_would_raise_not_pass_silently(monkeypatch):
+    """Isolates the m2_score_count guard: zero rejections (the earlier guard
+    is satisfied) but a wrong total count must still abort derive()."""
+    fake = _fake_clean_batch_replay()
+    fake["m2_score_count"] = len(w7c.TICKERS) - 1
+    monkeypatch.setattr(w7c, "run_batch_replay", lambda bundles, anchors: fake)
+    with pytest.raises(w7c.W7CAuditError, match="M2_SCORE_COUNT_MISMATCH"):
+        w7c.derive()
+
+
+def test_expected_multiple_not_usable_would_raise_not_pass_silently(monkeypatch):
+    """Isolates the per-multiple usable guard: zero rejections and the right
+    total count (the two earlier guards are satisfied), but one ticker's own
+    PE quietly comes back unusable -- must still abort derive()."""
+    fake = _fake_clean_batch_replay()
+    fake["diagnostics_by_ticker"]["BRSAN"]["multiple_details"]["PE"]["usable"] = False
+    monkeypatch.setattr(w7c, "run_batch_replay", lambda bundles, anchors: fake)
+    with pytest.raises(w7c.W7CAuditError, match="EXPECTED_MULTIPLE_NOT_USABLE:BRSAN:PE"):
+        w7c.derive()
+
+
+def test_unexpected_peer_count_would_raise_not_pass_silently(monkeypatch):
+    """Isolates the peer_count guard: everything else clean, but one
+    ticker's own PE peer_count quietly drifts from the expected 6 -- must
+    still abort derive() rather than accepting a changed peer cohort size
+    silently."""
+    fake = _fake_clean_batch_replay()
+    fake["diagnostics_by_ticker"]["CEMTS"]["multiple_details"]["PE"]["peer_count"] = 5
+    monkeypatch.setattr(w7c, "run_batch_replay", lambda bundles, anchors: fake)
+    with pytest.raises(w7c.W7CAuditError, match="UNEXPECTED_PEER_COUNT:CEMTS:PE"):
+        w7c.derive()
+
+
 # ---- verdict/receipt shape and reproducibility ----
 
 def test_verdict_status_and_policy(verdict_json):

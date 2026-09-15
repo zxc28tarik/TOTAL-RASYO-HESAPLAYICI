@@ -105,7 +105,7 @@ MUTATIONS = [
         "        raise W7CAuditError(\n"
         "            f\"M2_SCORE_COUNT_MISMATCH:{batch_replay['m2_score_count']} != {len(TICKERS)}\"\n"
         "        )",
-        ["test_unexpected_rejection_would_raise_not_pass_silently"],
+        ["test_m2_score_count_mismatch_would_raise_not_pass_silently"],
     ),
     (
         "expected_multiple_usable_guard_removed",
@@ -113,7 +113,7 @@ MUTATIONS = [
         "                raise W7CAuditError(f\"EXPECTED_MULTIPLE_NOT_USABLE:{ticker}:{multiple}\")",
         "            if False:\n"
         "                raise W7CAuditError(f\"EXPECTED_MULTIPLE_NOT_USABLE:{ticker}:{multiple}\")",
-        ["test_every_ticker_clears_pe_and_pb_with_full_peer_count"],
+        ["test_expected_multiple_not_usable_would_raise_not_pass_silently"],
     ),
     (
         "peer_count_guard_removed",
@@ -125,7 +125,7 @@ MUTATIONS = [
         "                raise W7CAuditError(\n"
         "                    f\"UNEXPECTED_PEER_COUNT:{ticker}:{multiple}:{details[multiple]['peer_count']}\"\n"
         "                )",
-        ["test_every_ticker_clears_pe_and_pb_with_full_peer_count"],
+        ["test_unexpected_peer_count_would_raise_not_pass_silently"],
     ),
 ]
 

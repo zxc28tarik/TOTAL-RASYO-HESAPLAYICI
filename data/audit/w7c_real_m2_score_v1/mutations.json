@@ -1,0 +1,108 @@
+{
+  "all_killed": true,
+  "auditor": "scripts/audit_w7c_real_m2_score.py",
+  "auditor_sha256": "bd0ec262b6005f2cf723b920e512c70fc6609aeebae9beff722ef03b0c39e21c",
+  "contract": "W7C_REAL_M2_SCORE_MUTATION_AUDIT_V1",
+  "database_access": false,
+  "mutations_killed": 11,
+  "mutations_total": 11,
+  "network_access": false,
+  "results": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "name": "baseline",
+      "skipped": 0,
+      "status": "PASS",
+      "tests": 25
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "bulletin_hash_mismatch_check_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "bulletin_numbering_gap_check_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "duplicate_bulletin_number_check_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "unexplained_mention_check_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "empty_bulletin_window_check_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "sha_raw_reverted_to_crlf_stripping_bug",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "decimal_bug_correction_guard_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "unexpected_rejections_guard_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "m2_score_count_guard_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "expected_multiple_usable_guard_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "peer_count_guard_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 1
+    }
+  ]
+}
