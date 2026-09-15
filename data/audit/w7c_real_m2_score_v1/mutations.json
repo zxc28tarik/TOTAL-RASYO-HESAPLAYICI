@@ -1,7 +1,7 @@
 {
   "all_killed": true,
   "auditor": "scripts/audit_w7c_real_m2_score.py",
-  "auditor_sha256": "bd0ec262b6005f2cf723b920e512c70fc6609aeebae9beff722ef03b0c39e21c",
+  "auditor_sha256": "b47039a016f5cafd253c85c706ffa3e60644df72fdda6766ee6f92a2d80972c4",
   "contract": "W7C_REAL_M2_SCORE_MUTATION_AUDIT_V1",
   "database_access": false,
   "mutations_killed": 11,

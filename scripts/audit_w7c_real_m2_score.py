@@ -70,6 +70,7 @@ It changes no production code, no model weight, no veto, and no threshold.
 
 import argparse
 from datetime import date, datetime, timezone
+from functools import lru_cache
 from hashlib import sha256
 import gzip
 import json
@@ -219,7 +220,16 @@ def load_bulletin_archive() -> dict:
     return {"manifest": manifest, "by_date": by_date}
 
 
+@lru_cache(maxsize=None)
 def extract_bulletin_text(path: Path) -> str:
+    """Cached per-process: this audit's own derive() is called many times
+    within a single test session (the module fixture, the byte-identical
+    reproduction check, and each guard-isolation test), and the archived
+    PDFs are immutable within a run (hash-verified on every
+    load_bulletin_archive() call regardless) -- re-extracting the same
+    bulletin's text from scratch each time is wasted, sizable wall-clock
+    cost (KONYA/VESTL/CCOLA's multi-year windows cover 300+ bulletins each)
+    with no effect on correctness."""
     from pypdf import PdfReader
     reader = PdfReader(str(path))
     return "".join((page.extract_text() or "") for page in reader.pages).upper()

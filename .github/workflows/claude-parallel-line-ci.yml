@@ -1,4 +1,4 @@
-name: Claude Audit Line CI (W3 W4 W5 W6 W6B W6C W7A W7B W10)
+name: Claude Audit Line CI (W3 W4 W5 W6 W6B W6C W7A W7B W7C W10)
 
 # Scoped to this audit line so it never competes with the Codex/Astra
 # workflows. It proves three things the ledger requires before a package may be
@@ -16,7 +16,12 @@ permissions:
 jobs:
   parallel-line:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # W7-C's own derive() spans 300+ SPK bulletins each for three of its
+    # seven tickers (KONYA/VESTL/CCOLA's multi-year KAP-anchor gaps); its
+    # mutation audit runs several of those as isolated subprocesses that
+    # cannot share the in-process pypdf-extraction cache, so the previous
+    # 60-minute budget is no longer enough even with that cache in place.
+    timeout-minutes: 120
     services:
       postgres:
         image: postgres:16
@@ -75,6 +80,9 @@ jobs:
       - name: W7-B SPK bulletin evidence audit reproduces byte-identically
         if: '!cancelled()'
         run: python scripts/audit_w7b_spk_bulletin_evidence.py --check
+      - name: W7-C real M2 score audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w7c_real_m2_score.py --check
       - name: W6-B BANK coe/macro_cap audit reproduces byte-identically
         if: '!cancelled()'
         run: python scripts/audit_w6b_bank_coe_macro_cap.py --check
@@ -93,6 +101,7 @@ jobs:
           tests/test_w6c_report_corroborated_basis.py
           tests/test_w7a_evidence_dating_gate.py
           tests/test_w7b_spk_bulletin_evidence.py
+          tests/test_w7c_real_m2_score.py
           tests/test_w6b_bank_coe_macro_cap.py
           tests/test_w10_p7_enumeration.py
 
@@ -121,6 +130,9 @@ jobs:
       - name: W7-B mutation audit
         if: '!cancelled()'
         run: python scripts/audit_w7b_mutations.py --output w7b-mutations.json
+      - name: W7-C mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w7c_mutations.py --output w7c-mutations.json
       - name: W6-B mutation audit
         if: '!cancelled()'
         run: python scripts/audit_w6b_mutations.py --output w6b-mutations.json
@@ -143,11 +155,14 @@ jobs:
             w6b-mutations.json
             w6c-mutations.json
             w7b-mutations.json
+            w7c-mutations.json
             w10-mutations.json
 
   windows:
     runs-on: windows-latest
-    timeout-minutes: 30
+    # See the parallel-line job's own comment: W7-C's derive() now dominates
+    # this job's single bare `pytest -q` sweep too.
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
