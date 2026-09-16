@@ -1,38 +1,35 @@
 {
   "capture_scope": "ONLINE_INCREMENTAL_CAPTURE",
-  "captured_at": "2026-09-08T21:46:13.995940+00:00",
+  "captured_at": "2026-09-16T00:19:32.446996+00:00",
   "contract": "CURRENT_KAP_EXPLICIT_SHARE_BASIS_V1",
   "disposition_counts": {
-    "CAPTURE_EMPTY": 64,
-    "CAPTURE_SUCCESS": 376,
-    "RATE_LIMIT": 316
+    "CAPTURE_EMPTY": 133,
+    "CAPTURE_SUCCESS": 623
   },
   "economic_rule": "SUM(class_nominal_value / explicit_class_nominal_value_per_share)",
   "issued_capital_over_assumed_nominal_allowed": false,
-  "issuer_attempted_count": 125,
-  "issuer_fetch_failure_count": 316,
-  "issuer_fetch_success_count": 440,
-  "issuer_not_attempted_count": 291,
+  "issuer_attempted_count": 756,
+  "issuer_fetch_failure_count": 0,
+  "issuer_fetch_success_count": 756,
+  "issuer_not_attempted_count": 0,
   "multi_ticker_issuer_single_price_market_cap_allowed": false,
   "outputs": {
-    "bist_member_roster.html.gz": "58b4e7cf229a7d00b789d7c822f1d77ea358503ff09056da2f8862c654f04cce",
-    "issuer_dispositions.jsonl.gz": "9d464020827a3843b375aa1d4621eede976d3b2ec124020556003854f3f8127c",
-    "issuer_responses.jsonl.gz": "1e24b1cb7f4c592b9fa7c8c42292b6c79b447772672e5713a190f8f96fe2b2fb",
-    "ticker_share_basis.jsonl.gz": "bbf364295cb6eb97726e7d00079a7b23b344eb81583b4e1376ed6b5c13bb61b3"
+    "bist_member_roster.html.gz": "dbf3d76f8f4e80292a607e12f574a05997c05200d0a357a284b6a44e66bc9d73",
+    "issuer_dispositions.jsonl.gz": "4d17528844811206af4a7c4b2aa09d531b4cfc6de3e45b32f815047421261b31",
+    "issuer_responses.jsonl.gz": "d517199ee32b758734ff64162c39877d65a9c0c4878a06becfc3ca35ab64456e",
+    "ticker_share_basis.jsonl.gz": "210c457952ab63cbaf455f3ac3ebbc06b550b26fac8467c772d8e8747ff144b4"
   },
   "roster_matched_ticker_count": 806,
-  "source_http_date_max": "Tue, 08 Sep 2026 21:45:49 GMT",
-  "source_http_date_min": "Tue, 08 Sep 2026 18:39:38 GMT",
+  "source_http_date_max": "Wed, 16 Sep 2026 00:19:32 GMT",
+  "source_http_date_min": "Wed, 16 Sep 2026 00:16:09 GMT",
   "status_counts": {
-    "CURRENT_EXPLICIT_CLASS_NOMINALS_RECONCILED": 324,
-    "HISTORY_FETCH_FAILED": 25,
+    "CURRENT_EXPLICIT_CLASS_NOMINALS_RECONCILED": 528,
     "MKK_MEMBER_OID_MISSING": 1,
     "MULTI_TICKER_ISSUER_MARKET_CAP_AMBIGUOUS": 37,
-    "NOT_ATTEMPTED_AFTER_GLOBAL_RATE_LIMIT": 297,
-    "NO_USABLE_EXPLICIT_CLASS_NOMINAL_STATE": 123
+    "NO_USABLE_EXPLICIT_CLASS_NOMINAL_STATE": 241
   },
-  "stopped_for_global_rate_limit": true,
+  "stopped_for_global_rate_limit": false,
   "unique_issuer_count": 756,
   "universe_count": 807,
-  "usable_single_ticker_share_basis_count": 324
+  "usable_single_ticker_share_basis_count": 528
 }

@@ -1,0 +1,734 @@
+{
+  "bounded_unblock_target": {
+    "candidates": [
+      {
+        "days": 4,
+        "ticker": "BRSAN",
+        "window_end": "2023-07-31T18:10:00+03:00",
+        "window_start": "2023-07-27T18:19:21",
+        "yahoo_action_rows_all_time": 0
+      },
+      {
+        "days": 7,
+        "ticker": "QUAGR",
+        "window_end": "2023-07-31T18:10:00+03:00",
+        "window_start": "2023-07-24T17:07:38",
+        "yahoo_action_rows_all_time": 0
+      },
+      {
+        "days": 7,
+        "ticker": "TUKAS",
+        "window_end": "2023-07-31T18:10:00+03:00",
+        "window_start": "2023-07-24T18:22:30",
+        "yahoo_action_rows_all_time": 0
+      },
+      {
+        "days": 26,
+        "ticker": "TTRAK",
+        "window_end": "2023-07-31T18:10:00+03:00",
+        "window_start": "2023-07-05T17:24:09",
+        "yahoo_action_rows_all_time": 6
+      },
+      {
+        "days": 46,
+        "ticker": "ZOREN",
+        "window_end": "2023-07-31T18:10:00+03:00",
+        "window_start": "2023-06-15T16:11:06",
+        "yahoo_action_rows_all_time": 0
+      }
+    ],
+    "detail": "Certifying these specific tickers over these specific windows is the smallest piece of evidence that would open the gate at this cutoff. Each still needs proof that no corporate action occurred inside its window.",
+    "peers_required": 5
+  },
+  "contract": "W5_SMRTG_HISTORICAL_M2_CANARY_VERIFICATION_V1",
+  "interval_summary": {
+    "longest_days": 2603,
+    "peers_with_a_pre_cutoff_observation": 59,
+    "peers_without_any": 15,
+    "shortest_days": 4
+  },
+  "reason_counts": {
+    "NON_EMPTY_ACTION_INTERVAL_UNPROVEN": 59,
+    "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION": 15
+  },
+  "rows": [
+    {
+      "action_interval_days": 1510,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-06-12T17:29:09",
+      "ticker": "AEFES",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 8,
+      "yahoo_action_rows_inside_interval": 4
+    },
+    {
+      "action_interval_days": 634,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2021-11-04T19:57:45",
+      "ticker": "AKSEN",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 3,
+      "yahoo_action_rows_inside_interval": 2
+    },
+    {
+      "action_interval_days": 1509,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-06-13T10:17:06",
+      "ticker": "ALARK",
+      "usable_observations": 4,
+      "yahoo_action_rows_all_time": 10,
+      "yahoo_action_rows_inside_interval": 5
+    },
+    {
+      "action_interval_days": 2601,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2016-06-16T16:37:00",
+      "ticker": "ARCLK",
+      "usable_observations": 1,
+      "yahoo_action_rows_all_time": 3,
+      "yahoo_action_rows_inside_interval": 2
+    },
+    {
+      "action_interval_days": 1077,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2020-08-18T18:53:27",
+      "ticker": "ASELS",
+      "usable_observations": 6,
+      "yahoo_action_rows_all_time": 8,
+      "yahoo_action_rows_inside_interval": 4
+    },
+    {
+      "action_interval_days": 1564,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-04-19T19:55:04",
+      "ticker": "ASUZU",
+      "usable_observations": 4,
+      "yahoo_action_rows_all_time": 5,
+      "yahoo_action_rows_inside_interval": 2
+    },
+    {
+      "action_interval_days": 476,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-04-11T18:55:44",
+      "ticker": "AYDEM",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 1,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 572,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-01-05T11:56:45",
+      "ticker": "BAGFS",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 1,
+      "yahoo_action_rows_inside_interval": 1
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "BERA",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 2,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1392,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-10-08T14:24:40",
+      "ticker": "BIMAS",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 15,
+      "yahoo_action_rows_inside_interval": 7
+    },
+    {
+      "action_interval_days": 399,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-06-27T19:05:01",
+      "ticker": "BIOEN",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 4,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-07-27T18:19:21",
+      "ticker": "BRSAN",
+      "usable_observations": 5,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "BRYAT",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 6,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 528,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-02-18T18:23:53",
+      "ticker": "BUCIM",
+      "usable_observations": 6,
+      "yahoo_action_rows_all_time": 3,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 810,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2021-05-12T14:17:25",
+      "ticker": "CANTE",
+      "usable_observations": 4,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1539,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-05-14T09:30:33",
+      "ticker": "CCOLA",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 7,
+      "yahoo_action_rows_inside_interval": 4
+    },
+    {
+      "action_interval_days": 61,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-05-31T16:42:39",
+      "ticker": "CEMTS",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 7,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 2603,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2016-06-14T15:18:28",
+      "ticker": "CIMSA",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 5,
+      "yahoo_action_rows_inside_interval": 2
+    },
+    {
+      "action_interval_days": 1554,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-04-29T18:42:28",
+      "ticker": "DOAS",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 11,
+      "yahoo_action_rows_inside_interval": 5
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "ECILC",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 6,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 2089,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2017-11-10T16:55:30",
+      "ticker": "ECZYT",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 6,
+      "yahoo_action_rows_inside_interval": 3
+    },
+    {
+      "action_interval_days": 1571,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-04-12T15:47:48",
+      "ticker": "EGEEN",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 7,
+      "yahoo_action_rows_inside_interval": 5
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "ENJSA",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 6,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 418,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-06-08T16:40:21",
+      "ticker": "ENKAI",
+      "usable_observations": 6,
+      "yahoo_action_rows_all_time": 11,
+      "yahoo_action_rows_inside_interval": 1
+    },
+    {
+      "action_interval_days": 1557,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-04-26T18:21:04",
+      "ticker": "EREGL",
+      "usable_observations": 5,
+      "yahoo_action_rows_all_time": 6,
+      "yahoo_action_rows_inside_interval": 3
+    },
+    {
+      "action_interval_days": 53,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-06-08T15:50:05",
+      "ticker": "EUREN",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "GENIL",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 7,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 110,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-04-12T18:17:10",
+      "ticker": "GESAN",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1442,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-08-19T18:12:15",
+      "ticker": "GLYHO",
+      "usable_observations": 4,
+      "yahoo_action_rows_all_time": 3,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 245,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-11-28T11:54:09",
+      "ticker": "GSDHO",
+      "usable_observations": 4,
+      "yahoo_action_rows_all_time": 2,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 2275,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2017-05-08T09:22:06",
+      "ticker": "GUBRF",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 830,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2021-04-22T18:19:31",
+      "ticker": "GWIND",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 5,
+      "yahoo_action_rows_inside_interval": 2
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "HEKTS",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "IPEKE",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1231,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2020-03-17T18:15:26",
+      "ticker": "ISDMR",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 7,
+      "yahoo_action_rows_inside_interval": 4
+    },
+    {
+      "action_interval_days": 291,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-10-13T14:55:56",
+      "ticker": "ISGYO",
+      "usable_observations": 5,
+      "yahoo_action_rows_all_time": 1,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "ISMEN",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 6,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 832,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2021-04-20T16:53:15",
+      "ticker": "IZMDC",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1292,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2020-01-16T17:42:46",
+      "ticker": "KARSN",
+      "usable_observations": 4,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 227,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-12-16T14:02:06",
+      "ticker": "KCAER",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 4,
+      "yahoo_action_rows_inside_interval": 1
+    },
+    {
+      "action_interval_days": 452,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-05-05T18:26:01",
+      "ticker": "KMPUR",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 3,
+      "yahoo_action_rows_inside_interval": 2
+    },
+    {
+      "action_interval_days": 327,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-09-07T18:10:14",
+      "ticker": "KONTR",
+      "usable_observations": 5,
+      "yahoo_action_rows_all_time": 5,
+      "yahoo_action_rows_inside_interval": 1
+    },
+    {
+      "action_interval_days": 1522,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-05-31T16:41:33",
+      "ticker": "KONYA",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1539,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-05-14T12:32:27",
+      "ticker": "KORDS",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 2,
+      "yahoo_action_rows_inside_interval": 2
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "KOZAA",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "KOZAL",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1543,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-05-10T16:27:00",
+      "ticker": "KRDMD",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 4,
+      "yahoo_action_rows_inside_interval": 3
+    },
+    {
+      "action_interval_days": 315,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-09-19T11:34:36",
+      "ticker": "KZBGY",
+      "usable_observations": 4,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "MGROS",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 6,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 699,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2021-08-31T16:38:31",
+      "ticker": "ODAS",
+      "usable_observations": 5,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "OTKAR",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 3,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "OYAKC",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 1,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "PENTA",
+      "usable_observations": 0,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 950,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2020-12-23T18:35:48",
+      "ticker": "PETKM",
+      "usable_observations": 4,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1684,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2018-12-20T10:05:30",
+      "ticker": "PGSUS",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 136,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-03-17T14:03:14",
+      "ticker": "PSGYO",
+      "usable_observations": 8,
+      "yahoo_action_rows_all_time": 4,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 7,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-07-24T17:07:38",
+      "ticker": "QUAGR",
+      "usable_observations": 6,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 105,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-04-17T09:17:05",
+      "ticker": "SASA",
+      "usable_observations": 14,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1039,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2020-09-25T15:15:48",
+      "ticker": "SELEC",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 6,
+      "yahoo_action_rows_inside_interval": 3
+    },
+    {
+      "action_interval_days": 347,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-08-18T20:47:14",
+      "ticker": "SNGYO",
+      "usable_observations": 5,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": null,
+      "blocking_reason": "NO_USABLE_PRE_CUTOFF_SHARE_CLASS_OBSERVATION",
+      "latest_pre_cutoff_observation": null,
+      "ticker": "SOKM",
+      "usable_observations": 1,
+      "yahoo_action_rows_all_time": 4,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 497,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-03-21T14:20:48",
+      "ticker": "TAVHL",
+      "usable_observations": 1,
+      "yahoo_action_rows_all_time": 1,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1242,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2020-03-06T08:05:47",
+      "ticker": "THYAO",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 2,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 735,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2021-07-26T07:29:10",
+      "ticker": "TKNSA",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 1509,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-06-13T09:19:36",
+      "ticker": "TOASO",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 6,
+      "yahoo_action_rows_inside_interval": 3
+    },
+    {
+      "action_interval_days": 1578,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-04-05T08:39:25",
+      "ticker": "TTKOM",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 5,
+      "yahoo_action_rows_inside_interval": 5
+    },
+    {
+      "action_interval_days": 26,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-07-05T17:24:09",
+      "ticker": "TTRAK",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 6,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 7,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-07-24T18:22:30",
+      "ticker": "TUKAS",
+      "usable_observations": 5,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 111,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-04-11T19:11:32",
+      "ticker": "TUPRS",
+      "usable_observations": 5,
+      "yahoo_action_rows_all_time": 7,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 2603,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2016-06-14T17:37:23",
+      "ticker": "ULKER",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 3,
+      "yahoo_action_rows_inside_interval": 1
+    },
+    {
+      "action_interval_days": 593,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2021-12-15T17:22:06",
+      "ticker": "VESBE",
+      "usable_observations": 3,
+      "yahoo_action_rows_all_time": 8,
+      "yahoo_action_rows_inside_interval": 2
+    },
+    {
+      "action_interval_days": 1553,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2019-04-30T11:26:44",
+      "ticker": "VESTL",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 3,
+      "yahoo_action_rows_inside_interval": 3
+    },
+    {
+      "action_interval_days": 429,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2022-05-28T11:59:44",
+      "ticker": "YYLGD",
+      "usable_observations": 2,
+      "yahoo_action_rows_all_time": 1,
+      "yahoo_action_rows_inside_interval": 0
+    },
+    {
+      "action_interval_days": 46,
+      "blocking_reason": "NON_EMPTY_ACTION_INTERVAL_UNPROVEN",
+      "latest_pre_cutoff_observation": "2023-06-15T16:11:06",
+      "ticker": "ZOREN",
+      "usable_observations": 7,
+      "yahoo_action_rows_all_time": 0,
+      "yahoo_action_rows_inside_interval": 0
+    }
+  ],
+  "unsafe_peers": 74,
+  "why_the_action_inventory_cannot_certify_them": {
+    "detail": "An inventory that holds no row at all for a six-year BIST100 membership is absence of evidence, not evidence of absence, so it cannot prove a window empty.",
+    "inventory": "data/backtest_sources/yahoo_discovery/historical_member_actions_yahoo_2020-07_2026-08.csv",
+    "peers_with_zero_rows_over_six_years": [
+      "BRSAN",
+      "QUAGR",
+      "TUKAS",
+      "ZOREN"
+    ]
+  },
+  "zero_interval_certifiable_peers": []
+}

@@ -1,0 +1,32 @@
+{
+  "ALFAS": {
+    "anchor_date": "2022-11-21",
+    "creation": "21/11/2022 18:10:31",
+    "shares_out": 46000000.0
+  },
+  "ENKAI": {
+    "anchor_date": "2022-06-08",
+    "creation": "08/06/2022 16:40:21",
+    "shares_out": 6000000000.0
+  },
+  "GESAN": {
+    "anchor_date": "2023-04-12",
+    "creation": "12/04/2023 18:17:10",
+    "shares_out": 460000000.0
+  },
+  "KONTR": {
+    "anchor_date": "2022-09-07",
+    "creation": "07/09/2022 18:10:14",
+    "shares_out": 200000000.0
+  },
+  "SMRTG": {
+    "anchor_date": "2023-07-31",
+    "creation": "31/07/2023 17:49:42",
+    "shares_out": 605880000.0
+  },
+  "ZOREN": {
+    "anchor_date": "2023-06-15",
+    "creation": "15/06/2023 16:11:06",
+    "shares_out": 500000000000.0
+  }
+}

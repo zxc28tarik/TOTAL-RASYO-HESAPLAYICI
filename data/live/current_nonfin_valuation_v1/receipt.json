@@ -1,29 +1,33 @@
 {
-  "analysis_at": "2026-09-10T20:07:33.673312+00:00",
+  "analysis_at": "2026-09-16T00:20:03.853463+00:00",
   "archive_hashes": {
     "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
     "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
     "KAP_2025_9A.zip": "421317ffb4edb55e1656773a5e6c8d4d9e2e79225888e2ff71556490dc817163",
-    "KAP_2025_Y.zip": "bef9ac8c5159db2fba8d388a1c4c1bf14f50c24bfef79c782b7efce93ef4e5c5",
-    "KAP_2026_3A.zip": "d7a53002009bc1c4672b80c272554412487d1abb21d95e69fed698cf8be2e82f",
-    "KAP_2026_6A.zip": "fca3ba9d59cda01c998712353a7f34c8f9a830f04241fdfcd274ecaf136e58d2"
+    "KAP_2025_Y.zip": "c25e9c0598a487aae964eebd2b0e39c6688d4b34be8f404eb10a3f862b9ed8a8",
+    "KAP_2026_3A.zip": "2977363c43a60ba222c6736fd2bf71f28b3d660dd7939a87efda018858e6c250",
+    "KAP_2026_6A.zip": "d33a45fb6c4ebd54f36b9fb6224e7c50b7955795475f4742162724e37a8391a3"
   },
   "contract": "CURRENT_NONFIN_RELATIVE_VALUATION_V1",
   "current_price_denominator_basis": "BORSA_QUOTED_NOMINAL_UNITS_OUT",
   "derivation_rejections": [
     {
-      "reason": "ValueError:max() iterable argument is empty",
+      "reason": "ValueError:max() arg is an empty sequence",
       "ticker": "TCELL"
     }
   ],
-  "derived_financial_ticker_count": 77,
-  "financial_report_count": 489,
+  "derived_financial_ticker_count": 118,
+  "financial_report_count": 733,
   "follow_contract": "CURRENT_NONFIN_FOLLOW_AXIS_V1",
-  "follow_materialized_count": 48,
+  "follow_materialized_count": 67,
   "follow_rejections": [
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ADEL"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "AGROT"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -43,7 +47,27 @@
     },
     {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
+      "ticker": "AYDEM"
+    },
+    {
+      "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "BAGFS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BALSU"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BIENY"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BIOEN"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BOBET"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -55,11 +79,19 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "CANTE"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "CEMAS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "CEMTS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ESEN"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -82,6 +114,14 @@
       "ticker": "KARTN"
     },
     {
+      "reason": "PREVIOUS_VALUATION_NOT_OK",
+      "ticker": "KMPUR"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "KONTR"
+    },
+    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "KORDS"
     },
@@ -99,7 +139,19 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "MAGEN"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "MIATK"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "NETAS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "OBAMS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -107,7 +159,19 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ODINE"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "PAPIL"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "PARSN"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "PATEK"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -115,7 +179,27 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "PGSUS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "RTALB"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "SASA"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "SDTTR"
+    },
+    {
+      "reason": "PREVIOUS_VALUATION_NOT_OK",
+      "ticker": "SMRTG"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "TATEN"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -124,6 +208,10 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "TMSN"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "TRILC"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -140,13 +228,13 @@
   ],
   "legal_share_count_used_as_price_denominator": false,
   "m2_blocker": null,
-  "m2_materialized_count": 48,
+  "m2_materialized_count": 67,
   "neutral_follow_or_m2_materialized": false,
   "outputs": {
-    "follow.jsonl": "6eb17a40ada0ae9d13e4c058d76654385efc5601ebb71d9802423782d0d3f28b",
-    "m2.jsonl": "eafd5edfa363a65ec2810ae15d42ac5e7b84bc0666ac0ae67ab79f9ee4af0b06",
-    "previous_valuations.jsonl": "66ff59e4cbff4e6752b35b532423370f6005ac7568fb799e5c125b4930580e1b",
-    "valuations.jsonl": "7287ce6f79febae18019c8621d5d2dfcd8ec7afda6b84ae5553a1f9de802baf7"
+    "follow.jsonl": "2099b257591aabaeccf1d7dbe19558a2c15f59e47c496446a3b48acfb2a3804e",
+    "m2.jsonl": "1eb33e68acdaa6cdfb07c3383f4fbd67c4affe3d5f86e92f4325fb43e8b48a0c",
+    "previous_valuations.jsonl": "10697b011e304d3ac53ec7483153b5e24a8b3d92dcb2c731d8fc4fd7b722f217",
+    "valuations.jsonl": "929acbbe45a0897a130719e60bff071f65fe6e25919c104273d4b416c51746c8"
   },
   "peer_groups": [
     "XUHIZ",
@@ -154,86 +242,127 @@
     "XUTEK"
   ],
   "previous_period_rejections": [],
-  "previous_period_valuation_count": 77,
-  "production_valuation_count": 77,
+  "previous_period_valuation_count": 118,
+  "production_valuation_count": 118,
   "route_source_sha256": "f0c28c7babd018eb8994afdf4911a9d338dad43b291a1084a7acc47a3919c478",
-  "routed_candidate_count": 84,
+  "routed_candidate_count": 125,
   "routed_candidate_counts_by_peer_group": {
-    "XUHIZ": 26,
-    "XUSIN": 54,
-    "XUTEK": 4
+    "XUHIZ": 46,
+    "XUSIN": 70,
+    "XUTEK": 9
   },
   "routed_tickers": [
     "ADEL",
     "ADESE",
     "AEFES",
     "AFYON",
+    "AGROT",
     "AKCNS",
+    "AKFYE",
     "AKSA",
     "AKSEN",
+    "ALFAS",
     "ALKIM",
+    "ARASE",
     "ARCLK",
     "ASELS",
+    "ASTOR",
     "ASUZU",
+    "AYDEM",
     "AYGAZ",
     "BAGFS",
+    "BALSU",
     "BFREN",
+    "BIENY",
     "BIMAS",
+    "BIOEN",
     "BJKAS",
+    "BOBET",
     "BRSAN",
     "BSOKE",
     "BTCIM",
     "BUCIM",
+    "CANTE",
     "CCOLA",
     "CEMAS",
     "CEMTS",
     "CIMSA",
+    "CVKMD",
+    "CWENE",
+    "DAPGM",
     "DEVA",
     "DOAS",
+    "EFOR",
     "EGEEN",
+    "EGGUB",
     "ENERY",
     "ENKAI",
     "ERBOS",
     "EREGL",
+    "ESEN",
     "FENER",
     "FROTO",
+    "GESAN",
     "GOLTS",
+    "GRSEL",
     "GSRAY",
     "GUBRF",
+    "GWIND",
     "HEKTS",
     "IHLGM",
     "INDES",
     "ISDMR",
+    "IZENR",
     "IZMDC",
     "JANTS",
     "KARSN",
     "KARTN",
     "KAYSE",
     "KCAER",
+    "KMPUR",
+    "KONTR",
     "KONYA",
     "KORDS",
+    "KRVGD",
     "KUTPO",
     "KUYAS",
+    "LIDER",
     "LOGO",
+    "MAGEN",
     "MAVI",
     "MGROS",
+    "MIATK",
     "MPARK",
     "NETAS",
     "NUHCM",
+    "OBAMS",
     "ODAS",
+    "ODINE",
+    "PAPIL",
     "PARSN",
+    "PASEU",
+    "PATEK",
     "PETKM",
+    "PGSUS",
+    "QUAGR",
     "RGYAS",
+    "RTALB",
     "SARKY",
     "SASA",
     "SAYAS",
+    "SDTTR",
     "SELEC",
+    "SMRTG",
     "TABGD",
+    "TATEN",
     "TCELL",
     "THYAO",
     "TKNSA",
     "TMSN",
     "TOASO",
+    "TRALT",
+    "TRILC",
+    "TRMET",
     "TSPOR",
     "TTKOM",
     "TTRAK",
@@ -249,7 +378,7 @@
     "YYLGD",
     "ZOREN"
   ],
-  "snapshot_count": 77,
+  "snapshot_count": 118,
   "snapshot_rejections": [
     {
       "reason": "FINANSAL_VERI_YOK",
@@ -281,6 +410,6 @@
     }
   ],
   "unsafe_issued_capital_share_fields_scrubbed": true,
-  "usable_previous_period_valuation_count": 52,
-  "usable_valuation_count": 49
+  "usable_previous_period_valuation_count": 83,
+  "usable_valuation_count": 71
 }

@@ -1,0 +1,435 @@
+{
+  "contract": "W7C_REAL_M2_SCORE_V1",
+  "diagnostics_by_ticker": {
+    "BRSAN": {
+      "market_cap": 4409842586517.334,
+      "multiple_details": {
+        "EV_EBIT": {
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PE": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PS": {
+          "peer_count": 4,
+          "usable": false
+        }
+      },
+      "reason": null,
+      "status": "OK",
+      "target_multiples": {
+        "PB": 325.12906731940564,
+        "PE": 1703.8221016863936
+      }
+    },
+    "CCOLA": {
+      "market_cap": 8005048820051.209,
+      "multiple_details": {
+        "EV_EBIT": {
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PE": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PS": {
+          "peer_count": 3,
+          "usable": false
+        }
+      },
+      "reason": null,
+      "status": "OK",
+      "target_multiples": {
+        "PB": 380.55052228047725,
+        "PE": 1690.3922995553712,
+        "PS": 132.49062450504516
+      }
+    },
+    "CEMTS": {
+      "market_cap": 569999980926.5135,
+      "multiple_details": {
+        "EV_EBIT": {
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PE": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PS": {
+          "peer_count": 3,
+          "usable": false
+        }
+      },
+      "reason": null,
+      "status": "OK",
+      "target_multiples": {
+        "PB": 293.26341098859035,
+        "PE": 687.6003001403319,
+        "PS": 168.29539801840775
+      }
+    },
+    "KONYA": {
+      "market_cap": 2134469156015.625,
+      "multiple_details": {
+        "EV_EBIT": {
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PE": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PS": {
+          "peer_count": 4,
+          "usable": false
+        }
+      },
+      "reason": null,
+      "status": "OK",
+      "target_multiples": {
+        "PB": 4478.486338487129,
+        "PE": 17430.476696051945
+      }
+    },
+    "QUAGR": {
+      "market_cap": 19747200050.354004,
+      "multiple_details": {
+        "EV_EBIT": {
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PE": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PS": {
+          "peer_count": 4,
+          "usable": false
+        }
+      },
+      "reason": null,
+      "status": "OK",
+      "target_multiples": {
+        "PB": 5.015542548507241,
+        "PE": 11.93848569893722
+      }
+    },
+    "TUKAS": {
+      "market_cap": 1631319468767.1665,
+      "multiple_details": {
+        "EV_EBIT": {
+          "peer_count": 0,
+          "usable": false
+        },
+        "PB": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PE": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PS": {
+          "peer_count": 3,
+          "usable": false
+        }
+      },
+      "reason": null,
+      "status": "OK",
+      "target_multiples": {
+        "EV_EBIT": 1248.8172749874077,
+        "PB": 755.2943976431259,
+        "PE": 1380.5048359254224,
+        "PS": 378.795064421298
+      }
+    },
+    "VESTL": {
+      "market_cap": 2068087986561.5654,
+      "multiple_details": {
+        "EV_EBIT": {
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PE": {
+          "peer_count": 6,
+          "usable": true
+        },
+        "PS": {
+          "peer_count": 3,
+          "usable": false
+        }
+      },
+      "reason": null,
+      "status": "OK",
+      "target_multiples": {
+        "PB": 170.03575997214142,
+        "PE": 6445.392539998584,
+        "PS": 32.543676879358536
+      }
+    }
+  },
+  "m2_score_count": 7,
+  "m2_scores": [
+    {
+      "anchor_period_end": "2023-03-31",
+      "m2": 0.5295859222805632,
+      "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+      "score_inputs": {
+        "follow_active": false,
+        "follow_axis_weight": 0.4,
+        "follow_score_effective": 0.5,
+        "follow_score_raw": 0.5,
+        "price_level_basis": {
+          "action_evidence_sha256": "ebb810b342274e34e4b40758437b7b9b9a85dda6ce2acdc76adabbb285db8576",
+          "applied_share_action_ids": [],
+          "market_cap": 19747200050.354004,
+          "normalized_shares_out": 2640000000.0,
+          "price_basis": "POINT_IN_TIME_MARKET_CLOSE_V1",
+          "raw_close": 7.480000019073486,
+          "share_basis": "POINT_IN_TIME_MARKET_CLOSE_SHARES_V1",
+          "shares_basis_date": "2023-07-24",
+          "ticker": "QUAGR",
+          "trade_date": "2023-07-31"
+        },
+        "valuation_axis_weight": 0.6,
+        "valuation_confidence": 0.09861994224560176,
+        "valuation_score_effective": 0.5493098704676055,
+        "valuation_score_raw": 0.999998979362661,
+        "valuation_status": "OK"
+      },
+      "ticker": "QUAGR",
+      "valuation_confidence": 0.09861994224560176,
+      "valuation_score": 0.999998979362661,
+      "valuation_status": "OK",
+      "valuation_usable": true
+    },
+    {
+      "anchor_period_end": "2023-03-31",
+      "m2": 0.5196566160527162,
+      "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+      "score_inputs": {
+        "follow_active": false,
+        "follow_axis_weight": 0.4,
+        "follow_score_effective": 0.5,
+        "follow_score_raw": 0.5,
+        "price_level_basis": {
+          "action_evidence_sha256": "82adc604d8d5aac57ae05efa04688b72ba963f3efb1f8900da5ab96efc4dd29b",
+          "applied_share_action_ids": [],
+          "market_cap": 569999980926.5135,
+          "normalized_shares_out": 50000000000.0,
+          "price_basis": "POINT_IN_TIME_MARKET_CLOSE_V1",
+          "raw_close": 11.399999618530272,
+          "share_basis": "POINT_IN_TIME_MARKET_CLOSE_SHARES_V1",
+          "shares_basis_date": "2023-05-31",
+          "ticker": "CEMTS",
+          "trade_date": "2023-07-31"
+        },
+        "valuation_axis_weight": 0.6,
+        "valuation_confidence": 0.09861994224560185,
+        "valuation_score_effective": 0.532761026754527,
+        "valuation_score_raw": 0.8321947469096999,
+        "valuation_status": "OK"
+      },
+      "ticker": "CEMTS",
+      "valuation_confidence": 0.09861994224560185,
+      "valuation_score": 0.8321947469096999,
+      "valuation_status": "OK",
+      "valuation_usable": true
+    },
+    {
+      "anchor_period_end": "2023-03-31",
+      "m2": 0.4986506764150401,
+      "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+      "score_inputs": {
+        "follow_active": false,
+        "follow_axis_weight": 0.4,
+        "follow_score_effective": 0.5,
+        "follow_score_raw": 0.5,
+        "price_level_basis": {
+          "action_evidence_sha256": "75e2017fafaaa437b7e533bbacde2da8e359759064bd9063f9dbb20760e79605",
+          "applied_share_action_ids": [],
+          "market_cap": 4409842586517.334,
+          "normalized_shares_out": 14175000000.0,
+          "price_basis": "POINT_IN_TIME_MARKET_CLOSE_V1",
+          "raw_close": 311.1000061035156,
+          "share_basis": "POINT_IN_TIME_MARKET_CLOSE_SHARES_V1",
+          "shares_basis_date": "2023-07-27",
+          "ticker": "BRSAN",
+          "trade_date": "2023-07-31"
+        },
+        "valuation_axis_weight": 0.6,
+        "valuation_confidence": 0.0912052196265813,
+        "valuation_score_effective": 0.49775112735840016,
+        "valuation_score_raw": 0.4753427199582726,
+        "valuation_status": "OK"
+      },
+      "ticker": "BRSAN",
+      "valuation_confidence": 0.0912052196265813,
+      "valuation_score": 0.4753427199582726,
+      "valuation_status": "OK",
+      "valuation_usable": true
+    },
+    {
+      "anchor_period_end": "2023-03-31",
+      "m2": 0.4962261281469691,
+      "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+      "score_inputs": {
+        "follow_active": false,
+        "follow_axis_weight": 0.4,
+        "follow_score_effective": 0.5,
+        "follow_score_raw": 0.5,
+        "price_level_basis": {
+          "action_evidence_sha256": "ef60841c5392b3ae5ac57965b6ba4c9d65544662ccafc1a5e0c9c3c6f5aa4121",
+          "applied_share_action_ids": [],
+          "market_cap": 8005048820051.209,
+          "normalized_shares_out": 25437078200.0,
+          "price_basis": "POINT_IN_TIME_MARKET_CLOSE_V1",
+          "raw_close": 314.70001220703125,
+          "share_basis": "POINT_IN_TIME_MARKET_CLOSE_SHARES_V1",
+          "shares_basis_date": "2019-05-14",
+          "ticker": "CCOLA",
+          "trade_date": "2023-07-31"
+        },
+        "valuation_axis_weight": 0.6,
+        "valuation_confidence": 0.08907517880839397,
+        "valuation_score_effective": 0.4937102135782818,
+        "valuation_score_raw": 0.42938788890620255,
+        "valuation_status": "OK"
+      },
+      "ticker": "CCOLA",
+      "valuation_confidence": 0.08907517880839397,
+      "valuation_score": 0.42938788890620255,
+      "valuation_status": "OK",
+      "valuation_usable": true
+    },
+    {
+      "anchor_period_end": "2023-03-31",
+      "m2": 0.4898815721734711,
+      "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+      "score_inputs": {
+        "follow_active": false,
+        "follow_axis_weight": 0.4,
+        "follow_score_effective": 0.5,
+        "follow_score_raw": 0.5,
+        "price_level_basis": {
+          "action_evidence_sha256": "94037f221ffe0789820e5115bb211cb00436bfcdfb68a808fff9de1bedc93c70",
+          "applied_share_action_ids": [],
+          "market_cap": 1631319468767.1665,
+          "normalized_shares_out": 147231000000.0,
+          "price_basis": "POINT_IN_TIME_MARKET_CLOSE_V1",
+          "raw_close": 11.079999923706056,
+          "share_basis": "POINT_IN_TIME_MARKET_CLOSE_SHARES_V1",
+          "shares_basis_date": "2023-07-24",
+          "ticker": "TUKAS",
+          "trade_date": "2023-07-31"
+        },
+        "valuation_axis_weight": 0.6,
+        "valuation_confidence": 0.11845291208291268,
+        "valuation_score_effective": 0.4831359536224519,
+        "valuation_score_raw": 0.35763079960631167,
+        "valuation_status": "OK"
+      },
+      "ticker": "TUKAS",
+      "valuation_confidence": 0.11845291208291268,
+      "valuation_score": 0.35763079960631167,
+      "valuation_status": "OK",
+      "valuation_usable": true
+    },
+    {
+      "anchor_period_end": "2023-03-31",
+      "m2": 0.4576828050889287,
+      "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+      "score_inputs": {
+        "follow_active": false,
+        "follow_axis_weight": 0.4,
+        "follow_score_effective": 0.5,
+        "follow_score_raw": 0.5,
+        "price_level_basis": {
+          "action_evidence_sha256": "b64c1bd70a532866285c3d5ab1d5776738ccdf9df431f4a10760571685b17ba6",
+          "applied_share_action_ids": [],
+          "market_cap": 2068087986561.5654,
+          "normalized_shares_out": 33545627500.0,
+          "price_basis": "POINT_IN_TIME_MARKET_CLOSE_V1",
+          "raw_close": 61.650001525878906,
+          "share_basis": "POINT_IN_TIME_MARKET_CLOSE_SHARES_V1",
+          "shares_basis_date": "2019-04-30",
+          "ticker": "VESTL",
+          "trade_date": "2023-07-31"
+        },
+        "valuation_axis_weight": 0.6,
+        "valuation_confidence": 0.16583506481227134,
+        "valuation_score_effective": 0.4294713418148812,
+        "valuation_score_raw": 0.07470599921097126,
+        "valuation_status": "OK"
+      },
+      "ticker": "VESTL",
+      "valuation_confidence": 0.16583506481227134,
+      "valuation_score": 0.07470599921097126,
+      "valuation_status": "OK",
+      "valuation_usable": true
+    },
+    {
+      "anchor_period_end": "2023-03-31",
+      "m2": 0.455402061656513,
+      "m2_source": "NONFIN_RELATIVE_TWO_AXIS_V1",
+      "score_inputs": {
+        "follow_active": false,
+        "follow_axis_weight": 0.4,
+        "follow_score_effective": 0.5,
+        "follow_score_raw": 0.5,
+        "price_level_basis": {
+          "action_evidence_sha256": "ccdca8040228cbe07621bb80878cfd572a647e83488d19f125eba97e29512ceb",
+          "applied_share_action_ids": [],
+          "market_cap": 2134469156015.625,
+          "normalized_shares_out": 487344000.0,
+          "price_basis": "POINT_IN_TIME_MARKET_CLOSE_V1",
+          "raw_close": 4379.7998046875,
+          "share_basis": "POINT_IN_TIME_MARKET_CLOSE_SHARES_V1",
+          "shares_basis_date": "2019-05-31",
+          "ticker": "KONYA",
+          "trade_date": "2023-07-31"
+        },
+        "valuation_axis_weight": 0.6,
+        "valuation_confidence": 0.14866095454602543,
+        "valuation_score_effective": 0.42567010276085493,
+        "valuation_score_raw": 3.9017230141833844e-06,
+        "valuation_status": "OK"
+      },
+      "ticker": "KONYA",
+      "valuation_confidence": 0.14866095454602543,
+      "valuation_score": 3.9017230141833844e-06,
+      "valuation_status": "OK",
+      "valuation_usable": true
+    }
+  ],
+  "rejection_count": 0,
+  "rejection_reasons": {}
+}

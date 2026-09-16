@@ -1,13 +1,13 @@
 {
   "adjusted_close_diagnostic_only": true,
   "auto_adjust": false,
-  "captured_at": "2026-09-08T18:50:57.232014+00:00",
+  "captured_at": "2026-09-16T00:11:23.442734+00:00",
   "contract": "CURRENT_YAHOO_RAW_CLOSE_V1",
-  "cutoff_date": "2026-09-08",
+  "cutoff_date": "2026-09-16",
   "market_cap_price_field": "Close",
   "outputs": {
-    "raw_close.csv.gz": "e05ee5ba5067e273e56104132d74a5de6c10bce7a5c02419880a0a72009b3cb4",
-    "rejections.json": "f8a14eaae60ac6f9c4b0763ee2f194d18756c504bebb4a5367cfe9a13e3840ed"
+    "raw_close.csv.gz": "2d2d75d63f88f3e7a3abd9c9ca5d55f400edb88a95257a2a0a20b1f853cacea8",
+    "rejections.json": "ca671136f52ca82929504929e27557571da04bbb6b735e1f803f2128d5db608e"
   },
   "raw_close_count": 629,
   "rejection_count": 178,
