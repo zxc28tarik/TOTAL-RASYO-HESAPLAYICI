@@ -165,6 +165,8 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # W2 reads its pinned post-correction tree from Git history.
       - uses: actions/setup-python@v5
         with:
           python-version: '3.14'

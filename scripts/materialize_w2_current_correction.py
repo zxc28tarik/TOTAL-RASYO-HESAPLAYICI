@@ -58,8 +58,10 @@ def post_correction_bytes(repo_relative: str) -> bytes:
             cwd=ROOT, capture_output=True, check=True,
         ).stdout
     except subprocess.CalledProcessError as exc:
+        # A shallow clone is the usual cause: the pinned commit is simply absent.
         raise ValueError(
             f"W2_POST_CORRECTION_BLOB_UNREADABLE:{repo_relative}"
+            f" (needs {POST_CORRECTION_REV[:12]}; fetch full history)"
         ) from exc
 
 
