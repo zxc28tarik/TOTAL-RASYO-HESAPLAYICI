@@ -1,5 +1,5 @@
 {
-  "analysis_at": "2026-09-16T01:09:26.132921+00:00",
+  "analysis_at": "2026-09-16T18:03:23.304385+00:00",
   "archive_hashes": {
     "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
     "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
@@ -27,12 +27,8 @@
   "derived_financial_ticker_count": 344,
   "financial_report_count": 2007,
   "follow_contract": "CURRENT_NONFIN_FOLLOW_AXIS_V1",
-  "follow_materialized_count": 72,
+  "follow_materialized_count": 173,
   "follow_rejections": [
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "A1YEN"
-    },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ACSEL"
@@ -48,10 +44,6 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "AKENR"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "AKFIS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -90,24 +82,12 @@
       "ticker": "ARENA"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ARMGD"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ARZUM"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ASUZU"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ATAKP"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ATATP"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -124,10 +104,6 @@
     {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "AYDEM"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "AYEN"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -166,14 +142,6 @@
       "ticker": "BIENY"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "BIGCH"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "BIGEN"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BINBN"
     },
@@ -186,16 +154,8 @@
       "ticker": "BIZIM"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "BLCYT"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BMSCH"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "BNTAS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -204,18 +164,6 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BORLS"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "BOSSA"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "BRKSN"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "BRLSM"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -242,10 +190,6 @@
       "ticker": "CANTE"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "CATES"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "CELHA"
     },
@@ -258,16 +202,8 @@
       "ticker": "CEMTS"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "CGCAM"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "CMBTN"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "CONSE"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -290,22 +226,6 @@
       "ticker": "DCTTR"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "DERIM"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "DESA"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "DESPC"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "DGATE"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "DGNMO"
     },
@@ -314,24 +234,8 @@
       "ticker": "DITAS"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "DMRGD"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "DMSAS"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "DNISI"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "DOFER"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "DOFRB"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -342,32 +246,12 @@
       "ticker": "DURDO"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "DURKN"
-    },
-    {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "DYOBY"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "EBEBK"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ECOGR"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "EDATA"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "EDIP"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "EGPRO"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -380,10 +264,6 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "EKSUN"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ELITE"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -406,10 +286,6 @@
       "ticker": "ESCAR"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ESCOM"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ESEN"
     },
@@ -418,40 +294,12 @@
       "ticker": "ETILR"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "FADE"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "FLAP"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "FONET"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "FORTE"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "FRIGO"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "GEDZA"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "GENTS"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "GEREL"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "GIPTA"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -464,10 +312,6 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "GOODY"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "GSDDE"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -486,10 +330,6 @@
       "ticker": "HEKTS"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "HKTM"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "HOROZ"
     },
@@ -498,36 +338,12 @@
       "ticker": "HRKET"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "HTTBT"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "HUNER"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "IHEVA"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "IHGZT"
-    },
-    {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "INGRM"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "INTEM"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ISKPL"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ISSEN"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -548,26 +364,6 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "KARTN"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "KATMR"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "KBORU"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "KFEIN"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "KLKIM"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "KLSYN"
     },
     {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
@@ -598,20 +394,8 @@
       "ticker": "KORDS"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "KRONT"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "KRPLS"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "KRSTL"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "KRTEK"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -622,32 +406,12 @@
       "ticker": "KUYAS"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "LILAK"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "LINK"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "LKMNH"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MAALT"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "MACKO"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MAGEN"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "MAKIM"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -670,56 +434,24 @@
       "ticker": "MARTI"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "MEDTR"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "MEGMT"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MEKAG"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "MEPET"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "MERIT"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MIATK"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "MNDRS"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MNDTR"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "MOBTL"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MOGAN"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "MOPAS"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MRSHL"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "MTRKS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -734,10 +466,6 @@
       "ticker": "NIBAS"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "NTGAZ"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "OBAMS"
     },
@@ -750,28 +478,8 @@
       "ticker": "ODAS"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "OFSYM"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ONCSM"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ORGE"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "OYLUM"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "OZATD"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "OZSUB"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -790,10 +498,6 @@
       "ticker": "PATEK"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "PCILT"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "PENGD"
     },
@@ -802,20 +506,8 @@
       "ticker": "PETKM"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "PETUN"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "PGSUS"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "PLTUR"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "PNLSN"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -834,18 +526,6 @@
       "ticker": "PRZMA"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "PSDTC"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "RNPOL"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "RODRG"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "RTALB"
     },
@@ -858,40 +538,12 @@
       "ticker": "RUZYE"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "RYSAS"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "SAFKR"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "SAMAT"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "SANEL"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "SANFM"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "SANKO"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "SASA"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "SEGMN"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "SEKUR"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -926,28 +578,12 @@
       "ticker": "SNICA"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "SUNTK"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "SUWEN"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "TATEN"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "TATGD"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "TBORG"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "TCKRC"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -974,36 +610,12 @@
       "ticker": "TMSN"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "TNZTP"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "TRILC"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "TUCLK"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "TURGG"
-    },
-    {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "ULAS"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "VAKKO"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "VANGD"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "VBTYZ"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -1022,24 +634,8 @@
       "ticker": "VSNMD"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "YAPRK"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "YAYLA"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "YIGIT"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "YKSLN"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "YUNSA"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -1052,13 +648,13 @@
   ],
   "legal_share_count_used_as_price_denominator": false,
   "m2_blocker": null,
-  "m2_materialized_count": 72,
+  "m2_materialized_count": 173,
   "neutral_follow_or_m2_materialized": false,
   "outputs": {
-    "follow.jsonl": "cafc68c07d85c94bb6cd580c6ff9d1fab3873c0434868baf2cfb3db1817b4b97",
-    "m2.jsonl": "f2baa98a134d5ad13343d852bd3a38bcdf62f6d3575790deb47b6da922ec235d",
-    "previous_valuations.jsonl": "1503165283a288eb61d5eeb2408957dbe42721871fc60e8e9a41ae1c51e2dd12",
-    "valuations.jsonl": "899c209e1b7cd5ea9919ea207647d55e6a8bd49922ea95dd634d4d3150bd5378"
+    "follow.jsonl": "ee3dda33482cb5f9d358f1ccdfbc33c3423be58141d15f1c8284b6d53c28b0f0",
+    "m2.jsonl": "6a6f8b06143b417102c1f50ac32929f35ba55469a2bc5e1257977669e656c38e",
+    "previous_valuations.jsonl": "7bfb7c9e7fa5787ee167612ef043b0cd63d8edc9dba17a3e047b740589a23087",
+    "valuations.jsonl": "cce7da4e6c6f19f74777137f8db80ef5daf34d571da2d96bf8501832dffae7c2"
   },
   "peer_groups": [
     "XUHIZ",
@@ -1073,7 +669,7 @@
   ],
   "previous_period_valuation_count": 326,
   "production_valuation_count": 327,
-  "route_source_sha256": "ddb7eed2724fd4b6c1849682ff2767176dddd1f789cb6332a8011a3592cdb234",
+  "route_source_sha256": "d5ec4957e070170046c8ab46a9b4845eb59a46024d68eac46ecd26fed804fe11",
   "routed_candidate_count": 353,
   "routed_candidate_counts_by_peer_group": {
     "XUHIZ": 117,

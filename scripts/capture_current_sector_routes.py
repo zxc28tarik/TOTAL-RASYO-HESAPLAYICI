@@ -29,12 +29,22 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from scripts.experimental_core_module_materializer import _dated_nonfin_family
+
 CONTRACT = "CURRENT_KAP_SECTOR_INDEX_MEMBERSHIP_V1"
 SOURCE_URL = "https://www.kap.org.tr/tr/Endeksler"
 SOURCE_ID = "KAP_ENDEKSLER_CURRENT"
 INHERITED_ROUTES = ROOT / "data/backtest_sources/m3_source_package/sector_routes.csv.gz"
 OUTPUT = ROOT / "data/live/current_sector_routes_v1"
 INDEX_CODES = ("XUSIN", "XUHIZ", "XUTEK", "XUMAL")
+# A route only resolves a report's sector family when it is already in force at
+# that report's period_end (see _dated_nonfin_family). Dating these rows at the
+# capture date would therefore silently yield no family for every financial
+# report, and CORE would reject the ticker for missing family evidence even
+# though its KAP report is present. The current pipeline reads KAP archives from
+# 2025Q1 onward, so membership is asserted from the start of that coverage --
+# still far narrower than the inherited rows' 2020-07-27 backfill.
+CURRENT_FINANCIAL_COVERAGE_START = date(2025, 1, 1)
 
 
 def _sha(raw: bytes) -> str:
@@ -85,7 +95,20 @@ def build_routes(members: dict[str, list[str]], *, valid_from: date) -> tuple[pd
                        ignore_index=True)
     if routes.loc[routes.valid_to.isna()].duplicated("ticker").any():
         raise ValueError("current sector route ambiguous")
-    return routes.sort_values(["ticker", "valid_from"]).reset_index(drop=True), len(added)
+    routes = routes.sort_values(["ticker", "valid_from"]).reset_index(drop=True)
+    # A route dated after the reports it must classify resolves no family at
+    # all, which surfaces only as a CORE rejection much later. Fail here instead.
+    unresolved = [
+        row["ticker"] for row in added
+        if _dated_nonfin_family(routes, row["ticker"], CURRENT_FINANCIAL_COVERAGE_START) is None
+        and row["sector_index_code"] in {"XUSIN", "XUHIZ", "XUTEK"}
+    ]
+    if unresolved:
+        raise ValueError(
+            "added NONFIN route resolves no family at coverage start: "
+            f"{unresolved[:5]} ({len(unresolved)} total)"
+        )
+    return routes, len(added)
 
 
 def capture(*, output_dir: Path = OUTPUT, valid_from: date) -> dict:
@@ -158,7 +181,8 @@ def capture(*, output_dir: Path = OUTPUT, valid_from: date) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", type=Path, default=OUTPUT)
-    parser.add_argument("--valid-from", type=date.fromisoformat, default=date.today())
+    parser.add_argument("--valid-from", type=date.fromisoformat,
+                        default=CURRENT_FINANCIAL_COVERAGE_START)
     args = parser.parse_args()
     print(json.dumps(capture(output_dir=args.output_dir, valid_from=args.valid_from),
                      ensure_ascii=False, indent=2))

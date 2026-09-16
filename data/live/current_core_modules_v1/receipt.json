@@ -1,5 +1,5 @@
 {
-  "analysis_at": "2026-09-16T01:20:21.707575+00:00",
+  "analysis_at": "2026-09-16T17:49:20.924545+00:00",
   "archive_hashes": {
     "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
     "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
@@ -10,16 +10,16 @@
   },
   "contract": "CURRENT_CORE_M1_EK1_V1",
   "economic_family_contract": "CURRENT_OPEN_ENDED_KAP_SECTOR_ROUTE_NONFIN_V1",
-  "economic_route_raw_sha256": "58076ea0aa949d5b33e33e5bb5c6a6ce453994b93ccdfc901ebe215fb268f014",
-  "economic_route_retrieved_at": "2026-09-16T01:20:01.230314+00:00",
-  "ek1_valid_count": 138,
+  "economic_route_raw_sha256": "7b7452cad372ec56ab8d983219da66aff1d4bc90e5e01597445ab0588fe33b6f",
+  "economic_route_retrieved_at": "2026-09-16T17:49:01.911937+00:00",
+  "ek1_valid_count": 399,
   "financial_report_count": 2419,
-  "m1_valid_count": 138,
+  "m1_valid_count": 399,
   "mode": "CURRENT_ONLY_NO_HISTORICAL_FINANCIAL_FALLBACK",
   "neutral_score_injection": false,
   "outputs": {
-    "modules.jsonl": "8c308d3ff5661a0a3adca8c4cb7c4f55dbdca9d9a2d7575f1c34f5a0f7af0b1f",
-    "rejections.jsonl": "e14669eaf753faa8d7d4dd96f2cf2edde5b1933384b2e1774cf96282c6395a66"
+    "modules.jsonl": "b26795124545d836e31e0e70e7eab07914890d84136b5323fc23a1eb624281b4",
+    "rejections.jsonl": "6ebc1bdbd27c9af7a8e008e8bb73efef92e80a715f79752b4ed2238494c780d9"
   },
   "production_engines": [
     "compute_company_core_ratios_from_frame",
@@ -27,13 +27,11 @@
     "run_historical_pit_m1_replay",
     "run_historical_pit_ek1_replay"
   ],
-  "rejection_count": 300,
+  "rejection_count": 39,
   "route_count": 438,
   "top_rejection_reasons": {
-    "HISTORICAL_ENGINE_FAMILY_EVIDENCE_MISSING_OR_TECHNICAL_MISMATCH": 261,
     "NO_VISIBLE_OWN_REPORT": 10,
     "OWN_REPORT_STATEMENT_SCOPE_CONFLICT": 20,
-    "RSC_HISTORICAL_FAMILY_OR_PEER_DEPTH_MISSING": 261,
     "TECHNICAL_CORE_FAMILY_UNSUPPORTED_OR_CONFLICTING": 9
   }
 }

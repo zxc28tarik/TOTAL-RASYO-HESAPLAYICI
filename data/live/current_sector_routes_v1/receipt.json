@@ -1,9 +1,9 @@
 {
   "added_route_count": 381,
-  "captured_at": "2026-09-16T01:20:01.230314+00:00",
+  "captured_at": "2026-09-16T17:49:01.911937+00:00",
   "contract": "CURRENT_KAP_SECTOR_INDEX_MEMBERSHIP_V1",
   "historical_source_package_modified": false,
-  "http_date": "Wed, 16 Sep 2026 01:00:41 GMT",
+  "http_date": "Wed, 16 Sep 2026 17:49:00 GMT",
   "inherited_route_row_count": 210,
   "official_member_counts": {
     "XUHIZ": 140,
@@ -13,9 +13,9 @@
   },
   "official_member_total": 583,
   "outputs": {
-    "kap_endeksler.html.gz": "58076ea0aa949d5b33e33e5bb5c6a6ce453994b93ccdfc901ebe215fb268f014",
-    "manifest.json": "9d870cecea1573068c4cd560ce3d3b16e4edb6b15fda7a15422f5ae890832e1c",
-    "sector_routes.csv.gz": "480021cb1d32c1ba9f8d224248751e8d5e2051e415dbe2351f3eae14580a785b"
+    "kap_endeksler.html.gz": "7b7452cad372ec56ab8d983219da66aff1d4bc90e5e01597445ab0588fe33b6f",
+    "manifest.json": "a8c1cb5486bf551f1f6eb070446293259f96ec1b3abf62b0102bc2f200946d76",
+    "sector_routes.csv.gz": "d5ec4957e070170046c8ab46a9b4845eb59a46024d68eac46ecd26fed804fe11"
   },
   "route_row_count": 591,
   "source_url": "https://www.kap.org.tr/tr/Endeksler"

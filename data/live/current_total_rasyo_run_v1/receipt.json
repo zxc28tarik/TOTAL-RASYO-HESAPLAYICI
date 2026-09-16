@@ -1,5 +1,5 @@
 {
-  "completed_at": "2026-09-16T01:34:37.435370+00:00",
+  "completed_at": "2026-09-16T18:19:51.160424+00:00",
   "contract": "CURRENT_TOTAL_RASYO_RUN_V1",
   "database_available": false,
   "historical_pit_mixed_into_current": false,
@@ -18,19 +18,19 @@
   "receipts": {
     "core_modules": {
       "path": "data/live/current_core_modules_v1/receipt.json",
-      "sha256": "8c352bad4c1dfe3bd1273f13bdd26b6f9056a1587874ca895368c030b91f8737"
+      "sha256": "d059e8d87622de915eb84fa0b1148c3a69b8c1e56b824f35c1b22597f0d3f1eb"
     },
     "ek9_gap_repair": {
       "path": "data/live/current_ek9_gap_repair_v1/receipt.json",
-      "sha256": "348bc0782c007e2cd600bde76ef9cee5056d12acb1b27f989509f7164d9c4bbb"
+      "sha256": "19c361c1293436b2e065904c91aeeb932413530a3b74f415f52261d6e7db4ac0"
     },
     "market_modules": {
       "path": "data/live/current_market_modules_v1/receipt.json",
-      "sha256": "0cd5b70b115d6f930312e53c527d72ea9b5b65c04a5fa933272e0313e2d43380"
+      "sha256": "7cdeee63a35b09899b0af61445a88c7e7f9b270ddef92cf1e358ab25423d1b18"
     },
     "nonfin_valuation": {
       "path": "data/live/current_nonfin_valuation_v1/receipt.json",
-      "sha256": "452d7ea2cb90e523553601cedaf04b152a2a4707c40eda0906c099f3e357d29f"
+      "sha256": "d03dd634f205b42abd26ce5bb0e9e8a7a903f9800e0e23054b807a34662af8d6"
     },
     "price_level_basis": {
       "path": "data/live/current_price_level_basis_v1/receipt.json",
@@ -46,7 +46,7 @@
     },
     "readiness": {
       "path": "data/live/current_total_rasyo_v1/receipt.json",
-      "sha256": "f887ddb8409c226fa4181a2ee6afb09486277278991b34e10cc33682a005fa1c"
+      "sha256": "530fbce0f6560b07ee4942888f5274bbb4b47b0225f7c32bcf94c0050ef74e50"
     },
     "shares": {
       "path": "data/live/current_share_basis_v1/receipt.json",
@@ -54,25 +54,25 @@
     },
     "total_scores": {
       "path": "data/live/current_total_scores_v1/receipt.json",
-      "sha256": "dbca3fa008f321aee7fb0d4c95f7331a139c56e55a1fa574f1a79f4fc34b8585"
+      "sha256": "d83746a98f58be022b997ed41fbeb7c9ea7d2e6937ca0fd5f883a1fea8cecd52"
     }
   },
   "run_date": "2026-09-14",
   "stage_counts": {
-    "at_least_4_modules": 138,
-    "at_least_5_modules": 81,
+    "at_least_4_modules": 386,
+    "at_least_5_modules": 209,
     "ek1": 131,
     "ek4": 146,
-    "ek9": 131,
+    "ek9": 176,
     "explicit_share_basis": 528,
     "m1": 131,
-    "m2": 72,
+    "m2": 173,
     "m3": 146,
     "market_cap": 195,
     "nonfin_valuation": 327,
-    "ranking": 68,
+    "ranking": 130,
     "raw_close": 629,
-    "total_rasyo": 68,
+    "total_rasyo": 130,
     "universe": 807,
     "usable_nonfin_valuation": 185
   }

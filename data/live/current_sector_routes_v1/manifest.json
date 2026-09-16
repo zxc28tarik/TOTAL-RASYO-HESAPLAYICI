@@ -3,7 +3,7 @@
     "sector_routes": {
       "path": "data/live/current_sector_routes_v1/sector_routes.csv.gz",
       "row_count": 591,
-      "sha256": "480021cb1d32c1ba9f8d224248751e8d5e2051e415dbe2351f3eae14580a785b",
+      "sha256": "d5ec4957e070170046c8ab46a9b4845eb59a46024d68eac46ecd26fed804fe11",
       "source_id": "KAP_ENDEKSLER_CURRENT"
     }
   },
@@ -11,14 +11,14 @@
   "raw_sources": [
     {
       "artifact_identity": "KAP Endeksler index-membership snapshot, deterministic gzip",
-      "http_date": "Wed, 16 Sep 2026 01:00:41 GMT",
+      "http_date": "Wed, 16 Sep 2026 17:49:00 GMT",
       "publisher": "Kamuyu Aydinlatma Platformu (KAP)",
       "raw_path": "data/live/current_sector_routes_v1/kap_endeksler.html.gz",
-      "raw_sha256": "58076ea0aa949d5b33e33e5bb5c6a6ce453994b93ccdfc901ebe215fb268f014",
-      "retrieved_at": "2026-09-16T01:20:01.230314+00:00",
+      "raw_sha256": "7b7452cad372ec56ab8d983219da66aff1d4bc90e5e01597445ab0588fe33b6f",
+      "retrieved_at": "2026-09-16T17:49:01.911937+00:00",
       "source_id": "KAP_ENDEKSLER_CURRENT",
       "source_url": "https://www.kap.org.tr/tr/Endeksler",
-      "uncompressed_sha256": "2ae73c61b781bd4607a55d4ab03ed91f3f534da44dd6d5ac27e088b24c48a0e1"
+      "uncompressed_sha256": "2e7d8f863035b99dec4225a5a8e92bd8ba257867a99acf71a567ce5b31c2b2cd"
     }
   ]
 }
