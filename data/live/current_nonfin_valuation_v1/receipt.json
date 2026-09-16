@@ -1,5 +1,5 @@
 {
-  "analysis_at": "2026-09-16T18:03:23.304385+00:00",
+  "analysis_at": "2026-09-16T19:15:58.953622+00:00",
   "archive_hashes": {
     "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
     "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
@@ -24,8 +24,8 @@
       "ticker": "TCELL"
     }
   ],
-  "derived_financial_ticker_count": 344,
-  "financial_report_count": 2007,
+  "derived_financial_ticker_count": 363,
+  "financial_report_count": 2096,
   "follow_contract": "CURRENT_NONFIN_FOLLOW_AXIS_V1",
   "follow_materialized_count": 173,
   "follow_rejections": [
@@ -66,6 +66,10 @@
       "ticker": "ALKIM"
     },
     {
+      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
+      "ticker": "ALVES"
+    },
+    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ANELE"
     },
@@ -88,6 +92,10 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ASUZU"
+    },
+    {
+      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
+      "ticker": "ATEKS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -131,6 +139,10 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BARMA"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BAYRK"
     },
     {
@@ -167,6 +179,14 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BRKO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BRMEN"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BSOKE"
     },
     {
@@ -191,6 +211,10 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "CASA"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "CELHA"
     },
     {
@@ -204,6 +228,10 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "CMBTN"
+    },
+    {
+      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
+      "ticker": "CMENT"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -228,6 +256,10 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "DGNMO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "DIRIT"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -259,6 +291,10 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "EKIZ"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "EKOS"
     },
     {
@@ -268,6 +304,10 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "EMKEL"
+    },
+    {
+      "reason": "PREVIOUS_VALUATION_NOT_OK",
+      "ticker": "EMNIS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -366,6 +406,10 @@
       "ticker": "KARTN"
     },
     {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "KENT"
+    },
+    {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "KMPUR"
     },
@@ -432,6 +476,10 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MARTI"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "MEGAP"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -651,10 +699,10 @@
   "m2_materialized_count": 173,
   "neutral_follow_or_m2_materialized": false,
   "outputs": {
-    "follow.jsonl": "ee3dda33482cb5f9d358f1ccdfbc33c3423be58141d15f1c8284b6d53c28b0f0",
-    "m2.jsonl": "6a6f8b06143b417102c1f50ac32929f35ba55469a2bc5e1257977669e656c38e",
-    "previous_valuations.jsonl": "7bfb7c9e7fa5787ee167612ef043b0cd63d8edc9dba17a3e047b740589a23087",
-    "valuations.jsonl": "cce7da4e6c6f19f74777137f8db80ef5daf34d571da2d96bf8501832dffae7c2"
+    "follow.jsonl": "079fd3e0fd615ff662bbfad1264a98715091b5a6db2b8fc23b06f0dc9d18035b",
+    "m2.jsonl": "8a5ab7bd0044594f1c60b04865df09423c657f125f784a48f2e29792a6ddbd9a",
+    "previous_valuations.jsonl": "4272b9da3f452b21c1b743625e4b376d7315890074a1aedebbf2597018d35c62",
+    "valuations.jsonl": "9fc3633009b989e7623ce292206d11d488acc2c67436118fb0265da757b4395f"
   },
   "peer_groups": [
     "XUHIZ",
@@ -667,14 +715,14 @@
       "ticker": "MARMR"
     }
   ],
-  "previous_period_valuation_count": 326,
-  "production_valuation_count": 327,
-  "route_source_sha256": "d5ec4957e070170046c8ab46a9b4845eb59a46024d68eac46ecd26fed804fe11",
-  "routed_candidate_count": 353,
+  "previous_period_valuation_count": 338,
+  "production_valuation_count": 339,
+  "route_source_sha256": "c864ec3c18a96ef02f41be34631828436ffc757d53d1cc862b1b97d172844ac1",
+  "routed_candidate_count": 372,
   "routed_candidate_counts_by_peer_group": {
-    "XUHIZ": 117,
-    "XUSIN": 202,
-    "XUTEK": 34
+    "XUHIZ": 118,
+    "XUSIN": 219,
+    "XUTEK": 35
   },
   "routed_tickers": [
     "A1YEN",
@@ -697,6 +745,7 @@
     "ALFAS",
     "ALKA",
     "ALKIM",
+    "ALVES",
     "ANELE",
     "ANGEN",
     "ARASE",
@@ -711,11 +760,13 @@
     "ATAKP",
     "ATATP",
     "ATATR",
+    "ATEKS",
     "AVOD",
     "AVTUR",
     "AYCES",
     "AYDEM",
     "AYEN",
+    "AYES",
     "AYGAZ",
     "AZTEK",
     "BAGFS",
@@ -723,6 +774,7 @@
     "BAKAB",
     "BALSU",
     "BANVT",
+    "BARMA",
     "BAYRK",
     "BESTE",
     "BETAE",
@@ -742,8 +794,10 @@
     "BOBET",
     "BORLS",
     "BOSSA",
+    "BRKO",
     "BRKSN",
     "BRLSM",
+    "BRMEN",
     "BRSAN",
     "BSOKE",
     "BTCIM",
@@ -752,6 +806,7 @@
     "BURVA",
     "BYDNR",
     "CANTE",
+    "CASA",
     "CATES",
     "CCOLA",
     "CELHA",
@@ -761,6 +816,7 @@
     "CIMSA",
     "CITAS",
     "CMBTN",
+    "CMENT",
     "CONSE",
     "CRFSA",
     "CUSAN",
@@ -776,6 +832,7 @@
     "DEVA",
     "DGATE",
     "DGNMO",
+    "DIRIT",
     "DITAS",
     "DMRGD",
     "DMSAS",
@@ -798,10 +855,12 @@
     "EGSER",
     "EKDMR",
     "EKIM",
+    "EKIZ",
     "EKOS",
     "EKSUN",
     "ELITE",
     "EMKEL",
+    "EMNIS",
     "EMPAE",
     "ENERY",
     "ENKAI",
@@ -850,6 +909,7 @@
     "IHLGM",
     "INDES",
     "INGRM",
+    "INTEK",
     "INTEM",
     "INTET",
     "ISDMR",
@@ -869,6 +929,7 @@
     "KAYSE",
     "KBORU",
     "KCAER",
+    "KENT",
     "KFEIN",
     "KLKIM",
     "KLSYN",
@@ -904,6 +965,7 @@
     "MARTI",
     "MAVI",
     "MEDTR",
+    "MEGAP",
     "MEGMT",
     "MEKAG",
     "MEPET",
@@ -931,6 +993,7 @@
     "OFSYM",
     "ONCSM",
     "ORGE",
+    "ORMA",
     "ORZAX",
     "OYLUM",
     "OZATD",
@@ -981,7 +1044,9 @@
     "SMART",
     "SMRTG",
     "SNICA",
+    "SODSN",
     "SSAAT",
+    "SUMAS",
     "SUNTK",
     "SUWEN",
     "TABGD",
@@ -1023,15 +1088,17 @@
     "YAPRK",
     "YATAS",
     "YAYLA",
+    "YBTAS",
     "YEOTK",
     "YIGIT",
     "YKSLN",
+    "YONGA",
     "YUNSA",
     "YYLGD",
     "ZEDUR",
     "ZOREN"
   ],
-  "snapshot_count": 327,
+  "snapshot_count": 339,
   "snapshot_rejections": [
     {
       "reason": "TTM icin tam dort bagimsiz ceyrek zorunlu",
@@ -1044,6 +1111,10 @@
     {
       "reason": "TTM ceyrekleri takvimde bitisik olmali",
       "ticker": "ATATR"
+    },
+    {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "AYES"
     },
     {
       "reason": "TTM ceyrekleri takvimde bitisik olmali",
@@ -1090,6 +1161,10 @@
       "ticker": "GSRAY"
     },
     {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "INTEK"
+    },
+    {
       "reason": "FINANSAL_VERI_YOK",
       "ticker": "INTET"
     },
@@ -1118,6 +1193,10 @@
       "ticker": "METEN"
     },
     {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "ORMA"
+    },
+    {
       "reason": "TTM icin tam dort bagimsiz ceyrek zorunlu",
       "ticker": "ORZAX"
     },
@@ -1126,8 +1205,16 @@
       "ticker": "SARAE"
     },
     {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "SODSN"
+    },
+    {
       "reason": "TTM icin tam dort bagimsiz ceyrek zorunlu",
       "ticker": "SSAAT"
+    },
+    {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "SUMAS"
     },
     {
       "reason": "FINANSAL_VERI_YOK",
@@ -1136,9 +1223,17 @@
     {
       "reason": "FINANSAL_VERI_YOK",
       "ticker": "TSPOR"
+    },
+    {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "YBTAS"
+    },
+    {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "YONGA"
     }
   ],
   "unsafe_issued_capital_share_fields_scrubbed": true,
-  "usable_previous_period_valuation_count": 194,
-  "usable_valuation_count": 185
+  "usable_previous_period_valuation_count": 196,
+  "usable_valuation_count": 189
 }

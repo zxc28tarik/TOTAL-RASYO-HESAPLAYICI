@@ -14,6 +14,7 @@ byte-identical and hash-pinned so no historical replay changes.
 """
 
 import argparse
+import collections
 from datetime import date, datetime, timezone
 import gzip
 import hashlib
@@ -34,6 +35,8 @@ from scripts.experimental_core_module_materializer import _dated_nonfin_family
 CONTRACT = "CURRENT_KAP_SECTOR_INDEX_MEMBERSHIP_V1"
 SOURCE_URL = "https://www.kap.org.tr/tr/Endeksler"
 SOURCE_ID = "KAP_ENDEKSLER_CURRENT"
+SECTOR_URL = "https://www.kap.org.tr/tr/Sektorler"
+SECTOR_SOURCE_ID = "KAP_SEKTORLER_CURRENT"
 INHERITED_ROUTES = ROOT / "data/backtest_sources/m3_source_package/sector_routes.csv.gz"
 OUTPUT = ROOT / "data/live/current_sector_routes_v1"
 INDEX_CODES = ("XUSIN", "XUHIZ", "XUTEK", "XUMAL")
@@ -72,7 +75,24 @@ def parse_members(raw_html: str) -> dict[str, list[str]]:
     return members
 
 
-def build_routes(members: dict[str, list[str]], *, valid_from: date) -> tuple[pd.DataFrame, int]:
+def parse_sectors(raw_html: str) -> dict[str, str]:
+    """Every KAP-classified operating company and the sector it is filed under."""
+    unescaped = raw_html.replace('\\"', '"')
+    pairs = re.findall(
+        r'"sectorName":"([^"]{1,160})","sectorOid"[^}]{0,300}?"stockCode":"([A-Z0-9]{2,8})"',
+        unescaped,
+    )
+    if not pairs:
+        raise ValueError("official KAP sector classification empty")
+    sector_of: dict[str, str] = {}
+    for sector, ticker in pairs:
+        if sector_of.setdefault(ticker, sector) != sector:
+            raise ValueError(f"ticker filed under two KAP sectors: {ticker}")
+    return sector_of
+
+
+def build_routes(members: dict[str, list[str]], sector_of: dict[str, str], *,
+                 valid_from: date) -> tuple[pd.DataFrame, int, int, list[str]]:
     inherited = pd.read_csv(INHERITED_ROUTES, dtype=str)
     official = {
         ticker: code for code, tickers in members.items() for ticker in tickers
@@ -91,6 +111,28 @@ def build_routes(members: dict[str, list[str]], *, valid_from: date) -> tuple[pd
          "sector_index_code": code, "source_id": SOURCE_ID}
         for ticker, code in sorted(official.items()) if ticker not in known
     ]
+    # KAP classifies more operating companies than the four indices admit. A
+    # company with a sector but no index membership still needs a benchmark,
+    # so it takes the index its own sector's index-member peers belong to. The
+    # mapping is derived from those peers, never hand-written, and a sector
+    # whose members disagree is left unrouted rather than guessed.
+    by_sector: dict[str, collections.Counter] = collections.defaultdict(collections.Counter)
+    for ticker, sector in sector_of.items():
+        if ticker in official:
+            by_sector[sector][official[ticker]] += 1
+    sector_index = {
+        sector: next(iter(counts))
+        for sector, counts in by_sector.items() if len(counts) == 1
+    }
+    ambiguous = sorted(sector for sector, counts in by_sector.items() if len(counts) > 1)
+    placed = set(official) | known
+    sector_added = [
+        {"ticker": ticker, "valid_from": valid_from.isoformat(), "valid_to": None,
+         "sector_index_code": sector_index[sector], "source_id": SECTOR_SOURCE_ID}
+        for ticker, sector in sorted(sector_of.items())
+        if ticker not in placed and sector in sector_index
+    ]
+    added += sector_added
     routes = pd.concat([inherited, pd.DataFrame(added, columns=inherited.columns)],
                        ignore_index=True)
     if routes.loc[routes.valid_to.isna()].duplicated("ticker").any():
@@ -108,21 +150,28 @@ def build_routes(members: dict[str, list[str]], *, valid_from: date) -> tuple[pd
             "added NONFIN route resolves no family at coverage start: "
             f"{unresolved[:5]} ({len(unresolved)} total)"
         )
-    return routes, len(added)
+    return routes, len(added), len(sector_added), ambiguous
 
 
 def capture(*, output_dir: Path = OUTPUT, valid_from: date) -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
-    response = requests.get(SOURCE_URL, timeout=90, headers={
-        "User-Agent": "TOTAL-RASYO current sector routes/1",
-    })
+    headers = {"User-Agent": "TOTAL-RASYO current sector routes/1"}
+    response = requests.get(SOURCE_URL, timeout=90, headers=headers)
     response.raise_for_status()
     raw = response.content
     members = parse_members(response.text)
-    routes, added_count = build_routes(members, valid_from=valid_from)
+
+    sector_response = requests.get(SECTOR_URL, timeout=90, headers=headers)
+    sector_response.raise_for_status()
+    sector_raw = sector_response.content
+    sector_of = parse_sectors(sector_response.text)
+    routes, added_count, sector_added_count, ambiguous = build_routes(
+        members, sector_of, valid_from=valid_from)
 
     raw_path = output_dir / "kap_endeksler.html.gz"
     raw_path.write_bytes(gzip.compress(raw, mtime=0))
+    sector_raw_path = output_dir / "kap_sektorler.html.gz"
+    sector_raw_path.write_bytes(gzip.compress(sector_raw, mtime=0))
     routes_path = output_dir / "sector_routes.csv.gz"
     routes.to_csv(routes_path, index=False, compression="gzip")
 
@@ -149,6 +198,16 @@ def capture(*, output_dir: Path = OUTPUT, valid_from: date) -> dict:
             # gzip file's digest, not the decompressed payload's.
             "raw_sha256": _sha(raw_path.read_bytes()),
             "uncompressed_sha256": _sha(gzip.decompress(raw_path.read_bytes())),
+        }, {
+            "source_id": SECTOR_SOURCE_ID,
+            "publisher": "Kamuyu Aydinlatma Platformu (KAP)",
+            "source_url": SECTOR_URL,
+            "artifact_identity": "KAP Sektorler classification snapshot, deterministic gzip",
+            "raw_path": str(sector_raw_path.relative_to(ROOT)).replace("\\", "/"),
+            "retrieved_at": retrieved_at.isoformat(),
+            "http_date": sector_response.headers.get("Date"),
+            "raw_sha256": _sha(sector_raw_path.read_bytes()),
+            "uncompressed_sha256": _sha(gzip.decompress(sector_raw_path.read_bytes())),
         }],
     }
     (output_dir / "manifest.json").write_text(
@@ -164,11 +223,15 @@ def capture(*, output_dir: Path = OUTPUT, valid_from: date) -> dict:
         "official_member_total": sum(len(lst) for lst in members.values()),
         "inherited_route_row_count": int(len(pd.read_csv(INHERITED_ROUTES, dtype=str))),
         "added_route_count": added_count,
+        "index_member_route_count": added_count - sector_added_count,
+        "sector_classified_non_index_route_count": sector_added_count,
+        "sector_classified_company_count": len(sector_of),
+        "ambiguous_sectors_left_unrouted": ambiguous,
         "route_row_count": int(len(routes)),
         "historical_source_package_modified": False,
         "outputs": {
             path.name: _sha(path.read_bytes())
-            for path in (raw_path, routes_path, output_dir / "manifest.json")
+            for path in (raw_path, sector_raw_path, routes_path, output_dir / "manifest.json")
         },
     }
     (output_dir / "receipt.json").write_text(

@@ -1,6 +1,7 @@
 {"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "ASTOR"}
 {"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "AVTUR"}
 {"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "BAHKM"}
+{"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "BALAT"}
 {"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "BESTE"}
 {"reasons": ["TECHNICAL_CORE_FAMILY_UNSUPPORTED_OR_CONFLICTING"], "report_entity_present": true, "ticker": "BJKAS"}
 {"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "BSOKE"}
@@ -27,6 +28,7 @@
 {"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "MANAS"}
 {"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "MARMR"}
 {"reasons": ["TECHNICAL_CORE_FAMILY_UNSUPPORTED_OR_CONFLICTING"], "report_entity_present": true, "ticker": "MAVI"}
+{"reasons": ["NO_VISIBLE_OWN_REPORT"], "report_entity_present": false, "ticker": "NETGL"}
 {"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "NTGAZ"}
 {"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "ONRYT"}
 {"reasons": ["OWN_REPORT_STATEMENT_SCOPE_CONFLICT"], "report_entity_present": true, "ticker": "PARSN"}

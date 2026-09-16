@@ -2,26 +2,26 @@
   "contract": "CURRENT_TOTAL_RASYO_MATERIALIZATION_V1",
   "explicit_rejection_count": 644,
   "inputs": {
-    "m2.jsonl": "6a6f8b06143b417102c1f50ac32929f35ba55469a2bc5e1257977669e656c38e",
-    "modules.csv": "0357f6d04a41d578bc674202859fee37a115d6d78495deee410201dc230413a4",
-    "modules.jsonl": "b26795124545d836e31e0e70e7eab07914890d84136b5323fc23a1eb624281b4",
+    "m2.jsonl": "8a5ab7bd0044594f1c60b04865df09423c657f125f784a48f2e29792a6ddbd9a",
+    "modules.csv": "87faf566e72a708da549763802523f9d9bce92e8dd7535649232e2005c2211a5",
+    "modules.jsonl": "cf043b9bf3ca374a11b6b3d392ee659a2ee15d14124fa56214c3c2502cdb299e",
     "universe.csv": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1"
   },
   "m2_input_count": 173,
-  "materialized_at": "2026-09-16T18:55:57.337775+00:00",
+  "materialized_at": "2026-09-16T19:59:33.597224+00:00",
   "missing_module_counts": {
-    "Ek1": 408,
-    "Ek4": 378,
-    "Ek9": 598,
-    "M1": 408,
+    "Ek1": 385,
+    "Ek4": 354,
+    "Ek9": 597,
+    "M1": 385,
     "M2": 634,
-    "M3": 391
+    "M3": 367
   },
   "neutral_fill": false,
   "outputs": {
-    "ranking.jsonl": "cddd9121a55a1db463519247e092d96a80bdbd2f628a7fd9ffb401486ec7bdd3",
-    "rejections.jsonl": "566b15027863d5b3fcce2086c8d257605e1b8ae82c01577120bc839fff7d5904",
-    "totals.jsonl": "c63d59bf477e2aa95253b792c6b36778fc066a2cdb26408e1324d7428ee7a782"
+    "ranking.jsonl": "4d864087be9ee5369bbd7eefb342c846cce14d555801a81fd7c9714d0434d7df",
+    "rejections.jsonl": "aa5dee70555ef3af4c0a9b80ffadbf68ce68501401760458c2002f47700fbc58",
+    "totals.jsonl": "3f35d46a46b7e07541f2e9ce7db1586624bb31002832fd136140f7f5712ae743"
   },
   "production_formula": "src.analytics.total_rasyo_score.compute_total_rasyo",
   "ranking_count": 163,

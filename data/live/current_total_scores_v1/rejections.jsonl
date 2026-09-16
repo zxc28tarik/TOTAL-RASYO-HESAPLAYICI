@@ -44,7 +44,7 @@
 {"good_count_missing": false, "missing_modules": ["M2"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ALKLC"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ALNUS"}
 {"good_count_missing": false, "missing_modules": ["M2"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ALTNY"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ALVES"}
+{"good_count_missing": false, "missing_modules": ["M2"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ALVES"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ANC"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ANELE"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ANGEN"}
@@ -67,7 +67,7 @@
 {"good_count_missing": false, "missing_modules": ["M2"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ATATR"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ATAVK"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ATAYM"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ATEKS"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ATEKS"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ATLAS"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ATLFA"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ATSYH"}
@@ -78,17 +78,17 @@
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "AVTUR"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "AYCES"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "AYDEM"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "AYES"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "AYES"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "AYTEM"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "AZTEK"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BAGFS"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "Ek1"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BAHKM"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BAKAB"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BALAT"}
+{"good_count_missing": true, "missing_modules": ["M2", "M1", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BALAT"}
 {"good_count_missing": false, "missing_modules": ["M2"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BALSU"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BANVT"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BARMA"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BASCM"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BARMA"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BASCM"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BASGZ"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BAYRK"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BEGYO"}
@@ -119,10 +119,10 @@
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BRGAN"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BRGFK"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BRISA"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BRKO"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BRKO"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BRKT"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BRKVY"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BRMEN"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BRMEN"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BRYAT"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BSOKE"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BTCIM"}
@@ -134,7 +134,7 @@
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "BYDNR"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CAGFA"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CANTE"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CASA"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CASA"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CELHA"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CEMAS"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CEMTS"}
@@ -144,7 +144,7 @@
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CLEBI"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CLKMT"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CMBTN"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CMENT"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CMENT"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CMSAN"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "COSMO"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "CRDFA"}
@@ -162,7 +162,7 @@
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "DGNMO"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "DGRVK"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "DIMES"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "DIRIT"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "DIRIT"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "DITAS"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "DKVRL"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "DKYVK"}
@@ -197,14 +197,14 @@
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EKER"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EKGYO"}
 {"good_count_missing": false, "missing_modules": ["M2", "M3", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EKIM"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EKIZ"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EKIZ"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EKOFA"}
 {"good_count_missing": false, "missing_modules": ["M2"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EKOS"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EKSUN"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EKTVK"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EMIRV"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EMKEL"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EMNIS"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EMNIS"}
 {"good_count_missing": false, "missing_modules": ["M2"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EMPAE"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "EMVAR"}
 {"good_count_missing": false, "missing_modules": ["M2"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ENDAE"}
@@ -305,7 +305,7 @@
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "INALR"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "INFO"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "INGRM"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "INTEK"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "INTEK"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "INTET"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "INVAZ"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "INVEO"}
@@ -337,7 +337,7 @@
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KATVK"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KAYSE"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KCHOL"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KENT"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KENT"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KERVN"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KFILO"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KGYO"}
@@ -371,7 +371,7 @@
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KRPLS"}
 {"good_count_missing": false, "missing_modules": ["Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KRTEK"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KSFIN"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KSTUR"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KSTUR"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KTKVK"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KTLEV"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "KTSKR"}
@@ -404,7 +404,7 @@
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "MDASM"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "MDIAZ"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "MDS"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "MEGAP"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "MEGAP"}
 {"good_count_missing": false, "missing_modules": ["M2"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "MEKAG"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "MEKMD"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "MERCN"}
@@ -450,7 +450,7 @@
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "OPET"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ORCAY"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ORFIN"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ORMA"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ORMA"}
 {"good_count_missing": false, "missing_modules": ["M2", "M3", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ORZAX"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "OSMEN"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "OSTIM"}
@@ -533,15 +533,15 @@
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SMRVA"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SNGYO"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SNICA"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SNPAM"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SODSN"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SNPAM"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SODSN"}
 {"good_count_missing": false, "missing_modules": ["M2", "M3", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SOHOE"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SOKE"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SOKM"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SONME"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SRVGY"}
 {"good_count_missing": false, "missing_modules": ["M2", "M3", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SSAAT"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SUMAS"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SUMAS"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SURGY"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SUWEN"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "SVGYO"}
@@ -623,7 +623,7 @@
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YATVK"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YAYLA"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YBQ"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YBTAS"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YBTAS"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YESIL"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YGGYO"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YKB"}
@@ -632,9 +632,9 @@
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YKFKT"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YKR"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YKYAT"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YONGA"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YONGA"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YYA"}
-{"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YYAPI"}
+{"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "YYAPI"}
 {"good_count_missing": false, "missing_modules": ["M2", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ZEDUR"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ZERGY"}
 {"good_count_missing": true, "missing_modules": ["M2", "M1", "M3", "Ek4", "Ek1", "Ek9"], "reason": "MISSING_CURRENT_COMPONENTS", "ticker": "ZGYO"}
