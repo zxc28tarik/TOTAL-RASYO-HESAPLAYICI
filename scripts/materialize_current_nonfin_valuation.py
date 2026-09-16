@@ -39,7 +39,7 @@ ARCHIVE_NAMES = (
 )
 DEFAULT_ARCHIVES = ROOT / "private/reconstructed_kap_archives"
 DEFAULT_BASIS = ROOT / "data/live/current_price_level_basis_v1"
-DEFAULT_ROUTES = ROOT / "data/backtest_sources/m3_source_package/sector_routes.csv.gz"
+DEFAULT_ROUTES = ROOT / "data/live/current_sector_routes_v1/sector_routes.csv.gz"
 DEFAULT_OUTPUT = ROOT / "data/live/current_nonfin_valuation_v1"
 DEFAULT_STOCK_PRICES = ROOT / "data/live/current_market_modules_v1/stock_prices.csv.gz"
 CONFIG = ROOT / "config/nonfin_valuation.kap_bulk_exact_v1.json"

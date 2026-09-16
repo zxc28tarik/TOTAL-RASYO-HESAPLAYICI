@@ -3197,7 +3197,7 @@
       "events_path": "events/HRKET.json",
       "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
       "manifest_path": "manifests/HRKET.json",
-      "manifest_sha256": "74c41d5d12b94342b75af48027d21cbb78fc6e44b5bb2d0e6d8e1dba55174e0b",
+      "manifest_sha256": "3ea23eb72419da9f86013d7374e6e75e3ae01a494df6269b67fb178eee29c2f7",
       "sources": [
         {
           "path": "sources/8acae2c48c3efabf018f632d8d082913.json",
@@ -4443,7 +4443,7 @@
       "events_path": "events/MEGMT.json",
       "events_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
       "manifest_path": "manifests/MEGMT.json",
-      "manifest_sha256": "cd3ba225ca356025d0b09f9a019377c1b2e75f536df8c0b7ba935355a176807d",
+      "manifest_sha256": "a1f0d299e6077d69c17b3e0e391c3b86e71397198c869fbe0e9416fac2837c75",
       "sources": [
         {
           "path": "sources/8acae2c5594ca644015964a5bef50e57.json",

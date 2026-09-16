@@ -1,5 +1,5 @@
 {
-  "completed_at": "2026-09-16T00:25:29.395478+00:00",
+  "completed_at": "2026-09-16T01:34:37.435370+00:00",
   "contract": "CURRENT_TOTAL_RASYO_RUN_V1",
   "database_available": false,
   "historical_pit_mixed_into_current": false,
@@ -18,62 +18,62 @@
   "receipts": {
     "core_modules": {
       "path": "data/live/current_core_modules_v1/receipt.json",
-      "sha256": "cc6496ce898a6352e4b7df1c222b6ac3806332357fab8eece45679a311414c70"
+      "sha256": "8c352bad4c1dfe3bd1273f13bdd26b6f9056a1587874ca895368c030b91f8737"
     },
     "ek9_gap_repair": {
       "path": "data/live/current_ek9_gap_repair_v1/receipt.json",
-      "sha256": "f966ac3b6cea24b2831979c133b75bfaee6fe5097a73c56e79435564c8447ca7"
+      "sha256": "348bc0782c007e2cd600bde76ef9cee5056d12acb1b27f989509f7164d9c4bbb"
     },
     "market_modules": {
       "path": "data/live/current_market_modules_v1/receipt.json",
-      "sha256": "c22320abd0d82796d0928a538bf5290898e4869ef886f2bf39510cab963817c4"
+      "sha256": "0cd5b70b115d6f930312e53c527d72ea9b5b65c04a5fa933272e0313e2d43380"
     },
     "nonfin_valuation": {
       "path": "data/live/current_nonfin_valuation_v1/receipt.json",
-      "sha256": "3d501c84d118a623c32c204a4f0b3ff2f24d3f5def266236e781c11cdb7000bb"
+      "sha256": "452d7ea2cb90e523553601cedaf04b152a2a4707c40eda0906c099f3e357d29f"
     },
     "price_level_basis": {
       "path": "data/live/current_price_level_basis_v1/receipt.json",
-      "sha256": "dee3f82364401ee9cf3d7b63d2aca990ad58b6bb1b2b7f6aaac03e72baf67bf5"
+      "sha256": "287caf2daafc433ee4b0ff1c92fdf727570ec91581236ff8d691a220f2af416f"
     },
     "prices": {
       "path": "data/live/current_raw_close_v1/receipt.json",
-      "sha256": "70638006c4d94fad7e6606bcfe316dea5eb4e1a6412e027a5e73fd5a08a9b3ea"
+      "sha256": "be8450525036271fcf432347f811c55ae647f827a86209e30e2620fb9c0d82ac"
     },
     "quote_unit": {
       "path": "data/live/current_quote_unit_v1/receipt.json",
-      "sha256": "dd5ccd112f14d29ab23826bbd48a8f7db00e065dc337a3fdb62cc72759c79cbf"
+      "sha256": "aefbedee757b60a83a06ef02702b5fefa3411526aa497130802d8fd0d94d991c"
     },
     "readiness": {
       "path": "data/live/current_total_rasyo_v1/receipt.json",
-      "sha256": "ca6abc061cef1366dc6879892d4a109ebe6fa415dc35e0c72200f18938655015"
+      "sha256": "f887ddb8409c226fa4181a2ee6afb09486277278991b34e10cc33682a005fa1c"
     },
     "shares": {
       "path": "data/live/current_share_basis_v1/receipt.json",
-      "sha256": "531e28e63414c9dcb7ca18521fb5dae8848a6ed758017abb0e7ded4abae427a8"
+      "sha256": "3c077b37954ffdd3a27ea4a2180cae2b9d3ec810ed6d2174c8379d794ac3398d"
     },
     "total_scores": {
       "path": "data/live/current_total_scores_v1/receipt.json",
-      "sha256": "31db979c63cfda515ac29c3ca1b023b5e4a67edccbc5b6921154db8c6181e0cf"
+      "sha256": "dbca3fa008f321aee7fb0d4c95f7331a139c56e55a1fa574f1a79f4fc34b8585"
     }
   },
   "run_date": "2026-09-14",
   "stage_counts": {
-    "at_least_4_modules": 131,
-    "at_least_5_modules": 73,
+    "at_least_4_modules": 138,
+    "at_least_5_modules": 81,
     "ek1": 131,
     "ek4": 146,
-    "ek9": 71,
+    "ek9": 131,
     "explicit_share_basis": 528,
     "m1": 131,
-    "m2": 67,
+    "m2": 72,
     "m3": 146,
     "market_cap": 195,
-    "nonfin_valuation": 118,
-    "ranking": 62,
+    "nonfin_valuation": 327,
+    "ranking": 68,
     "raw_close": 629,
-    "total_rasyo": 62,
+    "total_rasyo": 68,
     "universe": 807,
-    "usable_nonfin_valuation": 71
+    "usable_nonfin_valuation": 185
   }
 }

@@ -1,7 +1,7 @@
 {
-  "at_least_4_modules_count": 131,
-  "at_least_5_modules_count": 73,
-  "captured_at": "2026-09-16T00:09:51.896790+00:00",
+  "at_least_4_modules_count": 138,
+  "at_least_5_modules_count": 81,
+  "captured_at": "2026-09-16T01:07:40.121198+00:00",
   "contract": "LIVE_TOTAL_RASYO_INPUT_READINESS_V1",
   "current_core_modules_artifact": {
     "path": "data/live/current_core_modules_v1/modules.jsonl",
@@ -17,23 +17,23 @@
   },
   "current_market_cap_artifact": {
     "path": "data/live/current_price_level_basis_v1/market_caps.csv",
-    "sha256": "977675460f781e25b9835430ffa83382dcafa234658308025dbff9c7b4fb79d6"
+    "sha256": "d356def1c8cb4fc09afd7c3dec39949e1d23007ddb2fe7d17efce6b900a1005d"
   },
   "current_market_modules_artifact": {
     "path": "data/live/current_market_modules_v1/modules.csv",
-    "sha256": "559b7efe14494df0cf3b6885991efc72cfd85912654584546b385de671583da5"
+    "sha256": "27d3a1233216ee4e0ba58a86697f4c8f4ff85ca89777918aac04d087defcb8c9"
   },
   "current_raw_close_artifact": {
     "path": "data/live/current_raw_close_v1/raw_close.csv.gz",
-    "sha256": "f1cf8c0154316e80e21cf049d47ec494913bf721b93fba4cb883864d70794ea9"
+    "sha256": "2d2d75d63f88f3e7a3abd9c9ca5d55f400edb88a95257a2a0a20b1f853cacea8"
   },
   "current_share_basis_artifact": {
     "path": "data/live/current_share_basis_v1/ticker_share_basis.jsonl.gz",
-    "sha256": "13664f8edd40869722bacf44723220d69778c7c116babadc45f2450b5f9fd606"
+    "sha256": "210c457952ab63cbaf455f3ac3ebbc06b550b26fac8467c772d8e8747ff144b4"
   },
   "current_total_scores_receipt": {
     "path": "data/live/current_total_scores_v1/receipt.json",
-    "sha256": "31db979c63cfda515ac29c3ca1b023b5e4a67edccbc5b6921154db8c6181e0cf"
+    "sha256": "dbca3fa008f321aee7fb0d4c95f7331a139c56e55a1fa574f1a79f4fc34b8585"
   },
   "database_available": false,
   "explicit_rejection_count": 807,
@@ -56,24 +56,24 @@
     "INSURANCE": 12
   },
   "historical_p5_authorized": false,
-  "market_cap_ready_count": 195,
+  "market_cap_ready_count": 500,
   "mode": "CURRENT_LIVE_SEPARATE_FROM_HISTORICAL_PIT",
   "module_coverage": {
-    "Ek1": 131,
-    "Ek4": 146,
-    "Ek9": 71,
-    "M1": 131,
-    "M2": 67,
-    "M3": 146
+    "Ek1": 138,
+    "Ek4": 428,
+    "Ek9": 131,
+    "M1": 138,
+    "M2": 72,
+    "M3": 416
   },
   "neutral_score_injection": false,
   "outputs": {
-    "rejections.jsonl": "1760625959869e1d5ef9a857baaf087f3ceba6d283ccf9f8fa364ba8447bb41f",
+    "rejections.jsonl": "1c2224bbb2a125332b53ea4a585cbb3c26e9fa13fd909ae908d8f3ea594f07be",
     "universe.csv": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1",
-    "universe.csv.meta.json": "10d30d93e80c6c1e3db68be3415589ba3185ede345f4c111525f0274843f023a"
+    "universe.csv.meta.json": "5654c2e5b76a6753d88192e132d7aef305b4ab47c3daec7d234d5d986cf8274e"
   },
   "price_and_share_ready_count": 528,
-  "ranking_count": 62,
+  "ranking_count": 68,
   "raw_close_count": 629,
   "share_capture_summary": {
     "capture_scope": "ONLINE_INCREMENTAL_CAPTURE",
@@ -81,7 +81,7 @@
       "CAPTURE_EMPTY": 133,
       "CAPTURE_SUCCESS": 623
     },
-    "issuer_attempted_count": 0,
+    "issuer_attempted_count": 756,
     "issuer_fetch_failure_count": 0,
     "issuer_fetch_success_count": 756,
     "issuer_not_attempted_count": 0,
@@ -95,24 +95,24 @@
   },
   "silent_drop_count": 0,
   "summary_refresh_scope": "CURRENT_MODULE_AND_TOTAL_ARTIFACTS_NON_MODULE_EVIDENCE_PRESERVED",
-  "summary_refreshed_at": "2026-09-16T00:25:29.394547+00:00",
+  "summary_refreshed_at": "2026-09-16T01:34:37.434530+00:00",
   "top_readiness_rejection_reasons": {
-    "CURRENT_EK1_NOT_MATERIALIZED": 676,
-    "CURRENT_EK4_NOT_MATERIALIZED": 661,
-    "CURRENT_EK9_NOT_MATERIALIZED": 736,
+    "CURRENT_EK1_NOT_MATERIALIZED": 669,
+    "CURRENT_EK4_NOT_MATERIALIZED": 379,
+    "CURRENT_EK9_NOT_MATERIALIZED": 676,
     "CURRENT_EXPLICIT_SHARE_BASIS_NOT_CAPTURED": 279,
     "CURRENT_FINANCIAL_ENTITY_UNBOUND": 42,
     "CURRENT_GYO_NAV_NOT_MATERIALIZED": 52,
     "CURRENT_HOLDING_NAV_NOT_MATERIALIZED": 57,
-    "CURRENT_M1_NOT_MATERIALIZED": 676,
-    "CURRENT_M2_NOT_MATERIALIZED": 740,
-    "CURRENT_M3_NOT_MATERIALIZED": 661,
-    "CURRENT_PRICE_LEVEL_MARKET_CAP_NOT_MATERIALIZED": 612,
+    "CURRENT_M1_NOT_MATERIALIZED": 669,
+    "CURRENT_M2_NOT_MATERIALIZED": 735,
+    "CURRENT_M3_NOT_MATERIALIZED": 391,
+    "CURRENT_PRICE_LEVEL_MARKET_CAP_NOT_MATERIALIZED": 307,
     "CURRENT_RAW_CLOSE_NOT_CAPTURED": 178,
     "GENERAL_SCHEMA_NOT_ECONOMIC_NONFIN_PROOF": 540,
     "PERSISTENCE_DATABASE_NOT_CONFIGURED": 807
   },
-  "total_rasyo_count": 62,
+  "total_rasyo_count": 68,
   "universe_count": 807,
   "universe_fetch_error": null,
   "universe_source_mode": "LIVE_KAP_FETCH"

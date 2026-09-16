@@ -1,6 +1,6 @@
 {
   "capture_scope": "ONLINE_INCREMENTAL_CAPTURE",
-  "captured_at": "2026-09-16T00:19:32.446996+00:00",
+  "captured_at": "2026-09-16T01:07:40.872580+00:00",
   "contract": "CURRENT_KAP_EXPLICIT_SHARE_BASIS_V1",
   "disposition_counts": {
     "CAPTURE_EMPTY": 133,
@@ -8,16 +8,16 @@
   },
   "economic_rule": "SUM(class_nominal_value / explicit_class_nominal_value_per_share)",
   "issued_capital_over_assumed_nominal_allowed": false,
-  "issuer_attempted_count": 756,
+  "issuer_attempted_count": 0,
   "issuer_fetch_failure_count": 0,
   "issuer_fetch_success_count": 756,
   "issuer_not_attempted_count": 0,
   "multi_ticker_issuer_single_price_market_cap_allowed": false,
   "outputs": {
     "bist_member_roster.html.gz": "dbf3d76f8f4e80292a607e12f574a05997c05200d0a357a284b6a44e66bc9d73",
-    "issuer_dispositions.jsonl.gz": "4d17528844811206af4a7c4b2aa09d531b4cfc6de3e45b32f815047421261b31",
+    "issuer_dispositions.jsonl.gz": "9618e122f31c4de7be8a19844ff253ab0c3f4dcda2629f99dcf42491d039e4d6",
     "issuer_responses.jsonl.gz": "d517199ee32b758734ff64162c39877d65a9c0c4878a06becfc3ca35ab64456e",
-    "ticker_share_basis.jsonl.gz": "210c457952ab63cbaf455f3ac3ebbc06b550b26fac8467c772d8e8747ff144b4"
+    "ticker_share_basis.jsonl.gz": "38f7c5e8da856188e0a8dd48794c722931041472e683db6d4432c78c126fcfaf"
   },
   "roster_matched_ticker_count": 806,
   "source_http_date_max": "Wed, 16 Sep 2026 00:19:32 GMT",

@@ -24,7 +24,7 @@ from src.analytics.historical_pit_m3_replay import run_historical_pit_m3_replay
 
 CONTRACT = "CURRENT_MARKET_M3_EK4_EK9_V1"
 OUTPUT = ROOT / "data/live/current_market_modules_v1"
-ROUTES = ROOT / "data/backtest_sources/m3_source_package/sector_routes.csv.gz"
+ROUTES = ROOT / "data/live/current_sector_routes_v1/sector_routes.csv.gz"
 INDEX_SYMBOLS = {"XU100": "XU100.IS", "XUSIN": "XUSIN.IS", "XUHIZ": "XUHIZ.IS", "XUTEK": "XUTEK.IS"}
 NONFIN_INDICES = frozenset({"XUSIN", "XUHIZ", "XUTEK"})
 

@@ -1,32 +1,32 @@
 {
   "contract": "CURRENT_TOTAL_RASYO_MATERIALIZATION_V1",
-  "explicit_rejection_count": 745,
+  "explicit_rejection_count": 739,
   "inputs": {
-    "m2.jsonl": "1eb33e68acdaa6cdfb07c3383f4fbd67c4affe3d5f86e92f4325fb43e8b48a0c",
-    "modules.csv": "559b7efe14494df0cf3b6885991efc72cfd85912654584546b385de671583da5",
-    "modules.jsonl": "e5ab3ff1cddf7be5230c4fbda8915f5b15991c950afdce54473701d78695f063",
+    "m2.jsonl": "f2baa98a134d5ad13343d852bd3a38bcdf62f6d3575790deb47b6da922ec235d",
+    "modules.csv": "27d3a1233216ee4e0ba58a86697f4c8f4ff85ca89777918aac04d087defcb8c9",
+    "modules.jsonl": "8c308d3ff5661a0a3adca8c4cb7c4f55dbdca9d9a2d7575f1c34f5a0f7af0b1f",
     "universe.csv": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1"
   },
-  "m2_input_count": 67,
-  "materialized_at": "2026-09-16T00:25:29.362079+00:00",
+  "m2_input_count": 72,
+  "materialized_at": "2026-09-16T01:34:37.405213+00:00",
   "missing_module_counts": {
-    "Ek1": 676,
-    "Ek4": 661,
-    "Ek9": 736,
-    "M1": 676,
-    "M2": 740,
-    "M3": 661
+    "Ek1": 669,
+    "Ek4": 379,
+    "Ek9": 676,
+    "M1": 669,
+    "M2": 735,
+    "M3": 391
   },
   "neutral_fill": false,
   "outputs": {
-    "ranking.jsonl": "ceb05a3ca815714f455898a12815beb2eba070c034eda7c60c63af7ef9058a2e",
-    "rejections.jsonl": "1389eec7726322a319bbc505319cfa9a44b9765bc08cdc5335de3203f1ad6983",
-    "totals.jsonl": "78903a8cc74465b5db76b73ab4498696203ce349537d0f59bb7e04e6bb07ac0d"
+    "ranking.jsonl": "e3012e089ac1c0a4e96886878a0d80e26e0a82f41d906009ef2a284888e856a5",
+    "rejections.jsonl": "2e2cbf4ecd4e1b545829f279afad251ef2ccc64d83c4eb94920c5cd1e281817a",
+    "totals.jsonl": "f97eacfe7d8f64abdd1021e26dfdca9c047b07d110e0ce0f61b08c045e4bde56"
   },
   "production_formula": "src.analytics.total_rasyo_score.compute_total_rasyo",
-  "ranking_count": 62,
+  "ranking_count": 68,
   "ranking_order": "final_score DESC, ticker ASC",
-  "total_valid_count": 62,
+  "total_valid_count": 68,
   "universe_count": 807,
   "weight_redistribution": false
 }
