@@ -33,6 +33,26 @@ def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def stock_bulk_frontier_date(stock_rows: list[dict]) -> date:
+    """The trade_date most tickers' own bulk series last reach.
+
+    Yahoo's daily bars for the whole universe advance together, roughly one
+    session behind the official index feed. Using the mode of each ticker's
+    own latest available date (rather than the single latest date anyone
+    reaches) avoids picking a day only a handful of early-updated tickers
+    have, which would otherwise reject the rest of the universe with
+    STOCK_WINDOW_PRICE_MISSING.
+    """
+    per_ticker_last: dict[str, date] = {}
+    for row in stock_rows:
+        current = per_ticker_last.get(row["ticker"])
+        if current is None or row["trade_date"] > current:
+            per_ticker_last[row["ticker"]] = row["trade_date"]
+    if not per_ticker_last:
+        raise ValueError("current Yahoo bulk stock series missing")
+    return Counter(per_ticker_last.values()).most_common(1)[0][0]
+
+
 def materialize(*, cutoff: date, output_dir: Path = OUTPUT, routes_path: Path = ROUTES) -> dict:
     routes = pd.read_csv(routes_path, dtype=str)
     routes["valid_from"] = pd.to_datetime(routes.valid_from)
@@ -117,9 +137,19 @@ def materialize(*, cutoff: date, output_dir: Path = OUTPUT, routes_path: Path = 
     missing_indices = sorted(set(INDEX_SYMBOLS) - set(latest))
     if missing_indices:
         raise ValueError(f"current Yahoo index series missing: {missing_indices}")
-    market_asof = min(latest.values())
+    # Borsa's own index feed often already carries today's close while Yahoo's
+    # per-stock daily bars still lag a session behind; capping market_asof to
+    # the index feed alone would open an analysis window whose end date almost
+    # no stock in `stocks` actually has, rejecting the entire universe with
+    # STOCK_WINDOW_PRICE_MISSING. Cap it at the day most tickers' own bulk
+    # series actually reach, so the window lands on real, broadly-available data.
+    stock_bulk_frontier = stock_bulk_frontier_date(stock_rows)
+    market_asof = min([*latest.values(), stock_bulk_frontier])
     calendar = pd.DataFrame({
-        "trade_date": sorted(indices.loc[indices.index_code.eq("XU100"), "trade_date"].unique())
+        "trade_date": sorted(
+            day for day in indices.loc[indices.index_code.eq("XU100"), "trade_date"].unique()
+            if day <= market_asof
+        )
     })
     stocks = stocks.loc[stocks.trade_date.isin(set(calendar.trade_date))].copy()
     indices = indices.loc[indices.trade_date.isin(set(calendar.trade_date))].copy()
@@ -153,7 +183,9 @@ def materialize(*, cutoff: date, output_dir: Path = OUTPUT, routes_path: Path = 
     ), encoding="utf-8")
     receipt = {
         "contract": CONTRACT, "captured_at": analysis.isoformat(), "cutoff_date": cutoff.isoformat(),
-        "market_asof_date": market_asof.isoformat(), "universe_count": len(tickers),
+        "market_asof_date": market_asof.isoformat(),
+        "index_feed_latest_dates": {code: value.isoformat() for code, value in latest.items()},
+        "stock_bulk_frontier_date": stock_bulk_frontier.isoformat(), "universe_count": len(tickers),
         "stock_price_row_count": len(stocks), "index_price_row_count": len(indices),
         "m3_valid_count": int(modules.m3.notna().sum()),
         "ek4_valid_count": int(modules.ek4.notna().sum()),
