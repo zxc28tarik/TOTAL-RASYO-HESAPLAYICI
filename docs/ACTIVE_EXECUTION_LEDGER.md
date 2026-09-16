@@ -23,14 +23,66 @@ birlikte güncellenir.
   da başarılıdır. Yeni bir çalışma head'i oluştuğunda panoda ayrıca
   `current_head` ve `last_ci_pass_head` tutulur; bu iki değer farklıysa durum
   `CI_PENDING` kabul edilir.
-- Aktif canlı/current sonuç: 49 kullanılabilir NONFIN valuation, 48 FOLLOW,
-  48 gerçek M2, 11 Ek9, 2 Total/ranking (`RGYAS`, `TABGD`) ve 805 açık ret.
-- Tarihsel PIT M2 hâlâ 0'dır. Canlı 48 M2 ile tarihsel sonuçlar aynı başarı
+- Aktif canlı/current sonuç (2026-09-16 tam yeniden çekim, bkz. §1.2):
+  185 kullanılabilir NONFIN valuation, 72 FOLLOW, 72 gerçek M2, 138 M1/Ek1,
+  416 M3, 428 Ek4, 131 Ek9, **68 Total/ranking** ve 739 açık ret.
+  Önceki 49/48/48/11/2/805 anlık görüntüsü `bd8d2b5` commit'inde dondurulmuş
+  durumda ve W1/W2 denetimleri artık canlı ağacı değil o commit'i doğruluyor.
+- Tarihsel PIT M2 hâlâ 0'dır. Canlı 72 M2 ile tarihsel sonuçlar aynı başarı
   sayacı altında birleştirilemez.
 
 `e55d1df` sabit bir çalışma tabanı değil, doğrulanmış başlangıç referansıdır.
 Her yeni çalışma önce `git fetch` yapar. Uzak dal ilerideyse mevcut işi
 ezmeden en güncel doğrulanmış head'den devam eder.
+
+### 1.2 Canlı kapsam 2 → 68 (2026-09-16): dört veri tıkanıklığı açıldı
+
+Kullanıcı talimatı: tüm BIST için güncel Total Rasyo üret. Dört ayrı kök
+neden bulundu ve çözüldü; **hiçbiri eşik gevşeterek değil**. Ağırlıklar, veto,
+peer/coverage eşikleri ve evren değişmedi; nötr doldurma ve ağırlık yeniden
+dağıtımı yok.
+
+1. **Piyasa penceresi** — Borsa'nın resmî endeks akışı bugünün kapanışını
+   yayımlarken Yahoo'nun hisse barları bir seans geride. `market_asof` yalnız
+   endeks akışından alınınca pencerenin bitiş günü hiçbir hissede olmuyor ve
+   tüm evren `STOCK_WINDOW_PRICE_MISSING` ile reddediliyordu (M3/Ek4/Ek9 = 0).
+   Artık hisselerin çoğunun gerçekten ulaştığı günle de sınırlanıyor.
+2. **Bayat KAP pay önbelleği** — `capture_current_kap_share_basis` yalnız
+   önbellekte olmayan ihraççıyı çekiyor; 756 kaydın 440'ı 8 Eylül'de kalmıştı.
+   Üretim, fiyattan eski pay kanıtıyla piyasa değeri kurmayı doğru şekilde
+   reddediyordu (`KAP_CURRENT_SNAPSHOT_PREDATES_PRICE`, 305 ret). Tam
+   tazeleme: piyasa değeri 195 → 500.
+3. **Yahoo'nun 2026-09-07 boşluğu** — o gün 12 hisse dışında hiçbirinde bar
+   yok; Ek9 ise 64 pencere gününün hepsini istiyor. Tek satıcı boşluğu Ek9'u
+   12'de tutarken M3/Ek4 146'daydı. `repair_current_ek9_gaps` gerçek kaynaktan
+   doldurdu; her satır tüm örtüşen Yahoo penceresine tek fiyat temeliyle
+   doğrulanıyor, uyuşmayan reddediliyor. Ek9 → 131.
+4. **Eksik route tablosu** — M3/Ek4 sektör endeksi olmadan skor veremez.
+   Tabloda 209 ticker vardı; KAP'ın kendi endeks sayfası XUSIN/XUHIZ/XUTEK/
+   XUMAL için **583 üye** listeliyor ve hepsi 807'lik evrende. Mevcut 209'un
+   202'si resmî listeyle birebir uyumlu, **0 çelişki**; kalan 7'si eski ticker
+   kodu. Yani dar bir endeks tanımı değil, eksik çıkarım.
+   `capture_current_sector_routes` eksik 381 üyeyi ekledi (tarihsel
+   `m3_source_package` hash'ine dokunulmadı). M3 → 416, Ek4 → 428.
+
+**Kalan sınır artık veri değil, motor eşiği.** CORE, route'lanan 438
+ticker'ın 300'ünü reddediyor; bunların 261'i aile/peer derinliği gerekçesiyle
+ve 300'ün 290'ının KAP raporu **mevcut**. M2, 185 kullanılabilir
+valuation'dan 72'sini materyalize ediyor. Total altı modülün hepsini
+istediğinden tavan bu ikisiyle belirleniyor. Bu eşikler §2 gereği ayrı ve
+açık bir yönetişim kararı olmadan değiştirilemez; bu iş kapsamında
+değiştirilmedi.
+
+**Yan bulgu — donmuş denetimler canlı hattı kilitliyordu.** W1 ve W2, canlı
+artifact'ları hash'e bağlayarak `data/live` dizinini fiilen dondurmuştu: ilk
+gerçek yeniden çekim ikisini de kırdı (W2 954 dosya, W1 12 dosya). Aynı
+baytlar Git'te değişmez olduğundan her ikisinin dondurulmuş tarafı
+`bd8d2b5` commit'ine sabitlendi. Doğru commit olduğu W2'nin kendi kanıtıyla
+gösterildi: sabitlediği 8 dosyanın tamamı eşleşiyor, provenance
+baseline'ından sapan 6 dosya da tam olarak W2'nin düzelttiğini beyan ettiği
+dosyalar. Her iki denetimin iddiaları birebir korundu (W2: 131 core / 11 Ek9
+/ 48 M2 / 805 ret / 2 Total, RGYAS 46,6021011290 · TABGD 43,9061751217;
+W1: Ek9 11 geçerli / 140 ret, Total 2/807).
 
 ### 1.1 Kullanıcı kararı (2026-09-15): tarihsel PIT M2 boşluğu, canlı sistemi bloklamaz
 
