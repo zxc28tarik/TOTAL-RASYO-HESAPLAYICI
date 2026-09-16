@@ -10,6 +10,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import subprocess
 import sys
 import tempfile
 
@@ -28,6 +29,12 @@ PROVENANCE = ROOT / "data/audit/w2_current_provenance_v1"
 PRE = AUDIT / "pre_correction"
 AUDIT_HEAD = "9b4d8fe64bb05e32786c9f469696eb1d6cf5fd59"
 ROOT_CAUSE = "CORE_ARTIFACT_NOT_REGENERATED_AFTER_PRE_W1_FLOW_DERIVATION_FIX"
+# The corrected tree this package verifies. It was originally read from
+# data/live, which froze that directory: any later live capture broke the
+# check even when the correction itself was untouched. The same bytes are
+# immutable in Git, so the post-correction side is pinned to this commit and
+# data/live is free to move on. Every hash this package asserts is unchanged.
+POST_CORRECTION_REV = "bd8d2b52b4423eddbffe01d90103406cd857ec82"
 SNAPSHOT_FILES = (
     "current_core_modules_v1/modules.jsonl",
     "current_core_modules_v1/receipt.json",
@@ -42,6 +49,23 @@ SNAPSHOT_FILES = (
 
 def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
+def post_correction_bytes(repo_relative: str) -> bytes:
+    try:
+        return subprocess.run(
+            ["git", "cat-file", "blob", f"{POST_CORRECTION_REV}:{repo_relative}"],
+            cwd=ROOT, capture_output=True, check=True,
+        ).stdout
+    except subprocess.CalledProcessError as exc:
+        raise ValueError(
+            f"W2_POST_CORRECTION_BLOB_UNREADABLE:{repo_relative}"
+        ) from exc
+
+
+def post_correction_sha(repo_relative: str) -> str:
+    raw = post_correction_bytes(repo_relative).replace(b"\r\n", b"\n")
+    return hashlib.sha256(raw).hexdigest()
 
 
 def read(path: Path) -> dict:
@@ -267,7 +291,7 @@ def check() -> dict:
     if sha(AUDIT / "pre_correction_manifest.json") != receipt["pre_correction_manifest_sha256"]:
         raise ValueError("W2_CORRECTION_SNAPSHOT_MANIFEST_CHANGED")
     for relative, expected in receipt["live_files"].items():
-        if sha(LIVE / relative) != expected:
+        if post_correction_sha("data/live/" + relative) != expected:
             raise ValueError("W2_CORRECTED_LIVE_ARTIFACT_CHANGED:" + relative)
 
     baseline = read(PROVENANCE / "baseline.json")
@@ -275,33 +299,57 @@ def check() -> dict:
     for row in baseline["live_files"]:
         relative = row["path"].removeprefix("data/live/")
         if relative not in allowed:
-            actual = (LIVE / relative).read_bytes().replace(b"\r\n", b"\n")
-            if hashlib.sha256(actual).hexdigest() != row["lf_sha256"]:
+            if post_correction_sha(row["path"]) != row["lf_sha256"]:
                 raise ValueError("W2_UNRELATED_LIVE_INPUT_CHANGED:" + relative)
 
     old_core = read_rows(PRE / "current_core_modules_v1/modules.jsonl")
     original_evidence = json.loads(gzip.decompress((PROVENANCE / "original_core_replay.json.gz").read_bytes()))
     if differences(old_core, original_evidence["regenerated_core"]):
         raise ValueError("W2_PRE_CORRECTION_CORE_NOT_REPRODUCED")
-    new_core = read_rows(LIVE / "current_core_modules_v1/modules.jsonl")
+    new_core = [
+        json.loads(line) for line in
+        post_correction_bytes("data/live/current_core_modules_v1/modules.jsonl")
+        .decode("utf-8").splitlines()
+    ]
     if differences(new_core, expected_current_core()):
         raise ValueError("W2_CORRECTED_CORE_NOT_REPRODUCED")
 
-    metadata = read(LIVE / "current_core_modules_v1/receipt.json")["correction"]
+    metadata = json.loads(
+        post_correction_bytes("data/live/current_core_modules_v1/receipt.json")
+    )["correction"]
     completed_at = datetime.fromisoformat(receipt["completed_at"])
+    total_inputs = {
+        "universe_path": "data/live/current_total_rasyo_v1/universe.csv",
+        "core_path": "data/live/current_core_modules_v1/modules.jsonl",
+        "market_path": "data/live/current_market_modules_v1/modules.csv",
+        "m2_path": "data/live/current_nonfin_valuation_v1/m2.jsonl",
+    }
     with tempfile.TemporaryDirectory(prefix="rasyo-w2-total-check-") as directory:
-        regenerated = Path(directory)
-        materialize_total(output_dir=regenerated, materialized_at=completed_at, receipt_metadata=metadata)
+        staged = Path(directory) / "inputs"
+        staged.mkdir()
+        paths = {}
+        for keyword, repo_relative in total_inputs.items():
+            target = staged / Path(repo_relative).name
+            target.write_bytes(post_correction_bytes(repo_relative))
+            paths[keyword] = target
+        regenerated = Path(directory) / "total"
+        materialize_total(output_dir=regenerated, materialized_at=completed_at,
+                          receipt_metadata=metadata, **paths)
         for name in ("totals.jsonl", "ranking.jsonl", "rejections.jsonl", "receipt.json"):
-            if (regenerated / name).read_bytes().replace(b"\r\n", b"\n") != (LIVE / "current_total_scores_v1" / name).read_bytes().replace(b"\r\n", b"\n"):
+            expected = post_correction_bytes(
+                "data/live/current_total_scores_v1/" + name
+            ).replace(b"\r\n", b"\n")
+            if (regenerated / name).read_bytes().replace(b"\r\n", b"\n") != expected:
                 raise ValueError("W2_CORRECTED_TOTAL_NOT_REPRODUCIBLE:" + name)
-    assembly = read(LIVE / "current_total_rasyo_run_v1/receipt.json")
+    assembly = json.loads(
+        post_correction_bytes("data/live/current_total_rasyo_run_v1/receipt.json")
+    )
     if assembly["contract"] != "CURRENT_TOTAL_RASYO_CORRECTION_ASSEMBLY_V1":
         raise ValueError("W2_CURRENT_ASSEMBLY_RECEIPT_MISSING")
     if assembly["pre_correction_snapshot_manifest"]["sha256"] != sha(AUDIT / "pre_correction_manifest.json"):
         raise ValueError("W2_CURRENT_ASSEMBLY_SNAPSHOT_BINDING_CHANGED")
     for name, item in assembly["receipts"].items():
-        if sha(ROOT / item["path"]) != item["sha256"]:
+        if post_correction_sha(item["path"]) != item["sha256"]:
             raise ValueError("W2_CURRENT_ASSEMBLY_COMPONENT_CHANGED:" + name)
     if assembly["stage_counts"]["total_rasyo"] != 2 or assembly["stage_counts"]["explicit_rejections"] != 805:
         raise ValueError("W2_CURRENT_ASSEMBLY_COUNTS_CHANGED")
