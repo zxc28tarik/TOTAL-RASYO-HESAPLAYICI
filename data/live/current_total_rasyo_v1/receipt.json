@@ -21,7 +21,7 @@
   },
   "current_market_modules_artifact": {
     "path": "data/live/current_market_modules_v1/modules.csv",
-    "sha256": "2d4e62dee3dc78f5b40c4c0e5434c02942cd51ca030c9e0655b7bae54469ed51"
+    "sha256": "0357f6d04a41d578bc674202859fee37a115d6d78495deee410201dc230413a4"
   },
   "current_raw_close_artifact": {
     "path": "data/live/current_raw_close_v1/raw_close.csv.gz",
@@ -33,7 +33,7 @@
   },
   "current_total_scores_receipt": {
     "path": "data/live/current_total_scores_v1/receipt.json",
-    "sha256": "d83746a98f58be022b997ed41fbeb7c9ea7d2e6937ca0fd5f883a1fea8cecd52"
+    "sha256": "89411325f63a835ad5c3c70a2d20d3f271387158ccb0b02e8559298bf4d76eb9"
   },
   "database_available": false,
   "explicit_rejection_count": 807,
@@ -61,19 +61,19 @@
   "module_coverage": {
     "Ek1": 399,
     "Ek4": 429,
-    "Ek9": 176,
+    "Ek9": 209,
     "M1": 399,
     "M2": 173,
     "M3": 416
   },
   "neutral_score_injection": false,
   "outputs": {
-    "rejections.jsonl": "bad74953a0a147cee43e1b6206c5bef2b5f6fd7b73e6c3b1869302d95a9e7cbc",
+    "rejections.jsonl": "6a5ebab2eaf5e0130c68fe22301be0d048d50c4e52e9d7ea4b03856119250ecf",
     "universe.csv": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1",
     "universe.csv.meta.json": "5654c2e5b76a6753d88192e132d7aef305b4ab47c3daec7d234d5d986cf8274e"
   },
   "price_and_share_ready_count": 528,
-  "ranking_count": 130,
+  "ranking_count": 163,
   "raw_close_count": 629,
   "share_capture_summary": {
     "capture_scope": "ONLINE_INCREMENTAL_CAPTURE",
@@ -95,11 +95,11 @@
   },
   "silent_drop_count": 0,
   "summary_refresh_scope": "CURRENT_MODULE_AND_TOTAL_ARTIFACTS_NON_MODULE_EVIDENCE_PRESERVED",
-  "summary_refreshed_at": "2026-09-16T18:19:51.158387+00:00",
+  "summary_refreshed_at": "2026-09-16T18:55:57.385898+00:00",
   "top_readiness_rejection_reasons": {
     "CURRENT_EK1_NOT_MATERIALIZED": 408,
     "CURRENT_EK4_NOT_MATERIALIZED": 378,
-    "CURRENT_EK9_NOT_MATERIALIZED": 631,
+    "CURRENT_EK9_NOT_MATERIALIZED": 598,
     "CURRENT_EXPLICIT_SHARE_BASIS_NOT_CAPTURED": 279,
     "CURRENT_FINANCIAL_ENTITY_UNBOUND": 42,
     "CURRENT_GYO_NAV_NOT_MATERIALIZED": 52,
@@ -112,7 +112,7 @@
     "GENERAL_SCHEMA_NOT_ECONOMIC_NONFIN_PROOF": 540,
     "PERSISTENCE_DATABASE_NOT_CONFIGURED": 807
   },
-  "total_rasyo_count": 130,
+  "total_rasyo_count": 163,
   "universe_count": 807,
   "universe_fetch_error": null,
   "universe_source_mode": "LIVE_KAP_FETCH"

@@ -1,5 +1,5 @@
 {
-  "completed_at": "2026-09-16T18:19:51.160424+00:00",
+  "completed_at": "2026-09-16T18:55:57.387906+00:00",
   "contract": "CURRENT_TOTAL_RASYO_RUN_V1",
   "database_available": false,
   "historical_pit_mixed_into_current": false,
@@ -22,11 +22,11 @@
     },
     "ek9_gap_repair": {
       "path": "data/live/current_ek9_gap_repair_v1/receipt.json",
-      "sha256": "19c361c1293436b2e065904c91aeeb932413530a3b74f415f52261d6e7db4ac0"
+      "sha256": "d4d1166321df8540102e1c00c4ca25b6c446584d56907c98ca7c0f64d44180a7"
     },
     "market_modules": {
       "path": "data/live/current_market_modules_v1/receipt.json",
-      "sha256": "7cdeee63a35b09899b0af61445a88c7e7f9b270ddef92cf1e358ab25423d1b18"
+      "sha256": "d1f20cf8069eee8fbce409456395f63f737cf95f072ffbd065f62c7e4409211d"
     },
     "nonfin_valuation": {
       "path": "data/live/current_nonfin_valuation_v1/receipt.json",
@@ -46,7 +46,7 @@
     },
     "readiness": {
       "path": "data/live/current_total_rasyo_v1/receipt.json",
-      "sha256": "530fbce0f6560b07ee4942888f5274bbb4b47b0225f7c32bcf94c0050ef74e50"
+      "sha256": "8b5fb988035855f8fef35a380d3b0e4ae634685342e2981af4fee8e0fe4ac9a5"
     },
     "shares": {
       "path": "data/live/current_share_basis_v1/receipt.json",
@@ -54,7 +54,7 @@
     },
     "total_scores": {
       "path": "data/live/current_total_scores_v1/receipt.json",
-      "sha256": "d83746a98f58be022b997ed41fbeb7c9ea7d2e6937ca0fd5f883a1fea8cecd52"
+      "sha256": "89411325f63a835ad5c3c70a2d20d3f271387158ccb0b02e8559298bf4d76eb9"
     }
   },
   "run_date": "2026-09-14",
@@ -63,16 +63,16 @@
     "at_least_5_modules": 209,
     "ek1": 131,
     "ek4": 146,
-    "ek9": 176,
+    "ek9": 209,
     "explicit_share_basis": 528,
     "m1": 131,
     "m2": 173,
     "m3": 146,
     "market_cap": 195,
     "nonfin_valuation": 327,
-    "ranking": 130,
+    "ranking": 163,
     "raw_close": 629,
-    "total_rasyo": 130,
+    "total_rasyo": 163,
     "universe": 807,
     "usable_nonfin_valuation": 185
   }

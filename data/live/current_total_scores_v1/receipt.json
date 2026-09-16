@@ -1,32 +1,32 @@
 {
   "contract": "CURRENT_TOTAL_RASYO_MATERIALIZATION_V1",
-  "explicit_rejection_count": 677,
+  "explicit_rejection_count": 644,
   "inputs": {
     "m2.jsonl": "6a6f8b06143b417102c1f50ac32929f35ba55469a2bc5e1257977669e656c38e",
-    "modules.csv": "2d4e62dee3dc78f5b40c4c0e5434c02942cd51ca030c9e0655b7bae54469ed51",
+    "modules.csv": "0357f6d04a41d578bc674202859fee37a115d6d78495deee410201dc230413a4",
     "modules.jsonl": "b26795124545d836e31e0e70e7eab07914890d84136b5323fc23a1eb624281b4",
     "universe.csv": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1"
   },
   "m2_input_count": 173,
-  "materialized_at": "2026-09-16T18:19:51.008220+00:00",
+  "materialized_at": "2026-09-16T18:55:57.337775+00:00",
   "missing_module_counts": {
     "Ek1": 408,
     "Ek4": 378,
-    "Ek9": 631,
+    "Ek9": 598,
     "M1": 408,
     "M2": 634,
     "M3": 391
   },
   "neutral_fill": false,
   "outputs": {
-    "ranking.jsonl": "29e63669776d15498c557fe367a0aa3af0631244f4def2ae619f1e4de7ee21be",
-    "rejections.jsonl": "47962bc54628bf625ab80b6733c5b8ed0799a921377057b399af4ab53ea1c065",
-    "totals.jsonl": "9c0562cf4939bb04fe8719ec0c8ae34e94eee05abfffb98a5f355d3b76d1e5ff"
+    "ranking.jsonl": "cddd9121a55a1db463519247e092d96a80bdbd2f628a7fd9ffb401486ec7bdd3",
+    "rejections.jsonl": "566b15027863d5b3fcce2086c8d257605e1b8ae82c01577120bc839fff7d5904",
+    "totals.jsonl": "c63d59bf477e2aa95253b792c6b36778fc066a2cdb26408e1324d7428ee7a782"
   },
   "production_formula": "src.analytics.total_rasyo_score.compute_total_rasyo",
-  "ranking_count": 130,
+  "ranking_count": 163,
   "ranking_order": "final_score DESC, ticker ASC",
-  "total_valid_count": 130,
+  "total_valid_count": 163,
   "universe_count": 807,
   "weight_redistribution": false
 }

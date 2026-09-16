@@ -43,8 +43,8 @@ def test_current_total_artifact_uses_real_m2_and_keeps_incomplete_rows_fail_clos
     assert m2_receipt["m2_materialized_count"] == 173
     assert m2_receipt["neutral_follow_or_m2_materialized"] is False
     assert receipt["universe_count"] == 807
-    assert receipt["total_valid_count"] == receipt["ranking_count"] == 130
-    assert receipt["explicit_rejection_count"] == 677
+    assert receipt["total_valid_count"] == receipt["ranking_count"] == 163
+    assert receipt["explicit_rejection_count"] == 644
     assert receipt["total_valid_count"] + receipt["explicit_rejection_count"] == receipt["universe_count"]
     assert receipt["missing_module_counts"]["M2"] == 634
     assert receipt["neutral_fill"] is False
