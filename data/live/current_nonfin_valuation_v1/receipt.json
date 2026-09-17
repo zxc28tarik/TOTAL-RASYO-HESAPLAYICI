@@ -1,5 +1,5 @@
 {
-  "analysis_at": "2026-09-16T19:15:58.953622+00:00",
+  "analysis_at": "2026-09-17T22:53:54.734288+00:00",
   "archive_hashes": {
     "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
     "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
@@ -27,12 +27,8 @@
   "derived_financial_ticker_count": 363,
   "financial_report_count": 2096,
   "follow_contract": "CURRENT_NONFIN_FOLLOW_AXIS_V1",
-  "follow_materialized_count": 173,
+  "follow_materialized_count": 201,
   "follow_rejections": [
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ACSEL"
-    },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ADEL"
@@ -55,19 +51,7 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ALCTL"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ALKA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ALKIM"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ALVES"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -94,10 +78,6 @@
       "ticker": "ASUZU"
     },
     {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "ATEKS"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "AVOD"
     },
@@ -114,20 +94,12 @@
       "ticker": "AYDEM"
     },
     {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "AZTEK"
-    },
-    {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "BAGFS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BAHKM"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BAKAB"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -144,10 +116,6 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BAYRK"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BEYAZ"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -223,15 +191,7 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "CEMTS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "CMBTN"
-    },
-    {
-      "reason": "ADJUSTED_PRICE_AXIS_MISSING",
-      "ticker": "CMENT"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -302,10 +262,6 @@
       "ticker": "EKSUN"
     },
     {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "EMKEL"
-    },
-    {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "EMNIS"
     },
@@ -330,11 +286,7 @@
       "ticker": "ESEN"
     },
     {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ETILR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
+      "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "FLAP"
     },
     {
@@ -383,10 +335,6 @@
     },
     {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "INGRM"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "IZFAS"
     },
     {
@@ -411,10 +359,6 @@
     },
     {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "KMPUR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "KNFRT"
     },
     {
@@ -430,20 +374,8 @@
       "ticker": "KONTR"
     },
     {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "KOPOL"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "KORDS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KRPLS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KUTPO"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -459,15 +391,7 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MAKTK"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MANAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MARBL"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -487,10 +411,6 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MIATK"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MNDTR"
     },
     {
@@ -499,23 +419,15 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MRSHL"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "NATEN"
     },
     {
-      "reason": "CURRENT_VALUATION_NOT_OK",
+      "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "NETAS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "NIBAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "OBAMS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -563,10 +475,6 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "POLTK"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "PRKME"
     },
     {
@@ -579,10 +487,6 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "RUBNS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "RUZYE"
     },
     {
@@ -592,10 +496,6 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "SASA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SERNT"
     },
     {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
@@ -618,16 +518,8 @@
       "ticker": "SMART"
     },
     {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "SMRTG"
-    },
-    {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "SNICA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SUWEN"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -636,10 +528,6 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "TEZOL"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "TGSAS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -696,13 +584,13 @@
   ],
   "legal_share_count_used_as_price_denominator": false,
   "m2_blocker": null,
-  "m2_materialized_count": 173,
+  "m2_materialized_count": 201,
   "neutral_follow_or_m2_materialized": false,
   "outputs": {
-    "follow.jsonl": "079fd3e0fd615ff662bbfad1264a98715091b5a6db2b8fc23b06f0dc9d18035b",
-    "m2.jsonl": "8a5ab7bd0044594f1c60b04865df09423c657f125f784a48f2e29792a6ddbd9a",
-    "previous_valuations.jsonl": "4272b9da3f452b21c1b743625e4b376d7315890074a1aedebbf2597018d35c62",
-    "valuations.jsonl": "9fc3633009b989e7623ce292206d11d488acc2c67436118fb0265da757b4395f"
+    "follow.jsonl": "ff6228262b144667e13152e0e20493a774a10a329a568739e1be1517932d7530",
+    "m2.jsonl": "5b4774175f17d91971f5200af46ee26d62c5a1df66b6a3fbab016e9b858f93f0",
+    "previous_valuations.jsonl": "ed4e0646ba636e2fc96a1e641b47e62a573027b7d7ea0ad8f2a69581b3d9294c",
+    "valuations.jsonl": "376c7d1714f9c2b9c67801ce06f67ac26de97198d2108633dcb16d7907fe2042"
   },
   "peer_groups": [
     "XUHIZ",
@@ -1234,6 +1122,6 @@
     }
   ],
   "unsafe_issued_capital_share_fields_scrubbed": true,
-  "usable_previous_period_valuation_count": 196,
-  "usable_valuation_count": 189
+  "usable_previous_period_valuation_count": 223,
+  "usable_valuation_count": 213
 }

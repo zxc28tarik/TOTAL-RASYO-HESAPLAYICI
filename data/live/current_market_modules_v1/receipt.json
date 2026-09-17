@@ -1,12 +1,12 @@
 {
-  "captured_at": "2026-09-16T19:32:05.709889+00:00",
+  "captured_at": "2026-09-17T23:05:01.388646+00:00",
   "contract": "CURRENT_MARKET_M3_EK4_EK9_V1",
   "cutoff_date": "2026-09-15",
   "ek4_valid_count": 453,
   "ek9_gap_repair": {
     "path": "data/live/current_ek9_gap_repair_v1/receipt.json"
   },
-  "ek9_valid_count": 210,
+  "ek9_valid_count": 234,
   "index_feed_latest_dates": {
     "XU100": "2026-09-15",
     "XUHIZ": "2026-09-15",
@@ -45,9 +45,9 @@
   "market_asof_date": "2026-09-15",
   "outputs": {
     "index_prices.csv.gz": "d241b2cd34663ce3ed078591d1349efa46c010ce81c2ccbcbe515b6cc275b08e",
-    "modules.csv": "87faf566e72a708da549763802523f9d9bce92e8dd7535649232e2005c2211a5",
-    "rejections.jsonl": "1b8f0de3bb88c80cf49074754bd5f9cfeb6e345372a1ed63b4547eb3e89928e8",
-    "stock_prices.csv.gz": "4575b74d64faa35d027e371afcd67b2abb10272846540faa467dad76fa017ca6"
+    "modules.csv": "6cd71676eb7941d2a122ed59658301cfb8e93a4e592a3b0363ecd53c7c9089d5",
+    "rejections.jsonl": "a07abb6f16fd73d7b39baa55e27dce7ccdc541a39865626da7c046372ac7d1cc",
+    "stock_prices.csv.gz": "7dacc40e4e245c5cab7b3728c28e00e496a26b75e2b7da6e4df50cdc3e5fa734"
   },
   "production_engines": [
     "run_historical_pit_m3_replay",
@@ -56,11 +56,11 @@
   ],
   "rejection_counts": {
     "Ek4:STOCK_WINDOW_PRICE_MISSING": 10,
-    "Ek9:STOCK_WINDOW_PRICE_MISSING": 253,
+    "Ek9:STOCK_WINDOW_PRICE_MISSING": 229,
     "M3:STOCK_WINDOW_PRICE_MISSING": 23
   },
   "stock_bulk_frontier_date": "2026-09-15",
-  "stock_price_row_count": 215044,
+  "stock_price_row_count": 215068,
   "stock_source": "YAHOO_UNADJUSTED_AND_ADJUSTED_DAILY_CAPTURE_CURRENT_V1",
   "supplemental_stock_source": "MYNET_FORINVEST_DATED_CLOSE_WITH_VERIFIED_PRODUCTION_PRICE_BASIS_V1",
   "universe_count": 463

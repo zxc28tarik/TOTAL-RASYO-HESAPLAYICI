@@ -1,5 +1,5 @@
 {
-  "completed_at": "2026-09-16T19:59:33.644612+00:00",
+  "completed_at": "2026-09-17T23:34:49.266039+00:00",
   "contract": "CURRENT_TOTAL_RASYO_RUN_V1",
   "database_available": false,
   "historical_pit_mixed_into_current": false,
@@ -22,15 +22,15 @@
     },
     "ek9_gap_repair": {
       "path": "data/live/current_ek9_gap_repair_v1/receipt.json",
-      "sha256": "74e9a5f671e05086764d62acdc44ee95a780ba01e6ae9879cbccb4f05e381d0b"
+      "sha256": "898a4b74af67112311010c68801137de184bb5da112c0f1b6d1c719782032b29"
     },
     "market_modules": {
       "path": "data/live/current_market_modules_v1/receipt.json",
-      "sha256": "a15a548381157e513a1301113abdb39034b8bb11dcf15ed71b171f57b4403eff"
+      "sha256": "97c80f8bb8881801cf9023ebf53e90707821024bfb993e1498cc8abd2fd72743"
     },
     "nonfin_valuation": {
       "path": "data/live/current_nonfin_valuation_v1/receipt.json",
-      "sha256": "d9810e196860f4633bf1e8949466fb05f3407de035a0fbc990e1acc03754804a"
+      "sha256": "44d1a59136c579a658bb9af362f3692f5174658aba18de060b643bf3b004e667"
     },
     "price_level_basis": {
       "path": "data/live/current_price_level_basis_v1/receipt.json",
@@ -46,7 +46,7 @@
     },
     "readiness": {
       "path": "data/live/current_total_rasyo_v1/receipt.json",
-      "sha256": "3b95b15442782e9fd3a321b4f12eb253749935bb6fcbb4d8d5ad9b6358df6632"
+      "sha256": "212248ed55d380439be8603ceb957ab08b934b1873dac02b01dc4b9a306b80ed"
     },
     "shares": {
       "path": "data/live/current_share_basis_v1/receipt.json",
@@ -54,26 +54,26 @@
     },
     "total_scores": {
       "path": "data/live/current_total_scores_v1/receipt.json",
-      "sha256": "632fd29591eca1ba70ca873999a1ad93cc059a6175846fe272aa70522f6a3670"
+      "sha256": "f624e2cc41a78085b40377874096782254ee322d7e301871888f3135ad2ded8e"
     }
   },
   "run_date": "2026-09-14",
   "stage_counts": {
     "at_least_4_modules": 409,
-    "at_least_5_modules": 210,
+    "at_least_5_modules": 234,
     "ek1": 131,
     "ek4": 146,
-    "ek9": 210,
+    "ek9": 234,
     "explicit_share_basis": 528,
     "m1": 131,
-    "m2": 173,
+    "m2": 201,
     "m3": 146,
     "market_cap": 195,
     "nonfin_valuation": 339,
-    "ranking": 163,
+    "ranking": 191,
     "raw_close": 629,
-    "total_rasyo": 163,
+    "total_rasyo": 191,
     "universe": 807,
-    "usable_nonfin_valuation": 189
+    "usable_nonfin_valuation": 213
   }
 }

@@ -1,32 +1,32 @@
 {
   "contract": "CURRENT_TOTAL_RASYO_MATERIALIZATION_V1",
-  "explicit_rejection_count": 644,
+  "explicit_rejection_count": 616,
   "inputs": {
-    "m2.jsonl": "8a5ab7bd0044594f1c60b04865df09423c657f125f784a48f2e29792a6ddbd9a",
-    "modules.csv": "87faf566e72a708da549763802523f9d9bce92e8dd7535649232e2005c2211a5",
+    "m2.jsonl": "5b4774175f17d91971f5200af46ee26d62c5a1df66b6a3fbab016e9b858f93f0",
+    "modules.csv": "6cd71676eb7941d2a122ed59658301cfb8e93a4e592a3b0363ecd53c7c9089d5",
     "modules.jsonl": "cf043b9bf3ca374a11b6b3d392ee659a2ee15d14124fa56214c3c2502cdb299e",
     "universe.csv": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1"
   },
-  "m2_input_count": 173,
-  "materialized_at": "2026-09-16T19:59:33.597224+00:00",
+  "m2_input_count": 201,
+  "materialized_at": "2026-09-17T23:34:49.221579+00:00",
   "missing_module_counts": {
     "Ek1": 385,
     "Ek4": 354,
-    "Ek9": 597,
+    "Ek9": 573,
     "M1": 385,
-    "M2": 634,
+    "M2": 606,
     "M3": 367
   },
   "neutral_fill": false,
   "outputs": {
-    "ranking.jsonl": "4d864087be9ee5369bbd7eefb342c846cce14d555801a81fd7c9714d0434d7df",
-    "rejections.jsonl": "aa5dee70555ef3af4c0a9b80ffadbf68ce68501401760458c2002f47700fbc58",
-    "totals.jsonl": "3f35d46a46b7e07541f2e9ce7db1586624bb31002832fd136140f7f5712ae743"
+    "ranking.jsonl": "ba833a64ed9a2ee0ec8bbf9ac978297e215106885721bf50ad1818d53d3be4b8",
+    "rejections.jsonl": "f760dfb19dcb5c918c606eb77543a2a9deafecbc901d828a3c7e5a716e866e39",
+    "totals.jsonl": "080162479c8f0c526a459e82219e6e9a21a8e7ca4ef6d693654a86db2c94ff56"
   },
   "production_formula": "src.analytics.total_rasyo_score.compute_total_rasyo",
-  "ranking_count": 163,
+  "ranking_count": 191,
   "ranking_order": "final_score DESC, ticker ASC",
-  "total_valid_count": 163,
+  "total_valid_count": 191,
   "universe_count": 807,
   "weight_redistribution": false
 }
