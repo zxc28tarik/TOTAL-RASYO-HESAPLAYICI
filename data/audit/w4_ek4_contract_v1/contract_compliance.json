@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "current_live_materializer_uses_dated_routes": {
+      "evidence": "materialize_current_market_modules reads dated sector routes and fails on ambiguity",
+      "verified": true
+    },
+    "historical_xu100_substitution_forbidden": {
+      "evidence": "a missing routed endpoint yields SECTOR_WINDOW_PRICE_MISSING; XU100 is never substituted",
+      "verified": true
+    },
+    "live_and_historical_share_one_formula": {
+      "evidence": "both paths call src.analytics.ek4_momentum.compute_ek4_momentum_point",
+      "verified": true
+    },
+    "sector_leg_is_raw_routed_index_close": {
+      "evidence": "the locked contract requires the raw routed sector return; both paths use close",
+      "verified": true
+    },
+    "stock_leg_identical_in_both_paths": {
+      "evidence": "historical COALESCE(adj_close,close) mirrors the live SQL COALESCE",
+      "historical_marker": "adjusted.where(adjusted.notna(), close)",
+      "live_marker": "COALESCE(adj_close, close) AS px",
+      "verified": true
+    }
+  },
+  "consequence": "No technical fix is authorized: the ledger permits a code change only when a locked contract violation is concretely proven. The adjusted-stock / raw-index asymmetry is a methodological choice, identical in the live and historical paths, so it belongs to a separate governance decision.",
+  "contract": "W4_EK4_PRICE_RETURN_CONTRACT_AUDIT_V1",
+  "contract_violation_proven": false,
+  "locked_contract_doc": "docs/HISTORICAL_PIT_EK4_REPLAY_CONTRACT.md",
+  "verdict": "COMPLIANT",
+  "violations": []
+}

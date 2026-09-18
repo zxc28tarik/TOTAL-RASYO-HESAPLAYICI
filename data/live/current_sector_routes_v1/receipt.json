@@ -1,0 +1,27 @@
+{
+  "added_route_count": 414,
+  "ambiguous_sectors_left_unrouted": [],
+  "captured_at": "2026-09-16T19:01:30.173334+00:00",
+  "contract": "CURRENT_KAP_SECTOR_INDEX_MEMBERSHIP_V1",
+  "historical_source_package_modified": false,
+  "http_date": "Wed, 16 Sep 2026 18:49:27 GMT",
+  "index_member_route_count": 381,
+  "inherited_route_row_count": 210,
+  "official_member_counts": {
+    "XUHIZ": 140,
+    "XUMAL": 152,
+    "XUSIN": 248,
+    "XUTEK": 43
+  },
+  "official_member_total": 583,
+  "outputs": {
+    "kap_endeksler.html.gz": "7b7452cad372ec56ab8d983219da66aff1d4bc90e5e01597445ab0588fe33b6f",
+    "kap_sektorler.html.gz": "153d111eaa97295e2070a7afcf9862d8811ee517cea2345b18d526e726af6bc8",
+    "manifest.json": "9693b6c3d0d716753a1a94316e63e27231bf613dd38c506f7b3a17263cb8306e",
+    "sector_routes.csv.gz": "c864ec3c18a96ef02f41be34631828436ffc757d53d1cc862b1b97d172844ac1"
+  },
+  "route_row_count": 624,
+  "sector_classified_company_count": 606,
+  "sector_classified_non_index_route_count": 33,
+  "source_url": "https://www.kap.org.tr/tr/Endeksler"
+}

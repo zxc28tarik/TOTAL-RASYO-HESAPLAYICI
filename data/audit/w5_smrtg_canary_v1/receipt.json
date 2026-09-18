@@ -1,0 +1,70 @@
+{
+  "command": "python scripts/audit_w5_smrtg_canary.py --apply",
+  "commit": "e7c657c023f79b7eaef9219f351fc12ce1f0752b",
+  "contract": "W5_SMRTG_CANARY_RECEIPT_V1",
+  "coverage": {
+    "cutoffs_scanned": 60,
+    "derivation_profile_origin": "CONFIG",
+    "gate_reachable_cutoffs": 0,
+    "minimum_peer_count": 5,
+    "safe_derivation_cells_in_all_cutoffs": 0,
+    "safe_peer_count": 0,
+    "share_action_gate_passed": true,
+    "status": "BLOCKED",
+    "unsafe_peers": 74,
+    "zero_interval_certifiable_peers": 0
+  },
+  "generated_at": "2026-09-14T03:08:54.953131+00:00",
+  "generator_sha256": "5eadae89709a5f73cbd2f95c8a62b9e50719cf4a80af5c67801059298e16a317",
+  "hash_mode": "LF_CANONICAL_SHA256_V1",
+  "limitations": [
+    "This canary produces no M2 and no Total; the cell stays an explicit rejection.",
+    "The systemic bound measures reachability of the peer gate, not the value M2 would take if the gate ever opened.",
+    "W6 is not started; the implication recorded here only sizes its cohort constraint."
+  ],
+  "mutations_sha256": "3645f084d3eb8469fa8e67bacc886227b6afc7664331776a706c164f69badd0f",
+  "output_sha256": {
+    "baseline.json": "b4faa8dd42d1532e32ccb49337dd3262dcd63efbcabbe702586e02b4ab3c019a",
+    "cell_verification.json": "108daee8c954627d9ce43702efc3354396d6e6806be569a6bd4d9e82b5f8acb4",
+    "peer_certifiability.json": "de4c0cb3a0f9230e77075c9f33816e0c47eb2315b27c344e1dfe3b2f4f7af160",
+    "systemic_bound.json": "fe859db6df05feba66465d09fcc2613fa299d1b39938d31b95f7574bbc86649d",
+    "verdict.json": "348f3e68eaf0051add3251ab19a3ed17ee49d511b6d8c4d1be58d1d419a02dfe"
+  },
+  "policy": {
+    "cells_repaired": 0,
+    "live_results_touched": false,
+    "m2_materialized": false,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "source_paths": {
+    "action_coverage_manifest": "data/backtest_sources/zero_interval_share_basis_v1/action_coverage_manifest.json",
+    "core_diagnostics": "data/audit/experimental_materialization_v3/core_diagnostics.jsonl.gz",
+    "kap_share_class_observations": "data/backtest_sources/kap_share_class_history_v1/share_class_observations.jsonl.gz",
+    "m2_canary_audit_helper": "src/analytics/m2_canary_audit.py",
+    "nonfin_valuation_default_config": "config/nonfin_valuation.relative_v1.json",
+    "nonfin_valuation_exact_config": "config/nonfin_valuation.kap_bulk_exact_v1.json",
+    "prior_canary_receipt": "data/audit/smrtg_m2_canary_v1/receipt.json",
+    "smrtg_kap_share_history": "data/backtest_sources/zero_interval_share_basis_v1/smrtg_kap_share_history.json",
+    "yahoo_member_actions": "data/backtest_sources/yahoo_discovery/historical_member_actions_yahoo_2020-07_2026-08.csv",
+    "zero_interval_receipt": "data/backtest_sources/zero_interval_share_basis_v1/receipt.json"
+  },
+  "source_sha256": {
+    "action_coverage_manifest": "16cdd21c8695b4fb3fcf0feb880377bd1f1bd25c0582d667cb393be5e96a2af3",
+    "core_diagnostics": "bd99eaaf282f24858ed01eb80399b0d90512679362eab067767cf31c607071ff",
+    "kap_share_class_observations": "cc2175d25b835d993e925ea9f5cdc4514819e79874efd32f25ff2a219c55cf0b",
+    "m2_canary_audit_helper": "a9f9a34e07956503571ad5c663494f39a4ed921f139f20642677093d7fbef5d7",
+    "nonfin_valuation_default_config": "3f3cdd6ca9d1aec25f7acc61ee1e527bcbef3e09eedd466f2346e2c7c1bd9152",
+    "nonfin_valuation_exact_config": "0e261afc2a76c23b11295affac6b86ca332397733f4d154d3696d5b3537f6c89",
+    "prior_canary_receipt": "6e33b7b726f1381f78ab8abe57c37ec4ea32a5393a41b2281bf8db106939c890",
+    "smrtg_kap_share_history": "aa5390a9ed75cc8315dedbccc88a1ddcd5fd854a1e4e12f4d2cd1e42ffda8555",
+    "yahoo_member_actions": "08d78b181fb309246cfd271012ad7419b690fbdee168fc69d0a7defb044814e5",
+    "zero_interval_receipt": "a836d1fc914e51408b58bf612360933fd48af79167a8eb190fb71bd28b38e2b3"
+  }
+}

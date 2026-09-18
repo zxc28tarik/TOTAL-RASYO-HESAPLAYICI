@@ -22,8 +22,8 @@ from scripts.materialize_current_nonfin_valuation import ARCHIVE_NAMES, _mapped_
 
 CONTRACT = "CURRENT_CORE_M1_EK1_V1"
 DEFAULT_ARCHIVES = ROOT / "private/reconstructed_kap_archives"
-DEFAULT_ROUTES = ROOT / "data/backtest_sources/m3_source_package/sector_routes.csv.gz"
-DEFAULT_ROUTE_MANIFEST = ROOT / "data/backtest_sources/m3_source_package/manifest.json"
+DEFAULT_ROUTES = ROOT / "data/live/current_sector_routes_v1/sector_routes.csv.gz"
+DEFAULT_ROUTE_MANIFEST = ROOT / "data/live/current_sector_routes_v1/manifest.json"
 DEFAULT_OUTPUT = ROOT / "data/live/current_core_modules_v1"
 NONFIN_INDICES = frozenset({"XUSIN", "XUHIZ", "XUTEK"})
 
@@ -50,9 +50,11 @@ def materialize(*, archive_dir: Path, routes_path: Path, route_manifest_path: Pa
         raise ValueError("current NONFIN route ambiguous")
 
     manifest = json.loads(route_manifest_path.read_text(encoding="utf-8"))
+    route_source_id = manifest["canonical_files"]["sector_routes"].get(
+        "source_id", "KAP_SEKTORLER_2026_08_24"
+    )
     route_source = next(
-        row for row in manifest["raw_sources"]
-        if row["source_id"] == "KAP_SEKTORLER_2026_08_24"
+        row for row in manifest["raw_sources"] if row["source_id"] == route_source_id
     )
     retrieved_at = datetime.fromisoformat(route_source["retrieved_at"].replace("Z", "+00:00"))
     if retrieved_at > analysis:

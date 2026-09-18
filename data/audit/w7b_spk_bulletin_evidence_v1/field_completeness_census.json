@@ -1,0 +1,30 @@
+{
+  "by_sector": {
+    "XUHIZ": {
+      "complete": 1,
+      "total": 24
+    },
+    "XUSIN": {
+      "complete": 3,
+      "total": 34
+    },
+    "XUTEK": {
+      "complete": 0,
+      "total": 2
+    }
+  },
+  "contract": "W7B_SPK_BULLETIN_EVIDENCE_V1",
+  "max_complete_in_any_sector": 3,
+  "missing_field_counts": {
+    "ebit": 25,
+    "net_income": 37,
+    "revenue": 31
+  },
+  "required_fields": [
+    "revenue",
+    "ebit",
+    "net_income"
+  ],
+  "signal_date": "2023-09-01",
+  "tickers_considered": 60
+}

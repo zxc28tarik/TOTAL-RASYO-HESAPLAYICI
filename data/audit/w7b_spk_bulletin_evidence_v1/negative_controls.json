@@ -1,0 +1,83 @@
+{
+  "contract": "W7B_SPK_BULLETIN_EVIDENCE_V1",
+  "results": [
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "ALFAS"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "ENKAI"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "GESAN"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "KONTR"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "SMRTG"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "ZOREN"
+    }
+  ]
+}

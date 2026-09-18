@@ -438,10 +438,19 @@ def build_nonfin_snapshot(
             return None
         return math.fsum(float(value) for value in values if value is not None)
 
-    debt_values = (latest.debt_st, latest.debt_lt, latest.cash_and_eq, latest.st_investments)
+    # Short-term investments is an optional IFRS/KAP balance-sheet line: an
+    # issuer holding none simply does not open the row, so its absence means
+    # zero rather than unknown. Requiring it discarded net_debt -- and with it
+    # EV/EBIT -- for profitable issuers whose other three lines were all
+    # present. Reading it as zero is also the conservative direction: it raises
+    # net debt, raises enterprise value and lowers the implied valuation.
+    # Cash and both borrowing lines stay required; cash in particular is
+    # reported by every issuer, so a missing one would signal a parse failure
+    # rather than an economic zero.
+    debt_values = (latest.debt_st, latest.debt_lt, latest.cash_and_eq)
     net_debt = None
     if all(value is not None for value in debt_values):
-        net_debt = float(latest.debt_st or 0) + float(latest.debt_lt or 0) - float(latest.cash_and_eq or 0) - float(latest.st_investments or 0)
+        net_debt = float(latest.debt_st) + float(latest.debt_lt) - float(latest.cash_and_eq) - float(latest.st_investments or 0)
 
     return NonfinSnapshot(
         ticker=ticker_text,

@@ -1,0 +1,17 @@
+{
+  "consequence": "W6's 60/60 peer-cohort-size finding is real and stands, but it measures a necessary, not sufficient, condition. The deeper, code-enforced gate found here means the production-admissible peer count for real M2 remains governed by W5's zero-interval-only route: at most one ticker per cutoff, never enough to reach minimum_peer_count=5. Real historical NONFIN M2 via peer relative valuation is still BLOCKED for every cutoff.",
+  "contract": "W7A_EVIDENCE_DATING_GATE_V1",
+  "finding": "The production replay's own evidence-verification function rejects any corporate-action completeness source whose publication timestamp is after the historical analysis cutoff -- unconditionally, regardless of how comprehensive or accurate the source's content is. A source captured today always carries today's timestamp, so it can never certify a non-zero historical interval, no matter which cutoff or ticker.",
+  "policy": {
+    "m2_materialized": false,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "reopen_condition": "A completeness source whose own publication timestamp genuinely predates or equals the historical cutoff -- e.g. an archived, period-contemporary official bulletin -- not a retrospective query, however comprehensive. P2's research already found the one candidate for this (the KAP corporate-action calendar) returns no historical archive for past months.",
+  "status": "BLOCKED"
+}

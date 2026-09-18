@@ -1,0 +1,255 @@
+{
+  "contract": "W7B_SPK_BULLETIN_EVIDENCE_V1",
+  "diagnostics_by_ticker": {
+    "ALFAS": {
+      "market_cap": 6647000000.0,
+      "multiple_details": {
+        "EV_EBIT": {
+          "configured_weight": 0.3,
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "configured_weight": 0.2,
+          "implied_high": 440.94722523908524,
+          "implied_low": 311.4845464645982,
+          "implied_mid": 327.6727879588637,
+          "peer_count": 5,
+          "peer_q_high": 15.575337951125695,
+          "peer_q_low": 11.002398473215747,
+          "peer_q_mid": 11.574206884008921,
+          "usable": true
+        },
+        "PE": {
+          "configured_weight": 0.3,
+          "peer_count": 2,
+          "usable": false
+        },
+        "PS": {
+          "configured_weight": 0.2,
+          "peer_count": 0,
+          "usable": false
+        }
+      },
+      "peer_tickers": [
+        "ENKAI",
+        "GESAN",
+        "KONTR",
+        "SMRTG",
+        "ZOREN"
+      ],
+      "reason": "YETERSIZ_MULTIPLE_KAPSAMI",
+      "status": "YETERSIZ_VERI"
+    },
+    "ENKAI": {
+      "market_cap": 196799995422.36328,
+      "multiple_details": {
+        "EV_EBIT": {
+          "configured_weight": 0.3,
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "configured_weight": 0.2,
+          "implied_high": 428.5294570409693,
+          "implied_low": 302.71265115854334,
+          "implied_mid": 318.44500628159534,
+          "peer_count": 5,
+          "peer_q_high": 15.575337951125695,
+          "peer_q_low": 11.002398473215747,
+          "peer_q_mid": 11.574206884008921,
+          "usable": true
+        },
+        "PE": {
+          "configured_weight": 0.3,
+          "peer_count": 2,
+          "usable": false
+        },
+        "PS": {
+          "configured_weight": 0.2,
+          "peer_count": 0,
+          "usable": false
+        }
+      },
+      "peer_tickers": [
+        "ALFAS",
+        "GESAN",
+        "KONTR",
+        "SMRTG",
+        "ZOREN"
+      ],
+      "reason": "YETERSIZ_MULTIPLE_KAPSAMI",
+      "status": "YETERSIZ_VERI"
+    },
+    "GESAN": {
+      "market_cap": 42688001403.808586,
+      "multiple_details": {
+        "EV_EBIT": {
+          "configured_weight": 0.3,
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "configured_weight": 0.2,
+          "implied_high": 124.88038479712988,
+          "implied_low": 40.92375361564188,
+          "implied_mid": 88.21534141589737,
+          "peer_count": 5,
+          "peer_q_high": 15.575337951125695,
+          "peer_q_low": 5.104094560788651,
+          "peer_q_mid": 11.002398473215747,
+          "usable": true
+        },
+        "PE": {
+          "configured_weight": 0.3,
+          "peer_count": 2,
+          "usable": false
+        },
+        "PS": {
+          "configured_weight": 0.2,
+          "peer_count": 0,
+          "usable": false
+        }
+      },
+      "peer_tickers": [
+        "ALFAS",
+        "ENKAI",
+        "KONTR",
+        "SMRTG",
+        "ZOREN"
+      ],
+      "reason": "YETERSIZ_MULTIPLE_KAPSAMI",
+      "status": "YETERSIZ_VERI"
+    },
+    "KONTR": {
+      "market_cap": 15932720947.265625,
+      "multiple_details": {
+        "EV_EBIT": {
+          "configured_weight": 0.3,
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "configured_weight": 0.2,
+          "implied_high": 112.77428000756225,
+          "implied_low": 36.95653930525809,
+          "implied_mid": 83.80382192017473,
+          "peer_count": 5,
+          "peer_q_high": 15.575337951125695,
+          "peer_q_low": 5.104094560788651,
+          "peer_q_mid": 11.574206884008921,
+          "usable": true
+        },
+        "PE": {
+          "configured_weight": 0.3,
+          "peer_count": 2,
+          "usable": false
+        },
+        "PS": {
+          "configured_weight": 0.2,
+          "peer_count": 0,
+          "usable": false
+        }
+      },
+      "peer_tickers": [
+        "ALFAS",
+        "ENKAI",
+        "GESAN",
+        "SMRTG",
+        "ZOREN"
+      ],
+      "reason": "YETERSIZ_MULTIPLE_KAPSAMI",
+      "status": "YETERSIZ_VERI"
+    },
+    "SMRTG": {
+      "market_cap": 15308567845.91675,
+      "multiple_details": {
+        "EV_EBIT": {
+          "configured_weight": 0.3,
+          "peer_count": 0,
+          "usable": false
+        },
+        "PB": {
+          "configured_weight": 0.2,
+          "implied_high": 18.77594086519857,
+          "implied_low": 8.279977937508198,
+          "implied_mid": 17.8483402948209,
+          "peer_count": 5,
+          "peer_q_high": 11.574206884008921,
+          "peer_q_low": 5.104094560788651,
+          "peer_q_mid": 11.002398473215747,
+          "usable": true
+        },
+        "PE": {
+          "configured_weight": 0.3,
+          "peer_count": 1,
+          "usable": false
+        },
+        "PS": {
+          "configured_weight": 0.2,
+          "peer_count": 0,
+          "usable": false
+        }
+      },
+      "peer_tickers": [
+        "ALFAS",
+        "ENKAI",
+        "GESAN",
+        "KONTR",
+        "ZOREN"
+      ],
+      "reason": "YETERSIZ_MULTIPLE_KAPSAMI",
+      "status": "YETERSIZ_VERI"
+    },
+    "ZOREN": {
+      "market_cap": 2424999952316.284,
+      "multiple_details": {
+        "EV_EBIT": {
+          "configured_weight": 0.3,
+          "peer_count": 1,
+          "usable": false
+        },
+        "PB": {
+          "configured_weight": 0.2,
+          "implied_high": 0.4708923246193559,
+          "implied_low": 0.20765819869069876,
+          "implied_mid": 0.4476285109953476,
+          "peer_count": 5,
+          "peer_q_high": 11.574206884008921,
+          "peer_q_low": 5.104094560788651,
+          "peer_q_mid": 11.002398473215747,
+          "usable": true
+        },
+        "PE": {
+          "configured_weight": 0.3,
+          "peer_count": 1,
+          "usable": false
+        },
+        "PS": {
+          "configured_weight": 0.2,
+          "peer_count": 0,
+          "usable": false
+        }
+      },
+      "peer_tickers": [
+        "ALFAS",
+        "ENKAI",
+        "GESAN",
+        "KONTR",
+        "SMRTG"
+      ],
+      "reason": "YETERSIZ_MULTIPLE_KAPSAMI",
+      "status": "YETERSIZ_VERI"
+    }
+  },
+  "m2_score_count": 0,
+  "rejection_count": 6,
+  "rejection_reasons": {
+    "ALFAS": "VALUATION_NOT_USABLE:YETERSIZ_MULTIPLE_KAPSAMI",
+    "ENKAI": "VALUATION_NOT_USABLE:YETERSIZ_MULTIPLE_KAPSAMI",
+    "GESAN": "VALUATION_NOT_USABLE:YETERSIZ_MULTIPLE_KAPSAMI",
+    "KONTR": "VALUATION_NOT_USABLE:YETERSIZ_MULTIPLE_KAPSAMI",
+    "SMRTG": "VALUATION_NOT_USABLE:YETERSIZ_MULTIPLE_KAPSAMI",
+    "ZOREN": "VALUATION_NOT_USABLE:YETERSIZ_MULTIPLE_KAPSAMI"
+  }
+}

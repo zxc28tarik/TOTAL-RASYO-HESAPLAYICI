@@ -91,7 +91,7 @@ def run(*, run_date: date, offline: bool, share_workers: int = 4,
         valuation_receipt = materialize_valuation(
             archive_dir=ROOT / "private/reconstructed_kap_archives",
             basis_dir=BASIS_OUTPUT,
-            routes_path=ROOT / "data/backtest_sources/m3_source_package/sector_routes.csv.gz",
+            routes_path=ROOT / "data/live/current_sector_routes_v1/sector_routes.csv.gz",
             output_dir=VALUATION_OUTPUT,
         )
     if reuse_current_core:
@@ -101,8 +101,8 @@ def run(*, run_date: date, offline: bool, share_workers: int = 4,
     else:
         core_receipt = materialize_core(
             archive_dir=ROOT / "private/reconstructed_kap_archives",
-            routes_path=ROOT / "data/backtest_sources/m3_source_package/sector_routes.csv.gz",
-            route_manifest_path=ROOT / "data/backtest_sources/m3_source_package/manifest.json",
+            routes_path=ROOT / "data/live/current_sector_routes_v1/sector_routes.csv.gz",
+            route_manifest_path=ROOT / "data/live/current_sector_routes_v1/manifest.json",
             output_dir=CORE_OUTPUT,
         )
     if offline:
