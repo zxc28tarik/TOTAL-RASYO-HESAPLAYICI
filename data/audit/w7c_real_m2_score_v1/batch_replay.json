@@ -5,7 +5,7 @@
       "market_cap": 4409842586517.334,
       "multiple_details": {
         "EV_EBIT": {
-          "peer_count": 1,
+          "peer_count": 2,
           "usable": false
         },
         "PB": {
@@ -32,7 +32,7 @@
       "market_cap": 8005048820051.209,
       "multiple_details": {
         "EV_EBIT": {
-          "peer_count": 1,
+          "peer_count": 2,
           "usable": false
         },
         "PB": {
@@ -60,7 +60,7 @@
       "market_cap": 569999980926.5135,
       "multiple_details": {
         "EV_EBIT": {
-          "peer_count": 1,
+          "peer_count": 2,
           "usable": false
         },
         "PB": {
@@ -107,6 +107,7 @@
       "reason": null,
       "status": "OK",
       "target_multiples": {
+        "EV_EBIT": 8651.786203729127,
         "PB": 4478.486338487129,
         "PE": 17430.476696051945
       }
@@ -115,7 +116,7 @@
       "market_cap": 19747200050.354004,
       "multiple_details": {
         "EV_EBIT": {
-          "peer_count": 1,
+          "peer_count": 2,
           "usable": false
         },
         "PB": {
@@ -142,7 +143,7 @@
       "market_cap": 1631319468767.1665,
       "multiple_details": {
         "EV_EBIT": {
-          "peer_count": 0,
+          "peer_count": 1,
           "usable": false
         },
         "PB": {
@@ -171,7 +172,7 @@
       "market_cap": 2068087986561.5654,
       "multiple_details": {
         "EV_EBIT": {
-          "peer_count": 1,
+          "peer_count": 2,
           "usable": false
         },
         "PB": {
