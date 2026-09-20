@@ -48,6 +48,14 @@ INDEX_CODES = ("XUSIN", "XUHIZ", "XUTEK", "XUMAL")
 # 2025Q1 onward, so membership is asserted from the start of that coverage --
 # still far narrower than the inherited rows' 2020-07-27 backfill.
 CURRENT_FINANCIAL_COVERAGE_START = date(2025, 1, 1)
+# XUMAL is one index over holdings, REITs, banks and insurers, so its code
+# cannot say which family a company belongs to. KAP's own sector name can, and
+# the core engine supports holdings and REITs. Banks, insurers, leasing and the
+# rest stay unmapped: their statements need engines this pipeline does not run.
+KAP_SECTOR_FAMILY = {
+    "HOLDİNGLER VE YATIRIM ŞİRKETLERİ": "HOLDING",
+    "GAYRİMENKUL YATIRIM ORTAKLIKLARI": "GYO",
+}
 
 
 def _sha(raw: bytes) -> str:
@@ -106,9 +114,14 @@ def build_routes(members: dict[str, list[str]], sector_of: dict[str, str], *,
     if conflicts:
         raise ValueError(f"inherited route contradicts official membership: {conflicts}")
     known = set(inherited.loc[inherited.valid_to.isna(), "ticker"])
+    family_of = {
+        ticker: KAP_SECTOR_FAMILY.get(sector)
+        for ticker, sector in sector_of.items()
+    }
     added = [
         {"ticker": ticker, "valid_from": valid_from.isoformat(), "valid_to": None,
-         "sector_index_code": code, "source_id": SOURCE_ID}
+         "sector_index_code": code, "source_id": SOURCE_ID,
+         "historical_family": family_of.get(ticker)}
         for ticker, code in sorted(official.items()) if ticker not in known
     ]
     # KAP classifies more operating companies than the four indices admit. A
@@ -128,12 +141,19 @@ def build_routes(members: dict[str, list[str]], sector_of: dict[str, str], *,
     placed = set(official) | known
     sector_added = [
         {"ticker": ticker, "valid_from": valid_from.isoformat(), "valid_to": None,
-         "sector_index_code": sector_index[sector], "source_id": SECTOR_SOURCE_ID}
+         "sector_index_code": sector_index[sector], "source_id": SECTOR_SOURCE_ID,
+         "historical_family": KAP_SECTOR_FAMILY.get(sector)}
         for ticker, sector in sorted(sector_of.items())
         if ticker not in placed and sector in sector_index
     ]
     added += sector_added
-    routes = pd.concat([inherited, pd.DataFrame(added, columns=inherited.columns)],
+    columns = list(inherited.columns) + ["historical_family"]
+    inherited = inherited.reindex(columns=columns)
+    # Inherited rows carry the same companies, so they take the same family.
+    # For the three NONFIN index codes this maps to nothing and the index-code
+    # rule still applies, leaving their behaviour byte-identical.
+    inherited["historical_family"] = inherited.ticker.map(family_of)
+    routes = pd.concat([inherited, pd.DataFrame(added, columns=columns)],
                        ignore_index=True)
     if routes.loc[routes.valid_to.isna()].duplicated("ticker").any():
         raise ValueError("current sector route ambiguous")
@@ -167,6 +187,10 @@ def capture(*, output_dir: Path = OUTPUT, valid_from: date) -> dict:
     sector_of = parse_sectors(sector_response.text)
     routes, added_count, sector_added_count, ambiguous = build_routes(
         members, sector_of, valid_from=valid_from)
+    declared_families = {
+        family: int(count) for family, count
+        in routes.historical_family.dropna().value_counts().items()
+    }
 
     raw_path = output_dir / "kap_endeksler.html.gz"
     raw_path.write_bytes(gzip.compress(raw, mtime=0))
@@ -225,6 +249,7 @@ def capture(*, output_dir: Path = OUTPUT, valid_from: date) -> dict:
         "added_route_count": added_count,
         "index_member_route_count": added_count - sector_added_count,
         "sector_classified_non_index_route_count": sector_added_count,
+        "declared_family_counts": declared_families,
         "sector_classified_company_count": len(sector_of),
         "ambiguous_sectors_left_unrouted": ambiguous,
         "route_row_count": int(len(routes)),

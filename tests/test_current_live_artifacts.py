@@ -38,14 +38,17 @@ def test_current_market_artifact_cutoff_covers_every_official_source_timestamp()
 def test_current_total_artifact_uses_real_m2_and_keeps_incomplete_rows_fail_closed():
     m2_receipt = _receipt("data/live/current_nonfin_valuation_v1/receipt.json")
     receipt = _receipt("data/live/current_total_scores_v1/receipt.json")
-    assert m2_receipt["usable_valuation_count"] == 213
-    assert m2_receipt["follow_materialized_count"] == 201
-    assert m2_receipt["m2_materialized_count"] == 201
+    assert m2_receipt["usable_valuation_count"] == 263
+    assert m2_receipt["follow_materialized_count"] == 249
+    assert m2_receipt["m2_materialized_count"] == 249
     assert m2_receipt["neutral_follow_or_m2_materialized"] is False
+    # Holdings and REITs are valued inside their own XUMAL cohort, never
+    # against industrials, so the peer groups the run used must say so.
+    assert m2_receipt["peer_groups"] == ["XUHIZ", "XUMAL", "XUSIN", "XUTEK"]
     assert receipt["universe_count"] == 807
-    assert receipt["total_valid_count"] == receipt["ranking_count"] == 191
-    assert receipt["explicit_rejection_count"] == 616
+    assert receipt["total_valid_count"] == receipt["ranking_count"] == 232
+    assert receipt["explicit_rejection_count"] == 575
     assert receipt["total_valid_count"] + receipt["explicit_rejection_count"] == receipt["universe_count"]
-    assert receipt["missing_module_counts"]["M2"] == 606
+    assert receipt["missing_module_counts"]["M2"] == 558
     assert receipt["neutral_fill"] is False
     assert receipt["weight_redistribution"] is False

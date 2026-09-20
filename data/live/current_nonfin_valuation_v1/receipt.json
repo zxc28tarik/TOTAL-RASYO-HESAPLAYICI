@@ -1,5 +1,5 @@
 {
-  "analysis_at": "2026-09-17T22:53:54.734288+00:00",
+  "analysis_at": "2026-09-20T17:20:21.658555+00:00",
   "archive_hashes": {
     "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
     "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
@@ -13,7 +13,15 @@
   "derivation_rejections": [
     {
       "reason": "ValueError:max() arg is an empty sequence",
+      "ticker": "DOHOL"
+    },
+    {
+      "reason": "ValueError:max() arg is an empty sequence",
       "ticker": "INTET"
+    },
+    {
+      "reason": "ValueError:max() arg is an empty sequence",
+      "ticker": "KCHOL"
     },
     {
       "reason": "ValueError:max() arg is an empty sequence",
@@ -21,13 +29,33 @@
     },
     {
       "reason": "ValueError:max() arg is an empty sequence",
+      "ticker": "POLHO"
+    },
+    {
+      "reason": "ValueError:max() arg is an empty sequence",
+      "ticker": "SAHOL"
+    },
+    {
+      "reason": "ValueError:max() arg is an empty sequence",
+      "ticker": "SISE"
+    },
+    {
+      "reason": "ValueError:max() arg is an empty sequence",
       "ticker": "TCELL"
+    },
+    {
+      "reason": "ValueError:max() arg is an empty sequence",
+      "ticker": "TKFEN"
+    },
+    {
+      "reason": "ValueError:max() arg is an empty sequence",
+      "ticker": "UMPAS"
     }
   ],
-  "derived_financial_ticker_count": 363,
-  "financial_report_count": 2096,
+  "derived_financial_ticker_count": 449,
+  "financial_report_count": 2761,
   "follow_contract": "CURRENT_NONFIN_FOLLOW_AXIS_V1",
-  "follow_materialized_count": 201,
+  "follow_materialized_count": 249,
   "follow_rejections": [
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -36,6 +64,10 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "AGROT"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "AGYO"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -48,6 +80,10 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ALCAR"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ALGYO"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -76,6 +112,18 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ASUZU"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "ATSYH"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "AVGYO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "AVHOL"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -119,11 +167,19 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BEGYO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BIENY"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BINBN"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "BINHO"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -195,6 +251,10 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "COSMO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "CRFSA"
     },
     {
@@ -212,6 +272,14 @@
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "DCTTR"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "DENGE"
+    },
+    {
+      "reason": "PREVIOUS_VALUATION_NOT_OK",
+      "ticker": "DGGYO"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -286,12 +354,20 @@
       "ticker": "ESEN"
     },
     {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "EYGYO"
+    },
+    {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "FLAP"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "FRIGO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "FZLGY"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -334,6 +410,26 @@
       "ticker": "HUNER"
     },
     {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "IDGYO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "IHLAS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "IHYAY"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "INVEO"
+    },
+    {
+      "reason": "PREVIOUS_VALUATION_NOT_OK",
+      "ticker": "ISGYO"
+    },
+    {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "IZFAS"
     },
@@ -358,6 +454,14 @@
       "ticker": "KENT"
     },
     {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "KGYO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "KLGYO"
+    },
+    {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "KNFRT"
     },
@@ -379,7 +483,19 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "KRGYO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "KUYAS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "KZGYO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "LRSHO"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -411,11 +527,23 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "METRO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "MMCAS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MNDTR"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MOGAN"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "MZHLD"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -431,11 +559,23 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "NUGYO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "OBASE"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ODAS"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "OSTIM"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "OTTO"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -498,6 +638,10 @@
       "ticker": "SASA"
     },
     {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "SEGYO"
+    },
+    {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
       "ticker": "SEYKM"
     },
@@ -519,7 +663,15 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "SNGYO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "SNICA"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "SURGY"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -567,11 +719,19 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "VRGYO"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "VSNMD"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "YAYLA"
+    },
+    {
+      "reason": "CURRENT_VALUATION_NOT_OK",
+      "ticker": "YESIL"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -584,16 +744,17 @@
   ],
   "legal_share_count_used_as_price_denominator": false,
   "m2_blocker": null,
-  "m2_materialized_count": 201,
+  "m2_materialized_count": 249,
   "neutral_follow_or_m2_materialized": false,
   "outputs": {
-    "follow.jsonl": "ff6228262b144667e13152e0e20493a774a10a329a568739e1be1517932d7530",
-    "m2.jsonl": "5b4774175f17d91971f5200af46ee26d62c5a1df66b6a3fbab016e9b858f93f0",
-    "previous_valuations.jsonl": "ed4e0646ba636e2fc96a1e641b47e62a573027b7d7ea0ad8f2a69581b3d9294c",
-    "valuations.jsonl": "376c7d1714f9c2b9c67801ce06f67ac26de97198d2108633dcb16d7907fe2042"
+    "follow.jsonl": "f4a16ef2881fd1342a2a845426df9c2c663de706dc6e5e089d12dd9216a13d7b",
+    "m2.jsonl": "ff15c676a25409edc015d111b482d20663bf0d432efdd7274896bc8b270af583",
+    "previous_valuations.jsonl": "8d1b8134bc21c908e9d11d14e27a680df9904b262834fd5e91814be89e6223d3",
+    "valuations.jsonl": "81dfc4af613a76df57c67bf3f50737575971e4131fb55787e051c7959c7e39cd"
   },
   "peer_groups": [
     "XUHIZ",
+    "XUMAL",
     "XUSIN",
     "XUTEK"
   ],
@@ -603,34 +764,42 @@
       "ticker": "MARMR"
     }
   ],
-  "previous_period_valuation_count": 338,
-  "production_valuation_count": 339,
-  "route_source_sha256": "c864ec3c18a96ef02f41be34631828436ffc757d53d1cc862b1b97d172844ac1",
-  "routed_candidate_count": 372,
+  "previous_period_valuation_count": 419,
+  "production_valuation_count": 420,
+  "route_source_sha256": "dc56cc8b590b233b4ad363bad8f66ff6945440e4917d89f991d85c780774cdc4",
+  "routed_candidate_count": 465,
   "routed_candidate_counts_by_peer_group": {
     "XUHIZ": 118,
+    "XUMAL": 93,
     "XUSIN": 219,
     "XUTEK": 35
   },
   "routed_tickers": [
     "A1YEN",
+    "AAGYO",
     "ACSEL",
     "ADEL",
     "ADESE",
     "AEFES",
     "AFYON",
     "AGROT",
+    "AGYO",
+    "AHSGY",
     "AKCNS",
     "AKENR",
     "AKFIS",
     "AKFYE",
+    "AKMGY",
     "AKSA",
     "AKSEN",
+    "AKSGY",
     "AKSUE",
+    "ALARK",
     "ALBTN",
     "ALCAR",
     "ALCTL",
     "ALFAS",
+    "ALGYO",
     "ALKA",
     "ALKIM",
     "ALVES",
@@ -641,14 +810,19 @@
     "ARENA",
     "ARFYE",
     "ARMGD",
+    "ARSAN",
     "ARZUM",
     "ASELS",
+    "ASGYO",
     "ASTOR",
     "ASUZU",
     "ATAKP",
     "ATATP",
     "ATATR",
     "ATEKS",
+    "ATSYH",
+    "AVGYO",
+    "AVHOL",
     "AVOD",
     "AVTUR",
     "AYCES",
@@ -663,7 +837,9 @@
     "BALSU",
     "BANVT",
     "BARMA",
+    "BASGZ",
     "BAYRK",
+    "BEGYO",
     "BESTE",
     "BETAE",
     "BEYAZ",
@@ -673,6 +849,7 @@
     "BIGEN",
     "BIMAS",
     "BINBN",
+    "BINHO",
     "BIOEN",
     "BIZIM",
     "BJKAS",
@@ -687,6 +864,7 @@
     "BRLSM",
     "BRMEN",
     "BRSAN",
+    "BRYAT",
     "BSOKE",
     "BTCIM",
     "BUCIM",
@@ -706,6 +884,7 @@
     "CMBTN",
     "CMENT",
     "CONSE",
+    "COSMO",
     "CRFSA",
     "CUSAN",
     "CVKMD",
@@ -714,11 +893,14 @@
     "DAPGM",
     "DARDL",
     "DCTTR",
+    "DENGE",
+    "DERHL",
     "DERIM",
     "DESA",
     "DESPC",
     "DEVA",
     "DGATE",
+    "DGGYO",
     "DGNMO",
     "DIRIT",
     "DITAS",
@@ -728,20 +910,26 @@
     "DOAS",
     "DOFER",
     "DOFRB",
+    "DOHOL",
     "DOKTA",
     "DURDO",
     "DURKN",
     "DYOBY",
+    "DZGYO",
     "EBEBK",
+    "ECILC",
     "ECOGR",
+    "ECZYT",
     "EDATA",
     "EDIP",
     "EFOR",
     "EGEEN",
+    "EGEGY",
     "EGGUB",
     "EGPRO",
     "EGSER",
     "EKDMR",
+    "EKGYO",
     "EKIM",
     "EKIZ",
     "EKOS",
@@ -761,6 +949,8 @@
     "ESCOM",
     "ESEN",
     "ETILR",
+    "EUHOL",
+    "EYGYO",
     "FADE",
     "FENER",
     "FLAP",
@@ -768,39 +958,53 @@
     "FORTE",
     "FRIGO",
     "FROTO",
+    "FZLGY",
     "GEDZA",
     "GENKM",
     "GENTS",
     "GEREL",
     "GESAN",
     "GIPTA",
+    "GLRYH",
+    "GLYHO",
     "GMTAS",
     "GOKNR",
     "GOLDA",
     "GOLTS",
     "GOODY",
     "GRSEL",
+    "GRTHO",
     "GSDDE",
+    "GSDHO",
     "GSRAY",
     "GUBRF",
     "GWIND",
     "GZNMI",
     "HATSN",
+    "HEDEF",
     "HEKTS",
     "HKTM",
+    "HLGYO",
     "HOROZ",
     "HRKET",
     "HTTBT",
     "HUNER",
+    "IDGYO",
     "IHEVA",
     "IHGZT",
+    "IHLAS",
     "IHLGM",
+    "IHYAY",
     "INDES",
     "INGRM",
     "INTEK",
     "INTEM",
     "INTET",
+    "INVEO",
+    "INVES",
+    "ISBIR",
     "ISDMR",
+    "ISGYO",
     "ISKPL",
     "ISSEN",
     "ISVEA",
@@ -817,9 +1021,14 @@
     "KAYSE",
     "KBORU",
     "KCAER",
+    "KCHOL",
     "KENT",
+    "KERVN",
     "KFEIN",
+    "KGYO",
+    "KLGYO",
     "KLKIM",
+    "KLRHO",
     "KLSYN",
     "KMPUR",
     "KNFRT",
@@ -830,6 +1039,7 @@
     "KOPOL",
     "KORDS",
     "KPEKS",
+    "KRGYO",
     "KRONT",
     "KRPLS",
     "KRSTL",
@@ -837,11 +1047,15 @@
     "KRVGD",
     "KUTPO",
     "KUYAS",
+    "KZBGY",
+    "KZGYO",
     "LIDER",
     "LILAK",
     "LINK",
     "LKMNH",
     "LOGO",
+    "LRSHO",
+    "LXGYO",
     "MAALT",
     "MACKO",
     "MAGEN",
@@ -859,20 +1073,27 @@
     "MEPET",
     "MERIT",
     "METEN",
+    "METRO",
     "MGROS",
+    "MHRGY",
     "MIATK",
+    "MMCAS",
     "MNDRS",
     "MNDTR",
     "MOBTL",
     "MOGAN",
     "MOPAS",
     "MPARK",
+    "MRGYO",
     "MRSHL",
     "MTRKS",
+    "MZHLD",
     "NATEN",
     "NETAS",
     "NIBAS",
     "NTGAZ",
+    "NTHOL",
+    "NUGYO",
     "NUHCM",
     "OBAMS",
     "OBASE",
@@ -883,15 +1104,22 @@
     "ORGE",
     "ORMA",
     "ORZAX",
+    "OSTIM",
+    "OTTO",
     "OYLUM",
     "OZATD",
+    "OZGYO",
+    "OZKGY",
     "OZSUB",
+    "PAGYO",
+    "PAHOL",
     "PAMEL",
     "PAPIL",
     "PARSN",
     "PASEU",
     "PATEK",
     "PCILT",
+    "PEKGY",
     "PENGD",
     "PETKM",
     "PETUN",
@@ -899,19 +1127,24 @@
     "PLTUR",
     "PNLSN",
     "PNSUT",
+    "POLHO",
     "POLTK",
     "PRKME",
     "PRZMA",
     "PSDTC",
+    "PSGYO",
     "QUAGR",
+    "RALYH",
     "RGYAS",
     "RNPOL",
     "RODRG",
     "RTALB",
     "RUBNS",
     "RUZYE",
+    "RYGYO",
     "RYSAS",
     "SAFKR",
+    "SAHOL",
     "SAMAT",
     "SANEL",
     "SANFM",
@@ -922,30 +1155,38 @@
     "SAYAS",
     "SDTTR",
     "SEGMN",
+    "SEGYO",
     "SEKUR",
     "SELEC",
     "SERNT",
     "SEYKM",
     "SILVR",
+    "SISE",
     "SKTAS",
     "SKYLP",
     "SMART",
     "SMRTG",
+    "SNGYO",
     "SNICA",
     "SODSN",
     "SSAAT",
     "SUMAS",
     "SUNTK",
+    "SURGY",
     "SUWEN",
     "TABGD",
     "TATEN",
     "TATGD",
+    "TAVHL",
     "TBORG",
     "TCELL",
     "TCKRC",
+    "TDGYO",
+    "TEHOL",
     "TEZOL",
     "TGSAS",
     "THYAO",
+    "TKFEN",
     "TKNSA",
     "TLMAN",
     "TMPOL",
@@ -953,8 +1194,12 @@
     "TNZTP",
     "TOASO",
     "TRALT",
+    "TRCAS",
+    "TRGYO",
+    "TRHOL",
     "TRILC",
     "TRMET",
+    "TSGYO",
     "TSPOR",
     "TTKOM",
     "TTRAK",
@@ -966,28 +1211,42 @@
     "ULAS",
     "ULKER",
     "ULUUN",
+    "UMPAS",
+    "UNLU",
+    "USHOL",
     "VAKKO",
     "VANGD",
     "VBTYZ",
+    "VERUS",
     "VESBE",
     "VESTL",
+    "VKGYO",
     "VKING",
+    "VRGYO",
     "VSNMD",
     "YAPRK",
     "YATAS",
     "YAYLA",
     "YBTAS",
     "YEOTK",
+    "YESIL",
+    "YGGYO",
     "YIGIT",
     "YKSLN",
     "YONGA",
     "YUNSA",
     "YYLGD",
     "ZEDUR",
-    "ZOREN"
+    "ZERGY",
+    "ZOREN",
+    "ZRGYO"
   ],
-  "snapshot_count": 339,
+  "snapshot_count": 420,
   "snapshot_rejections": [
+    {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "AAGYO"
+    },
     {
       "reason": "TTM icin tam dort bagimsiz ceyrek zorunlu",
       "ticker": "ALBTN"
@@ -1019,6 +1278,10 @@
     {
       "reason": "TTM icin tam dort bagimsiz ceyrek zorunlu",
       "ticker": "CITAS"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "DOHOL"
     },
     {
       "reason": "TTM ceyrekleri takvimde bitisik olmali",
@@ -1057,6 +1320,10 @@
       "ticker": "INTET"
     },
     {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "ISBIR"
+    },
+    {
       "reason": "TTM icin tam dort bagimsiz ceyrek zorunlu",
       "ticker": "ISVEA"
     },
@@ -1070,7 +1337,15 @@
     },
     {
       "reason": "FINANSAL_VERI_YOK",
+      "ticker": "KCHOL"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
       "ticker": "KPEKS"
+    },
+    {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "LXGYO"
     },
     {
       "reason": "FINANSAL_VERI_YOK",
@@ -1089,8 +1364,20 @@
       "ticker": "ORZAX"
     },
     {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "POLHO"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "SAHOL"
+    },
+    {
       "reason": "TTM icin tam dort bagimsiz ceyrek zorunlu",
       "ticker": "SARAE"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "SISE"
     },
     {
       "reason": "TTM ceyrekleri takvimde bitisik olmali",
@@ -1110,7 +1397,19 @@
     },
     {
       "reason": "FINANSAL_VERI_YOK",
+      "ticker": "TKFEN"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
       "ticker": "TSPOR"
+    },
+    {
+      "reason": "FINANSAL_VERI_YOK",
+      "ticker": "UMPAS"
+    },
+    {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "USHOL"
     },
     {
       "reason": "TTM ceyrekleri takvimde bitisik olmali",
@@ -1119,9 +1418,13 @@
     {
       "reason": "TTM ceyrekleri takvimde bitisik olmali",
       "ticker": "YONGA"
+    },
+    {
+      "reason": "TTM ceyrekleri takvimde bitisik olmali",
+      "ticker": "ZERGY"
     }
   ],
   "unsafe_issued_capital_share_fields_scrubbed": true,
-  "usable_previous_period_valuation_count": 223,
-  "usable_valuation_count": 213
+  "usable_previous_period_valuation_count": 280,
+  "usable_valuation_count": 263
 }

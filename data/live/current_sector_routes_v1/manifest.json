@@ -3,7 +3,7 @@
     "sector_routes": {
       "path": "data/live/current_sector_routes_v1/sector_routes.csv.gz",
       "row_count": 624,
-      "sha256": "c864ec3c18a96ef02f41be34631828436ffc757d53d1cc862b1b97d172844ac1",
+      "sha256": "dc56cc8b590b233b4ad363bad8f66ff6945440e4917d89f991d85c780774cdc4",
       "source_id": "KAP_ENDEKSLER_CURRENT"
     }
   },
@@ -11,22 +11,22 @@
   "raw_sources": [
     {
       "artifact_identity": "KAP Endeksler index-membership snapshot, deterministic gzip",
-      "http_date": "Wed, 16 Sep 2026 18:49:27 GMT",
+      "http_date": "Fri, 18 Sep 2026 00:40:36 GMT",
       "publisher": "Kamuyu Aydinlatma Platformu (KAP)",
       "raw_path": "data/live/current_sector_routes_v1/kap_endeksler.html.gz",
-      "raw_sha256": "7b7452cad372ec56ab8d983219da66aff1d4bc90e5e01597445ab0588fe33b6f",
-      "retrieved_at": "2026-09-16T19:01:30.173334+00:00",
+      "raw_sha256": "7dfbd3daadfcdad81ed6250edda8f1d2060ce37f3dcadf93f8b6b2789b8fc107",
+      "retrieved_at": "2026-09-18T00:49:49.091414+00:00",
       "source_id": "KAP_ENDEKSLER_CURRENT",
       "source_url": "https://www.kap.org.tr/tr/Endeksler",
-      "uncompressed_sha256": "2e7d8f863035b99dec4225a5a8e92bd8ba257867a99acf71a567ce5b31c2b2cd"
+      "uncompressed_sha256": "6892e99dd0bc24d1496fc426f584dbee6a406b241bbf95b7f8506e0a15e1d882"
     },
     {
       "artifact_identity": "KAP Sektorler classification snapshot, deterministic gzip",
-      "http_date": "Wed, 16 Sep 2026 18:40:27 GMT",
+      "http_date": "Fri, 18 Sep 2026 00:26:22 GMT",
       "publisher": "Kamuyu Aydinlatma Platformu (KAP)",
       "raw_path": "data/live/current_sector_routes_v1/kap_sektorler.html.gz",
       "raw_sha256": "153d111eaa97295e2070a7afcf9862d8811ee517cea2345b18d526e726af6bc8",
-      "retrieved_at": "2026-09-16T19:01:30.173334+00:00",
+      "retrieved_at": "2026-09-18T00:49:49.091414+00:00",
       "source_id": "KAP_SEKTORLER_CURRENT",
       "source_url": "https://www.kap.org.tr/tr/Sektorler",
       "uncompressed_sha256": "a2903b390182c23305a0b58af0386934660ea61ce59388231fc8791d2d0b510e"

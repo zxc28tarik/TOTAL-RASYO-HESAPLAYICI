@@ -26,6 +26,7 @@ DEFAULT_ROUTES = ROOT / "data/live/current_sector_routes_v1/sector_routes.csv.gz
 DEFAULT_ROUTE_MANIFEST = ROOT / "data/live/current_sector_routes_v1/manifest.json"
 DEFAULT_OUTPUT = ROOT / "data/live/current_core_modules_v1"
 NONFIN_INDICES = frozenset({"XUSIN", "XUHIZ", "XUTEK"})
+SUPPORTED_ROUTE_FAMILIES = frozenset({"HOLDING", "GYO"})
 
 
 def _sha(path: Path) -> str:
@@ -42,7 +43,9 @@ def materialize(*, archive_dir: Path, routes_path: Path, route_manifest_path: Pa
     routes["valid_to"] = pd.to_datetime(routes["valid_to"], errors="coerce")
     day = pd.Timestamp(analysis.date())
     active = routes.loc[
-        routes.sector_index_code.isin(NONFIN_INDICES)
+        (routes.sector_index_code.isin(NONFIN_INDICES)
+         | (routes.historical_family.isin(SUPPORTED_ROUTE_FAMILIES)
+            if 'historical_family' in routes.columns else False))
         & routes.valid_from.le(day)
         & (routes.valid_to.isna() | routes.valid_to.gt(day))
     ].copy()

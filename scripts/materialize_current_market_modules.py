@@ -25,8 +25,19 @@ from src.analytics.historical_pit_m3_replay import run_historical_pit_m3_replay
 CONTRACT = "CURRENT_MARKET_M3_EK4_EK9_V1"
 OUTPUT = ROOT / "data/live/current_market_modules_v1"
 ROUTES = ROOT / "data/live/current_sector_routes_v1/sector_routes.csv.gz"
-INDEX_SYMBOLS = {"XU100": "XU100.IS", "XUSIN": "XUSIN.IS", "XUHIZ": "XUHIZ.IS", "XUTEK": "XUTEK.IS"}
+INDEX_SYMBOLS = {"XU100": "XU100.IS", "XUSIN": "XUSIN.IS", "XUHIZ": "XUHIZ.IS",
+                 "XUTEK": "XUTEK.IS", "XUMAL": "XUMAL.IS"}
 NONFIN_INDICES = frozenset({"XUSIN", "XUHIZ", "XUTEK"})
+# Holdings and REITs sit under XUMAL, so the index code alone excludes them
+# even though the core engine scores their family. A route that declares a
+# supported family earns its benchmark too.
+SUPPORTED_ROUTE_FAMILIES = frozenset({"HOLDING", "GYO"})
+
+
+def scored_routes(routes: pd.DataFrame) -> pd.Series:
+    family = (routes.historical_family if "historical_family" in routes.columns
+              else pd.Series([None] * len(routes), index=routes.index))
+    return routes.sector_index_code.isin(NONFIN_INDICES) | family.isin(SUPPORTED_ROUTE_FAMILIES)
 
 
 def _sha(path: Path) -> str:
@@ -59,7 +70,7 @@ def materialize(*, cutoff: date, output_dir: Path = OUTPUT, routes_path: Path = 
     routes["valid_to"] = pd.to_datetime(routes.valid_to, errors="coerce")
     day = pd.Timestamp(cutoff)
     active = routes.loc[
-        routes.sector_index_code.isin(NONFIN_INDICES) & routes.valid_from.le(day)
+        scored_routes(routes) & routes.valid_from.le(day)
         & (routes.valid_to.isna() | routes.valid_to.gt(day)),
         ["ticker", "sector_index_code"],
     ].drop_duplicates().sort_values("ticker")

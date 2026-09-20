@@ -33,6 +33,9 @@ from src.ingest.kap_bulk_financial_export import parse_kap_bulk_export_report
 
 CONTRACT = "CURRENT_NONFIN_RELATIVE_VALUATION_V1"
 NONFIN_INDICES = frozenset({"XUSIN", "XUHIZ", "XUTEK"})
+# Peers are grouped by sector_index_code, so holdings and REITs admitted
+# here are valued against each other under XUMAL, never against industrials.
+SUPPORTED_ROUTE_FAMILIES = frozenset({"HOLDING", "GYO"})
 ARCHIVE_NAMES = (
     "KAP_2025_3A.zip", "KAP_2025_6A.zip", "KAP_2025_9A.zip",
     "KAP_2025_Y.zip", "KAP_2026_3A.zip", "KAP_2026_6A.zip",
@@ -130,7 +133,9 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
     analysis_day = pd.Timestamp(analysis_at.date())
     active = routes.loc[
         routes.ticker.isin(caps.ticker)
-        & routes.sector_index_code.isin(NONFIN_INDICES)
+        & (routes.sector_index_code.isin(NONFIN_INDICES)
+           | (routes.historical_family.isin(SUPPORTED_ROUTE_FAMILIES)
+              if 'historical_family' in routes.columns else False))
         & routes.valid_from.le(analysis_day)
         & (routes.valid_to.isna() | routes.valid_to.gt(analysis_day))
     ].copy()
@@ -250,7 +255,11 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
         ), encoding="utf-8")
     receipt = {
         "contract": CONTRACT, "analysis_at": analysis_at.isoformat(),
-        "peer_groups": sorted(NONFIN_INDICES), "route_source_sha256": _sha(routes_path),
+        # Report the cohorts the run actually valued against, not the three
+        # NONFIN index codes: routes that declare a supported family bring in
+        # XUMAL members whose peers are drawn from that same XUMAL cohort.
+        "peer_groups": sorted(set(peer_group_by_ticker.values())),
+        "route_source_sha256": _sha(routes_path),
         "routed_candidate_counts_by_peer_group": {
             key: int(value) for key, value in active.sector_index_code.value_counts().sort_index().items()
         },

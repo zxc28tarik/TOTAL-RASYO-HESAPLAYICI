@@ -35,6 +35,57 @@ birlikte güncellenir.
 Her yeni çalışma önce `git fetch` yapar. Uzak dal ilerideyse mevcut işi
 ezmeden en güncel doğrulanmış head'den devam eder.
 
+### 1.3 Canlı kapsam 191 → 232 (2026-09-20): XUMAL holding/GYO ailesi bağlandı
+
+XUMAL tek bir endeks altında holding, GYO, banka ve sigortayı topluyor, bu
+yüzden **endeks kodu aileyi söyleyemiyor**. Oysa çekirdek motor holding ve
+GYO ailelerini zaten skorluyor; dışarıda kalmalarının nedeni ekonomik değil,
+route tablosunun aileyi ifade edememesiydi. KAP'ın kendi sektör adı bunu
+söyleyebiliyor: `capture_current_sector_routes` artık
+`HOLDİNGLER VE YATIRIM ŞİRKETLERİ → HOLDING` ve
+`GAYRİMENKUL YATIRIM ORTAKLIKLARI → GYO` eşlemesini route satırına
+`historical_family` olarak yazıyor. Banka, sigorta, leasing ve faktoring
+**eşlenmeden bırakılıyor**: tabloları bu hattın çalıştırmadığı motorları
+ister. 160 XUMAL route'unun 109'u aile bildiriyor (56 HOLDING + 54 GYO) ve
+üç NONFIN endeks kodundaki **hiçbir satır** aile bildirmiyor, yani onların
+davranışı bayt bayt aynı.
+
+`_dated_nonfin_family` kolonu opsiyonel olarak kabul eder; kolonu olmayan
+tablo eskisi gibi davranır. Peer grubu `sector_index_code` olmayı sürdürür,
+dolayısıyla holding ve GYO'lar **kendi XUMAL kohortunda** değerlenir, hiçbir
+zaman sanayi şirketlerine karşı değil.
+
+**Sıra bağımlılığı — bulunan asıl hata.** M2'nin FOLLOW ekseni
+`current_market_modules_v1/stock_prices.csv.gz` dosyasını okur. M2 piyasa
+adımından **önce** koşturulduğunda yeni route'lanan şirketlerin fiyat ekseni
+henüz yazılmamış oluyor ve M2 sessizce düşüyordu. Doğru sıra
+**piyasa → M2 → Total**. Bu düzeltilmeden aynı kod M2'yi 201'de bırakıyordu.
+
+  route 624 → 623 aktif, piyasa evreni 463 → 572, M1/Ek1 422 → 508,
+  M3 440 → 548, Ek4 453 → 561, Ek9 234 → 548, kullanılabilir valuation
+  213 → 263, FOLLOW 201 → 249, M2 201 → 249,
+  **Total Rasyo 191 → 232**, açık ret 616 → 575.
+
+**Ek9 tıkanıklığı satıcıda kapandı.** Yahoo 2026-09-07 barını 566 ticker'ın
+hepsi için geriye doldurmuş. `repair_current_ek9_gaps` artık saf denetim:
+`missing_day_counts {}`, 548 → 548, öncelikli 4 hedefin dördü de geçerli.
+Temel karıştırmadan (dividend-adjusted Mynet tablosunu ham kapanış kolonuna
+yazmadan) çözüldü.
+
+**Yahoo'da bulunmayan 5 sembol kayıp şirket değil.** KOZAA/KOZAL/IPEKE
+reddediliyor ama isim değişikliği sonrası ticker'ları TRMET/TRALT/TRENJ
+route'lu ve tam skorlu. Eski satırlar bayat kopya; fail-closed doğru davranış.
+
+**Provenance düzeltmesi.** M2 receipt'i `peer_groups` alanını sabit üç NONFIN
+endeksi olarak yazıyordu; 93 aday XUMAL kohortundayken bu yanlıştı. Artık
+koşunun gerçekten kullandığı kohortları raporluyor.
+
+Kalan sınır hâlâ **M2** (558 eksik) ve ağırlıklı olarak ekonomik: zarar eden
+şirkette PE, EBIT ≤ 0 olanda EV/EBIT kullanılamıyor. `minimum_coverage_weight`
+§2 gereği yönetişim kilitli ve burada değiştirilmedi. Ağırlıklar, veto,
+peer/coverage eşikleri ve evren değişmedi; nötr doldurma ve ağırlık yeniden
+dağıtımı yok. W1/W2 donmuş kanıtı değişmeden doğrulanıyor.
+
 ### 1.2 Canlı kapsam 2 → 68 (2026-09-16): dört veri tıkanıklığı açıldı
 
 Kullanıcı talimatı: tüm BIST için güncel Total Rasyo üret. Dört ayrı kök

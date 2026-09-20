@@ -1,32 +1,32 @@
 {
   "contract": "CURRENT_TOTAL_RASYO_MATERIALIZATION_V1",
-  "explicit_rejection_count": 616,
+  "explicit_rejection_count": 575,
   "inputs": {
-    "m2.jsonl": "5b4774175f17d91971f5200af46ee26d62c5a1df66b6a3fbab016e9b858f93f0",
-    "modules.csv": "6cd71676eb7941d2a122ed59658301cfb8e93a4e592a3b0363ecd53c7c9089d5",
-    "modules.jsonl": "cf043b9bf3ca374a11b6b3d392ee659a2ee15d14124fa56214c3c2502cdb299e",
+    "m2.jsonl": "ff15c676a25409edc015d111b482d20663bf0d432efdd7274896bc8b270af583",
+    "modules.csv": "00038f5294eb8e7313be29f9fa92c060b879d9099cd10e854525804771c8643c",
+    "modules.jsonl": "b4445f5fcab823e4e1d45e0f4c700970ace7104039274d0dde7f56e6043f0395",
     "universe.csv": "d9c860f918a538bc6426bd45e5e91ae4eb60fef188fda3630eef7fa78b83e4a1"
   },
-  "m2_input_count": 201,
-  "materialized_at": "2026-09-17T23:34:49.221579+00:00",
+  "m2_input_count": 249,
+  "materialized_at": "2026-09-20T17:39:03.371858+00:00",
   "missing_module_counts": {
-    "Ek1": 385,
-    "Ek4": 354,
-    "Ek9": 573,
-    "M1": 385,
-    "M2": 606,
-    "M3": 367
+    "Ek1": 299,
+    "Ek4": 246,
+    "Ek9": 259,
+    "M1": 299,
+    "M2": 558,
+    "M3": 259
   },
   "neutral_fill": false,
   "outputs": {
-    "ranking.jsonl": "ba833a64ed9a2ee0ec8bbf9ac978297e215106885721bf50ad1818d53d3be4b8",
-    "rejections.jsonl": "f760dfb19dcb5c918c606eb77543a2a9deafecbc901d828a3c7e5a716e866e39",
-    "totals.jsonl": "080162479c8f0c526a459e82219e6e9a21a8e7ca4ef6d693654a86db2c94ff56"
+    "ranking.jsonl": "0aea289b43e9ba1d4c322afb21fb33bea5f5e0332e6a4f5ad25cfcb800853386",
+    "rejections.jsonl": "7edb6cda07135d8f0e4ef25a9554423165472cb6ef3a381a332d32129fa40df5",
+    "totals.jsonl": "bd4eda9655e536260491f3953d8f1ff14b8e1de901e816cb6b9ff6fe5075b38d"
   },
   "production_formula": "src.analytics.total_rasyo_score.compute_total_rasyo",
-  "ranking_count": 191,
+  "ranking_count": 232,
   "ranking_order": "final_score DESC, ticker ASC",
-  "total_valid_count": 191,
+  "total_valid_count": 232,
   "universe_count": 807,
   "weight_redistribution": false
 }
