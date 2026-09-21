@@ -1,6 +1,6 @@
 {
   "command": "python scripts/audit_w4_ek4_contract.py --apply",
-  "commit": "24d2d6c8ee201db7d564c01bdb975d685c07c872",
+  "commit": "5e9f8da9c38e0dfdd0ffc07b1b1bf845927810ab",
   "contract": "W4_EK4_CONTRACT_RECEIPT_V1",
   "coverage": {
     "band_counts": {
@@ -17,7 +17,7 @@
     "materially_affected_tickers": 103,
     "max_delta_score": 0.3312336659728502
   },
-  "generated_at": "2026-09-16T02:08:42.851086+00:00",
+  "generated_at": "2026-09-21T06:10:37.124311+00:00",
   "generator_sha256": "a4f9bfd1fb9fa75fc6d72215b93fa6acccb7ac446b4af0e63ebb1d696a9dfc4a",
   "hash_mode": "LF_CANONICAL_SHA256_V1",
   "limitations": [
@@ -57,7 +57,7 @@
     "ek4_momentum": "710a047ddda6b56fa5ba38a0166f83e999611dbca6bbdab6e0fe59263257e725",
     "ek4_replay_contract_doc": "d9b649e79a3e22ba07e443da44519fadc3d6a5a14df955073f1e6a29377e2d23",
     "historical_pit_ek4_replay": "76ccbbca6b83d9d38cca1a98cb9760d2c81009a3ef2d4f63c49d0e237121b7e4",
-    "materialize_current_market_modules": "397a0a3a4f44165703c8a5917cd236fcebc4cb9c5afe09c6b6907140b3a582a1",
+    "materialize_current_market_modules": "8c014b5eb7f99d62dcd3f650078914c99eedc40f2ab9e58c928de9ae93985113",
     "p3_cells": "9fbcca69b55d4312d163c4e135d69ec1063cd44d619f29e27f55fd596da832fe",
     "resolved_prices": "0b67e5104ace0a8db7da1c8160eb4b65de9d9bdebb576c5294da2bcad908a479",
     "run_daily_pipeline": "d02dfa01a2e88f94c6462274ccc3deb1311aeac48cf5a52b3a524e86964461c0"
