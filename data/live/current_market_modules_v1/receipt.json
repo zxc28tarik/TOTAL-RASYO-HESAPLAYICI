@@ -1,57 +1,57 @@
 {
-  "captured_at": "2026-09-20T17:16:47.005695+00:00",
+  "captured_at": "2026-09-23T19:06:30.782218+00:00",
   "contract": "CURRENT_MARKET_M3_EK4_EK9_V1",
-  "cutoff_date": "2026-09-15",
-  "ek4_valid_count": 561,
-  "ek9_valid_count": 548,
+  "cutoff_date": "2026-09-23",
+  "ek4_valid_count": 563,
+  "ek9_valid_count": 546,
   "index_feed_latest_dates": {
-    "XU100": "2026-09-15",
-    "XUHIZ": "2026-09-15",
-    "XUMAL": "2026-09-15",
-    "XUSIN": "2026-09-15",
-    "XUTEK": "2026-09-15"
+    "XU100": "2026-09-23",
+    "XUHIZ": "2026-09-23",
+    "XUMAL": "2026-09-23",
+    "XUSIN": "2026-09-23",
+    "XUTEK": "2026-09-23"
   },
-  "index_price_row_count": 41543,
+  "index_price_row_count": 41573,
   "index_source": "OFFICIAL_BORSA_GRAPHIC_CURRENT_V1",
   "index_source_hashes": {
     "XU100": {
-      "gzip_sha256": "81b2a1d9c9b283aed8ca0b54ca8675bfdfd17b0b7385349cbd353691c0f21494",
-      "http_date": "Sun, 20 Sep 2026 17:16:37 GMT",
-      "raw_sha256": "eb77be9f734474721f4649d7e04e243888ebc596701ceb93db800a361acff0a7",
+      "gzip_sha256": "cfbf808f0050f6bc7b2cbe4ffde11da86e4a13aa2032e87c319506912ddf5fad",
+      "http_date": "Wed, 23 Sep 2026 19:06:22 GMT",
+      "raw_sha256": "db00cb59e6cf336c536b4a02014ec11a81a9f6e6ed1375e46d3a1fff4222cc4c",
       "url": "https://www.borsaistanbul.com/graphic.php?veriTuru=endeks-graphic&indexCode=XU100"
     },
     "XUHIZ": {
-      "gzip_sha256": "b9d2ab49153e28850ed3cda11aa8eaea2a2797b360382291bcd631ac4566d664",
-      "http_date": "Sun, 20 Sep 2026 17:16:42 GMT",
-      "raw_sha256": "74f5dadf44692f0cab6209096b8733e8853cdc53e217d78e5b94909a967cd7ee",
+      "gzip_sha256": "9d3da47ff632bcef89881499f50e83a99658112690de6c50d19e0d8c6a29e5ff",
+      "http_date": "Wed, 23 Sep 2026 19:06:25 GMT",
+      "raw_sha256": "7fabe7088d3e4f40eda73357350cc42602ebf8aab137548a5ee60b10dace8e2c",
       "url": "https://www.borsaistanbul.com/graphic.php?veriTuru=endeks-graphic&indexCode=XUHIZ"
     },
     "XUMAL": {
-      "gzip_sha256": "4bb73ba8ef62e4a9f440d1daff6a4e954c865a7413effad9b0af02ebf2117484",
-      "http_date": "Sun, 20 Sep 2026 17:16:46 GMT",
-      "raw_sha256": "2942bd6d29e05d3c95941e8b206173f001e957d7d987a6d8480f648d9be59a5a",
+      "gzip_sha256": "fc951c3c7816a9350fa422b7beee3b256d8bd584ab1c2d4535c8558e1ea941b6",
+      "http_date": "Wed, 23 Sep 2026 19:06:30 GMT",
+      "raw_sha256": "31ee1cb2c3058bfa6c32c862161d3c0edbeeea22f2977556ca68871df62ed7c9",
       "url": "https://www.borsaistanbul.com/graphic.php?veriTuru=endeks-graphic&indexCode=XUMAL"
     },
     "XUSIN": {
-      "gzip_sha256": "b44a88f9aef9edd27cd6a29c6e33bce3a95af5e7035ae4a181e6f4de3b2d8d50",
-      "http_date": "Sun, 20 Sep 2026 17:16:40 GMT",
-      "raw_sha256": "537738d86af3a20b4f213d10adfe2e40a59cf121ff6924f1e2fa40843f4ac03b",
+      "gzip_sha256": "cbd682dfb3ae34b021f7e0cb858f70bca593d16b0af454e5942c383f78e1c284",
+      "http_date": "Wed, 23 Sep 2026 19:06:24 GMT",
+      "raw_sha256": "c04c41f393daaf1adefaae3c5483a2ab7469fe3dfced2bec25033ebd94ffbc1a",
       "url": "https://www.borsaistanbul.com/graphic.php?veriTuru=endeks-graphic&indexCode=XUSIN"
     },
     "XUTEK": {
-      "gzip_sha256": "276a4564ece681c5e0be729f0b8f14809feb05c0f24548ced53018d835ca8236",
-      "http_date": "Sun, 20 Sep 2026 17:16:44 GMT",
-      "raw_sha256": "71107bb1da11967c0964a273b378172610fd1b5236c3132f27cac6045af5107e",
+      "gzip_sha256": "53138acc2c324325118aad2a2cc5c3137eb6df25b830813b2749fd90c8cbf2eb",
+      "http_date": "Wed, 23 Sep 2026 19:06:28 GMT",
+      "raw_sha256": "4bda019e5fb8298b4d1f012a397cb342ccdc5b9ba89ce70b2ee667f2c44c549b",
       "url": "https://www.borsaistanbul.com/graphic.php?veriTuru=endeks-graphic&indexCode=XUTEK"
     }
   },
-  "m3_valid_count": 548,
-  "market_asof_date": "2026-09-15",
+  "m3_valid_count": 547,
+  "market_asof_date": "2026-09-23",
   "outputs": {
-    "index_prices.csv.gz": "6fcd6746cbe3c7aa3a9973774dc07064a2c7684b69fe06c975dc58ab34448552",
-    "modules.csv": "00038f5294eb8e7313be29f9fa92c060b879d9099cd10e854525804771c8643c",
-    "rejections.jsonl": "2e577f15cdc01909880400eb8f6691d85fca56ec39984c0d00d6c20685dcfda7",
-    "stock_prices.csv.gz": "ed8a09957b0470ebe7852ba1a925d3563cc3c58709323f4571111b982bc6d264"
+    "index_prices.csv.gz": "128506cc76f697780c81487b7abc624b5042b052821bd129f3df1b4b6d1e1cc3",
+    "modules.csv": "ec1adf928e83db569745b6643fc37d95e8e43c7f407f961566ec494568e11c68",
+    "rejections.jsonl": "8547e8866379bab7e6334675a3384b8bc2014fd6b8874b5e283712da6526cd05",
+    "stock_prices.csv.gz": "1bc6bd1815ea46bdd300fd71d0c00b0ab7440517c23962631d62f3a49d901465"
   },
   "production_engines": [
     "run_historical_pit_m3_replay",
@@ -59,12 +59,12 @@
     "run_historical_pit_ek9_replay"
   ],
   "rejection_counts": {
-    "Ek4:STOCK_WINDOW_PRICE_MISSING": 11,
-    "Ek9:STOCK_WINDOW_PRICE_MISSING": 24,
-    "M3:STOCK_WINDOW_PRICE_MISSING": 24
+    "Ek4:STOCK_WINDOW_PRICE_MISSING": 9,
+    "Ek9:STOCK_WINDOW_PRICE_MISSING": 26,
+    "M3:STOCK_WINDOW_PRICE_MISSING": 25
   },
-  "stock_bulk_frontier_date": "2026-09-15",
-  "stock_price_row_count": 266299,
+  "stock_bulk_frontier_date": "2026-09-23",
+  "stock_price_row_count": 268158,
   "stock_source": "YAHOO_UNADJUSTED_AND_ADJUSTED_DAILY_CAPTURE_CURRENT_V1",
   "universe_count": 572
 }

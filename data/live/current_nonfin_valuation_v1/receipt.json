@@ -1,5 +1,5 @@
 {
-  "analysis_at": "2026-09-20T17:20:21.658555+00:00",
+  "analysis_at": "2026-09-23T19:27:30.616215+00:00",
   "archive_hashes": {
     "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
     "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
@@ -12,142 +12,26 @@
   "current_price_denominator_basis": "BORSA_QUOTED_NOMINAL_UNITS_OUT",
   "derivation_rejections": [
     {
-      "reason": "ValueError:max() arg is an empty sequence",
-      "ticker": "DOHOL"
-    },
-    {
-      "reason": "ValueError:max() arg is an empty sequence",
+      "reason": "TECHNICAL_FAMILY_FACTS_ABSENT",
       "ticker": "INTET"
     },
     {
-      "reason": "ValueError:max() arg is an empty sequence",
-      "ticker": "KCHOL"
-    },
-    {
-      "reason": "ValueError:max() arg is an empty sequence",
+      "reason": "TECHNICAL_FAMILY_FACTS_ABSENT",
       "ticker": "KPEKS"
     },
     {
-      "reason": "ValueError:max() arg is an empty sequence",
-      "ticker": "POLHO"
-    },
-    {
-      "reason": "ValueError:max() arg is an empty sequence",
-      "ticker": "SAHOL"
-    },
-    {
-      "reason": "ValueError:max() arg is an empty sequence",
-      "ticker": "SISE"
-    },
-    {
-      "reason": "ValueError:max() arg is an empty sequence",
-      "ticker": "TCELL"
-    },
-    {
-      "reason": "ValueError:max() arg is an empty sequence",
-      "ticker": "TKFEN"
-    },
-    {
-      "reason": "ValueError:max() arg is an empty sequence",
+      "reason": "TECHNICAL_FAMILY_FACTS_ABSENT",
       "ticker": "UMPAS"
     }
   ],
-  "derived_financial_ticker_count": 449,
-  "financial_report_count": 2761,
+  "derived_financial_ticker_count": 456,
+  "financial_report_count": 2760,
   "follow_contract": "CURRENT_NONFIN_FOLLOW_AXIS_V1",
-  "follow_materialized_count": 249,
+  "follow_materialized_count": 406,
   "follow_rejections": [
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ADEL"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "AGROT"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "AGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "AKENR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "AKSUE"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ALCAR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ALGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ALKA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ANELE"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ANGEN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ARCLK"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ARENA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "ARZUM"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ASUZU"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ATSYH"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "AVGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "AVHOL"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "AVOD"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "AVTUR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "AYCES"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "AYDEM"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "BAGFS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BAHKM"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -155,35 +39,7 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BANVT"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BARMA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BAYRK"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BEGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BIENY"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BINBN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BINHO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BIOEN"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -191,47 +47,7 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BMSCH"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BOBET"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "BORLS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BRKO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BRMEN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BSOKE"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BTCIM"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "BURCE"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BURVA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "BYDNR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "CANTE"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -239,239 +55,11 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "CELHA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "CEMAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "CMBTN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "COSMO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "CRFSA"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "CUSAN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "DAGI"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "DARDL"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "DCTTR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "DENGE"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "DGGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "DGNMO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "DIRIT"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "DITAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "DMSAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "DOKTA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "DURDO"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "DYOBY"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "EDATA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "EGSER"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "EKIZ"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "EKOS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "EKSUN"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "EMNIS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ENSRI"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ENTRA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "EPLAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ESCAR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ESEN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "EYGYO"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "FLAP"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "FRIGO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "FZLGY"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "GMTAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "GOKNR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "GOODY"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "GUBRF"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "GZNMI"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "HATSN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "HEKTS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "HOROZ"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "HRKET"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "HUNER"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "IDGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "IHLAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "IHYAY"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "INVEO"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "ISGYO"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "IZFAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "IZINV"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "IZMDC"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KAPLM"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KARTN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KENT"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KLGYO"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "KNFRT"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "KOCMT"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KONKA"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -479,35 +67,7 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KORDS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KRGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "KUYAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "KZGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "LRSHO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MAALT"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MAGEN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MANAS"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -515,39 +75,7 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MARTI"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MEGAP"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MEKAG"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "METRO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "MMCAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MNDTR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MOGAN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "MZHLD"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "NATEN"
     },
     {
       "reason": "PREVIOUS_VALUATION_NOT_OK",
@@ -555,23 +83,11 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "NIBAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "NUGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "OBASE"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ODAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "OSTIM"
+      "ticker": "ONRYT"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -579,107 +95,11 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "OZATD"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "PAMEL"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "PAPIL"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "PARSN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "PATEK"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "PENGD"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "PETKM"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "PGSUS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "PNSUT"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "PRKME"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "PRZMA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "RTALB"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "RUZYE"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SANKO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SASA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SEGYO"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "SEYKM"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SILVR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SKTAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SKYLP"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SMART"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SNGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "SNICA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "SURGY"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "TATEN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "TEZOL"
+      "ticker": "TKFEN"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
@@ -687,70 +107,30 @@
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "TLMAN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "TMPOL"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "TMSN"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "TRILC"
-    },
-    {
-      "reason": "PREVIOUS_VALUATION_NOT_OK",
-      "ticker": "ULAS"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "VESBE"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "VESTL"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "VKING"
     },
     {
       "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "VRGYO"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "VSNMD"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "YAYLA"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
       "ticker": "YESIL"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ZEDUR"
-    },
-    {
-      "reason": "CURRENT_VALUATION_NOT_OK",
-      "ticker": "ZOREN"
     }
   ],
   "legal_share_count_used_as_price_denominator": false,
   "m2_blocker": null,
-  "m2_materialized_count": 249,
+  "m2_materialized_count": 406,
+  "minimum_coverage_weight": 0.4,
+  "minimum_peer_count": 5,
+  "multiple_weights": {
+    "EV_EBIT": 0.3,
+    "PB": 0.2,
+    "PE": 0.3,
+    "PS": 0.2
+  },
   "neutral_follow_or_m2_materialized": false,
   "outputs": {
-    "follow.jsonl": "f4a16ef2881fd1342a2a845426df9c2c663de706dc6e5e089d12dd9216a13d7b",
-    "m2.jsonl": "ff15c676a25409edc015d111b482d20663bf0d432efdd7274896bc8b270af583",
-    "previous_valuations.jsonl": "8d1b8134bc21c908e9d11d14e27a680df9904b262834fd5e91814be89e6223d3",
-    "valuations.jsonl": "81dfc4af613a76df57c67bf3f50737575971e4131fb55787e051c7959c7e39cd"
+    "follow.jsonl": "a84981913491f2c8c9400438b06543b130ce684a4c5e931dec61d6525e5703db",
+    "m2.jsonl": "432521d7b4f6075ab951aa45c3e02e4636a6c367bae25c801e5d309f61240a3d",
+    "previous_valuations.jsonl": "09244057dfbb7967238b7d9ebe66b85798ca9ca6039412e67c16767911a13740",
+    "valuations.jsonl": "15055d6022b75388967b4ed2ec4cda9728e3edb105733c16d321057bc8d4c099"
   },
   "peer_groups": [
     "XUHIZ",
@@ -764,15 +144,15 @@
       "ticker": "MARMR"
     }
   ],
-  "previous_period_valuation_count": 419,
-  "production_valuation_count": 420,
+  "previous_period_valuation_count": 426,
+  "production_valuation_count": 427,
   "route_source_sha256": "dc56cc8b590b233b4ad363bad8f66ff6945440e4917d89f991d85c780774cdc4",
   "routed_candidate_count": 465,
   "routed_candidate_counts_by_peer_group": {
     "XUHIZ": 118,
-    "XUMAL": 93,
+    "XUMAL": 92,
     "XUSIN": 219,
-    "XUTEK": 35
+    "XUTEK": 36
   },
   "routed_tickers": [
     "A1YEN",
@@ -924,7 +304,6 @@
     "EDIP",
     "EFOR",
     "EGEEN",
-    "EGEGY",
     "EGGUB",
     "EGPRO",
     "EGSER",
@@ -1101,6 +480,7 @@
     "ODINE",
     "OFSYM",
     "ONCSM",
+    "ONRYT",
     "ORGE",
     "ORMA",
     "ORZAX",
@@ -1241,7 +621,7 @@
     "ZOREN",
     "ZRGYO"
   ],
-  "snapshot_count": 420,
+  "snapshot_count": 427,
   "snapshot_rejections": [
     {
       "reason": "TTM ceyrekleri takvimde bitisik olmali",
@@ -1278,10 +658,6 @@
     {
       "reason": "TTM icin tam dort bagimsiz ceyrek zorunlu",
       "ticker": "CITAS"
-    },
-    {
-      "reason": "FINANSAL_VERI_YOK",
-      "ticker": "DOHOL"
     },
     {
       "reason": "TTM ceyrekleri takvimde bitisik olmali",
@@ -1337,10 +713,6 @@
     },
     {
       "reason": "FINANSAL_VERI_YOK",
-      "ticker": "KCHOL"
-    },
-    {
-      "reason": "FINANSAL_VERI_YOK",
       "ticker": "KPEKS"
     },
     {
@@ -1364,20 +736,8 @@
       "ticker": "ORZAX"
     },
     {
-      "reason": "FINANSAL_VERI_YOK",
-      "ticker": "POLHO"
-    },
-    {
-      "reason": "FINANSAL_VERI_YOK",
-      "ticker": "SAHOL"
-    },
-    {
       "reason": "TTM icin tam dort bagimsiz ceyrek zorunlu",
       "ticker": "SARAE"
-    },
-    {
-      "reason": "FINANSAL_VERI_YOK",
-      "ticker": "SISE"
     },
     {
       "reason": "TTM ceyrekleri takvimde bitisik olmali",
@@ -1390,14 +750,6 @@
     {
       "reason": "TTM ceyrekleri takvimde bitisik olmali",
       "ticker": "SUMAS"
-    },
-    {
-      "reason": "FINANSAL_VERI_YOK",
-      "ticker": "TCELL"
-    },
-    {
-      "reason": "FINANSAL_VERI_YOK",
-      "ticker": "TKFEN"
     },
     {
       "reason": "FINANSAL_VERI_YOK",
@@ -1425,6 +777,8 @@
     }
   ],
   "unsafe_issued_capital_share_fields_scrubbed": true,
-  "usable_previous_period_valuation_count": 280,
-  "usable_valuation_count": 263
+  "usable_previous_period_valuation_count": 410,
+  "usable_valuation_count": 407,
+  "valuation_config_path": "config/nonfin_valuation.current_full_bist_v1.json",
+  "valuation_config_sha256": "6118248da055fff819dcd23911baf03f8a7eecae19b17bf3b6463f0d577c4731"
 }

@@ -38,17 +38,23 @@ def test_current_market_artifact_cutoff_covers_every_official_source_timestamp()
 def test_current_total_artifact_uses_real_m2_and_keeps_incomplete_rows_fail_closed():
     m2_receipt = _receipt("data/live/current_nonfin_valuation_v1/receipt.json")
     receipt = _receipt("data/live/current_total_scores_v1/receipt.json")
-    assert m2_receipt["usable_valuation_count"] == 263
-    assert m2_receipt["follow_materialized_count"] == 249
-    assert m2_receipt["m2_materialized_count"] == 249
+    assert m2_receipt["usable_valuation_count"] == 407
+    assert m2_receipt["follow_materialized_count"] == 406
+    assert m2_receipt["m2_materialized_count"] == 406
     assert m2_receipt["neutral_follow_or_m2_materialized"] is False
     # Holdings and REITs are valued inside their own XUMAL cohort, never
     # against industrials, so the peer groups the run used must say so.
     assert m2_receipt["peer_groups"] == ["XUHIZ", "XUMAL", "XUSIN", "XUTEK"]
+    # The current line runs its own config; the gate it used is on the record
+    # and every other valuation parameter matches the frozen historical one.
+    assert m2_receipt["valuation_config_path"] == "config/nonfin_valuation.current_full_bist_v1.json"
+    assert m2_receipt["minimum_coverage_weight"] == 0.4
+    assert m2_receipt["minimum_peer_count"] == 5
+    assert m2_receipt["multiple_weights"] == {"PE": 0.3, "EV_EBIT": 0.3, "PS": 0.2, "PB": 0.2}
     assert receipt["universe_count"] == 807
-    assert receipt["total_valid_count"] == receipt["ranking_count"] == 232
-    assert receipt["explicit_rejection_count"] == 575
+    assert receipt["total_valid_count"] == receipt["ranking_count"] == 372
+    assert receipt["explicit_rejection_count"] == 435
     assert receipt["total_valid_count"] + receipt["explicit_rejection_count"] == receipt["universe_count"]
-    assert receipt["missing_module_counts"]["M2"] == 558
+    assert receipt["missing_module_counts"]["M2"] == 401
     assert receipt["neutral_fill"] is False
     assert receipt["weight_redistribution"] is False

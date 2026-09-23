@@ -21,6 +21,7 @@
 {"module": "M3", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "SOHOE"}
 {"module": "M3", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "SSAAT"}
 {"module": "M3", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "TKNKA"}
+{"module": "M3", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "UMPAS"}
 {"module": "M3", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "VEYAS"}
 {"module": "Ek4", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "BKRGY"}
 {"module": "Ek4", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "EFORC"}
@@ -29,10 +30,8 @@
 {"module": "Ek4", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "KERVT"}
 {"module": "Ek4", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "KOZAA"}
 {"module": "Ek4", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "KOZAL"}
-{"module": "Ek4", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "KPEKS"}
 {"module": "Ek4", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "NETGL"}
-{"module": "Ek4", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "TKNKA"}
-{"module": "Ek4", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "VEYAS"}
+{"module": "Ek4", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "UMPAS"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "ALBTN"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "BETAE"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "BKRGY"}
@@ -45,6 +44,7 @@
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "ISVEA"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "KARCL"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "KERVT"}
+{"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "KORDS"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "KOZAA"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "KOZAL"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "KPEKS"}
@@ -56,4 +56,5 @@
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "SOHOE"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "SSAAT"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "TKNKA"}
+{"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "UMPAS"}
 {"module": "Ek9", "reason": "STOCK_WINDOW_PRICE_MISSING", "ticker": "VEYAS"}

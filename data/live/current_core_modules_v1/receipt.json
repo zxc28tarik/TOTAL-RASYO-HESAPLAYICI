@@ -1,5 +1,5 @@
 {
-  "analysis_at": "2026-09-18T00:50:32.569877+00:00",
+  "analysis_at": "2026-09-23T19:07:06.906185+00:00",
   "archive_hashes": {
     "KAP_2025_3A.zip": "c9b107501ce81d8761e8840bf30c1ad26296330bb81cdbf542ae7a1e7b76bb7b",
     "KAP_2025_6A.zip": "6016d431bdd550ce083e9d40e5e60baa0c1c74fb1e670fa6789d3957a7df35c1",
@@ -18,7 +18,7 @@
   "mode": "CURRENT_ONLY_NO_HISTORICAL_FINANCIAL_FALLBACK",
   "neutral_score_injection": false,
   "outputs": {
-    "modules.jsonl": "b4445f5fcab823e4e1d45e0f4c700970ace7104039274d0dde7f56e6043f0395",
+    "modules.jsonl": "c0821d79683f3ff366c5b13af857baf3539f14dc2ea0326f9659676a5e82ccf5",
     "rejections.jsonl": "dd1b6a3c5a66e5c2a06063b7d365c52e932ed17fc3afc02ba1d57d786ab41201"
   },
   "production_engines": [

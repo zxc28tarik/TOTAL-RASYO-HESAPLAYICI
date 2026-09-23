@@ -1,6 +1,6 @@
 {
   "adjusted_close_used_for_market_cap": false,
-  "analysis_at": "2026-09-16T01:09:25.716810+00:00",
+  "analysis_at": "2026-09-23T19:05:13.881173+00:00",
   "contract": "CURRENT_PRICE_LEVEL_BASIS_MATERIALIZATION_V1",
   "empty_same_day_action_interval_only": true,
   "legal_share_count_equated_to_nominal_try": false,
@@ -8,8 +8,8 @@
   "materialized_market_cap_count": 500,
   "nominal_value_per_share_assumed": false,
   "outputs": {
-    "action_bundle_index.json": "f1a924595011a15471a36096590a1311f85fc2f2a30d78916a532aba17cd9d2e",
-    "market_caps.csv": "6a8dce67f36f91e8b56b2e769b193fec9befad2c7b99d5c2431d6cf23d1bd57c"
+    "action_bundle_index.json": "74690d2cd7bd78d4fa0ba196d3ca55cfd66a0d9370f77fc43137f777be6a88ee",
+    "market_caps.csv": "6fc7f4decc91fde3a8c4a1021df144eff09b85910fe9ce02ca10a4a6c10c6125"
   },
   "production_action_bundle_loader_verified": true,
   "quote_unit_contract": "BORSA_PAY_PRICE_PER_1_TRY_NOMINAL_V1",

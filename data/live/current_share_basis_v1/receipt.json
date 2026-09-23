@@ -1,32 +1,34 @@
 {
   "capture_scope": "ONLINE_INCREMENTAL_CAPTURE",
-  "captured_at": "2026-09-16T01:07:40.872580+00:00",
+  "captured_at": "2026-09-23T19:05:05.512858+00:00",
   "contract": "CURRENT_KAP_EXPLICIT_SHARE_BASIS_V1",
   "disposition_counts": {
-    "CAPTURE_EMPTY": 133,
-    "CAPTURE_SUCCESS": 623
+    "CAPTURE_EMPTY": 132,
+    "CAPTURE_SUCCESS": 623,
+    "RATE_LIMIT": 1
   },
   "economic_rule": "SUM(class_nominal_value / explicit_class_nominal_value_per_share)",
   "issued_capital_over_assumed_nominal_allowed": false,
-  "issuer_attempted_count": 0,
-  "issuer_fetch_failure_count": 0,
-  "issuer_fetch_success_count": 756,
+  "issuer_attempted_count": 756,
+  "issuer_fetch_failure_count": 1,
+  "issuer_fetch_success_count": 755,
   "issuer_not_attempted_count": 0,
   "multi_ticker_issuer_single_price_market_cap_allowed": false,
   "outputs": {
     "bist_member_roster.html.gz": "dbf3d76f8f4e80292a607e12f574a05997c05200d0a357a284b6a44e66bc9d73",
-    "issuer_dispositions.jsonl.gz": "9618e122f31c4de7be8a19844ff253ab0c3f4dcda2629f99dcf42491d039e4d6",
-    "issuer_responses.jsonl.gz": "d517199ee32b758734ff64162c39877d65a9c0c4878a06becfc3ca35ab64456e",
-    "ticker_share_basis.jsonl.gz": "38f7c5e8da856188e0a8dd48794c722931041472e683db6d4432c78c126fcfaf"
+    "issuer_dispositions.jsonl.gz": "b2cb9916e768428defef79dcec1a84e71143f03d7e992e9febac361d16a749d2",
+    "issuer_responses.jsonl.gz": "65d2cecf483ee57a5e441bb837a7ddfa147f4f9adb42ee20772bf43d2dcecd84",
+    "ticker_share_basis.jsonl.gz": "e4f3ec10d33d7213df4e22a495797d28d7283bec9e9d9edff66acd9b554ab890"
   },
   "roster_matched_ticker_count": 806,
-  "source_http_date_max": "Wed, 16 Sep 2026 00:19:32 GMT",
-  "source_http_date_min": "Wed, 16 Sep 2026 00:16:09 GMT",
+  "source_http_date_max": "Wed, 23 Sep 2026 19:05:05 GMT",
+  "source_http_date_min": "Wed, 23 Sep 2026 19:00:01 GMT",
   "status_counts": {
     "CURRENT_EXPLICIT_CLASS_NOMINALS_RECONCILED": 528,
+    "HISTORY_FETCH_FAILED": 1,
     "MKK_MEMBER_OID_MISSING": 1,
     "MULTI_TICKER_ISSUER_MARKET_CAP_AMBIGUOUS": 37,
-    "NO_USABLE_EXPLICIT_CLASS_NOMINAL_STATE": 241
+    "NO_USABLE_EXPLICIT_CLASS_NOMINAL_STATE": 240
   },
   "stopped_for_global_rate_limit": false,
   "unique_issuer_count": 756,
