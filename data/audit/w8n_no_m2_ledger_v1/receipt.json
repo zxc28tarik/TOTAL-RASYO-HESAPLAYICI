@@ -1,0 +1,803 @@
+{
+  "al_signal_rows": 77,
+  "allocation_contract": "Locked engine: max 6 positions; buy only AL; held IZLE kept without new cash; held UZAK sold; stronger AL rotates out the weakest holding; OPEN execution, CLOSE marking; integer shares, residue stays cash.",
+  "assumptions": {
+    "benchmark": "XU100 fractional units, same contributions, OPEN buy / CLOSE mark, no fees",
+    "cash_interest": "ZERO",
+    "contribution": "2 x CSGB net minimum wage per month",
+    "corporate_action_source": "YAHOO_DISCOVERY_VENDOR_DERIVED_NOT_KAP_VERIFIED",
+    "price_basis": "RAW_OPEN_AND_CLOSE_NOT_ADJUSTED_CLOSE",
+    "tax": "ZERO_OUT_OF_SCOPE",
+    "transaction_cost_and_slippage": "ZERO_OUT_OF_SCOPE_RETURNS_ARE_GROSS"
+  },
+  "benchmark_independently_reconciled": true,
+  "benchmark_source": {
+    "authoritative": false,
+    "contract": "EXPERIMENTAL_YAHOO_RAW_XU100_CHART_V1",
+    "price_basis": "RAW_QUOTE_OPEN_CLOSE_NOT_ADJCLOSE",
+    "response_http_date": "Sun, 06 Sep 2026 02:29:17 GMT",
+    "sha256": "3c56a4827ab1c41121ed773ba937aebc8bb5853a85f38497953d76aabf5dd4ac",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/XU100.IS?period1=1627689600&period2=1785542400&interval=1d"
+  },
+  "cash_conservation_independently_reconciled": true,
+  "cash_only_month_count": 10,
+  "cash_only_months": [
+    "2021-08",
+    "2021-09",
+    "2021-10",
+    "2021-11",
+    "2021-12",
+    "2022-04",
+    "2023-12",
+    "2024-01",
+    "2024-02",
+    "2024-03"
+  ],
+  "cash_only_months_are_not_performance_success": true,
+  "contract": "W8N_NO_M2_FIVE_MODULE_LEDGER_V1",
+  "corporate_action_rows_touching_held_tickers": [
+    {
+      "action_date": "2024-07-24",
+      "cash_dividend_per_share": 0.019231,
+      "split_factor": 0.0,
+      "ticker": "AHGAZ"
+    },
+    {
+      "action_date": "2022-05-06",
+      "cash_dividend_per_share": 0.23,
+      "split_factor": 0.0,
+      "ticker": "ALARK"
+    },
+    {
+      "action_date": "2023-05-31",
+      "cash_dividend_per_share": 0.33,
+      "split_factor": 0.0,
+      "ticker": "ALARK"
+    },
+    {
+      "action_date": "2023-06-01",
+      "cash_dividend_per_share": 0.7,
+      "split_factor": 0.0,
+      "ticker": "ALARK"
+    },
+    {
+      "action_date": "2023-08-25",
+      "cash_dividend_per_share": 0.35,
+      "split_factor": 0.0,
+      "ticker": "ALARK"
+    },
+    {
+      "action_date": "2023-11-15",
+      "cash_dividend_per_share": 0.23,
+      "split_factor": 0.0,
+      "ticker": "ALARK"
+    },
+    {
+      "action_date": "2024-05-30",
+      "cash_dividend_per_share": 0.9686,
+      "split_factor": 0.0,
+      "ticker": "ALARK"
+    },
+    {
+      "action_date": "2025-04-17",
+      "cash_dividend_per_share": 2.6,
+      "split_factor": 0.0,
+      "ticker": "ALARK"
+    },
+    {
+      "action_date": "2026-05-04",
+      "cash_dividend_per_share": 3.185,
+      "split_factor": 0.0,
+      "ticker": "ALARK"
+    },
+    {
+      "action_date": "2023-05-03",
+      "cash_dividend_per_share": 0.5,
+      "split_factor": 0.0,
+      "ticker": "ALFAS"
+    },
+    {
+      "action_date": "2024-08-14",
+      "cash_dividend_per_share": 0.815217,
+      "split_factor": 0.0,
+      "ticker": "ALFAS"
+    },
+    {
+      "action_date": "2025-09-30",
+      "cash_dividend_per_share": 0.163043,
+      "split_factor": 0.0,
+      "ticker": "ALFAS"
+    },
+    {
+      "action_date": "2021-11-19",
+      "cash_dividend_per_share": 0.087719,
+      "split_factor": 0.0,
+      "ticker": "ASELS"
+    },
+    {
+      "action_date": "2022-11-16",
+      "cash_dividend_per_share": 0.100877,
+      "split_factor": 0.0,
+      "ticker": "ASELS"
+    },
+    {
+      "action_date": "2023-11-22",
+      "cash_dividend_per_share": 0.087719,
+      "split_factor": 0.0,
+      "ticker": "ASELS"
+    },
+    {
+      "action_date": "2024-11-25",
+      "cash_dividend_per_share": 0.111842,
+      "split_factor": 0.0,
+      "ticker": "ASELS"
+    },
+    {
+      "action_date": "2025-11-25",
+      "cash_dividend_per_share": 0.234649,
+      "split_factor": 0.0,
+      "ticker": "ASELS"
+    },
+    {
+      "action_date": "2023-05-02",
+      "cash_dividend_per_share": 0.529033,
+      "split_factor": 0.0,
+      "ticker": "ASTOR"
+    },
+    {
+      "action_date": "2024-07-31",
+      "cash_dividend_per_share": 1.320483,
+      "split_factor": 0.0,
+      "ticker": "ASTOR"
+    },
+    {
+      "action_date": "2025-08-18",
+      "cash_dividend_per_share": 1.512088,
+      "split_factor": 0.0,
+      "ticker": "ASTOR"
+    },
+    {
+      "action_date": "2022-07-20",
+      "cash_dividend_per_share": 0.05,
+      "split_factor": 0.0,
+      "ticker": "BERA"
+    },
+    {
+      "action_date": "2023-09-18",
+      "cash_dividend_per_share": 0.05,
+      "split_factor": 0.0,
+      "ticker": "BERA"
+    },
+    {
+      "action_date": "2023-12-27",
+      "cash_dividend_per_share": 0.05,
+      "split_factor": 0.0,
+      "ticker": "BUCIM"
+    },
+    {
+      "action_date": "2024-09-30",
+      "cash_dividend_per_share": 0.066667,
+      "split_factor": 0.0,
+      "ticker": "BUCIM"
+    },
+    {
+      "action_date": "2025-06-18",
+      "cash_dividend_per_share": 0.066667,
+      "split_factor": 0.0,
+      "ticker": "BUCIM"
+    },
+    {
+      "action_date": "2022-03-31",
+      "cash_dividend_per_share": 0.211508,
+      "split_factor": 0.0,
+      "ticker": "CIMSA"
+    },
+    {
+      "action_date": "2023-04-03",
+      "cash_dividend_per_share": 0.423016,
+      "split_factor": 0.0,
+      "ticker": "CIMSA"
+    },
+    {
+      "action_date": "2024-04-29",
+      "cash_dividend_per_share": 1.05754,
+      "split_factor": 0.0,
+      "ticker": "CIMSA"
+    },
+    {
+      "action_date": "2025-04-02",
+      "cash_dividend_per_share": 0.634524,
+      "split_factor": 0.0,
+      "ticker": "CIMSA"
+    },
+    {
+      "action_date": "2026-04-01",
+      "cash_dividend_per_share": 0.740278,
+      "split_factor": 0.0,
+      "ticker": "CIMSA"
+    },
+    {
+      "action_date": "2024-08-29",
+      "cash_dividend_per_share": 0.087953,
+      "split_factor": 0.0,
+      "ticker": "CWENE"
+    },
+    {
+      "action_date": "2022-04-08",
+      "cash_dividend_per_share": 5.681818,
+      "split_factor": 0.0,
+      "ticker": "DOAS"
+    },
+    {
+      "action_date": "2022-11-14",
+      "cash_dividend_per_share": 4.090909,
+      "split_factor": 0.0,
+      "ticker": "DOAS"
+    },
+    {
+      "action_date": "2023-04-06",
+      "cash_dividend_per_share": 9.090909,
+      "split_factor": 0.0,
+      "ticker": "DOAS"
+    },
+    {
+      "action_date": "2023-08-24",
+      "cash_dividend_per_share": 11.363636,
+      "split_factor": 0.0,
+      "ticker": "DOAS"
+    },
+    {
+      "action_date": "2023-11-24",
+      "cash_dividend_per_share": 5.681818,
+      "split_factor": 0.0,
+      "ticker": "DOAS"
+    },
+    {
+      "action_date": "2024-04-19",
+      "cash_dividend_per_share": 40.909092,
+      "split_factor": 0.0,
+      "ticker": "DOAS"
+    },
+    {
+      "action_date": "2024-09-02",
+      "cash_dividend_per_share": 10.0,
+      "split_factor": 0.0,
+      "ticker": "DOAS"
+    },
+    {
+      "action_date": "2025-05-20",
+      "cash_dividend_per_share": 27.272726,
+      "split_factor": 0.0,
+      "ticker": "DOAS"
+    },
+    {
+      "action_date": "2026-04-13",
+      "cash_dividend_per_share": 15.0,
+      "split_factor": 0.0,
+      "ticker": "DOAS"
+    },
+    {
+      "action_date": "2022-06-02",
+      "cash_dividend_per_share": 0.126102,
+      "split_factor": 0.0,
+      "ticker": "DOHOL"
+    },
+    {
+      "action_date": "2022-11-30",
+      "cash_dividend_per_share": 0.111199,
+      "split_factor": 0.0,
+      "ticker": "DOHOL"
+    },
+    {
+      "action_date": "2023-05-08",
+      "cash_dividend_per_share": 0.072604,
+      "split_factor": 0.0,
+      "ticker": "DOHOL"
+    },
+    {
+      "action_date": "2023-06-16",
+      "cash_dividend_per_share": 0.185331,
+      "split_factor": 0.0,
+      "ticker": "DOHOL"
+    },
+    {
+      "action_date": "2024-07-08",
+      "cash_dividend_per_share": 0.05,
+      "split_factor": 0.0,
+      "ticker": "DOHOL"
+    },
+    {
+      "action_date": "2025-09-01",
+      "cash_dividend_per_share": 0.305694,
+      "split_factor": 0.0,
+      "ticker": "DOHOL"
+    },
+    {
+      "action_date": "2024-07-25",
+      "cash_dividend_per_share": 0.005556,
+      "split_factor": 0.0,
+      "ticker": "ENERY"
+    },
+    {
+      "action_date": "2025-08-11",
+      "cash_dividend_per_share": 0.011111,
+      "split_factor": 0.0,
+      "ticker": "ENERY"
+    },
+    {
+      "action_date": "2022-01-05",
+      "cash_dividend_per_share": 0.186667,
+      "split_factor": 0.0,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_date": "2022-04-13",
+      "cash_dividend_per_share": 0.466667,
+      "split_factor": 0.0,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_date": "2023-04-12",
+      "cash_dividend_per_share": 0.363333,
+      "split_factor": 0.0,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_date": "2024-01-03",
+      "cash_dividend_per_share": 0.5,
+      "split_factor": 0.0,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_date": "2024-05-14",
+      "cash_dividend_per_share": 1.25,
+      "split_factor": 0.0,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_date": "2025-04-16",
+      "cash_dividend_per_share": 2.0,
+      "split_factor": 0.0,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_date": "2025-06-11",
+      "cash_dividend_per_share": 0.316667,
+      "split_factor": 0.0,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_date": "2025-10-08",
+      "cash_dividend_per_share": 0.833333,
+      "split_factor": 0.0,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_date": "2026-01-14",
+      "cash_dividend_per_share": 0.833333,
+      "split_factor": 0.0,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_date": "2026-04-08",
+      "cash_dividend_per_share": 2.1,
+      "split_factor": 0.0,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_date": "2022-04-13",
+      "cash_dividend_per_share": 0.024444,
+      "split_factor": 0.0,
+      "ticker": "GENIL"
+    },
+    {
+      "action_date": "2023-05-15",
+      "cash_dividend_per_share": 0.074074,
+      "split_factor": 0.0,
+      "ticker": "GENIL"
+    },
+    {
+      "action_date": "2024-06-07",
+      "cash_dividend_per_share": 0.024691,
+      "split_factor": 0.0,
+      "ticker": "GENIL"
+    },
+    {
+      "action_date": "2024-10-08",
+      "cash_dividend_per_share": 0.024691,
+      "split_factor": 0.0,
+      "ticker": "GENIL"
+    },
+    {
+      "action_date": "2025-05-07",
+      "cash_dividend_per_share": 0.008889,
+      "split_factor": 0.0,
+      "ticker": "GENIL"
+    },
+    {
+      "action_date": "2025-08-12",
+      "cash_dividend_per_share": 0.008889,
+      "split_factor": 0.0,
+      "ticker": "GENIL"
+    },
+    {
+      "action_date": "2025-11-12",
+      "cash_dividend_per_share": 0.008889,
+      "split_factor": 0.0,
+      "ticker": "GENIL"
+    },
+    {
+      "action_date": "2022-08-26",
+      "cash_dividend_per_share": 0.1125,
+      "split_factor": 0.0,
+      "ticker": "GSDHO"
+    },
+    {
+      "action_date": "2023-08-14",
+      "cash_dividend_per_share": 0.1,
+      "split_factor": 0.0,
+      "ticker": "GSDHO"
+    },
+    {
+      "action_date": "2022-05-26",
+      "cash_dividend_per_share": 0.277778,
+      "split_factor": 0.0,
+      "ticker": "GWIND"
+    },
+    {
+      "action_date": "2023-05-05",
+      "cash_dividend_per_share": 0.509259,
+      "split_factor": 0.0,
+      "ticker": "GWIND"
+    },
+    {
+      "action_date": "2023-12-26",
+      "cash_dividend_per_share": 0.231481,
+      "split_factor": 0.0,
+      "ticker": "GWIND"
+    },
+    {
+      "action_date": "2024-08-27",
+      "cash_dividend_per_share": 0.809259,
+      "split_factor": 0.0,
+      "ticker": "GWIND"
+    },
+    {
+      "action_date": "2025-11-26",
+      "cash_dividend_per_share": 0.640741,
+      "split_factor": 0.0,
+      "ticker": "GWIND"
+    },
+    {
+      "action_date": "2026-03-31",
+      "cash_dividend_per_share": 0.083442,
+      "split_factor": 0.0,
+      "ticker": "ISGYO"
+    },
+    {
+      "action_date": "2023-05-29",
+      "cash_dividend_per_share": 0.078851,
+      "split_factor": 0.0,
+      "ticker": "KCAER"
+    },
+    {
+      "action_date": "2024-07-01",
+      "cash_dividend_per_share": 0.104439,
+      "split_factor": 0.0,
+      "ticker": "KCAER"
+    },
+    {
+      "action_date": "2025-07-02",
+      "cash_dividend_per_share": 0.086162,
+      "split_factor": 0.0,
+      "ticker": "KCAER"
+    },
+    {
+      "action_date": "2026-07-01",
+      "cash_dividend_per_share": 0.169713,
+      "split_factor": 0.0,
+      "ticker": "KCAER"
+    },
+    {
+      "action_date": "2022-06-17",
+      "cash_dividend_per_share": 0.311063,
+      "split_factor": 0.0,
+      "ticker": "KMPUR"
+    },
+    {
+      "action_date": "2023-07-14",
+      "cash_dividend_per_share": 0.614061,
+      "split_factor": 0.0,
+      "ticker": "KMPUR"
+    },
+    {
+      "action_date": "2024-07-09",
+      "cash_dividend_per_share": 0.246812,
+      "split_factor": 0.0,
+      "ticker": "KMPUR"
+    },
+    {
+      "action_date": "2025-05-15",
+      "cash_dividend_per_share": 1.0,
+      "split_factor": 0.0,
+      "ticker": "LMKDC"
+    },
+    {
+      "action_date": "2026-06-02",
+      "cash_dividend_per_share": 2.0,
+      "split_factor": 0.0,
+      "ticker": "LMKDC"
+    },
+    {
+      "action_date": "2022-08-10",
+      "cash_dividend_per_share": 0.018831,
+      "split_factor": 0.0,
+      "ticker": "MAGEN"
+    },
+    {
+      "action_date": "2023-04-12",
+      "cash_dividend_per_share": 0.002702,
+      "split_factor": 0.0,
+      "ticker": "MAGEN"
+    },
+    {
+      "action_date": "2024-10-15",
+      "cash_dividend_per_share": 0.107248,
+      "split_factor": 0.0,
+      "ticker": "OBAMS"
+    },
+    {
+      "action_date": "2025-12-22",
+      "cash_dividend_per_share": 0.034916,
+      "split_factor": 0.0,
+      "ticker": "OBAMS"
+    },
+    {
+      "action_date": "2025-10-30",
+      "cash_dividend_per_share": 1.0,
+      "split_factor": 0.0,
+      "ticker": "OYAKC"
+    },
+    {
+      "action_date": "2025-12-18",
+      "cash_dividend_per_share": 1.639386,
+      "split_factor": 0.0,
+      "ticker": "RGYAS"
+    },
+    {
+      "action_date": "2024-07-08",
+      "cash_dividend_per_share": 0.560675,
+      "split_factor": 0.0,
+      "ticker": "TABGD"
+    },
+    {
+      "action_date": "2025-06-25",
+      "cash_dividend_per_share": 3.5,
+      "split_factor": 0.0,
+      "ticker": "TABGD"
+    },
+    {
+      "action_date": "2026-06-04",
+      "cash_dividend_per_share": 5.0,
+      "split_factor": 0.0,
+      "ticker": "TABGD"
+    },
+    {
+      "action_date": "2021-10-27",
+      "cash_dividend_per_share": 0.391785,
+      "split_factor": 0.0,
+      "ticker": "TCELL"
+    },
+    {
+      "action_date": "2022-07-26",
+      "cash_dividend_per_share": 0.571715,
+      "split_factor": 0.0,
+      "ticker": "TCELL"
+    },
+    {
+      "action_date": "2023-12-20",
+      "cash_dividend_per_share": 1.027273,
+      "split_factor": 0.0,
+      "ticker": "TCELL"
+    },
+    {
+      "action_date": "2024-12-05",
+      "cash_dividend_per_share": 2.853181,
+      "split_factor": 0.0,
+      "ticker": "TCELL"
+    },
+    {
+      "action_date": "2025-06-20",
+      "cash_dividend_per_share": 1.818182,
+      "split_factor": 0.0,
+      "ticker": "TCELL"
+    },
+    {
+      "action_date": "2025-12-26",
+      "cash_dividend_per_share": 1.818182,
+      "split_factor": 0.0,
+      "ticker": "TCELL"
+    },
+    {
+      "action_date": "2022-07-07",
+      "cash_dividend_per_share": 0.835682,
+      "split_factor": 0.0,
+      "ticker": "TRALT"
+    },
+    {
+      "action_date": "2023-07-14",
+      "cash_dividend_per_share": 0.4,
+      "split_factor": 0.0,
+      "ticker": "TRALT"
+    },
+    {
+      "action_date": "2021-10-01",
+      "cash_dividend_per_share": 0.178336,
+      "split_factor": 0.0,
+      "ticker": "TTKOM"
+    },
+    {
+      "action_date": "2022-04-28",
+      "cash_dividend_per_share": 1.41559,
+      "split_factor": 0.0,
+      "ticker": "TTKOM"
+    },
+    {
+      "action_date": "2022-03-28",
+      "cash_dividend_per_share": 11.991979,
+      "split_factor": 0.0,
+      "ticker": "TTRAK"
+    },
+    {
+      "action_date": "2023-03-10",
+      "cash_dividend_per_share": 20.985966,
+      "split_factor": 0.0,
+      "ticker": "TTRAK"
+    },
+    {
+      "action_date": "2024-04-01",
+      "cash_dividend_per_share": 62.957897,
+      "split_factor": 0.0,
+      "ticker": "TTRAK"
+    },
+    {
+      "action_date": "2024-11-08",
+      "cash_dividend_per_share": 26.981956,
+      "split_factor": 0.0,
+      "ticker": "TTRAK"
+    },
+    {
+      "action_date": "2025-04-02",
+      "cash_dividend_per_share": 48.467587,
+      "split_factor": 0.0,
+      "ticker": "TTRAK"
+    },
+    {
+      "action_date": "2023-03-10",
+      "cash_dividend_per_share": 6.487455,
+      "split_factor": 0.0,
+      "ticker": "TUPRS"
+    },
+    {
+      "action_date": "2023-09-29",
+      "cash_dividend_per_share": 15.050896,
+      "split_factor": 0.0,
+      "ticker": "TUPRS"
+    },
+    {
+      "action_date": "2024-04-03",
+      "cash_dividend_per_share": 10.379928,
+      "split_factor": 0.0,
+      "ticker": "TUPRS"
+    },
+    {
+      "action_date": "2024-09-27",
+      "cash_dividend_per_share": 11.936917,
+      "split_factor": 0.0,
+      "ticker": "TUPRS"
+    },
+    {
+      "action_date": "2025-03-28",
+      "cash_dividend_per_share": 7.784946,
+      "split_factor": 0.0,
+      "ticker": "TUPRS"
+    },
+    {
+      "action_date": "2025-09-30",
+      "cash_dividend_per_share": 7.421649,
+      "split_factor": 0.0,
+      "ticker": "TUPRS"
+    },
+    {
+      "action_date": "2026-03-16",
+      "cash_dividend_per_share": 10.379928,
+      "split_factor": 0.0,
+      "ticker": "TUPRS"
+    }
+  ],
+  "corporate_actions_in_window": 522,
+  "corporate_actions_touching_held_tickers": 113,
+  "distinct_tickers_traded": 44,
+  "economics": {
+    "absolute_profit_loss": -310019.8743427545,
+    "ending_cash": 1693.61554677214,
+    "ending_nav": 1405813.525657246,
+    "final_position_count": 4,
+    "portfolio_minus_xu100_value": -1853308.5551825366,
+    "return_on_contributions_pct": -18.06818041557848,
+    "total_contributions": 1715833.4000000004,
+    "xu100_ending_nav": 3259122.0808397825,
+    "xu100_return_on_contributions_pct": 89.9439701336844
+  },
+  "excluded_module": "M2",
+  "generated_at": "2026-09-23T23:37:25.484455+00:00",
+  "month_count": 60,
+  "months_with_at_least_one_al": 35,
+  "outputs": {
+    "ledger.json": "c69ecccd7f35b224dc8a54602059abc188c2f555e16f38e4483ddda0bb5e57e1",
+    "trades.json": "9aaeeaf9342f7b4791669abf136faedbbb485e2d27ab4d708bcaaa4c8627bce7"
+  },
+  "production_portfolio_engine": "MonthlyTotalRasyoSimulator",
+  "purpose": "DIAGNOSTIC_ONLY_FIVE_MODULE_VARIANT_NOT_THE_PRODUCTION_MODEL",
+  "scored_signal_rows": 3017,
+  "signal_date_span": [
+    "2021-08-02",
+    "2026-07-01"
+  ],
+  "source_sha256": {
+    "corporate_actions": "08d78b181fb309246cfd271012ad7419b690fbdee168fc69d0a7defb044814e5",
+    "minimum_wage": "601152fcfb6f6c920666f7672de1495dc42131c35585ae473b4cc0b26d6148cd",
+    "prices": "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141",
+    "series": "2bb1bcd56a7827b19a565a298f0db5869eeae6e98bea3c346bb1cadfe6970bdf",
+    "signal_dates": "320682828756e23e556177a9642a7b4056679edba351eb1b418c94612b1fb185",
+    "ticker_changes": "8d71a1d442a1389fd0f0d65414d21fd10b6f95403aa29bda147c638a3e98fa4e"
+  },
+  "ticker_changes_in_window": 38,
+  "tickers_traded": [
+    "AHGAZ",
+    "ALARK",
+    "ALFAS",
+    "ASELS",
+    "ASTOR",
+    "BERA",
+    "BRSAN",
+    "BUCIM",
+    "CANTE",
+    "CIMSA",
+    "CVKMD",
+    "CWENE",
+    "DOAS",
+    "DOHOL",
+    "ENERY",
+    "ENKAI",
+    "EUPWR",
+    "GENIL",
+    "GSDHO",
+    "GWIND",
+    "ISGYO",
+    "KCAER",
+    "KMPUR",
+    "KONYA",
+    "KUYAS",
+    "LMKDC",
+    "MAGEN",
+    "OBAMS",
+    "ODINE",
+    "OYAKC",
+    "PASEU",
+    "PENTA",
+    "QUAGR",
+    "RALYH",
+    "RGYAS",
+    "SNGYO",
+    "TABGD",
+    "TCELL",
+    "TRALT",
+    "TRENJ",
+    "TRMET",
+    "TTKOM",
+    "TTRAK",
+    "TUPRS"
+  ],
+  "trade_count": 137
+}
