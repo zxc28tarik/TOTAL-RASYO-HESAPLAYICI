@@ -35,6 +35,70 @@ birlikte güncellenir.
 Her yeni çalışma önce `git fetch` yapar. Uzak dal ilerideyse mevcut işi
 ezmeden en güncel doğrulanmış head'den devam eder.
 
+### 1.4 Canlı kapsam 232 → 372 (2026-09-23): iki düzeltme, biri yönetişim kararı
+
+**Kullanıcı talimatı:** "matematiği en az değiştiren şekilde en uygun çözümü
+bul, sorunu çöz". Yani M2 coverage eşiği kararı bu talimatla **yetkilendirildi**;
+§2'nin "ayrı ve açık yönetişim kararı" şartı bu şekilde karşılanmıştır.
+
+**1. Sessizce düşürülen fact ailesi (hata, karar değil).**
+`materialize_current_nonfin_valuation` yalnız `sector_family == "NONFIN"`
+etiketli fact'leri seçiyordu; oysa holding'ler **HOLDING** ailesi altında
+raporlar. Fact listesi boş dönüyor, kod da boş dizide `max()` çağırıp
+**çöküyordu** — receipt'e reason code değil yığın izi yazılıyordu. KCHOL,
+SAHOL, SISE, TCELL, TKFEN, DOHOL, POLHO'nun her birinin arşivde **276 gerçek
+HOLDING fact'i** duruyordu. Teknik aile artık fact'lerin kendisinden geliyor ve
+türetme config'ini seçiyor — `build_core_modules` bunu zaten böyle yapıyordu.
+Boş/çelişkili küme `TECHNICAL_FAMILY_FACTS_ABSENT` ve
+`TECHNICAL_FAMILY_CONFLICTING` oldu: 10 çöküş → 3 dürüst ret (gerçekten hiç
+fact'i olmayan 3 ticker). Kurtarılan 7 holding'in 6'sı tam Total Rasyo alıyor.
+
+**2. Coverage kapısı kazanç tabanlı çarpan şart koşuyordu (yönetişim kararı).**
+Coverage weight, kullanılabilir çarpanların ağırlık toplamıdır. Zarar eden bir
+ihraççı için PE (.30) ve EV/EBIT (.30) **eksik veri değil, tanımsız** — negatif
+denominatör değerleme taşımaz. 0,5 eşiği bu yüzden "en az bir kazanç tabanlı
+çarpan" demek oluyordu ve bilançosu ne kadar sağlam olursa olsun **her zarar
+edeni** dışlıyordu, çünkü PB+PS = 0,4. Gerçek satırlarda ölçüldü: 157 retten
+**139'u** PB ve PS'i birlikte taşıyor, ikisi de **191 peer** ile
+(`minimum_peer_count` 5).
+
+Current hat artık **kendi config'ini** kullanıyor
+(`config/nonfin_valuation.current_full_bist_v1.json`); dondurulmuş
+`kap_bulk_exact_v1`'den **tek anahtarda** ayrılıyor —
+`minimum_coverage_weight` 0,5 → 0,4 — böylece W2, W5, W7-B ve W7-C donduruldukları
+config'e karşı doğrulanmaya devam ediyor. Kapı "en az bir kazanç tabanlı
+çarpan" yerine **"en az iki bağımsız, tam peer'lı çarpan"** oluyor; tek çarpan
+(0,2) hâlâ fail-closed. Dört test tek-anahtar farkını, PB+PS'in tam kapıya eşit
+olduğunu, hiçbir tek çarpanın kapıya ulaşamadığını ve denetimlerin hâlâ
+dondurulmuş config'i okuduğunu sabitliyor.
+
+**Kontrol deneyiyle kanıtlandı — kapı saf toplamsal.** Aynı tazelenmiş girdiler
+iki config'le koşturuldu; kapı dışındaki her parametre ve her girdi hash'i
+aynı. Kapının aldığı **140 satırın hepsi tam 0,4 coverage'da**, ve 0,5
+kapısının ürettiği her valuation bandı ile her M2 skoru 0,4 altında **birebir
+aynı**. Kontrol 267 kullanılabilir / 252 M2, uygulama 407 / 406.
+
+**Veri tabanı da tazelenmek zorundaydı.** 2026-09-15 tabanında her valuation
+`HEDEF_FIYAT_BAYAT` ile düşüyordu (`max_price_age_days` 7) — fail-closed kapı
+doğru çalışıyordu. Önbellekteki 756 KAP pay yanıtının tamamı 16 Eylül tarihliydi
+ve sonraki bir fiyata karşı reddedilirdi; önbellek temizlenip **gerçekten
+yeniden çekildi** (755 ihraççı, 0 hata).
+
+  piyasa as-of 2026-09-15 → 2026-09-23, M3 548 → 547, Ek4 561 → 563,
+  Ek9 548 → 546, M1/Ek1 508, kullanılabilir valuation 263 → 407,
+  FOLLOW 249 → 406, M2 249 → 406, **Total Rasyo 232 → 372**,
+  açık ret 575 → 435.
+
+Kalan M2 retleri 427'de **20** ve hepsi gerçekten ince: 6'sında hiç
+kullanılabilir çarpan yok, 14'ünde tek çarpan var. Receipt artık hangi
+config'in ürettiğini, kapıyı, ağırlıkları ve peer minimumunu kaydediyor.
+
+**Evrende işaretlenen, düzeltilmeyen kusur.** `universe.csv` satır 449 bir
+başlık satırı (`KOD,Şirket Ünvanı,...`) ve 807'lik paydaya dahil. Evren §2
+gereği kilitli olduğundan **düzeltilmedi, rapor edildi**. Ayrıca 807 satır 757
+farklı şirket adı içeriyor: 46 ihraççı birden fazla ticker koduyla listeli
+(50 fazla kod). Yani "807 şirket" farklı şirket sayısını abartıyor.
+
 ### 1.3 Canlı kapsam 191 → 232 (2026-09-20): XUMAL holding/GYO ailesi bağlandı
 
 XUMAL tek bir endeks altında holding, GYO, banka ve sigortayı topluyor, bu
@@ -849,6 +913,69 @@ Aşağıdaki özgün sözleşme, kabul ölçütlerinin kaydı olarak korunur.
   blocker sayılmaz.
 
 Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `BLOCKED`.
+
+### W8-N — M2'siz beş modüllü 60 aylık teşhis backtest'i
+
+Durum: **DONE (teşhis) — W8'in yerine geçmez, ölçüm tezgâhını kurar**
+
+Gerekçe: altı modüllü tarihsel Total bugün imkânsız, çünkü M2 **6000 tarihsel
+hücrenin 0'ında** gerçek skor taşıyor; tarihli pay sayısı kanıtı isteyen tek
+modül o. Diğer beşi erişilebilir — M1/Ek1 arşivlenmiş tablolardan, M3/Ek4/Ek9
+yalnız fiyattan — dolayısıyla beş modüllü varyant **bugün** 60 ayın tamamında
+koşturulabilir. Amacı M2'nin katkısını tartışmak yerine gerçek bir
+out-of-sample ledger'a karşı **ölçülebilir** kılmak.
+
+**M2 nötr doldurulmuyor, dışlanıyor.** `compute_total_rasyo` altı anahtarı
+zorunlu tuttuğu için M2 **ağırlık 0,0** ile geçiliyor: hangi değer verilirse
+verilsin katkısı tam 0,0, ve bu bozulursa üretici hata veriyor. Nötr doldurma
+bunun tersi olurdu — M2'ye gerçek 0,40 ağırlığında orta bir skor verip sonucu
+oynatmasına izin vermek. Kalan beş ağırlık üretim ağırlıklarının 1/0,60 ile
+ölçeklenmişi; birbirlerine oranları **tam olarak üretim oranları** ve 0,70/0,55
+karar bantları aynı zeminde kalıyor.
+
+Ölçüm (önce), inşa (sonra): beş modülü tam **3017/6000 hücre (%50,3)**;
+M3 %96,8 · Ek4 %97,0 · Ek9 %93,3 · M1 %54,5 · Ek1 %54,5 · M2 %0. **60 ayın
+60'ında ≥6 aday** var, yani altı pozisyonluk portföy kuralı her ay
+sağlanabiliyor. Bağlayıcı modül fiyat değil, **M1/Ek1**. Skorlanan 3017 hücrenin
+**3017'sinde** doğrulanmış sinyal-günü işlem fiyatı var (360 ilk-altı seçiminin
+hepsi dahil), yani `EXECUTION_BLOCKED` = **0**.
+
+Ledger, kilitli üretim motoruyla (`MonthlyTotalRasyoSimulator`) koştu; kuralları
+ne yeniden yazıldı ne gevşetildi. 2021-08..2026-07, aylık iki net asgari ücret:
+
+  toplam katkı 1.715.833,40 TL → bitiş NAV 1.405.813,53 TL (**−18,07%**)
+  XU100 aynı nakit akışıyla 3.259.122,08 TL (**+89,94%**)
+  fark **−1.853.308,56 TL** · 137 işlem · 44 hisse
+
+2022-08'de endeksin %15 önünde, sonra 2023-08'de −42%, 2024-08'de −60%, sonda
+−56,9%. Mekanik sebep ledger'da görünüyor: "yalnız AL al" kuralı altında beş
+modüllü skor nadiren AL üretiyor (6000 hücrede 77 AL, 60 ayın yalnız 35'inde
+bir tane bile) — 6 pozisyonla tam yatırımda **5/60** ay, medyan pozisyon **2**,
+ortalama nakit **%26,8**, **10 ay tamamen nakitte** ve dördü üst üste
+(2023-12..2024-03) endeksin en hızlı koştuğu dönemde. O aylar ayrı sayılıyor ve
+performans başarısı olarak raporlanmıyor.
+
+Açıkça kayda geçen varsayımlar: işlem maliyeti/kayma/vergi **sıfır** (yani
+−18,07% **brüt**), nakit faizi **sıfır**, ham OPEN/CLOSE, kurumsal işlemler
+Yahoo kaynaklı — **KAP-doğrulanmış değil**. Penceredeki 522 işlemin **113'ü**
+ledger'ın tuttuğu bir hisseye dokunmuş; 113 satır receipt'te tek tek listeli.
+38 doğrulanmış Borsa ticker değişikliği uygulandı.
+
+**Bunun göstermediği şey:** Total Rasyo'nun kaybettiği. M2 üretim modelinin
+%40'ı ve burada yok; üstelik current veride M2, portföyü pahalı kazananlardan
+uzak tutan eksen (12 aylık getiriyle Spearman −0,46). Ölçülen şey varyant.
+
+Nakit korunumu ve benchmark simülatörün sözüne güvenilmeden Decimal ile bağımsız
+mutabakatlandı; `--check` bayt bayt yeniden üretiyor; 20 test varsayımları,
+nakit-only muhasebesini, kurumsal işlem listesini, `NAV = nakit + varlık`
+eşitliğini ve katkı birikimini sabitliyor.
+
+Kalan iki yol: (a) kurumsal işlem kaynağını W6'nın KAP envanterine taşımak
+(11.680 olay, 699 hisse, 60/60 cutoff erişilebilir) — 113 Yahoo satırını çapraz
+doğrular; (b) CORE YTD kapsamını açmak — M1/Ek1'i %54,5'te tutan ve hem AL
+sayısını hem tarihsel M2'nin yolunu kısıtlayan darboğaz.
+
+Artifact: `data/audit/w8n_no_m2_backtest_v1/`, `data/audit/w8n_no_m2_ledger_v1/`.
 
 ## 6. Kesin karar kaydı
 
