@@ -48,3 +48,82 @@
 {"date": "2025-07-02", "event": "FILL", "order": "H0020", "price": 27.299999237060547, "qty": 182, "side": "BUY", "ticker": "YATAS", "tl": 4978.54}
 {"decision_date": "2025-07-07", "event": "ORDER", "fraction": 0.5, "id": "H0021", "side": "SELL", "ticker": "BAGFS", "time": "2025-07-07T20:00:00+03:00", "why": "+%31 kar ve skor IZLE'ye indi: yarisini sat, kari kilitle; PD/DD hala ucuz, kalani tut."}
 {"date": "2025-07-08", "event": "FILL", "order": "H0021", "price": 28.81999969482422, "qty": 106, "realised_tl": 563.45, "side": "SELL", "ticker": "BAGFS", "tl": 3048.81}
+{"decision_date": "2025-07-28", "event": "ORDER", "fraction": 0.5, "id": "H0022", "side": "SELL", "ticker": "TMSN", "time": "2025-07-28T20:00:00+03:00", "why": "+%30 kar: yarisini sat; skor AL ve PD/DD %40 iskontolu, kalani tut."}
+{"date": "2025-07-29", "event": "FILL", "order": "H0022", "price": 123.1999969482422, "qty": 25, "realised_tl": 662.78, "side": "SELL", "ticker": "TMSN", "tl": 3073.84}
+{"date": "2025-08-01", "event": "CONTRIBUTION", "tl": 15000.0, "xu100_close": 10747.0}
+{"decision_date": "2025-08-01", "event": "ORDER", "fraction": 1.0, "id": "H0023", "side": "SELL", "ticker": "ENKAI", "time": "2025-08-01T20:00:00+03:00", "why": "Skor UZAK'a dustu: alis gerekcesi bozuldu, pozisyonu kapat."}
+{"decision_date": "2025-08-01", "event": "ORDER", "fraction": 1.0, "id": "H0024", "side": "SELL", "ticker": "EREGL", "time": "2025-08-01T20:00:00+03:00", "why": "Skor UZAK'a dustu: alis gerekcesi bozuldu, pozisyonu kapat."}
+{"decision_date": "2025-08-01", "event": "ORDER", "fraction": 1.0, "id": "H0025", "side": "SELL", "ticker": "TTKOM", "time": "2025-08-01T20:00:00+03:00", "why": "Skor UZAK'a dustu: alis gerekcesi bozuldu, pozisyonu kapat."}
+{"decision_date": "2025-08-01", "event": "ORDER", "fraction": 1.0, "id": "H0026", "side": "SELL", "ticker": "YATAS", "time": "2025-08-01T20:00:00+03:00", "why": "Skor UZAK'a dustu: alis gerekcesi bozuldu, pozisyonu kapat."}
+{"decision_date": "2025-08-01", "event": "ORDER", "fraction": 1.0, "id": "H0027", "side": "SELL", "ticker": "NTGAZ", "time": "2025-08-01T20:00:00+03:00", "why": "+%33.5 kar ve PD/DD sektor medyaninda (-%1): deger hikayesi bitti, kari al."}
+{"decision_date": "2025-08-01", "event": "ORDER", "fraction": 1.0, "id": "H0028", "side": "SELL", "ticker": "BAGFS", "time": "2025-08-01T20:00:00+03:00", "why": "Kalan yari +%70'e ulasti: hedef, kari al."}
+{"decision_date": "2025-08-01", "event": "ORDER", "id": "H0029", "side": "BUY", "ticker": "AKSEN", "time": "2025-08-01T20:00:00+03:00", "tl": 6000.0, "why": "Skor 99.4; PD/DD %40 iskonto; 20 gunde +%22, zirveye yakin. (Esit agirlik: sonradan bilinen yukselis nedeniyle ekstra agirlik verilmedi.)"}
+{"decision_date": "2025-08-01", "event": "ORDER", "id": "H0030", "side": "BUY", "ticker": "TUPRS", "time": "2025-08-01T20:00:00+03:00", "tl": 6000.0, "why": "Skor 96.9; PD/DD %35 iskonto; zirveye yakin. (Esit agirlik.)"}
+{"decision_date": "2025-08-01", "event": "ORDER", "id": "H0031", "side": "BUY", "ticker": "AYGAZ", "time": "2025-08-01T20:00:00+03:00", "tl": 6000.0, "why": "Skor 95.7; PD/DD 0.62 vs 1.60 (%62 iskonto); 20 gunde +%21, 3 ayda +%26."}
+{"decision_date": "2025-08-01", "event": "ORDER", "id": "H0032", "side": "BUY", "ticker": "NTHOL", "time": "2025-08-01T20:00:00+03:00", "tl": 6000.0, "why": "Holding, skor 90.5; PD/DD %54 iskonto; zirvede."}
+{"decision_date": "2025-08-01", "event": "ORDER", "id": "H0033", "side": "BUY", "ticker": "AVTUR", "time": "2025-08-01T20:00:00+03:00", "tl": 6000.0, "why": "Skor 94; PD/DD %61 iskonto; 20 gunde +%43 ivme."}
+{"decision_date": "2025-08-01", "event": "ORDER", "id": "H0034", "side": "BUY", "ticker": "MNDRS", "time": "2025-08-01T20:00:00+03:00", "tl": 6000.0, "why": "Skor 98.1; PD/DD 0.29 (%82 iskonto); 3 ayda +%46, zirvede."}
+{"decision_date": "2025-08-01", "event": "ORDER", "id": "H0035", "side": "BUY", "ticker": "KRSTL", "time": "2025-08-01T20:00:00+03:00", "tl": 6000.0, "why": "Skor 98.3; PD/DD %21 iskonto; zirvede."}
+{"decision_date": "2025-08-01", "event": "ORDER", "id": "H0036", "side": "BUY", "ticker": "PETUN", "time": "2025-08-01T20:00:00+03:00", "tl": 6000.0, "why": "Ekleme: skor 97.9, PD/DD %72 iskonto, 20 gunde +%13, pozisyon +%15."}
+{"date": "2025-08-04", "event": "FILL", "order": "H0023", "price": 69.9000015258789, "qty": 79, "realised_tl": 547.85, "side": "SELL", "ticker": "ENKAI", "tl": 5511.06}
+{"date": "2025-08-04", "event": "FILL", "order": "H0024", "price": 27.239999771118164, "qty": 200, "realised_tl": -57.86, "side": "SELL", "ticker": "EREGL", "tl": 5437.1}
+{"date": "2025-08-04", "event": "FILL", "order": "H0025", "price": 55.75, "qty": 93, "realised_tl": 207.57, "side": "SELL", "ticker": "TTKOM", "tl": 5174.38}
+{"date": "2025-08-04", "event": "FILL", "order": "H0026", "price": 28.559999465942383, "qty": 182, "realised_tl": 208.99, "side": "SELL", "ticker": "YATAS", "tl": 5187.52}
+{"date": "2025-08-04", "event": "FILL", "order": "H0027", "price": 11.350000381469728, "qty": 523, "realised_tl": 1427.86, "side": "SELL", "ticker": "NTGAZ", "tl": 5924.18}
+{"date": "2025-08-04", "event": "FILL", "order": "H0028", "price": 39.81999969482422, "qty": 107, "realised_tl": 1743.41, "side": "SELL", "ticker": "BAGFS", "tl": 4252.22}
+{"date": "2025-08-04", "event": "FILL", "order": "H0029", "price": 41.68000030517578, "qty": 143, "side": "BUY", "ticker": "AKSEN", "tl": 5972.16}
+{"date": "2025-08-04", "event": "FILL", "order": "H0030", "price": 163.89999389648438, "qty": 36, "side": "BUY", "ticker": "TUPRS", "tl": 5912.2}
+{"date": "2025-08-04", "event": "FILL", "order": "H0031", "price": 160.5, "qty": 37, "side": "BUY", "ticker": "AYGAZ", "tl": 5950.38}
+{"date": "2025-08-04", "event": "FILL", "order": "H0032", "price": 51.20000076293945, "qty": 116, "side": "BUY", "ticker": "NTHOL", "tl": 5951.08}
+{"date": "2025-08-04", "event": "FILL", "order": "H0033", "price": 17.139999389648438, "qty": 349, "side": "BUY", "ticker": "AVTUR", "tl": 5993.82}
+{"date": "2025-08-04", "event": "FILL", "order": "H0034", "price": 13.100000381469728, "qty": 457, "side": "BUY", "ticker": "MNDRS", "tl": 5998.67}
+{"date": "2025-08-04", "event": "FILL", "order": "H0035", "price": 8.859999656677246, "qty": 675, "side": "BUY", "ticker": "KRSTL", "tl": 5992.46}
+{"date": "2025-08-04", "event": "FILL", "order": "H0036", "price": 11.5600004196167, "qty": 517, "side": "BUY", "ticker": "PETUN", "tl": 5988.47}
+{"decision_date": "2025-08-11", "event": "ORDER", "fraction": 0.5, "id": "H0037", "side": "SELL", "ticker": "ULUUN", "time": "2025-08-11T20:00:00+03:00", "why": "+%27 kar, skor IZLE: yarisini sat."}
+{"date": "2025-08-12", "event": "FILL", "order": "H0037", "price": 8.40999984741211, "qty": 367, "realised_tl": 587.06, "side": "SELL", "ticker": "ULUUN", "tl": 3080.3}
+{"date": "2025-08-18", "event": "DIVIDEND", "per_share": 2.2, "shares": 106, "ticker": "ARASE", "tl": 233.2}
+{"decision_date": "2025-08-18", "event": "ORDER", "id": "H0038", "side": "BUY", "ticker": "BAGFS", "time": "2025-08-18T20:00:00+03:00", "tl": 5000.0, "why": "Hala AL, PD/DD %53 iskontolu, zirveye yakin; +%70'te satmistim, degerleme hala ucuz: geri al."}
+{"date": "2025-08-19", "event": "FILL", "order": "H0038", "price": 35.599998474121094, "qty": 140, "side": "BUY", "ticker": "BAGFS", "tl": 4993.97}
+{"decision_date": "2025-08-25", "event": "ORDER", "fraction": 1.0, "id": "H0039", "side": "SELL", "ticker": "KRSTL", "time": "2025-08-25T20:00:00+03:00", "why": "+%23.5 kar; PD/DD sektor medyanina yaklasti (%11 iskonto): deger hikayesi bitti."}
+{"date": "2025-08-26", "event": "FILL", "order": "H0039", "price": 10.869999885559082, "qty": 675, "realised_tl": 1330.11, "side": "SELL", "ticker": "KRSTL", "tl": 7322.58}
+{"date": "2025-09-01", "event": "CONTRIBUTION", "tl": 15000.0, "xu100_close": 11280.0}
+{"decision_date": "2025-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0040", "side": "SELL", "ticker": "AKSEN", "time": "2025-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: alis gerekcesi bitti, pozisyonu kapat (kar/zarar ne olursa olsun, tutarli kural)."}
+{"decision_date": "2025-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0041", "side": "SELL", "ticker": "AVTUR", "time": "2025-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: alis gerekcesi bitti, pozisyonu kapat (kar/zarar ne olursa olsun, tutarli kural)."}
+{"decision_date": "2025-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0042", "side": "SELL", "ticker": "BAGFS", "time": "2025-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: alis gerekcesi bitti, pozisyonu kapat (kar/zarar ne olursa olsun, tutarli kural)."}
+{"decision_date": "2025-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0043", "side": "SELL", "ticker": "MNDRS", "time": "2025-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: alis gerekcesi bitti, pozisyonu kapat (kar/zarar ne olursa olsun, tutarli kural)."}
+{"decision_date": "2025-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0044", "side": "SELL", "ticker": "NTHOL", "time": "2025-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: alis gerekcesi bitti, pozisyonu kapat (kar/zarar ne olursa olsun, tutarli kural)."}
+{"decision_date": "2025-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0045", "side": "SELL", "ticker": "PETUN", "time": "2025-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: alis gerekcesi bitti, pozisyonu kapat (kar/zarar ne olursa olsun, tutarli kural)."}
+{"decision_date": "2025-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0046", "side": "SELL", "ticker": "RGYAS", "time": "2025-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: alis gerekcesi bitti, pozisyonu kapat (kar/zarar ne olursa olsun, tutarli kural)."}
+{"decision_date": "2025-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0047", "side": "SELL", "ticker": "TCELL", "time": "2025-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: alis gerekcesi bitti, pozisyonu kapat (kar/zarar ne olursa olsun, tutarli kural)."}
+{"decision_date": "2025-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0048", "side": "SELL", "ticker": "TMSN", "time": "2025-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: alis gerekcesi bitti, pozisyonu kapat (kar/zarar ne olursa olsun, tutarli kural)."}
+{"decision_date": "2025-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0049", "side": "SELL", "ticker": "ULUUN", "time": "2025-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: alis gerekcesi bitti, pozisyonu kapat (kar/zarar ne olursa olsun, tutarli kural)."}
+{"decision_date": "2025-09-01", "event": "ORDER", "id": "H0050", "side": "BUY", "ticker": "THYAO", "time": "2025-09-01T20:00:00+03:00", "tl": 15000.0, "why": "Buyuk sirket, skor 96; PD/DD 0.62 vs 1.85 (%67 iskonto); 20 gunde +%15, zirveye yakin."}
+{"decision_date": "2025-09-01", "event": "ORDER", "id": "H0051", "side": "BUY", "ticker": "ENKAI", "time": "2025-09-01T20:00:00+03:00", "tl": 12000.0, "why": "Skor 92; PD/DD %28 iskonto; zirveye yakin, 3 ayda +%21."}
+{"decision_date": "2025-09-01", "event": "ORDER", "id": "H0052", "side": "BUY", "ticker": "ENTRA", "time": "2025-09-01T20:00:00+03:00", "tl": 9000.0, "why": "Skor 91.9; PD/DD %58 iskonto; 3 ayda +%46, zirveye yakin."}
+{"decision_date": "2025-09-01", "event": "ORDER", "id": "H0053", "side": "BUY", "ticker": "YUNSA", "time": "2025-09-01T20:00:00+03:00", "tl": 8000.0, "why": "Skor 99.2; PD/DD %35 iskonto; zirveye yakin, guclu ivme."}
+{"decision_date": "2025-09-01", "event": "ORDER", "id": "H0054", "side": "BUY", "ticker": "LILAK", "time": "2025-09-01T20:00:00+03:00", "tl": 7000.0, "why": "Skor 93; PD/DD %19 iskonto; zirveye yakin."}
+{"decision_date": "2025-09-01", "event": "ORDER", "id": "H0055", "side": "BUY", "ticker": "RTALB", "time": "2025-09-01T20:00:00+03:00", "tl": 6000.0, "why": "Skor 96.7; PD/DD %42 iskonto; 20 gunde +%18 toparlaniyor."}
+{"decision_date": "2025-09-01", "event": "ORDER", "id": "H0056", "side": "BUY", "ticker": "MEPET", "time": "2025-09-01T20:00:00+03:00", "tl": 6000.0, "why": "PD/DD %71 iskonto; 3 ayda +%97 sicradigi icin kucuk pozisyon."}
+{"decision_date": "2025-09-01", "event": "ORDER", "id": "H0057", "side": "BUY", "ticker": "TLMAN", "time": "2025-09-01T20:00:00+03:00", "tl": 6000.0, "why": "Skor 94.4; PD/DD %17 iskonto; 20 gunde +%31."}
+{"decision_date": "2025-09-01", "event": "ORDER", "id": "H0058", "side": "BUY", "ticker": "ARASE", "time": "2025-09-01T20:00:00+03:00", "tl": 5000.0, "why": "Ekleme: skor 97.3, PD/DD %56 iskonto, pozisyon +%20."}
+{"decision_date": "2025-09-01", "event": "ORDER", "id": "H0059", "side": "BUY", "ticker": "TUPRS", "time": "2025-09-01T20:00:00+03:00", "tl": 6000.0, "why": "Ekleme: hala AL, PD/DD %30 iskonto, zirvede."}
+{"date": "2025-09-02", "event": "FILL", "order": "H0040", "price": 37.220001220703125, "qty": 143, "realised_tl": -660.35, "side": "SELL", "ticker": "AKSEN", "tl": 5311.82}
+{"date": "2025-09-02", "event": "FILL", "order": "H0041", "price": 15.770000457763672, "qty": 349, "realised_tl": -501.1, "side": "SELL", "ticker": "AVTUR", "tl": 5492.72}
+{"date": "2025-09-02", "event": "FILL", "order": "H0042", "price": 37.5, "qty": 140, "realised_tl": 245.53, "side": "SELL", "ticker": "BAGFS", "tl": 5239.5}
+{"date": "2025-09-02", "event": "FILL", "order": "H0043", "price": 15.5600004196167, "qty": 457, "realised_tl": 1098.02, "side": "SELL", "ticker": "MNDRS", "tl": 7096.7}
+{"date": "2025-09-02", "event": "FILL", "order": "H0044", "price": 51.29999923706055, "qty": 116, "realised_tl": -12.18, "side": "SELL", "ticker": "NTHOL", "tl": 5938.9}
+{"date": "2025-09-02", "event": "FILL", "order": "H0045", "price": 12.859999656677246, "qty": 1040, "realised_tl": 2359.78, "side": "SELL", "ticker": "PETUN", "tl": 13347.65}
+{"date": "2025-09-02", "event": "FILL", "order": "H0046", "price": 140.0, "qty": 45, "realised_tl": 367.08, "side": "SELL", "ticker": "RGYAS", "tl": 6287.4}
+{"date": "2025-09-02", "event": "FILL", "order": "H0047", "price": 91.1999969482422, "qty": 54, "realised_tl": -6.17, "side": "SELL", "ticker": "TCELL", "tl": 4914.95}
+{"date": "2025-09-02", "event": "FILL", "order": "H0048", "price": 128.0, "qty": 26, "realised_tl": 813.84, "side": "SELL", "ticker": "TMSN", "tl": 3321.34}
+{"date": "2025-09-02", "event": "FILL", "order": "H0049", "price": 7.590000152587891, "qty": 368, "realised_tl": 287.5, "side": "SELL", "ticker": "ULUUN", "tl": 2787.53}
+{"date": "2025-09-02", "event": "FILL", "order": "H0050", "price": 327.5, "qty": 45, "side": "BUY", "ticker": "THYAO", "tl": 14766.98}
+{"date": "2025-09-02", "event": "FILL", "order": "H0051", "price": 68.80000305175781, "qty": 174, "side": "BUY", "ticker": "ENKAI", "tl": 11995.14}
+{"date": "2025-09-02", "event": "FILL", "order": "H0052", "price": 5.144311904907227, "qty": 1746, "side": "BUY", "ticker": "ENTRA", "tl": 8999.93}
+{"date": "2025-09-02", "event": "FILL", "order": "H0053", "price": 8.300000190734863, "qty": 961, "side": "BUY", "ticker": "YUNSA", "tl": 7992.25}
+{"date": "2025-09-02", "event": "FILL", "order": "H0054", "price": 29.959999084472656, "qty": 233, "side": "BUY", "ticker": "LILAK", "tl": 6994.64}
+{"date": "2025-09-02", "event": "FILL", "order": "H0055", "price": 3.670000076293945, "qty": 1631, "side": "BUY", "ticker": "RTALB", "tl": 5997.74}
+{"date": "2025-09-02", "event": "FILL", "order": "H0056", "price": 14.31999969482422, "qty": 418, "side": "BUY", "ticker": "MEPET", "tl": 5997.73}
+{"date": "2025-09-02", "event": "FILL", "order": "H0057", "price": 108.1999969482422, "qty": 55, "side": "BUY", "ticker": "TLMAN", "tl": 5962.9}
+{"date": "2025-09-02", "event": "FILL", "order": "H0058", "price": 55.04999923706055, "qty": 90, "side": "BUY", "ticker": "ARASE", "tl": 4964.41}
+{"date": "2025-09-02", "event": "FILL", "order": "H0059", "price": 170.10000610351562, "qty": 35, "side": "BUY", "ticker": "TUPRS", "tl": 5965.41}
