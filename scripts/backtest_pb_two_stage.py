@@ -179,3 +179,315 @@ def raw_market_inputs(p4: pd.DataFrame) -> pd.DataFrame:
                 row[banded] = source.get(banded)
             out.append(row)
     return pd.DataFrame(out)
+
+
+def load_equity(p4: pd.DataFrame) -> pd.DataFrame:
+    """Latest quarter whose publication precedes the signal's knowledge cutoff."""
+    wanted = {(r.signal_date, r.ticker): r.knowledge_cutoff_at for r in p4.itertuples()}
+    signals = set(p4.signal_date)
+    rows = []
+    with gzip.open(P4 / "core_diagnostics.jsonl.gz", "rt", encoding="utf-8") as handle:
+        for line in handle:
+            snapshot = json.loads(line)
+            signal = snapshot["signal_date"]
+            if signal not in signals:
+                continue
+            for ticker, detail in snapshot["per_ticker"].items():
+                cutoff = wanted.get((signal, ticker))
+                if cutoff is None:
+                    continue
+                limit = pd.Timestamp(cutoff)
+                known = [q for q in detail.get("quarters", [])
+                         if q["values"].get("total_equity") is not None
+                         and pd.Timestamp(q["published_at"]) <= limit]
+                if not known:
+                    continue
+                last = max(known, key=lambda q: (q["period_end"], q["published_at"], q["version_sequence"]))
+                rows.append({"signal_date": signal, "ticker": ticker,
+                             "equity": float(last["values"]["total_equity"]),
+                             "equity_period_end": last["period_end"],
+                             "equity_published_at": last["published_at"],
+                             "pit_shares_out": last["values"].get("shares_out")})
+    return pd.DataFrame(rows)
+
+
+def current_nominal() -> pd.Series:
+    caps = pd.read_csv(CAPS)
+    return caps.set_index("ticker")["quoted_nominal_units_out"].astype(float)
+
+
+def pb_percentile(pb: pd.Series) -> pd.Series:
+    """Rank P/B among the positive values of a cohort; cheaper = lower percentile."""
+    positive = pb.where(pb > 0)
+    return percentile_score(positive)
+
+
+def build_panel(p4: pd.DataFrame, raw: pd.DataFrame, equity: pd.DataFrame,
+                nominal: pd.Series, closes: pd.DataFrame, excluded: set[str]) -> pd.DataFrame:
+    frame = p4.merge(raw, on=["month", "ticker"], how="left")
+    frame = frame.loc[~frame.ticker.isin(excluded)].copy()
+    frame["M1"] = frame.p4_M1
+    frame["M3"] = frame.alpha_trailing.astype(float)
+    frame["Ek4"] = frame.excess_return_20d.astype(float)
+    frame["Ek1"] = frame.good_count.astype(float)
+    frame["Ek9"] = -frame.volatility.astype(float)
+    scored = rebuilt_scores(frame, config=RebuiltScoreConfig(modules=list(CORE_MODULES)))
+    scored = scored.merge(equity, on=["signal_date", "ticker"], how="left")
+    scored["nominal"] = scored.ticker.map(nominal)
+    scored["cutoff_close"] = [close_on_or_before(closes, t, d) for t, d in zip(scored.ticker, scored.cutoff_date)]
+    scored["pb"] = scored.cutoff_close * scored.nominal / scored.equity
+    scored["pb_pct"] = scored.groupby("month", group_keys=False).pb.apply(pb_percentile)
+    scored["cheap"] = scored.pb_pct.le(1.0 / 3.0).fillna(False).astype(bool)
+    scored["al"] = scored.decision.eq("AL")
+    scored["qualify"] = scored.al & scored.cheap
+    return scored
+
+
+def close_on_or_before(closes: pd.DataFrame, ticker: str, day: date, *, max_gap_days: int = 7) -> float | None:
+    if ticker not in closes.columns:
+        return None
+    series = closes[ticker].loc[:pd.Timestamp(day)].dropna()
+    if series.empty or (pd.Timestamp(day) - series.index[-1]).days > max_gap_days:
+        return None
+    return float(series.iloc[-1])
+
+
+@dataclass
+class Book:
+    cash: float
+    units: dict
+
+    def value(self, prices: pd.Series) -> float:
+        return self.cash + sum(u * prices[t] for t, u in self.units.items())
+
+
+def _trade_to(book: Book, targets: list[str], prices: pd.Series, *, cost: float) -> dict:
+    """Move to equal weight across `targets`, paying `cost` on every lira traded."""
+    targets = [t for t in targets if t in prices.index and pd.notna(prices[t])]
+    total = book.value(prices)
+    current = {t: book.units.get(t, 0.0) * prices[t] for t in set(book.units) | set(targets)}
+    if targets:
+        # Solve target value so that costs come out of the same pot: v = (total - c*|dv|) / n.
+        # One fixed-point pass is exact to well below a basis point here.
+        target_value = total / len(targets)
+        traded = sum(abs((target_value if t in targets else 0.0) - current[t]) for t in current)
+        target_value = (total - cost * traded) / len(targets)
+    else:
+        target_value = 0.0
+    traded = sum(abs((target_value if t in targets else 0.0) - current[t]) for t in current)
+    fee = cost * traded
+    book.units = {t: target_value / prices[t] for t in targets}
+    book.cash = total - fee - target_value * len(targets)
+    return {"traded": traded, "fee": fee, "value_before": total}
+
+
+def _sell(book: Book, tickers: list[str], prices: pd.Series, *, cost: float) -> dict:
+    proceeds = sum(book.units[t] * prices[t] for t in tickers)
+    fee = cost * proceeds
+    for t in tickers:
+        book.units.pop(t)
+    book.cash += proceeds - fee
+    return {"traded": proceeds, "fee": fee}
+
+
+def simulate(panel: pd.DataFrame, adj: pd.DataFrame, closes: pd.DataFrame, *,
+             rebalance_months: list[str], mode: str, select, end: date,
+             capacity: int | None = RULES["max_positions"]) -> dict:
+    """Run one variant on a daily calendar; `select(month_frame)` returns ordered targets."""
+    cost = RULES["cost_per_side"]
+    days = adj.loc[adj.index >= pd.Timestamp(panel.signal_date.min())].loc[:pd.Timestamp(end)].index
+    filled = adj.ffill()
+    signal_by_day = {pd.Timestamp(d): m for m, d in panel.groupby("month").signal_date.first().items()}
+    book = Book(cash=1.0, units={})
+    curve, log, fees, traded_total, month = [], [], 0.0, 0.0, None
+    week_seen = set()
+    for day in days:
+        prices = filled.loc[day]
+        event = None
+        if day in signal_by_day:
+            month = signal_by_day[day]
+            week_seen.add(day.isocalendar()[:2])
+            cohort = panel.loc[panel.month.eq(month)]
+            if month in rebalance_months:
+                if mode == "serbest":
+                    keep = [t for t in book.units
+                            if ((cohort.ticker == t) & cohort.score_percentile.gt(0.75) & cohort.cheap).any()]
+                    fresh = [t for t in select(cohort) if t not in keep]
+                    targets = (keep + fresh)[:capacity]
+                else:
+                    targets = select(cohort)[:capacity]
+                event = _trade_to(book, targets, prices, cost=cost)
+                event.update(kind="rebalance", month=month, holdings=sorted(book.units))
+        elif mode == "serbest" and month is not None and book.units:
+            week = day.isocalendar()[:2]
+            if week not in week_seen:
+                week_seen.add(week)
+                cohort = panel.loc[panel.month.eq(month)].copy()
+                previous = adj.index[adj.index.get_loc(day) - 1]
+                cohort["pb_now"] = [
+                    (close_on_or_before(closes, t, previous.date()) or float("nan")) * n / e
+                    for t, n, e in zip(cohort.ticker, cohort.nominal, cohort.equity)]
+                cohort["pct_now"] = pb_percentile(cohort.pb_now)
+                cheap_now = set(cohort.loc[cohort.pct_now.le(1.0 / 3.0), "ticker"])
+                leaving = [t for t in book.units if t not in cheap_now]
+                if leaving:
+                    event = _sell(book, leaving, prices, cost=cost)
+                    event.update(kind="weekly_exit", sold=sorted(leaving), holdings=sorted(book.units))
+        if event:
+            fees += event["fee"]
+            traded_total += event["traded"]
+            event["date"] = str(day.date())
+            log.append(event)
+        curve.append({"date": day, "value": book.value(prices), "positions": len(book.units),
+                      "cash_share": book.cash / max(book.value(prices), 1e-12)})
+    curve = pd.DataFrame(curve).set_index("date")
+    return {"curve": curve, "log": log, "fees": fees, "traded": traded_total}
+
+
+def metrics(curve: pd.DataFrame, bench: pd.Series) -> dict:
+    value = curve["value"]
+    bench = bench.reindex(value.index).ffill()
+    peak = value.cummax()
+    month_end = value.groupby(value.index.to_period("M")).last()
+    month_ret = month_end.pct_change()
+    month_ret.iloc[0] = month_end.iloc[0] / value.iloc[0] - 1.0
+    b_end = bench.groupby(bench.index.to_period("M")).last()
+    b_ret = b_end.pct_change()
+    b_ret.iloc[0] = b_end.iloc[0] / bench.iloc[0] - 1.0
+    return {
+        "start": str(value.index[0].date()), "end": str(value.index[-1].date()),
+        "total_return": float(value.iloc[-1] / value.iloc[0] - 1.0),
+        "xu100_return": float(bench.iloc[-1] / bench.iloc[0] - 1.0),
+        "excess_vs_xu100": float(value.iloc[-1] / value.iloc[0] - bench.iloc[-1] / bench.iloc[0]),
+        "max_drawdown": float((value / peak - 1.0).min()),
+        "xu100_max_drawdown": float((bench / bench.cummax() - 1.0).min()),
+        "months_beating_xu100": int((month_ret > b_ret).sum()),
+        "months": int(len(month_ret)),
+        "average_positions": float(curve["positions"].mean()),
+        "average_cash_share": float(curve["cash_share"].mean()),
+        "monthly_returns": {str(k): round(float(v), 4) for k, v in month_ret.items()},
+        "xu100_monthly_returns": {str(k): round(float(v), 4) for k, v in b_ret.items()},
+    }
+
+
+def build(*, output_dir: Path = OUTPUT) -> dict:
+    p4 = load_p4()
+    prices = pd.read_csv(PRICES, low_memory=False)
+    prices = prices.loc[prices.ticker.eq(prices.price_source_ticker)].copy()
+    prices["trade_date"] = pd.to_datetime(prices.trade_date)
+    bench = load_xu100()
+    bench.index = pd.to_datetime(bench.index)
+    first = pd.Timestamp(p4.signal_date.min())
+    end = pd.Timestamp(RULES["window_end"])
+    calendar = bench.loc[first:end].index
+
+    closes = prices.pivot_table(index="trade_date", columns="ticker", values="close", aggfunc="last")
+    adj = prices.pivot_table(index="trade_date", columns="ticker", values="adj_close", aggfunc="last")
+    adj = adj.reindex(calendar)
+
+    discontinuities = discontinuity_tickers(
+        prices.assign(trade_date=prices.trade_date.dt.date).loc[prices.ticker.isin(p4.ticker)],
+        first=first.date(), last=end.date())
+    excluded = set(discontinuities)
+
+    raw = raw_market_inputs(p4)
+    for module, raw_col, banded in (("M3", "alpha_trailing", "m3"), ("Ek4", "excess_return_20d", "ek4"),
+                                    ("Ek9", "volatility", "ek9")):
+        drift = (p4.merge(raw, on=["month", "ticker"])[f"p4_{module}"]
+                 - p4.merge(raw, on=["month", "ticker"])[banded].astype(float)).abs().max()
+        if not drift < 1e-9:
+            raise ValueError(f"P4_REPRODUCTION_DRIFT:{module}:{drift}")
+
+    equity = load_equity(p4)
+    nominal = current_nominal()
+    panel = build_panel(p4, raw, equity, nominal, closes, excluded)
+
+    months = sorted(panel.month.unique())
+    by_score = lambda frame, mask: frame.loc[mask(frame)].sort_values(
+        ["score_percentile", "ticker"], ascending=[False, True]).ticker.tolist()
+    strategy = lambda frame: by_score(frame, lambda f: f.qualify)
+    variants = {
+        "aylik": dict(rebalance_months=months, mode="fixed", select=strategy),
+        "3_aylik": dict(rebalance_months=months[::3], mode="fixed", select=strategy),
+        "6_aylik": dict(rebalance_months=months[::6], mode="fixed", select=strategy),
+        "serbest": dict(rebalance_months=months, mode="serbest", select=strategy),
+    }
+    # References, reported beside the strategy so each stage's contribution is
+    # visible. None of them is a candidate strategy.
+    references = {
+        "ref_sadece_skor_AL_aylik": dict(rebalance_months=months, mode="fixed",
+                                         select=lambda f: by_score(f, lambda x: x.al)),
+        "ref_sadece_ucuz_PDDD_aylik": dict(rebalance_months=months, mode="fixed",
+                                           select=lambda f: f.loc[f.cheap].sort_values(
+                                               ["pb_pct", "ticker"]).ticker.tolist()),
+        "ref_tum_evren_esit_agirlik_aylik": dict(rebalance_months=months, mode="fixed",
+                                                 select=lambda f: f.loc[f.score_percentile.notna()]
+                                                 .ticker.tolist(), capacity=None),
+    }
+
+    results = {}
+    for name, spec in {**variants, **references}.items():
+        run = simulate(panel, adj, closes, end=end.date(), **spec)
+        results[name] = {**metrics(run["curve"], bench), "fees_paid": run["fees"],
+                         "turnover": run["traded"], "trade_log": run["log"]}
+
+    qualify = panel.loc[panel.qualify].sort_values(["month", "score_percentile"], ascending=[True, False])
+    monthly_picks = {m: g.ticker.tolist() for m, g in qualify.groupby("month")}
+    al_rows = panel.loc[panel.al]
+    coverage = {
+        "cells": int(len(panel)),
+        "cells_scored": int(panel.score_percentile.notna().sum()),
+        "cells_with_pb": int(panel.pb.notna().sum()),
+        "cells_with_positive_pb": int((panel.pb > 0).sum()),
+        "al_cells": int(len(al_rows)),
+        "al_cells_without_pb": int(al_rows.pb.isna().sum()),
+        "al_cells_cheap": int(al_rows.cheap.sum()),
+        "months_with_no_qualifier": [m for m in months if m not in monthly_picks],
+        "pit_vs_current_capital_ratio_median": float(
+            (panel.nominal / panel.pit_shares_out.astype(float)).median()),
+    }
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    panel_path = output_dir / "panel.csv.gz"
+    panel[["month", "signal_date", "ticker", "score_percentile", "decision", "pb", "pb_pct", "cheap",
+           "qualify", "equity", "equity_period_end", "equity_published_at", "nominal",
+           "cutoff_close", "alpha_trailing", "excess_return_20d", "volatility", "p4_M1",
+           "good_count"]].to_csv(panel_path, index=False, compression={"method": "gzip", "mtime": 0})
+    receipt = {
+        "contract": CONTRACT,
+        "rules_frozen_before_first_run": RULES,
+        "holdout_consumed": "2025-08..2026-07 lies inside the 2024-08..2026-07 holdout",
+        "p4_reproduction": "866/866 banded M3/Ek4/Ek9 values reproduced exactly from raw inputs",
+        "excluded_discontinuity_tickers": discontinuities,
+        "coverage": coverage,
+        "monthly_qualifiers": monthly_picks,
+        "results": {k: {kk: vv for kk, vv in v.items() if kk != "trade_log"} for k, v in results.items()},
+        "trade_logs": {k: v["trade_log"] for k, v in results.items()},
+        "not_modelled": [
+            "cash earns 0% although TL deposits paid far more; idle cash is penalised",
+            "P/B uses CURRENT nominal capital, so a rights issue inside the window is not captured",
+            "returns are nominal TL; inflation is not removed",
+            "one year, one path: no significance claim is made",
+        ],
+        "source_sha256": {"prices": _sha(PRICES), "index": _sha(INDEX), "routes": _sha(ROUTES),
+                          "xu100": _sha(XU100), "market_caps": _sha(CAPS),
+                          "core_diagnostics": _sha(P4 / "core_diagnostics.jsonl.gz")},
+        "outputs": {"panel.csv.gz": _sha(panel_path)},
+    }
+    (output_dir / "receipt.json").write_text(
+        json.dumps(receipt, ensure_ascii=False, sort_keys=True, indent=2, default=str) + "\n",
+        encoding="utf-8", newline="\n")
+    return receipt
+
+
+def main() -> None:
+    argparse.ArgumentParser().parse_args()
+    receipt = build()
+    for name, result in receipt["results"].items():
+        print(f"{name:34s} getiri {result['total_return']:+8.2%}  XU100 {result['xu100_return']:+8.2%}  "
+              f"fark {result['excess_vs_xu100']:+8.2%}  maxDD {result['max_drawdown']:+7.2%}  "
+              f"ort.poz {result['average_positions']:.1f}  nakit {result['average_cash_share']:.0%}")
+
+
+if __name__ == "__main__":
+    main()
