@@ -15,9 +15,22 @@ then:
 * The rebuilt score (equal-weight rank of the five, AL = top 10%).
 * P/B = split-adjusted close at the cutoff x current nominal capital / PIT equity.
 
-Known look-ahead, stated: sector routes are today's (valid from 2025-01-01);
-nominal capital is today's, so a rights issue after the cutoff overstates past
-P/B. Neither touches prices or returns.
+Two reconstruction choices, both measured before any trade was simulated:
+
+* Rolling archive window. The live CORE run reads the six most recent KAP
+  archives. Feeding the builder every archive since 2023 made older statement
+  templates collide with newer ones and rejected ~250 names on family evidence.
+  So each cutoff reads the six archives whose periods end before it -- exactly
+  what the live run would have read on that day. Coverage per cutoff: 477-508
+  names with M1, matching the live 508 at 2026-08.
+* Sector routes held constant backwards. The current route file stamps 414 of
+  572 names valid from 2025-01-01, the date of its source, not of any sector
+  change; taken literally it leaves 2024 quarters without a family and the
+  builder rejects them. Routes are therefore treated as valid from 2020-01-01.
+
+Known look-ahead, stated: sector membership is today's; nominal capital is
+today's, so a rights issue after the cutoff overstates past P/B. Neither touches
+prices or returns.
 """
 
 import json
@@ -53,9 +66,20 @@ ARCHIVE_NAMES = [f"KAP_{y}_{p}.zip" for y in (2023, 2024, 2025, 2026) for p in (
 MODULES = ("M1", "M3", "Ek4", "Ek1", "Ek9")
 
 
+ARCHIVE_WINDOW = 6
+PERIOD_END = {"3A": "03-31", "6A": "06-30", "9A": "09-30", "Y": "12-31"}
+
+
+def archives_known_at(cutoff_day) -> set[str]:
+    """The six most recent archives whose period ended before the cutoff."""
+    names = [n for n in ARCHIVE_NAMES if n >= "KAP_2023_9A.zip"
+             and f"{n[4:8]}-{PERIOD_END[n[9:-4]]}" < str(cutoff_day)]
+    return set(names[-ARCHIVE_WINDOW:])
+
+
 def load_routes() -> pd.DataFrame:
     routes = pd.read_csv(ROUTES, dtype=str)
-    routes["valid_from"] = pd.to_datetime(routes.valid_from)
+    routes["valid_from"] = pd.Timestamp("2020-01-01")
     routes["valid_to"] = pd.to_datetime(routes.valid_to, errors="coerce")
     return routes
 
@@ -148,7 +172,9 @@ def build(prices_path: Path, cache: Path) -> pd.DataFrame:
         signal_day = min(d for d in xu if d > cutoff_day) if any(d > cutoff_day for d in xu) else None
         universe = active(routes, pd.Timestamp(cutoff_day))
         universe = universe.loc[universe.ticker.isin(set(prices.ticker))]
-        core = core_at(reports, datetime.combine(cutoff_day, dtime(18, 10), tzinfo=ISTANBUL),
+        window = archives_known_at(cutoff_day)
+        core = core_at([r for r in reports if r["report"]["archive_name"] in window],
+                       datetime.combine(cutoff_day, dtime(18, 10), tzinfo=ISTANBUL),
                        sorted(universe.ticker), routes)
         market = market_at(prices, index, universe, cutoff_day)
         frame = market.merge(core, on="ticker", how="left")
