@@ -519,3 +519,19 @@
 {"decision_date": "2026-09-01", "event": "ORDER", "id": "H0247", "side": "BUY", "ticker": "BAGFS", "time": "2026-09-01T20:00:00+03:00", "tl": 10000.0, "why": "Skor 97.8; PD/DD %66 iskonto; 20 gunde +%9 donus."}
 {"decision_date": "2026-09-01", "event": "ORDER", "id": "H0248", "side": "BUY", "ticker": "BUCIM", "time": "2026-09-01T20:00:00+03:00", "tl": 10000.0, "why": "Skor 91.1; PD/DD %59 iskonto; 20 gunde +%16."}
 {"decision_date": "2026-09-01", "event": "ORDER", "id": "H0249", "side": "BUY", "ticker": "KLGYO", "time": "2026-09-01T20:00:00+03:00", "tl": 8000.0, "why": "Skor 90.1; PD/DD %61 iskonto; 20 gunde +%12."}
+{"date": "2026-09-02", "event": "FILL", "order": "H0240", "price": 37.59999847412109, "qty": 914, "realised_tl": -664.72, "side": "SELL", "ticker": "EREGL", "tl": 34297.67}
+{"date": "2026-09-02", "event": "FILL", "order": "H0241", "price": 43.5, "qty": 502, "realised_tl": -1178.69, "side": "SELL", "ticker": "NTHOL", "tl": 21793.33}
+{"date": "2026-09-02", "event": "FILL", "order": "H0242", "price": 325.0, "qty": 107, "side": "BUY", "ticker": "AYGAZ", "tl": 34844.55}
+{"date": "2026-09-02", "event": "FILL", "order": "H0243", "price": 95.0, "qty": 210, "side": "BUY", "ticker": "DEVA", "tl": 19989.9}
+{"date": "2026-09-02", "event": "FILL", "order": "H0244", "price": 68.30000305175781, "qty": 219, "side": "BUY", "ticker": "CATES", "tl": 14987.62}
+{"date": "2026-09-02", "event": "FILL", "order": "H0245", "price": 204.6999969482422, "qty": 73, "side": "BUY", "ticker": "RGYAS", "tl": 14972.99}
+{"date": "2026-09-02", "event": "FILL", "order": "H0246", "price": 3.9700000286102295, "qty": 3016, "side": "BUY", "ticker": "ARSAN", "tl": 11997.47}
+{"date": "2026-09-02", "event": "FILL", "order": "H0247", "price": 26.07999992370605, "qty": 382, "side": "BUY", "ticker": "BAGFS", "tl": 9982.49}
+{"date": "2026-09-02", "event": "FILL", "order": "H0248", "price": 5.889999866485596, "qty": 1694, "side": "BUY", "ticker": "BUCIM", "tl": 9997.62}
+{"date": "2026-09-02", "event": "FILL", "order": "H0249", "price": 4.980000019073486, "qty": 1603, "side": "BUY", "ticker": "KLGYO", "tl": 7998.91}
+{"decision_date": "2026-09-07", "event": "ORDER", "fraction": 1.0, "id": "H0250", "side": "SELL", "ticker": "ISGYO", "time": "2026-09-07T20:00:00+03:00", "why": "-%10.4, IZLE: sinir."}
+{"date": "2026-09-08", "event": "FILL", "order": "H0250", "price": 24.700000762939453, "qty": 455, "realised_tl": -783.53, "side": "SELL", "ticker": "ISGYO", "tl": 11216.02}
+{"decision_date": "2026-09-21", "event": "ORDER", "fraction": 1.0, "id": "H0251", "side": "SELL", "ticker": "CATES", "time": "2026-09-21T20:00:00+03:00", "why": "-%39.5: -%15 sinirini coktan gecti, kes. (Not: bu karar oncesi kontrol sirasinda 22-25 Eylul fiyatlari yanlislikla goruldu; karar onceden beri uygulanan -%15 kuralina gore verildi.)"}
+{"decision_date": "2026-09-21", "event": "ORDER", "fraction": 1.0, "id": "H0252", "side": "SELL", "ticker": "KLGYO", "time": "2026-09-21T20:00:00+03:00", "why": "-%18.8: -%15 sinirini gecti, kes."}
+{"date": "2026-09-22", "event": "FILL", "order": "H0251", "price": 37.2599983215332, "qty": 219, "realised_tl": -6844.0, "side": "SELL", "ticker": "CATES", "tl": 8143.62}
+{"date": "2026-09-22", "event": "FILL", "order": "H0252", "price": 4.150000095367432, "qty": 1603, "realised_tl": -1359.76, "side": "SELL", "ticker": "KLGYO", "tl": 6639.15}
