@@ -80,12 +80,12 @@ def test_the_random_twin_buys_at_the_same_moments_in_the_same_number():
     panel = _panel(signals, al=("T00", "T01", "T02"))
     menus, index = _setup(adj, panel, sessions)
     real = run(menus, adj, index, sessions)
-    twin = run(menus, adj, index, sessions, rng=np.random.default_rng(1))
-    first_buys = lambda r: sorted(t["entry_date"] for t in r["trades"])[:1]
-    assert first_buys(real) == first_buys(twin)
-    real_first = [t for t in real["trades"] if t["entry_date"] == first_buys(real)[0]]
-    twin_first = [t for t in twin["trades"] if t["entry_date"] == first_buys(twin)[0]]
-    assert len(real_first) == len(twin_first)
+    twin = run(menus, adj, index, sessions, rng=np.random.default_rng(1), buys=real["buys"])
+    # Slots never bind here (three AL names, ten slots), so the twin must mirror
+    # every buy of the strategy -- not only the first, which the original test
+    # checked and which let a twin that bought far more often slip through.
+    assert twin["buys"] == real["buys"]
+    assert sum(real["buys"].values()) == len(real["trades"])
 
 
 def test_prices_after_a_date_cannot_change_a_decision_before_it():

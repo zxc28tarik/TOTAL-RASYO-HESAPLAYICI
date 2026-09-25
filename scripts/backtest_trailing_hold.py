@@ -73,8 +73,9 @@ RULES = {
     "idle_money": "held in XU100",
     "cost_per_side": 0.002,
     "priority": "highest score_percentile first",
-    "random_twin": "same moments, same count k, k names drawn uniformly from the month's scored cohort "
-                   "excluding held and stopped-out names; same stop, same costs",
+    "random_twin": "buys on exactly the sessions the strategy bought, as many names as it bought (within "
+                   "its own free slots), drawn uniformly from the month's scored cohort excluding held and "
+                   "stopped-out names; same stop, same costs",
     "random_draws": 1000,
     "random_seed": 20250203,
     "data_rules": "phantom-move rescaling and thin-session filter as in BLIND_HORIZON_STRATEGY_V1",
@@ -108,8 +109,15 @@ def daily_menus(view: PointInTime, sessions: pd.DatetimeIndex) -> dict:
 
 
 def run(menus: dict, adj: pd.DataFrame, index: pd.Series, sessions: pd.DatetimeIndex, *,
-        rng: np.random.Generator | None = None) -> dict:
-    """One path. With ``rng`` the picks are random twins of the strategy's picks."""
+        rng: np.random.Generator | None = None, buys: dict | None = None) -> dict:
+    """One path. With ``rng`` and ``buys`` the picks are random twins of the strategy's.
+
+    ``buys`` maps each session to the number of names the strategy bought on it.
+    The twin buys exactly that many, on exactly those sessions, at random from
+    the same cohort -- the first version let the twin buy whenever the
+    strategy's candidate list was non-empty, so it bought far more often than
+    the strategy it was meant to shadow.
+    """
     cost = RULES["cost_per_side"]
     slots = RULES["max_positions"]
     stop = 1.0 - RULES["trailing_stop"]
@@ -117,7 +125,7 @@ def run(menus: dict, adj: pd.DataFrame, index: pd.Series, sessions: pd.DatetimeI
     sleeve = 1.0 / float(index.loc[sessions[0]])
     held: dict[str, Holding] = {}
     stopped: dict[str, str] = {}
-    trades, values = [], []
+    trades, values, bought = [], [], {}
     previous = None
     for day in sessions:
         prices = filled.loc[day]
@@ -140,15 +148,14 @@ def run(menus: dict, adj: pd.DataFrame, index: pd.Series, sessions: pd.DatetimeI
                     del held[ticker]
         # ---- buy
         free = slots - len(held)
-        if free > 0 and qualified:
+        wanted = free if rng is None else min(free, buys.get(day, 0))
+        if wanted > 0 and (qualified if rng is None else cohort):
             eligible = [t for t in (qualified if rng is None else cohort)
                         if t not in held and stopped.get(t) != month
                         and t in adj.columns and pd.notna(adj.at[day, t])]
             if rng is not None:
-                k = sum(1 for t in qualified if t not in held and stopped.get(t) != month
-                        and t in adj.columns and pd.notna(adj.at[day, t]))
-                eligible = list(rng.permutation(eligible)[:k]) if k else []
-            for ticker in eligible[:free]:
+                eligible = list(rng.permutation(eligible))
+            for ticker in eligible[:wanted]:
                 total = sleeve * level + sum(h.units * prices[t] for t, h in held.items())
                 gross = min(total / slots, sleeve * level)
                 if gross <= 0:
@@ -158,6 +165,7 @@ def run(menus: dict, adj: pd.DataFrame, index: pd.Series, sessions: pd.DatetimeI
                 price = float(prices[ticker])
                 held[ticker] = Holding(units=invest / price, entry_date=day, entry_price=price,
                                        peak=price, month=month)
+                bought[day] = bought.get(day, 0) + 1
         values.append(sleeve * level + sum(h.units * prices[t] for t, h in held.items()))
         previous = day
     last = sessions[-1]
@@ -166,7 +174,7 @@ def run(menus: dict, adj: pd.DataFrame, index: pd.Series, sessions: pd.DatetimeI
                        "exit_date": str(last.date()), "entry_price": holding.entry_price,
                        "exit_price": float(filled.at[last, ticker]), "exit": "ACIK"})
     curve = pd.Series(values, index=sessions)
-    return {"curve": curve, "trades": trades}
+    return {"curve": curve, "trades": trades, "buys": bought}
 
 
 def rules_commit() -> dict:
@@ -213,7 +221,8 @@ def build(*, output_dir: Path = OUTPUT) -> dict:
 
     strategy = run(menus, adj, index, sessions)
     rng = np.random.default_rng(RULES["random_seed"])
-    twins = [run(menus, adj, index, sessions, rng=rng) for _ in range(RULES["random_draws"])]
+    twins = [run(menus, adj, index, sessions, rng=rng, buys=strategy["buys"])
+             for _ in range(RULES["random_draws"])]
 
     total = lambda curve: float(curve.iloc[-1] / curve.iloc[0] - 1.0)
     drawdown = lambda curve: float((curve / curve.cummax() - 1.0).min())
