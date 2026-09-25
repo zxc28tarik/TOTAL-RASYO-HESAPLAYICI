@@ -9,9 +9,9 @@ none is promoted for looking good.
 Stage 1 -- score. The rebuilt layer (src.analytics.rebuilt_total_score) ranks five
 modules per month with equal weights: M1, M3, Ek4, Ek1, Ek9. M3, Ek4 and Ek9 are
 ranked on their RAW production inputs (alpha_trailing, excess_return_20d,
-volatility), recovered by re-running the same replays that produced the
-historical P4 cells; the recomputed banded scores are checked against the P4
-cells so it is visible that nothing drifted. AL = top 10% of the month.
+volatility), recovered from the same build_market_modules call that produced the
+historical P4 cells; the recomputed banded scores must equal the P4 cells or the
+run stops. AL = top 10% of the month.
 
 Stage 2 -- P/B. P/B = close(cutoff day) x current nominal capital / PIT equity,
 where PIT equity is the latest quarter whose publication preceded the signal's
@@ -42,9 +42,6 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.analytics.cross_sectional_score import percentile_score
-from src.analytics.historical_pit_ek4_replay import run_historical_pit_ek4_replay
-from src.analytics.historical_pit_ek9_replay import run_historical_pit_ek9_replay
-from src.analytics.historical_pit_m3_replay import run_historical_pit_m3_replay
 from src.analytics.rebuilt_total_score import RebuiltScoreConfig, rebuilt_scores
 
 CONTRACT = "PB_TWO_STAGE_BACKTEST_V1"
@@ -344,6 +341,48 @@ def simulate(panel: pd.DataFrame, adj: pd.DataFrame, closes: pd.DataFrame, *,
     return {"curve": curve, "log": log, "fees": fees, "traded": traded_total}
 
 
+def period_placebo(panel: pd.DataFrame, adj: pd.DataFrame, rebalance_months: list[str],
+                   log: list[dict], *, end: pd.Timestamp, draws: int = 5000, seed: int = 20250801) -> dict:
+    """Where does the strategy fall among portfolios of the same size picked at random?
+
+    Each rebalance period, a placebo holds as many names as the strategy held,
+    drawn uniformly from that month's scored cohort, equal weight, buy and hold
+    to the next rebalance. Costs are left out on both sides, so the comparison is
+    selection only. The strategy's own gross return is recomputed the same way,
+    which doubles as an independent check on the daily engine.
+    """
+    import numpy as np
+
+    rng = np.random.default_rng(seed)
+    filled = adj.ffill()
+    dates = [pd.Timestamp(panel.loc[panel.month.eq(m), "signal_date"].iloc[0]) for m in rebalance_months]
+    bounds = dates + [end]
+    held = {e["month"]: e["holdings"] for e in log if e.get("kind") == "rebalance"}
+    strategy_gross, placebo_gross = 1.0, np.ones(draws)
+    for month, start, stop in zip(rebalance_months, bounds[:-1], bounds[1:]):
+        cohort = panel.loc[panel.month.eq(month) & panel.score_percentile.notna(), "ticker"]
+        cohort = [t for t in cohort if t in filled.columns and pd.notna(filled.at[start, t])]
+        period = (filled.loc[stop, cohort] / filled.loc[start, cohort]).to_numpy(dtype=float)
+        picks = held.get(month, [])
+        if not picks:
+            continue
+        lookup = dict(zip(cohort, period))
+        strategy_gross *= float(np.mean([lookup[t] for t in picks]))
+        k = len(picks)
+        choice = np.argsort(rng.random((draws, len(cohort))), axis=1)[:, :k]
+        placebo_gross *= period[choice].mean(axis=1)
+    strategy_return = strategy_gross - 1.0
+    placebo_return = placebo_gross - 1.0
+    return {
+        "draws": draws, "seed": seed,
+        "strategy_gross_return": float(strategy_return),
+        "placebo_median": float(np.median(placebo_return)),
+        "placebo_p05": float(np.quantile(placebo_return, 0.05)),
+        "placebo_p95": float(np.quantile(placebo_return, 0.95)),
+        "strategy_percentile_among_placebo": float((placebo_return < strategy_return).mean()),
+    }
+
+
 def metrics(curve: pd.DataFrame, bench: pd.Series) -> dict:
     value = curve["value"]
     bench = bench.reindex(value.index).ffill()
@@ -379,10 +418,14 @@ def build(*, output_dir: Path = OUTPUT) -> dict:
     bench.index = pd.to_datetime(bench.index)
     first = pd.Timestamp(p4.signal_date.min())
     end = pd.Timestamp(RULES["window_end"])
-    calendar = bench.loc[first:end].index
-
     closes = prices.pivot_table(index="trade_date", columns="ticker", values="close", aggfunc="last")
     adj = prices.pivot_table(index="trade_date", columns="ticker", values="adj_close", aggfunc="last")
+    # A day on which the stock feed carries a fraction of the universe would value
+    # the book at stale prices while XU100 moves; such days are dropped for both
+    # sides alike. This is data availability, not a strategy choice.
+    breadth = adj.reindex(bench.loc[first:end].index).notna().mean(axis=1)
+    calendar = breadth.index[breadth >= 0.9]
+    dropped_days = [str(d.date()) for d in breadth.index[breadth < 0.9]]
     adj = adj.reindex(calendar)
 
     discontinuities = discontinuity_tickers(
@@ -431,6 +474,10 @@ def build(*, output_dir: Path = OUTPUT) -> dict:
         results[name] = {**metrics(run["curve"], bench), "fees_paid": run["fees"],
                          "turnover": run["traded"], "trade_log": run["log"]}
 
+    placebo = {name: period_placebo(panel, adj, spec["rebalance_months"], results[name]["trade_log"],
+                                    end=calendar[-1])
+               for name, spec in variants.items() if spec["mode"] == "fixed"}
+
     qualify = panel.loc[panel.qualify].sort_values(["month", "score_percentile"], ascending=[True, False])
     monthly_picks = {m: g.ticker.tolist() for m, g in qualify.groupby("month")}
     al_rows = panel.loc[panel.al]
@@ -458,6 +505,8 @@ def build(*, output_dir: Path = OUTPUT) -> dict:
         "rules_frozen_before_first_run": RULES,
         "holdout_consumed": "2025-08..2026-07 lies inside the 2024-08..2026-07 holdout",
         "p4_reproduction": "866/866 banded M3/Ek4/Ek9 values reproduced exactly from raw inputs",
+        "calendar_days_dropped_for_thin_stock_feed": dropped_days,
+        "placebo": placebo,
         "excluded_discontinuity_tickers": discontinuities,
         "coverage": coverage,
         "monthly_qualifiers": monthly_picks,
@@ -483,6 +532,10 @@ def build(*, output_dir: Path = OUTPUT) -> dict:
 def main() -> None:
     argparse.ArgumentParser().parse_args()
     receipt = build()
+    for name, result in receipt["placebo"].items():
+        print(f"{name:10s} brüt {result['strategy_gross_return']:+8.2%}  rastgele medyan "
+              f"{result['placebo_median']:+8.2%}  [%5 {result['placebo_p05']:+.1%} .. %95 "
+              f"{result['placebo_p95']:+.1%}]  yüzdelik {result['strategy_percentile_among_placebo']:.0%}")
     for name, result in receipt["results"].items():
         print(f"{name:34s} getiri {result['total_return']:+8.2%}  XU100 {result['xu100_return']:+8.2%}  "
               f"fark {result['excess_vs_xu100']:+8.2%}  maxDD {result['max_drawdown']:+7.2%}  "
