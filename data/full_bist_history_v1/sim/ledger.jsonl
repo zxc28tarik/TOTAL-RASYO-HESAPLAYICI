@@ -466,3 +466,23 @@
 {"decision_date": "2026-07-01", "event": "ORDER", "id": "H0221", "side": "BUY", "ticker": "BAKAB", "time": "2026-07-01T20:00:00+03:00", "tl": 10000.0, "why": "Skor 90.3; PD/DD %18 iskonto; 3 ayda +%30."}
 {"decision_date": "2026-07-01", "event": "ORDER", "id": "H0222", "side": "BUY", "ticker": "ARASE", "time": "2026-07-01T20:00:00+03:00", "tl": 10000.0, "why": "Yeniden alim: skor 93.4, PD/DD %18 iskonto."}
 {"decision_date": "2026-07-01", "event": "ORDER", "id": "H0223", "side": "BUY", "ticker": "EREGL", "time": "2026-07-01T20:00:00+03:00", "tl": 10000.0, "why": "Ekleme: AL, PD/DD %34 iskonto, pozisyon +%8."}
+{"date": "2026-07-02", "event": "FILL", "order": "H0215", "price": 20.559999465942383, "qty": 507, "realised_tl": -1575.9, "side": "SELL", "ticker": "DOHOL", "tl": 10403.07}
+{"date": "2026-07-02", "event": "FILL", "order": "H0216", "price": 6.210000038146973, "qty": 891, "realised_tl": -477.45, "side": "SELL", "ticker": "BNTAS", "tl": 5522.04}
+{"date": "2026-07-02", "event": "FILL", "order": "H0217", "price": 5.619999885559082, "qty": 1663, "realised_tl": -670.59, "side": "SELL", "ticker": "HLGYO", "tl": 9327.37}
+{"date": "2026-07-02", "event": "FILL", "order": "H0218", "price": 333.25, "qty": 74, "side": "BUY", "ticker": "THYAO", "tl": 24709.82}
+{"date": "2026-07-02", "event": "FILL", "order": "H0219", "price": 73.0999984741211, "qty": 341, "side": "BUY", "ticker": "DEVA", "tl": 24976.95}
+{"date": "2026-07-02", "event": "FILL", "order": "H0220", "price": 38.380001068115234, "qty": 260, "side": "BUY", "ticker": "EDIP", "tl": 9998.76}
+{"date": "2026-07-02", "event": "FILL", "order": "H0221", "price": 53.59999847412109, "qty": 186, "side": "BUY", "ticker": "BAKAB", "tl": 9989.54}
+{"date": "2026-07-02", "event": "FILL", "order": "H0222", "price": 119.0, "qty": 83, "side": "BUY", "ticker": "ARASE", "tl": 9896.75}
+{"date": "2026-07-02", "event": "FILL", "order": "H0223", "price": 40.79999923706055, "qty": 244, "side": "BUY", "ticker": "EREGL", "tl": 9975.11}
+{"decision_date": "2026-07-06", "event": "ORDER", "fraction": 1.0, "id": "H0224", "side": "SELL", "ticker": "INDES", "time": "2026-07-06T20:00:00+03:00", "why": "-%14.4, 20 gunde -%10: sinira dayandi, kes."}
+{"date": "2026-07-07", "event": "FILL", "order": "H0224", "price": 10.600000381469728, "qty": 1981, "realised_tl": -4034.07, "side": "SELL", "ticker": "INDES", "tl": 20956.6}
+{"date": "2026-08-03", "event": "CONTRIBUTION", "tl": 15000.0, "xu100_close": 13410.5}
+{"decision_date": "2026-08-03", "event": "ORDER", "fraction": 1.0, "id": "H0225", "side": "SELL", "ticker": "BAKAB", "time": "2026-08-03T20:00:00+03:00", "why": "Yeni ay skoru UZAK: kapat."}
+{"decision_date": "2026-08-03", "event": "ORDER", "fraction": 1.0, "id": "H0226", "side": "SELL", "ticker": "EDIP", "time": "2026-08-03T20:00:00+03:00", "why": "Yeni ay skoru UZAK: kapat."}
+{"decision_date": "2026-08-03", "event": "ORDER", "fraction": 1.0, "id": "H0227", "side": "SELL", "ticker": "MTRKS", "time": "2026-08-03T20:00:00+03:00", "why": "Yeni ay skoru UZAK: kapat."}
+{"decision_date": "2026-08-03", "event": "ORDER", "fraction": 1.0, "id": "H0228", "side": "SELL", "ticker": "ARASE", "time": "2026-08-03T20:00:00+03:00", "why": "-%6, PD/DD sektor medyanina geldi (-%8): ucuzluk bitti."}
+{"decision_date": "2026-08-03", "event": "ORDER", "id": "H0229", "side": "BUY", "ticker": "NTHOL", "time": "2026-08-03T20:00:00+03:00", "tl": 15000.0, "why": "Holding, skor 92.7; PD/DD %60 iskonto; 3 ayda +%17."}
+{"decision_date": "2026-08-03", "event": "ORDER", "id": "H0230", "side": "BUY", "ticker": "ISGYO", "time": "2026-08-03T20:00:00+03:00", "tl": 12000.0, "why": "GYO, skor 90.3; PD/DD %33 iskonto; 3 ayda +%27, zirveye yakin."}
+{"decision_date": "2026-08-03", "event": "ORDER", "id": "H0231", "side": "BUY", "ticker": "FORTE", "time": "2026-08-03T20:00:00+03:00", "tl": 8000.0, "why": "Teknoloji, skor 90.5; PD/DD %15 iskonto; 3 ayda +%18, zirveye yakin."}
+{"decision_date": "2026-08-03", "event": "ORDER", "id": "H0232", "side": "BUY", "ticker": "AKSGY", "time": "2026-08-03T20:00:00+03:00", "tl": 8000.0, "why": "Ekleme: skor 98.2, PD/DD %31 iskonto."}
