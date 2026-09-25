@@ -137,3 +137,21 @@ def test_a_dust_position_left_by_an_exhausted_sleeve_is_held_not_crashed_on():
     for draw in range(20):
         twin = run(menus, adj, index, sessions, **policy, rng=np.random.default_rng(draw), buys=real["buys"])
         assert all(p["exits"] for p in twin["positions"])
+
+
+def _receipt() -> dict:
+    import json
+    from pathlib import Path
+    path = Path(__file__).resolve().parents[1] / "data/audit/take_profit_vs_random_v1/receipt.json"
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def test_the_published_run_reports_every_declared_variant_and_passed_its_gate():
+    receipt = _receipt()
+    assert receipt["blind_run"]["modified_since_commit"] is False
+    assert receipt["consistency_gate"].startswith("PASSED")
+    assert set(receipt["results"]) == set(VARIANTS)
+    for result in receipt["results"].values():
+        assert 0.0 <= result["strategy_percentile_among_random"] <= 1.0
+        assert result["random_p05"] < result["random_median_return"] < result["random_p95"]
+    assert receipt["results"]["A_yarisi_30_kalani_70"]["half_takes"] > 0

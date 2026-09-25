@@ -1,0 +1,207 @@
+{
+  "blind_run": {
+    "last_commit": "e61bcf0ad4feccc47e896259520cffd98bfc223d 2026-09-25T17:56:04+00:00",
+    "modified_since_commit": false,
+    "script": "scripts/backtest_take_profit.py"
+  },
+  "consistency_gate": "PASSED: no-profit-taking variant reproduces the previous run exactly",
+  "contract": "TAKE_PROFIT_VS_RANDOM_V1",
+  "not_modelled": [
+    "this window's trades were seen before these rules were written; every declared variant is reported and each is judged against its own random twin",
+    "XU100 is a price index; stock returns include dividends",
+    "P/B uses current nominal capital"
+  ],
+  "outputs": {
+    "positions.json": "cd5f9cc0e180b33403ac97fc57b3545bd4d2584a0dc9e6549df8bea743e53d27"
+  },
+  "results": {
+    "A_yarisi_30_kalani_70": {
+      "final_exit_reasons": {
+        "ACIK": 6,
+        "IZ_SUREN_STOP": 13,
+        "KAR_AL_TAMAMI": 3
+      },
+      "half_takes": 8,
+      "mean_position_return": 0.09404202973244957,
+      "median_days_held": 117.0,
+      "position_mean_percentile_among_random": 0.626,
+      "positions": 22,
+      "positions_open_at_end": 6,
+      "random_mean_position_return_median": 0.08025853154660861,
+      "random_median_return": 0.34038396096556467,
+      "random_p05": 0.17109254919741052,
+      "random_p95": 0.5790555832392756,
+      "random_position_count_median": 22.0,
+      "strategy_max_drawdown": -0.1785133627978246,
+      "strategy_percentile_among_random": 0.404,
+      "strategy_return": 0.3117210057680766,
+      "xu100_return": 0.3599709301221923
+    },
+    "B_tamami_30": {
+      "final_exit_reasons": {
+        "ACIK": 5,
+        "IZ_SUREN_STOP": 13,
+        "KAR_AL_TAMAMI": 9
+      },
+      "half_takes": 0,
+      "mean_position_return": 0.06905159686377091,
+      "median_days_held": 105.0,
+      "position_mean_percentile_among_random": 0.549,
+      "positions": 27,
+      "positions_open_at_end": 5,
+      "random_mean_position_return_median": 0.06382614108931318,
+      "random_median_return": 0.3360743105061508,
+      "random_p05": 0.15747474872350473,
+      "random_p95": 0.5727618031590388,
+      "random_position_count_median": 27.0,
+      "strategy_max_drawdown": -0.1785133627978246,
+      "strategy_percentile_among_random": 0.288,
+      "strategy_return": 0.26901870702600394,
+      "xu100_return": 0.3599709301221923
+    },
+    "C_tamami_50": {
+      "final_exit_reasons": {
+        "ACIK": 6,
+        "IZ_SUREN_STOP": 15,
+        "KAR_AL_TAMAMI": 4
+      },
+      "half_takes": 0,
+      "mean_position_return": 0.08477457318998693,
+      "median_days_held": 120.0,
+      "position_mean_percentile_among_random": 0.613,
+      "positions": 25,
+      "positions_open_at_end": 6,
+      "random_mean_position_return_median": 0.06937156048333842,
+      "random_median_return": 0.33914508878902205,
+      "random_p05": 0.12771196298994794,
+      "random_p95": 0.6097301855954598,
+      "random_position_count_median": 25.0,
+      "strategy_max_drawdown": -0.1785133627978246,
+      "strategy_percentile_among_random": 0.327,
+      "strategy_return": 0.27771726936061114,
+      "xu100_return": 0.3599709301221923
+    },
+    "D_tamami_70": {
+      "final_exit_reasons": {
+        "ACIK": 6,
+        "IZ_SUREN_STOP": 13,
+        "KAR_AL_TAMAMI": 3
+      },
+      "half_takes": 0,
+      "mean_position_return": 0.10752275597765816,
+      "median_days_held": 117.0,
+      "position_mean_percentile_among_random": 0.614,
+      "positions": 22,
+      "positions_open_at_end": 6,
+      "random_mean_position_return_median": 0.09025478958569914,
+      "random_median_return": 0.3488835050815461,
+      "random_p05": 0.1397724454421679,
+      "random_p95": 0.6280601711941242,
+      "random_position_count_median": 22.0,
+      "strategy_max_drawdown": -0.1785133627978246,
+      "strategy_percentile_among_random": 0.433,
+      "strategy_return": 0.32741430361441903,
+      "xu100_return": 0.3599709301221923
+    },
+    "E_tamami_100": {
+      "final_exit_reasons": {
+        "ACIK": 6,
+        "IZ_SUREN_STOP": 15,
+        "KAR_AL_TAMAMI": 1
+      },
+      "half_takes": 0,
+      "mean_position_return": 0.10715399105668148,
+      "median_days_held": 117.0,
+      "position_mean_percentile_among_random": 0.503,
+      "positions": 22,
+      "positions_open_at_end": 6,
+      "random_mean_position_return_median": 0.10612569148282597,
+      "random_median_return": 0.3735246564687965,
+      "random_p05": 0.16562717034977212,
+      "random_p95": 0.705142305414419,
+      "random_position_count_median": 22.0,
+      "strategy_max_drawdown": -0.1785133627978246,
+      "strategy_percentile_among_random": 0.208,
+      "strategy_return": 0.2572476894292568,
+      "xu100_return": 0.3599709301221923
+    },
+    "F_kar_almadan": {
+      "final_exit_reasons": {
+        "ACIK": 7,
+        "IZ_SUREN_STOP": 15
+      },
+      "half_takes": 0,
+      "mean_position_return": 0.12177773539703737,
+      "median_days_held": 117.0,
+      "position_mean_percentile_among_random": 0.46,
+      "positions": 22,
+      "positions_open_at_end": 7,
+      "random_mean_position_return_median": 0.1326726013260514,
+      "random_median_return": 0.4040161632287932,
+      "random_p05": 0.15415944658444447,
+      "random_p95": 0.8136293097429893,
+      "random_position_count_median": 22.0,
+      "strategy_max_drawdown": -0.1785133627978246,
+      "strategy_percentile_among_random": 0.297,
+      "strategy_return": 0.30427176018498847,
+      "xu100_return": 0.3599709301221923
+    }
+  },
+  "rules": {
+    "buy": "decision == AL this month and P/B > 0 and P/B percentile <= 0.50, priced at the previous close",
+    "check_order": "full take-profit, then half take-profit, then trailing stop",
+    "consistency_gate": "F_kar_almadan must reproduce TRAILING_HOLD_VS_RANDOM_V1: +30.4% and 22 trades",
+    "cost_per_side": 0.002,
+    "every_variant_reported": true,
+    "idle_money": "held in XU100",
+    "max_positions": 10,
+    "no_rebuy_after_full_exit": "same signal month",
+    "primary_reason": "the investor named 30% and 70%; half at the first locks a gain, the rest at the second",
+    "primary_variant": "A_yarisi_30_kalani_70",
+    "random_draws": 1000,
+    "random_seed": 20250204,
+    "random_twin": "per variant: the variant's own buy sessions and counts, same exit rule, random names",
+    "slot_size": "1/10 of portfolio value at purchase",
+    "trailing_stop": 0.2,
+    "trigger_price": "previous session's close against the entry price; the sale fills at today's close",
+    "variants": {
+      "A_yarisi_30_kalani_70": {
+        "all_at": 0.7,
+        "half_at": 0.3
+      },
+      "B_tamami_30": {
+        "all_at": 0.3,
+        "half_at": null
+      },
+      "C_tamami_50": {
+        "all_at": 0.5,
+        "half_at": null
+      },
+      "D_tamami_70": {
+        "all_at": 0.7,
+        "half_at": null
+      },
+      "E_tamami_100": {
+        "all_at": 1.0,
+        "half_at": null
+      },
+      "F_kar_almadan": {
+        "all_at": null,
+        "half_at": null
+      }
+    },
+    "window": [
+      "2025-02",
+      "2026-07",
+      "2026-07-31"
+    ]
+  },
+  "source_sha256": {
+    "core_diagnostics": "fcac7b48ba7ca45b2dc686e6405511575436f61e5371b5a9ed5434a9feb1722a",
+    "index": "32a740f7a7114e03c885d1ae75c8bacd081b5254b043521fd76ca5f8e34e786e",
+    "market_caps": "6fc7f4decc91fde3a8c4a1021df144eff09b85910fe9ce02ca10a4a6c10c6125",
+    "prices": "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141",
+    "routes": "f0c28c7babd018eb8994afdf4911a9d338dad43b291a1084a7acc47a3919c478",
+    "xu100": "3c56a4827ab1c41121ed773ba937aebc8bb5853a85f38497953d76aabf5dd4ac"
+  }
+}
