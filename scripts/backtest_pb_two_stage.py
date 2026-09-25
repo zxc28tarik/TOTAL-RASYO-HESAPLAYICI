@@ -96,9 +96,9 @@ def _months() -> list[str]:
     return [str(p) for p in pd.period_range(RULES["window_first_signal"], RULES["window_last_signal"], freq="M")]
 
 
-def load_p4() -> pd.DataFrame:
+def load_p4(months: list[str] | None = None) -> pd.DataFrame:
     rows = []
-    for month in _months():
+    for month in months or _months():
         with gzip.open(P4 / f"p4_{month}.jsonl.gz", "rt", encoding="utf-8") as handle:
             for line in handle:
                 cell = json.loads(line)
