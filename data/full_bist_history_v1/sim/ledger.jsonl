@@ -486,3 +486,36 @@
 {"decision_date": "2026-08-03", "event": "ORDER", "id": "H0230", "side": "BUY", "ticker": "ISGYO", "time": "2026-08-03T20:00:00+03:00", "tl": 12000.0, "why": "GYO, skor 90.3; PD/DD %33 iskonto; 3 ayda +%27, zirveye yakin."}
 {"decision_date": "2026-08-03", "event": "ORDER", "id": "H0231", "side": "BUY", "ticker": "FORTE", "time": "2026-08-03T20:00:00+03:00", "tl": 8000.0, "why": "Teknoloji, skor 90.5; PD/DD %15 iskonto; 3 ayda +%18, zirveye yakin."}
 {"decision_date": "2026-08-03", "event": "ORDER", "id": "H0232", "side": "BUY", "ticker": "AKSGY", "time": "2026-08-03T20:00:00+03:00", "tl": 8000.0, "why": "Ekleme: skor 98.2, PD/DD %31 iskonto."}
+{"date": "2026-08-04", "event": "FILL", "order": "H0225", "price": 46.540000915527344, "qty": 186, "realised_tl": -1350.41, "side": "SELL", "ticker": "BAKAB", "tl": 8639.13}
+{"date": "2026-08-04", "event": "FILL", "order": "H0226", "price": 36.91999816894531, "qty": 260, "realised_tl": -418.76, "side": "SELL", "ticker": "EDIP", "tl": 9580.0}
+{"date": "2026-08-04", "event": "FILL", "order": "H0227", "price": 27.26000022888184, "qty": 528, "realised_tl": -618.37, "side": "SELL", "ticker": "MTRKS", "tl": 14364.49}
+{"date": "2026-08-04", "event": "FILL", "order": "H0228", "price": 113.1999969482422, "qty": 83, "realised_tl": -519.95, "side": "SELL", "ticker": "ARASE", "tl": 9376.81}
+{"date": "2026-08-04", "event": "FILL", "order": "H0229", "price": 46.34000015258789, "qty": 323, "side": "BUY", "ticker": "NTHOL", "tl": 14997.76}
+{"date": "2026-08-04", "event": "FILL", "order": "H0230", "price": 26.31999969482422, "qty": 455, "side": "BUY", "ticker": "ISGYO", "tl": 11999.55}
+{"date": "2026-08-04", "event": "FILL", "order": "H0231", "price": 112.9000015258789, "qty": 70, "side": "BUY", "ticker": "FORTE", "tl": 7918.81}
+{"date": "2026-08-04", "event": "FILL", "order": "H0232", "price": 9.65999984741211, "qty": 826, "side": "BUY", "ticker": "AKSGY", "tl": 7995.12}
+{"decision_date": "2026-08-10", "event": "ORDER", "fraction": 1.0, "id": "H0233", "side": "SELL", "ticker": "THYAO", "time": "2026-08-10T20:00:00+03:00", "why": "-%9.3, IZLE, 20 gunde -%12: sinira yakin, kes."}
+{"decision_date": "2026-08-10", "event": "ORDER", "fraction": 1.0, "id": "H0234", "side": "SELL", "ticker": "FORTE", "time": "2026-08-10T20:00:00+03:00", "why": "+%10, PD/DD medyana geldi (-%6.5): kari al."}
+{"date": "2026-08-11", "event": "FILL", "order": "H0233", "price": 301.0, "qty": 74, "realised_tl": -2480.37, "side": "SELL", "ticker": "THYAO", "tl": 22229.45}
+{"date": "2026-08-11", "event": "FILL", "order": "H0234", "price": 137.0, "qty": 70, "realised_tl": 1652.01, "side": "SELL", "ticker": "FORTE", "tl": 9570.82}
+{"decision_date": "2026-08-17", "event": "ORDER", "id": "H0235", "side": "BUY", "ticker": "INDES", "time": "2026-08-17T20:00:00+03:00", "tl": 10000.0, "why": "Skor 91.3; PD/DD %69 iskonto; dusus durdu (20 gunde -%4, zirvenin %15 altinda)."}
+{"decision_date": "2026-08-17", "event": "ORDER", "id": "H0236", "side": "BUY", "ticker": "NTHOL", "time": "2026-08-17T20:00:00+03:00", "tl": 8000.0, "why": "Ekleme: PD/DD %60 iskonto, trend yatay-yukari."}
+{"date": "2026-08-18", "event": "FILL", "order": "H0235", "price": 10.5600004196167, "qty": 945, "side": "BUY", "ticker": "INDES", "tl": 9999.16}
+{"date": "2026-08-18", "event": "FILL", "order": "H0236", "price": 44.459999084472656, "qty": 179, "side": "BUY", "ticker": "NTHOL", "tl": 7974.26}
+{"decision_date": "2026-08-24", "event": "ORDER", "fraction": 1.0, "id": "H0237", "side": "SELL", "ticker": "TRGYO", "time": "2026-08-24T20:00:00+03:00", "why": "PD/DD sektor medyaninda (-%2), +%3: deger bitti."}
+{"date": "2026-08-25", "event": "FILL", "order": "H0237", "price": 96.5, "qty": 127, "realised_tl": 275.48, "side": "SELL", "ticker": "TRGYO", "tl": 12230.99}
+{"decision_date": "2026-08-31", "event": "ORDER", "fraction": 0.5, "id": "H0238", "side": "SELL", "ticker": "RGYAS", "time": "2026-08-31T20:00:00+03:00", "why": "+%30 kar: yarisini sat."}
+{"decision_date": "2026-08-31", "event": "ORDER", "fraction": 0.5, "id": "H0239", "side": "SELL", "ticker": "DEVA", "time": "2026-08-31T20:00:00+03:00", "why": "+%28 kar, skor IZLE: yarisini sat."}
+{"date": "2026-09-01", "event": "CONTRIBUTION", "tl": 15000.0, "xu100_close": 14229.0}
+{"date": "2026-09-01", "event": "FILL", "order": "H0238", "price": 203.3999938964844, "qty": 137, "realised_tl": 5101.49, "side": "SELL", "ticker": "RGYAS", "tl": 27810.07}
+{"date": "2026-09-01", "event": "FILL", "order": "H0239", "price": 95.6500015258789, "qty": 170, "realised_tl": 3776.13, "side": "SELL", "ticker": "DEVA", "tl": 16227.98}
+{"decision_date": "2026-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0240", "side": "SELL", "ticker": "EREGL", "time": "2026-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: kapat."}
+{"decision_date": "2026-09-01", "event": "ORDER", "fraction": 1.0, "id": "H0241", "side": "SELL", "ticker": "NTHOL", "time": "2026-09-01T20:00:00+03:00", "why": "Yeni ay skoru UZAK: kapat."}
+{"decision_date": "2026-09-01", "event": "ORDER", "id": "H0242", "side": "BUY", "ticker": "AYGAZ", "time": "2026-09-01T20:00:00+03:00", "tl": 35000.0, "why": "Skor 99.6; PD/DD %24 iskonto; 20 gunde +%29, zirveye yakin."}
+{"decision_date": "2026-09-01", "event": "ORDER", "id": "H0243", "side": "BUY", "ticker": "DEVA", "time": "2026-09-01T20:00:00+03:00", "tl": 20000.0, "why": "Ekleme: skor 98.8'e cikti, PD/DD %47 iskonto, zirvede."}
+{"decision_date": "2026-09-01", "event": "ORDER", "id": "H0244", "side": "BUY", "ticker": "CATES", "time": "2026-09-01T20:00:00+03:00", "tl": 15000.0, "why": "Skor 98.4; PD/DD %41 iskonto; 3 ayda +%73 (sicramis, olculu)."}
+{"decision_date": "2026-09-01", "event": "ORDER", "id": "H0245", "side": "BUY", "ticker": "RGYAS", "time": "2026-09-01T20:00:00+03:00", "tl": 15000.0, "why": "Ekleme: skor 99.8, PD/DD %70 iskonto."}
+{"decision_date": "2026-09-01", "event": "ORDER", "id": "H0246", "side": "BUY", "ticker": "ARSAN", "time": "2026-09-01T20:00:00+03:00", "tl": 12000.0, "why": "Skor 99.2; PD/DD %18 iskonto; 20 gunde +%22."}
+{"decision_date": "2026-09-01", "event": "ORDER", "id": "H0247", "side": "BUY", "ticker": "BAGFS", "time": "2026-09-01T20:00:00+03:00", "tl": 10000.0, "why": "Skor 97.8; PD/DD %66 iskonto; 20 gunde +%9 donus."}
+{"decision_date": "2026-09-01", "event": "ORDER", "id": "H0248", "side": "BUY", "ticker": "BUCIM", "time": "2026-09-01T20:00:00+03:00", "tl": 10000.0, "why": "Skor 91.1; PD/DD %59 iskonto; 20 gunde +%16."}
+{"decision_date": "2026-09-01", "event": "ORDER", "id": "H0249", "side": "BUY", "ticker": "KLGYO", "time": "2026-09-01T20:00:00+03:00", "tl": 8000.0, "why": "Skor 90.1; PD/DD %61 iskonto; 20 gunde +%12."}
