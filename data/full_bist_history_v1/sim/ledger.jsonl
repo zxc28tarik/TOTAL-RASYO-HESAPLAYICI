@@ -196,3 +196,21 @@
 {"date": "2025-12-02", "event": "FILL", "order": "H0089", "price": 113.1999969482422, "qty": 52, "side": "BUY", "ticker": "ULKER", "tl": 5898.17}
 {"date": "2025-12-02", "event": "FILL", "order": "H0090", "price": 4.260000228881836, "qty": 1171, "side": "BUY", "ticker": "ALGYO", "tl": 4998.44}
 {"date": "2025-12-02", "event": "FILL", "order": "H0091", "price": 35.900001525878906, "qty": 111, "side": "BUY", "ticker": "CATES", "tl": 3992.87}
+{"date": "2025-12-18", "event": "DIVIDEND", "per_share": 1.639386, "shares": 43, "ticker": "RGYAS", "tl": 70.49}
+{"decision_date": "2025-12-22", "event": "ORDER", "fraction": 0.5, "id": "H0092", "side": "SELL", "ticker": "ARASE", "time": "2025-12-22T20:00:00+03:00", "why": "+%30 kar: yarisini sat, kalan skor AL/PD/DD %45 iskontolu, tut."}
+{"date": "2025-12-23", "event": "FILL", "order": "H0092", "price": 65.94999694824219, "qty": 137, "realised_tl": 2072.35, "side": "SELL", "ticker": "ARASE", "tl": 9017.08}
+{"date": "2025-12-26", "event": "DIVIDEND", "per_share": 1.818182, "shares": 119, "ticker": "TCELL", "tl": 216.36}
+{"decision_date": "2025-12-29", "event": "ORDER", "fraction": 1.0, "id": "H0093", "side": "SELL", "ticker": "YUNSA", "time": "2025-12-29T20:00:00+03:00", "why": "-%16: -%15 zarar kes sinirimi gecti."}
+{"date": "2025-12-30", "event": "FILL", "order": "H0093", "price": 7.53000020980835, "qty": 668, "realised_tl": -977.27, "side": "SELL", "ticker": "YUNSA", "tl": 5019.98}
+{"date": "2026-01-02", "event": "CONTRIBUTION", "tl": 15000.0, "xu100_close": 11498.400390625}
+{"decision_date": "2026-01-02", "event": "ORDER", "fraction": 1.0, "id": "H0094", "side": "SELL", "ticker": "ISDMR", "time": "2026-01-02T20:00:00+03:00", "why": "Aylardir yerinde sayiyor, skor IZLE ve hafif zararda: olu parayi guclu AL adaylarina cevir."}
+{"decision_date": "2026-01-02", "event": "ORDER", "fraction": 1.0, "id": "H0095", "side": "SELL", "ticker": "TRGYO", "time": "2026-01-02T20:00:00+03:00", "why": "Aylardir yerinde sayiyor, skor IZLE ve hafif zararda: olu parayi guclu AL adaylarina cevir."}
+{"decision_date": "2026-01-02", "event": "ORDER", "fraction": 1.0, "id": "H0096", "side": "SELL", "ticker": "TCELL", "time": "2026-01-02T20:00:00+03:00", "why": "Aylardir yerinde sayiyor, skor IZLE ve hafif zararda: olu parayi guclu AL adaylarina cevir."}
+{"decision_date": "2026-01-02", "event": "ORDER", "id": "H0097", "side": "BUY", "ticker": "NTHOL", "time": "2026-01-02T20:00:00+03:00", "tl": 10000.0, "why": "Holding, skor 92.2; PD/DD %53 iskonto; zirveye yakin."}
+{"decision_date": "2026-01-02", "event": "ORDER", "id": "H0098", "side": "BUY", "ticker": "MGROS", "time": "2026-01-02T20:00:00+03:00", "tl": 10000.0, "why": "Skor 96.8; PD/DD %22 iskonto; 3 ayda +%14."}
+{"decision_date": "2026-01-02", "event": "ORDER", "id": "H0099", "side": "BUY", "ticker": "MERIT", "time": "2026-01-02T20:00:00+03:00", "tl": 8000.0, "why": "Skor 96.4; PD/DD 0.38 vs 1.63 (%77 iskonto)."}
+{"decision_date": "2026-01-02", "event": "ORDER", "id": "H0100", "side": "BUY", "ticker": "PRKME", "time": "2026-01-02T20:00:00+03:00", "tl": 6000.0, "why": "Skor 93.7; PD/DD %60 iskonto; 20 gunde +%10."}
+{"decision_date": "2026-01-02", "event": "ORDER", "id": "H0101", "side": "BUY", "ticker": "GWIND", "time": "2026-01-02T20:00:00+03:00", "tl": 5000.0, "why": "Skor 92.9; PD/DD %43 iskonto; fiyat yatay."}
+{"decision_date": "2026-01-02", "event": "ORDER", "id": "H0102", "side": "BUY", "ticker": "AYDEM", "time": "2026-01-02T20:00:00+03:00", "tl": 6000.0, "why": "Ekleme: guclu AL, PD/DD iskontolu, trend yukari."}
+{"decision_date": "2026-01-02", "event": "ORDER", "id": "H0103", "side": "BUY", "ticker": "TTKOM", "time": "2026-01-02T20:00:00+03:00", "tl": 6000.0, "why": "Ekleme: guclu AL, PD/DD iskontolu, trend yukari."}
+{"decision_date": "2026-01-02", "event": "ORDER", "id": "H0104", "side": "BUY", "ticker": "ALARK", "time": "2026-01-02T20:00:00+03:00", "tl": 6000.0, "why": "Ekleme: guclu AL, PD/DD iskontolu, trend yukari."}
