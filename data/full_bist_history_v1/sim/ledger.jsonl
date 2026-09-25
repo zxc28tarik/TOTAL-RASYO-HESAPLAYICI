@@ -433,3 +433,36 @@
 {"decision_date": "2026-06-01", "event": "ORDER", "id": "H0210", "side": "BUY", "ticker": "AKSGY", "time": "2026-06-01T20:00:00+03:00", "tl": 12000.0, "why": "GYO, skor 95.3; PD/DD %42 iskonto."}
 {"decision_date": "2026-06-01", "event": "ORDER", "id": "H0211", "side": "BUY", "ticker": "TRGYO", "time": "2026-06-01T20:00:00+03:00", "tl": 12000.0, "why": "Skor 99.6; PD/DD %18 iskonto."}
 {"decision_date": "2026-06-01", "event": "ORDER", "id": "H0212", "side": "BUY", "ticker": "DOHOL", "time": "2026-06-01T20:00:00+03:00", "tl": 12000.0, "why": "Holding, skor 95.9; PD/DD %17 iskonto."}
+{"date": "2026-06-02", "event": "FILL", "order": "H0197", "price": 61.95000076293945, "qty": 236, "realised_tl": -1322.55, "side": "SELL", "ticker": "ASUZU", "tl": 14590.96}
+{"date": "2026-06-02", "event": "FILL", "order": "H0198", "price": 37.15999984741211, "qty": 256, "realised_tl": -484.38, "side": "SELL", "ticker": "EDIP", "tl": 9493.93}
+{"date": "2026-06-02", "event": "FILL", "order": "H0199", "price": 199.8000030517578, "qty": 52, "realised_tl": 380.48, "side": "SELL", "ticker": "ERBOS", "tl": 10368.82}
+{"date": "2026-06-02", "event": "FILL", "order": "H0200", "price": 5.539999961853027, "qty": 1824, "realised_tl": 87.52, "side": "SELL", "ticker": "GSDHO", "tl": 10084.75}
+{"date": "2026-06-02", "event": "FILL", "order": "H0201", "price": 7.9427080154418945, "qty": 2166, "realised_tl": -826.17, "side": "SELL", "ticker": "MEGMT", "tl": 17169.5}
+{"date": "2026-06-02", "event": "FILL", "order": "H0202", "price": 24.18000030517578, "qty": 635, "realised_tl": -667.09, "side": "SELL", "ticker": "PLTUR", "tl": 15323.59}
+{"date": "2026-06-02", "event": "FILL", "order": "H0203", "price": 8.90999984741211, "qty": 1894, "realised_tl": -1149.24, "side": "SELL", "ticker": "ULUUN", "tl": 16841.79}
+{"date": "2026-06-02", "event": "FILL", "order": "H0204", "price": 126.4000015258789, "qty": 89, "realised_tl": 3259.05, "side": "SELL", "ticker": "ARASE", "tl": 11227.1}
+{"date": "2026-06-02", "event": "FILL", "order": "H0205", "price": 12.59000015258789, "qty": 1981, "side": "BUY", "ticker": "INDES", "tl": 24990.67}
+{"date": "2026-06-02", "event": "FILL", "order": "H0206", "price": 14.300000190734863, "qty": 1395, "side": "BUY", "ticker": "AKENR", "tl": 19988.4}
+{"date": "2026-06-02", "event": "FILL", "order": "H0207", "price": 17.450000762939453, "qty": 1143, "side": "BUY", "ticker": "FADE", "tl": 19985.24}
+{"date": "2026-06-02", "event": "FILL", "order": "H0208", "price": 28.31999969482422, "qty": 528, "side": "BUY", "ticker": "MTRKS", "tl": 14982.87}
+{"date": "2026-06-02", "event": "FILL", "order": "H0209", "price": 195.5, "qty": 76, "side": "BUY", "ticker": "RGYAS", "tl": 14887.72}
+{"date": "2026-06-02", "event": "FILL", "order": "H0210", "price": 9.25, "qty": 1294, "side": "BUY", "ticker": "AKSGY", "tl": 11993.44}
+{"date": "2026-06-02", "event": "FILL", "order": "H0211", "price": 93.9499969482422, "qty": 127, "side": "BUY", "ticker": "TRGYO", "tl": 11955.51}
+{"date": "2026-06-02", "event": "FILL", "order": "H0212", "price": 23.57999992370605, "qty": 507, "side": "BUY", "ticker": "DOHOL", "tl": 11978.97}
+{"date": "2026-06-03", "event": "DIVIDEND", "per_share": 0.55, "shares": 670, "ticker": "EREGL", "tl": 368.5}
+{"date": "2026-06-26", "event": "DIVIDEND", "per_share": 0.575521, "shares": 1663, "ticker": "HLGYO", "tl": 957.09}
+{"decision_date": "2026-06-29", "event": "ORDER", "fraction": 1.0, "id": "H0213", "side": "SELL", "ticker": "AKENR", "time": "2026-06-29T20:00:00+03:00", "why": "-%16.7: -%15 sinirini gecti."}
+{"decision_date": "2026-06-29", "event": "ORDER", "fraction": 1.0, "id": "H0214", "side": "SELL", "ticker": "FADE", "time": "2026-06-29T20:00:00+03:00", "why": "-%14, 20 gunde -%17: trend bozuk, kes."}
+{"date": "2026-06-30", "event": "FILL", "order": "H0213", "price": 11.789999961853027, "qty": 1395, "realised_tl": -3574.24, "side": "SELL", "ticker": "AKENR", "tl": 16414.16}
+{"date": "2026-06-30", "event": "FILL", "order": "H0214", "price": 14.9399995803833, "qty": 1143, "realised_tl": -2942.97, "side": "SELL", "ticker": "FADE", "tl": 17042.27}
+{"date": "2026-07-01", "event": "DIVIDEND", "per_share": 0.217335, "shares": 1981, "ticker": "INDES", "tl": 430.54}
+{"date": "2026-07-01", "event": "CONTRIBUTION", "tl": 15000.0, "xu100_close": 14350.599609375}
+{"decision_date": "2026-07-01", "event": "ORDER", "fraction": 1.0, "id": "H0215", "side": "SELL", "ticker": "DOHOL", "time": "2026-07-01T20:00:00+03:00", "why": "Skor UZAK, -%13.7: kapat."}
+{"decision_date": "2026-07-01", "event": "ORDER", "fraction": 1.0, "id": "H0216", "side": "SELL", "ticker": "BNTAS", "time": "2026-07-01T20:00:00+03:00", "why": "IZLE, -%6.6 ve yerinde sayiyor: parayi dondur."}
+{"decision_date": "2026-07-01", "event": "ORDER", "fraction": 1.0, "id": "H0217", "side": "SELL", "ticker": "HLGYO", "time": "2026-07-01T20:00:00+03:00", "why": "IZLE, -%4 ve yerinde sayiyor: parayi dondur."}
+{"decision_date": "2026-07-01", "event": "ORDER", "id": "H0218", "side": "BUY", "ticker": "THYAO", "time": "2026-07-01T20:00:00+03:00", "tl": 25000.0, "why": "Skor 94.8; PD/DD 0.47 vs 1.56 (%70 iskonto); 20 gunde +%10.6, zirveye yakin."}
+{"decision_date": "2026-07-01", "event": "ORDER", "id": "H0219", "side": "BUY", "ticker": "DEVA", "time": "2026-07-01T20:00:00+03:00", "tl": 25000.0, "why": "Skor 95.8; PD/DD %64 iskonto; 3 ayda +%22, zirveye yakin."}
+{"decision_date": "2026-07-01", "event": "ORDER", "id": "H0220", "side": "BUY", "ticker": "EDIP", "time": "2026-07-01T20:00:00+03:00", "tl": 10000.0, "why": "Skor 94.2; PD/DD %80 iskonto (oynak, olculu)."}
+{"decision_date": "2026-07-01", "event": "ORDER", "id": "H0221", "side": "BUY", "ticker": "BAKAB", "time": "2026-07-01T20:00:00+03:00", "tl": 10000.0, "why": "Skor 90.3; PD/DD %18 iskonto; 3 ayda +%30."}
+{"decision_date": "2026-07-01", "event": "ORDER", "id": "H0222", "side": "BUY", "ticker": "ARASE", "time": "2026-07-01T20:00:00+03:00", "tl": 10000.0, "why": "Yeniden alim: skor 93.4, PD/DD %18 iskonto."}
+{"decision_date": "2026-07-01", "event": "ORDER", "id": "H0223", "side": "BUY", "ticker": "EREGL", "time": "2026-07-01T20:00:00+03:00", "tl": 10000.0, "why": "Ekleme: AL, PD/DD %34 iskonto, pozisyon +%8."}
