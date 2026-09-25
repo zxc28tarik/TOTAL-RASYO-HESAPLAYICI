@@ -135,7 +135,7 @@ def final_sessions(dates: list[str], now: datetime) -> list[str]:
 
 
 def process_session(book: Book, day: str, row: pd.Series, day_actions: pd.DataFrame,
-                    orders: list[dict]) -> list[dict]:
+                    orders: list[dict], *, start: str = START) -> list[dict]:
     """Advance the book by one settled session; return the events it produced (to be frozen)."""
     events = []
     for act in day_actions.itertuples():
@@ -150,7 +150,7 @@ def process_session(book: Book, day: str, row: pd.Series, day_actions: pd.DataFr
             book.shares[act.ticker] = int(held * float(act.value))
             events.append({"event": "SPLIT", "date": day, "ticker": act.ticker, "ratio": float(act.value),
                            "shares_before": held, "shares_after": book.shares[act.ticker]})
-    if day >= START and (not book.last_session or day[:7] != book.last_session[:7] or book.paid_in == 0):
+    if day >= start and (not book.last_session or day[:7] != book.last_session[:7] or book.paid_in == 0):
         book.cash += MONTHLY
         book.paid_in += MONTHLY
         book.index_units += MONTHLY * (1 - COST) / float(row[INDEX])
