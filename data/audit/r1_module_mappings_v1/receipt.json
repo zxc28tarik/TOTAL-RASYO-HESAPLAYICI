@@ -1,0 +1,194 @@
+{
+  "aggregate": {
+    "heaviest_weight_module": "M2",
+    "theoretical_weighted_swing": 0.5477107736412833,
+    "theoretical_weighted_swing_on_100_scale": 54.77107736412833,
+    "weight_is_allocated_against_discrimination": true,
+    "widest_range_module": "EK4"
+  },
+  "contract": "R1_MODULE_MAPPING_AUDIT_V1",
+  "ek1_calibration": {
+    "divisor_recovered": 17.999,
+    "median_ek1": 0.25,
+    "median_good_count": 4.5,
+    "share_reaching_divisor": 0.002688172043010753
+  },
+  "evaluation_split_used": "IN_SAMPLE",
+  "generated_at": "2026-09-25T13:32:19.517727+00:00",
+  "good_count_is_double_counted": {
+    "enters_as_ek1_additively_with_weight": 0.08,
+    "enters_as_veto_multiplicatively_with_factor": 0.6,
+    "median_good_count": 4.5,
+    "verdict": "ONE_VARIABLE_SCORED_TWICE_WITH_OPPOSING_SIGNS",
+    "veto_threshold": 5
+  },
+  "holdout_read_here": false,
+  "m3_ek4_clipping_under_current_band": {
+    "band": [
+      -0.19989999999999997,
+      0.19989999999999997
+    ],
+    "clipped_high_share": 0.20572134910824652,
+    "clipped_low_share": 0.2177291188416034,
+    "clipped_total_share": 0.4234504679498499
+  },
+  "m3_ek4_clipping_under_p5_p95_band": {
+    "band": [
+      -0.38382076657024183,
+      0.6714222806398896
+    ],
+    "clipped_total_share": 0.10030019424333392
+  },
+  "purpose": "MEASUREMENT_ONLY_NO_MODULE_WAS_CHANGED",
+  "realised_module_ranges": {
+    "EK1": {
+      "effective_range_p10_p90": 0.5,
+      "max": 1.0,
+      "median": 0.25,
+      "min": 0.0,
+      "p10": 0.05555555555555555,
+      "p90": 0.5555555555555556,
+      "reaches_one": true,
+      "reaches_zero": true,
+      "share_at_one": 0.002688172043010753,
+      "share_at_zero": 0.04032258064516129,
+      "stdev": 0.19184551990966678,
+      "weight": 0.08,
+      "weighted_swing": 0.04
+    },
+    "EK4": {
+      "effective_range_p10_p90": 0.7889134425310664,
+      "max": 1.0,
+      "median": 0.37049000853428893,
+      "min": 0.0,
+      "p10": 0.0,
+      "p90": 0.7889134425310664,
+      "reaches_one": true,
+      "reaches_zero": true,
+      "share_at_one": 0.03763440860215054,
+      "share_at_zero": 0.20698924731182797,
+      "stdev": 0.29660087767647525,
+      "weight": 0.16,
+      "weighted_swing": 0.12622615080497063
+    },
+    "EK9": {
+      "effective_range_p10_p90": 0.49477187537221234,
+      "max": 0.783330492705546,
+      "median": 0.49619619361732015,
+      "min": 0.0,
+      "p10": 0.18203727060319286,
+      "p90": 0.6768091459754052,
+      "reaches_one": false,
+      "reaches_zero": true,
+      "share_at_one": 0.0,
+      "share_at_zero": 0.024193548387096774,
+      "stdev": 0.18737114109159694,
+      "weight": 0.06,
+      "weighted_swing": 0.02968631252233274
+    },
+    "M1": {
+      "effective_range_p10_p90": 0.43869431310996465,
+      "max": 0.8827336842285354,
+      "median": 0.501176311128091,
+      "min": 0.14473959176597018,
+      "p10": 0.2823387418992158,
+      "p90": 0.7210330550091805,
+      "reaches_one": false,
+      "reaches_zero": false,
+      "share_at_one": 0.0,
+      "share_at_zero": 0.0,
+      "stdev": 0.16448966233419673,
+      "weight": 0.18,
+      "weighted_swing": 0.07896497635979363
+    },
+    "M2": {
+      "effective_range_p10_p90": 0.46123775476926643,
+      "max": 0.844758211397914,
+      "median": 0.6136303472555327,
+      "min": 0.14852692994959973,
+      "p10": 0.2920573274777941,
+      "p90": 0.7532950822470605,
+      "reaches_one": false,
+      "reaches_zero": false,
+      "share_at_one": 0.0,
+      "share_at_zero": 0.0,
+      "stdev": 0.16844548266838924,
+      "weight": 0.4,
+      "weighted_swing": 0.18449510190770657
+    },
+    "M3": {
+      "effective_range_p10_p90": 0.7361519337206639,
+      "max": 1.0,
+      "median": 0.06776662027045795,
+      "min": 0.0,
+      "p10": 0.0,
+      "p90": 0.7361519337206639,
+      "reaches_one": true,
+      "reaches_zero": true,
+      "share_at_one": 0.053763440860215055,
+      "share_at_zero": 0.4435483870967742,
+      "stdev": 0.3083746858390882,
+      "weight": 0.12,
+      "weighted_swing": 0.08833823204647967
+    }
+  },
+  "recovered_mappings": {
+    "EK1_good_count_band": {
+      "band_is_symmetric_about_zero": false,
+      "band_width": 17.997999999999998,
+      "reaches_one_at_or_above": 17.999,
+      "reaches_zero_at_or_below": 0.001000000000000334,
+      "recovered": true
+    },
+    "EK9_lookback_days": 63,
+    "EK9_volatility_band": {
+      "band_is_symmetric_about_zero": false,
+      "band_width": 0.059980000000000006,
+      "reaches_one_at_or_above": 0.05999,
+      "reaches_zero_at_or_below": 9.999999999999593e-06,
+      "recovered": true
+    },
+    "EK9_volatility_cap": 0.06,
+    "M3_AND_EK4_excess_return_band": {
+      "band_is_symmetric_about_zero": true,
+      "band_width": 0.39979999999999993,
+      "reaches_one_at_or_above": 0.19989999999999997,
+      "reaches_zero_at_or_below": -0.19989999999999997,
+      "recovered": true
+    }
+  },
+  "source_sha256": {
+    "prices": "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141",
+    "ranking": "bece7afc0d4692344d55504fcf9a115c49204e49190a3779bca03e9f69488797",
+    "signals": "320682828756e23e556177a9642a7b4056679edba351eb1b418c94612b1fb185",
+    "xu100": "3c56a4827ab1c41121ed773ba937aebc8bb5853a85f38497953d76aabf5dd4ac"
+  },
+  "verdicts": {
+    "EK1": "DIVISOR_FAR_ABOVE_THE_POPULATION_MASS_USES_BOTTOM_OF_RANGE",
+    "EK4": "SHARES_M3_BAND_SAME_MISCALIBRATION_DIFFERENT_WINDOW",
+    "EK9": "PERFECT_SCORE_REQUIRES_ZERO_VOLATILITY_TOP_OF_RANGE_UNREACHABLE",
+    "M1": "NEVER_REACHES_EITHER_EXTREME",
+    "M2": "NEVER_REACHES_EITHER_EXTREME_YET_CARRIES_THE_HEAVIEST_WEIGHT",
+    "M3": "BAND_TOO_NARROW_AND_WRONG_SHAPE_CLIPS_MOST_OF_A_TAIL"
+  },
+  "what_m3_and_ek4_actually_measure": {
+    "in_sample_months": 36,
+    "max": 5.330980678246355,
+    "min": -1.1099183960705779,
+    "observation_count": 5663,
+    "percentiles": {
+      "p1": -0.6122923756180052,
+      "p10": -0.3054029338825258,
+      "p25": -0.17949630109031367,
+      "p5": -0.38382076657024183,
+      "p50": -0.04322279434446408,
+      "p75": 0.14579237127283762,
+      "p90": 0.4089241397047213,
+      "p95": 0.6714222806398896,
+      "p99": 1.4241300264665986
+    },
+    "skew_right": true,
+    "stdev": 0.3868981799531962,
+    "window_trading_days": 63
+  }
+}
