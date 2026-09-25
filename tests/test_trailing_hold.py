@@ -113,3 +113,21 @@ def test_the_rules_are_the_brief():
     assert "AL" in RULES["buy_if"] and "0.50" in RULES["buy_if"]
     assert RULES["window_first_signal"] == "2025-02" and RULES["window_last_signal"] == "2026-07"
     assert RULES["random_draws"] >= 1000
+
+
+def _receipt() -> dict:
+    import json
+    from pathlib import Path
+    path = Path(__file__).resolve().parents[1] / "data/audit/trailing_hold_vs_random_v1/receipt.json"
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def test_the_published_run_is_blind_and_its_twin_traded_like_the_strategy():
+    receipt = _receipt()
+    assert receipt["blind_run"]["modified_since_commit"] is False
+    result = receipt["result"]
+    assert result["from"] == "2025-02-03"
+    # The twin shadows the strategy's buys, so its trade count must be close.
+    assert abs(result["random_trade_count_median"] - result["trades"]) <= 0.3 * result["trades"]
+    assert 0.0 <= result["strategy_percentile_among_random"] <= 1.0
+    assert result["random_p05"] < result["random_median_return"] < result["random_p95"]
