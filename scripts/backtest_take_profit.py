@@ -96,7 +96,8 @@ class Holding:
     month: str
     initial_units: float
     half_taken: bool = False
-    fills: list = field(default_factory=list)      # (fraction of the original units, price, reason, date)
+    closed: bool = False
+    fills: list = field(default_factory=list)      # (units sold, price, reason, date)
 
 
 def run(menus: dict, adj: pd.DataFrame, index: pd.Series, sessions: pd.DatetimeIndex, *,
@@ -121,6 +122,9 @@ def run(menus: dict, adj: pd.DataFrame, index: pd.Series, sessions: pd.DatetimeI
         sleeve += proceeds * (1 - cost) * (1 - cost) / float(index.loc[day])
         holding.units -= units
         holding.fills.append((units, price, reason, str(day.date())))
+        # Closed means a full exit happened, not that the lot is small: a buy
+        # funded by a rounding residue is a real, if tiny, holding.
+        holding.closed = fraction_of_original >= 1.0
 
     for day in sessions:
         prices = filled.loc[day]
@@ -140,7 +144,7 @@ def run(menus: dict, adj: pd.DataFrame, index: pd.Series, sessions: pd.DatetimeI
                     holding.half_taken = True
                 elif last <= stop * holding.peak:
                     sell(ticker, 1.0, price, "IZ_SUREN_STOP", day)
-                if holding.units <= 1e-15:
+                if holding.closed:
                     positions.append(_close(ticker, holding))
                     exited[ticker] = month
                     del held[ticker]

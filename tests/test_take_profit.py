@@ -116,3 +116,24 @@ def test_the_rules_take_their_numbers_from_the_brief_and_report_every_variant():
     assert set(VARIANTS) == {"A_yarisi_30_kalani_70", "B_tamami_30", "C_tamami_50", "D_tamami_70",
                              "E_tamami_100", "F_kar_almadan"}
     assert RULES["every_variant_reported"] is True
+
+
+def test_a_dust_position_left_by_an_exhausted_sleeve_is_held_not_crashed_on():
+    # With every name AL and the sleeve spent, a buy can be funded with a
+    # rounding residue. The first version took "units near zero" to mean "sold
+    # out" and then read a sale record that did not exist; seed 14 reproduces it.
+    names = [f"T{i:02d}" for i in range(14)]
+    rng = np.random.default_rng(14)
+    sessions = pd.bdate_range("2025-02-03", periods=160)
+    adj = pd.DataFrame(100 * np.exp(np.cumsum(rng.normal(0.001, 0.03, (len(sessions), len(names))), axis=0)),
+                       index=sessions, columns=names)
+    rows = [{"month": s.strftime("%Y-%m"), "signal_ts": s, "ticker": t, "score_percentile": (i + 1) / len(names),
+             "decision": "AL", "equity": 1e6, "nominal": 1e4}
+            for s in (sessions[0], sessions[40], sessions[80], sessions[120]) for i, t in enumerate(names)]
+    menus = daily_menus(PointInTime(pd.DataFrame(rows), adj), sessions)
+    index = pd.Series(1000.0, index=sessions)
+    policy = VARIANTS["F_kar_almadan"]
+    real = run(menus, adj, index, sessions, **policy)
+    for draw in range(20):
+        twin = run(menus, adj, index, sessions, **policy, rng=np.random.default_rng(draw), buys=real["buys"])
+        assert all(p["exits"] for p in twin["positions"])
