@@ -1,0 +1,7465 @@
+{
+ "hedef_1_ay": {
+  "events": [
+   {
+    "action": "AL",
+    "date": "2021-08-09",
+    "month": "2021-08",
+    "pb_pct": 0.13333333333333333,
+    "score": 1.0,
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2021-09-01",
+    "month": "2021-09",
+    "pb_pct": 0.4,
+    "score": 0.9375,
+    "ticker": "SISE"
+   },
+   {
+    "action": "SAT",
+    "date": "2021-09-13",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2021-10-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SISE"
+   },
+   {
+    "action": "AL",
+    "date": "2021-11-01",
+    "month": "2021-11",
+    "pb_pct": 0.05263157894736842,
+    "score": 0.9523809523809523,
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2021-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2021-12-01",
+    "month": "2021-12",
+    "pb_pct": 0.2631578947368421,
+    "score": 0.9523809523809523,
+    "ticker": "TKFEN"
+   },
+   {
+    "action": "AL",
+    "date": "2021-12-01",
+    "month": "2021-12",
+    "pb_pct": 0.10526315789473684,
+    "score": 0.9047619047619048,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2021-12-13",
+    "month": "2021-12",
+    "pb_pct": 0.47368421052631576,
+    "score": 1.0,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-01-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TKFEN"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-01-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-01-17",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2022-03-01",
+    "month": "2022-03",
+    "pb_pct": 0.45,
+    "score": 0.9130434782608695,
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-04-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "AL",
+    "date": "2022-04-01",
+    "month": "2022-04",
+    "pb_pct": 0.27586206896551724,
+    "score": 0.921875,
+    "ticker": "ALGYO"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-05-05",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ALGYO"
+   },
+   {
+    "action": "AL",
+    "date": "2022-05-05",
+    "month": "2022-05",
+    "pb_pct": 0.17857142857142858,
+    "score": 0.967741935483871,
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2022-06-01",
+    "month": "2022-06",
+    "pb_pct": 0.4444444444444444,
+    "score": 0.9333333333333333,
+    "ticker": "SISE"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-06-06",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-07-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SISE"
+   },
+   {
+    "action": "AL",
+    "date": "2022-09-01",
+    "month": "2022-09",
+    "pb_pct": 0.20833333333333334,
+    "score": 0.9259259259259259,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-10-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2022-10-03",
+    "month": "2022-10",
+    "pb_pct": 0.11538461538461539,
+    "score": 1.0,
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2022-11-07",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2022-12-01",
+    "month": "2022-12",
+    "pb_pct": 0.19230769230769232,
+    "score": 0.9310344827586207,
+    "ticker": "TRGYO"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-12-12",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-01-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TRGYO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-01-02",
+    "month": "2023-01",
+    "pb_pct": 0.19230769230769232,
+    "score": 1.0,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-01-02",
+    "month": "2023-01",
+    "pb_pct": 0.07692307692307693,
+    "score": 0.9655172413793104,
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-01-02",
+    "month": "2023-01",
+    "pb_pct": 0.4230769230769231,
+    "score": 0.9310344827586207,
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-02-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "AL",
+    "date": "2023-02-01",
+    "month": "2023-02",
+    "pb_pct": 0.4230769230769231,
+    "score": 1.0,
+    "ticker": "SISE"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2023-02-06",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-02-06",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2023-03-01",
+    "ticker": "SISE"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2023-03-06",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-04-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-04-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SISE"
+   },
+   {
+    "action": "AL",
+    "date": "2023-04-03",
+    "month": "2023-04",
+    "pb_pct": 0.3333333333333333,
+    "score": 0.92,
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-05-02",
+    "month": "2023-05",
+    "pb_pct": 0.15,
+    "score": 0.9130434782608695,
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2023-05-08",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-06-01",
+    "month": "2023-06",
+    "pb_pct": 0.1,
+    "score": 0.9130434782608695,
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-06-05",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-06-12",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-07-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-07-03",
+    "month": "2023-07",
+    "pb_pct": 0.125,
+    "score": 1.0,
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-07-03",
+    "month": "2023-07",
+    "pb_pct": 0.375,
+    "score": 0.9310344827586207,
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-08-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-08-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.328125,
+    "score": 0.972972972972973,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.484375,
+    "score": 0.9594594594594594,
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.25,
+    "score": 0.918918918918919,
+    "ticker": "AEFES"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.453125,
+    "score": 0.9054054054054054,
+    "ticker": "ULKER"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-10-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-10-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-10-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "AEFES"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-10-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ULKER"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.38333333333333336,
+    "score": 1.0,
+    "ticker": "BUCIM"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.36666666666666664,
+    "score": 0.971830985915493,
+    "ticker": "ECZYT"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.08333333333333333,
+    "score": 0.9577464788732394,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.5,
+    "score": 0.9014084507042254,
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "AL",
+    "date": "2023-11-01",
+    "month": "2023-11",
+    "pb_pct": 0.1,
+    "score": 0.9436619718309859,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2023-11-06",
+    "ticker": "BUCIM"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-11-06",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ECZYT"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-11-06",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-11-06",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "BUCIM"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-01",
+    "month": "2023-12",
+    "pb_pct": 0.05084745762711865,
+    "score": 0.9857142857142858,
+    "ticker": "THYAO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-01",
+    "month": "2023-12",
+    "pb_pct": 0.1016949152542373,
+    "score": 0.9714285714285714,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-01",
+    "month": "2023-12",
+    "pb_pct": 0.15254237288135594,
+    "score": 0.9428571428571428,
+    "ticker": "KORDS"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-01",
+    "month": "2023-12",
+    "pb_pct": 0.423728813559322,
+    "score": 0.9142857142857143,
+    "ticker": "VESBE"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-04",
+    "month": "2023-12",
+    "pb_pct": 0.4915254237288136,
+    "score": 0.9571428571428572,
+    "ticker": "CANTE"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-01-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "THYAO"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-01-02",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-01-02",
+    "ticker": "KORDS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-01-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "VESBE"
+   },
+   {
+    "action": "AL",
+    "date": "2024-01-02",
+    "month": "2024-01",
+    "pb_pct": 0.3064516129032258,
+    "score": 0.9863013698630136,
+    "ticker": "AEFES"
+   },
+   {
+    "action": "AL",
+    "date": "2024-01-02",
+    "month": "2024-01",
+    "pb_pct": 0.3548387096774194,
+    "score": 0.9726027397260274,
+    "ticker": "DOAS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-01-02",
+    "month": "2024-01",
+    "pb_pct": 0.016129032258064516,
+    "score": 0.9178082191780822,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-01-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "CANTE"
+   },
+   {
+    "action": "AL",
+    "date": "2024-02-01",
+    "month": "2024-02",
+    "pb_pct": 0.11290322580645161,
+    "score": 0.9863013698630136,
+    "ticker": "TAVHL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-02-01",
+    "month": "2024-02",
+    "pb_pct": 0.03225806451612903,
+    "score": 0.952054794520548,
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-02-01",
+    "month": "2024-02",
+    "pb_pct": 0.04838709677419355,
+    "score": 0.9315068493150684,
+    "ticker": "THYAO"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-02-05",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-02-05",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "KORDS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-02-05",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "AEFES"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-02-05",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOAS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-02-05",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-03-01",
+    "ticker": "TAVHL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-03-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-03-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "THYAO"
+   },
+   {
+    "action": "AL",
+    "date": "2024-03-01",
+    "month": "2024-03",
+    "pb_pct": 0.2903225806451613,
+    "score": 1.0,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2024-03-01",
+    "month": "2024-03",
+    "pb_pct": 0.16129032258064516,
+    "score": 0.9863013698630136,
+    "ticker": "KORDS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-03-01",
+    "month": "2024-03",
+    "pb_pct": 0.5,
+    "score": 0.9452054794520548,
+    "ticker": "TOASO"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-03-11",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-04-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TAVHL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-04-01",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-04-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "KORDS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-04-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TOASO"
+   },
+   {
+    "action": "AL",
+    "date": "2024-04-01",
+    "month": "2024-04",
+    "pb_pct": 0.32786885245901637,
+    "score": 0.9857142857142858,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-04-01",
+    "month": "2024-04",
+    "pb_pct": 0.09836065573770492,
+    "score": 0.9571428571428572,
+    "ticker": "THYAO"
+   },
+   {
+    "action": "AL",
+    "date": "2024-04-01",
+    "month": "2024-04",
+    "pb_pct": 0.14754098360655737,
+    "score": 0.9285714285714286,
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-05-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-05-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-05-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "THYAO"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-05-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-05-02",
+    "month": "2024-05",
+    "pb_pct": 0.3157894736842105,
+    "score": 0.9523809523809523,
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-05-02",
+    "month": "2024-05",
+    "pb_pct": 0.3684210526315789,
+    "score": 0.9047619047619048,
+    "ticker": "BOBET"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-06-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-06-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "BOBET"
+   },
+   {
+    "action": "AL",
+    "date": "2024-06-03",
+    "month": "2024-06",
+    "pb_pct": 0.05263157894736842,
+    "score": 1.0,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-07-01",
+    "month": "2024-07",
+    "pb_pct": 0.3157894736842105,
+    "score": 0.9090909090909091,
+    "ticker": "ENERY"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-07-08",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-08-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENERY"
+   },
+   {
+    "action": "AL",
+    "date": "2024-08-01",
+    "month": "2024-08",
+    "pb_pct": 0.26666666666666666,
+    "score": 1.0,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2024-08-01",
+    "month": "2024-08",
+    "pb_pct": 0.48333333333333334,
+    "score": 0.9859154929577465,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-08-01",
+    "month": "2024-08",
+    "pb_pct": 0.06666666666666667,
+    "score": 0.9436619718309859,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-08-12",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-09-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-09-02",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-09-02",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-09-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-09-02",
+    "month": "2024-09",
+    "pb_pct": 0.48333333333333334,
+    "score": 1.0,
+    "ticker": "ENERY"
+   },
+   {
+    "action": "AL",
+    "date": "2024-09-02",
+    "month": "2024-09",
+    "pb_pct": 0.38333333333333336,
+    "score": 0.9857142857142858,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-09-02",
+    "month": "2024-09",
+    "pb_pct": 0.4666666666666667,
+    "score": 0.9142857142857143,
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "AL",
+    "date": "2024-10-01",
+    "month": "2024-10",
+    "pb_pct": 0.03333333333333333,
+    "score": 0.9722222222222222,
+    "ticker": "RGYAS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-10-01",
+    "month": "2024-10",
+    "pb_pct": 0.43333333333333335,
+    "score": 0.9305555555555556,
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-10-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-10-07",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-10-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENERY"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-10-07",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-10-07",
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-11-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-11-01",
+    "ticker": "RGYAS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-11-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "AL",
+    "date": "2024-11-01",
+    "month": "2024-11",
+    "pb_pct": 0.3333333333333333,
+    "score": 0.9166666666666666,
+    "ticker": "GOLTS"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-11-11",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-11-11",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-12-02",
+    "ticker": "RGYAS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-12-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "GOLTS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-12-02",
+    "month": "2024-12",
+    "pb_pct": 0.5,
+    "score": 0.9324324324324325,
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "AL",
+    "date": "2024-12-02",
+    "month": "2024-12",
+    "pb_pct": 0.13333333333333333,
+    "score": 0.918918918918919,
+    "ticker": "CANTE"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-12-16",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-01-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "RGYAS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-01-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-01-02",
+    "ticker": "CANTE"
+   },
+   {
+    "action": "AL",
+    "date": "2025-01-02",
+    "month": "2025-01",
+    "pb_pct": 0.19672131147540983,
+    "score": 0.9733333333333334,
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "AL",
+    "date": "2025-01-02",
+    "month": "2025-01",
+    "pb_pct": 0.36065573770491804,
+    "score": 0.9333333333333333,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-01-02",
+    "month": "2025-01",
+    "pb_pct": 0.06557377049180328,
+    "score": 0.9066666666666666,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-02-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "CANTE"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-02-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-02-03",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-02-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-02-03",
+    "month": "2025-02",
+    "pb_pct": 0.14754098360655737,
+    "score": 0.96,
+    "ticker": "THYAO"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-03-03",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-03-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "THYAO"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-03",
+    "month": "2025-03",
+    "pb_pct": 0.4918032786885246,
+    "score": 0.9866666666666667,
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-03",
+    "month": "2025-03",
+    "pb_pct": 0.16393442622950818,
+    "score": 0.9466666666666667,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-03",
+    "month": "2025-03",
+    "pb_pct": 0.4098360655737705,
+    "score": 0.9066666666666666,
+    "ticker": "ARCLK"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-17",
+    "month": "2025-03",
+    "pb_pct": 0.4918032786885246,
+    "score": 0.92,
+    "ticker": "MGROS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-04-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "MGROS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-04-02",
+    "month": "2025-04",
+    "pb_pct": 0.3684210526315789,
+    "score": 0.9722222222222222,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2025-04-02",
+    "month": "2025-04",
+    "pb_pct": 0.22807017543859648,
+    "score": 0.9583333333333334,
+    "ticker": "DOAS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-04-02",
+    "month": "2025-04",
+    "pb_pct": 0.12280701754385964,
+    "score": 0.9305555555555556,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-04-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-04-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-04-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-04-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ARCLK"
+   },
+   {
+    "action": "AL",
+    "date": "2025-04-21",
+    "month": "2025-04",
+    "pb_pct": 0.47368421052631576,
+    "score": 0.9027777777777778,
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-05-02",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-05-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOAS"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-05-02",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-05-02",
+    "month": "2025-05",
+    "pb_pct": 0.12280701754385964,
+    "score": 0.9444444444444444,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-05-26",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-06-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-06-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-06-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-06-02",
+    "month": "2025-06",
+    "pb_pct": 0.38596491228070173,
+    "score": 0.9444444444444444,
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "AL",
+    "date": "2025-06-02",
+    "month": "2025-06",
+    "pb_pct": 0.3157894736842105,
+    "score": 0.9305555555555556,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-07-01",
+    "month": "2025-07",
+    "pb_pct": 0.25,
+    "score": 0.971830985915493,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-07-07",
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-07-07",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-08-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-08-01",
+    "month": "2025-08",
+    "pb_pct": 0.3157894736842105,
+    "score": 1.0,
+    "ticker": "AKSEN"
+   },
+   {
+    "action": "AL",
+    "date": "2025-08-01",
+    "month": "2025-08",
+    "pb_pct": 0.2982456140350877,
+    "score": 0.9027777777777778,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-08-11",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-08-11",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-09-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AKSEN"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-09-01",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-09-01",
+    "month": "2025-09",
+    "pb_pct": 0.16071428571428573,
+    "score": 0.971830985915493,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-09-01",
+    "month": "2025-09",
+    "pb_pct": 0.4642857142857143,
+    "score": 0.9295774647887324,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-10-01",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-10-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-10-01",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2025-10-01",
+    "month": "2025-10",
+    "pb_pct": 0.32142857142857145,
+    "score": 0.9710144927536232,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-11-03",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-11-03",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-11-03",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.1206896551724138,
+    "score": 0.971830985915493,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.46551724137931033,
+    "score": 0.9577464788732394,
+    "ticker": "MGROS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.3620689655172414,
+    "score": 0.9436619718309859,
+    "ticker": "ULKER"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.3448275862068966,
+    "score": 0.9014084507042254,
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-12-08",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-12-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-12-08",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-01-02",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-01-02",
+    "ticker": "MGROS"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-01-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ULKER"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-01-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-01-12",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-01-12",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-02-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-02-02",
+    "ticker": "MGROS"
+   },
+   {
+    "action": "AL",
+    "date": "2026-02-02",
+    "month": "2026-02",
+    "pb_pct": 0.2,
+    "score": 1.0,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-02-02",
+    "month": "2026-02",
+    "pb_pct": 0.4166666666666667,
+    "score": 0.9859154929577465,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "AL",
+    "date": "2026-02-02",
+    "month": "2026-02",
+    "pb_pct": 0.3,
+    "score": 0.9647887323943662,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-02-02",
+    "month": "2026-02",
+    "pb_pct": 0.48333333333333334,
+    "score": 0.9014084507042254,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-03-02",
+    "ticker": "MGROS"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-03-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-03-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-03-02",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-03-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2026-03-02",
+    "month": "2026-03",
+    "pb_pct": 0.23809523809523808,
+    "score": 1.0,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-04-01",
+    "month": "2026-04",
+    "pb_pct": 0.45161290322580644,
+    "score": 1.0,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "AL",
+    "date": "2026-04-01",
+    "month": "2026-04",
+    "pb_pct": 0.16129032258064516,
+    "score": 0.9864864864864865,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-04-01",
+    "month": "2026-04",
+    "pb_pct": 0.3870967741935484,
+    "score": 0.918918918918919,
+    "ticker": "TUREX"
+   },
+   {
+    "action": "AL",
+    "date": "2026-04-01",
+    "month": "2026-04",
+    "pb_pct": 0.1935483870967742,
+    "score": 0.9054054054054054,
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-04-06",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "MGROS"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-04-06",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-04-06",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-05-04",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-05-04",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-05-04",
+    "ticker": "TUREX"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-05-04",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-05-04",
+    "month": "2026-05",
+    "pb_pct": 0.20967741935483872,
+    "score": 0.9459459459459459,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-05-11",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-06-01",
+    "month": "2026-06",
+    "pb_pct": 0.41935483870967744,
+    "score": 0.96,
+    "ticker": "ENERY"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-06-08",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-06-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUREX"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-06-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-06-15",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-07-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-07-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENERY"
+   },
+   {
+    "action": "AL",
+    "date": "2026-07-01",
+    "month": "2026-07",
+    "pb_pct": 0.06666666666666667,
+    "score": 0.9459459459459459,
+    "ticker": "THYAO"
+   },
+   {
+    "action": "AL",
+    "date": "2026-07-06",
+    "month": "2026-07",
+    "pb_pct": 0.5,
+    "score": 1.0,
+    "ticker": "ENERY"
+   }
+  ],
+  "trades": [
+   {
+    "days_held": 35,
+    "entry_date": "2021-08-09",
+    "entry_month": "2021-08",
+    "entry_price": 8.170888900756836,
+    "excess": 0.003222552565366854,
+    "exit_date": "2021-09-13",
+    "exit_price": 8.229730606079102,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.007201383599379829,
+    "ticker": "SAHOL",
+    "xu100_return": 0.003978831034012975
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2021-09-01",
+    "entry_month": "2021-09",
+    "entry_price": 8.1093168258667,
+    "excess": -0.020067832219203496,
+    "exit_date": "2021-10-01",
+    "exit_price": 7.54719352722168,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.06931820654139276,
+    "ticker": "SISE",
+    "xu100_return": -0.04925037432218926
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2021-11-01",
+    "entry_month": "2021-11",
+    "entry_price": 9.490671157836914,
+    "excess": -0.03363229151535618,
+    "exit_date": "2021-12-01",
+    "exit_price": 11.155110359191896,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.17537634311358197,
+    "ticker": "SAHOL",
+    "xu100_return": 0.20900863462893815
+   },
+   {
+    "days_held": 33,
+    "entry_date": "2021-12-01",
+    "entry_month": "2021-12",
+    "entry_price": 16.940563201904297,
+    "excess": 0.06050484259392008,
+    "exit_date": "2022-01-03",
+    "exit_price": 18.59760475158692,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.09781502125598496,
+    "ticker": "TKFEN",
+    "xu100_return": 0.037310178662064875
+   },
+   {
+    "days_held": 33,
+    "entry_date": "2021-12-01",
+    "entry_month": "2021-12",
+    "entry_price": 2.905659437179565,
+    "excess": -0.150162913974362,
+    "exit_date": "2022-01-03",
+    "exit_price": 2.5777478218078613,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.11285273531229711,
+    "ticker": "DOHOL",
+    "xu100_return": 0.037310178662064875
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2021-12-13",
+    "entry_month": "2021-12",
+    "entry_price": 10.740568161010742,
+    "excess": 0.28583017521436715,
+    "exit_date": "2022-01-17",
+    "exit_price": 13.730305671691896,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.27835934429746256,
+    "ticker": "ALARK",
+    "xu100_return": -0.007470830916904592
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2022-03-01",
+    "entry_month": "2022-03",
+    "entry_price": 7.550715446472168,
+    "excess": -0.13393828723156265,
+    "exit_date": "2022-04-01",
+    "exit_price": 7.619537353515625,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.009114620664934625,
+    "ticker": "AYDEM",
+    "xu100_return": 0.14305290789649727
+   },
+   {
+    "days_held": 34,
+    "entry_date": "2022-04-01",
+    "entry_month": "2022-04",
+    "entry_price": 1.0748168230056765,
+    "excess": -0.009319086274623745,
+    "exit_date": "2022-05-05",
+    "exit_price": 1.1672368049621582,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.0859867281366451,
+    "ticker": "ALGYO",
+    "xu100_return": 0.09530581441126884
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2022-05-05",
+    "entry_month": "2022-05",
+    "entry_price": 1.80637276172638,
+    "excess": 0.023508493332934144,
+    "exit_date": "2022-06-06",
+    "exit_price": 1.981992244720459,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.09722217181033921,
+    "ticker": "GSDHO",
+    "xu100_return": 0.07371367847740506
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2022-06-01",
+    "entry_month": "2022-06",
+    "entry_price": 19.696569442749023,
+    "excess": 0.06679059889778605,
+    "exit_date": "2022-07-01",
+    "exit_price": 20.05366325378418,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.018129746506014843,
+    "ticker": "SISE",
+    "xu100_return": -0.0486608523917712
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2022-09-01",
+    "entry_month": "2022-09",
+    "entry_price": 5.050566673278809,
+    "excess": -0.12405122270233115,
+    "exit_date": "2022-10-03",
+    "exit_price": 4.824843406677246,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.04469266147812756,
+    "ticker": "DOHOL",
+    "xu100_return": 0.0793585612242036
+   },
+   {
+    "days_held": 70,
+    "entry_date": "2022-10-03",
+    "entry_month": "2022-10",
+    "entry_price": 2.127742052078247,
+    "excess": 0.22653547550406206,
+    "exit_date": "2022-12-12",
+    "exit_price": 3.739578723907471,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.7575338703556107,
+    "ticker": "GSDHO",
+    "xu100_return": 0.5309983948515486
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2022-12-01",
+    "entry_month": "2022-12",
+    "entry_price": 15.568840980529783,
+    "excess": -0.024027768955923845,
+    "exit_date": "2023-01-02",
+    "exit_price": 17.091882705688477,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.09782627538320887,
+    "ticker": "TRGYO",
+    "xu100_return": 0.12185404433913272
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2023-01-02",
+    "entry_month": "2023-01",
+    "entry_price": 26.781444549560547,
+    "excess": -0.19199222629723545,
+    "exit_date": "2023-02-01",
+    "exit_price": 17.15625,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.3593978857917314,
+    "ticker": "AYDEM",
+    "xu100_return": -0.16740565949449593
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2023-01-02",
+    "entry_month": "2023-01",
+    "entry_price": 4.150736331939697,
+    "excess": -0.1444756991431998,
+    "exit_date": "2023-02-06",
+    "exit_price": 3.015157699584961,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.27358486339315713,
+    "ticker": "GSDHO",
+    "xu100_return": -0.12910916424995733
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2023-01-02",
+    "entry_month": "2023-01",
+    "entry_price": 11.094958305358888,
+    "excess": -0.04919418219629501,
+    "exit_date": "2023-04-03",
+    "exit_price": 8.93893051147461,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 2,
+    "return": -0.1943250019103644,
+    "ticker": "DOHOL",
+    "xu100_return": -0.14513081971406938
+   },
+   {
+    "days_held": 61,
+    "entry_date": "2023-02-01",
+    "entry_month": "2023-02",
+    "entry_price": 35.99134826660156,
+    "excess": 0.09021762014543788,
+    "exit_date": "2023-04-03",
+    "exit_price": 40.201297760009766,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.11697115268434821,
+    "ticker": "SISE",
+    "xu100_return": 0.02675353253891033
+   },
+   {
+    "days_held": 34,
+    "entry_date": "2023-05-02",
+    "entry_month": "2023-05",
+    "entry_price": 34.51008605957031,
+    "excess": -0.05118309167616575,
+    "exit_date": "2023-06-05",
+    "exit_price": 39.37971878051758,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.14110752179932118,
+    "ticker": "SAHOL",
+    "xu100_return": 0.19229061347548693
+   },
+   {
+    "days_held": 70,
+    "entry_date": "2023-04-03",
+    "entry_month": "2023-04",
+    "entry_price": 69.1755599975586,
+    "excess": 0.14000049314733665,
+    "exit_date": "2023-06-12",
+    "exit_price": 89.573486328125,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.2948718641567385,
+    "ticker": "KCHOL",
+    "xu100_return": 0.15487137100940185
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2023-06-01",
+    "entry_month": "2023-06",
+    "entry_price": 2.809578657150269,
+    "excess": -0.02117323741977617,
+    "exit_date": "2023-07-03",
+    "exit_price": 3.3480000495910645,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.19163777140409777,
+    "ticker": "GSDHO",
+    "xu100_return": 0.21281100882387394
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2023-07-03",
+    "entry_month": "2023-07",
+    "entry_price": 43.62456893920898,
+    "excess": -0.009752349337183386,
+    "exit_date": "2023-08-07",
+    "exit_price": 53.74972915649414,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.23209765651540581,
+    "ticker": "SAHOL",
+    "xu100_return": 0.2418500058525892
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2023-07-03",
+    "entry_month": "2023-07",
+    "entry_price": 94.3625717163086,
+    "excess": 0.00908975615656793,
+    "exit_date": "2023-08-07",
+    "exit_price": 118.0418930053711,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.25093976200915713,
+    "ticker": "KCHOL",
+    "xu100_return": 0.2418500058525892
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 123.71480560302734,
+    "excess": -0.053487406700558626,
+    "exit_date": "2023-10-02",
+    "exit_price": 123.71480560302734,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.0,
+    "ticker": "ALARK",
+    "xu100_return": 0.053487406700558626
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 28.55362319946289,
+    "excess": 0.27990862846822395,
+    "exit_date": "2023-10-02",
+    "exit_price": 38.07328796386719,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.3333960351687826,
+    "ticker": "CIMSA",
+    "xu100_return": 0.053487406700558626
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 10.44203758239746,
+    "excess": -0.030148133854058345,
+    "exit_date": "2023-10-02",
+    "exit_price": 10.685747146606444,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.02333927284650028,
+    "ticker": "AEFES",
+    "xu100_return": 0.053487406700558626
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 58.79326248168945,
+    "excess": 0.3454645083963499,
+    "exit_date": "2023-10-02",
+    "exit_price": 82.24894714355469,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.3989519150969085,
+    "ticker": "ULKER",
+    "xu100_return": 0.053487406700558626
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 284.2508850097656,
+    "excess": -0.02430999662499045,
+    "exit_date": "2023-11-06",
+    "exit_price": 256.60888671875,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.09724507380184921,
+    "ticker": "ECZYT",
+    "xu100_return": -0.07293507717685876
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 30.79630470275879,
+    "excess": -0.02518241014967315,
+    "exit_date": "2023-11-06",
+    "exit_price": 27.77464866638184,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.09811748732653192,
+    "ticker": "ENKAI",
+    "xu100_return": -0.07293507717685876
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 19.90999984741211,
+    "excess": 0.007139021125524558,
+    "exit_date": "2023-11-06",
+    "exit_price": 18.600000381469727,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.0657960560513342,
+    "ticker": "AKFYE",
+    "xu100_return": -0.07293507717685876
+   },
+   {
+    "days_held": 60,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 9.362554550170898,
+    "excess": -0.053937504210754716,
+    "exit_date": "2023-12-01",
+    "exit_price": 8.349333763122559,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 1,
+    "return": -0.10822054831497296,
+    "ticker": "BUCIM",
+    "xu100_return": -0.05428304410421825
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2023-11-01",
+    "entry_month": "2023-11",
+    "entry_price": 13.245001792907717,
+    "excess": -0.07870047215691645,
+    "exit_date": "2023-12-01",
+    "exit_price": 13.07821273803711,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.012592603419647519,
+    "ticker": "DOHOL",
+    "xu100_return": 0.06610786873726893
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2023-12-01",
+    "entry_month": "2023-12",
+    "entry_price": 254.7225646972656,
+    "excess": -0.043299216412262975,
+    "exit_date": "2024-01-02",
+    "exit_price": 230.93540954589844,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.0933845620612288,
+    "ticker": "THYAO",
+    "xu100_return": -0.05008534564896583
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2023-12-01",
+    "entry_month": "2023-12",
+    "entry_price": 16.14419937133789,
+    "excess": 0.010085392906772572,
+    "exit_date": "2024-01-02",
+    "exit_price": 15.498432159423828,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.03999995274219326,
+    "ticker": "VESBE",
+    "xu100_return": -0.05008534564896583
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2023-12-04",
+    "entry_month": "2023-12",
+    "entry_price": 2.758063077926636,
+    "excess": -0.15195515921244251,
+    "exit_date": "2024-01-08",
+    "exit_price": 2.247459888458252,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.18513107751408941,
+    "ticker": "CANTE",
+    "xu100_return": -0.0331759183016469
+   },
+   {
+    "days_held": 66,
+    "entry_date": "2023-12-01",
+    "entry_month": "2023-12",
+    "entry_price": 85.44999694824219,
+    "excess": -0.08530071491362645,
+    "exit_date": "2024-02-05",
+    "exit_price": 86.1500015258789,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.008191978965905955,
+    "ticker": "KORDS",
+    "xu100_return": 0.09349269387953241
+   },
+   {
+    "days_held": 34,
+    "entry_date": "2024-01-02",
+    "entry_month": "2024-01",
+    "entry_price": 13.417954444885254,
+    "excess": -0.03882954834020036,
+    "exit_date": "2024-02-05",
+    "exit_price": 14.925043106079102,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.11231880890520762,
+    "ticker": "AEFES",
+    "xu100_return": 0.15114835724540798
+   },
+   {
+    "days_held": 34,
+    "entry_date": "2024-01-02",
+    "entry_month": "2024-01",
+    "entry_price": 164.7189483642578,
+    "excess": -0.035462060757424974,
+    "exit_date": "2024-02-05",
+    "exit_price": 183.7746734619141,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.11568629648798301,
+    "ticker": "DOAS",
+    "xu100_return": 0.15114835724540798
+   },
+   {
+    "days_held": 34,
+    "entry_date": "2024-01-02",
+    "entry_month": "2024-01",
+    "entry_price": 20.40145874023437,
+    "excess": -0.1213328332855863,
+    "exit_date": "2024-02-05",
+    "exit_price": 21.00973892211914,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.029815523959821677,
+    "ticker": "EREGL",
+    "xu100_return": 0.15114835724540798
+   },
+   {
+    "days_held": 29,
+    "entry_date": "2024-02-01",
+    "entry_month": "2024-02",
+    "entry_price": 67.43982696533203,
+    "excess": 0.0070906233304561805,
+    "exit_date": "2024-03-01",
+    "exit_price": 71.43661499023438,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.059264505926993616,
+    "ticker": "SAHOL",
+    "xu100_return": 0.052173882596537435
+   },
+   {
+    "days_held": 29,
+    "entry_date": "2024-02-01",
+    "entry_month": "2024-02",
+    "entry_price": 268.1547241210937,
+    "excess": -0.04033420409353039,
+    "exit_date": "2024-03-01",
+    "exit_price": 271.32958984375,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.011839678503007045,
+    "ticker": "THYAO",
+    "xu100_return": 0.052173882596537435
+   },
+   {
+    "days_held": 101,
+    "entry_date": "2023-12-01",
+    "entry_month": "2023-12",
+    "entry_price": 30.65576934814453,
+    "excess": -0.05306261689738623,
+    "exit_date": "2024-03-11",
+    "exit_price": 33.25145721435547,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 2,
+    "return": 0.08467208363726964,
+    "ticker": "ENKAI",
+    "xu100_return": 0.13773470053465586
+   },
+   {
+    "days_held": 60,
+    "entry_date": "2024-02-01",
+    "entry_month": "2024-02",
+    "entry_price": 139.6999969482422,
+    "excess": 0.2880244170667394,
+    "exit_date": "2024-04-01",
+    "exit_price": 188.1999969482422,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.3471725201108551,
+    "ticker": "TAVHL",
+    "xu100_return": 0.05914810304411566
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-03-01",
+    "entry_month": "2024-03",
+    "entry_price": 103.0,
+    "excess": -0.14255072162336935,
+    "exit_date": "2024-04-01",
+    "exit_price": 89.0,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.13592233009708743,
+    "ticker": "KORDS",
+    "xu100_return": 0.006628391526281918
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-03-01",
+    "entry_month": "2024-03",
+    "entry_price": 211.2294158935547,
+    "excess": 0.09107284383730763,
+    "exit_date": "2024-04-01",
+    "exit_price": 231.8667907714844,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.09770123536358954,
+    "ticker": "TOASO",
+    "xu100_return": 0.006628391526281918
+   },
+   {
+    "days_held": 62,
+    "entry_date": "2024-03-01",
+    "entry_month": "2024-03",
+    "entry_price": 123.03055572509766,
+    "excess": -0.18884702835426115,
+    "exit_date": "2024-05-02",
+    "exit_price": 114.82852935791016,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": -0.0666665798495969,
+    "ticker": "ALARK",
+    "xu100_return": 0.12218044850466425
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-04-01",
+    "entry_month": "2024-04",
+    "entry_price": 136.35789489746094,
+    "excess": 0.09977906625367661,
+    "exit_date": "2024-05-02",
+    "exit_price": 165.61624145507812,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.21457024237297762,
+    "ticker": "TUPRS",
+    "xu100_return": 0.11479117611930101
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-04-01",
+    "entry_month": "2024-04",
+    "entry_price": 296.72857666015625,
+    "excess": -0.04400934930957301,
+    "exit_date": "2024-05-02",
+    "exit_price": 317.7315673828125,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.070781826809728,
+    "ticker": "THYAO",
+    "xu100_return": 0.11479117611930101
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-04-01",
+    "entry_month": "2024-04",
+    "entry_price": 185.53240966796875,
+    "excess": 0.05174063902549819,
+    "exit_date": "2024-05-02",
+    "exit_price": 216.4294586181641,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.1665318151447992,
+    "ticker": "KCHOL",
+    "xu100_return": 0.11479117611930101
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2024-05-02",
+    "entry_month": "2024-05",
+    "entry_price": 211.7603912353516,
+    "excess": -0.04052255759929935,
+    "exit_date": "2024-06-03",
+    "exit_price": 210.3999938964844,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.006424229436539086,
+    "ticker": "PGSUS",
+    "xu100_return": 0.03409832816276026
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2024-05-02",
+    "entry_month": "2024-05",
+    "entry_price": 35.739749908447266,
+    "excess": -0.28396445526052494,
+    "exit_date": "2024-06-03",
+    "exit_price": 26.80959701538086,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.24986612709776468,
+    "ticker": "BOBET",
+    "xu100_return": 0.03409832816276026
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-07-01",
+    "entry_month": "2024-07",
+    "entry_price": 3.149899959564209,
+    "excess": -0.06566801159526148,
+    "exit_date": "2024-08-01",
+    "exit_price": 3.081554889678955,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.021697536671834383,
+    "ticker": "ENERY",
+    "xu100_return": 0.043970474923427094
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2024-06-03",
+    "entry_month": "2024-06",
+    "entry_price": 24.238222122192383,
+    "excess": 0.036256043060034604,
+    "exit_date": "2024-09-02",
+    "exit_price": 24.09161949157715,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 2,
+    "return": -0.006048406928369832,
+    "ticker": "EREGL",
+    "xu100_return": -0.042304449988404436
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2024-08-01",
+    "entry_month": "2024-08",
+    "entry_price": 16.926719665527344,
+    "excess": -0.0008293089162014766,
+    "exit_date": "2024-09-02",
+    "exit_price": 15.834355354309082,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.06453490887800029,
+    "ticker": "DOHOL",
+    "xu100_return": -0.06370559996179881
+   },
+   {
+    "days_held": 67,
+    "entry_date": "2024-08-01",
+    "entry_month": "2024-08",
+    "entry_price": 43.891998291015625,
+    "excess": 0.11657431797118367,
+    "exit_date": "2024-10-07",
+    "exit_price": 41.82822799682617,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": -0.04701928311639192,
+    "ticker": "ENKAI",
+    "xu100_return": -0.1635936010875756
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2024-09-02",
+    "entry_month": "2024-09",
+    "entry_price": 3.219943761825561,
+    "excess": 0.23811863389913956,
+    "exit_date": "2024-10-07",
+    "exit_price": 3.643154621124268,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.13143423941627042,
+    "ticker": "ENERY",
+    "xu100_return": -0.10668439448286915
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2024-08-01",
+    "entry_month": "2024-08",
+    "entry_price": 100.22125244140624,
+    "excess": -0.02422542890004331,
+    "exit_date": "2024-11-01",
+    "exit_price": 80.03714752197266,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 2,
+    "return": -0.2013954568292199,
+    "ticker": "TCELL",
+    "xu100_return": -0.17717002792917658
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-10-01",
+    "entry_month": "2024-10",
+    "entry_price": 48.959999084472656,
+    "excess": 0.03514875431916287,
+    "exit_date": "2024-11-01",
+    "exit_price": 48.2400016784668,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.014705829646026292,
+    "ticker": "TTKOM",
+    "xu100_return": -0.04985458396518916
+   },
+   {
+    "days_held": 70,
+    "entry_date": "2024-09-02",
+    "entry_month": "2024-09",
+    "entry_price": 34.977054595947266,
+    "excess": 0.11858292185071273,
+    "exit_date": "2024-11-11",
+    "exit_price": 36.24151992797852,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.03615128107950438,
+    "ticker": "CIMSA",
+    "xu100_return": -0.08243164077120835
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-11-01",
+    "entry_month": "2024-11",
+    "entry_price": 411.1526794433594,
+    "excess": 0.04160532306317877,
+    "exit_date": "2024-12-02",
+    "exit_price": 465.0982666015625,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.13120572929559304,
+    "ticker": "GOLTS",
+    "xu100_return": 0.08960040623241428
+   },
+   {
+    "days_held": 105,
+    "entry_date": "2024-09-02",
+    "entry_month": "2024-09",
+    "entry_price": 138.50064086914062,
+    "excess": -0.052048014993352654,
+    "exit_date": "2024-12-16",
+    "exit_price": 129.7508087158203,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 2,
+    "return": -0.06317539109142034,
+    "ticker": "TUPRS",
+    "xu100_return": -0.011127376098067687
+   },
+   {
+    "days_held": 93,
+    "entry_date": "2024-10-01",
+    "entry_month": "2024-10",
+    "entry_price": 108.44500732421876,
+    "excess": 0.09519469852628748,
+    "exit_date": "2025-01-02",
+    "exit_price": 125.84366607666016,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 2,
+    "return": 0.16043761886081587,
+    "ticker": "RGYAS",
+    "xu100_return": 0.06524292033452839
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-12-02",
+    "entry_month": "2024-12",
+    "entry_price": 39.56803894042969,
+    "excess": 0.15788084937800284,
+    "exit_date": "2025-01-02",
+    "exit_price": 46.96029281616211,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.18682386273582008,
+    "ticker": "CIMSA",
+    "xu100_return": 0.028943013357817238
+   },
+   {
+    "days_held": 63,
+    "entry_date": "2024-12-02",
+    "entry_month": "2024-12",
+    "entry_price": 1.559999942779541,
+    "excess": -0.06732967047651861,
+    "exit_date": "2025-02-03",
+    "exit_price": 1.4700000286102295,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": -0.05769225478877493,
+    "ticker": "CANTE",
+    "xu100_return": 0.009637415687743678
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2025-01-02",
+    "entry_month": "2025-01",
+    "entry_price": 19.989999771118164,
+    "excess": -0.10730050300654592,
+    "exit_date": "2025-02-03",
+    "exit_price": 17.469999313354492,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.12606305585879019,
+    "ticker": "AKFYE",
+    "xu100_return": -0.018762552852244263
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2025-01-02",
+    "entry_month": "2025-01",
+    "entry_price": 14.407393455505373,
+    "excess": -0.07686592267344228,
+    "exit_date": "2025-02-03",
+    "exit_price": 13.02963638305664,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.09562847552568654,
+    "ticker": "DOHOL",
+    "xu100_return": -0.018762552852244263
+   },
+   {
+    "days_held": 28,
+    "entry_date": "2025-02-03",
+    "entry_month": "2025-02",
+    "entry_price": 306.4974060058594,
+    "excess": -0.011594985001988078,
+    "exit_date": "2025-03-03",
+    "exit_price": 307.2300720214844,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.0023904476881966286,
+    "ticker": "THYAO",
+    "xu100_return": 0.013985432690184707
+   },
+   {
+    "days_held": 16,
+    "entry_date": "2025-03-17",
+    "entry_month": "2025-03",
+    "entry_price": 520.7546997070312,
+    "excess": 0.02428130659686034,
+    "exit_date": "2025-04-02",
+    "exit_price": 469.2140808105469,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.09897293087413395,
+    "ticker": "MGROS",
+    "xu100_return": -0.12325423747099429
+   },
+   {
+    "days_held": 95,
+    "entry_date": "2025-01-02",
+    "entry_month": "2025-01",
+    "entry_price": 92.34500885009766,
+    "excess": -0.023500368500359636,
+    "exit_date": "2025-04-07",
+    "exit_price": 85.03815460205078,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 2,
+    "return": -0.07912560017085479,
+    "ticker": "TCELL",
+    "xu100_return": -0.05562523167049516
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2025-03-03",
+    "entry_month": "2025-03",
+    "entry_price": 247.1999969482422,
+    "excess": 0.10262187639298681,
+    "exit_date": "2025-04-07",
+    "exit_price": 260.0,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.0517799482596184,
+    "ticker": "PGSUS",
+    "xu100_return": -0.05084192813336841
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2025-03-03",
+    "entry_month": "2025-03",
+    "entry_price": 21.990324020385746,
+    "excess": -0.0024914896228230843,
+    "exit_date": "2025-04-07",
+    "exit_price": 20.8175048828125,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.05333341775619149,
+    "ticker": "EREGL",
+    "xu100_return": -0.05084192813336841
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2025-03-03",
+    "entry_month": "2025-03",
+    "entry_price": 127.5999984741211,
+    "excess": 0.08610844602683987,
+    "exit_date": "2025-04-07",
+    "exit_price": 132.10000610351562,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.03526651789347146,
+    "ticker": "ARCLK",
+    "xu100_return": -0.05084192813336841
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2025-04-02",
+    "entry_month": "2025-04",
+    "entry_price": 167.7845458984375,
+    "excess": -0.049313107226882646,
+    "exit_date": "2025-05-02",
+    "exit_price": 153.2437286376953,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.08666362675346728,
+    "ticker": "DOAS",
+    "xu100_return": -0.037350519526584636
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2025-04-21",
+    "entry_month": "2025-04",
+    "entry_price": 249.6999969482422,
+    "excess": -0.0393760184536911,
+    "exit_date": "2025-05-26",
+    "exit_price": 240.5,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.03684420128426824,
+    "ticker": "PGSUS",
+    "xu100_return": 0.0025318171694228564
+   },
+   {
+    "days_held": 61,
+    "entry_date": "2025-04-02",
+    "entry_month": "2025-04",
+    "entry_price": 55.92452239990234,
+    "excess": 0.09137469390410391,
+    "exit_date": "2025-06-02",
+    "exit_price": 58.01385498046875,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.03735986452644369,
+    "ticker": "ENKAI",
+    "xu100_return": -0.05401482937766022
+   },
+   {
+    "days_held": 61,
+    "entry_date": "2025-04-02",
+    "entry_month": "2025-04",
+    "entry_price": 15.87371826171875,
+    "excess": -0.03835954580257617,
+    "exit_date": "2025-06-02",
+    "exit_price": 14.407393455505373,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": -0.09237437518023639,
+    "ticker": "DOHOL",
+    "xu100_return": -0.05401482937766022
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2025-05-02",
+    "entry_month": "2025-05",
+    "entry_price": 22.90903091430664,
+    "excess": -0.0006072993040318053,
+    "exit_date": "2025-06-02",
+    "exit_price": 22.49854278564453,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.017918179524816114,
+    "ticker": "EREGL",
+    "xu100_return": -0.017310880220784308
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2025-07-01",
+    "entry_month": "2025-07",
+    "entry_price": 26.095184326171875,
+    "excess": -0.04760275970041272,
+    "exit_date": "2025-08-01",
+    "exit_price": 26.578611373901367,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.01852552722705414,
+    "ticker": "EREGL",
+    "xu100_return": 0.06612828692746686
+   },
+   {
+    "days_held": 70,
+    "entry_date": "2025-06-02",
+    "entry_month": "2025-06",
+    "entry_price": 54.95000076293945,
+    "excess": -0.1615717842811819,
+    "exit_date": "2025-08-11",
+    "exit_price": 58.45000076293945,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.06369426663157651,
+    "ticker": "TTKOM",
+    "xu100_return": 0.22526605091275842
+   },
+   {
+    "days_held": 70,
+    "entry_date": "2025-06-02",
+    "entry_month": "2025-06",
+    "entry_price": 87.48979949951172,
+    "excess": -0.13419464305210083,
+    "exit_date": "2025-08-11",
+    "exit_price": 95.4576187133789,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.0910714078606576,
+    "ticker": "TCELL",
+    "xu100_return": 0.22526605091275842
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2025-08-01",
+    "entry_month": "2025-08",
+    "entry_price": 41.34000015258789,
+    "excess": -0.10378008518309079,
+    "exit_date": "2025-09-01",
+    "exit_price": 39.09999847412109,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.054184849303310356,
+    "ticker": "AKSEN",
+    "xu100_return": 0.04959523587978043
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2025-09-01",
+    "entry_month": "2025-09",
+    "entry_price": 18.739999771118164,
+    "excess": -0.04485871336499514,
+    "exit_date": "2025-10-01",
+    "exit_price": 17.799999237060547,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.05016011448977353,
+    "ticker": "DOHOL",
+    "xu100_return": -0.005301401124778393
+   },
+   {
+    "days_held": 98,
+    "entry_date": "2025-09-01",
+    "entry_month": "2025-09",
+    "entry_price": 69.72602844238281,
+    "excess": 0.13323518690572012,
+    "exit_date": "2025-12-08",
+    "exit_price": 78.45657348632812,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 2,
+    "return": 0.1252121372603301,
+    "ticker": "ENKAI",
+    "xu100_return": -0.008023049645390024
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 106.79745483398438,
+    "excess": -0.037025796578389114,
+    "exit_date": "2026-01-02",
+    "exit_price": 106.51215362548828,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.0026714232931823734,
+    "ticker": "ULKER",
+    "xu100_return": 0.03435437328520674
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 57.34999847412109,
+    "excess": -0.02127677921450366,
+    "exit_date": "2026-01-02",
+    "exit_price": 58.09999847412109,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.01307759407070308,
+    "ticker": "TTKOM",
+    "xu100_return": 0.03435437328520674
+   },
+   {
+    "days_held": 164,
+    "entry_date": "2025-08-01",
+    "entry_month": "2025-08",
+    "entry_price": 153.2460479736328,
+    "excess": 0.13218548973653066,
+    "exit_date": "2026-01-12",
+    "exit_price": 195.00331115722656,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 4,
+    "return": 0.2724850900610398,
+    "ticker": "TUPRS",
+    "xu100_return": 0.14029960032450917
+   },
+   {
+    "days_held": 103,
+    "entry_date": "2025-10-01",
+    "entry_month": "2025-10",
+    "entry_price": 97.66615295410156,
+    "excess": -0.07291998960422763,
+    "exit_date": "2026-01-12",
+    "exit_price": 99.5500030517578,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 2,
+    "return": 0.0192886690084082,
+    "ticker": "TCELL",
+    "xu100_return": 0.09220865861263583
+   },
+   {
+    "days_held": 63,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 92.9000015258789,
+    "excess": -0.09612458191571616,
+    "exit_date": "2026-02-02",
+    "exit_price": 104.9000015258789,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.1291711496544723,
+    "ticker": "ALARK",
+    "xu100_return": 0.22529573157018845
+   },
+   {
+    "days_held": 28,
+    "entry_date": "2026-02-02",
+    "entry_month": "2026-02",
+    "entry_price": 21.5,
+    "excess": -0.05983994975487239,
+    "exit_date": "2026-03-02",
+    "exit_price": 19.780000686645508,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.07999996806299958,
+    "ticker": "DOHOL",
+    "xu100_return": -0.020160018308127192
+   },
+   {
+    "days_held": 28,
+    "entry_date": "2026-02-02",
+    "entry_month": "2026-02",
+    "entry_price": 220.55548095703125,
+    "excess": -0.000745905759992227,
+    "exit_date": "2026-03-02",
+    "exit_price": 215.944564819336,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.02090592406811942,
+    "ticker": "TUPRS",
+    "xu100_return": -0.020160018308127192
+   },
+   {
+    "days_held": 28,
+    "entry_date": "2026-02-02",
+    "entry_month": "2026-02",
+    "entry_price": 92.27296447753906,
+    "excess": 0.055647262737409386,
+    "exit_date": "2026-03-02",
+    "exit_price": 95.54747772216795,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.035487244429282194,
+    "ticker": "ENKAI",
+    "xu100_return": -0.020160018308127192
+   },
+   {
+    "days_held": 126,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 525.4473266601562,
+    "excess": -0.033977196921980646,
+    "exit_date": "2026-04-06",
+    "exit_price": 601.9302368164062,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 3,
+    "return": 0.14555771106951854,
+    "ticker": "MGROS",
+    "xu100_return": 0.17953490799149918
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2026-03-02",
+    "entry_month": "2026-03",
+    "entry_price": 31.07744026184082,
+    "excess": -0.02817399074875382,
+    "exit_date": "2026-04-06",
+    "exit_price": 29.65675544738769,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.045714344633381865,
+    "ticker": "EREGL",
+    "xu100_return": -0.017540353884628046
+   },
+   {
+    "days_held": 33,
+    "entry_date": "2026-04-01",
+    "entry_month": "2026-04",
+    "entry_price": 253.75,
+    "excess": -0.04267902128736889,
+    "exit_date": "2026-05-04",
+    "exit_price": 271.0,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.06798029556650254,
+    "ticker": "TUPRS",
+    "xu100_return": 0.11065931685387143
+   },
+   {
+    "days_held": 33,
+    "entry_date": "2026-04-01",
+    "entry_month": "2026-04",
+    "entry_price": 195.8000030517578,
+    "excess": -0.10248776006230353,
+    "exit_date": "2026-05-04",
+    "exit_price": 197.3999938964844,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.008171556791567891,
+    "ticker": "KCHOL",
+    "xu100_return": 0.11065931685387143
+   },
+   {
+    "days_held": 68,
+    "entry_date": "2026-04-01",
+    "entry_month": "2026-04",
+    "entry_price": 7.820000171661377,
+    "excess": -0.0150515484999858,
+    "exit_date": "2026-06-08",
+    "exit_price": 8.260000228881836,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.056265990736798166,
+    "ticker": "TUREX",
+    "xu100_return": 0.07131753923678397
+   },
+   {
+    "days_held": 35,
+    "entry_date": "2026-05-04",
+    "entry_month": "2026-05",
+    "entry_price": 35.3394889831543,
+    "excess": 0.13956927788568985,
+    "exit_date": "2026-06-08",
+    "exit_price": 39.02000045776367,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.10414727491854259,
+    "ticker": "EREGL",
+    "xu100_return": -0.03542200296714726
+   },
+   {
+    "days_held": 133,
+    "entry_date": "2026-02-02",
+    "entry_month": "2026-02",
+    "entry_price": 113.5,
+    "excess": -0.048262820108973425,
+    "exit_date": "2026-06-15",
+    "exit_price": 114.9000015258789,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 3,
+    "return": 0.012334815205981453,
+    "ticker": "TCELL",
+    "xu100_return": 0.06059763531495488
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2026-04-01",
+    "entry_month": "2026-04",
+    "entry_price": 20.600000381469727,
+    "excess": -0.11987043397910391,
+    "exit_date": "2026-07-01",
+    "exit_price": 20.3799991607666,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 2,
+    "return": -0.010679670710153077,
+    "ticker": "DOHOL",
+    "xu100_return": 0.10919076326895083
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2026-06-01",
+    "entry_month": "2026-06",
+    "entry_price": 8.789999961853027,
+    "excess": 0.23836851500527012,
+    "exit_date": "2026-07-01",
+    "exit_price": 11.300000190734863,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.2855517906455942,
+    "ticker": "ENERY",
+    "xu100_return": 0.047183275640324096
+   },
+   {
+    "days_held": 29,
+    "entry_date": "2026-07-01",
+    "entry_month": "2026-07",
+    "entry_price": 328.5,
+    "excess": 0.012060347312546904,
+    "exit_date": "2026-07-30",
+    "exit_price": 308.25,
+    "reason": "ACIK_POZISYON",
+    "renewals": 0,
+    "return": -0.06164383561643838,
+    "ticker": "THYAO",
+    "xu100_return": -0.07370418292898528
+   },
+   {
+    "days_held": 24,
+    "entry_date": "2026-07-06",
+    "entry_month": "2026-07",
+    "entry_price": 9.640000343322754,
+    "excess": 0.024507878254748983,
+    "exit_date": "2026-07-30",
+    "exit_price": 9.119999885559082,
+    "reason": "ACIK_POZISYON",
+    "renewals": 0,
+    "return": -0.05394195427844106,
+    "ticker": "ENERY",
+    "xu100_return": -0.07844983253319004
+   }
+  ]
+ },
+ "hedef_3_ay": {
+  "events": [
+   {
+    "action": "AL",
+    "date": "2021-08-09",
+    "month": "2021-08",
+    "pb_pct": 0.13333333333333333,
+    "score": 1.0,
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2021-09-01",
+    "month": "2021-09",
+    "pb_pct": 0.4,
+    "score": 0.9375,
+    "ticker": "SISE"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2021-11-15",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2021-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2021-12-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SISE"
+   },
+   {
+    "action": "AL",
+    "date": "2021-12-01",
+    "month": "2021-12",
+    "pb_pct": 0.2631578947368421,
+    "score": 0.9523809523809523,
+    "ticker": "TKFEN"
+   },
+   {
+    "action": "AL",
+    "date": "2021-12-01",
+    "month": "2021-12",
+    "pb_pct": 0.10526315789473684,
+    "score": 0.9047619047619048,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2021-12-13",
+    "month": "2021-12",
+    "pb_pct": 0.47368421052631576,
+    "score": 1.0,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-01-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-03-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TKFEN"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-03-01",
+    "reason": "PDDD_PAHALANDI",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2022-03-01",
+    "month": "2022-03",
+    "pb_pct": 0.45,
+    "score": 0.9130434782608695,
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-04-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "AL",
+    "date": "2022-04-01",
+    "month": "2022-04",
+    "pb_pct": 0.27586206896551724,
+    "score": 0.921875,
+    "ticker": "ALGYO"
+   },
+   {
+    "action": "AL",
+    "date": "2022-05-05",
+    "month": "2022-05",
+    "pb_pct": 0.17857142857142858,
+    "score": 0.967741935483871,
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2022-06-01",
+    "month": "2022-06",
+    "pb_pct": 0.4444444444444444,
+    "score": 0.9333333333333333,
+    "ticker": "SISE"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-07-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ALGYO"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-07-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-09-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SISE"
+   },
+   {
+    "action": "AL",
+    "date": "2022-09-01",
+    "month": "2022-09",
+    "pb_pct": 0.20833333333333334,
+    "score": 0.9259259259259259,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2022-10-03",
+    "month": "2022-10",
+    "pb_pct": 0.11538461538461539,
+    "score": 1.0,
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-12-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2022-12-01",
+    "month": "2022-12",
+    "pb_pct": 0.19230769230769232,
+    "score": 0.9310344827586207,
+    "ticker": "TRGYO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-01-02",
+    "month": "2023-01",
+    "pb_pct": 0.19230769230769232,
+    "score": 1.0,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-01-02",
+    "month": "2023-01",
+    "pb_pct": 0.4230769230769231,
+    "score": 0.9310344827586207,
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2023-01-09",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-02-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "AL",
+    "date": "2023-02-01",
+    "month": "2023-02",
+    "pb_pct": 0.4230769230769231,
+    "score": 1.0,
+    "ticker": "SISE"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-03-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TRGYO"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-04-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-04-03",
+    "month": "2023-04",
+    "pb_pct": 0.3333333333333333,
+    "score": 0.92,
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-04-10",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-05-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SISE"
+   },
+   {
+    "action": "AL",
+    "date": "2023-05-02",
+    "month": "2023-05",
+    "pb_pct": 0.15,
+    "score": 0.9130434782608695,
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-06-01",
+    "month": "2023-06",
+    "pb_pct": 0.1,
+    "score": 0.9130434782608695,
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2023-07-03",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-08-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-09-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-09-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.328125,
+    "score": 0.972972972972973,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.484375,
+    "score": 0.9594594594594594,
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.25,
+    "score": 0.918918918918919,
+    "ticker": "AEFES"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.453125,
+    "score": 0.9054054054054054,
+    "ticker": "ULKER"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.38333333333333336,
+    "score": 1.0,
+    "ticker": "BUCIM"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.36666666666666664,
+    "score": 0.971830985915493,
+    "ticker": "ECZYT"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.08333333333333333,
+    "score": 0.9577464788732394,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.5,
+    "score": 0.9014084507042254,
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-11-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "ULKER"
+   },
+   {
+    "action": "AL",
+    "date": "2023-11-01",
+    "month": "2023-11",
+    "pb_pct": 0.1,
+    "score": 0.9436619718309859,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "AEFES"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "BUCIM"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-01",
+    "month": "2023-12",
+    "pb_pct": 0.05084745762711865,
+    "score": 0.9857142857142858,
+    "ticker": "THYAO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-01",
+    "month": "2023-12",
+    "pb_pct": 0.15254237288135594,
+    "score": 0.9428571428571428,
+    "ticker": "KORDS"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-01",
+    "month": "2023-12",
+    "pb_pct": 0.423728813559322,
+    "score": 0.9142857142857143,
+    "ticker": "VESBE"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-04",
+    "month": "2023-12",
+    "pb_pct": 0.4915254237288136,
+    "score": 0.9571428571428572,
+    "ticker": "CANTE"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-01-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "ECZYT"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-01-02",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2024-01-02",
+    "month": "2024-01",
+    "pb_pct": 0.3064516129032258,
+    "score": 0.9863013698630136,
+    "ticker": "AEFES"
+   },
+   {
+    "action": "AL",
+    "date": "2024-01-02",
+    "month": "2024-01",
+    "pb_pct": 0.3548387096774194,
+    "score": 0.9726027397260274,
+    "ticker": "DOAS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-01-02",
+    "month": "2024-01",
+    "pb_pct": 0.016129032258064516,
+    "score": 0.9178082191780822,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-02-01",
+    "month": "2024-02",
+    "pb_pct": 0.11290322580645161,
+    "score": 0.9863013698630136,
+    "ticker": "TAVHL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-02-01",
+    "month": "2024-02",
+    "pb_pct": 0.03225806451612903,
+    "score": 0.952054794520548,
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-03-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "THYAO"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-03-01",
+    "ticker": "KORDS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-03-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "VESBE"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-03-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-03-01",
+    "month": "2024-03",
+    "pb_pct": 0.2903225806451613,
+    "score": 1.0,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2024-03-01",
+    "month": "2024-03",
+    "pb_pct": 0.5,
+    "score": 0.9452054794520548,
+    "ticker": "TOASO"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-03-04",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "CANTE"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-04-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AEFES"
+   },
+   {
+    "action": "AL",
+    "date": "2024-04-01",
+    "month": "2024-04",
+    "pb_pct": 0.32786885245901637,
+    "score": 0.9857142857142858,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-04-01",
+    "month": "2024-04",
+    "pb_pct": 0.09836065573770492,
+    "score": 0.9571428571428572,
+    "ticker": "THYAO"
+   },
+   {
+    "action": "AL",
+    "date": "2024-04-01",
+    "month": "2024-04",
+    "pb_pct": 0.14754098360655737,
+    "score": 0.9285714285714286,
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-04-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-04-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOAS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-05-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TAVHL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-05-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-05-02",
+    "month": "2024-05",
+    "pb_pct": 0.3157894736842105,
+    "score": 0.9523809523809523,
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-05-02",
+    "month": "2024-05",
+    "pb_pct": 0.3684210526315789,
+    "score": 0.9047619047619048,
+    "ticker": "BOBET"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-06-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "KORDS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-06-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-06-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TOASO"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-06-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "BOBET"
+   },
+   {
+    "action": "AL",
+    "date": "2024-06-03",
+    "month": "2024-06",
+    "pb_pct": 0.05263157894736842,
+    "score": 1.0,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-07-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-07-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "THYAO"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-07-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-07-01",
+    "month": "2024-07",
+    "pb_pct": 0.3157894736842105,
+    "score": 0.9090909090909091,
+    "ticker": "ENERY"
+   },
+   {
+    "action": "AL",
+    "date": "2024-08-01",
+    "month": "2024-08",
+    "pb_pct": 0.26666666666666666,
+    "score": 1.0,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2024-08-01",
+    "month": "2024-08",
+    "pb_pct": 0.48333333333333334,
+    "score": 0.9859154929577465,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-08-01",
+    "month": "2024-08",
+    "pb_pct": 0.06666666666666667,
+    "score": 0.9436619718309859,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-08-05",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-09-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-09-02",
+    "month": "2024-09",
+    "pb_pct": 0.38333333333333336,
+    "score": 0.9857142857142858,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-09-02",
+    "month": "2024-09",
+    "pb_pct": 0.4666666666666667,
+    "score": 0.9142857142857143,
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-10-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENERY"
+   },
+   {
+    "action": "AL",
+    "date": "2024-10-01",
+    "month": "2024-10",
+    "pb_pct": 0.03333333333333333,
+    "score": 0.9722222222222222,
+    "ticker": "RGYAS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-10-01",
+    "month": "2024-10",
+    "pb_pct": 0.43333333333333335,
+    "score": 0.9305555555555556,
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-11-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-11-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-11-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-11-01",
+    "month": "2024-11",
+    "pb_pct": 0.3333333333333333,
+    "score": 0.9166666666666666,
+    "ticker": "GOLTS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-12-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-12-02",
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-12-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-12-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "GOLTS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-12-02",
+    "month": "2024-12",
+    "pb_pct": 0.13333333333333333,
+    "score": 0.918918918918919,
+    "ticker": "CANTE"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-01-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "RGYAS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-01-02",
+    "month": "2025-01",
+    "pb_pct": 0.19672131147540983,
+    "score": 0.9733333333333334,
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "AL",
+    "date": "2025-01-02",
+    "month": "2025-01",
+    "pb_pct": 0.36065573770491804,
+    "score": 0.9333333333333333,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-01-02",
+    "month": "2025-01",
+    "pb_pct": 0.06557377049180328,
+    "score": 0.9066666666666666,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-02-03",
+    "month": "2025-02",
+    "pb_pct": 0.14754098360655737,
+    "score": 0.96,
+    "ticker": "THYAO"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-03-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-03-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "CANTE"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-03",
+    "month": "2025-03",
+    "pb_pct": 0.4918032786885246,
+    "score": 0.9866666666666667,
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-03",
+    "month": "2025-03",
+    "pb_pct": 0.16393442622950818,
+    "score": 0.9466666666666667,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-03",
+    "month": "2025-03",
+    "pb_pct": 0.4098360655737705,
+    "score": 0.9066666666666666,
+    "ticker": "ARCLK"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-17",
+    "month": "2025-03",
+    "pb_pct": 0.4918032786885246,
+    "score": 0.92,
+    "ticker": "MGROS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-04-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-04-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-04-02",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-04-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "MGROS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-04-02",
+    "month": "2025-04",
+    "pb_pct": 0.3684210526315789,
+    "score": 0.9722222222222222,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2025-04-02",
+    "month": "2025-04",
+    "pb_pct": 0.22807017543859648,
+    "score": 0.9583333333333334,
+    "ticker": "DOAS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-05-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "ARCLK"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-05-05",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "THYAO"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-06-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOAS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-06-02",
+    "month": "2025-06",
+    "pb_pct": 0.38596491228070173,
+    "score": 0.9444444444444444,
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "AL",
+    "date": "2025-06-02",
+    "month": "2025-06",
+    "pb_pct": 0.3157894736842105,
+    "score": 0.9305555555555556,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-06-10",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-06-10",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-07-01",
+    "month": "2025-07",
+    "pb_pct": 0.25,
+    "score": 0.971830985915493,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-07-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-07-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2025-08-01",
+    "month": "2025-08",
+    "pb_pct": 0.3157894736842105,
+    "score": 1.0,
+    "ticker": "AKSEN"
+   },
+   {
+    "action": "AL",
+    "date": "2025-08-01",
+    "month": "2025-08",
+    "pb_pct": 0.2982456140350877,
+    "score": 0.9027777777777778,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-09-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-09-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AKSEN"
+   },
+   {
+    "action": "AL",
+    "date": "2025-09-01",
+    "month": "2025-09",
+    "pb_pct": 0.16071428571428573,
+    "score": 0.971830985915493,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-09-01",
+    "month": "2025-09",
+    "pb_pct": 0.4642857142857143,
+    "score": 0.9295774647887324,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-09-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-10-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-10-01",
+    "month": "2025-10",
+    "pb_pct": 0.32142857142857145,
+    "score": 0.9710144927536232,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-11-03",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-12-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-12-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.1206896551724138,
+    "score": 0.971830985915493,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.46551724137931033,
+    "score": 0.9577464788732394,
+    "ticker": "MGROS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.3620689655172414,
+    "score": 0.9436619718309859,
+    "ticker": "ULKER"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.3448275862068966,
+    "score": 0.9014084507042254,
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-01-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-02-02",
+    "month": "2026-02",
+    "pb_pct": 0.2,
+    "score": 1.0,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-02-02",
+    "month": "2026-02",
+    "pb_pct": 0.3,
+    "score": 0.9647887323943662,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-02-02",
+    "month": "2026-02",
+    "pb_pct": 0.48333333333333334,
+    "score": 0.9014084507042254,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-02-09",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-03-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-03-02",
+    "ticker": "MGROS"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-03-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ULKER"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-03-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "AL",
+    "date": "2026-03-02",
+    "month": "2026-03",
+    "pb_pct": 0.23809523809523808,
+    "score": 1.0,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-04-01",
+    "month": "2026-04",
+    "pb_pct": 0.3870967741935484,
+    "score": 0.918918918918919,
+    "ticker": "TUREX"
+   },
+   {
+    "action": "AL",
+    "date": "2026-04-01",
+    "month": "2026-04",
+    "pb_pct": 0.1935483870967742,
+    "score": 0.9054054054054054,
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-05-04",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-05-04",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-05-04",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-05-11",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "AL",
+    "date": "2026-06-01",
+    "month": "2026-06",
+    "pb_pct": 0.41935483870967744,
+    "score": 0.96,
+    "ticker": "ENERY"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-06-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "MGROS"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-06-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-07-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-07-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUREX"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-07-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-07-01",
+    "month": "2026-07",
+    "pb_pct": 0.06666666666666667,
+    "score": 0.9459459459459459,
+    "ticker": "THYAO"
+   }
+  ],
+  "trades": [
+   {
+    "days_held": 114,
+    "entry_date": "2021-08-09",
+    "entry_month": "2021-08",
+    "entry_price": 8.170888900756836,
+    "excess": 0.06870220556679563,
+    "exit_date": "2021-12-01",
+    "exit_price": 11.155110359191896,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 1,
+    "return": 0.36522604757955324,
+    "ticker": "SAHOL",
+    "xu100_return": 0.2965238420127576
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2021-09-01",
+    "entry_month": "2021-09",
+    "entry_price": 8.1093168258667,
+    "excess": 0.21384066831930992,
+    "exit_date": "2021-12-01",
+    "exit_price": 11.952028274536133,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.4738637706708093,
+    "ticker": "SISE",
+    "xu100_return": 0.2600231023514994
+   },
+   {
+    "days_held": 33,
+    "entry_date": "2021-12-01",
+    "entry_month": "2021-12",
+    "entry_price": 2.905659437179565,
+    "excess": -0.150162913974362,
+    "exit_date": "2022-01-03",
+    "exit_price": 2.5777478218078613,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.11285273531229711,
+    "ticker": "DOHOL",
+    "xu100_return": 0.037310178662064875
+   },
+   {
+    "days_held": 90,
+    "entry_date": "2021-12-01",
+    "entry_month": "2021-12",
+    "entry_price": 16.940563201904297,
+    "excess": -0.10167132052696992,
+    "exit_date": "2022-03-01",
+    "exit_price": 16.244258880615234,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.04110278465894157,
+    "ticker": "TKFEN",
+    "xu100_return": 0.06056853586802835
+   },
+   {
+    "days_held": 78,
+    "entry_date": "2021-12-13",
+    "entry_month": "2021-12",
+    "entry_price": 10.740568161010742,
+    "excess": 0.6847856710142216,
+    "exit_date": "2022-03-01",
+    "exit_price": 17.42296028137207,
+    "reason": "PDDD_PAHALANDI",
+    "renewals": 0,
+    "return": 0.6221637459197951,
+    "ticker": "ALARK",
+    "xu100_return": -0.06262192509442654
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2022-03-01",
+    "entry_month": "2022-03",
+    "entry_price": 7.550715446472168,
+    "excess": -0.13393828723156265,
+    "exit_date": "2022-04-01",
+    "exit_price": 7.619537353515625,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.009114620664934625,
+    "ticker": "AYDEM",
+    "xu100_return": 0.14305290789649727
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2022-04-01",
+    "entry_month": "2022-04",
+    "entry_price": 1.0748168230056765,
+    "excess": -0.18574018385282742,
+    "exit_date": "2022-07-01",
+    "exit_price": 0.9668763875961304,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.10042681980702128,
+    "ticker": "ALGYO",
+    "xu100_return": 0.08531336404580614
+   },
+   {
+    "days_held": 57,
+    "entry_date": "2022-05-05",
+    "entry_month": "2022-05",
+    "entry_price": 1.80637276172638,
+    "excess": -0.14828442679282572,
+    "exit_date": "2022-07-01",
+    "exit_price": 1.52203631401062,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.15740740435214218,
+    "ticker": "GSDHO",
+    "xu100_return": -0.009122977559316459
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2022-06-01",
+    "entry_month": "2022-06",
+    "entry_price": 19.696569442749023,
+    "excess": -0.08314454374943425,
+    "exit_date": "2022-09-01",
+    "exit_price": 22.4593505859375,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.14026712373537475,
+    "ticker": "SISE",
+    "xu100_return": 0.223411667484809
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2022-09-01",
+    "entry_month": "2022-09",
+    "entry_price": 5.050566673278809,
+    "excess": -0.0379136742839743,
+    "exit_date": "2022-12-01",
+    "exit_price": 7.918156147003174,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.567775788189474,
+    "ticker": "DOHOL",
+    "xu100_return": 0.6056894624734483
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2023-01-02",
+    "entry_month": "2023-01",
+    "entry_price": 26.781444549560547,
+    "excess": -0.19199222629723545,
+    "exit_date": "2023-02-01",
+    "exit_price": 17.15625,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.3593978857917314,
+    "ticker": "AYDEM",
+    "xu100_return": -0.16740565949449593
+   },
+   {
+    "days_held": 90,
+    "entry_date": "2022-12-01",
+    "entry_month": "2022-12",
+    "entry_price": 15.568840980529783,
+    "excess": -0.18740240328193825,
+    "exit_date": "2023-03-01",
+    "exit_price": 13.504277229309082,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.13260869924759466,
+    "ticker": "TRGYO",
+    "xu100_return": 0.05479370403434358
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2023-01-02",
+    "entry_month": "2023-01",
+    "entry_price": 11.094958305358888,
+    "excess": -0.04919418219629501,
+    "exit_date": "2023-04-03",
+    "exit_price": 8.93893051147461,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.1943250019103644,
+    "ticker": "DOHOL",
+    "xu100_return": -0.14513081971406938
+   },
+   {
+    "days_held": 189,
+    "entry_date": "2022-10-03",
+    "entry_month": "2022-10",
+    "entry_price": 2.127742052078247,
+    "excess": -0.05654880476628388,
+    "exit_date": "2023-04-10",
+    "exit_price": 3.073894739151001,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.4446745253488835,
+    "ticker": "GSDHO",
+    "xu100_return": 0.5012233301151674
+   },
+   {
+    "days_held": 90,
+    "entry_date": "2023-02-01",
+    "entry_month": "2023-02",
+    "entry_price": 35.99134826660156,
+    "excess": 0.002184248347225415,
+    "exit_date": "2023-05-02",
+    "exit_price": 34.48779296875,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.04177546466762394,
+    "ticker": "SISE",
+    "xu100_return": -0.043959713014849355
+   },
+   {
+    "days_held": 97,
+    "entry_date": "2023-05-02",
+    "entry_month": "2023-05",
+    "entry_price": 34.51008605957031,
+    "excess": -0.10023034991168234,
+    "exit_date": "2023-08-07",
+    "exit_price": 53.74972915649414,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.5575078272396341,
+    "ticker": "SAHOL",
+    "xu100_return": 0.6577381771513164
+   },
+   {
+    "days_held": 151,
+    "entry_date": "2023-04-03",
+    "entry_month": "2023-04",
+    "entry_price": 69.1755599975586,
+    "excess": 0.17637042104585876,
+    "exit_date": "2023-09-01",
+    "exit_price": 127.35399627685548,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 1,
+    "return": 0.8410258808363846,
+    "ticker": "KCHOL",
+    "xu100_return": 0.6646554597905259
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2023-06-01",
+    "entry_month": "2023-06",
+    "entry_price": 2.809578657150269,
+    "excess": 0.016536184630710604,
+    "exit_date": "2023-09-01",
+    "exit_price": 4.610000133514404,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.6408154730895796,
+    "ticker": "GSDHO",
+    "xu100_return": 0.624279288458869
+   },
+   {
+    "days_held": 61,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 58.79326248168945,
+    "excess": 0.17775378042814538,
+    "exit_date": "2023-11-01",
+    "exit_price": 65.39430236816406,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.11227544803335987,
+    "ticker": "ULKER",
+    "xu100_return": -0.06547833239478551
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 123.71480560302734,
+    "excess": -0.2093053120096655,
+    "exit_date": "2023-12-01",
+    "exit_price": 97.36300659179688,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.21300440867027182,
+    "ticker": "ALARK",
+    "xu100_return": -0.0036990966606063047
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 28.55362319946289,
+    "excess": 0.13332703652723032,
+    "exit_date": "2023-12-01",
+    "exit_price": 32.25497055053711,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.12962793986662402,
+    "ticker": "CIMSA",
+    "xu100_return": -0.0036990966606063047
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 10.44203758239746,
+    "excess": 0.042868009291311626,
+    "exit_date": "2023-12-01",
+    "exit_price": 10.851040840148926,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.03916891263070532,
+    "ticker": "AEFES",
+    "xu100_return": -0.0036990966606063047
+   },
+   {
+    "days_held": 60,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 9.362554550170898,
+    "excess": -0.053937504210754716,
+    "exit_date": "2023-12-01",
+    "exit_price": 8.349333763122559,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.10822054831497296,
+    "ticker": "BUCIM",
+    "xu100_return": -0.05428304410421825
+   },
+   {
+    "days_held": 60,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 19.90999984741211,
+    "excess": -0.04717353416020753,
+    "exit_date": "2023-12-01",
+    "exit_price": 17.889999389648438,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.10145657826442578,
+    "ticker": "AKFYE",
+    "xu100_return": -0.05428304410421825
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2023-11-01",
+    "entry_month": "2023-11",
+    "entry_price": 13.245001792907717,
+    "excess": -0.07870047215691645,
+    "exit_date": "2023-12-01",
+    "exit_price": 13.07821273803711,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.012592603419647519,
+    "ticker": "DOHOL",
+    "xu100_return": 0.06610786873726893
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 284.2508850097656,
+    "excess": -0.03249279709673658,
+    "exit_date": "2024-01-02",
+    "exit_price": 246.12078857421875,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.1341424018230828,
+    "ticker": "ECZYT",
+    "xu100_return": -0.10164960472634621
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2023-12-01",
+    "entry_month": "2023-12",
+    "entry_price": 254.7225646972656,
+    "excess": -0.06822739952134693,
+    "exit_date": "2024-03-01",
+    "exit_price": 271.32958984375,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.06519652142408994,
+    "ticker": "THYAO",
+    "xu100_return": 0.13342392094543687
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2023-12-01",
+    "entry_month": "2023-12",
+    "entry_price": 16.14419937133789,
+    "excess": 0.10836710267047067,
+    "exit_date": "2024-03-01",
+    "exit_price": 20.04772186279297,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.24179102361590754,
+    "ticker": "VESBE",
+    "xu100_return": 0.13342392094543687
+   },
+   {
+    "days_held": 59,
+    "entry_date": "2024-01-02",
+    "entry_month": "2024-01",
+    "entry_price": 20.40145874023437,
+    "excess": -0.10610496496851018,
+    "exit_date": "2024-03-01",
+    "exit_price": 22.17801856994629,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.08708003934092745,
+    "ticker": "EREGL",
+    "xu100_return": 0.19318500430943764
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2023-12-04",
+    "entry_month": "2023-12",
+    "entry_price": 2.758063077926636,
+    "excess": -0.23653909461909117,
+    "exit_date": "2024-03-04",
+    "exit_price": 2.385497093200684,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.13508247425799536,
+    "ticker": "CANTE",
+    "xu100_return": 0.10145662036109582
+   },
+   {
+    "days_held": 90,
+    "entry_date": "2024-01-02",
+    "entry_month": "2024-01",
+    "entry_price": 13.417954444885254,
+    "excess": -0.0779055283312391,
+    "exit_date": "2024-04-01",
+    "exit_price": 15.070890426635742,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.12318837335005006,
+    "ticker": "AEFES",
+    "xu100_return": 0.20109390168128916
+   },
+   {
+    "days_held": 189,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 30.79630470275879,
+    "excess": -0.08319862708572612,
+    "exit_date": "2024-04-08",
+    "exit_price": 32.84138488769531,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.06640667458889382,
+    "ticker": "ENKAI",
+    "xu100_return": 0.14960530167461994
+   },
+   {
+    "days_held": 97,
+    "entry_date": "2024-01-02",
+    "entry_month": "2024-01",
+    "entry_price": 164.7189483642578,
+    "excess": 0.15364863506254323,
+    "exit_date": "2024-04-08",
+    "exit_price": 236.09716796875,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.43333338582666947,
+    "ticker": "DOAS",
+    "xu100_return": 0.27968475076412624
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2024-02-01",
+    "entry_month": "2024-02",
+    "entry_price": 139.6999969482422,
+    "excess": 0.39049512638545303,
+    "exit_date": "2024-05-02",
+    "exit_price": 219.5,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.5712240858625295,
+    "ticker": "TAVHL",
+    "xu100_return": 0.18072895947707646
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2024-02-01",
+    "entry_month": "2024-02",
+    "entry_price": 67.43982696533203,
+    "excess": 0.12380921830795666,
+    "exit_date": "2024-05-02",
+    "exit_price": 87.97782897949219,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.3045381777850331,
+    "ticker": "SAHOL",
+    "xu100_return": 0.18072895947707646
+   },
+   {
+    "days_held": 185,
+    "entry_date": "2023-12-01",
+    "entry_month": "2023-12",
+    "entry_price": 85.44999694824219,
+    "excess": -0.22867566569082798,
+    "exit_date": "2024-06-03",
+    "exit_price": 92.8499984741211,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.08660037203232607,
+    "ticker": "KORDS",
+    "xu100_return": 0.31527603772315405
+   },
+   {
+    "days_held": 94,
+    "entry_date": "2024-03-01",
+    "entry_month": "2024-03",
+    "entry_price": 123.03055572509766,
+    "excess": -0.204473954595214,
+    "exit_date": "2024-06-03",
+    "exit_price": 117.61363983154295,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.04402902889960425,
+    "ticker": "ALARK",
+    "xu100_return": 0.16044492569560975
+   },
+   {
+    "days_held": 94,
+    "entry_date": "2024-03-01",
+    "entry_month": "2024-03",
+    "entry_price": 211.2294158935547,
+    "excess": 0.11115381883696718,
+    "exit_date": "2024-06-03",
+    "exit_price": 268.5990600585937,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.27159874453257693,
+    "ticker": "TOASO",
+    "xu100_return": 0.16044492569560975
+   },
+   {
+    "days_held": 32,
+    "entry_date": "2024-05-02",
+    "entry_month": "2024-05",
+    "entry_price": 35.739749908447266,
+    "excess": -0.28396445526052494,
+    "exit_date": "2024-06-03",
+    "exit_price": 26.80959701538086,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.24986612709776468,
+    "ticker": "BOBET",
+    "xu100_return": 0.03409832816276026
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2024-04-01",
+    "entry_month": "2024-04",
+    "entry_price": 136.35789489746094,
+    "excess": -0.15426098843846747,
+    "exit_date": "2024-07-01",
+    "exit_price": 132.9801025390625,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.02477152027712426,
+    "ticker": "TUPRS",
+    "xu100_return": 0.1294894681613432
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2024-04-01",
+    "entry_month": "2024-04",
+    "entry_price": 296.72857666015625,
+    "excess": -0.15582688252340238,
+    "exit_date": "2024-07-01",
+    "exit_price": 288.9135131835937,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.026337414362059164,
+    "ticker": "THYAO",
+    "xu100_return": 0.1294894681613432
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2024-04-01",
+    "entry_month": "2024-04",
+    "entry_price": 185.53240966796875,
+    "excess": -0.024510806995982515,
+    "exit_date": "2024-07-01",
+    "exit_price": 205.0093536376953,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.1049786611653607,
+    "ticker": "KCHOL",
+    "xu100_return": 0.1294894681613432
+   },
+   {
+    "days_held": 95,
+    "entry_date": "2024-05-02",
+    "entry_month": "2024-05",
+    "entry_price": 211.7603912353516,
+    "excess": 0.06035082105159917,
+    "exit_date": "2024-08-05",
+    "exit_price": 218.0,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.029465419516125024,
+    "ticker": "PGSUS",
+    "xu100_return": -0.030885401535474144
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2024-06-03",
+    "entry_month": "2024-06",
+    "entry_price": 24.238222122192383,
+    "excess": 0.036256043060034604,
+    "exit_date": "2024-09-02",
+    "exit_price": 24.09161949157715,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.006048406928369832,
+    "ticker": "EREGL",
+    "xu100_return": -0.042304449988404436
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2024-07-01",
+    "entry_month": "2024-07",
+    "entry_price": 3.149899959564209,
+    "excess": 0.17894657503224565,
+    "exit_date": "2024-10-01",
+    "exit_price": 3.4114344120025635,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.08302944721918659,
+    "ticker": "ENERY",
+    "xu100_return": -0.09591712781305906
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2024-08-01",
+    "entry_month": "2024-08",
+    "entry_price": 43.891998291015625,
+    "excess": 0.20025993283464172,
+    "exit_date": "2024-11-01",
+    "exit_price": 44.905460357666016,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.023089904905465142,
+    "ticker": "ENKAI",
+    "xu100_return": -0.17717002792917658
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2024-08-01",
+    "entry_month": "2024-08",
+    "entry_price": 100.22125244140624,
+    "excess": -0.02422542890004331,
+    "exit_date": "2024-11-01",
+    "exit_price": 80.03714752197266,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.2013954568292199,
+    "ticker": "TCELL",
+    "xu100_return": -0.17717002792917658
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2024-08-01",
+    "entry_month": "2024-08",
+    "entry_price": 16.926719665527344,
+    "excess": -0.07108581275369863,
+    "exit_date": "2024-11-01",
+    "exit_price": 12.724562644958496,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.2482558406828752,
+    "ticker": "DOHOL",
+    "xu100_return": -0.17717002792917658
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2024-09-02",
+    "entry_month": "2024-09",
+    "entry_price": 138.50064086914062,
+    "excess": -0.028928797585213162,
+    "exit_date": "2024-12-02",
+    "exit_price": 128.61569213867188,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.07137114072857131,
+    "ticker": "TUPRS",
+    "xu100_return": -0.04244234314335815
+   },
+   {
+    "days_held": 62,
+    "entry_date": "2024-10-01",
+    "entry_month": "2024-10",
+    "entry_price": 48.959999084472656,
+    "excess": -0.10308928384259175,
+    "exit_date": "2024-12-02",
+    "exit_price": 45.63999938964844,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.06781045255119567,
+    "ticker": "TTKOM",
+    "xu100_return": 0.035278831291396084
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-11-01",
+    "entry_month": "2024-11",
+    "entry_price": 411.1526794433594,
+    "excess": 0.04160532306317877,
+    "exit_date": "2024-12-02",
+    "exit_price": 465.0982666015625,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.13120572929559304,
+    "ticker": "GOLTS",
+    "xu100_return": 0.08960040623241428
+   },
+   {
+    "days_held": 93,
+    "entry_date": "2024-10-01",
+    "entry_month": "2024-10",
+    "entry_price": 108.44500732421876,
+    "excess": 0.09519469852628748,
+    "exit_date": "2025-01-02",
+    "exit_price": 125.84366607666016,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.16043761886081587,
+    "ticker": "RGYAS",
+    "xu100_return": 0.06524292033452839
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2024-09-02",
+    "entry_month": "2024-09",
+    "entry_price": 34.977054595947266,
+    "excess": 0.2694150124275627,
+    "exit_date": "2025-03-03",
+    "exit_price": 43.71159362792969,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 1,
+    "return": 0.249721971529143,
+    "ticker": "CIMSA",
+    "xu100_return": -0.019693040898419722
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2024-12-02",
+    "entry_month": "2024-12",
+    "entry_price": 1.559999942779541,
+    "excess": -0.1263217167359283,
+    "exit_date": "2025-03-03",
+    "exit_price": 1.399999976158142,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.10256408492959168,
+    "ticker": "CANTE",
+    "xu100_return": 0.02375763180633661
+   },
+   {
+    "days_held": 90,
+    "entry_date": "2025-01-02",
+    "entry_month": "2025-01",
+    "entry_price": 19.989999771118164,
+    "excess": -0.14512441838929924,
+    "exit_date": "2025-04-02",
+    "exit_price": 16.209999084472656,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.18909458378818522,
+    "ticker": "AKFYE",
+    "xu100_return": -0.043970165398885985
+   },
+   {
+    "days_held": 90,
+    "entry_date": "2025-01-02",
+    "entry_month": "2025-01",
+    "entry_price": 92.34500885009766,
+    "excess": 0.02627091363219536,
+    "exit_date": "2025-04-02",
+    "exit_price": 90.7105712890625,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.017699251766690627,
+    "ticker": "TCELL",
+    "xu100_return": -0.043970165398885985
+   },
+   {
+    "days_held": 16,
+    "entry_date": "2025-03-17",
+    "entry_month": "2025-03",
+    "entry_price": 520.7546997070312,
+    "excess": 0.02428130659686034,
+    "exit_date": "2025-04-02",
+    "exit_price": 469.2140808105469,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.09897293087413395,
+    "ticker": "MGROS",
+    "xu100_return": -0.12325423747099429
+   },
+   {
+    "days_held": 60,
+    "entry_date": "2025-03-03",
+    "entry_month": "2025-03",
+    "entry_price": 127.5999984741211,
+    "excess": -0.040970523127369596,
+    "exit_date": "2025-05-02",
+    "exit_price": 112.8000030517578,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.11598742632716352,
+    "ticker": "ARCLK",
+    "xu100_return": -0.07501690319979393
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2025-02-03",
+    "entry_month": "2025-02",
+    "entry_price": 306.4974060058594,
+    "excess": 0.0048002309962605905,
+    "exit_date": "2025-05-05",
+    "exit_price": 287.2039489746094,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.0629481902723874,
+    "ticker": "THYAO",
+    "xu100_return": -0.067748421268648
+   },
+   {
+    "days_held": 61,
+    "entry_date": "2025-04-02",
+    "entry_month": "2025-04",
+    "entry_price": 167.7845458984375,
+    "excess": -0.07814964096081412,
+    "exit_date": "2025-06-02",
+    "exit_price": 145.60939025878906,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.13216447033847434,
+    "ticker": "DOAS",
+    "xu100_return": -0.05401482937766022
+   },
+   {
+    "days_held": 99,
+    "entry_date": "2025-03-03",
+    "entry_month": "2025-03",
+    "entry_price": 247.1999969482422,
+    "excess": 0.08831038323940388,
+    "exit_date": "2025-06-10",
+    "exit_price": 262.75,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.06290454386621058,
+    "ticker": "PGSUS",
+    "xu100_return": -0.025405839373193295
+   },
+   {
+    "days_held": 99,
+    "entry_date": "2025-03-03",
+    "entry_month": "2025-03",
+    "entry_price": 21.990324020385746,
+    "excess": 0.1009613193722183,
+    "exit_date": "2025-06-10",
+    "exit_price": 23.65181350708008,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.07555547999902501,
+    "ticker": "EREGL",
+    "xu100_return": -0.025405839373193295
+   },
+   {
+    "days_held": 186,
+    "entry_date": "2025-01-02",
+    "entry_month": "2025-01",
+    "entry_price": 14.407393455505373,
+    "excess": 0.05360910916224082,
+    "exit_date": "2025-07-07",
+    "exit_price": 15.391505241394045,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.0683060255783201,
+    "ticker": "DOHOL",
+    "xu100_return": 0.014696916416079286
+   },
+   {
+    "days_held": 96,
+    "entry_date": "2025-04-02",
+    "entry_month": "2025-04",
+    "entry_price": 55.92452239990234,
+    "excess": 0.06664029640250013,
+    "exit_date": "2025-07-07",
+    "exit_price": 63.08317565917969,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.1280056217214982,
+    "ticker": "ENKAI",
+    "xu100_return": 0.061365325318998076
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2025-06-02",
+    "entry_month": "2025-06",
+    "entry_price": 54.95000076293945,
+    "excess": -0.2630141548501881,
+    "exit_date": "2025-09-01",
+    "exit_price": 54.34999847412109,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.010919058789586655,
+    "ticker": "TTKOM",
+    "xu100_return": 0.25209509606060143
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2025-08-01",
+    "entry_month": "2025-08",
+    "entry_price": 41.34000015258789,
+    "excess": -0.10378008518309079,
+    "exit_date": "2025-09-01",
+    "exit_price": 39.09999847412109,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.054184849303310356,
+    "ticker": "AKSEN",
+    "xu100_return": 0.04959523587978043
+   },
+   {
+    "days_held": 98,
+    "entry_date": "2025-06-02",
+    "entry_month": "2025-06",
+    "entry_price": 87.48979949951172,
+    "excess": -0.16250663615725713,
+    "exit_date": "2025-09-08",
+    "exit_price": 87.26152038574219,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.002609208331433077,
+    "ticker": "TCELL",
+    "xu100_return": 0.15989742782582406
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2025-07-01",
+    "entry_month": "2025-07",
+    "entry_price": 26.095184326171875,
+    "excess": 0.01736386788003319,
+    "exit_date": "2025-10-01",
+    "exit_price": 29.498903274536133,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.13043475400748705,
+    "ticker": "EREGL",
+    "xu100_return": 0.11307088612745386
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2025-09-01",
+    "entry_month": "2025-09",
+    "entry_price": 18.739999771118164,
+    "excess": -0.046871361442204273,
+    "exit_date": "2025-12-01",
+    "exit_price": 17.59000015258789,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.06136604229326814,
+    "ticker": "DOHOL",
+    "xu100_return": -0.014494680851063868
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2025-09-01",
+    "entry_month": "2025-09",
+    "entry_price": 69.72602844238281,
+    "excess": 0.11403927645261447,
+    "exit_date": "2025-12-01",
+    "exit_price": 76.66687774658203,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.0995445956015506,
+    "ticker": "ENKAI",
+    "xu100_return": -0.014494680851063868
+   },
+   {
+    "days_held": 93,
+    "entry_date": "2025-10-01",
+    "entry_month": "2025-10",
+    "entry_price": 97.66615295410156,
+    "excess": -0.04185426020958272,
+    "exit_date": "2026-01-02",
+    "exit_price": 96.0,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.017059676292200954,
+    "ticker": "TCELL",
+    "xu100_return": 0.024794583917381763
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 92.9000015258789,
+    "excess": -0.11663254918833954,
+    "exit_date": "2026-03-02",
+    "exit_price": 100.6999969482422,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.08396119800052393,
+    "ticker": "ALARK",
+    "xu100_return": 0.20059374718886347
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 106.79745483398438,
+    "excess": -0.11510848755895231,
+    "exit_date": "2026-03-02",
+    "exit_price": 115.92706298828124,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.08548525962991116,
+    "ticker": "ULKER",
+    "xu100_return": 0.20059374718886347
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 57.34999847412109,
+    "excess": -0.053252774172974915,
+    "exit_date": "2026-03-02",
+    "exit_price": 65.80000305175781,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.14734097301588855,
+    "ticker": "TTKOM",
+    "xu100_return": 0.20059374718886347
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2026-02-02",
+    "entry_month": "2026-02",
+    "entry_price": 92.27296447753906,
+    "excess": 0.06562904343883935,
+    "exit_date": "2026-05-04",
+    "exit_price": 103.4000015258789,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.12058826885363993,
+    "ticker": "ENKAI",
+    "xu100_return": 0.05495922541480058
+   },
+   {
+    "days_held": 283,
+    "entry_date": "2025-08-01",
+    "entry_month": "2025-08",
+    "entry_price": 153.2460479736328,
+    "excess": 0.28519483393621914,
+    "exit_date": "2026-05-11",
+    "exit_price": 259.5,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 2,
+    "return": 0.6933552507967384,
+    "ticker": "TUPRS",
+    "xu100_return": 0.4081604168605193
+   },
+   {
+    "days_held": 189,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 525.4473266601562,
+    "excess": 0.01969064835425427,
+    "exit_date": "2026-06-08",
+    "exit_price": 665.5,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.2665398913151682,
+    "ticker": "MGROS",
+    "xu100_return": 0.24684924296091393
+   },
+   {
+    "days_held": 98,
+    "entry_date": "2026-03-02",
+    "entry_month": "2026-03",
+    "entry_price": 31.07744026184082,
+    "excess": 0.21704599513789224,
+    "exit_date": "2026-06-08",
+    "exit_price": 39.02000045776367,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.2555731787754514,
+    "ticker": "EREGL",
+    "xu100_return": 0.03852718363755914
+   },
+   {
+    "days_held": 149,
+    "entry_date": "2026-02-02",
+    "entry_month": "2026-02",
+    "entry_price": 21.5,
+    "excess": -0.10565738277850933,
+    "exit_date": "2026-07-01",
+    "exit_price": 20.3799991607666,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 1,
+    "return": -0.052093062289925496,
+    "ticker": "DOHOL",
+    "xu100_return": 0.05356432048858384
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2026-04-01",
+    "entry_month": "2026-04",
+    "entry_price": 7.820000171661377,
+    "excess": -0.16929309788679725,
+    "exit_date": "2026-07-01",
+    "exit_price": 7.349999904632568,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.06010233461784642,
+    "ticker": "TUREX",
+    "xu100_return": 0.10919076326895083
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2026-04-01",
+    "entry_month": "2026-04",
+    "entry_price": 195.8000030517578,
+    "excess": -0.11327658062997681,
+    "exit_date": "2026-07-01",
+    "exit_price": 195.0,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.0040858173610259785,
+    "ticker": "KCHOL",
+    "xu100_return": 0.10919076326895083
+   },
+   {
+    "days_held": 178,
+    "entry_date": "2026-02-02",
+    "entry_month": "2026-02",
+    "entry_price": 113.5,
+    "excess": -0.08163909533053726,
+    "exit_date": "2026-07-30",
+    "exit_price": 101.5,
+    "reason": "ACIK_POZISYON",
+    "renewals": 1,
+    "return": -0.10572687224669608,
+    "ticker": "TCELL",
+    "xu100_return": -0.02408777691615882
+   },
+   {
+    "days_held": 59,
+    "entry_date": "2026-06-01",
+    "entry_month": "2026-06",
+    "entry_price": 8.789999961853027,
+    "excess": 0.06754116566698398,
+    "exit_date": "2026-07-30",
+    "exit_price": 9.119999885559082,
+    "reason": "ACIK_POZISYON",
+    "renewals": 0,
+    "return": 0.037542653599339504,
+    "ticker": "ENERY",
+    "xu100_return": -0.02999851206764448
+   },
+   {
+    "days_held": 29,
+    "entry_date": "2026-07-01",
+    "entry_month": "2026-07",
+    "entry_price": 328.5,
+    "excess": 0.012060347312546904,
+    "exit_date": "2026-07-30",
+    "exit_price": 308.25,
+    "reason": "ACIK_POZISYON",
+    "renewals": 0,
+    "return": -0.06164383561643838,
+    "ticker": "THYAO",
+    "xu100_return": -0.07370418292898528
+   }
+  ]
+ },
+ "hedef_6_ay": {
+  "events": [
+   {
+    "action": "AL",
+    "date": "2021-08-09",
+    "month": "2021-08",
+    "pb_pct": 0.13333333333333333,
+    "score": 1.0,
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2021-09-01",
+    "month": "2021-09",
+    "pb_pct": 0.4,
+    "score": 0.9375,
+    "ticker": "SISE"
+   },
+   {
+    "action": "SAT",
+    "date": "2021-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2021-12-01",
+    "month": "2021-12",
+    "pb_pct": 0.2631578947368421,
+    "score": 0.9523809523809523,
+    "ticker": "TKFEN"
+   },
+   {
+    "action": "AL",
+    "date": "2021-12-01",
+    "month": "2021-12",
+    "pb_pct": 0.10526315789473684,
+    "score": 0.9047619047619048,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2021-12-13",
+    "month": "2021-12",
+    "pb_pct": 0.47368421052631576,
+    "score": 1.0,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-01-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "SISE"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-01-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-03-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TKFEN"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-03-01",
+    "reason": "PDDD_PAHALANDI",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2022-03-01",
+    "month": "2022-03",
+    "pb_pct": 0.45,
+    "score": 0.9130434782608695,
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-04-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "AL",
+    "date": "2022-04-01",
+    "month": "2022-04",
+    "pb_pct": 0.27586206896551724,
+    "score": 0.921875,
+    "ticker": "ALGYO"
+   },
+   {
+    "action": "AL",
+    "date": "2022-05-05",
+    "month": "2022-05",
+    "pb_pct": 0.17857142857142858,
+    "score": 0.967741935483871,
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2022-06-01",
+    "month": "2022-06",
+    "pb_pct": 0.4444444444444444,
+    "score": 0.9333333333333333,
+    "ticker": "SISE"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-07-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2022-09-01",
+    "month": "2022-09",
+    "pb_pct": 0.20833333333333334,
+    "score": 0.9259259259259259,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-10-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ALGYO"
+   },
+   {
+    "action": "SAT",
+    "date": "2022-10-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "SISE"
+   },
+   {
+    "action": "AL",
+    "date": "2022-10-03",
+    "month": "2022-10",
+    "pb_pct": 0.11538461538461539,
+    "score": 1.0,
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2022-12-01",
+    "month": "2022-12",
+    "pb_pct": 0.19230769230769232,
+    "score": 0.9310344827586207,
+    "ticker": "TRGYO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-01-02",
+    "month": "2023-01",
+    "pb_pct": 0.4230769230769231,
+    "score": 0.9310344827586207,
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-02-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AYDEM"
+   },
+   {
+    "action": "AL",
+    "date": "2023-02-01",
+    "month": "2023-02",
+    "pb_pct": 0.4230769230769231,
+    "score": 1.0,
+    "ticker": "SISE"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2023-03-01",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-04-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-04-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-04-03",
+    "month": "2023-04",
+    "pb_pct": 0.3333333333333333,
+    "score": 0.92,
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-05-02",
+    "month": "2023-05",
+    "pb_pct": 0.15,
+    "score": 0.9130434782608695,
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-06-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TRGYO"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-06-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "SISE"
+   },
+   {
+    "action": "AL",
+    "date": "2023-06-01",
+    "month": "2023-06",
+    "pb_pct": 0.1,
+    "score": 0.9130434782608695,
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-09-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-09-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "GSDHO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.328125,
+    "score": 0.972972972972973,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.484375,
+    "score": 0.9594594594594594,
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.25,
+    "score": 0.918918918918919,
+    "ticker": "AEFES"
+   },
+   {
+    "action": "AL",
+    "date": "2023-09-01",
+    "month": "2023-09",
+    "pb_pct": 0.453125,
+    "score": 0.9054054054054054,
+    "ticker": "ULKER"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-10-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "SAHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.38333333333333336,
+    "score": 1.0,
+    "ticker": "BUCIM"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.36666666666666664,
+    "score": 0.971830985915493,
+    "ticker": "ECZYT"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.08333333333333333,
+    "score": 0.9577464788732394,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2023-10-02",
+    "month": "2023-10",
+    "pb_pct": 0.5,
+    "score": 0.9014084507042254,
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-11-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "ULKER"
+   },
+   {
+    "action": "AL",
+    "date": "2023-11-01",
+    "month": "2023-11",
+    "pb_pct": 0.1,
+    "score": 0.9436619718309859,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "BUCIM"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "SAT",
+    "date": "2023-12-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-01",
+    "month": "2023-12",
+    "pb_pct": 0.05084745762711865,
+    "score": 0.9857142857142858,
+    "ticker": "THYAO"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-01",
+    "month": "2023-12",
+    "pb_pct": 0.15254237288135594,
+    "score": 0.9428571428571428,
+    "ticker": "KORDS"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-01",
+    "month": "2023-12",
+    "pb_pct": 0.423728813559322,
+    "score": 0.9142857142857143,
+    "ticker": "VESBE"
+   },
+   {
+    "action": "AL",
+    "date": "2023-12-04",
+    "month": "2023-12",
+    "pb_pct": 0.4915254237288136,
+    "score": 0.9571428571428572,
+    "ticker": "CANTE"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-01-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "ECZYT"
+   },
+   {
+    "action": "AL",
+    "date": "2024-01-02",
+    "month": "2024-01",
+    "pb_pct": 0.3548387096774194,
+    "score": 0.9726027397260274,
+    "ticker": "DOAS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-01-02",
+    "month": "2024-01",
+    "pb_pct": 0.016129032258064516,
+    "score": 0.9178082191780822,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-02-01",
+    "month": "2024-02",
+    "pb_pct": 0.11290322580645161,
+    "score": 0.9863013698630136,
+    "ticker": "TAVHL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2024-03-01",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-03-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "AEFES"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-03-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-03-01",
+    "month": "2024-03",
+    "pb_pct": 0.5,
+    "score": 0.9452054794520548,
+    "ticker": "TOASO"
+   },
+   {
+    "action": "AL",
+    "date": "2024-04-01",
+    "month": "2024-04",
+    "pb_pct": 0.32786885245901637,
+    "score": 0.9857142857142858,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-04-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2024-04-08",
+    "month": "2024-04",
+    "pb_pct": 0.18032786885245902,
+    "score": 0.9285714285714286,
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-05-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "CANTE"
+   },
+   {
+    "action": "AL",
+    "date": "2024-05-02",
+    "month": "2024-05",
+    "pb_pct": 0.3157894736842105,
+    "score": 0.9523809523809523,
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-06-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "THYAO"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-06-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "KORDS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-06-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "VESBE"
+   },
+   {
+    "action": "AL",
+    "date": "2024-06-03",
+    "month": "2024-06",
+    "pb_pct": 0.05263157894736842,
+    "score": 1.0,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-07-01",
+    "month": "2024-07",
+    "pb_pct": 0.3157894736842105,
+    "score": 0.9090909090909091,
+    "ticker": "ENERY"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-07-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOAS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-08-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-08-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TAVHL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-08-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TOASO"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-08-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-08-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-08-01",
+    "month": "2024-08",
+    "pb_pct": 0.26666666666666666,
+    "score": 1.0,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2024-08-01",
+    "month": "2024-08",
+    "pb_pct": 0.48333333333333334,
+    "score": 0.9859154929577465,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-08-01",
+    "month": "2024-08",
+    "pb_pct": 0.06666666666666667,
+    "score": 0.9436619718309859,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-09-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-09-02",
+    "month": "2024-09",
+    "pb_pct": 0.38333333333333336,
+    "score": 0.9857142857142858,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-09-02",
+    "month": "2024-09",
+    "pb_pct": 0.4666666666666667,
+    "score": 0.9142857142857143,
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "AL",
+    "date": "2024-10-01",
+    "month": "2024-10",
+    "pb_pct": 0.03333333333333333,
+    "score": 0.9722222222222222,
+    "ticker": "RGYAS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-10-01",
+    "month": "2024-10",
+    "pb_pct": 0.43333333333333335,
+    "score": 0.9305555555555556,
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-11-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2024-11-01",
+    "month": "2024-11",
+    "pb_pct": 0.3333333333333333,
+    "score": 0.9166666666666666,
+    "ticker": "GOLTS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-11-04",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-12-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2024-12-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "GOLTS"
+   },
+   {
+    "action": "AL",
+    "date": "2024-12-02",
+    "month": "2024-12",
+    "pb_pct": 0.13333333333333333,
+    "score": 0.918918918918919,
+    "ticker": "CANTE"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-01-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENERY"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-01-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2025-01-02",
+    "month": "2025-01",
+    "pb_pct": 0.19672131147540983,
+    "score": 0.9733333333333334,
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "AL",
+    "date": "2025-01-02",
+    "month": "2025-01",
+    "pb_pct": 0.36065573770491804,
+    "score": 0.9333333333333333,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-02-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-02-03",
+    "month": "2025-02",
+    "pb_pct": 0.14754098360655737,
+    "score": 0.96,
+    "ticker": "THYAO"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-03-03",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-03-03",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "CIMSA"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-03",
+    "month": "2025-03",
+    "pb_pct": 0.4918032786885246,
+    "score": 0.9866666666666667,
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-03",
+    "month": "2025-03",
+    "pb_pct": 0.16393442622950818,
+    "score": 0.9466666666666667,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-03",
+    "month": "2025-03",
+    "pb_pct": 0.4098360655737705,
+    "score": 0.9066666666666666,
+    "ticker": "ARCLK"
+   },
+   {
+    "action": "AL",
+    "date": "2025-03-17",
+    "month": "2025-03",
+    "pb_pct": 0.4918032786885246,
+    "score": 0.92,
+    "ticker": "MGROS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-04-02",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "RGYAS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-04-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "MGROS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-04-02",
+    "month": "2025-04",
+    "pb_pct": 0.3684210526315789,
+    "score": 0.9722222222222222,
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "AL",
+    "date": "2025-04-02",
+    "month": "2025-04",
+    "pb_pct": 0.22807017543859648,
+    "score": 0.9583333333333334,
+    "ticker": "DOAS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-04-02",
+    "month": "2025-04",
+    "pb_pct": 0.12280701754385964,
+    "score": 0.9305555555555556,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-05-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "ARCLK"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-06-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "CANTE"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-06-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "THYAO"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-06-02",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOAS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-06-02",
+    "month": "2025-06",
+    "pb_pct": 0.38596491228070173,
+    "score": 0.9444444444444444,
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-07-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "PGSUS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-07-07",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "AKFYE"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-07-07",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-08-01",
+    "month": "2025-08",
+    "pb_pct": 0.3157894736842105,
+    "score": 1.0,
+    "ticker": "AKSEN"
+   },
+   {
+    "action": "AL",
+    "date": "2025-08-01",
+    "month": "2025-08",
+    "pb_pct": 0.2982456140350877,
+    "score": 0.9027777777777778,
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-09-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-09-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "AKSEN"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-09-08",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "EREGL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2025-10-06",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2025-10-06",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.1206896551724138,
+    "score": 0.971830985915493,
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.46551724137931033,
+    "score": 0.9577464788732394,
+    "ticker": "MGROS"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.3620689655172414,
+    "score": 0.9436619718309859,
+    "ticker": "ULKER"
+   },
+   {
+    "action": "AL",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "pb_pct": 0.3448275862068966,
+    "score": 0.9014084507042254,
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-01-12",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TCELL"
+   },
+   {
+    "action": "YENILENDI",
+    "date": "2026-02-02",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "AL",
+    "date": "2026-02-02",
+    "month": "2026-02",
+    "pb_pct": 0.2,
+    "score": 1.0,
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-02-02",
+    "month": "2026-02",
+    "pb_pct": 0.3,
+    "score": 0.9647887323943662,
+    "ticker": "TCELL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-03-02",
+    "month": "2026-03",
+    "pb_pct": 0.23809523809523808,
+    "score": 1.0,
+    "ticker": "EREGL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-04-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "ALARK"
+   },
+   {
+    "action": "AL",
+    "date": "2026-04-01",
+    "month": "2026-04",
+    "pb_pct": 0.3870967741935484,
+    "score": 0.918918918918919,
+    "ticker": "TUREX"
+   },
+   {
+    "action": "AL",
+    "date": "2026-04-01",
+    "month": "2026-04",
+    "pb_pct": 0.1935483870967742,
+    "score": 0.9054054054054054,
+    "ticker": "KCHOL"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-04-06",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "ENKAI"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-06-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "TUPRS"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-06-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "MGROS"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-06-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "ULKER"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-06-01",
+    "reason": "HEDEF_SURE_DOLDU",
+    "ticker": "TTKOM"
+   },
+   {
+    "action": "AL",
+    "date": "2026-06-01",
+    "month": "2026-06",
+    "pb_pct": 0.41935483870967744,
+    "score": 0.96,
+    "ticker": "ENERY"
+   },
+   {
+    "action": "SAT",
+    "date": "2026-07-01",
+    "reason": "SKOR_ZAYIFLADI",
+    "ticker": "DOHOL"
+   },
+   {
+    "action": "AL",
+    "date": "2026-07-01",
+    "month": "2026-07",
+    "pb_pct": 0.06666666666666667,
+    "score": 0.9459459459459459,
+    "ticker": "THYAO"
+   }
+  ],
+  "trades": [
+   {
+    "days_held": 114,
+    "entry_date": "2021-08-09",
+    "entry_month": "2021-08",
+    "entry_price": 8.170888900756836,
+    "excess": 0.06870220556679563,
+    "exit_date": "2021-12-01",
+    "exit_price": 11.155110359191896,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.36522604757955324,
+    "ticker": "SAHOL",
+    "xu100_return": 0.2965238420127576
+   },
+   {
+    "days_held": 124,
+    "entry_date": "2021-09-01",
+    "entry_month": "2021-09",
+    "entry_price": 8.1093168258667,
+    "excess": 0.2679653134834499,
+    "exit_date": "2022-01-03",
+    "exit_price": 12.772174835205078,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.5750001029020131,
+    "ticker": "SISE",
+    "xu100_return": 0.3070347894185632
+   },
+   {
+    "days_held": 33,
+    "entry_date": "2021-12-01",
+    "entry_month": "2021-12",
+    "entry_price": 2.905659437179565,
+    "excess": -0.150162913974362,
+    "exit_date": "2022-01-03",
+    "exit_price": 2.5777478218078613,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.11285273531229711,
+    "ticker": "DOHOL",
+    "xu100_return": 0.037310178662064875
+   },
+   {
+    "days_held": 90,
+    "entry_date": "2021-12-01",
+    "entry_month": "2021-12",
+    "entry_price": 16.940563201904297,
+    "excess": -0.10167132052696992,
+    "exit_date": "2022-03-01",
+    "exit_price": 16.244258880615234,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.04110278465894157,
+    "ticker": "TKFEN",
+    "xu100_return": 0.06056853586802835
+   },
+   {
+    "days_held": 78,
+    "entry_date": "2021-12-13",
+    "entry_month": "2021-12",
+    "entry_price": 10.740568161010742,
+    "excess": 0.6847856710142216,
+    "exit_date": "2022-03-01",
+    "exit_price": 17.42296028137207,
+    "reason": "PDDD_PAHALANDI",
+    "renewals": 0,
+    "return": 0.6221637459197951,
+    "ticker": "ALARK",
+    "xu100_return": -0.06262192509442654
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2022-03-01",
+    "entry_month": "2022-03",
+    "entry_price": 7.550715446472168,
+    "excess": -0.13393828723156265,
+    "exit_date": "2022-04-01",
+    "exit_price": 7.619537353515625,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.009114620664934625,
+    "ticker": "AYDEM",
+    "xu100_return": 0.14305290789649727
+   },
+   {
+    "days_held": 57,
+    "entry_date": "2022-05-05",
+    "entry_month": "2022-05",
+    "entry_price": 1.80637276172638,
+    "excess": -0.14828442679282572,
+    "exit_date": "2022-07-01",
+    "exit_price": 1.52203631401062,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.15740740435214218,
+    "ticker": "GSDHO",
+    "xu100_return": -0.009122977559316459
+   },
+   {
+    "days_held": 185,
+    "entry_date": "2022-04-01",
+    "entry_month": "2022-04",
+    "entry_price": 1.0748168230056765,
+    "excess": -0.22665060481528498,
+    "exit_date": "2022-10-03",
+    "exit_price": 1.3755626678466797,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.279811255651899,
+    "ticker": "ALGYO",
+    "xu100_return": 0.506461860467184
+   },
+   {
+    "days_held": 124,
+    "entry_date": "2022-06-01",
+    "entry_month": "2022-06",
+    "entry_price": 19.696569442749023,
+    "excess": -0.02565267744596489,
+    "exit_date": "2022-10-03",
+    "exit_price": 25.504047393798828,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.29484717975534225,
+    "ticker": "SISE",
+    "xu100_return": 0.32049985720130714
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2023-01-02",
+    "entry_month": "2023-01",
+    "entry_price": 26.781444549560547,
+    "excess": -0.19199222629723545,
+    "exit_date": "2023-02-01",
+    "exit_price": 17.15625,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.3593978857917314,
+    "ticker": "AYDEM",
+    "xu100_return": -0.16740565949449593
+   },
+   {
+    "days_held": 214,
+    "entry_date": "2022-09-01",
+    "entry_month": "2022-09",
+    "entry_price": 5.050566673278809,
+    "excess": 0.22996871742588354,
+    "exit_date": "2023-04-03",
+    "exit_price": 8.93893051147461,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 1,
+    "return": 0.7698866463377445,
+    "ticker": "DOHOL",
+    "xu100_return": 0.539917928911861
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2022-10-03",
+    "entry_month": "2022-10",
+    "entry_price": 2.127742052078247,
+    "excess": -0.06943942215431087,
+    "exit_date": "2023-04-03",
+    "exit_price": 2.887894630432129,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.3572578629121945,
+    "ticker": "GSDHO",
+    "xu100_return": 0.4266972850665054
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2022-12-01",
+    "entry_month": "2022-12",
+    "entry_price": 15.568840980529783,
+    "excess": -0.08254359496309283,
+    "exit_date": "2023-06-01",
+    "exit_price": 14.017165184020996,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.09966546632785933,
+    "ticker": "TRGYO",
+    "xu100_return": -0.017121871364766506
+   },
+   {
+    "days_held": 120,
+    "entry_date": "2023-02-01",
+    "entry_month": "2023-02",
+    "entry_price": 35.99134826660156,
+    "excess": 0.03379954938469942,
+    "exit_date": "2023-06-01",
+    "exit_price": 39.08934020996094,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.08607601805887821,
+    "ticker": "SISE",
+    "xu100_return": 0.05227646867417879
+   },
+   {
+    "days_held": 151,
+    "entry_date": "2023-04-03",
+    "entry_month": "2023-04",
+    "entry_price": 69.1755599975586,
+    "excess": 0.17637042104585876,
+    "exit_date": "2023-09-01",
+    "exit_price": 127.35399627685548,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.8410258808363846,
+    "ticker": "KCHOL",
+    "xu100_return": 0.6646554597905259
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2023-06-01",
+    "entry_month": "2023-06",
+    "entry_price": 2.809578657150269,
+    "excess": 0.016536184630710604,
+    "exit_date": "2023-09-01",
+    "exit_price": 4.610000133514404,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.6408154730895796,
+    "ticker": "GSDHO",
+    "xu100_return": 0.624279288458869
+   },
+   {
+    "days_held": 153,
+    "entry_date": "2023-05-02",
+    "entry_month": "2023-05",
+    "entry_price": 34.51008605957031,
+    "excess": -0.25800579446929706,
+    "exit_date": "2023-10-02",
+    "exit_price": 56.09266662597656,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.6253992102236727,
+    "ticker": "SAHOL",
+    "xu100_return": 0.8834050046929698
+   },
+   {
+    "days_held": 61,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 58.79326248168945,
+    "excess": 0.17775378042814538,
+    "exit_date": "2023-11-01",
+    "exit_price": 65.39430236816406,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.11227544803335987,
+    "ticker": "ULKER",
+    "xu100_return": -0.06547833239478551
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 28.55362319946289,
+    "excess": 0.13332703652723032,
+    "exit_date": "2023-12-01",
+    "exit_price": 32.25497055053711,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.12962793986662402,
+    "ticker": "CIMSA",
+    "xu100_return": -0.0036990966606063047
+   },
+   {
+    "days_held": 60,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 9.362554550170898,
+    "excess": -0.053937504210754716,
+    "exit_date": "2023-12-01",
+    "exit_price": 8.349333763122559,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.10822054831497296,
+    "ticker": "BUCIM",
+    "xu100_return": -0.05428304410421825
+   },
+   {
+    "days_held": 60,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 19.90999984741211,
+    "excess": -0.04717353416020753,
+    "exit_date": "2023-12-01",
+    "exit_price": 17.889999389648438,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.10145657826442578,
+    "ticker": "AKFYE",
+    "xu100_return": -0.05428304410421825
+   },
+   {
+    "days_held": 30,
+    "entry_date": "2023-11-01",
+    "entry_month": "2023-11",
+    "entry_price": 13.245001792907717,
+    "excess": -0.07870047215691645,
+    "exit_date": "2023-12-01",
+    "exit_price": 13.07821273803711,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.012592603419647519,
+    "ticker": "DOHOL",
+    "xu100_return": 0.06610786873726893
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 284.2508850097656,
+    "excess": -0.03249279709673658,
+    "exit_date": "2024-01-02",
+    "exit_price": 246.12078857421875,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.1341424018230828,
+    "ticker": "ECZYT",
+    "xu100_return": -0.10164960472634621
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 10.44203758239746,
+    "excess": 0.2665699962918391,
+    "exit_date": "2024-03-01",
+    "exit_price": 14.5750093460083,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.3958012725962554,
+    "ticker": "AEFES",
+    "xu100_return": 0.12923127630441633
+   },
+   {
+    "days_held": 59,
+    "entry_date": "2024-01-02",
+    "entry_month": "2024-01",
+    "entry_price": 20.40145874023437,
+    "excess": -0.10610496496851018,
+    "exit_date": "2024-03-01",
+    "exit_price": 22.17801856994629,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.08708003934092745,
+    "ticker": "EREGL",
+    "xu100_return": 0.19318500430943764
+   },
+   {
+    "days_held": 189,
+    "entry_date": "2023-10-02",
+    "entry_month": "2023-10",
+    "entry_price": 30.79630470275879,
+    "excess": -0.08319862708572612,
+    "exit_date": "2024-04-08",
+    "exit_price": 32.84138488769531,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.06640667458889382,
+    "ticker": "ENKAI",
+    "xu100_return": 0.14960530167461994
+   },
+   {
+    "days_held": 150,
+    "entry_date": "2023-12-04",
+    "entry_month": "2023-12",
+    "entry_price": 2.758063077926636,
+    "excess": -0.3658264710050735,
+    "exit_date": "2024-05-02",
+    "exit_price": 2.472608089447021,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.10349835388616457,
+    "ticker": "CANTE",
+    "xu100_return": 0.2623281171189089
+   },
+   {
+    "days_held": 185,
+    "entry_date": "2023-12-01",
+    "entry_month": "2023-12",
+    "entry_price": 254.7225646972656,
+    "excess": -0.11872765703026378,
+    "exit_date": "2024-06-03",
+    "exit_price": 304.7878723144531,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.19654838069289027,
+    "ticker": "THYAO",
+    "xu100_return": 0.31527603772315405
+   },
+   {
+    "days_held": 185,
+    "entry_date": "2023-12-01",
+    "entry_month": "2023-12",
+    "entry_price": 85.44999694824219,
+    "excess": -0.22867566569082798,
+    "exit_date": "2024-06-03",
+    "exit_price": 92.8499984741211,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.08660037203232607,
+    "ticker": "KORDS",
+    "xu100_return": 0.31527603772315405
+   },
+   {
+    "days_held": 185,
+    "entry_date": "2023-12-01",
+    "entry_month": "2023-12",
+    "entry_price": 16.14419937133789,
+    "excess": 0.11994792292999601,
+    "exit_date": "2024-06-03",
+    "exit_price": 23.170541763305664,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.43522396065315005,
+    "ticker": "VESBE",
+    "xu100_return": 0.31527603772315405
+   },
+   {
+    "days_held": 188,
+    "entry_date": "2024-01-02",
+    "entry_month": "2024-01",
+    "entry_price": 164.7189483642578,
+    "excess": -0.2700685709008417,
+    "exit_date": "2024-07-08",
+    "exit_price": 190.22769165039065,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.15486222768811686,
+    "ticker": "DOAS",
+    "xu100_return": 0.42493079858895855
+   },
+   {
+    "days_held": 335,
+    "entry_date": "2023-09-01",
+    "entry_month": "2023-09",
+    "entry_price": 123.71480560302734,
+    "excess": -0.5005532324142067,
+    "exit_date": "2024-08-01",
+    "exit_price": 103.89691925048828,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 1,
+    "return": -0.16019009411153384,
+    "ticker": "ALARK",
+    "xu100_return": 0.34036313830267284
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2024-02-01",
+    "entry_month": "2024-02",
+    "entry_price": 139.6999969482422,
+    "excess": 0.6784459928603057,
+    "exit_date": "2024-08-01",
+    "exit_price": 269.25,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.9273443513370665,
+    "ticker": "TAVHL",
+    "xu100_return": 0.24889835847676078
+   },
+   {
+    "days_held": 153,
+    "entry_date": "2024-03-01",
+    "entry_month": "2024-03",
+    "entry_price": 211.2294158935547,
+    "excess": -0.04759226466272404,
+    "exit_date": "2024-08-01",
+    "exit_price": 240.6699981689453,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.13937728393959437,
+    "ticker": "TOASO",
+    "xu100_return": 0.1869695486023184
+   },
+   {
+    "days_held": 122,
+    "entry_date": "2024-04-01",
+    "entry_month": "2024-04",
+    "entry_price": 136.35789489746094,
+    "excess": -0.20094823461995348,
+    "exit_date": "2024-08-01",
+    "exit_price": 133.3860321044922,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.021794578122546926,
+    "ticker": "TUPRS",
+    "xu100_return": 0.17915365649740655
+   },
+   {
+    "days_held": 115,
+    "entry_date": "2024-04-08",
+    "entry_month": "2024-04",
+    "entry_price": 191.6517944335937,
+    "excess": -0.05674222893047598,
+    "exit_date": "2024-08-01",
+    "exit_price": 201.2333526611328,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.049994617873818425,
+    "ticker": "KCHOL",
+    "xu100_return": 0.1067368468042944
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2024-06-03",
+    "entry_month": "2024-06",
+    "entry_price": 24.238222122192383,
+    "excess": 0.036256043060034604,
+    "exit_date": "2024-09-02",
+    "exit_price": 24.09161949157715,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.006048406928369832,
+    "ticker": "EREGL",
+    "xu100_return": -0.042304449988404436
+   },
+   {
+    "days_held": 92,
+    "entry_date": "2024-08-01",
+    "entry_month": "2024-08",
+    "entry_price": 100.22125244140624,
+    "excess": -0.02422542890004331,
+    "exit_date": "2024-11-01",
+    "exit_price": 80.03714752197266,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.2013954568292199,
+    "ticker": "TCELL",
+    "xu100_return": -0.17717002792917658
+   },
+   {
+    "days_held": 186,
+    "entry_date": "2024-05-02",
+    "entry_month": "2024-05",
+    "entry_price": 211.7603912353516,
+    "excess": 0.22801049357331094,
+    "exit_date": "2024-11-04",
+    "exit_price": 228.0,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.07668860389759868,
+    "ticker": "PGSUS",
+    "xu100_return": -0.15132188967571225
+   },
+   {
+    "days_held": 62,
+    "entry_date": "2024-10-01",
+    "entry_month": "2024-10",
+    "entry_price": 48.959999084472656,
+    "excess": -0.10308928384259175,
+    "exit_date": "2024-12-02",
+    "exit_price": 45.63999938964844,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.06781045255119567,
+    "ticker": "TTKOM",
+    "xu100_return": 0.035278831291396084
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2024-11-01",
+    "entry_month": "2024-11",
+    "entry_price": 411.1526794433594,
+    "excess": 0.04160532306317877,
+    "exit_date": "2024-12-02",
+    "exit_price": 465.0982666015625,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.13120572929559304,
+    "ticker": "GOLTS",
+    "xu100_return": 0.08960040623241428
+   },
+   {
+    "days_held": 185,
+    "entry_date": "2024-07-01",
+    "entry_month": "2024-07",
+    "entry_price": 3.149899959564209,
+    "excess": 0.33707824974607414,
+    "exit_date": "2025-01-02",
+    "exit_price": 4.095330238342285,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.3001461287389193,
+    "ticker": "ENERY",
+    "xu100_return": -0.03693212100715482
+   },
+   {
+    "days_held": 154,
+    "entry_date": "2024-08-01",
+    "entry_month": "2024-08",
+    "entry_price": 43.891998291015625,
+    "excess": 0.1236747355860004,
+    "exit_date": "2025-01-02",
+    "exit_price": 45.91891479492188,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.04617963598893948,
+    "ticker": "ENKAI",
+    "xu100_return": -0.07749509959706091
+   },
+   {
+    "days_held": 186,
+    "entry_date": "2024-08-01",
+    "entry_month": "2024-08",
+    "entry_price": 16.926719665527344,
+    "excess": -0.13542898915984192,
+    "exit_date": "2025-02-03",
+    "exit_price": 13.02963638305664,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.23023263570716734,
+    "ticker": "DOHOL",
+    "xu100_return": -0.09480364654732543
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2024-09-02",
+    "entry_month": "2024-09",
+    "entry_price": 138.50064086914062,
+    "excess": -0.16767790725080234,
+    "exit_date": "2025-03-03",
+    "exit_price": 112.54964447021484,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.18737094814922206,
+    "ticker": "TUPRS",
+    "xu100_return": -0.019693040898419722
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2024-09-02",
+    "entry_month": "2024-09",
+    "entry_price": 34.977054595947266,
+    "excess": 0.2694150124275627,
+    "exit_date": "2025-03-03",
+    "exit_price": 43.71159362792969,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.249721971529143,
+    "ticker": "CIMSA",
+    "xu100_return": -0.019693040898419722
+   },
+   {
+    "days_held": 183,
+    "entry_date": "2024-10-01",
+    "entry_month": "2024-10",
+    "entry_price": 108.44500732421876,
+    "excess": -0.040281860461266694,
+    "exit_date": "2025-04-02",
+    "exit_price": 106.0724639892578,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.02187784752383992,
+    "ticker": "RGYAS",
+    "xu100_return": 0.018404012937426772
+   },
+   {
+    "days_held": 16,
+    "entry_date": "2025-03-17",
+    "entry_month": "2025-03",
+    "entry_price": 520.7546997070312,
+    "excess": 0.02428130659686034,
+    "exit_date": "2025-04-02",
+    "exit_price": 469.2140808105469,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.09897293087413395,
+    "ticker": "MGROS",
+    "xu100_return": -0.12325423747099429
+   },
+   {
+    "days_held": 60,
+    "entry_date": "2025-03-03",
+    "entry_month": "2025-03",
+    "entry_price": 127.5999984741211,
+    "excess": -0.040970523127369596,
+    "exit_date": "2025-05-02",
+    "exit_price": 112.8000030517578,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.11598742632716352,
+    "ticker": "ARCLK",
+    "xu100_return": -0.07501690319979393
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2024-12-02",
+    "entry_month": "2024-12",
+    "entry_price": 1.559999942779541,
+    "excess": 0.030972677414307648,
+    "exit_date": "2025-06-02",
+    "exit_price": 1.5,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.03846150319251662,
+    "ticker": "CANTE",
+    "xu100_return": -0.06943418060682427
+   },
+   {
+    "days_held": 119,
+    "entry_date": "2025-02-03",
+    "entry_month": "2025-02",
+    "entry_price": 306.4974060058594,
+    "excess": -0.04279876023567575,
+    "exit_date": "2025-06-02",
+    "exit_price": 269.37579345703125,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.12111558473717865,
+    "ticker": "THYAO",
+    "xu100_return": -0.0783168245015029
+   },
+   {
+    "days_held": 61,
+    "entry_date": "2025-04-02",
+    "entry_month": "2025-04",
+    "entry_price": 167.7845458984375,
+    "excess": -0.07814964096081412,
+    "exit_date": "2025-06-02",
+    "exit_price": 145.60939025878906,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.13216447033847434,
+    "ticker": "DOAS",
+    "xu100_return": -0.05401482937766022
+   },
+   {
+    "days_held": 120,
+    "entry_date": "2025-03-03",
+    "entry_month": "2025-03",
+    "entry_price": 247.1999969482422,
+    "excess": 0.025596069185582992,
+    "exit_date": "2025-07-01",
+    "exit_price": 257.75,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.04267800639967945,
+    "ticker": "PGSUS",
+    "xu100_return": 0.017081937214096454
+   },
+   {
+    "days_held": 186,
+    "entry_date": "2025-01-02",
+    "entry_month": "2025-01",
+    "entry_price": 19.989999771118164,
+    "excess": -0.2132961839903793,
+    "exit_date": "2025-07-07",
+    "exit_price": 16.020000457763672,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": -0.19859926757430002,
+    "ticker": "AKFYE",
+    "xu100_return": 0.014696916416079286
+   },
+   {
+    "days_held": 91,
+    "entry_date": "2025-06-02",
+    "entry_month": "2025-06",
+    "entry_price": 54.95000076293945,
+    "excess": -0.2630141548501881,
+    "exit_date": "2025-09-01",
+    "exit_price": 54.34999847412109,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.010919058789586655,
+    "ticker": "TTKOM",
+    "xu100_return": 0.25209509606060143
+   },
+   {
+    "days_held": 31,
+    "entry_date": "2025-08-01",
+    "entry_month": "2025-08",
+    "entry_price": 41.34000015258789,
+    "excess": -0.10378008518309079,
+    "exit_date": "2025-09-01",
+    "exit_price": 39.09999847412109,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.054184849303310356,
+    "ticker": "AKSEN",
+    "xu100_return": 0.04959523587978043
+   },
+   {
+    "days_held": 189,
+    "entry_date": "2025-03-03",
+    "entry_month": "2025-03",
+    "entry_price": 21.990324020385746,
+    "excess": 0.1345968980437533,
+    "exit_date": "2025-09-08",
+    "exit_price": 26.144512176513672,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.1889098201680366,
+    "ticker": "EREGL",
+    "xu100_return": 0.05431292212428329
+   },
+   {
+    "days_held": 187,
+    "entry_date": "2025-04-02",
+    "entry_month": "2025-04",
+    "entry_price": 15.87371826171875,
+    "excess": -0.010284324666774536,
+    "exit_date": "2025-10-06",
+    "exit_price": 17.729999542236328,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.11694054599634729,
+    "ticker": "DOHOL",
+    "xu100_return": 0.12722487066312183
+   },
+   {
+    "days_held": 375,
+    "entry_date": "2025-01-02",
+    "entry_month": "2025-01",
+    "entry_price": 92.34500885009766,
+    "excess": -0.15221847505937758,
+    "exit_date": "2026-01-12",
+    "exit_price": 99.5500030517578,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.0780225622519124,
+    "ticker": "TCELL",
+    "xu100_return": 0.23024103731128998
+   },
+   {
+    "days_held": 121,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 92.9000015258789,
+    "excess": -0.2058272096326732,
+    "exit_date": "2026-04-01",
+    "exit_price": 89.0,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.041980640062664554,
+    "ticker": "ALARK",
+    "xu100_return": 0.16384656957000865
+   },
+   {
+    "days_held": 369,
+    "entry_date": "2025-04-02",
+    "entry_month": "2025-04",
+    "entry_price": 55.92452239990234,
+    "excess": 0.3010555351718973,
+    "exit_date": "2026-04-06",
+    "exit_price": 93.8369140625,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 1,
+    "return": 0.6779207051871734,
+    "ticker": "ENKAI",
+    "xu100_return": 0.3768651700152761
+   },
+   {
+    "days_held": 304,
+    "entry_date": "2025-08-01",
+    "entry_month": "2025-08",
+    "entry_price": 153.2460479736328,
+    "excess": 0.3229370335419257,
+    "exit_date": "2026-06-01",
+    "exit_price": 244.8999938964844,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 1,
+    "return": 0.5980835860682121,
+    "ticker": "TUPRS",
+    "xu100_return": 0.2751465525262864
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 525.4473266601562,
+    "excess": 0.03092307043986864,
+    "exit_date": "2026-06-01",
+    "exit_price": 664.0,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.2636851808163361,
+    "ticker": "MGROS",
+    "xu100_return": 0.23276211037646743
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 106.79745483398438,
+    "excess": -0.20070517373424113,
+    "exit_date": "2026-06-01",
+    "exit_price": 110.22105407714844,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": 0.03205693664222631,
+    "ticker": "ULKER",
+    "xu100_return": 0.23276211037646743
+   },
+   {
+    "days_held": 182,
+    "entry_date": "2025-12-01",
+    "entry_month": "2025-12",
+    "entry_price": 57.34999847412109,
+    "excess": -0.1691177926259455,
+    "exit_date": "2026-06-01",
+    "exit_price": 61.0,
+    "reason": "HEDEF_SURE_DOLDU",
+    "renewals": 0,
+    "return": 0.06364431775052193,
+    "ticker": "TTKOM",
+    "xu100_return": 0.23276211037646743
+   },
+   {
+    "days_held": 149,
+    "entry_date": "2026-02-02",
+    "entry_month": "2026-02",
+    "entry_price": 21.5,
+    "excess": -0.10565738277850933,
+    "exit_date": "2026-07-01",
+    "exit_price": 20.3799991607666,
+    "reason": "SKOR_ZAYIFLADI",
+    "renewals": 0,
+    "return": -0.052093062289925496,
+    "ticker": "DOHOL",
+    "xu100_return": 0.05356432048858384
+   },
+   {
+    "days_held": 178,
+    "entry_date": "2026-02-02",
+    "entry_month": "2026-02",
+    "entry_price": 113.5,
+    "excess": -0.08163909533053726,
+    "exit_date": "2026-07-30",
+    "exit_price": 101.5,
+    "reason": "ACIK_POZISYON",
+    "renewals": 0,
+    "return": -0.10572687224669608,
+    "ticker": "TCELL",
+    "xu100_return": -0.02408777691615882
+   },
+   {
+    "days_held": 150,
+    "entry_date": "2026-03-02",
+    "entry_month": "2026-03",
+    "entry_price": 31.07744026184082,
+    "excess": 0.36834235086204015,
+    "exit_date": "2026-07-30",
+    "exit_price": 42.400001525878906,
+    "reason": "ACIK_POZISYON",
+    "renewals": 0,
+    "return": 0.3643337793795316,
+    "ticker": "EREGL",
+    "xu100_return": -0.0040085714825085494
+   },
+   {
+    "days_held": 120,
+    "entry_date": "2026-04-01",
+    "entry_month": "2026-04",
+    "entry_price": 7.820000171661377,
+    "excess": -0.1796126813700495,
+    "exit_date": "2026-07-30",
+    "exit_price": 6.630000114440918,
+    "reason": "ACIK_POZISYON",
+    "renewals": 0,
+    "return": -0.1521739170202142,
+    "ticker": "TUREX",
+    "xu100_return": 0.027438764349835276
+   },
+   {
+    "days_held": 120,
+    "entry_date": "2026-04-01",
+    "entry_month": "2026-04",
+    "entry_price": 195.8000030517578,
+    "excess": -0.04939996447617623,
+    "exit_date": "2026-07-30",
+    "exit_price": 191.5,
+    "reason": "ACIK_POZISYON",
+    "renewals": 0,
+    "return": -0.021961200126340952,
+    "ticker": "KCHOL",
+    "xu100_return": 0.027438764349835276
+   },
+   {
+    "days_held": 59,
+    "entry_date": "2026-06-01",
+    "entry_month": "2026-06",
+    "entry_price": 8.789999961853027,
+    "excess": 0.06754116566698398,
+    "exit_date": "2026-07-30",
+    "exit_price": 9.119999885559082,
+    "reason": "ACIK_POZISYON",
+    "renewals": 0,
+    "return": 0.037542653599339504,
+    "ticker": "ENERY",
+    "xu100_return": -0.02999851206764448
+   },
+   {
+    "days_held": 29,
+    "entry_date": "2026-07-01",
+    "entry_month": "2026-07",
+    "entry_price": 328.5,
+    "excess": 0.012060347312546904,
+    "exit_date": "2026-07-30",
+    "exit_price": 308.25,
+    "reason": "ACIK_POZISYON",
+    "renewals": 0,
+    "return": -0.06164383561643838,
+    "ticker": "THYAO",
+    "xu100_return": -0.07370418292898528
+   }
+  ]
+ }
+}

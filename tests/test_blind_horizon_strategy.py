@@ -140,3 +140,33 @@ def test_a_later_listing_does_not_make_earlier_sessions_thin_but_a_feed_gap_does
     assert not thin.loc[days[:30]].any(), "unlisted names must not count against a session"
     assert thin.loc[days[35]]
     assert thin.sum() == 1
+
+
+def _receipt() -> dict:
+    import json
+    from pathlib import Path
+    path = Path(__file__).resolve().parents[1] / "data/audit/blind_horizon_strategy_v1/receipt.json"
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def test_the_published_run_came_from_a_committed_unmodified_script():
+    blind = _receipt()["blind_run"]
+    assert blind["modified_since_commit"] is False
+    assert len(blind["last_commit"].split()[0]) == 40
+
+
+def test_the_published_run_covers_the_whole_window_not_a_filtered_tail():
+    receipt = _receipt()
+    assert len(receipt["sessions_dropped_for_thin_stock_feed"]) <= 5
+    for result in receipt["results"].values():
+        assert result["gorulmemis_2021_08__2025_07"]["from"] == "2021-08-02"
+        assert result["tum_donem"]["to"] >= "2026-07-29"
+
+
+def test_every_horizon_and_period_is_reported_with_its_placebo():
+    results = _receipt()["results"]
+    assert set(results) == {"hedef_1_ay", "hedef_3_ay", "hedef_6_ay"}
+    for result in results.values():
+        for period in ("gorulmemis_2021_08__2025_07", "gorulmus_2025_08__2026_07", "tum_donem"):
+            assert "percentile_among_placebo" in result[period]["placebo"]
+            assert result[period]["trades"]["trades"] > 0
