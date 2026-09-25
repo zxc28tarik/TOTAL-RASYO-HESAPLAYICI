@@ -44,3 +44,13 @@ def test_all_waiting_money_goes_into_the_qualifying_name_with_no_cap():
 def test_xirr_recovers_a_known_rate():
     start = pd.Timestamp("2025-01-01")
     assert xirr([(start, -100.0), (start + pd.Timedelta(days=365), 110.0)]) == pytest.approx(0.10, abs=1e-9)
+
+
+def test_the_published_run_paid_the_same_money_into_both_books():
+    import json
+    from pathlib import Path
+    receipt = json.loads((Path(__file__).resolve().parents[1]
+                          / "data/audit/monthly_contribution_v1/receipt.json").read_text(encoding="utf-8"))
+    assert receipt["payments"] == 18
+    assert receipt["xu100"]["paid_in_tl"] == receipt["strategy"]["paid_in_tl"] == 270_000.0
+    assert receipt["rules"]["position_cap"] is None
