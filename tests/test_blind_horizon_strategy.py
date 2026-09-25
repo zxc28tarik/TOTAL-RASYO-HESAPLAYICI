@@ -7,7 +7,7 @@ import pandas as pd
 import pytest
 
 from scripts.backtest_horizon_strategy import (
-    RULES, PointInTime, phantom_moves, rescale_for_phantoms, run_strategy,
+    RULES, PointInTime, phantom_moves, rescale_for_phantoms, run_strategy, thin_sessions,
 )
 
 TICKERS = [f"T{i:02d}" for i in range(12)]
@@ -129,3 +129,14 @@ def test_the_rules_are_the_ones_the_brief_asked_for():
     assert "AL" in RULES["buy_if"] and "0.50" in RULES["buy_if"]
     assert RULES["idle_money"] == "held in XU100"
     assert RULES["unseen_period"] == ["2021-08-01", "2025-07-31"]
+
+
+def test_a_later_listing_does_not_make_earlier_sessions_thin_but_a_feed_gap_does():
+    days = pd.bdate_range("2021-08-02", periods=40)
+    adj = pd.DataFrame(1.0, index=days, columns=[f"S{i}" for i in range(10)])
+    adj.loc[days[:30], ["S8", "S9"]] = np.nan          # S8, S9 list on day 30
+    adj.loc[days[35], [f"S{i}" for i in range(9)]] = np.nan   # the feed carries 1 of 10 names
+    thin = thin_sessions(adj)
+    assert not thin.loc[days[:30]].any(), "unlisted names must not count against a session"
+    assert thin.loc[days[35]]
+    assert thin.sum() == 1

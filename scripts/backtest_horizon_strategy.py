@@ -99,6 +99,8 @@ RULES = {
                           "weighted-average base allow -- up > 1.1^k/0.9 - 1 + 0.02, down < 0.9^k/1.1 - 1 - 0.02 -- "
                           "is an unadjusted corporate action; earlier prices are rescaled as for a split. A "
                           "closure longer than 5 calendar days counts its weekdays as sessions."),
+    "thin_session_rule": ("a session on which under 90% of the names priced in the previous 10 sessions "
+                          "carry a price is dropped for strategy and benchmark alike"),
     "placebo_draws": 5000,
     "placebo_seed": 20210802,
 }
@@ -129,6 +131,20 @@ def phantom_moves(frame: pd.DataFrame, calendar: pd.DatetimeIndex) -> pd.DataFra
     down = 0.9 ** frame.sessions / 1.1 - 1.0 - 0.02
     return frame.loc[(frame.move > up) | (frame.move < down),
                      ["ticker", "trade_date", "sessions", "move"]].reset_index(drop=True)
+
+
+def thin_sessions(adj: pd.DataFrame, *, lookback: int = 10, floor: float = 0.9) -> pd.Series:
+    """A session on which the feed prices under 90% of the names that are live.
+
+    Live means priced on at least one of the previous ``lookback`` sessions, so a
+    company that lists in 2024 does not make every 2021 session look thin -- the
+    first version measured breadth against every ticker ever priced and threw
+    away 654 sessions, starting the run in 2024-03.
+    """
+    priced = adj.notna()
+    live = priced.astype(float).rolling(lookback, min_periods=1).max().shift(1).fillna(0.0).astype(bool)
+    ratio = (priced & live).sum(axis=1) / live.sum(axis=1).replace(0, np.nan)
+    return ratio.lt(floor).fillna(False)
 
 
 def rescale_for_phantoms(pivot: pd.DataFrame, events: pd.DataFrame) -> pd.DataFrame:
@@ -447,9 +463,9 @@ def build(*, output_dir: Path = OUTPUT) -> dict:
     closes = prices.pivot_table(index="trade_date", columns="ticker", values="close", aggfunc="last")
     adj = rescale_for_phantoms(adj.reindex(calendar), events)
     closes = rescale_for_phantoms(closes.reindex(calendar), events)
-    breadth = adj.loc[first:end].notna().mean(axis=1)
-    sessions = breadth.index[breadth >= 0.9]
-    dropped = [str(d.date()) for d in breadth.index[breadth < 0.9]]
+    thin = thin_sessions(adj).loc[first:end]
+    sessions = thin.index[~thin]
+    dropped = [str(d.date()) for d in thin.index[thin]]
 
     equity = load_equity(p4)
     panel = build_panel(p4, raw, equity, current_nominal())
