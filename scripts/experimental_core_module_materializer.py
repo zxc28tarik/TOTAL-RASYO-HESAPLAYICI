@@ -68,12 +68,21 @@ def _fact(raw):
     return SemanticFinancialFact(**data)
 
 
+SUPPORTED_ROUTE_FAMILIES = frozenset({'NONFIN', 'HOLDING', 'GYO'})
+
+
 def _dated_nonfin_family(routes, ticker, period_end):
     """Positive family evidence from a verified broad historical route."""
     if routes is None or routes.empty:
         return None
     required = {'ticker', 'valid_from', 'valid_to', 'sector_index_code', 'source_id'}
-    if set(routes.columns) != required:
+    # A route table may additionally declare the family outright. The three
+    # NONFIN index codes cannot express HOLDING or GYO, which the core engine
+    # does support, so a capture that knows the family from its own source may
+    # carry it. Tables without the column behave exactly as before.
+    optional = {'historical_family'}
+    columns = set(routes.columns)
+    if not required <= columns <= required | optional:
         raise ValueError('HISTORICAL_FAMILY_ROUTE_SCHEMA_MISMATCH')
     day = pd.Timestamp(period_end).normalize()
     frame = routes[routes.ticker.astype(str).str.upper().eq(str(ticker).upper())].copy()
@@ -82,7 +91,12 @@ def _dated_nonfin_family(routes, ticker, period_end):
     matches = frame[frame.valid_from.le(day) & (frame.valid_to.isna() | frame.valid_to.gt(day))]
     if len(matches) != 1:
         return None
-    return 'NONFIN' if matches.iloc[0].sector_index_code in {'XUSIN','XUHIZ','XUTEK'} else None
+    row = matches.iloc[0]
+    declared = row.historical_family if 'historical_family' in columns else None
+    if declared is not None and not pd.isna(declared) and str(declared).strip():
+        family = str(declared).strip().upper()
+        return family if family in SUPPORTED_ROUTE_FAMILIES else None
+    return 'NONFIN' if row.sector_index_code in {'XUSIN', 'XUHIZ', 'XUTEK'} else None
 
 
 def build_core_modules(reports, analysis_at, tickers, family_routes=None):

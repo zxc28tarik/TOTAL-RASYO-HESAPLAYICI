@@ -1,0 +1,108 @@
+{
+  "all_killed": true,
+  "auditor": "scripts/audit_w6_ca_gate_reachability.py",
+  "auditor_sha256": "8e5d78b16fcbb9ff6537641ac184202eafb35bb1ad0e88dfd0ceefe59b71d25a",
+  "contract": "W6_CA_GATE_REACHABILITY_MUTATION_AUDIT_V1",
+  "database_access": false,
+  "mutations_killed": 11,
+  "mutations_total": 11,
+  "network_access": false,
+  "results": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "name": "baseline",
+      "skipped": 0,
+      "status": "PASS",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 5,
+      "name": "action_subject_markers_emptied",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "coverage_completeness_gate_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "window_coverage_check_bypassed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "interval_open_end_made_inclusive_at_start",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "interval_closed_end_made_exclusive",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 3,
+      "name": "action_hits_ignored",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "gate_reachability_off_by_one",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "non_certifiable_rows_counted",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "verdict_status_hardcoded_opened",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "m2_materialized_flag_forced_true",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "day_covered_binary_search_short_circuited",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 32
+    }
+  ]
+}

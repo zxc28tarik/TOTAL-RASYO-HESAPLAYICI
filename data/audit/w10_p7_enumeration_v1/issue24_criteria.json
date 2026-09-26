@@ -1,0 +1,81 @@
+{
+  "closure_allowed": false,
+  "contract": "W10_P7_VERSION_ENUMERATION_AUDIT_V1",
+  "criteria": {
+    "exact_60_month_coverage": {
+      "measured": {
+        "cells_per_month": [
+          100
+        ],
+        "months": 60
+      },
+      "met": true
+    },
+    "explicit_gap_and_rejection_accounting": {
+      "measured": {
+        "cells": 6000,
+        "explicit_rejections": 6000
+      },
+      "met": true
+    },
+    "historical_bist100_universe_binding_per_month": {
+      "measured": {
+        "cells": 6000,
+        "distinct_tickers": 209
+      },
+      "met": true
+    },
+    "no_example_or_fixture_fallback": {
+      "measured": {
+        "example_or_fixture_sources": 0
+      },
+      "met": true
+    },
+    "pit_publication_timestamps": {
+      "measured": {
+        "published_after_cutoff": 0,
+        "with_published_at": 5990
+      },
+      "met": true
+    },
+    "pit_version_identifiers": {
+      "measured": {
+        "historical_version_enumeration_complete_true": 0,
+        "with_version_metadata": 0,
+        "without_version_metadata": 5990
+      },
+      "met": false
+    },
+    "real_source_identity_and_hashes": {
+      "measured": {
+        "distinct_archives": 22,
+        "distinct_notification_ids": 2115,
+        "selected_reports": 5990,
+        "with_member_sha256": 5990
+      },
+      "met": true
+    },
+    "sector_family_input_coverage": {
+      "measured": {
+        "family_counts": {
+          "BANK": 509,
+          "FINANCIAL": 55,
+          "GYO": 280,
+          "HOLDING": 833,
+          "INSURANCE": 82,
+          "NONFIN": 4054,
+          "None": 187
+        }
+      },
+      "met": false
+    }
+  },
+  "criteria_met": 6,
+  "criteria_total": 8,
+  "criteria_unmet": [
+    "pit_version_identifiers",
+    "sector_family_input_coverage"
+  ],
+  "issue": 24,
+  "verdict": "BLOCKED"
+}

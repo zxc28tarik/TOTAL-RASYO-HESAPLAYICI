@@ -1,0 +1,22 @@
+{
+  "command": "python scripts/audit_w7a_evidence_dating_gate.py --apply",
+  "commit": "f65341c2a913ea05c19e8bdc7fbb3b147c071879",
+  "contract": "W7A_EVIDENCE_DATING_GATE_RECEIPT_V1",
+  "generated_at": "2026-09-14T10:54:03.240459+00:00",
+  "generator_sha256": "fd0c5fb9810fa8b8856da658e7c0eae1ac730302725017cd722336c2d90664e9",
+  "hash_mode": "LF_CANONICAL_SHA256_V1",
+  "output_sha256": {
+    "attempt.json": "089228f63a8e8158800d11ee6318244f41d2e3ea72dd229a0c8c9a9f6c79c862",
+    "verdict.json": "9df46158d9dc460484c00e174c6bca587e8f4cf5b6c84734d1c097124c7c44e3"
+  },
+  "policy": {
+    "m2_materialized": false,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  }
+}

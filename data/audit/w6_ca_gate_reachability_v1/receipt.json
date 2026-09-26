@@ -1,0 +1,33 @@
+{
+  "command": "python scripts/audit_w6_ca_gate_reachability.py --apply",
+  "commit": "0c70e1607832624b1b90a9bf150271ab705a6036",
+  "contract": "W6_CA_GATE_REACHABILITY_RECEIPT_V1",
+  "coverage": {
+    "distinct_action_tickers": 699,
+    "gate_reachable_cutoffs": 60,
+    "status": "GATE_OPENED",
+    "total_action_events": 11680,
+    "total_cutoffs": 60
+  },
+  "generated_at": "2026-09-14T09:49:44.785391+00:00",
+  "generator_sha256": "e3c8fdcb0271b146564c2657776fe9c1ce4ee324c7b8ad29d18661028562e555",
+  "hash_mode": "LF_CANONICAL_SHA256_V1",
+  "manifest_sha256": "1935232295360b1026a036e725809e0e73a62253ce07145bbc1f13fd6abd1345",
+  "mutations_sha256": "e9389e5a9c379bd196e5ab37525c8381aec465c26d2260c2a748ea663a2a6972",
+  "output_sha256": {
+    "certifications.json": "188bf02e3a7d70df19803f35a0dbf2fac2f207290439615ec05ee2bc46241762",
+    "coverage.json": "48500716a7801768c7a38acd8b08f310d9bfa8f3fc61f3bf53a52d01473bb96d",
+    "systemic_bound.json": "16077283077e1f663b0355fb4da68db170655d8d22ac3824c31a248561423567",
+    "verdict.json": "dc3b720d23c279253bdb73e3318a3df7fe3670cb62a9f21f69154727d44afe2c"
+  },
+  "policy": {
+    "m2_materialized": false,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  }
+}

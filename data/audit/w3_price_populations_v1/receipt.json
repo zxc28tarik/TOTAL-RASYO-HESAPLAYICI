@@ -1,0 +1,74 @@
+{
+  "command": "python scripts/audit_w3_price_populations.py --apply",
+  "commit": "c177a1db89d63369c2b2e7e6173a121e91445d04",
+  "contract": "W3_PRICE_POPULATION_RECEIPT_V1",
+  "coverage": {
+    "admissible_alias_count": 0,
+    "blocked_execution_cells": 162,
+    "double_counted_by_naive_sum": 337,
+    "execution_cells_classified": 174,
+    "execution_reason_counts": {
+      "CALENDAR_OR_SESSION_GAP": 0,
+      "INGESTION_OR_PARSER_GAP": 0,
+      "NO_TRADING_SESSION_OR_NO_TRADE": 0,
+      "OTHER_EVIDENCED": 0,
+      "SOURCE_SYMBOL_GAP": 12,
+      "TICKER_LINEAGE": 162,
+      "UNRESOLVED_BLOCKED": 0
+    },
+    "population_counts": {
+      "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING": 174,
+      "PRICE_MISSING": 163,
+      "STOCK_WINDOW_PRICE_MISSING": 402
+    },
+    "union_cells": 402
+  },
+  "generated_at": "2026-09-13T22:39:57.262488+00:00",
+  "generator_sha256": "5e8ee0697a5d87add607d7e394484ae58980b22cd9f6be3c26c0cd59339d0336",
+  "hash_mode": "LF_CANONICAL_SHA256_V1",
+  "limitations": [
+    "This is a reconciliation audit. It resolves no cell and produces no score.",
+    "Alias-resolved price rows stay inadmissible as exact historical execution prices until corporate-action continuity is proven across the lineage boundary.",
+    "An empty corporate-action inventory is recorded as unproven continuity, never as evidence that no action occurred."
+  ],
+  "mutations_sha256": "473ab1177e89abb8e7cee36193a3b164266ad82b1b111d49f7906efec00d7d23",
+  "output_sha256": {
+    "execution_reason_codes.json": "bea1cdb5468e28b2b6c2c516eb5a92b8e684d20c76e625e97d92f134fe6381f5",
+    "intersections.json": "78ccc443a177de90a09369de090972901067baaeef4178d1ac774168fc2c6d72",
+    "lineage_admissibility.json": "43922c97ce44c845602f3b5a3faae7f394ddc31ad1479f335f20dd588007f1bf",
+    "populations.json": "ea9267152b4aff74141524e6912d6a99360ee4649b2ae25631a9c94b52caac0b",
+    "rows.jsonl": "3ef02f5c9c5ff54ee871e5c85b57474606a2ccbc9de166d1a9845b97773dd262"
+  },
+  "policy": {
+    "cells_repaired": 0,
+    "model_changed": false,
+    "neutral_fill": false,
+    "new_market_capture": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "source_paths": {
+    "bist_ticker_code_changes": "data/backtest_sources/bist_ticker_code_changes_2021-08_2026-08.csv",
+    "kap_share_class_observations": "data/backtest_sources/kap_share_class_history_v1/share_class_observations.jsonl.gz",
+    "p3_cells": "data/audit/experimental_materialization_v3/p3_cells.jsonl.gz",
+    "p4_cells": "data/audit/experimental_materialization_v3/p4_cells.jsonl.gz",
+    "readiness_report": "data/audit/experimental_readiness_v1/readiness_report.json",
+    "resolved_prices": "data/backtest_sources/yahoo_resolved/historical_member_prices_resolved_2020-07_2026-08.csv.gz",
+    "xu100_signal_dates": "data/backtest_sources/xu100_signal_dates_yahoo_2021-08_2026-07.csv",
+    "yahoo_member_actions": "data/backtest_sources/yahoo_discovery/historical_member_actions_yahoo_2020-07_2026-08.csv"
+  },
+  "source_sha256": {
+    "bist_ticker_code_changes": "8d71a1d442a1389fd0f0d65414d21fd10b6f95403aa29bda147c638a3e98fa4e",
+    "kap_share_class_observations": "cc2175d25b835d993e925ea9f5cdc4514819e79874efd32f25ff2a219c55cf0b",
+    "p3_cells": "9fbcca69b55d4312d163c4e135d69ec1063cd44d619f29e27f55fd596da832fe",
+    "p4_cells": "c9a730b4b8dc50147fc6d6d2d9ed51b767a2fe697d75856e1bb2e9c55ddfc039",
+    "readiness_report": "cff56ec758dd1a6585f1768e05602aded934b35235f64abb12337c4820ca3f9a",
+    "resolved_prices": "0b67e5104ace0a8db7da1c8160eb4b65de9d9bdebb576c5294da2bcad908a479",
+    "xu100_signal_dates": "320682828756e23e556177a9642a7b4056679edba351eb1b418c94612b1fb185",
+    "yahoo_member_actions": "08d78b181fb309246cfd271012ad7419b690fbdee168fc69d0a7defb044814e5"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "contract": "W7B_SPK_BULLETIN_EVIDENCE_V1",
+  "results": [
+    {
+      "action_evidence_sha256": "bf3991fcfacadfbd2016c306abe48908ce9e552ad3aeb422f6bde94dcdf1bbde",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 6647000000.0,
+      "normalized_shares_out": 46000000.0,
+      "raw_close": 144.5,
+      "ticker": "ALFAS"
+    },
+    {
+      "action_evidence_sha256": "2e99471395442214cc8c73a38f566c824ae8ba87484202f8163a4bbcb75a2ad0",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 196799995422.36328,
+      "normalized_shares_out": 6000000000.0,
+      "raw_close": 32.79999923706055,
+      "ticker": "ENKAI"
+    },
+    {
+      "action_evidence_sha256": "24b24ba8675331ce7b02bf350a5048024b09eb78d26723c1d70ca68d3255fbb5",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 42688001403.808586,
+      "normalized_shares_out": 460000000.0,
+      "raw_close": 92.8000030517578,
+      "ticker": "GESAN"
+    },
+    {
+      "action_evidence_sha256": "d9c654017207f2358f18088affc1a33ffd0114003d38c156222766c6742a0759",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 15932720947.265625,
+      "normalized_shares_out": 200000000.0,
+      "raw_close": 79.66360473632812,
+      "ticker": "KONTR"
+    },
+    {
+      "action_evidence_sha256": "ea4b1405517885ce8340021099213436515274242e9cd979d4e44ed649afbb50",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 15308567845.91675,
+      "normalized_shares_out": 605880000.0,
+      "raw_close": 25.26666641235352,
+      "ticker": "SMRTG"
+    },
+    {
+      "action_evidence_sha256": "c4564e92a9ceab4a722acbf33051adb3cd538cd7d8e8f34404a9bbd3ff3352b2",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 2424999952316.284,
+      "normalized_shares_out": 500000000000.0,
+      "raw_close": 4.849999904632568,
+      "ticker": "ZOREN"
+    }
+  ]
+}

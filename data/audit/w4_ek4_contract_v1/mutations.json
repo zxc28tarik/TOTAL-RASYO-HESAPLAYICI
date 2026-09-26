@@ -1,0 +1,99 @@
+{
+  "all_killed": true,
+  "auditor": "scripts/audit_w4_ek4_contract.py",
+  "auditor_sha256": "a4f9bfd1fb9fa75fc6d72215b93fa6acccb7ac446b4af0e63ebb1d696a9dfc4a",
+  "contract": "W4_EK4_CONTRACT_MUTATION_AUDIT_V1",
+  "database_access": false,
+  "mutations_killed": 10,
+  "mutations_total": 10,
+  "results": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "name": "baseline",
+      "skipped": 0,
+      "status": "PASS",
+      "tests": 27
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "recorded_return_reproduction_gate_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 27
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "missing_endpoint_price_tolerated",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 27
+    },
+    {
+      "errors": 0,
+      "failures": 4,
+      "name": "materiality_band_collapsed_to_everything",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 27
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "anomalous_negative_band_hidden",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 27
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "direction_flag_hardcoded",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 27
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "contract_verdict_hardcoded_compliant",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 27
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "shared_formula_check_assumed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 27
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "violation_list_suppressed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 27
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "live_fallback_finding_suppressed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 27
+    },
+    {
+      "errors": 0,
+      "failures": 4,
+      "name": "sector_leg_rebased_to_adjusted",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 27
+    }
+  ]
+}

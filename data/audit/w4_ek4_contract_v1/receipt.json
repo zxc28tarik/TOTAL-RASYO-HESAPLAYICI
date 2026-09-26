@@ -1,0 +1,65 @@
+{
+  "command": "python scripts/audit_w4_ek4_contract.py --apply",
+  "commit": "5e9f8da9c38e0dfdd0ffc07b1b1bf845927810ab",
+  "contract": "W4_EK4_CONTRACT_RECEIPT_V1",
+  "coverage": {
+    "band_counts": {
+      "ADJUSTMENT_IN_WINDOW": 310,
+      "ANOMALOUS_NEGATIVE": 0,
+      "NO_ADJUSTMENT_OR_ROUNDING": 5510
+    },
+    "cells_compared": 5820,
+    "contract_verdict": "COMPLIANT",
+    "contract_violation_proven": false,
+    "fallback_finding": "LIVE_SECTOR_FALLBACK_NOT_VISIBLE_IN_PROVENANCE",
+    "fallback_reachability": "NO_PRODUCTION_REACHABILITY_IN_ACTIVE_ARTIFACT_CHAIN",
+    "materially_affected_months": 49,
+    "materially_affected_tickers": 103,
+    "max_delta_score": 0.3312336659728502
+  },
+  "generated_at": "2026-09-21T06:10:37.124311+00:00",
+  "generator_sha256": "a4f9bfd1fb9fa75fc6d72215b93fa6acccb7ac446b4af0e63ebb1d696a9dfc4a",
+  "hash_mode": "LF_CANONICAL_SHA256_V1",
+  "limitations": [
+    "The raw/raw counterfactual exists only in this artifact; no Ek4 value was rewritten.",
+    "An adjusted/adjusted comparison is impossible here: the repository holds no total-return sector index series, only price indices.",
+    "Issue #39 scopes itself to price-level valuation and explicitly leaves momentum alone, so this asymmetry needs its own governance record."
+  ],
+  "mutations_sha256": "93b66fafc9f63810603915f1aa1bc89bbbd282073a40df43149d48ea671510f0",
+  "output_sha256": {
+    "contract_compliance.json": "ceebaca912dac9f204f81672d837962950952d28bbc68a2eca5890ebfc4b3f8c",
+    "fallback_visibility.json": "d21a8ba5b45536cdee454112540d5fe5fbe21ed07679835d98f19633679616a6",
+    "price_basis_comparison.json": "7f3905f57ad9ba708a26482f59da8f2f0c7bc530a124c1f551f4c4f688d0e1d0",
+    "rows.jsonl": "f68f0a415843424f511c272391b117e69c6f5845e149c87a19a3080a9e547e2c"
+  },
+  "policy": {
+    "ek4_values_rewritten": 0,
+    "model_changed": false,
+    "neutral_fill": false,
+    "new_market_capture": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "source_paths": {
+    "ek4_momentum": "src/analytics/ek4_momentum.py",
+    "ek4_replay_contract_doc": "docs/HISTORICAL_PIT_EK4_REPLAY_CONTRACT.md",
+    "historical_pit_ek4_replay": "src/analytics/historical_pit_ek4_replay.py",
+    "materialize_current_market_modules": "scripts/materialize_current_market_modules.py",
+    "p3_cells": "data/audit/experimental_materialization_v3/p3_cells.jsonl.gz",
+    "resolved_prices": "data/backtest_sources/yahoo_resolved/historical_member_prices_resolved_2020-07_2026-08.csv.gz",
+    "run_daily_pipeline": "src/analytics/run_daily_pipeline.py"
+  },
+  "source_sha256": {
+    "ek4_momentum": "710a047ddda6b56fa5ba38a0166f83e999611dbca6bbdab6e0fe59263257e725",
+    "ek4_replay_contract_doc": "d9b649e79a3e22ba07e443da44519fadc3d6a5a14df955073f1e6a29377e2d23",
+    "historical_pit_ek4_replay": "76ccbbca6b83d9d38cca1a98cb9760d2c81009a3ef2d4f63c49d0e237121b7e4",
+    "materialize_current_market_modules": "8c014b5eb7f99d62dcd3f650078914c99eedc40f2ab9e58c928de9ae93985113",
+    "p3_cells": "9fbcca69b55d4312d163c4e135d69ec1063cd44d619f29e27f55fd596da832fe",
+    "resolved_prices": "0b67e5104ace0a8db7da1c8160eb4b65de9d9bdebb576c5294da2bcad908a479",
+    "run_daily_pipeline": "d02dfa01a2e88f94c6462274ccc3deb1311aeac48cf5a52b3a524e86964461c0"
+  }
+}

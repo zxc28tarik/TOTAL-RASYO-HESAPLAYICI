@@ -1,0 +1,2302 @@
+{
+ "A_yarisi_30_kalani_70": [
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 101.52662658691406,
+   "exit_date": "2025-03-24",
+   "exits": [
+    {
+     "date": "2025-03-24",
+     "price": 86.143798828125,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15151520616732272,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 127.5999984741211,
+   "exit_date": "2025-04-29",
+   "exits": [
+    {
+     "date": "2025-04-29",
+     "price": 116.4000015258789,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.08777427180387998,
+   "ticker": "ARCLK"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 247.1999969482422,
+   "exit_date": "2025-05-02",
+   "exits": [
+    {
+     "date": "2025-05-02",
+     "price": 232.8999938964844,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05784790949957774,
+   "ticker": "PGSUS"
+  },
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 306.4974060058594,
+   "exit_date": "2025-06-16",
+   "exits": [
+    {
+     "date": "2025-06-16",
+     "price": 262.5448303222656,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.1434027656428306,
+   "ticker": "THYAO"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 167.7845458984375,
+   "exit_date": "2025-06-20",
+   "exits": [
+    {
+     "date": "2025-06-20",
+     "price": 143.30084228515625,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.14592347276191697,
+   "ticker": "DOAS"
+  },
+  {
+   "entry_date": "2025-03-11",
+   "entry_price": 507.6264343261719,
+   "exit_date": "2025-09-10",
+   "exits": [
+    {
+     "date": "2025-09-10",
+     "price": 428.2053527832031,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15645576386973048,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 54.95000076293945,
+   "exit_date": "2025-09-15",
+   "exits": [
+    {
+     "date": "2025-09-15",
+     "price": 52.0,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05368518147371992,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 21.990324020385746,
+   "exit_date": "2025-11-11",
+   "exits": [
+    {
+     "date": "2025-08-20",
+     "price": 28.90694999694824,
+     "reason": "KAR_AL_YARISI",
+     "share": 0.5
+    },
+    {
+     "date": "2025-11-11",
+     "price": 24.151609420776367,
+     "reason": "IZ_SUREN_STOP",
+     "share": 0.5
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.20640694899578538,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 41.34000015258789,
+   "exit_date": "2026-01-02",
+   "exits": [
+    {
+     "date": "2025-11-04",
+     "price": 57.5,
+     "reason": "KAR_AL_YARISI",
+     "share": 0.5
+    },
+    {
+     "date": "2026-01-02",
+     "price": 68.9000015258789,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 0.5
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.528785692541492,
+   "ticker": "AKSEN"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 55.92452239990234,
+   "exit_date": "2026-02-02",
+   "exits": [
+    {
+     "date": "2025-10-27",
+     "price": 73.5228042602539,
+     "reason": "KAR_AL_YARISI",
+     "share": 0.5
+    },
+    {
+     "date": "2026-02-02",
+     "price": 92.27296447753906,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 0.5
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.4823172521012222,
+   "ticker": "ENKAI"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 106.79745483398438,
+   "exit_date": "2026-03-13",
+   "exits": [
+    {
+     "date": "2026-03-13",
+     "price": 103.65914916992188,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.0293855847870248,
+   "ticker": "ULKER"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 92.9000015258789,
+   "exit_date": "2026-03-16",
+   "exits": [
+    {
+     "date": "2026-03-16",
+     "price": 89.0999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.040904230240504935,
+   "ticker": "ALARK"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 57.34999847412109,
+   "exit_date": "2026-03-25",
+   "exits": [
+    {
+     "date": "2026-03-25",
+     "price": 58.79999923706055,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.025283361839909535,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 153.2460479736328,
+   "exit_date": "2026-04-14",
+   "exits": [
+    {
+     "date": "2026-01-14",
+     "price": 209.89273071289065,
+     "reason": "KAR_AL_YARISI",
+     "share": 0.5
+    },
+    {
+     "date": "2026-04-14",
+     "price": 267.5,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 0.5
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.5576020948841365,
+   "ticker": "TUPRS"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 7.820000171661377,
+   "exit_date": "2026-05-22",
+   "exits": [
+    {
+     "date": "2026-05-22",
+     "price": 8.0600004196167,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.030690568118534323,
+   "ticker": "TUREX"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 87.48979949951172,
+   "exit_date": "2026-06-01",
+   "exits": [
+    {
+     "date": "2026-01-27",
+     "price": 114.4000015258789,
+     "reason": "KAR_AL_YARISI",
+     "share": 0.5
+    },
+    {
+     "date": "2026-06-01",
+     "price": 102.5999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 0.5
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.24014457251791432,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 15.87371826171875,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-01-27",
+     "price": 21.18000030517578,
+     "reason": "KAR_AL_YARISI",
+     "share": 0.5
+    },
+    {
+     "date": "2026-07-30",
+     "price": 21.26000022888184,
+     "reason": "ACIK",
+     "share": 0.5
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.3368008627319041,
+   "ticker": "DOHOL"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 525.4473266601562,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-02-17",
+     "price": 683.3795166015625,
+     "reason": "KAR_AL_YARISI",
+     "share": 0.5
+    },
+    {
+     "date": "2026-07-30",
+     "price": 623.0,
+     "reason": "ACIK",
+     "share": 0.5
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.24311177383388838,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2026-03-02",
+   "entry_price": 31.07744026184082,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-05-11",
+     "price": 40.3118782043457,
+     "reason": "KAR_AL_YARISI",
+     "share": 0.5
+    },
+    {
+     "date": "2026-07-30",
+     "price": 42.400001525878906,
+     "reason": "ACIK",
+     "share": 0.5
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.33073829493905227,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 195.8000030517578,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 191.5,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.021961200126340952,
+   "ticker": "KCHOL"
+  },
+  {
+   "entry_date": "2026-06-01",
+   "entry_price": 8.789999961853027,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 9.119999885559082,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.03754265359933928,
+   "ticker": "ENERY"
+  },
+  {
+   "entry_date": "2026-07-01",
+   "entry_price": 328.5,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 308.25,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.06164383561643838,
+   "ticker": "THYAO"
+  }
+ ],
+ "B_tamami_30": [
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 101.52662658691406,
+   "exit_date": "2025-03-24",
+   "exits": [
+    {
+     "date": "2025-03-24",
+     "price": 86.143798828125,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15151520616732272,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 127.5999984741211,
+   "exit_date": "2025-04-29",
+   "exits": [
+    {
+     "date": "2025-04-29",
+     "price": 116.4000015258789,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.08777427180387998,
+   "ticker": "ARCLK"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 247.1999969482422,
+   "exit_date": "2025-05-02",
+   "exits": [
+    {
+     "date": "2025-05-02",
+     "price": 232.8999938964844,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05784790949957774,
+   "ticker": "PGSUS"
+  },
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 306.4974060058594,
+   "exit_date": "2025-06-16",
+   "exits": [
+    {
+     "date": "2025-06-16",
+     "price": 262.5448303222656,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.1434027656428306,
+   "ticker": "THYAO"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 167.7845458984375,
+   "exit_date": "2025-06-20",
+   "exits": [
+    {
+     "date": "2025-06-20",
+     "price": 143.30084228515625,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.14592347276191697,
+   "ticker": "DOAS"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 21.990324020385746,
+   "exit_date": "2025-08-20",
+   "exits": [
+    {
+     "date": "2025-08-20",
+     "price": 28.90694999694824,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.31453042575227874,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2025-03-11",
+   "entry_price": 507.6264343261719,
+   "exit_date": "2025-09-10",
+   "exits": [
+    {
+     "date": "2025-09-10",
+     "price": 428.2053527832031,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15645576386973048,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 54.95000076293945,
+   "exit_date": "2025-09-15",
+   "exits": [
+    {
+     "date": "2025-09-15",
+     "price": 52.0,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05368518147371992,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 55.92452239990234,
+   "exit_date": "2025-10-27",
+   "exits": [
+    {
+     "date": "2025-10-27",
+     "price": 73.5228042602539,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.3146791622914653,
+   "ticker": "ENKAI"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 41.34000015258789,
+   "exit_date": "2025-11-04",
+   "exits": [
+    {
+     "date": "2025-11-04",
+     "price": 57.5,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.39090468765759034,
+   "ticker": "AKSEN"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 153.2460479736328,
+   "exit_date": "2026-01-14",
+   "exits": [
+    {
+     "date": "2026-01-14",
+     "price": 209.89273071289065,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.36964530888916847,
+   "ticker": "TUPRS"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 15.87371826171875,
+   "exit_date": "2026-01-27",
+   "exits": [
+    {
+     "date": "2026-01-27",
+     "price": 21.18000030517578,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.33428097664135326,
+   "ticker": "DOHOL"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 87.48979949951172,
+   "exit_date": "2026-01-27",
+   "exits": [
+    {
+     "date": "2026-01-27",
+     "price": 114.4000015258789,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.3075810229341922,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-11-03",
+   "entry_price": 73.5228042602539,
+   "exit_date": "2026-02-02",
+   "exits": [
+    {
+     "date": "2026-02-02",
+     "price": 92.27296447753906,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.2550250960356988,
+   "ticker": "ENKAI"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 525.4473266601562,
+   "exit_date": "2026-02-17",
+   "exits": [
+    {
+     "date": "2026-02-17",
+     "price": 683.3795166015625,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.3005671204861835,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 106.79745483398438,
+   "exit_date": "2026-03-13",
+   "exits": [
+    {
+     "date": "2026-03-13",
+     "price": 103.65914916992188,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.0293855847870248,
+   "ticker": "ULKER"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 92.9000015258789,
+   "exit_date": "2026-03-16",
+   "exits": [
+    {
+     "date": "2026-03-16",
+     "price": 89.0999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.040904230240504935,
+   "ticker": "ALARK"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 57.34999847412109,
+   "exit_date": "2026-03-25",
+   "exits": [
+    {
+     "date": "2026-03-25",
+     "price": 58.79999923706055,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.025283361839909535,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2026-03-02",
+   "entry_price": 31.07744026184082,
+   "exit_date": "2026-05-11",
+   "exits": [
+    {
+     "date": "2026-05-11",
+     "price": 40.3118782043457,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.2971428104985727,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 7.820000171661377,
+   "exit_date": "2026-05-22",
+   "exits": [
+    {
+     "date": "2026-05-22",
+     "price": 8.0600004196167,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.0306905681185341,
+   "ticker": "TUREX"
+  },
+  {
+   "entry_date": "2026-02-02",
+   "entry_price": 113.5,
+   "exit_date": "2026-06-01",
+   "exits": [
+    {
+     "date": "2026-06-01",
+     "price": 102.5999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.09603525573461591,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2026-02-02",
+   "entry_price": 220.55548095703125,
+   "exit_date": "2026-06-24",
+   "exits": [
+    {
+     "date": "2026-06-24",
+     "price": 216.8000030517578,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.01702736150095996,
+   "ticker": "TUPRS"
+  },
+  {
+   "entry_date": "2026-02-02",
+   "entry_price": 21.5,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 21.26000022888184,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.011162780052007437,
+   "ticker": "DOHOL"
+  },
+  {
+   "entry_date": "2026-03-02",
+   "entry_price": 648.1179809570312,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 623.0,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.03875526014560071,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 195.8000030517578,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 191.5,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.021961200126340952,
+   "ticker": "KCHOL"
+  },
+  {
+   "entry_date": "2026-06-01",
+   "entry_price": 8.789999961853027,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 9.119999885559082,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.03754265359933928,
+   "ticker": "ENERY"
+  },
+  {
+   "entry_date": "2026-07-01",
+   "entry_price": 328.5,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 308.25,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.06164383561643849,
+   "ticker": "THYAO"
+  }
+ ],
+ "C_tamami_50": [
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 101.52662658691406,
+   "exit_date": "2025-03-24",
+   "exits": [
+    {
+     "date": "2025-03-24",
+     "price": 86.143798828125,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15151520616732272,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 127.5999984741211,
+   "exit_date": "2025-04-29",
+   "exits": [
+    {
+     "date": "2025-04-29",
+     "price": 116.4000015258789,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.08777427180387998,
+   "ticker": "ARCLK"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 247.1999969482422,
+   "exit_date": "2025-05-02",
+   "exits": [
+    {
+     "date": "2025-05-02",
+     "price": 232.8999938964844,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05784790949957774,
+   "ticker": "PGSUS"
+  },
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 306.4974060058594,
+   "exit_date": "2025-06-16",
+   "exits": [
+    {
+     "date": "2025-06-16",
+     "price": 262.5448303222656,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.1434027656428306,
+   "ticker": "THYAO"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 167.7845458984375,
+   "exit_date": "2025-06-20",
+   "exits": [
+    {
+     "date": "2025-06-20",
+     "price": 143.30084228515625,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.14592347276191697,
+   "ticker": "DOAS"
+  },
+  {
+   "entry_date": "2025-03-11",
+   "entry_price": 507.6264343261719,
+   "exit_date": "2025-09-10",
+   "exits": [
+    {
+     "date": "2025-09-10",
+     "price": 428.2053527832031,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15645576386973048,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 54.95000076293945,
+   "exit_date": "2025-09-15",
+   "exits": [
+    {
+     "date": "2025-09-15",
+     "price": 52.0,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05368518147371992,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 21.990324020385746,
+   "exit_date": "2025-11-11",
+   "exits": [
+    {
+     "date": "2025-11-11",
+     "price": 24.151609420776367,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.09828347223929224,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 41.34000015258789,
+   "exit_date": "2025-12-05",
+   "exits": [
+    {
+     "date": "2025-12-05",
+     "price": 62.25,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.5058055096814784,
+   "ticker": "AKSEN"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 55.92452239990234,
+   "exit_date": "2026-01-29",
+   "exits": [
+    {
+     "date": "2026-01-29",
+     "price": 91.93085479736328,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.6438379954322833,
+   "ticker": "ENKAI"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 153.2460479736328,
+   "exit_date": "2026-01-29",
+   "exits": [
+    {
+     "date": "2026-01-29",
+     "price": 238.6148834228516,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.5570703882941708,
+   "ticker": "TUPRS"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 106.79745483398438,
+   "exit_date": "2026-03-13",
+   "exits": [
+    {
+     "date": "2026-03-13",
+     "price": 103.65914916992188,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.02938558478702491,
+   "ticker": "ULKER"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 92.9000015258789,
+   "exit_date": "2026-03-16",
+   "exits": [
+    {
+     "date": "2026-03-16",
+     "price": 89.0999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.040904230240504935,
+   "ticker": "ALARK"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 57.34999847412109,
+   "exit_date": "2026-03-25",
+   "exits": [
+    {
+     "date": "2026-03-25",
+     "price": 58.79999923706055,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.025283361839909535,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 15.87371826171875,
+   "exit_date": "2026-05-07",
+   "exits": [
+    {
+     "date": "2026-05-07",
+     "price": 24.479999542236328,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.5421717293088533,
+   "ticker": "DOHOL"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 7.820000171661377,
+   "exit_date": "2026-05-22",
+   "exits": [
+    {
+     "date": "2026-05-22",
+     "price": 8.0600004196167,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.0306905681185341,
+   "ticker": "TUREX"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 87.48979949951172,
+   "exit_date": "2026-06-01",
+   "exits": [
+    {
+     "date": "2026-06-01",
+     "price": 102.5999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.17270812210163666,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2026-02-02",
+   "entry_price": 220.55548095703125,
+   "exit_date": "2026-06-24",
+   "exits": [
+    {
+     "date": "2026-06-24",
+     "price": 216.8000030517578,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.017027361500959848,
+   "ticker": "TUPRS"
+  },
+  {
+   "entry_date": "2026-02-02",
+   "entry_price": 92.27296447753906,
+   "exit_date": "2026-07-10",
+   "exits": [
+    {
+     "date": "2026-07-10",
+     "price": 90.3000030517578,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.021381792998116156,
+   "ticker": "ENKAI"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 525.4473266601562,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 623.0,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.1856564271815926,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2026-03-02",
+   "entry_price": 31.07744026184082,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 42.400001525878906,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.3643337793795316,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 195.8000030517578,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 191.5,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.021961200126340952,
+   "ticker": "KCHOL"
+  },
+  {
+   "entry_date": "2026-06-01",
+   "entry_price": 22.5,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 21.26000022888184,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.055111100938584956,
+   "ticker": "DOHOL"
+  },
+  {
+   "entry_date": "2026-06-01",
+   "entry_price": 8.789999961853027,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 9.119999885559082,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.037542653599339504,
+   "ticker": "ENERY"
+  },
+  {
+   "entry_date": "2026-07-01",
+   "entry_price": 328.5,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 308.25,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.06164383561643838,
+   "ticker": "THYAO"
+  }
+ ],
+ "D_tamami_70": [
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 101.52662658691406,
+   "exit_date": "2025-03-24",
+   "exits": [
+    {
+     "date": "2025-03-24",
+     "price": 86.143798828125,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15151520616732272,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 127.5999984741211,
+   "exit_date": "2025-04-29",
+   "exits": [
+    {
+     "date": "2025-04-29",
+     "price": 116.4000015258789,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.08777427180387998,
+   "ticker": "ARCLK"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 247.1999969482422,
+   "exit_date": "2025-05-02",
+   "exits": [
+    {
+     "date": "2025-05-02",
+     "price": 232.8999938964844,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05784790949957774,
+   "ticker": "PGSUS"
+  },
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 306.4974060058594,
+   "exit_date": "2025-06-16",
+   "exits": [
+    {
+     "date": "2025-06-16",
+     "price": 262.5448303222656,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.1434027656428306,
+   "ticker": "THYAO"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 167.7845458984375,
+   "exit_date": "2025-06-20",
+   "exits": [
+    {
+     "date": "2025-06-20",
+     "price": 143.30084228515625,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.14592347276191697,
+   "ticker": "DOAS"
+  },
+  {
+   "entry_date": "2025-03-11",
+   "entry_price": 507.6264343261719,
+   "exit_date": "2025-09-10",
+   "exits": [
+    {
+     "date": "2025-09-10",
+     "price": 428.2053527832031,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15645576386973048,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 54.95000076293945,
+   "exit_date": "2025-09-15",
+   "exits": [
+    {
+     "date": "2025-09-15",
+     "price": 52.0,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05368518147371992,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 21.990324020385746,
+   "exit_date": "2025-11-11",
+   "exits": [
+    {
+     "date": "2025-11-11",
+     "price": 24.151609420776367,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.09828347223929224,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 41.34000015258789,
+   "exit_date": "2026-01-02",
+   "exits": [
+    {
+     "date": "2026-01-02",
+     "price": 68.9000015258789,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.6666666974253932,
+   "ticker": "AKSEN"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 55.92452239990234,
+   "exit_date": "2026-02-02",
+   "exits": [
+    {
+     "date": "2026-02-02",
+     "price": 92.27296447753906,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.6499553419109789,
+   "ticker": "ENKAI"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 106.79745483398438,
+   "exit_date": "2026-03-13",
+   "exits": [
+    {
+     "date": "2026-03-13",
+     "price": 103.65914916992188,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.02938558478702491,
+   "ticker": "ULKER"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 92.9000015258789,
+   "exit_date": "2026-03-16",
+   "exits": [
+    {
+     "date": "2026-03-16",
+     "price": 89.0999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.040904230240504935,
+   "ticker": "ALARK"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 57.34999847412109,
+   "exit_date": "2026-03-25",
+   "exits": [
+    {
+     "date": "2026-03-25",
+     "price": 58.79999923706055,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.025283361839909535,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 153.2460479736328,
+   "exit_date": "2026-04-14",
+   "exits": [
+    {
+     "date": "2026-04-14",
+     "price": 267.5,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 0.745558880879104,
+   "ticker": "TUPRS"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 7.820000171661377,
+   "exit_date": "2026-05-22",
+   "exits": [
+    {
+     "date": "2026-05-22",
+     "price": 8.0600004196167,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.0306905681185341,
+   "ticker": "TUREX"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 87.48979949951172,
+   "exit_date": "2026-06-01",
+   "exits": [
+    {
+     "date": "2026-06-01",
+     "price": 102.5999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.17270812210163666,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 15.87371826171875,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 21.26000022888184,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.3393207488224552,
+   "ticker": "DOHOL"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 525.4473266601562,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 623.0,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.1856564271815926,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2026-03-02",
+   "entry_price": 31.07744026184082,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 42.400001525878906,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.3643337793795318,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 195.8000030517578,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 191.5,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.021961200126340952,
+   "ticker": "KCHOL"
+  },
+  {
+   "entry_date": "2026-06-01",
+   "entry_price": 8.789999961853027,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 9.119999885559082,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.03754265359933928,
+   "ticker": "ENERY"
+  },
+  {
+   "entry_date": "2026-07-01",
+   "entry_price": 328.5,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 308.25,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.06164383561643838,
+   "ticker": "THYAO"
+  }
+ ],
+ "E_tamami_100": [
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 101.52662658691406,
+   "exit_date": "2025-03-24",
+   "exits": [
+    {
+     "date": "2025-03-24",
+     "price": 86.143798828125,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15151520616732272,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 127.5999984741211,
+   "exit_date": "2025-04-29",
+   "exits": [
+    {
+     "date": "2025-04-29",
+     "price": 116.4000015258789,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.08777427180387998,
+   "ticker": "ARCLK"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 247.1999969482422,
+   "exit_date": "2025-05-02",
+   "exits": [
+    {
+     "date": "2025-05-02",
+     "price": 232.8999938964844,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05784790949957774,
+   "ticker": "PGSUS"
+  },
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 306.4974060058594,
+   "exit_date": "2025-06-16",
+   "exits": [
+    {
+     "date": "2025-06-16",
+     "price": 262.5448303222656,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.1434027656428306,
+   "ticker": "THYAO"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 167.7845458984375,
+   "exit_date": "2025-06-20",
+   "exits": [
+    {
+     "date": "2025-06-20",
+     "price": 143.30084228515625,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.14592347276191697,
+   "ticker": "DOAS"
+  },
+  {
+   "entry_date": "2025-03-11",
+   "entry_price": 507.6264343261719,
+   "exit_date": "2025-09-10",
+   "exits": [
+    {
+     "date": "2025-09-10",
+     "price": 428.2053527832031,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15645576386973048,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 54.95000076293945,
+   "exit_date": "2025-09-15",
+   "exits": [
+    {
+     "date": "2025-09-15",
+     "price": 52.0,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05368518147371992,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 21.990324020385746,
+   "exit_date": "2025-11-11",
+   "exits": [
+    {
+     "date": "2025-11-11",
+     "price": 24.151609420776367,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.09828347223929224,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 106.79745483398438,
+   "exit_date": "2026-03-13",
+   "exits": [
+    {
+     "date": "2026-03-13",
+     "price": 103.65914916992188,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.02938558478702491,
+   "ticker": "ULKER"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 92.9000015258789,
+   "exit_date": "2026-03-16",
+   "exits": [
+    {
+     "date": "2026-03-16",
+     "price": 89.0999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.040904230240504935,
+   "ticker": "ALARK"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 57.34999847412109,
+   "exit_date": "2026-03-25",
+   "exits": [
+    {
+     "date": "2026-03-25",
+     "price": 58.79999923706055,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.025283361839909535,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 41.34000015258789,
+   "exit_date": "2026-04-14",
+   "exits": [
+    {
+     "date": "2026-04-14",
+     "price": 83.69999694824219,
+     "reason": "KAR_AL_TAMAMI",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "KAR_AL_TAMAMI",
+   "return": 1.0246733584736707,
+   "ticker": "AKSEN"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 7.820000171661377,
+   "exit_date": "2026-05-22",
+   "exits": [
+    {
+     "date": "2026-05-22",
+     "price": 8.0600004196167,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.0306905681185341,
+   "ticker": "TUREX"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 87.48979949951172,
+   "exit_date": "2026-06-01",
+   "exits": [
+    {
+     "date": "2026-06-01",
+     "price": 102.5999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.17270812210163666,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 153.2460479736328,
+   "exit_date": "2026-06-24",
+   "exits": [
+    {
+     "date": "2026-06-24",
+     "price": 216.8000030517578,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.4147183951462159,
+   "ticker": "TUPRS"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 55.92452239990234,
+   "exit_date": "2026-07-10",
+   "exits": [
+    {
+     "date": "2026-07-10",
+     "price": 90.3000030517578,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.6146763383341023,
+   "ticker": "ENKAI"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 15.87371826171875,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 21.26000022888184,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.3393207488224552,
+   "ticker": "DOHOL"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 525.4473266601562,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 623.0,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.1856564271815926,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2026-03-02",
+   "entry_price": 31.07744026184082,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 42.400001525878906,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.3643337793795318,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 195.8000030517578,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 191.5,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.021961200126340952,
+   "ticker": "KCHOL"
+  },
+  {
+   "entry_date": "2026-06-01",
+   "entry_price": 8.789999961853027,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 9.119999885559082,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.03754265359933928,
+   "ticker": "ENERY"
+  },
+  {
+   "entry_date": "2026-07-01",
+   "entry_price": 328.5,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 308.25,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.06164383561643838,
+   "ticker": "THYAO"
+  }
+ ],
+ "F_kar_almadan": [
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 101.52662658691406,
+   "exit_date": "2025-03-24",
+   "exits": [
+    {
+     "date": "2025-03-24",
+     "price": 86.143798828125,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15151520616732272,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 127.5999984741211,
+   "exit_date": "2025-04-29",
+   "exits": [
+    {
+     "date": "2025-04-29",
+     "price": 116.4000015258789,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.08777427180387998,
+   "ticker": "ARCLK"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 247.1999969482422,
+   "exit_date": "2025-05-02",
+   "exits": [
+    {
+     "date": "2025-05-02",
+     "price": 232.8999938964844,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05784790949957774,
+   "ticker": "PGSUS"
+  },
+  {
+   "entry_date": "2025-02-03",
+   "entry_price": 306.4974060058594,
+   "exit_date": "2025-06-16",
+   "exits": [
+    {
+     "date": "2025-06-16",
+     "price": 262.5448303222656,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.1434027656428306,
+   "ticker": "THYAO"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 167.7845458984375,
+   "exit_date": "2025-06-20",
+   "exits": [
+    {
+     "date": "2025-06-20",
+     "price": 143.30084228515625,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.14592347276191697,
+   "ticker": "DOAS"
+  },
+  {
+   "entry_date": "2025-03-11",
+   "entry_price": 507.6264343261719,
+   "exit_date": "2025-09-10",
+   "exits": [
+    {
+     "date": "2025-09-10",
+     "price": 428.2053527832031,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.15645576386973048,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 54.95000076293945,
+   "exit_date": "2025-09-15",
+   "exits": [
+    {
+     "date": "2025-09-15",
+     "price": 52.0,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.05368518147371992,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2025-03-03",
+   "entry_price": 21.990324020385746,
+   "exit_date": "2025-11-11",
+   "exits": [
+    {
+     "date": "2025-11-11",
+     "price": 24.151609420776367,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.09828347223929224,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 106.79745483398438,
+   "exit_date": "2026-03-13",
+   "exits": [
+    {
+     "date": "2026-03-13",
+     "price": 103.65914916992188,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.02938558478702491,
+   "ticker": "ULKER"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 92.9000015258789,
+   "exit_date": "2026-03-16",
+   "exits": [
+    {
+     "date": "2026-03-16",
+     "price": 89.0999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": -0.040904230240504935,
+   "ticker": "ALARK"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 57.34999847412109,
+   "exit_date": "2026-03-25",
+   "exits": [
+    {
+     "date": "2026-03-25",
+     "price": 58.79999923706055,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.025283361839909535,
+   "ticker": "TTKOM"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 7.820000171661377,
+   "exit_date": "2026-05-22",
+   "exits": [
+    {
+     "date": "2026-05-22",
+     "price": 8.0600004196167,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.0306905681185341,
+   "ticker": "TUREX"
+  },
+  {
+   "entry_date": "2025-06-02",
+   "entry_price": 87.48979949951172,
+   "exit_date": "2026-06-01",
+   "exits": [
+    {
+     "date": "2026-06-01",
+     "price": 102.5999984741211,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.17270812210163666,
+   "ticker": "TCELL"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 153.2460479736328,
+   "exit_date": "2026-06-24",
+   "exits": [
+    {
+     "date": "2026-06-24",
+     "price": 216.8000030517578,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.4147183951462159,
+   "ticker": "TUPRS"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 55.92452239990234,
+   "exit_date": "2026-07-10",
+   "exits": [
+    {
+     "date": "2026-07-10",
+     "price": 90.3000030517578,
+     "reason": "IZ_SUREN_STOP",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "IZ_SUREN_STOP",
+   "return": 0.6146763383341023,
+   "ticker": "ENKAI"
+  },
+  {
+   "entry_date": "2025-04-02",
+   "entry_price": 15.87371826171875,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 21.26000022888184,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.3393207488224552,
+   "ticker": "DOHOL"
+  },
+  {
+   "entry_date": "2025-08-01",
+   "entry_price": 41.34000015258789,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 97.0,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 1.3463957339615003,
+   "ticker": "AKSEN"
+  },
+  {
+   "entry_date": "2025-12-01",
+   "entry_price": 525.4473266601562,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 623.0,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.1856564271815926,
+   "ticker": "MGROS"
+  },
+  {
+   "entry_date": "2026-03-02",
+   "entry_price": 31.07744026184082,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 42.400001525878906,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.3643337793795318,
+   "ticker": "EREGL"
+  },
+  {
+   "entry_date": "2026-04-01",
+   "entry_price": 195.8000030517578,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 191.5,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.021961200126340952,
+   "ticker": "KCHOL"
+  },
+  {
+   "entry_date": "2026-06-01",
+   "entry_price": 8.789999961853027,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 9.119999885559082,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": 0.037542653599339504,
+   "ticker": "ENERY"
+  },
+  {
+   "entry_date": "2026-07-01",
+   "entry_price": 328.5,
+   "exit_date": "2026-07-30",
+   "exits": [
+    {
+     "date": "2026-07-30",
+     "price": 308.25,
+     "reason": "ACIK",
+     "share": 1.0
+    }
+   ],
+   "final_exit": "ACIK",
+   "return": -0.06164383561643849,
+   "ticker": "THYAO"
+  }
+ ]
+}

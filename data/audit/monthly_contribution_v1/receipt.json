@@ -1,0 +1,498 @@
+{
+ "rules": {
+  "monthly_payment_tl": 15000.0,
+  "cost_per_side": 0.002,
+  "position_cap": null,
+  "buy": "AL and P/B in the cheaper half, not held; all waiting money split equally",
+  "waiting_money": "XU100",
+  "sell": "half at +30%, rest at +70%, 20% trailing stop"
+ },
+ "payments": 18,
+ "first_payment": "2025-02-03",
+ "last_payment": "2026-07-01",
+ "valued_at": "2026-07-30",
+ "xu100": {
+  "paid_in_tl": 270000.0,
+  "ending_value_tl": 319095.93,
+  "profit_tl": 49095.93,
+  "profit_on_paid_in": 0.18183677831772505,
+  "money_weighted_annual_return": 0.2312109408174322
+ },
+ "strategy": {
+  "paid_in_tl": 270000.0,
+  "ending_value_tl": 342971.52,
+  "profit_tl": 72971.52,
+  "profit_on_paid_in": 0.2702648971855204,
+  "money_weighted_annual_return": 0.34295210040397894
+ },
+ "strategy_open_positions_tl": {
+  "DOHOL": 3328.25,
+  "MGROS": 16027.23,
+  "EREGL": 81611.14,
+  "KCHOL": 45851.03,
+  "ENERY": 182162.82,
+  "THYAO": 13991.06
+ },
+ "month_end": {
+  "2025-02": {
+   "yatirilan_toplam_tl": 15000.0,
+   "xu100_tl": 14793.0,
+   "strateji_tl": 14434.0
+  },
+  "2025-03": {
+   "yatirilan_toplam_tl": 30000.0,
+   "xu100_tl": 29384.0,
+   "strateji_tl": 29361.0
+  },
+  "2025-04": {
+   "yatirilan_toplam_tl": 45000.0,
+   "xu100_tl": 41887.0,
+   "strateji_tl": 41472.0
+  },
+  "2025-05": {
+   "yatirilan_toplam_tl": 60000.0,
+   "xu100_tl": 56344.0,
+   "strateji_tl": 55736.0
+  },
+  "2025-06": {
+   "yatirilan_toplam_tl": 75000.0,
+   "xu100_tl": 78678.0,
+   "strateji_tl": 75630.0
+  },
+  "2025-07": {
+   "yatirilan_toplam_tl": 90000.0,
+   "xu100_tl": 100917.0,
+   "strateji_tl": 91150.0
+  },
+  "2025-08": {
+   "yatirilan_toplam_tl": 105000.0,
+   "xu100_tl": 121759.0,
+   "strateji_tl": 107559.0
+  },
+  "2025-09": {
+   "yatirilan_toplam_tl": 120000.0,
+   "xu100_tl": 133397.0,
+   "strateji_tl": 122262.0
+  },
+  "2025-10": {
+   "yatirilan_toplam_tl": 135000.0,
+   "xu100_tl": 147543.0,
+   "strateji_tl": 146724.0
+  },
+  "2025-11": {
+   "yatirilan_toplam_tl": 150000.0,
+   "xu100_tl": 161315.0,
+   "strateji_tl": 160711.0
+  },
+  "2025-12": {
+   "yatirilan_toplam_tl": 165000.0,
+   "xu100_tl": 181851.0,
+   "strateji_tl": 182368.0
+  },
+  "2026-01": {
+   "yatirilan_toplam_tl": 180000.0,
+   "xu100_tl": 241477.0,
+   "strateji_tl": 237575.0
+  },
+  "2026-02": {
+   "yatirilan_toplam_tl": 195000.0,
+   "xu100_tl": 254451.0,
+   "strateji_tl": 246750.0
+  },
+  "2026-03": {
+   "yatirilan_toplam_tl": 210000.0,
+   "xu100_tl": 251607.0,
+   "strateji_tl": 233743.0
+  },
+  "2026-04": {
+   "yatirilan_toplam_tl": 225000.0,
+   "xu100_tl": 300806.0,
+   "strateji_tl": 285492.0
+  },
+  "2026-05": {
+   "yatirilan_toplam_tl": 240000.0,
+   "xu100_tl": 298798.0,
+   "strateji_tl": 301037.0
+  },
+  "2026-06": {
+   "yatirilan_toplam_tl": 255000.0,
+   "xu100_tl": 324262.0,
+   "strateji_tl": 359399.0
+  },
+  "2026-07": {
+   "yatirilan_toplam_tl": 270000.0,
+   "xu100_tl": 319096.0,
+   "strateji_tl": 342972.0
+  }
+ },
+ "trades": [
+  {
+   "hisse": "TCELL",
+   "islem": "AL",
+   "tarih": "2025-02-03",
+   "neden": "2025-02",
+   "tl": 7485.0,
+   "fiyat": 101.52662658691406
+  },
+  {
+   "hisse": "THYAO",
+   "islem": "AL",
+   "tarih": "2025-02-03",
+   "neden": "2025-02",
+   "tl": 7485.0,
+   "fiyat": 306.4974060058594
+  },
+  {
+   "hisse": "PGSUS",
+   "islem": "AL",
+   "tarih": "2025-03-03",
+   "neden": "2025-03",
+   "tl": 4990.0,
+   "fiyat": 247.1999969482422
+  },
+  {
+   "hisse": "EREGL",
+   "islem": "AL",
+   "tarih": "2025-03-03",
+   "neden": "2025-03",
+   "tl": 4990.0,
+   "fiyat": 21.990324020385746
+  },
+  {
+   "hisse": "ARCLK",
+   "islem": "AL",
+   "tarih": "2025-03-03",
+   "neden": "2025-03",
+   "tl": 4990.0,
+   "fiyat": 127.5999984741211
+  },
+  {
+   "hisse": "TCELL",
+   "islem": "SAT",
+   "tarih": "2025-03-24",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 6325.53,
+   "fiyat": 86.143798828125
+  },
+  {
+   "hisse": "MGROS",
+   "islem": "AL",
+   "tarih": "2025-03-24",
+   "neden": "2025-03",
+   "tl": 6300.25,
+   "fiyat": 466.7829284667969
+  },
+  {
+   "hisse": "ENKAI",
+   "islem": "AL",
+   "tarih": "2025-04-02",
+   "neden": "2025-04",
+   "tl": 4990.0,
+   "fiyat": 55.92452239990234
+  },
+  {
+   "hisse": "DOAS",
+   "islem": "AL",
+   "tarih": "2025-04-02",
+   "neden": "2025-04",
+   "tl": 4990.0,
+   "fiyat": 167.7845458984375
+  },
+  {
+   "hisse": "DOHOL",
+   "islem": "AL",
+   "tarih": "2025-04-02",
+   "neden": "2025-04",
+   "tl": 4990.0,
+   "fiyat": 15.87371826171875
+  },
+  {
+   "hisse": "ARCLK",
+   "islem": "SAT",
+   "tarih": "2025-04-29",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 4533.82,
+   "fiyat": 116.4000015258789
+  },
+  {
+   "hisse": "PGSUS",
+   "islem": "SAT",
+   "tarih": "2025-05-02",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 4682.55,
+   "fiyat": 232.8999938964844
+  },
+  {
+   "hisse": "TTKOM",
+   "islem": "AL",
+   "tarih": "2025-06-02",
+   "neden": "2025-06",
+   "tl": 19336.99,
+   "fiyat": 54.95000076293945
+  },
+  {
+   "hisse": "TCELL",
+   "islem": "AL",
+   "tarih": "2025-06-02",
+   "neden": "2025-06",
+   "tl": 19336.99,
+   "fiyat": 87.48979949951172
+  },
+  {
+   "hisse": "THYAO",
+   "islem": "SAT",
+   "tarih": "2025-06-16",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 6386.01,
+   "fiyat": 262.5448303222656
+  },
+  {
+   "hisse": "DOAS",
+   "islem": "SAT",
+   "tarih": "2025-06-20",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 4244.81,
+   "fiyat": 143.30084228515625
+  },
+  {
+   "hisse": "AKSEN",
+   "islem": "AL",
+   "tarih": "2025-08-01",
+   "neden": "2025-08",
+   "tl": 21588.86,
+   "fiyat": 41.34000015258789
+  },
+  {
+   "hisse": "TUPRS",
+   "islem": "AL",
+   "tarih": "2025-08-01",
+   "neden": "2025-08",
+   "tl": 21588.86,
+   "fiyat": 153.2460479736328
+  },
+  {
+   "hisse": "EREGL",
+   "islem": "SAT",
+   "tarih": "2025-08-20",
+   "neden": "KAR_AL_YARISI",
+   "tl": 3266.65,
+   "fiyat": 28.90694999694824
+  },
+  {
+   "hisse": "MGROS",
+   "islem": "SAT",
+   "tarih": "2025-09-10",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 5756.47,
+   "fiyat": 428.2053527832031
+  },
+  {
+   "hisse": "TTKOM",
+   "islem": "SAT",
+   "tarih": "2025-09-15",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 18225.76,
+   "fiyat": 52.0
+  },
+  {
+   "hisse": "ENKAI",
+   "islem": "SAT",
+   "tarih": "2025-10-27",
+   "neden": "KAR_AL_YARISI",
+   "tl": 3267.02,
+   "fiyat": 73.5228042602539
+  },
+  {
+   "hisse": "AKSEN",
+   "islem": "SAT",
+   "tarih": "2025-11-04",
+   "neden": "KAR_AL_YARISI",
+   "tl": 14954.02,
+   "fiyat": 57.5
+  },
+  {
+   "hisse": "EREGL",
+   "islem": "SAT",
+   "tarih": "2025-11-11",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 2729.27,
+   "fiyat": 24.151609420776367
+  },
+  {
+   "hisse": "ALARK",
+   "islem": "AL",
+   "tarih": "2025-12-01",
+   "neden": "2025-12",
+   "tl": 27143.66,
+   "fiyat": 92.9000015258789
+  },
+  {
+   "hisse": "MGROS",
+   "islem": "AL",
+   "tarih": "2025-12-01",
+   "neden": "2025-12",
+   "tl": 27143.66,
+   "fiyat": 525.4473266601562
+  },
+  {
+   "hisse": "ULKER",
+   "islem": "AL",
+   "tarih": "2025-12-01",
+   "neden": "2025-12",
+   "tl": 27143.66,
+   "fiyat": 106.79745483398438
+  },
+  {
+   "hisse": "TTKOM",
+   "islem": "AL",
+   "tarih": "2025-12-01",
+   "neden": "2025-12",
+   "tl": 27143.66,
+   "fiyat": 57.34999847412109
+  },
+  {
+   "hisse": "AKSEN",
+   "islem": "SAT",
+   "tarih": "2026-01-02",
+   "neden": "KAR_AL_TAMAMI",
+   "tl": 17918.82,
+   "fiyat": 68.9000015258789
+  },
+  {
+   "hisse": "TUPRS",
+   "islem": "SAT",
+   "tarih": "2026-01-14",
+   "neden": "KAR_AL_YARISI",
+   "tl": 14725.46,
+   "fiyat": 209.89273071289065
+  },
+  {
+   "hisse": "DOHOL",
+   "islem": "SAT",
+   "tarih": "2026-01-27",
+   "neden": "KAR_AL_YARISI",
+   "tl": 3315.73,
+   "fiyat": 21.18000030517578
+  },
+  {
+   "hisse": "TCELL",
+   "islem": "SAT",
+   "tarih": "2026-01-27",
+   "neden": "KAR_AL_YARISI",
+   "tl": 12591.82,
+   "fiyat": 114.4000015258789
+  },
+  {
+   "hisse": "ENKAI",
+   "islem": "SAT",
+   "tarih": "2026-02-02",
+   "neden": "KAR_AL_TAMAMI",
+   "tl": 4100.19,
+   "fiyat": 92.27296447753906
+  },
+  {
+   "hisse": "MGROS",
+   "islem": "SAT",
+   "tarih": "2026-02-17",
+   "neden": "KAR_AL_YARISI",
+   "tl": 17580.54,
+   "fiyat": 683.3795166015625
+  },
+  {
+   "hisse": "EREGL",
+   "islem": "AL",
+   "tarih": "2026-03-02",
+   "neden": "2026-03",
+   "tl": 120115.13,
+   "fiyat": 31.07744026184082
+  },
+  {
+   "hisse": "ULKER",
+   "islem": "SAT",
+   "tarih": "2026-03-13",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 26240.75,
+   "fiyat": 103.65914916992188
+  },
+  {
+   "hisse": "ALARK",
+   "islem": "SAT",
+   "tarih": "2026-03-16",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 25929.34,
+   "fiyat": 89.0999984741211
+  },
+  {
+   "hisse": "TTKOM",
+   "islem": "SAT",
+   "tarih": "2026-03-25",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 27718.73,
+   "fiyat": 58.79999923706055
+  },
+  {
+   "hisse": "TUREX",
+   "islem": "AL",
+   "tarih": "2026-04-01",
+   "neden": "2026-04",
+   "tl": 47068.67,
+   "fiyat": 7.820000171661377
+  },
+  {
+   "hisse": "KCHOL",
+   "islem": "AL",
+   "tarih": "2026-04-01",
+   "neden": "2026-04",
+   "tl": 47068.67,
+   "fiyat": 195.8000030517578
+  },
+  {
+   "hisse": "TUPRS",
+   "islem": "SAT",
+   "tarih": "2026-04-14",
+   "neden": "KAR_AL_TAMAMI",
+   "tl": 18767.01,
+   "fiyat": 267.5
+  },
+  {
+   "hisse": "EREGL",
+   "islem": "SAT",
+   "tarih": "2026-05-11",
+   "neden": "KAR_AL_YARISI",
+   "tl": 77591.94,
+   "fiyat": 40.3118782043457
+  },
+  {
+   "hisse": "TUREX",
+   "islem": "SAT",
+   "tarih": "2026-05-22",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 48319.37,
+   "fiyat": 8.0600004196167
+  },
+  {
+   "hisse": "TCELL",
+   "islem": "SAT",
+   "tarih": "2026-06-01",
+   "neden": "IZ_SUREN_STOP",
+   "tl": 11293.01,
+   "fiyat": 102.5999984741211
+  },
+  {
+   "hisse": "ENERY",
+   "islem": "AL",
+   "tarih": "2026-06-01",
+   "neden": "2026-06",
+   "tl": 176275.8,
+   "fiyat": 8.789999961853027
+  },
+  {
+   "hisse": "THYAO",
+   "islem": "AL",
+   "tarih": "2026-07-01",
+   "neden": "2026-07",
+   "tl": 14970.0,
+   "fiyat": 328.5
+  }
+ ]
+}

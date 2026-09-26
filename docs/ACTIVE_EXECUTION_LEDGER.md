@@ -23,14 +23,199 @@ birlikte güncellenir.
   da başarılıdır. Yeni bir çalışma head'i oluştuğunda panoda ayrıca
   `current_head` ve `last_ci_pass_head` tutulur; bu iki değer farklıysa durum
   `CI_PENDING` kabul edilir.
-- Aktif canlı/current sonuç: 49 kullanılabilir NONFIN valuation, 48 FOLLOW,
-  48 gerçek M2, 11 Ek9, 2 Total/ranking (`RGYAS`, `TABGD`) ve 805 açık ret.
-- Tarihsel PIT M2 hâlâ 0'dır. Canlı 48 M2 ile tarihsel sonuçlar aynı başarı
+- Aktif canlı/current sonuç (2026-09-16 tam yeniden çekim, bkz. §1.2):
+  185 kullanılabilir NONFIN valuation, 72 FOLLOW, 72 gerçek M2, 138 M1/Ek1,
+  416 M3, 428 Ek4, 131 Ek9, **68 Total/ranking** ve 739 açık ret.
+  Önceki 49/48/48/11/2/805 anlık görüntüsü `bd8d2b5` commit'inde dondurulmuş
+  durumda ve W1/W2 denetimleri artık canlı ağacı değil o commit'i doğruluyor.
+- Tarihsel PIT M2 hâlâ 0'dır. Canlı 72 M2 ile tarihsel sonuçlar aynı başarı
   sayacı altında birleştirilemez.
 
 `e55d1df` sabit bir çalışma tabanı değil, doğrulanmış başlangıç referansıdır.
 Her yeni çalışma önce `git fetch` yapar. Uzak dal ilerideyse mevcut işi
 ezmeden en güncel doğrulanmış head'den devam eder.
+
+### 1.4 Canlı kapsam 232 → 372 (2026-09-23): iki düzeltme, biri yönetişim kararı
+
+**Kullanıcı talimatı:** "matematiği en az değiştiren şekilde en uygun çözümü
+bul, sorunu çöz". Yani M2 coverage eşiği kararı bu talimatla **yetkilendirildi**;
+§2'nin "ayrı ve açık yönetişim kararı" şartı bu şekilde karşılanmıştır.
+
+**1. Sessizce düşürülen fact ailesi (hata, karar değil).**
+`materialize_current_nonfin_valuation` yalnız `sector_family == "NONFIN"`
+etiketli fact'leri seçiyordu; oysa holding'ler **HOLDING** ailesi altında
+raporlar. Fact listesi boş dönüyor, kod da boş dizide `max()` çağırıp
+**çöküyordu** — receipt'e reason code değil yığın izi yazılıyordu. KCHOL,
+SAHOL, SISE, TCELL, TKFEN, DOHOL, POLHO'nun her birinin arşivde **276 gerçek
+HOLDING fact'i** duruyordu. Teknik aile artık fact'lerin kendisinden geliyor ve
+türetme config'ini seçiyor — `build_core_modules` bunu zaten böyle yapıyordu.
+Boş/çelişkili küme `TECHNICAL_FAMILY_FACTS_ABSENT` ve
+`TECHNICAL_FAMILY_CONFLICTING` oldu: 10 çöküş → 3 dürüst ret (gerçekten hiç
+fact'i olmayan 3 ticker). Kurtarılan 7 holding'in 6'sı tam Total Rasyo alıyor.
+
+**2. Coverage kapısı kazanç tabanlı çarpan şart koşuyordu (yönetişim kararı).**
+Coverage weight, kullanılabilir çarpanların ağırlık toplamıdır. Zarar eden bir
+ihraççı için PE (.30) ve EV/EBIT (.30) **eksik veri değil, tanımsız** — negatif
+denominatör değerleme taşımaz. 0,5 eşiği bu yüzden "en az bir kazanç tabanlı
+çarpan" demek oluyordu ve bilançosu ne kadar sağlam olursa olsun **her zarar
+edeni** dışlıyordu, çünkü PB+PS = 0,4. Gerçek satırlarda ölçüldü: 157 retten
+**139'u** PB ve PS'i birlikte taşıyor, ikisi de **191 peer** ile
+(`minimum_peer_count` 5).
+
+Current hat artık **kendi config'ini** kullanıyor
+(`config/nonfin_valuation.current_full_bist_v1.json`); dondurulmuş
+`kap_bulk_exact_v1`'den **tek anahtarda** ayrılıyor —
+`minimum_coverage_weight` 0,5 → 0,4 — böylece W2, W5, W7-B ve W7-C donduruldukları
+config'e karşı doğrulanmaya devam ediyor. Kapı "en az bir kazanç tabanlı
+çarpan" yerine **"en az iki bağımsız, tam peer'lı çarpan"** oluyor; tek çarpan
+(0,2) hâlâ fail-closed. Dört test tek-anahtar farkını, PB+PS'in tam kapıya eşit
+olduğunu, hiçbir tek çarpanın kapıya ulaşamadığını ve denetimlerin hâlâ
+dondurulmuş config'i okuduğunu sabitliyor.
+
+**Kontrol deneyiyle kanıtlandı — kapı saf toplamsal.** Aynı tazelenmiş girdiler
+iki config'le koşturuldu; kapı dışındaki her parametre ve her girdi hash'i
+aynı. Kapının aldığı **140 satırın hepsi tam 0,4 coverage'da**, ve 0,5
+kapısının ürettiği her valuation bandı ile her M2 skoru 0,4 altında **birebir
+aynı**. Kontrol 267 kullanılabilir / 252 M2, uygulama 407 / 406.
+
+**Veri tabanı da tazelenmek zorundaydı.** 2026-09-15 tabanında her valuation
+`HEDEF_FIYAT_BAYAT` ile düşüyordu (`max_price_age_days` 7) — fail-closed kapı
+doğru çalışıyordu. Önbellekteki 756 KAP pay yanıtının tamamı 16 Eylül tarihliydi
+ve sonraki bir fiyata karşı reddedilirdi; önbellek temizlenip **gerçekten
+yeniden çekildi** (755 ihraççı, 0 hata).
+
+  piyasa as-of 2026-09-15 → 2026-09-23, M3 548 → 547, Ek4 561 → 563,
+  Ek9 548 → 546, M1/Ek1 508, kullanılabilir valuation 263 → 407,
+  FOLLOW 249 → 406, M2 249 → 406, **Total Rasyo 232 → 372**,
+  açık ret 575 → 435.
+
+Kalan M2 retleri 427'de **20** ve hepsi gerçekten ince: 6'sında hiç
+kullanılabilir çarpan yok, 14'ünde tek çarpan var. Receipt artık hangi
+config'in ürettiğini, kapıyı, ağırlıkları ve peer minimumunu kaydediyor.
+
+**Evrende işaretlenen, düzeltilmeyen kusur.** `universe.csv` satır 449 bir
+başlık satırı (`KOD,Şirket Ünvanı,...`) ve 807'lik paydaya dahil. Evren §2
+gereği kilitli olduğundan **düzeltilmedi, rapor edildi**. Ayrıca 807 satır 757
+farklı şirket adı içeriyor: 46 ihraççı birden fazla ticker koduyla listeli
+(50 fazla kod). Yani "807 şirket" farklı şirket sayısını abartıyor.
+
+### 1.3 Canlı kapsam 191 → 232 (2026-09-20): XUMAL holding/GYO ailesi bağlandı
+
+XUMAL tek bir endeks altında holding, GYO, banka ve sigortayı topluyor, bu
+yüzden **endeks kodu aileyi söyleyemiyor**. Oysa çekirdek motor holding ve
+GYO ailelerini zaten skorluyor; dışarıda kalmalarının nedeni ekonomik değil,
+route tablosunun aileyi ifade edememesiydi. KAP'ın kendi sektör adı bunu
+söyleyebiliyor: `capture_current_sector_routes` artık
+`HOLDİNGLER VE YATIRIM ŞİRKETLERİ → HOLDING` ve
+`GAYRİMENKUL YATIRIM ORTAKLIKLARI → GYO` eşlemesini route satırına
+`historical_family` olarak yazıyor. Banka, sigorta, leasing ve faktoring
+**eşlenmeden bırakılıyor**: tabloları bu hattın çalıştırmadığı motorları
+ister. 160 XUMAL route'unun 109'u aile bildiriyor (56 HOLDING + 54 GYO) ve
+üç NONFIN endeks kodundaki **hiçbir satır** aile bildirmiyor, yani onların
+davranışı bayt bayt aynı.
+
+`_dated_nonfin_family` kolonu opsiyonel olarak kabul eder; kolonu olmayan
+tablo eskisi gibi davranır. Peer grubu `sector_index_code` olmayı sürdürür,
+dolayısıyla holding ve GYO'lar **kendi XUMAL kohortunda** değerlenir, hiçbir
+zaman sanayi şirketlerine karşı değil.
+
+**Sıra bağımlılığı — bulunan asıl hata.** M2'nin FOLLOW ekseni
+`current_market_modules_v1/stock_prices.csv.gz` dosyasını okur. M2 piyasa
+adımından **önce** koşturulduğunda yeni route'lanan şirketlerin fiyat ekseni
+henüz yazılmamış oluyor ve M2 sessizce düşüyordu. Doğru sıra
+**piyasa → M2 → Total**. Bu düzeltilmeden aynı kod M2'yi 201'de bırakıyordu.
+
+  route 624 → 623 aktif, piyasa evreni 463 → 572, M1/Ek1 422 → 508,
+  M3 440 → 548, Ek4 453 → 561, Ek9 234 → 548, kullanılabilir valuation
+  213 → 263, FOLLOW 201 → 249, M2 201 → 249,
+  **Total Rasyo 191 → 232**, açık ret 616 → 575.
+
+**Ek9 tıkanıklığı satıcıda kapandı.** Yahoo 2026-09-07 barını 566 ticker'ın
+hepsi için geriye doldurmuş. `repair_current_ek9_gaps` artık saf denetim:
+`missing_day_counts {}`, 548 → 548, öncelikli 4 hedefin dördü de geçerli.
+Temel karıştırmadan (dividend-adjusted Mynet tablosunu ham kapanış kolonuna
+yazmadan) çözüldü.
+
+**Yahoo'da bulunmayan 5 sembol kayıp şirket değil.** KOZAA/KOZAL/IPEKE
+reddediliyor ama isim değişikliği sonrası ticker'ları TRMET/TRALT/TRENJ
+route'lu ve tam skorlu. Eski satırlar bayat kopya; fail-closed doğru davranış.
+
+**Provenance düzeltmesi.** M2 receipt'i `peer_groups` alanını sabit üç NONFIN
+endeksi olarak yazıyordu; 93 aday XUMAL kohortundayken bu yanlıştı. Artık
+koşunun gerçekten kullandığı kohortları raporluyor.
+
+Kalan sınır hâlâ **M2** (558 eksik) ve ağırlıklı olarak ekonomik: zarar eden
+şirkette PE, EBIT ≤ 0 olanda EV/EBIT kullanılamıyor. `minimum_coverage_weight`
+§2 gereği yönetişim kilitli ve burada değiştirilmedi. Ağırlıklar, veto,
+peer/coverage eşikleri ve evren değişmedi; nötr doldurma ve ağırlık yeniden
+dağıtımı yok. W1/W2 donmuş kanıtı değişmeden doğrulanıyor.
+
+### 1.2 Canlı kapsam 2 → 68 (2026-09-16): dört veri tıkanıklığı açıldı
+
+Kullanıcı talimatı: tüm BIST için güncel Total Rasyo üret. Dört ayrı kök
+neden bulundu ve çözüldü; **hiçbiri eşik gevşeterek değil**. Ağırlıklar, veto,
+peer/coverage eşikleri ve evren değişmedi; nötr doldurma ve ağırlık yeniden
+dağıtımı yok.
+
+1. **Piyasa penceresi** — Borsa'nın resmî endeks akışı bugünün kapanışını
+   yayımlarken Yahoo'nun hisse barları bir seans geride. `market_asof` yalnız
+   endeks akışından alınınca pencerenin bitiş günü hiçbir hissede olmuyor ve
+   tüm evren `STOCK_WINDOW_PRICE_MISSING` ile reddediliyordu (M3/Ek4/Ek9 = 0).
+   Artık hisselerin çoğunun gerçekten ulaştığı günle de sınırlanıyor.
+2. **Bayat KAP pay önbelleği** — `capture_current_kap_share_basis` yalnız
+   önbellekte olmayan ihraççıyı çekiyor; 756 kaydın 440'ı 8 Eylül'de kalmıştı.
+   Üretim, fiyattan eski pay kanıtıyla piyasa değeri kurmayı doğru şekilde
+   reddediyordu (`KAP_CURRENT_SNAPSHOT_PREDATES_PRICE`, 305 ret). Tam
+   tazeleme: piyasa değeri 195 → 500.
+3. **Yahoo'nun 2026-09-07 boşluğu** — o gün 12 hisse dışında hiçbirinde bar
+   yok; Ek9 ise 64 pencere gününün hepsini istiyor. Tek satıcı boşluğu Ek9'u
+   12'de tutarken M3/Ek4 146'daydı. `repair_current_ek9_gaps` gerçek kaynaktan
+   doldurdu; her satır tüm örtüşen Yahoo penceresine tek fiyat temeliyle
+   doğrulanıyor, uyuşmayan reddediliyor. Ek9 → 131.
+4. **Eksik route tablosu** — M3/Ek4 sektör endeksi olmadan skor veremez.
+   Tabloda 209 ticker vardı; KAP'ın kendi endeks sayfası XUSIN/XUHIZ/XUTEK/
+   XUMAL için **583 üye** listeliyor ve hepsi 807'lik evrende. Mevcut 209'un
+   202'si resmî listeyle birebir uyumlu, **0 çelişki**; kalan 7'si eski ticker
+   kodu. Yani dar bir endeks tanımı değil, eksik çıkarım.
+   `capture_current_sector_routes` eksik 381 üyeyi ekledi (tarihsel
+   `m3_source_package` hash'ine dokunulmadı). M3 → 416, Ek4 → 428.
+
+**Kalan sınır artık veri değil, motor eşiği.** CORE, route'lanan 438
+ticker'ın 300'ünü reddediyor; bunların 261'i aile/peer derinliği gerekçesiyle
+ve 300'ün 290'ının KAP raporu **mevcut**. M2, 185 kullanılabilir
+valuation'dan 72'sini materyalize ediyor. Total altı modülün hepsini
+istediğinden tavan bu ikisiyle belirleniyor. Bu eşikler §2 gereği ayrı ve
+açık bir yönetişim kararı olmadan değiştirilemez; bu iş kapsamında
+değiştirilmedi.
+
+**Yan bulgu — donmuş denetimler canlı hattı kilitliyordu.** W1 ve W2, canlı
+artifact'ları hash'e bağlayarak `data/live` dizinini fiilen dondurmuştu: ilk
+gerçek yeniden çekim ikisini de kırdı (W2 954 dosya, W1 12 dosya). Aynı
+baytlar Git'te değişmez olduğundan her ikisinin dondurulmuş tarafı
+`bd8d2b5` commit'ine sabitlendi. Doğru commit olduğu W2'nin kendi kanıtıyla
+gösterildi: sabitlediği 8 dosyanın tamamı eşleşiyor, provenance
+baseline'ından sapan 6 dosya da tam olarak W2'nin düzelttiğini beyan ettiği
+dosyalar. Her iki denetimin iddiaları birebir korundu (W2: 131 core / 11 Ek9
+/ 48 M2 / 805 ret / 2 Total, RGYAS 46,6021011290 · TABGD 43,9061751217;
+W1: Ek9 11 geçerli / 140 ret, Total 2/807).
+
+### 1.1 Kullanıcı kararı (2026-09-15): tarihsel PIT M2 boşluğu, canlı sistemi bloklamaz
+
+**Bu bir kullanıcı önceliklendirme kararıdır, tekrar açılmasın:** projenin
+öncelikli hedefi **bugün canlı çalışması** — bu zaten sağlanmış durumda
+(§1'deki 49 valuation / 48 M2 / 2 Total, look-ahead riski taşımayan,
+tamamen güncel veriyle üretiliyor). Tarihsel PIT M2 (60 cutoff'un
+~%99,9'unda hâlâ 0, bkz. W7-B/W7-C) yalnızca **backtest/doğrulama**
+amaçlı — "stratejiyi geçmişte çalıştırsaydık ne alır satardık" sorusuna
+cevap vermek için var, canlı işletimin bir önkoşulu **değil**. Canlı
+sistem, tarihsel replay hiç tamamlanmasa bile bugün olduğu gibi doğru
+çalışmaya devam eder; bu ikisi arasında bir bağımlılık yoktur.
+
+Sonuç: tarihsel PIT M2 kapsamını genişletme işi (W7-B/W7-C'nin izlediği
+yöntem) **kıymetli ama acil değil** — canlı sistemin çalışmasını
+beklemesi veya bloklaması gereken bir şey değil. Gelecekte biri "canlı
+sistem bu boşluk yüzünden çalışmıyor" diye bir sorun açarsa, bu not
+geçersiz kılar: ikisi bağımsız, canlı sistem zaten sorunsuz çalışıyor.
 
 ## 2. Değiştirilemez güvenlik ve kapsam kuralları
 
@@ -236,7 +421,39 @@ sayılarla yayımlanır; açıklanamayan fark kalmaz.
 
 ### W3 — Ayrı fiyat popülasyonları ve ticker lineage
 
-Durum: **TODO / PARALLEL — W5/W6'YI BLOKLAMAZ**
+Durum: **DONE — PARALLEL / CLAUDE HATTI** (dal `claude/inspiring-cannon-ecxilb`)
+
+Üç popülasyon kendi üreticisinden kendi anahtarıyla yeniden üretildi ve kesişim
+raporu yayımlandı: birleşim **402**, naif toplam 739, **337 mükerrer**.
+`EXECUTION ⊆ STOCK_WINDOW` ve `PRICE_MISSING ⊆ STOCK_WINDOW`; birleşim
+`STOCK_WINDOW`'a eşit. `PRICE_MISSING \ EXECUTION` tek hücre: `EFOR 2025-11-03`
+(lineage sınırında sinyal-günü kapsaması cutoff-öncesi pencereyi kanıtlamıyor).
+Düz "402" etiketi üç ayrı pencereyi gizliyordu: Ek9 402, M3 189, Ek4 180; ikisi
+de Ek9'un alt kümesi.
+
+174/174 execution hücresi kapalı taksonomide tek nedene atandı:
+**162 `TICKER_LINEAGE` + 12 `SOURCE_SYMBOL_GAP`**, `UNRESOLVED_BLOCKED` = 0.
+162 hücrede fiyat satırı **vardır**, yalnız `BORSA_LINEAGE_YAHOO_ALIAS`
+çözünürlüğünde olduğu için exact-ticker kapısından geçmez; sorun veri yokluğu
+değil lineage kabul-edilebilirliğidir. 12 hücre INVES/KLRHO/ASGYO'nun bilinen
+Issue #31 boşluğudur ve açık ret olarak kalır.
+
+Beş alias'ın dördünde kimlik, beşinde etkinlik tarihi ve kaynak sembol resmî
+Borsa workbook'u + KAP pay sınıfı geçmişiyle kanıtlandı; **kurumsal işlem
+sürekliliği 0/5 kanıtlandı** (`ACTION_CONTINUITY_UNPROVEN`). Bu nedenle
+**0/5 alias kabul edilebilir, 162 hücre `BLOCKED`**. KERVT→BESLR (2025-06-02) ve
+EFORC→EFOR (2025-11-03) Koza kümesinden (2025-11-24) ayrı tutuldu; BESLR için
+pay sınıfı gözlemi olmadığından KERVT kimliği de kanıtlanamadı.
+
+Hedef test 37 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
+aynı. W1/W2 kanıt zinciri korunuyor (131 CORE / 48 M2 / 11 Ek9 / 2 Total / 805 ret).
+Üretim kodu, model, ağırlık, veto, eşik ve evren değişmedi; hiçbir hücre düzeltilmedi.
+
+[W3 denetim raporu](W3_PRICE_POPULATIONS_AUDIT.md) ·
+kanıt `data/audit/w3_price_populations_v1/` ·
+[receipt](../data/audit/w3_price_populations_v1/receipt.json).
+
+Aşağıdaki özgün sözleşme, kabul ölçütlerinin kaydı olarak korunur.
 
 Önce aşağıdaki üç sayı ayrı sözleşme ve anahtarla yeniden üretilir. Kesişim
 raporu çıkarılmadan birbirinin yerine kullanılamaz veya toplanamaz:
@@ -284,7 +501,40 @@ Kabul:
 
 ### W4 — Ek4 fiyat/getiri sözleşmesi ve asimetri denetimi
 
-Durum: **TODO / PARALLEL — W7-B FINAL KABUL KAPISI**
+Durum: **DONE — PARALLEL / CLAUDE HATTI** (dal `claude/inspiring-cannon-ecxilb`)
+
+Kilitli sözleşme ihlali **kanıtlanmadı**: verdict `COMPLIANT`, 5/5 kontrol
+kanıtlı. Canlı DB yolu ile tarihsel replay aynı formülü, aynı hisse tabanını
+(`COALESCE(adj_close, close)`) ve aynı ham routed endeks bacağını kullanıyor;
+sözleşme sektör bacağını zaten ham olarak kilitliyor ve hisse tabanını
+belirtmiyor. Dolayısıyla kod değişikliği yetkisi yok.
+
+Asimetri yalnız audit artifact'ında ölçüldü: sektör bacağı sabit tutulup hisse
+bacağı ham kapanışa yeniden tabanlandı. **310/5.820 hücre (%5,33) maddi**;
+kalan 5.510 hücrede fark yalnız `adj_close` yuvarlaması (maks. 3,8e-07).
+Δskor ortalama 0,0716, medyan 0,0517, **maksimum 0,3312**; 163 hücre >0,05,
+81 >0,10, 18 >0,20; 49/60 ay, 103 ticker. Ters yönlü pencere yok — sapma tek
+yönlü. Hiçbir Ek4 değeri yeniden yazılmadı.
+
+Tarihsel XU100 fallback yasağı korunuyor; aktif canlı artifact'ları üreten
+`materialize_current_market_modules.py` de dated rota ile fail-closed.
+**Yeni bulgu:** `run_daily_pipeline::_compute_ek4_momentum` NULL rotayı sessizce
+XU100'e çeviriyor, geçerli skor üretiyor ve kullanılan endeksi hiçbir yere
+yazmıyor. Aktif sonuçların hiçbiri bu yoldan gelmediği için
+`NO_PRODUCTION_REACHABILITY_IN_ACTIVE_ARTIFACT_CHAIN` kanıtıyla kaydedildi,
+yamalanmadı.
+
+**W7-B için:** sözleşme kapısı PASS; asimetri açık bir yönetişim kalemi olarak
+W7-B final kabulünden önce karara bağlanmalı. Issue #39 kapsamını fiyat-seviyesi
+valuation ile sınırlayıp momentumu dışarıda bıraktığı için bu kalem kendi
+kaydını gerektirir.
+
+Hedef test 27 PASS, mutasyon **10/10 KILLED**, iki bağımsız türetme bayt düzeyinde
+aynı. [W4 denetim raporu](W4_EK4_CONTRACT_AUDIT.md) ·
+kanıt `data/audit/w4_ek4_contract_v1/` ·
+[receipt](../data/audit/w4_ek4_contract_v1/receipt.json).
+
+Aşağıdaki özgün sözleşme, kabul ölçütlerinin kaydı olarak korunur.
 
 - Hisse tarafındaki `COALESCE(adj_close, close)` ile raw sektör endeksi
   kullanımının mevcut kilitli sözleşmeye uyumu incelenir.
@@ -303,24 +553,173 @@ kanıtsız matematik/model değişikliği yapılmaz.
 
 ### W5 — Tarihsel SMRTG M2 canary
 
-Durum: **BLOCKED BY W2 — ANA HAT**
+Durum: **BLOCKED — KANITLI, YENİDEN AÇMA KOŞULLU (ANA HAT ADIMI TAMAMLANDI)**
+· dal `claude/inspiring-cannon-ecxilb` · [PR #41](https://github.com/zxc28tarik/TOTAL-RASYO-HESAPLAYICI/pull/41)
+· rapor [W5_SMRTG_M2_CANARY.md](W5_SMRTG_M2_CANARY.md)
 
-- `SMRTG 2023-08` için pay/action kapısını geçen mevcut gerçek kanıt yeniden
-  doğrulanır.
-- Peer cohort ve `KAP_BULK_GENERAL_HOLDING_CORE_EXACT_V1` ile
-  `KAP_NONBANK_CORE_EXAMPLE` derivation-profile uyuşmazlığının veri mi,
-  config mi, routing/kod kusuru mu olduğu kanıtlanır.
-- Minimum peer=5 ve coverage eşikleri gevşetilmez.
-- Gerçek FOLLOW dönemi materialize edilmeden M2 üretilmez.
+Kabul ölçütü karşılandı: canary M2 üretmedi, tam neden ve yeniden açma koşuluyla
+`BLOCKED` kaldı. Sonuç canlı 48 M2 / 2 Total'den ayrı artifact'tır; canlı
+sonuçlara dokunulmadı.
 
-Kabul: Canary ya gerçek tarihsel M2+provenance üretir ya da tam neden ve yeniden
-açma koşuluyla `BLOCKED` kalır. Sonuç canlı 48 M2/2 Total'den ayrı artifact'tır.
-Gerçek M2 çıkarsa aynı commit serisinde W7-A canary Total denenir; W6'nın tam
-bitmesi beklenmez.
+- **W5-A pay/aksiyon kapısı geçti (5/5).** Pay tabanı ham KAP sınıf tablosundan
+  yeniden türetildi: dört gözlemden cutoff'tan 20 dakika önce yayımlanan
+  2023-07-31 17:49:42 / 605.880.000 seçildi, 2026-01-30 / 1.817.640.000
+  dışlandı; aynı gün olduğu için `(2023-07-31, 2023-07-31]` aralığı boştur.
+  Look-ahead kullanılsaydı taban 3× şişerdi.
+- **Ek bulgu:** CORE artifact SMRTG için güvensiz `ISSUED_CAPITAL_OVER_NOMINAL`
+  rotasıyla 306.000.000 taşıyor — sertifikalı tabanın 1/1,98'i. Kayıtlı
+  `market_cap` sertifikalı tabanı izlediği için güvensiz rota **yalnız bu
+  ticker için** geçersiz kılınmış sayıldı; başka hiçbir ticker sertifika almaz.
+- **W5-B köken: CONFIG, çözülmüş.** Artifact
+  `KAP_BULK_GENERAL_HOLDING_CORE_EXACT_V1@1` ile kendi içinde tutarlı; yalnız
+  varsayılan config `KAP_NONBANK_CORE_EXAMPLE@1` diyor. Açık sürümlü
+  `nonfin_valuation.kap_bulk_exact_v1.json` artifact'ın kendi profilini beyan
+  ediyor. Veri kusuru değil, routing/kod kusuru değil; artifact yeniden
+  adlandırılmadı, kapı zorlanmadı.
+- **W5-C blocker: peer kohortu.** 75 NONFIN aday, **0 güvenli peer**, 74
+  güvensiz, tek güvenli aday hedefin kendisi. `minimum_peer_count = 5`
+  gevşetilmedi. 59 peer'de aralık kanıtlanamıyor (medyan 810 gün; 28'inde
+  aralık içinde bilinen aksiyon var), 15 peer'de cutoff öncesi gözlem yok.
+- **Blocker yapısal, bu hücreye özgü değil.** 60 cutoff tarandı: 4.203 NONFIN
+  aday hücresinin **0'ında** güvenli pay türetmesi var (4.089
+  `ISSUED_CAPITAL_OVER_NOMINAL` + 114 boş); sıfır aralıklı sertifikasyon 56
+  cutoff'ta 0, 4 cutoff'ta 1 ticker veriyor (ODAS 2021-08, CEMTS 2023-05,
+  SMRTG 2023-07, ALARK 2026-04). Kapı için 6 gerekir → **0/60 erişilebilir**.
+- **Yeniden açma:** (1) tarihli, hash'e bağlı, boş olmayan bir aralığı boş
+  kanıtlayabilen kurumsal işlem envanteri — W3'ün eksik bulduğu kanıtla aynı;
+  (2) bu cutoff için sınırlı: BRSAN (4 gün), QUAGR (7), TUKAS (7), TTRAK (26),
+  ZOREN (46) pencerelerinde işlem olmadığının kanıtı. Dördünde Yahoo envanteri
+  altı yılda tek satır taşımıyor — kanıt yokluğu, yokluk kanıtı değil.
+- Doğrulama: **58 hedef test PASS**, **20/20 mutasyon KILLED**, `--check` bayt
+  düzeyinde yeniden üretiyor.
+
+**W7-A tetiklenmedi:** defter W7-A'yı yalnız "gerçek M2 çıkarsa aynı commit
+serisinde" öngörüyor; M2 çıkmadığı için W7-A başlatılmadı.
+
+**GENEL yeniden açma koşulu karşılandı (aynı gün, W6 kapsamında).** Gerçek,
+kaynağı hash'e bağlı bir KAP kurumsal işlem envanteri üretildi ve peer kapısı
+**60/60 cutoff'ta erişilebilir** hale geldi (bkz. §W6,
+[W6_CA_GATE_REACHABILITY.md](W6_CA_GATE_REACHABILITY.md)). §5'teki "0/60
+erişilebilir" bulgusu bu envanterle aşıldı — W5'in kendisi hâlâ `BLOCKED`
+kalır (o cutoff'ta gerçek M2 üretilmedi), ama sistemik blocker artık geçerli
+değil.
 
 ### W6 — Tarihsel M2 kapsamını mümkün olan en yükseğe çıkarma
 
-Durum: **BLOCKED BY W5 INITIAL AUDIT — ANA HAT**
+Durum: **BLOCKED (ölçek sorunu) — W7-A'nın bulduğu kanıt-tarihi kapısı W7-B
+ile gerçek arşiv verisiyle aşıldı; gerçek M2 artık ikinci, bağımsız ve çok
+daha sıradan bir kapıda (yetersiz peer sayısı) bekliyor (bkz. W7-B altta)**
+· dal `claude/inspiring-cannon-ecxilb` · rapor [W6_CA_GATE_REACHABILITY.md](W6_CA_GATE_REACHABILITY.md)
+· düzeltme [W7A_EVIDENCE_DATING_GATE.md](W7A_EVIDENCE_DATING_GATE.md)
+· kapı-aşımı [W7B_SPK_BULLETIN_EVIDENCE.md](W7B_SPK_BULLETIN_EVIDENCE.md)
+
+**İKİNCİ DÜZELTME (aynı gün, W7-B):** W7-A'nın bulduğu kapı ("bugün
+sorgulanan kaynak koşulsuz reddedilir") hâlâ doğru ve **değişmedi** — ama
+kayıtsız şartsız değilmiş: **dönemin kendisinde yayımlanmış** bir kaynak
+(bugün yapılan bir sorgu değil) bu kapıyı geçebiliyor. SPK'nın (Sermaye
+Piyasası Kurulu) 2005'ten beri arşivlenen haftalık bülteni tam olarak böyle
+bir kaynak: her sayı kendi yayım anında basılmış, ayrı tarihli bir belge.
+98 bülten (2022-06-09 → 2023-08-31, boşluksuz numaralama) arşivlendi; altı
+örnek NONFIN ticker (SMRTG, ZOREN, GESAN, ALFAS, KONTR, ENKAI) için gerçek,
+hash-doğrulanmış `PRICE_LEVEL_ACTION_COVERAGE_V1` kanıtı inşa edildi ve
+**değiştirilmemiş üretim fonksiyonları** (`PriceLevelActionEvidence.verify`,
+`materialize_price_level_market_cap`) çağrıldı: **6/6 hisse için gerçek
+piyasa değeri üretildi** — projenin sıfır olmayan bir aralık için ilk
+üretim-kabul edilebilir piyasa değeri. Negatif kontroller (erken cutoff,
+kurcalanmış kaynak) kapının gerçekten geçildiğini, zayıflatılmadığını
+doğruluyor. Ama tam `run_historical_pit_nonfin_m2_replay()` çağrısı hâlâ
+0 M2 skoru üretiyor: **ikinci, bağımsız bir kapı** (`minimum_peer_count=5`
+her çarpan için ayrı ayrı) altı ticker'la aşılamıyor — PB çarpanı 5/5'e
+ulaşıyor ama PE/EV_EBIT/PS ulaşmıyor. W7-A'nın kendi bulgusu ve W6'nın
+"60/60 erişilebilir kohort" ölçümü ikisi de doğru kalıyor; W7-B üçüncü, yeni
+bir bulgu ekliyor, öncekileri geçersiz kılmıyor.
+
+**AYNI GÜN İÇİNDE DAHA DA NETLEŞTİ:** bu "ölçek sorunu" ilk bakışta
+göründüğünden daha derin. Kök sebep kanıt kapısıyla ilgisiz: altı
+ticker'ın CORE'daki (2023-06-30) en son çeyreğinde `revenue` 5/6'sında,
+`net_income` 3/6'sında, `ebit` 1/6'sında `None` — her biri kendi gerekçe
+koduyla (örn. `YTD_PERIOD_START_MISMATCH`), sessiz kayıp değil, CORE'un
+fail-closed YTD-türetmesinin bilinçli reddi. Bu cutoff'ta **hiçbir NONFIN
+sektörü**, kanıt kapısına hiç dokunmadan, salt CORE'un kendi verisiyle 5
+tam-finansallı ticker biriktiremiyor (34 XUSIN'de 3, 24 XUHIZ'de 1). SPK-
+bülteni yöntemi kaç ticker'ın kanıtlanabilir olduğunu pratikte sınırsız
+genişletiyor; darboğaz artık kanıt değil, CORE'un YTD hizalaması — bkz.
+[W7B_SPK_BULLETIN_EVIDENCE.md](W7B_SPK_BULLETIN_EVIDENCE.md) §6/§9.
+
+**ÜÇÜNCÜ DÜZELTME (2026-09-15, W7-C): darboğaz kapatıldı, gerçek M2 üretildi.**
+W7-B'nin ölçtüğü tek cutoff'ta (2023-08-31) hiçbir NONFIN sektörü CORE'un
+kendi verisiyle `minimum_peer_count=5`'e ulaşamıyordu — ama bu ölçüm tek
+cutoff'a özgüydü, evrensel bir tavan değil. TTM-tamlık taraması
+`signal_date=2023-08-01`'de XUSIN/PE hücresinde 12 ham aday buldu; SASA
+(bayat çapa), HEKTS/IPEKE/KOZAL (çapa yok) ve OYAKC (TRY-dışı nominal
+değer) ayıklandıktan sonra **yedi genuine, aynı `anchor_period_end`'li aday**
+kaldı: BRSAN, CEMTS, QUAGR, TUKAS, KONYA, VESTL, CCOLA. Her birinin KAP
+pay-sertifikasyonu artık **her zaman ham `nominalValueOfShares`/
+`nominalValuePerShare` metninden** yeniden hesaplanıyor (önceden hesaplanmış
+`derived_shares` alanına hiç güvenilmiyor) — bu, CCOLA'nın 2019-05-14
+gözleminde ZOREN'inkiyle aynı sınıftan bir ondalık-ayraç hatası buldu
+(~686x şişirme; düzeltilmiş değer, 2016'daki kendi gözlemiyle birebir
+örtüşüyor). SPK bülten arşivi 98'den **461 bültene** genişletildi
+(2016-06-24 → 2023-08-31, boşluksuz) KONYA/VESTL/CCOLA'nın çok yıllı
+boşluklarını kapatmak için — W7-B'nin kendi altı ticker'ı bu genişlemeden
+etkilenmedi (hepsinin çapası 2022-06-08 veya sonrası).
+
+Sonuç: 7/7 kanıt kapısını geçti, 7/7 negatif kontrol doğru RET, ve tam
+`run_historical_pit_nonfin_m2_replay()` (değiştirilmemiş, W7-B'nin **aynı**
+config'iyle) **PE ve PB'yi her ticker için `peer_count=6`'yla kullanılabilir
+kılıp `minimum_coverage_weight=0.5`'i karşılıyor: 0 ret, 7 gerçek,
+sıfır olmayan M2 skoru** — projenin NONFIN göreli-değerleme yolundan
+ürettiği ilk gerçek M2. Kapsam açıkça sınırlı: kapalı yedi ticker'lık bir
+örneklem, tam evren koşusu değil. Ayrıntı:
+[W7C_REAL_M2_SCORE.md](W7C_REAL_M2_SCORE.md).
+
+**ÖNEMLİ DÜZELTME (aynı gün, W7-A):** Aşağıdaki "peer kapısı 0/60 → 60/60"
+bulgusu doğru ve geçerli kalıyor — gerçekten hash'e bağlı kanıt üretildi. Ama
+bu kanıtla gerçek M2 üretilmeye çalışılınca üretim kodunun **kendi içinde**,
+W6'nın ölçmediği ikinci bir kapı bulundu: `PriceLevelActionEvidence.verify()`
+her kanıt kaynağının **kendi yayın tarihinin** cutoff'tan önce olmasını
+zorunlu kılıyor. Bugün (2026) toplanan bir kayıt, içeriği ne kadar doğru
+olursa olsun, kendi yayın zaman damgasını **bugünün tarihiyle** taşır ve
+2023 cutoff'u için koşulsuz reddedilir — bu gerçek üretim koduna karşı test
+edilerek kanıtlandı (bkz. W7-A). Sonuç: **üretim-kabul edilebilir peer sayısı
+hâlâ her cutoff'ta en fazla 1** (W5'in sıfır-aralık bulgusu), 5 asgari şartın
+altında. **Gerçek tarihsel NONFIN M2, peer'e dayalı göreli değerleme
+yoluyla, 60 cutoff'un hepsinde hâlâ BLOCKED.**
+
+**Peer kapısı 0/60 → 60/60.** W5'in GENEL yeniden açma koşulu ("tarihli,
+hash'e bağlı, boş olmayan bir aralığı boş kanıtlayabilen kurumsal işlem
+envanteri") karşılandı:
+
+- Piyasa geneli, tarih sınırlı KAP `disclosure/members/byCriteria` sorgusu
+  ile 2016-05→2026-07 arası **gap-free** yakalandı: 595 pencere, 0 hata, 0
+  boşluk, 649.244 satır. İlk denemede bulunan 2.000 satırlık kesilme
+  (kalabalık ayların yarısını gizliyordu) uyarlamalı pencerelemeyle
+  düzeltildi — tamlık varsayılmadı, inşa yoluyla kanıtlandı.
+- Eşleştirme `disclosureType` değil **konu metni** üzerinden yapıldı: aynı
+  gerçek olay (KLRHO 2023-04-17 sermaye artırımı) hem `CA` hem `ODA` tipinde
+  görüldü; yalnız `disclosureType` filtrelemesi gerçek olayları kaçırırdı.
+  Fail-closed geniş anahtar kelime kümesi kullanıldı.
+- Sonuç: 60 cutoff'un **60'ında** peer kapısı erişilebilir (gereken 6'ya
+  karşı cutoff başına 21–36 sertifikalanabilir peer). KLRHO'nun bilinen
+  olayı doğru pencereyi engelliyor, komşu pencereyi engellemiyor —
+  doğrulandı.
+- Doğrulama: 32 hedef test PASS, 11/11 mutasyon KILLED, `--check` Python
+  3.11/3.12/3.13'te bayt düzeyinde aynı receipt.
+
+**Bu denetim hiçbir M2 üretmedi ve üretim kodunu değiştirmedi.** Kohort
+kapısının artık geçilebilir olduğunu kanıtlar; gerçek tarihsel M2'nin
+materyalize edilmesi üretim valuation combiner'ının çağrılmasını, dönem-doğru
+revenue/EBIT/FOLLOW türetmesini ve her hücrenin kalan sözleşmelerinden
+geçmesini gerektiren **ayrı, daha büyük bir yürütme turu**dur. W6'nın kabul
+ölçütü ("Tarihsel gerçek M2 sayısı, cohort dağılımı, rejection dağılımı,
+provenance ve deterministik ikinci üretim yayımlanır") henüz karşılanmadı.
+
+W5'in "0/60 erişilebilir" sistemik ölçümü **AUDIT/kanıt düzeyinde** aşıldı
+(hash'e bağlı, gerçek envanterle "aksiyon yok" sorusu artık cevaplanabiliyor),
+ama **üretim-kabul edilebilirlik düzeyinde** aynı 0/60 kalıyor — W7-A'nın
+bulduğu kanıt-tarihi kapısı yüzünden. W6'nın altındaki özgün sözleşme metni
+ve öncelik listesi hâlâ geçerlidir; kohort kapısı için gereken kanıt türü
+netleşti ama bugünden üretilemiyor.
 
 Öncelik 3.017 adet 5/6 modüllü hücredir. Son doğrulanmış araştırma dağılımı:
 
@@ -355,7 +754,38 @@ provenance ve deterministik ikinci üretim yayımlanır.
 
 ### W6-B — BANK 509 hücre için `coe` ve `macro_cap`
 
-Durum: **TODO / PARALLEL RESEARCH**
+Durum: **DONE — PARALLEL / CLAUDE HATTI** (dal `claude/inspiring-cannon-ecxilb`)
+
+`macro_cap` **509/509 çözüldü**: resmî SBB Orta Vadeli Program arşivinden altı
+vintage, her biri URL + yayın tarihi + boyut + SHA256 ile bağlı. Beş bağımsız
+kontrolün beşi de geçti — her değer kayıtlı GSYH çiftinden yeniden hesaplandı,
+hiçbir hücre cutoff sonrası yayın kullanmıyor, her hücre en yeni cutoff-uygun
+vintage'ı seçmiş, 509/509 hücre P3'te var ve `historical_family = BANK`.
+Kayıtlı sınır: ham PDF baytları 92 MB git şişmesi nedeniyle repoda değil; zincir
+yeniden indirmeye karşı denetlenebilir, çevrimdışı bayt doğrulaması yapılamaz.
+
+`coe` **BLOCKED** (`COE_METHODOLOGY_UNVERSIONED_AND_INPUT_LINEAGE_INCOMPLETE`).
+Üç ücretsiz yol tüketildi: Borsa İstanbul tarihsel endeks verisi ücretli
+datastore'a yönleniyor; TCMB EVDS'te resmî banka CoE serisi yok; TCMB çalışma
+tebliği tüm aylık girdilerin Bloomberg terminalinden alındığını beyan ediyor.
+Repodaki tarihsiz demo sabiti (0,3705) reddedildi — tek bir günümüz sayısı 60
+tarihsel cutoff'a taşınamaz.
+
+**Kritik bulgu:** her iki parametre çözülse bile **0 Total skor açılır**.
+509 BANK hücresinin **hiçbiri** 3.017'lik öncelik kohortunda değil (kesişim 0;
+en az 4 modüllü kümeyle de kesişim 0). Hücrelerde M3 509, Ek4 509, Ek9 483 var;
+**M1, Ek1 ve M2 hepsinde eksik**. M2 çözülse en iyi hücre 3 modülden 4'e çıkar,
+Total için 6 gerekir. Asıl blocker CORE tanı katmanı: 509/509 hücre
+`NO_CORE_DIAGNOSTICS` (453 `TECHNICAL_CORE_FAMILY_UNSUPPORTED_OR_CONFLICTING`,
+56 `OWN_REPORT_STATEMENT_SCOPE_CONFLICT`).
+
+509 hücrenin tamamı açık ret/`BLOCKED` kalır; NONFIN ilerlemesi bloklanmıyor.
+Hedef test 24 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
+aynı. [W6-B araştırma raporu](W6B_BANK_COE_MACRO_CAP_RESEARCH.md) ·
+kanıt `data/audit/w6b_bank_coe_macro_cap_v1/` ·
+[receipt](../data/audit/w6b_bank_coe_macro_cap_v1/receipt.json).
+
+Aşağıdaki özgün sözleşme, kabul ölçütlerinin kaydı olarak korunur.
 
 - Repo içi ve ücretsiz tarih-doğru kaynaklardan dönemsel `coe` ve `macro_cap`
   yeniden kurulabilirliği incelenir.
@@ -368,7 +798,7 @@ aralığı; aksi halde hücre bazlı `BLOCKED`.
 
 ### W7 — Gerçek tarihsel Total ve P4 scored/ranking
 
-Durum: **W7-A BLOCKED BY W5; W7-B W6 İLE ARTIMLI — ANA HAT**
+Durum: **W7-A BLOCKED BY W5 (canary M2 üretmedi); W7-B W6 İLE ARTIMLI — ANA HAT**
 
 #### W7-A — Canary Total
 
@@ -435,7 +865,45 @@ varken `DONE`/V24-G READY iddiası yoktur.
 
 ### W10 — P7 authoritative historical-version hardening
 
-Durum: **TODO / PARALLEL**
+Durum: **BLOCKED — PARALLEL / CLAUDE HATTI** (dal `claude/inspiring-cannon-ecxilb`)
+
+Issue #24'ün sekiz kapanış ölçütü 6.000 hücreye karşı **ölçüldü**: 6'sı
+karşılandı (kaynak kimliği/hash 5.990/5.990 ve 2.115 farklı bildirim; 60 ay ×
+100 hücre; evren bağı; PIT yayın damgaları 5.990/5.990 ve **0 cutoff sonrası**;
+6.000/6.000 açık ret; 0 örnek/fixture kaynak). **İkisi karşılanmadı:**
+`pit_version_identifiers` (**0/5.990** sürüm tanımlayıcısı; hepsinde
+`historical_version_enumeration_complete = false`) ve
+`sector_family_input_coverage` (**187 hücrede aile çözülemedi**).
+
+Toplu arşivler bu soruya **yapısal olarak** cevap veremiyor: kurtarılan KORTS
+2022 çiftinde (1122417 → 1126845, 437 alanın 4'ü değişmiş, ana ortaklık ve
+kontrol gücü olmayan paylar yer değiştirmiş) korunmuş hash'li `KAP_2022_Y.zip`
+yalnız yeni bildirimi içeriyor — daha eski sürümün varlığı tespit bile edilemez.
+
+Resmî sorgu baytları olan tek pencerede (2023-03) supersession oranı
+**9/423 FR = %2,13**; 2.115 farklı seçili rapora uygulanırsa gösterge olarak
+**~45 rapor** maruz olabilir (tek ay örneklemi, garanti değil). Aynı ay doğrudan
+kirlenme sondası olarak kullanıldı: 19 düzeltmeden 1'i evren ticker'ına
+dokunuyor (BFREN), **0'ı herhangi bir hücrede seçili rapor** →
+`contamination_detected = false` (60 ayın 1'i için sınırlı olumsuz sonuç).
+
+Dört yol da derecelendirildi; ücretli kaynak kullanılmadı. **Olumlu bulgu:**
+resmî `disclosure/members/byCriteria` endpoint'i, yakalamadan ~3,5 yıl önceki
+bir pencere için 9 `DUZELTILEN` satırı döndürdü — tarihsel saklama artık
+varsayım değil, gösterilmiş olgu. Yine de BLOCKED: bu ücretsiz rota 60 pencerede
+çalıştırılmadı ve çalıştırılsa bile silinmiş/bağlantısız bir sürümün olmadığını
+kanıtlayamaz — Issue #24'ün tamlık ölçütü tam olarak budur.
+
+Issue #24 açık kalır; `AUTHORITATIVE_PIT_5Y` etiketi verilemez,
+`EXPERIMENTAL_RISK_ACCEPTED_5Y` korunur. Deneysel W5–W9 hattı bloklanmıyor.
+Denetim tamamen çevrimdışıdır; ağ erişimi yapılmadı.
+
+Hedef test 27 PASS, mutasyon **11/11 KILLED**, iki bağımsız türetme bayt düzeyinde
+aynı. [W10 denetim raporu](W10_P7_VERSION_ENUMERATION.md) ·
+kanıt `data/audit/w10_p7_enumeration_v1/` ·
+[receipt](../data/audit/w10_p7_enumeration_v1/receipt.json).
+
+Aşağıdaki özgün sözleşme, kabul ölçütlerinin kaydı olarak korunur.
 
 - Superseded historical KAP report sürümlerinin authoritative enumeration yolu
   ücretsiz/resmî kaynaklarla araştırılır.
@@ -445,6 +913,69 @@ Durum: **TODO / PARALLEL**
   blocker sayılmaz.
 
 Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `BLOCKED`.
+
+### W8-N — M2'siz beş modüllü 60 aylık teşhis backtest'i
+
+Durum: **DONE (teşhis) — W8'in yerine geçmez, ölçüm tezgâhını kurar**
+
+Gerekçe: altı modüllü tarihsel Total bugün imkânsız, çünkü M2 **6000 tarihsel
+hücrenin 0'ında** gerçek skor taşıyor; tarihli pay sayısı kanıtı isteyen tek
+modül o. Diğer beşi erişilebilir — M1/Ek1 arşivlenmiş tablolardan, M3/Ek4/Ek9
+yalnız fiyattan — dolayısıyla beş modüllü varyant **bugün** 60 ayın tamamında
+koşturulabilir. Amacı M2'nin katkısını tartışmak yerine gerçek bir
+out-of-sample ledger'a karşı **ölçülebilir** kılmak.
+
+**M2 nötr doldurulmuyor, dışlanıyor.** `compute_total_rasyo` altı anahtarı
+zorunlu tuttuğu için M2 **ağırlık 0,0** ile geçiliyor: hangi değer verilirse
+verilsin katkısı tam 0,0, ve bu bozulursa üretici hata veriyor. Nötr doldurma
+bunun tersi olurdu — M2'ye gerçek 0,40 ağırlığında orta bir skor verip sonucu
+oynatmasına izin vermek. Kalan beş ağırlık üretim ağırlıklarının 1/0,60 ile
+ölçeklenmişi; birbirlerine oranları **tam olarak üretim oranları** ve 0,70/0,55
+karar bantları aynı zeminde kalıyor.
+
+Ölçüm (önce), inşa (sonra): beş modülü tam **3017/6000 hücre (%50,3)**;
+M3 %96,8 · Ek4 %97,0 · Ek9 %93,3 · M1 %54,5 · Ek1 %54,5 · M2 %0. **60 ayın
+60'ında ≥6 aday** var, yani altı pozisyonluk portföy kuralı her ay
+sağlanabiliyor. Bağlayıcı modül fiyat değil, **M1/Ek1**. Skorlanan 3017 hücrenin
+**3017'sinde** doğrulanmış sinyal-günü işlem fiyatı var (360 ilk-altı seçiminin
+hepsi dahil), yani `EXECUTION_BLOCKED` = **0**.
+
+Ledger, kilitli üretim motoruyla (`MonthlyTotalRasyoSimulator`) koştu; kuralları
+ne yeniden yazıldı ne gevşetildi. 2021-08..2026-07, aylık iki net asgari ücret:
+
+  toplam katkı 1.715.833,40 TL → bitiş NAV 1.405.813,53 TL (**−18,07%**)
+  XU100 aynı nakit akışıyla 3.259.122,08 TL (**+89,94%**)
+  fark **−1.853.308,56 TL** · 137 işlem · 44 hisse
+
+2022-08'de endeksin %15 önünde, sonra 2023-08'de −42%, 2024-08'de −60%, sonda
+−56,9%. Mekanik sebep ledger'da görünüyor: "yalnız AL al" kuralı altında beş
+modüllü skor nadiren AL üretiyor (6000 hücrede 77 AL, 60 ayın yalnız 35'inde
+bir tane bile) — 6 pozisyonla tam yatırımda **5/60** ay, medyan pozisyon **2**,
+ortalama nakit **%26,8**, **10 ay tamamen nakitte** ve dördü üst üste
+(2023-12..2024-03) endeksin en hızlı koştuğu dönemde. O aylar ayrı sayılıyor ve
+performans başarısı olarak raporlanmıyor.
+
+Açıkça kayda geçen varsayımlar: işlem maliyeti/kayma/vergi **sıfır** (yani
+−18,07% **brüt**), nakit faizi **sıfır**, ham OPEN/CLOSE, kurumsal işlemler
+Yahoo kaynaklı — **KAP-doğrulanmış değil**. Penceredeki 522 işlemin **113'ü**
+ledger'ın tuttuğu bir hisseye dokunmuş; 113 satır receipt'te tek tek listeli.
+38 doğrulanmış Borsa ticker değişikliği uygulandı.
+
+**Bunun göstermediği şey:** Total Rasyo'nun kaybettiği. M2 üretim modelinin
+%40'ı ve burada yok; üstelik current veride M2, portföyü pahalı kazananlardan
+uzak tutan eksen (12 aylık getiriyle Spearman −0,46). Ölçülen şey varyant.
+
+Nakit korunumu ve benchmark simülatörün sözüne güvenilmeden Decimal ile bağımsız
+mutabakatlandı; `--check` bayt bayt yeniden üretiyor; 20 test varsayımları,
+nakit-only muhasebesini, kurumsal işlem listesini, `NAV = nakit + varlık`
+eşitliğini ve katkı birikimini sabitliyor.
+
+Kalan iki yol: (a) kurumsal işlem kaynağını W6'nın KAP envanterine taşımak
+(11.680 olay, 699 hisse, 60/60 cutoff erişilebilir) — 113 Yahoo satırını çapraz
+doğrular; (b) CORE YTD kapsamını açmak — M1/Ek1'i %54,5'te tutan ve hem AL
+sayısını hem tarihsel M2'nin yolunu kısıtlayan darboğaz.
+
+Artifact: `data/audit/w8n_no_m2_backtest_v1/`, `data/audit/w8n_no_m2_ledger_v1/`.
 
 ## 6. Kesin karar kaydı
 
@@ -469,5 +1000,70 @@ Kabul: Issue #24 kapanış ölçütleri veya tüketilen yollarla ayrıntılı `B
 
 | 2026-09-12 | `f3731ce` | W1 canlı fail-closed kapanışı | DONE | Altı final-head CI PASS; Issue #37 |
 | 2026-09-13 | `6a73096` | W2 kaynak/etki denetimi ve düzeltme | DONE | 41 hedef test ve 6/6 final-head CI PASS; eski snapshot korundu |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W3 fiyat popülasyonları + ticker lineage | DONE | 174/174 reason-code; 0/5 alias kabul edilebilir; 37 test, 11/11 mutasyon KILLED |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W4 Ek4 fiyat/getiri sözleşmesi denetimi | DONE | Sözleşme COMPLIANT; 310/5.820 maddi sapma, maks 0,3312; 27 test, 10/10 mutasyon KILLED |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W6-B BANK coe/macro_cap araştırması | DONE | macro_cap 509/509 resmî kaynaklı; coe BLOCKED; unlock üst sınırı 0; 24 test, 11/11 mutasyon KILLED |
+| 2026-09-13 | `claude/inspiring-cannon-ecxilb` | W10 P7 sürüm enumeration denetimi | BLOCKED | Issue #24 6/8 ölçüt; 0/2.115 sürüm zinciri; sonda kirlenme yok; 27 test, 11/11 mutasyon KILLED |
+| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W5 SMRTG 2023-08 tarihsel M2 canary | BLOCKED | Pay/aksiyon kapısı 5/5 geçti, profil kökeni CONFIG ve çözülmüş; blocker 0 güvenli peer ve 0/60 erişilebilir cutoff; 58 test, 20/20 mutasyon KILLED |
+| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W6 KAP kurumsal işlem envanteri + peer kapısı ölçümü | KISMEN İLERLEDİ | 595 pencere gap-free yakalandı (649.244 satır); peer kapısı (audit düzeyinde) 0/60 → 60/60; 32 test, 11/11 mutasyon KILLED |
+| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W7-A üretim kanıt-tarihi kapısı denetimi | BLOCKED | Gerçek üretim kodu (`PriceLevelActionEvidence.verify`) çağrılarak test edildi; her kaynağın `published_at <= cutoff` şartı bugünkü hiçbir yakalamayla karşılanamıyor; üretim-kabul edilebilir peer sayısı hâlâ ≤1/cutoff; 10 test PASS |
+| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W6-C rapor-zinciriyle boşluk küçültme (sistem geneli) | GAP_NARROWED_NOT_CLOSED | 4.203 hücrenin 3.030'unda dış çapa var; yalnız %21'inde (648) rapor zinciri doğrulama buluyor; boşluk medyanı 815→534 gün (SMRTG'nin 8 peer'lik örneği temsili değilmiş); 16 test, 8/8 mutasyon KILLED |
+| 2026-09-14 | `claude/inspiring-cannon-ecxilb` | W7-B SPK bülteniyle kanıt-tarihi kapısını gerçek arşiv veriyle aşma | PARTIAL_PROGRESS | 98 bülten arşivlendi (boşluksuz); 6/6 örnek ticker gerçek üretim kapısından geçti (hash-doğrulanmış piyasa değeri); negatif kontroller 6/6 doğru RET; tam batch replay hâlâ 0 M2 skoru — ikinci, bağımsız kapı (`minimum_peer_count=5`) altında kalan kök sebep CORE'un kendi YTD-türetme eksikliği (34 XUSIN'de 3, 24 XUHIZ'de 1 tam-finansallı ticker); 21 test, 9/9 mutasyon KILLED |
+| 2026-09-15 | `claude/inspiring-cannon-ecxilb` | W7-C W7-B'nin darboğazını kapatıp gerçek M2 üretme | M2_MATERIALIZED | SPK arşivi 461 bültene genişletildi (2016-06-24→2023-08-31, boşluksuz; W7-B'nin 6 ticker'ı etkilenmedi); XUSIN/PE'de 7 genuine aday (BRSAN, CEMTS, QUAGR, TUKAS, KONYA, VESTL, CCOLA) — pay sayısı artık her zaman ham KAP metninden yeniden hesaplanıyor (CCOLA'da ~686x ondalık-ayraç hatası bulundu ve düzeltildi); 7/7 kanıt kapısı geçti, 7/7 negatif kontrol doğru RET, değiştirilmemiş `run_historical_pit_nonfin_m2_replay` PE+PB'yi peer_count=6 ile kullanılabilir kılıp **7 gerçek, sıfır olmayan M2 skoru** üretti (0 ret) — kapsam kapalı 7-ticker örneklem, tam evren değil; 25 test, 11/11 mutasyon KILLED |
 
-Sonraki zorunlu adım: **W5 — SMRTG 2023-08 tarihsel M2 canary**.
+**W7-B'nin §9'unda öngörülen iki parçalı sonraki adım artık tamamlandı:**
+(1) TTM tamlığı `signal_date=2023-08-01`'de sektör × çarpan bazında tarandı
+ve XUSIN/PE hücresi 12 ham aday verdi (2023-08-31'in tek-cutoff ölçümünün
+evrensel bir tavan olmadığını doğrulayarak); (2) o hücrenin SPK-bülteni
+boşluğu aynı, artık kanıtlanmış yöntemle kapatıldı — bkz. W7-C yukarıda ve
+[W7C_REAL_M2_SCORE.md](W7C_REAL_M2_SCORE.md). Darboğaz bu XUSIN/PE
+hücresinde kapandı; **60 cutoff'un tamamına, diğer sektörlere ve BANK/HOLDING
+ailelerine genişletme hâlâ ayrı, gerçekleştirilmemiş bir iş** (W7-C §10).
+W7-A'nın kendi bulgusu (bugün sorgulanan kaynak kayıtsız şartsız reddedilir)
+hâlâ doğru ve değişmedi; W7-B ve W7-C onu geçersiz kılmadı, yalnız
+niteliksel olarak farklı, dönemin kendisinde yayımlanmış bir kaynak türü
+sağladı. W6-C'nin "rapor zinciri boşluğu sıfıra indirmiyor" bulgusu da hâlâ
+geçerli — W7-B/W7-C onun yerine geçen ayrı bir yöntem, onu düzeltmiyor.
+
+### Paralel hat sahipliği
+
+**Paralel hat 2026-09-13 itibarıyla kapandı:** W3 DONE, W4 DONE, W6-B DONE,
+W10 BLOCKED (kanıtlı, yeniden açma koşuluyla). Dördü de
+`claude/inspiring-cannon-ecxilb` dalında yürütüldü; toplam 115 hedef test PASS
+ve 43/43 mutasyon KILLED. Hiçbiri ana M2 hattını başlatmadı veya bloklamadı.
+
+**Ana hat 2026-09-14'te aynı dalda devam etti:** W5 kanıtlı `BLOCKED` olarak
+kapandı (58 test, 20/20 mutasyon). Dal toplamı böylece **173 hedef test PASS**
+ve **63/63 mutasyon KILLED**. Sıradaki zorunlu ana hat adımı: **W6**.
+
+CI Linux tarafında baştan geçti (PostgreSQL'li tam regresyon, BANK v4.7, dört
+`--check`, dört mutasyon suite'i). Windows job'ı iki taşınabilirlik kusurunu
+ortaya çıkardı ve ikisi de düzeltildi:
+
+1. Denetçiler yol dizesini `str(Path)` ile yazıyordu; Windows'ta ters bölü
+   `contract_compliance.json` içine sızıp hash'i değiştiriyordu. Dördü de
+   `as_posix()`'e çevrildi.
+2. Özet ortalaması `sum()` ile hesaplanıyordu. CPython 3.12 float toplamasını
+   Neumaier'e çevirdiği için Linux/3.11 `0.07159288381297305`, Windows/3.14
+   `0.07159288381297303` üretiyordu. `math.fsum` doğru yuvarlanmış olduğundan
+   her sürümde aynı sonucu verir; ona geçildi.
+
+Her ikisi için de kalıcı koruma eklendi: artifact'ta ters bölü bulunmadığı ve
+ortalamanın `math.fsum` ile birebir eşleştiği test ediliyor. Dört denetim de
+Python 3.11, 3.12 ve 3.13 altında receipt'i birebir yeniden üretiyor. Bulgular
+değişmedi; W4 özetindeki tek fark ortalamanın son bitidir.
+
+CI kapısı: mevcut workflow'ların hiçbiri `claude/**` dallarında tetiklenmiyordu
+(hepsi `v24-real-data-work` veya `codex/*` kapsamlı). Bu yüzden paralel hat için
+ayrı bir workflow eklendi: `.github/workflows/claude-parallel-line-ci.yml`
+(`claude/**` push + `workflow_dispatch`). PostgreSQL'li tam regresyon, BANK v4.7,
+beş `--check` yeniden üretimi, beş hedef test dosyası ve beş mutasyon suite'ini
+koşar; Codex/Astra workflow'larına dokunmaz.
+
+Karışıklığı önlemek için W3/W4/W6-B/W10 paralel paketleri ve W5 ana hat adımı
+`claude/inspiring-cannon-ecxilb` dalında yürütülür ve `codex/astra-v24-finalize`
+dalına PR ile gelir. `main`, `v24-real-data-work` ve `codex/*` dallarına bu
+hattan doğrudan push yapılmaz. Yeni kanıt yalnız `data/audit/w3_*`, `w4_*`,
+`w5_*`, `w6b_*`, `w10_*` dizinlerine yazılır; `data/audit/w1_*` ve `w2_*` salt
+okunurdur. W5 önceki `data/audit/smrtg_m2_canary_v1/` receipt'ini de yalnız
+okur; onu değiştirmez.
