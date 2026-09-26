@@ -19,8 +19,15 @@ How blindness is guaranteed
 Accounting
 ----------
 * 15,000 TL arrives on the start session and on the first session of every
-  later month. It lands as cash; cash earns nothing (stated, not hidden).
-* Whole shares only (BIST trades in lots of one share); leftover lira stays cash.
+  later month.
+* All the money is in stocks at every moment (the investor's rule, 2026-09-26,
+  set before the first fill). Idle cash -- the payment, sale proceeds, dividends,
+  whole-share leftovers -- goes into the holdings at the same session's close,
+  pro rata to their value; a buy larger than the cash is funded by selling slices
+  of the other holdings at the same close. So a sell is a switch: its proceeds
+  land in the rest of the book the same day unless an order names where they go.
+  What stays in cash is only less than one share of any holding.
+* Whole shares only (BIST trades in lots of one share).
 * 0.2% commission on every buy and sell.
 * Prices are raw exchange closes. Cash dividends are credited on the ex-date and
   splits / bonus issues scale the share count, both from Yahoo's action feed.
@@ -44,6 +51,7 @@ import argparse
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 import json
+import math
 from pathlib import Path
 import sys
 from zoneinfo import ZoneInfo
@@ -63,6 +71,7 @@ RANKING = ROOT / "data/live/rebuilt_total_scores_v1/ranking.jsonl"
 VALUATIONS = ROOT / "data/live/current_nonfin_valuation_v1/valuations.jsonl"
 ISTANBUL = ZoneInfo("Europe/Istanbul")
 START = "2026-09-28"
+FULLY_INVESTED = True
 MONTHLY = 15_000.0
 COST = 0.002
 INDEX = "XU100"
@@ -134,9 +143,93 @@ def final_sessions(dates: list[str], now: datetime) -> list[str]:
     return [d for d in dates if d < today or (d == today and settled)]
 
 
+def _buy(book: Book, ticker: str, price: float, qty: int) -> float:
+    spend = qty * price * (1 + COST)
+    book.cash -= spend
+    book.shares[ticker] = book.shares.get(ticker, 0) + qty
+    book.cost_basis[ticker] = book.cost_basis.get(ticker, 0.0) + spend
+    return spend
+
+
+def _sell(book: Book, ticker: str, price: float, qty: int) -> tuple[float, float]:
+    held = book.shares[ticker]
+    proceeds = qty * price * (1 - COST)
+    basis = book.cost_basis.get(ticker, 0.0) * qty / held
+    book.cash += proceeds
+    book.shares[ticker] = held - qty
+    book.cost_basis[ticker] = book.cost_basis.get(ticker, 0.0) - basis
+    if book.shares[ticker] == 0:
+        del book.shares[ticker]
+        book.cost_basis.pop(ticker, None)
+    return proceeds, basis
+
+
+def _priced_holdings(book: Book, row: pd.Series, exclude: set) -> dict:
+    out = {}
+    for ticker, qty in book.shares.items():
+        price = row.get(ticker)
+        if qty and ticker not in exclude and price is not None and pd.notna(price) and float(price) > 0:
+            out[ticker] = float(price)
+    return out
+
+
+def _fund(book: Book, day: str, row: pd.Series, need: float, exclude: set, for_order: str) -> list[dict]:
+    """Sell slices of the other holdings, pro rata to value, until the cash covers ``need``."""
+    priced = _priced_holdings(book, row, exclude)
+    values = {t: book.shares[t] * p for t, p in priced.items()}
+    total, short = sum(values.values()), need - book.cash
+    events = []
+    if short <= 0 or total <= 0:
+        return events
+    for ticker in sorted(priced):
+        price = priced[ticker]
+        qty = min(book.shares[ticker], math.ceil(short * values[ticker] / total / (price * (1 - COST))))
+        if qty > 0:
+            proceeds, basis = _sell(book, ticker, price, qty)
+            events.append({"event": "FILL", "date": day, "order": "AUTO", "side": "SELL", "ticker": ticker,
+                           "price": price, "qty": qty, "tl": round(proceeds, 2),
+                           "realised_tl": round(proceeds - basis, 2), "why": f"FUND {for_order}"})
+    return events
+
+
+def _invest_idle_cash(book: Book, day: str, row: pd.Series, exclude: set) -> list[dict]:
+    """Put the idle cash into the holdings at this close, pro rata to their value, in whole shares."""
+    priced = _priced_holdings(book, row, exclude)
+    if not priced:
+        return []
+    values = {t: book.shares[t] * p for t, p in priced.items()}
+    total, budget = sum(values.values()), book.cash
+    target = {t: budget * values[t] / total for t in priced}
+    qty = {t: int(target[t] / (p * (1 + COST))) for t, p in priced.items()}
+    left = budget - sum(q * priced[t] * (1 + COST) for t, q in qty.items())
+    while True:                                        # leftover lira: one more share where the gap is largest
+        fits = [t for t, p in priced.items() if p * (1 + COST) <= left]
+        if not fits:
+            break
+        pick = max(fits, key=lambda t: (target[t] - qty[t] * priced[t] * (1 + COST), t))
+        qty[pick] += 1
+        left -= priced[pick] * (1 + COST)
+    events = []
+    for ticker in sorted(qty):
+        if qty[ticker] > 0:
+            spend = _buy(book, ticker, priced[ticker], qty[ticker])
+            events.append({"event": "FILL", "date": day, "order": "AUTO", "side": "BUY", "ticker": ticker,
+                           "price": priced[ticker], "qty": qty[ticker], "tl": round(spend, 2),
+                           "why": "IDLE_CASH"})
+    return events
+
+
 def process_session(book: Book, day: str, row: pd.Series, day_actions: pd.DataFrame,
-                    orders: list[dict], *, start: str = START) -> list[dict]:
-    """Advance the book by one settled session; return the events it produced (to be frozen)."""
+                    orders: list[dict], *, start: str = START, fully_invested: bool = False) -> list[dict]:
+    """Advance the book by one settled session; return the events it produced (to be frozen).
+
+    ``fully_invested`` applies the investor's rule that all the money is in stocks
+    at every moment: sells fill before buys, a buy larger than the cash is funded
+    by selling slices of the other holdings at the same close, and whatever cash
+    is left -- payment, proceeds, dividends, whole-share leftovers -- goes into the
+    holdings at the same close, pro rata to their value. Only a book that holds
+    nothing keeps cash, until its first buy fills.
+    """
     events = []
     for act in day_actions.itertuples():
         held = book.shares.get(act.ticker, 0)
@@ -155,9 +248,11 @@ def process_session(book: Book, day: str, row: pd.Series, day_actions: pd.DataFr
         book.paid_in += MONTHLY
         book.index_units += MONTHLY * (1 - COST) / float(row[INDEX])
         events.append({"event": "CONTRIBUTION", "date": day, "tl": MONTHLY, "xu100_close": float(row[INDEX])})
-    for order in orders:
-        if order["id"] in book.done_orders or not can_fill(order["time"], day):
-            continue
+    due = [o for o in orders if o["id"] not in book.done_orders and can_fill(o["time"], day)]
+    if fully_invested:
+        due.sort(key=lambda o: o["side"] != "SELL")   # stable: sells first, ledger order otherwise
+    sold, bought = set(), set()
+    for order in due:
         ticker, price = order["ticker"], row.get(order["ticker"])
         if price is None or pd.isna(price):
             continue                                   # no print today: the order waits for the next session
@@ -165,12 +260,13 @@ def process_session(book: Book, day: str, row: pd.Series, day_actions: pd.DataFr
         fill = {"event": "FILL", "date": day, "order": order["id"], "side": order["side"], "ticker": ticker,
                 "price": price}
         if order["side"] == "BUY":
+            if fully_invested:
+                wanted = int(float(order["tl"]) / (price * (1 + COST)))
+                events += _fund(book, day, row, wanted * price * (1 + COST), bought | {ticker}, order["id"])
             qty = int(min(float(order["tl"]), book.cash) / (price * (1 + COST)))
             if qty > 0:
-                spend = qty * price * (1 + COST)
-                book.cash -= spend
-                book.shares[ticker] = book.shares.get(ticker, 0) + qty
-                book.cost_basis[ticker] = book.cost_basis.get(ticker, 0.0) + spend
+                spend = _buy(book, ticker, price, qty)
+                bought.add(ticker)
                 fill.update(qty=qty, tl=round(spend, 2))
             else:
                 fill.update(qty=0, status="NO_CASH")
@@ -178,19 +274,15 @@ def process_session(book: Book, day: str, row: pd.Series, day_actions: pd.DataFr
             held = book.shares.get(ticker, 0)
             qty = held if float(order.get("fraction", 1.0)) >= 1.0 else int(held * float(order["fraction"]))
             if qty > 0:
-                proceeds = qty * price * (1 - COST)
-                basis = book.cost_basis.get(ticker, 0.0) * qty / held
-                book.cash += proceeds
-                book.shares[ticker] = held - qty
-                book.cost_basis[ticker] = book.cost_basis.get(ticker, 0.0) - basis
-                if book.shares[ticker] == 0:
-                    del book.shares[ticker]
-                    book.cost_basis.pop(ticker, None)
+                proceeds, basis = _sell(book, ticker, price, qty)
+                sold.add(ticker)
                 fill.update(qty=qty, tl=round(proceeds, 2), realised_tl=round(proceeds - basis, 2))
             else:
                 fill.update(qty=0, status="NOTHING_TO_SELL")
         book.done_orders.append(order["id"])
         events.append(fill)
+    if fully_invested:
+        events += _invest_idle_cash(book, day, row, sold)
     book.last_session = day
     return events
 
@@ -314,7 +406,8 @@ def cmd_daily(_args, *, now: datetime | None = None) -> None:
             if d >= START and d > book.last_session]
     carried = prices.ffill()
     for day in todo:
-        for event in process_session(book, day, prices.loc[day], actions.loc[actions.date.eq(day)], orders):
+        for event in process_session(book, day, prices.loc[day], actions.loc[actions.date.eq(day)], orders,
+                                     fully_invested=FULLY_INVESTED):
             append(event)
         row = mark(book, day, prices.loc[day], carried.loc[day].to_dict())
         header = not MARKS.exists()

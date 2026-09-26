@@ -33,10 +33,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from scripts.backtest_monthly_contribution import xirr
 from scripts.paper_portfolio import Book, INDEX, mark, process_session
 
 BASE = ROOT / "data/full_bist_history_v1"
 SIM = BASE / "sim"
+FULL = BASE / "sim_fully_invested"
 LEDGER = SIM / "ledger.jsonl"
 STATE = SIM / "state.json"
 MARKS = SIM / "marks.csv"
@@ -85,6 +87,60 @@ def advance(to: str) -> dict:
         pd.DataFrame([row]).to_csv(MARKS, mode="a", header=not MARKS.exists(), index=False)
     _save(book)
     return {"book": book, "last": pd.read_csv(MARKS).iloc[-1].to_dict() if MARKS.exists() else None}
+
+
+def _xirr(marks: pd.DataFrame, column: str) -> float:
+    paid = marks.paid_in.diff().fillna(marks.paid_in)
+    flows = [(pd.Timestamp(d), -float(p)) for d, p in zip(marks.date, paid) if p]
+    return xirr(flows + [(pd.Timestamp(marks.date.iloc[-1]), float(marks[column].iloc[-1]))])
+
+
+def replay_fully_invested() -> dict:
+    """The recorded decisions again, with all the money in stocks at every moment.
+
+    Every ORDER of the discretionary book is replayed unchanged -- same names, same
+    dates, same lira amounts, same fractions -- through the same engine with
+    ``fully_invested=True``. No decision is added, moved or dropped, so the rule
+    brings in no new hindsight: it changes only what happens to cash that the
+    original book left idle (the payment, sale proceeds, dividends, leftovers),
+    which now goes into the holdings at the same close.
+    """
+    closes, dividends = _prices()
+    orders = [e for e in _ledger() if e["event"] == "ORDER"]
+    original = pd.read_csv(MARKS)
+    book, events, marks = Book(), [], []
+    carried = closes.ffill()
+    for day in [d for d in closes.index if START <= d <= original.date.iloc[-1]]:
+        events += process_session(book, day, closes.loc[day], dividends.loc[dividends.date.eq(day)], orders,
+                                  start=START, fully_invested=True)
+        marks.append(mark(book, day, closes.loc[day], carried.loc[day].to_dict()))
+    FULL.mkdir(parents=True, exist_ok=True)
+    (FULL / "ledger.jsonl").write_text("".join(json.dumps(e, ensure_ascii=False, sort_keys=True) + "\n"
+                                               for e in events), encoding="utf-8", newline="\n")
+    frame = pd.DataFrame(marks)
+    frame.to_csv(FULL / "marks.csv", index=False, lineterminator="\n")
+    (FULL / "state.json").write_text(json.dumps(book.__dict__, ensure_ascii=False, sort_keys=True, indent=1) + "\n",
+                                     encoding="utf-8", newline="\n")
+    fills = [e for e in events if e["event"] == "FILL"]
+    books = {"fully_invested": (frame, "total"), "original": (original, "total"), "xu100": (frame, "xu100_book")}
+    receipt = {
+        "window": [frame.date.iloc[0], frame.date.iloc[-1]],
+        "paid_in": float(frame.paid_in.iloc[-1]),
+        "books": {name: {"final_tl": round(float(m[c].iloc[-1]), 2), "xirr": round(_xirr(m, c), 4)}
+                  for name, (m, c) in books.items()},
+        "cash_share": {name: {"mean": round(float((m.cash / m.total).mean()), 4),
+                              "max_after_first_fill": round(float((m.cash / m.total).iloc[1:].max()), 4),
+                              "end": round(float(m.cash.iloc[-1] / m.total.iloc[-1]), 4)}
+                       for name, m in (("fully_invested", frame), ("original", original))},
+        "fills": {"decided": sum(1 for e in fills if e["order"] != "AUTO"),
+                  "auto_invest_idle_cash": sum(1 for e in fills if e["order"] == "AUTO" and e["side"] == "BUY"),
+                  "auto_fund_a_buy": sum(1 for e in fills if e["order"] == "AUTO" and e["side"] == "SELL"),
+                  "no_cash": sum(1 for e in fills if e.get("status") == "NO_CASH")},
+        "orders_replayed": len(orders),
+    }
+    (FULL / "receipt.json").write_text(json.dumps(receipt, ensure_ascii=False, sort_keys=True, indent=1) + "\n",
+                                       encoding="utf-8", newline="\n")
+    return receipt
 
 
 def sheet(date: str, top: int = 25) -> str:
@@ -149,8 +205,11 @@ def main() -> None:
     o = sub.add_parser("order"); o.add_argument("--date", required=True); o.add_argument("side", choices=["BUY", "SELL"])
     o.add_argument("ticker"); o.add_argument("--tl", type=float, default=0.0)
     o.add_argument("--fraction", type=float, default=1.0); o.add_argument("--why", required=True)
+    sub.add_parser("replay-fully-invested")
     args = parser.parse_args()
-    if args.cmd == "advance":
+    if args.cmd == "replay-fully-invested":
+        print(json.dumps(replay_fully_invested(), ensure_ascii=False, indent=1))
+    elif args.cmd == "advance":
         out = advance(args.to)
         print(json.dumps(out["last"], ensure_ascii=False))
     elif args.cmd == "sheet":

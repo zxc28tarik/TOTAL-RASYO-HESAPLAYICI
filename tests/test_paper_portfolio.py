@@ -82,6 +82,66 @@ def test_dividends_are_credited_and_bonus_issues_scale_the_share_count():
     assert book.shares["AAA"] == 200
 
 
+def _cheapest_share(book, row):
+    return min(float(row[t]) for t in book.shares) * (1 + COST)
+
+
+def test_fully_invested_the_payment_and_whole_share_leftovers_go_into_stocks_the_same_close():
+    book = Book()
+    orders = [_order(1, "2026-09-25T19:00:00+00:00", "BUY", "AAA", tl=5_000.0),
+              _order(2, "2026-09-25T19:00:00+00:00", "BUY", "BBB", tl=5_000.0)]
+    row = _row(AAA=33.0, BBB=7.0)
+    process_session(book, "2026-09-28", row, NO_ACTIONS, orders, fully_invested=True)
+    assert 0 <= book.cash < _cheapest_share(book, row)
+    value = book.value({"AAA": 33.0, "BBB": 7.0})
+    assert value == pytest.approx(MONTHLY / (1 + COST))                    # only commission is lost
+    process_session(book, "2026-10-01", row, NO_ACTIONS, orders, fully_invested=True)
+    assert 0 <= book.cash < _cheapest_share(book, row)                      # October's payment too
+
+
+def test_fully_invested_sale_proceeds_go_to_the_other_holdings_not_back_into_the_sold_name():
+    book = Book(cash=0.0, shares={"AAA": 100, "BBB": 100}, cost_basis={"AAA": 1000.0, "BBB": 1000.0},
+                paid_in=MONTHLY, last_session="2026-09-28")
+    orders = [_order(1, "2026-09-28T19:00:00+00:00", "SELL", "AAA", fraction=0.5)]
+    events = process_session(book, "2026-09-29", _row(AAA=10.0, BBB=10.0), NO_ACTIONS, orders, fully_invested=True)
+    assert book.shares["AAA"] == 50
+    assert book.shares["BBB"] > 100
+    assert book.cash < 10.0 * (1 + COST)
+    assert all(e["ticker"] == "BBB" for e in events if e.get("order") == "AUTO")
+
+
+def test_fully_invested_a_buy_larger_than_the_cash_is_funded_by_trimming_the_others():
+    book = Book(cash=0.0, shares={"AAA": 300, "BBB": 200}, cost_basis={"AAA": 3000.0, "BBB": 2000.0},
+                paid_in=MONTHLY, last_session="2026-09-28")
+    orders = [_order(1, "2026-09-28T19:00:00+00:00", "BUY", "CCC", tl=2_000.0)]
+    row = _row(AAA=10.0, BBB=10.0, CCC=20.0)
+    events = process_session(book, "2026-09-29", row, NO_ACTIONS, orders, fully_invested=True)
+    fill = [e for e in events if e["order"] == "O0001"][0]
+    assert fill["qty"] == int(2_000 / (20.0 * (1 + COST)))
+    trims = {e["ticker"]: e["qty"] for e in events if e["order"] == "AUTO" and e["side"] == "SELL"}
+    assert set(trims) == {"AAA", "BBB"} and trims["AAA"] > trims["BBB"]      # pro rata to value
+    assert 0 <= book.cash < _cheapest_share(book, row)
+
+
+def test_fully_invested_a_switch_sells_first_so_the_buy_needs_no_trim():
+    book = Book(cash=0.0, shares={"AAA": 100, "BBB": 100}, cost_basis={"AAA": 1000.0, "BBB": 1000.0},
+                paid_in=MONTHLY, last_session="2026-09-28")
+    orders = [_order(1, "2026-09-28T19:00:00+00:00", "BUY", "CCC", tl=900.0),   # written first in the ledger
+              _order(2, "2026-09-28T19:00:00+00:00", "SELL", "AAA")]
+    events = process_session(book, "2026-09-29", _row(AAA=10.0, BBB=10.0, CCC=5.0), NO_ACTIONS, orders,
+                             fully_invested=True)
+    assert not [e for e in events if e.get("order") == "AUTO" and e["side"] == "SELL"]
+    assert "AAA" not in book.shares and book.shares["CCC"] >= 179
+
+
+def test_without_the_rule_cash_stays_cash():
+    book = Book()
+    orders = [_order(1, "2026-09-25T19:00:00+00:00", "BUY", "AAA", tl=5_000.0)]
+    events = process_session(book, "2026-09-28", _row(AAA=33.0), NO_ACTIONS, orders)
+    assert not [e for e in events if e.get("order") == "AUTO"]
+    assert book.cash > 9_000
+
+
 def test_a_mark_values_both_books_on_the_same_close():
     book = Book(cash=100.0, shares={"AAA": 10}, paid_in=MONTHLY, index_units=1.5)
     row = mark(book, "2026-09-29", _row(AAA=20.0), {"AAA": 19.0})
