@@ -1,0 +1,40 @@
+{
+ "books": {
+  "fully_invested": {
+   "final_tl": 312780.63,
+   "xirr": 0.2043
+  },
+  "original": {
+   "final_tl": 302403.46,
+   "xirr": 0.1549
+  },
+  "xu100": {
+   "final_tl": 298379.7,
+   "xirr": 0.1357
+  }
+ },
+ "cash_share": {
+  "fully_invested": {
+   "end": 0.0,
+   "max_after_first_fill": 0.0004,
+   "mean": 0.0027
+  },
+  "original": {
+   "end": 0.4428,
+   "max_after_first_fill": 0.5503,
+   "mean": 0.1511
+  }
+ },
+ "fills": {
+  "auto_fund_a_buy": 367,
+  "auto_invest_idle_cash": 682,
+  "decided": 252,
+  "no_cash": 0
+ },
+ "orders_replayed": 252,
+ "paid_in": 270000.0,
+ "window": [
+  "2025-04-02",
+  "2026-09-25"
+ ]
+}
