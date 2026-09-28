@@ -1,3 +1,8 @@
 {"event": "ORDER", "id": "O0001", "side": "BUY", "ticker": "DEVA", "time": "2026-09-25T18:57:53+00:00", "tl": 5000.0, "why": "AL skor 96.0; PD/DD 0.62, sektor medyani 1.00 (%38 iskonto); son 3 ayda +%39, zirvenin %7 altinda: ucuzluk ile ivme birlikte. Dusen bicak degil."}
 {"event": "ORDER", "id": "O0002", "side": "BUY", "ticker": "AYGAZ", "time": "2026-09-25T18:57:54+00:00", "tl": 5000.0, "why": "AL skor 98.8; PD/DD 0.78, sektor medyani 1.00 (%22 iskonto); son 3 ayda +%43, zirvenin %11 altinda. Yuksek skor + makul iskonto + trend yukari."}
 {"event": "ORDER", "id": "O0003", "side": "BUY", "ticker": "RGYAS", "time": "2026-09-25T18:57:54+00:00", "tl": 5000.0, "why": "AL skor 98.4; PD/DD 0.39, sektor medyani 1.05 (%63 iskonto) - listenin en derin iskontolarindan; fiyat 3 aydir yatay, zirvenin %10 altinda, cokus yok."}
+{"date": "2026-09-28", "event": "CONTRIBUTION", "tl": 15000.0, "xu100_close": 12592.759765625}
+{"date": "2026-09-28", "event": "FILL", "order": "O0001", "price": 93.25, "qty": 53, "side": "BUY", "ticker": "DEVA", "tl": 4952.13}
+{"date": "2026-09-28", "event": "FILL", "order": "O0002", "price": 291.25, "qty": 17, "side": "BUY", "ticker": "AYGAZ", "tl": 4961.15}
+{"date": "2026-09-28", "event": "FILL", "order": "O0003", "price": 193.8000030517578, "qty": 25, "side": "BUY", "ticker": "RGYAS", "tl": 4854.69}
+{"date": "2026-09-28", "event": "FILL", "order": "AUTO", "price": 93.25, "qty": 2, "side": "BUY", "ticker": "DEVA", "tl": 186.87, "why": "IDLE_CASH"}
