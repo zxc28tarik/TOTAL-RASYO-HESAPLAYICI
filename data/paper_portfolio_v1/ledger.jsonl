@@ -8,3 +8,7 @@
 {"date": "2026-09-28", "event": "FILL", "order": "AUTO", "price": 93.25, "qty": 2, "side": "BUY", "ticker": "DEVA", "tl": 186.87, "why": "IDLE_CASH"}
 {"event": "ORDER", "id": "O0004", "side": "BUY", "ticker": "AKSGY", "time": "2026-09-30T16:19:44+00:00", "tl": 7500.0, "why": "Ekim odemesinin yarisi. AL skor 94.7; PD/DD 0.43, sektor medyani 0.63 (%31 iskonto). Piyasa 3 seansta %7 duserken 20 gunde yalniz -%4.5, 3 ayda -%1; zirvenin %8 altinda. Ucuzluk ile goreli guc bir arada. Ucten bese cikmak dagilimi da artiriyor."}
 {"event": "ORDER", "id": "O0005", "side": "BUY", "ticker": "ALARK", "time": "2026-09-30T16:19:45+00:00", "tl": 7500.0, "why": "Ekim odemesinin diger yarisi. AL skor 96.8; PD/DD 0.45, sektor medyani 0.63 (%29 iskonto). 20 gunde -%10.6 dusus piyasayla ayni olcude; cokus degil, piyasa geri cekilmesi. Enerji/insaat holdingi, eldeki ilac/LPG/GYO sepetinden farkli bir sektor."}
+{"date": "2026-10-01", "event": "CONTRIBUTION", "tl": 15000.0, "xu100_close": 12249.0400390625}
+{"date": "2026-10-01", "event": "FILL", "order": "O0004", "price": 9.369999885559082, "qty": 798, "side": "BUY", "ticker": "AKSGY", "tl": 7492.21}
+{"date": "2026-10-01", "event": "FILL", "order": "O0005", "price": 101.9000015258789, "qty": 73, "side": "BUY", "ticker": "ALARK", "tl": 7453.58}
+{"date": "2026-10-01", "event": "FILL", "order": "AUTO", "price": 9.369999885559082, "qty": 10, "side": "BUY", "ticker": "AKSGY", "tl": 93.89, "why": "IDLE_CASH"}
