@@ -1,0 +1,181 @@
+name: Claude Audit Line CI (W3 W4 W5 W6 W6B W6C W7A W7B W7C W10)
+
+# Scoped to this audit line so it never competes with the Codex/Astra
+# workflows. It proves three things the ledger requires before a package may be
+# called DONE: the audits reproduce byte-identically, their gates are killed by
+# mutation, and the W1/W2 evidence chain is untouched.
+
+on:
+  push:
+    branches: ['claude/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  parallel-line:
+    runs-on: ubuntu-latest
+    # W7-C's own derive() spans 300+ SPK bulletins each for three of its
+    # seven tickers (KONYA/VESTL/CCOLA's multi-year KAP-anchor gaps); its
+    # mutation audit runs several of those as isolated subprocesses that
+    # cannot share the in-process pypdf-extraction cache, so the previous
+    # 60-minute budget is no longer enough even with that cache in place.
+    timeout-minutes: 120
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: total_rasyo_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres -d total_rasyo_test"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      PGHOST: localhost
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: total_rasyo_test
+      TOTAL_RASYO_TEST_DSN: postgresql://postgres:postgres@localhost:5432/total_rasyo_test
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # W2 replays the pinned pre-W1 modules from Git history.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies including supported pandas floor
+        run: python -m pip install -r requirements.txt -r requirements-experimental.txt 'pandas==2.2.3' pytest
+      - name: Apply schema
+        run: make core migrate
+
+      - name: W1 frozen current output smoke check
+        run: python scripts/audit_w1_frozen_outputs.py --output w1-frozen-outputs.json
+      - name: W2 corrected CORE Total and assembly receipt verification
+        if: '!cancelled()'
+        run: python scripts/materialize_w2_current_correction.py --check
+
+      - name: W3 price populations reproduce byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w3_price_populations.py --check
+      - name: W4 Ek4 contract audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w4_ek4_contract.py --check
+      - name: W5 SMRTG canary reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w5_smrtg_canary.py --check
+      - name: W6 CA gate reachability audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w6_ca_gate_reachability.py --check
+      - name: W6-C report-corroborated-basis audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w6c_report_corroborated_basis.py --check
+      - name: W7-A evidence-dating-gate audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w7a_evidence_dating_gate.py --check
+      - name: W7-B SPK bulletin evidence audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w7b_spk_bulletin_evidence.py --check
+      - name: W7-C real M2 score audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w7c_real_m2_score.py --check
+      - name: W6-B BANK coe/macro_cap audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w6b_bank_coe_macro_cap.py --check
+      - name: W10 P7 enumeration audit reproduces byte-identically
+        if: '!cancelled()'
+        run: python scripts/audit_w10_p7_enumeration.py --check
+
+      - name: Targeted audit-line contracts
+        if: '!cancelled()'
+        run: >-
+          python -m pytest -q --junitxml=parallel-targeted.xml
+          tests/test_w3_price_populations.py
+          tests/test_w4_ek4_contract.py
+          tests/test_w5_smrtg_canary.py
+          tests/test_w6_ca_gate_reachability.py
+          tests/test_w6c_report_corroborated_basis.py
+          tests/test_w7a_evidence_dating_gate.py
+          tests/test_w7b_spk_bulletin_evidence.py
+          tests/test_w7c_real_m2_score.py
+          tests/test_w6b_bank_coe_macro_cap.py
+          tests/test_w10_p7_enumeration.py
+
+      - name: Full regression including live PostgreSQL
+        if: '!cancelled()'
+        run: python -m pytest -q --junitxml=parallel-full.xml
+      - name: BANK v4.7
+        if: '!cancelled()'
+        run: make test-bank-v47
+
+      - name: W3 mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w3_mutations.py --output w3-mutations.json
+      - name: W4 mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w4_mutations.py --output w4-mutations.json
+      - name: W5 mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w5_mutations.py --output w5-mutations.json
+      - name: W6 mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w6_mutations.py --output w6-mutations.json
+      - name: W6-C mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w6c_mutations.py --output w6c-mutations.json
+      - name: W7-B mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w7b_mutations.py --output w7b-mutations.json
+      - name: W7-C mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w7c_mutations.py --output w7c-mutations.json
+      - name: W6-B mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w6b_mutations.py --output w6b-mutations.json
+      - name: W10 mutation audit
+        if: '!cancelled()'
+        run: python scripts/audit_w10_mutations.py --output w10-mutations.json
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: claude-parallel-line-evidence
+          path: |
+            parallel-targeted.xml
+            parallel-full.xml
+            w1-frozen-outputs.json
+            w3-mutations.json
+            w4-mutations.json
+            w5-mutations.json
+            w6-mutations.json
+            w6b-mutations.json
+            w6c-mutations.json
+            w7b-mutations.json
+            w7c-mutations.json
+            w10-mutations.json
+
+  windows:
+    runs-on: windows-latest
+    # See the parallel-line job's own comment: W7-C's derive() now dominates
+    # this job's single bare `pytest -q` sweep too.
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # W2 reads its pinned post-correction tree from Git history.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          cache: pip
+      - run: python -m pip install -r requirements.txt -r requirements-experimental.txt pytest
+      - name: Windows regression (database tests require the Linux service)
+        run: python -X utf8 -m pytest -q --junitxml=parallel-windows.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: claude-parallel-windows-evidence
+          path: parallel-windows.xml

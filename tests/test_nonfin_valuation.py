@@ -251,3 +251,22 @@ def test_utc_analysis_uses_istanbul_calendar_date():
         quarters=quarters(),
     )
     assert snapshot.price_trade_date == date(2026, 8, 5)
+
+
+def test_absent_short_term_investments_is_read_as_zero_not_unknown():
+    # An issuer holding no short-term investments never opens that IFRS row, so
+    # its absence must not discard net_debt and with it EV/EBIT.
+    present = snap("T1", 10.0)
+    without = snap("T1", 10.0, missing="st_investments")
+    assert present.net_debt == 20.0 + 40.0 - 25.0 - 5.0
+    assert without.net_debt == 20.0 + 40.0 - 25.0
+    assert "EV_EBIT" in without.multiples()
+
+
+def test_absent_cash_or_borrowings_still_refuses_net_debt():
+    # Cash is reported by every issuer, so a missing one is a parse failure
+    # rather than an economic zero; the borrowing lines stay required too.
+    for field in ("cash_and_eq", "debt_st", "debt_lt"):
+        snapshot = snap("T1", 10.0, missing=field)
+        assert snapshot.net_debt is None, field
+        assert "EV_EBIT" not in snapshot.multiples(), field

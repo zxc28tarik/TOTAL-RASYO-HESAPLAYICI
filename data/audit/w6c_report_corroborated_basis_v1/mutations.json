@@ -1,0 +1,84 @@
+{
+  "all_killed": true,
+  "auditor": "scripts/audit_w6c_report_corroborated_basis.py",
+  "auditor_sha256": "54f4f0e8fa7382a4f2cc14daf6fda28ca9e2d654923ba12da0226875e05ff624",
+  "contract": "W6C_REPORT_CORROBORATED_BASIS_MUTATION_AUDIT_V1",
+  "database_access": false,
+  "mutations_killed": 8,
+  "mutations_total": 8,
+  "network_access": false,
+  "results": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "name": "baseline",
+      "skipped": 0,
+      "status": "PASS",
+      "tests": 16
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "future_report_admitted",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 16
+    },
+    {
+      "errors": 0,
+      "failures": 3,
+      "name": "mismatch_does_not_stop_the_chain",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 16
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "anchor_boundary_made_inclusive",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 16
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "shrunk_flag_hardcoded_true",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 16
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "cells_shrunk_count_ignores_shrunk_flag",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 16
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "m2_materialized_flag_forced_true",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 16
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "anchor_shares_lookup_failure_silenced",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 16
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "gap_before_computed_from_wrong_date",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 16
+    }
+  ]
+}

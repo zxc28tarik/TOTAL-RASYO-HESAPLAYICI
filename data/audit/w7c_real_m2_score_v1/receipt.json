@@ -1,0 +1,29 @@
+{
+  "command": "python scripts/audit_w7c_real_m2_score.py --apply",
+  "commit": "9f0e3bfa8714cb66228aaef1955d9b0137d8e3ab",
+  "contract": "W7C_REAL_M2_SCORE_RECEIPT_V1",
+  "generated_at": "2026-09-18T00:43:11.121401+00:00",
+  "generator_sha256": "b47039a016f5cafd253c85c706ffa3e60644df72fdda6766ee6f92a2d80972c4",
+  "hash_mode": "LF_CANONICAL_SHA256_V1",
+  "output_sha256": {
+    "anchors.json": "bca4b04181be1801c9e88f5acd9497c40cef9dc6f6e4f573ba0eb5ffedd8ea5f",
+    "archive.json": "fa22beda65e6dae8926d44e54a28f110189a2ba3a27706df501981d4406e1d92",
+    "batch_replay.json": "f825a189654ba6438a9862960e12c3ee825fb1c6a9a1e15a8d3e20dd211ac9ee",
+    "evidence.json": "adc9f686d3ab75c06772773e8c663cf13b348c3bc03f063d3aaeb90d22391230",
+    "gate_results.json": "a158745a2466cc3edc02bb9ba25e8a254d1f7a98cadef21d6bc32565a815e79e",
+    "negative_controls.json": "c7b86f28e7847404275e259f1c2237d4d03b38889264226f6ecba73784351b45",
+    "verdict.json": "51243f2cd7ddc8405dd2d9a76c041a544f9e668e5ea54b3ee08beb937cec153f"
+  },
+  "policy": {
+    "m2_materialized": true,
+    "market_cap_materialized_non_zero_interval": true,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "scope": "SEVEN_TICKER_CLOSED_SAMPLE_ONE_CUTOFF",
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "authoritative_label_allowed": false,
+  "contract": "W10_P7_VERSION_ENUMERATION_AUDIT_V1",
+  "distinct_selected_reports": 2115,
+  "indicative_exposed_reports": 45,
+  "reports_carrying_the_risk_flag": 5990,
+  "reports_with_a_known_version_chain": 0,
+  "retained_profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "risk_id": "SUPERSEDED_HISTORICAL_KAP_REPORT_VERSIONS_NOT_ENUMERATED",
+  "sampled_supersession_rate": {
+    "caveat": "One month of official query bytes. It indicates an order of magnitude, not a retention guarantee and not a rate that can be assumed constant across 60 months.",
+    "financial_report_disclosures": 423,
+    "marked_revision": 10,
+    "marked_superseded": 9,
+    "rate": 0.02127659574468085,
+    "window": "2023-03-01..2023-03-31"
+  },
+  "selected_reports": 5990,
+  "why_the_bulk_archives_cannot_answer_this": {
+    "changed_numeric_slots": 4,
+    "detail": "In the recovered pair the preserved-hash annual bulk archive holds only the later disclosure. A catalog built from bulk archives therefore cannot even detect that an earlier version existed.",
+    "materiality": "The correction swapped parent and non-controlling interest amounts, so using the later version before its publication would leak information into the cutoff.",
+    "numeric_slots_compared": 437,
+    "original_disclosure_in_bulk_archive": false,
+    "proven_case": {
+      "label": "Düzeltilmiş Bildirim",
+      "newer": "1126845",
+      "older": "1122417"
+    }
+  }
+}

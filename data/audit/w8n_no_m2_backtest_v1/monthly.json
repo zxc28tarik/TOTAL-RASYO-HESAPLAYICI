@@ -1,0 +1,785 @@
+{
+  "contract": "W8N_NO_M2_FIVE_MODULE_SERIES_V1",
+  "months": [
+    {
+      "month": "2021-08",
+      "cell_count": 100,
+      "scored_count": 16,
+      "rejected_count": 84,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 2,
+        "UZAK": 14
+      },
+      "veto_count": 10,
+      "top_score": 62.834965918550445
+    },
+    {
+      "month": "2021-09",
+      "cell_count": 100,
+      "scored_count": 16,
+      "rejected_count": 84,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 0,
+        "UZAK": 16
+      },
+      "veto_count": 14,
+      "top_score": 42.31888420508018
+    },
+    {
+      "month": "2021-10",
+      "cell_count": 100,
+      "scored_count": 21,
+      "rejected_count": 79,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 1,
+        "UZAK": 20
+      },
+      "veto_count": 17,
+      "top_score": 57.014659112040974
+    },
+    {
+      "month": "2021-11",
+      "cell_count": 100,
+      "scored_count": 21,
+      "rejected_count": 79,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 0,
+        "UZAK": 21
+      },
+      "veto_count": 17,
+      "top_score": 41.95138571672553
+    },
+    {
+      "month": "2021-12",
+      "cell_count": 100,
+      "scored_count": 21,
+      "rejected_count": 79,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 1,
+        "UZAK": 20
+      },
+      "veto_count": 19,
+      "top_score": 55.36341921364685
+    },
+    {
+      "month": "2022-01",
+      "cell_count": 100,
+      "scored_count": 23,
+      "rejected_count": 77,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 0,
+        "UZAK": 22
+      },
+      "veto_count": 22,
+      "top_score": 73.69112979209336
+    },
+    {
+      "month": "2022-02",
+      "cell_count": 100,
+      "scored_count": 23,
+      "rejected_count": 77,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 0,
+        "UZAK": 22
+      },
+      "veto_count": 22,
+      "top_score": 79.22197271554514
+    },
+    {
+      "month": "2022-03",
+      "cell_count": 100,
+      "scored_count": 23,
+      "rejected_count": 77,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 1,
+        "UZAK": 22
+      },
+      "veto_count": 22,
+      "top_score": 68.3421551469657
+    },
+    {
+      "month": "2022-04",
+      "cell_count": 100,
+      "scored_count": 32,
+      "rejected_count": 68,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 1,
+        "UZAK": 31
+      },
+      "veto_count": 27,
+      "top_score": 58.660328706072576
+    },
+    {
+      "month": "2022-05",
+      "cell_count": 100,
+      "scored_count": 31,
+      "rejected_count": 69,
+      "decision_counts": {
+        "AL": 2,
+        "IZLE": 1,
+        "UZAK": 28
+      },
+      "veto_count": 26,
+      "top_score": 78.19423135191454
+    },
+    {
+      "month": "2022-06",
+      "cell_count": 100,
+      "scored_count": 30,
+      "rejected_count": 70,
+      "decision_counts": {
+        "AL": 2,
+        "IZLE": 6,
+        "UZAK": 22
+      },
+      "veto_count": 15,
+      "top_score": 82.80140367219023
+    },
+    {
+      "month": "2022-07",
+      "cell_count": 100,
+      "scored_count": 26,
+      "rejected_count": 74,
+      "decision_counts": {
+        "AL": 3,
+        "IZLE": 4,
+        "UZAK": 19
+      },
+      "veto_count": 12,
+      "top_score": 75.44420356329422
+    },
+    {
+      "month": "2022-08",
+      "cell_count": 100,
+      "scored_count": 27,
+      "rejected_count": 73,
+      "decision_counts": {
+        "AL": 2,
+        "IZLE": 2,
+        "UZAK": 23
+      },
+      "veto_count": 12,
+      "top_score": 91.38738850566277
+    },
+    {
+      "month": "2022-09",
+      "cell_count": 100,
+      "scored_count": 27,
+      "rejected_count": 73,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 1,
+        "UZAK": 25
+      },
+      "veto_count": 24,
+      "top_score": 75.40354660896529
+    },
+    {
+      "month": "2022-10",
+      "cell_count": 100,
+      "scored_count": 29,
+      "rejected_count": 71,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 1,
+        "UZAK": 28
+      },
+      "veto_count": 26,
+      "top_score": 67.38013455172937
+    },
+    {
+      "month": "2022-11",
+      "cell_count": 100,
+      "scored_count": 29,
+      "rejected_count": 71,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 1,
+        "UZAK": 28
+      },
+      "veto_count": 26,
+      "top_score": 65.6019079362994
+    },
+    {
+      "month": "2022-12",
+      "cell_count": 100,
+      "scored_count": 29,
+      "rejected_count": 71,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 2,
+        "UZAK": 26
+      },
+      "veto_count": 26,
+      "top_score": 75.86078063419207
+    },
+    {
+      "month": "2023-01",
+      "cell_count": 100,
+      "scored_count": 29,
+      "rejected_count": 71,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 0,
+        "UZAK": 29
+      },
+      "veto_count": 27,
+      "top_score": 41.82810205272738
+    },
+    {
+      "month": "2023-02",
+      "cell_count": 100,
+      "scored_count": 29,
+      "rejected_count": 71,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 0,
+        "UZAK": 29
+      },
+      "veto_count": 27,
+      "top_score": 35.48157938953788
+    },
+    {
+      "month": "2023-03",
+      "cell_count": 100,
+      "scored_count": 24,
+      "rejected_count": 76,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 0,
+        "UZAK": 24
+      },
+      "veto_count": 22,
+      "top_score": 39.601971490527596
+    },
+    {
+      "month": "2023-04",
+      "cell_count": 100,
+      "scored_count": 25,
+      "rejected_count": 75,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 1,
+        "UZAK": 24
+      },
+      "veto_count": 21,
+      "top_score": 63.945535429825185
+    },
+    {
+      "month": "2023-05",
+      "cell_count": 100,
+      "scored_count": 23,
+      "rejected_count": 77,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 1,
+        "UZAK": 22
+      },
+      "veto_count": 19,
+      "top_score": 68.43279465528039
+    },
+    {
+      "month": "2023-06",
+      "cell_count": 100,
+      "scored_count": 23,
+      "rejected_count": 77,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 2,
+        "UZAK": 20
+      },
+      "veto_count": 12,
+      "top_score": 71.61448506140889
+    },
+    {
+      "month": "2023-07",
+      "cell_count": 100,
+      "scored_count": 29,
+      "rejected_count": 71,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 3,
+        "UZAK": 25
+      },
+      "veto_count": 16,
+      "top_score": 72.38623075475357
+    },
+    {
+      "month": "2023-08",
+      "cell_count": 100,
+      "scored_count": 35,
+      "rejected_count": 65,
+      "decision_counts": {
+        "AL": 4,
+        "IZLE": 4,
+        "UZAK": 27
+      },
+      "veto_count": 21,
+      "top_score": 75.92760309143739
+    },
+    {
+      "month": "2023-09",
+      "cell_count": 100,
+      "scored_count": 74,
+      "rejected_count": 26,
+      "decision_counts": {
+        "AL": 5,
+        "IZLE": 6,
+        "UZAK": 63
+      },
+      "veto_count": 55,
+      "top_score": 76.76712565919978
+    },
+    {
+      "month": "2023-10",
+      "cell_count": 100,
+      "scored_count": 71,
+      "rejected_count": 29,
+      "decision_counts": {
+        "AL": 2,
+        "IZLE": 6,
+        "UZAK": 63
+      },
+      "veto_count": 53,
+      "top_score": 76.31699052918353
+    },
+    {
+      "month": "2023-11",
+      "cell_count": 100,
+      "scored_count": 71,
+      "rejected_count": 29,
+      "decision_counts": {
+        "AL": 3,
+        "IZLE": 4,
+        "UZAK": 64
+      },
+      "veto_count": 54,
+      "top_score": 74.74275820312369
+    },
+    {
+      "month": "2023-12",
+      "cell_count": 100,
+      "scored_count": 70,
+      "rejected_count": 30,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 3,
+        "UZAK": 67
+      },
+      "veto_count": 60,
+      "top_score": 67.66180790511493
+    },
+    {
+      "month": "2024-01",
+      "cell_count": 100,
+      "scored_count": 73,
+      "rejected_count": 27,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 1,
+        "UZAK": 72
+      },
+      "veto_count": 64,
+      "top_score": 64.70503340286766
+    },
+    {
+      "month": "2024-02",
+      "cell_count": 100,
+      "scored_count": 73,
+      "rejected_count": 27,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 1,
+        "UZAK": 72
+      },
+      "veto_count": 64,
+      "top_score": 62.216285979615925
+    },
+    {
+      "month": "2024-03",
+      "cell_count": 100,
+      "scored_count": 73,
+      "rejected_count": 27,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 4,
+        "UZAK": 69
+      },
+      "veto_count": 62,
+      "top_score": 58.813459895448275
+    },
+    {
+      "month": "2024-04",
+      "cell_count": 100,
+      "scored_count": 70,
+      "rejected_count": 30,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 4,
+        "UZAK": 65
+      },
+      "veto_count": 57,
+      "top_score": 83.63208534699046
+    },
+    {
+      "month": "2024-05",
+      "cell_count": 100,
+      "scored_count": 21,
+      "rejected_count": 79,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 0,
+        "UZAK": 21
+      },
+      "veto_count": 19,
+      "top_score": 53.22579167310888
+    },
+    {
+      "month": "2024-06",
+      "cell_count": 100,
+      "scored_count": 21,
+      "rejected_count": 79,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 2,
+        "UZAK": 19
+      },
+      "veto_count": 12,
+      "top_score": 63.73408933039796
+    },
+    {
+      "month": "2024-07",
+      "cell_count": 100,
+      "scored_count": 22,
+      "rejected_count": 78,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 4,
+        "UZAK": 18
+      },
+      "veto_count": 9,
+      "top_score": 65.48731087275732
+    },
+    {
+      "month": "2024-08",
+      "cell_count": 100,
+      "scored_count": 71,
+      "rejected_count": 29,
+      "decision_counts": {
+        "AL": 3,
+        "IZLE": 7,
+        "UZAK": 61
+      },
+      "veto_count": 33,
+      "top_score": 78.22119002840624
+    },
+    {
+      "month": "2024-09",
+      "cell_count": 100,
+      "scored_count": 70,
+      "rejected_count": 30,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 9,
+        "UZAK": 60
+      },
+      "veto_count": 36,
+      "top_score": 76.34978807350899
+    },
+    {
+      "month": "2024-10",
+      "cell_count": 100,
+      "scored_count": 72,
+      "rejected_count": 28,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 5,
+        "UZAK": 67
+      },
+      "veto_count": 50,
+      "top_score": 68.88043327878904
+    },
+    {
+      "month": "2024-11",
+      "cell_count": 100,
+      "scored_count": 72,
+      "rejected_count": 28,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 8,
+        "UZAK": 63
+      },
+      "veto_count": 52,
+      "top_score": 76.22885159099432
+    },
+    {
+      "month": "2024-12",
+      "cell_count": 100,
+      "scored_count": 74,
+      "rejected_count": 26,
+      "decision_counts": {
+        "AL": 2,
+        "IZLE": 2,
+        "UZAK": 70
+      },
+      "veto_count": 62,
+      "top_score": 78.38883446263715
+    },
+    {
+      "month": "2025-01",
+      "cell_count": 100,
+      "scored_count": 75,
+      "rejected_count": 25,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 4,
+        "UZAK": 70
+      },
+      "veto_count": 65,
+      "top_score": 84.444389112711
+    },
+    {
+      "month": "2025-02",
+      "cell_count": 100,
+      "scored_count": 75,
+      "rejected_count": 25,
+      "decision_counts": {
+        "AL": 3,
+        "IZLE": 2,
+        "UZAK": 70
+      },
+      "veto_count": 65,
+      "top_score": 78.18451274881738
+    },
+    {
+      "month": "2025-03",
+      "cell_count": 100,
+      "scored_count": 75,
+      "rejected_count": 25,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 4,
+        "UZAK": 70
+      },
+      "veto_count": 63,
+      "top_score": 71.40916836182656
+    },
+    {
+      "month": "2025-04",
+      "cell_count": 100,
+      "scored_count": 72,
+      "rejected_count": 28,
+      "decision_counts": {
+        "AL": 2,
+        "IZLE": 6,
+        "UZAK": 64
+      },
+      "veto_count": 55,
+      "top_score": 76.70819485789457
+    },
+    {
+      "month": "2025-05",
+      "cell_count": 100,
+      "scored_count": 72,
+      "rejected_count": 28,
+      "decision_counts": {
+        "AL": 3,
+        "IZLE": 6,
+        "UZAK": 63
+      },
+      "veto_count": 48,
+      "top_score": 74.7851181831723
+    },
+    {
+      "month": "2025-06",
+      "cell_count": 100,
+      "scored_count": 72,
+      "rejected_count": 28,
+      "decision_counts": {
+        "AL": 6,
+        "IZLE": 10,
+        "UZAK": 56
+      },
+      "veto_count": 36,
+      "top_score": 80.58004480847244
+    },
+    {
+      "month": "2025-07",
+      "cell_count": 100,
+      "scored_count": 71,
+      "rejected_count": 29,
+      "decision_counts": {
+        "AL": 3,
+        "IZLE": 10,
+        "UZAK": 58
+      },
+      "veto_count": 33,
+      "top_score": 82.3385576813579
+    },
+    {
+      "month": "2025-08",
+      "cell_count": 100,
+      "scored_count": 72,
+      "rejected_count": 28,
+      "decision_counts": {
+        "AL": 2,
+        "IZLE": 11,
+        "UZAK": 59
+      },
+      "veto_count": 36,
+      "top_score": 81.61739364606271
+    },
+    {
+      "month": "2025-09",
+      "cell_count": 100,
+      "scored_count": 71,
+      "rejected_count": 29,
+      "decision_counts": {
+        "AL": 3,
+        "IZLE": 7,
+        "UZAK": 61
+      },
+      "veto_count": 54,
+      "top_score": 74.3140763841534
+    },
+    {
+      "month": "2025-10",
+      "cell_count": 100,
+      "scored_count": 69,
+      "rejected_count": 31,
+      "decision_counts": {
+        "AL": 4,
+        "IZLE": 5,
+        "UZAK": 60
+      },
+      "veto_count": 51,
+      "top_score": 81.54410874960615
+    },
+    {
+      "month": "2025-11",
+      "cell_count": 100,
+      "scored_count": 70,
+      "rejected_count": 30,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 8,
+        "UZAK": 62
+      },
+      "veto_count": 56,
+      "top_score": 69.46500583026508
+    },
+    {
+      "month": "2025-12",
+      "cell_count": 100,
+      "scored_count": 71,
+      "rejected_count": 29,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 3,
+        "UZAK": 67
+      },
+      "veto_count": 64,
+      "top_score": 70.66966643778697
+    },
+    {
+      "month": "2026-01",
+      "cell_count": 100,
+      "scored_count": 70,
+      "rejected_count": 30,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 3,
+        "UZAK": 67
+      },
+      "veto_count": 62,
+      "top_score": 60.33508766769471
+    },
+    {
+      "month": "2026-02",
+      "cell_count": 100,
+      "scored_count": 71,
+      "rejected_count": 29,
+      "decision_counts": {
+        "AL": 0,
+        "IZLE": 6,
+        "UZAK": 65
+      },
+      "veto_count": 63,
+      "top_score": 68.20702511548058
+    },
+    {
+      "month": "2026-03",
+      "cell_count": 100,
+      "scored_count": 75,
+      "rejected_count": 25,
+      "decision_counts": {
+        "AL": 3,
+        "IZLE": 3,
+        "UZAK": 69
+      },
+      "veto_count": 64,
+      "top_score": 82.85325827025324
+    },
+    {
+      "month": "2026-04",
+      "cell_count": 100,
+      "scored_count": 74,
+      "rejected_count": 26,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 2,
+        "UZAK": 71
+      },
+      "veto_count": 62,
+      "top_score": 78.56785288405813
+    },
+    {
+      "month": "2026-05",
+      "cell_count": 100,
+      "scored_count": 74,
+      "rejected_count": 26,
+      "decision_counts": {
+        "AL": 1,
+        "IZLE": 5,
+        "UZAK": 68
+      },
+      "veto_count": 58,
+      "top_score": 73.4477400911037
+    },
+    {
+      "month": "2026-06",
+      "cell_count": 100,
+      "scored_count": 75,
+      "rejected_count": 25,
+      "decision_counts": {
+        "AL": 3,
+        "IZLE": 13,
+        "UZAK": 59
+      },
+      "veto_count": 40,
+      "top_score": 78.9746982178849
+    },
+    {
+      "month": "2026-07",
+      "cell_count": 100,
+      "scored_count": 74,
+      "rejected_count": 26,
+      "decision_counts": {
+        "AL": 3,
+        "IZLE": 8,
+        "UZAK": 63
+      },
+      "veto_count": 35,
+      "top_score": 85.8561316446937
+    }
+  ]
+}

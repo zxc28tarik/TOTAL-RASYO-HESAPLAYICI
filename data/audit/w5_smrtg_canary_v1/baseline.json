@@ -1,0 +1,33 @@
+{
+  "contract": "W5_SMRTG_HISTORICAL_M2_CANARY_VERIFICATION_V1",
+  "historical_pit_m2_before": 0,
+  "live_results_that_must_not_change": {
+    "core": 131,
+    "ek9": 11,
+    "m2": 48,
+    "note": "verified separately by audit_w1_frozen_outputs and the W2 correction check",
+    "rejections": 805,
+    "total": 2
+  },
+  "prior_canary": {
+    "active_blockers": [
+      "VERIFIED_SHARE_PEER_COHORT_INSUFFICIENT:safe_peers=0;required=5"
+    ],
+    "contract": "SMRTG_HISTORICAL_M2_CANARY_AUDIT_V1",
+    "m2_materialized": false,
+    "market_cap": 12996126462.249756,
+    "neutral_m2_materialized": false,
+    "p4_materialized": false,
+    "path": "data/audit/smrtg_m2_canary_v1/receipt.json",
+    "raw_close": 21.450000762939453,
+    "sha256": "6e33b7b726f1381f78ab8abe57c37ec4ea32a5393a41b2281bf8db106939c890",
+    "share_action_gate_passed": true,
+    "shares_out": 605880000,
+    "total_materialized": false
+  },
+  "purpose": "Immutable record of the pre-audit state. Taken before any behaviour change so a later 'before' cannot be manufactured.",
+  "zero_interval_receipt": {
+    "path": "data/backtest_sources/zero_interval_share_basis_v1/receipt.json",
+    "sha256": "a836d1fc914e51408b58bf612360933fd48af79167a8eb190fb71bd28b38e2b3"
+  }
+}

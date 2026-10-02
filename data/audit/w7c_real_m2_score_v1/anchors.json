@@ -1,0 +1,61 @@
+{
+  "anchors": {
+    "BRSAN": {
+      "anchor_date": "2023-07-27",
+      "creation": "27/07/2023 18:19:21",
+      "decimal_bug_corrected": false,
+      "gap_days": 4,
+      "shares_out": 14175000000.0,
+      "stored_derived_shares": 14175000000.0
+    },
+    "CCOLA": {
+      "anchor_date": "2019-05-14",
+      "creation": "14/05/2019 09:30:33",
+      "decimal_bug_corrected": true,
+      "gap_days": 1539,
+      "shares_out": 25437078200.0,
+      "stored_derived_shares": 17445078200000.0
+    },
+    "CEMTS": {
+      "anchor_date": "2023-05-31",
+      "creation": "31/05/2023 16:42:39",
+      "decimal_bug_corrected": false,
+      "gap_days": 61,
+      "shares_out": 50000000000.0,
+      "stored_derived_shares": 50000000000.0
+    },
+    "KONYA": {
+      "anchor_date": "2019-05-31",
+      "creation": "31/05/2019 16:41:33",
+      "decimal_bug_corrected": false,
+      "gap_days": 1522,
+      "shares_out": 487344000.0,
+      "stored_derived_shares": 487344000.0
+    },
+    "QUAGR": {
+      "anchor_date": "2023-07-24",
+      "creation": "24/07/2023 17:07:38",
+      "decimal_bug_corrected": false,
+      "gap_days": 7,
+      "shares_out": 2640000000.0,
+      "stored_derived_shares": 2640000000.0
+    },
+    "TUKAS": {
+      "anchor_date": "2023-07-24",
+      "creation": "24/07/2023 18:22:30",
+      "decimal_bug_corrected": false,
+      "gap_days": 7,
+      "shares_out": 147231000000.0,
+      "stored_derived_shares": 147231000000.0
+    },
+    "VESTL": {
+      "anchor_date": "2019-04-30",
+      "creation": "30/04/2019 11:26:44",
+      "decimal_bug_corrected": false,
+      "gap_days": 1553,
+      "shares_out": 33545627500.0,
+      "stored_derived_shares": 33545627500.0
+    }
+  },
+  "contract": "W7C_REAL_M2_SCORE_V1"
+}

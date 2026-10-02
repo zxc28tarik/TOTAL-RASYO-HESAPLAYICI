@@ -1,0 +1,19 @@
+{
+  "consequence": "This is a closed seven-ticker sample at one cutoff, not a full-universe result: it proves the valuation path works end-to-end given genuine, sufficiently-evidenced peer coverage, not that every NONFIN cell across all 60 historical cutoffs now clears minimum_peer_count. Extending this to more cells needs the same evidence-materialization effort (TTM-completeness screening, KAP share-anchor resolution and internal consistency check, SPK-bulletin capital-action-absence scan) repeated per cutoff/sector/multiple combination -- most of which this work package also found genuinely blocked (missing share anchors, non-TRY par values, stale anchors with an intervening real capital action, or financial-statement fields the CORE pipeline correctly leaves null) rather than simply unattempted.",
+  "contract": "W7C_REAL_M2_SCORE_V1",
+  "finding": "The bottleneck W7-B left standing -- no NONFIN sector's own CORE data carried minimum_peer_count=5 same-quarter tickers for any relative-valuation multiple at its one measured cutoff -- is cleared at a different cutoff/sector/multiple combination (signal_date 2023-08-01, sector XUSIN, multiple PE) with seven genuinely TTM-complete tickers (BRSAN, CEMTS, QUAGR, TUKAS, KONYA, VESTL, CCOLA). Each one's KAP share-count anchor and SPK-bulletin evidence of no intervening capital action pass the unmodified production evidence-dating gate; run_historical_pit_nonfin_m2_replay, called unmodified with the same nonfin_valuation.kap_bulk_exact_v1.json config W7-B used, computes PE and PB each with peer_count=6 for every ticker, clears minimum_coverage_weight=0.5, and produces seven real, non-zero M2 scores with zero rejections -- the first this project has ever produced from the NONFIN relative-valuation path.",
+  "policy": {
+    "m2_materialized": true,
+    "market_cap_materialized_non_zero_interval": true,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "scope": "SEVEN_TICKER_CLOSED_SAMPLE_ONE_CUTOFF",
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "reopen_condition": "If a future change to CORE derivation, the KAP share-class history artifact, or the SPK bulletin archive changes any of: the seven tickers' TTM completeness, their resolved share anchors' recomputed-vs-stored consistency, the capital-action scan's result, or the batch replay's peer counts/rejection count -- this audit's own guards in derive() already raise rather than silently reporting a stale result; re-run with --apply and update this file's docstring/verdict from the new evidence.",
+  "status": "M2_MATERIALIZED"
+}

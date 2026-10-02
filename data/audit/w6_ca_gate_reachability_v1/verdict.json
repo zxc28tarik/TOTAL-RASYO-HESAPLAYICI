@@ -1,0 +1,19 @@
+{
+  "contract": "W6_CA_GATE_REACHABILITY_V1",
+  "coverage_complete": true,
+  "coverage_gaps": [],
+  "gate_reachable_cutoffs": 60,
+  "note": "This audit only re-measures peer-gate reachability with real corporate-action evidence. Materializing an actual historical M2 value for any newly-opened cell is a separate, subsequent step that still must call the production valuation combiner and satisfy every other locked contract.",
+  "policy": {
+    "m2_materialized": false,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "status": "GATE_OPENED",
+  "total_cutoffs": 60
+}

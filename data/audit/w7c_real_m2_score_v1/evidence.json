@@ -1,0 +1,70 @@
+{
+  "contract": "W7C_REAL_M2_SCORE_V1",
+  "cutoff": "2023-07-31T18:10:00+03:00",
+  "price_trade_date": "2023-07-31",
+  "tickers": [
+    {
+      "anchor_date": "2023-07-27",
+      "decimal_bug_corrected": false,
+      "manifest_sha256": "75e2017fafaaa437b7e533bbacde2da8e359759064bd9063f9dbb20760e79605",
+      "shares_out": 14175000000.0,
+      "source_count": 2,
+      "stored_derived_shares": 14175000000.0,
+      "ticker": "BRSAN"
+    },
+    {
+      "anchor_date": "2023-05-31",
+      "decimal_bug_corrected": false,
+      "manifest_sha256": "82adc604d8d5aac57ae05efa04688b72ba963f3efb1f8900da5ab96efc4dd29b",
+      "shares_out": 50000000000.0,
+      "source_count": 16,
+      "stored_derived_shares": 50000000000.0,
+      "ticker": "CEMTS"
+    },
+    {
+      "anchor_date": "2023-07-24",
+      "decimal_bug_corrected": false,
+      "manifest_sha256": "ebb810b342274e34e4b40758437b7b9b9a85dda6ce2acdc76adabbb285db8576",
+      "shares_out": 2640000000.0,
+      "source_count": 3,
+      "stored_derived_shares": 2640000000.0,
+      "ticker": "QUAGR"
+    },
+    {
+      "anchor_date": "2023-07-24",
+      "decimal_bug_corrected": false,
+      "manifest_sha256": "94037f221ffe0789820e5115bb211cb00436bfcdfb68a808fff9de1bedc93c70",
+      "shares_out": 147231000000.0,
+      "source_count": 3,
+      "stored_derived_shares": 147231000000.0,
+      "ticker": "TUKAS"
+    },
+    {
+      "anchor_date": "2019-05-31",
+      "decimal_bug_corrected": false,
+      "manifest_sha256": "ccdca8040228cbe07621bb80878cfd572a647e83488d19f125eba97e29512ceb",
+      "shares_out": 487344000.0,
+      "source_count": 303,
+      "stored_derived_shares": 487344000.0,
+      "ticker": "KONYA"
+    },
+    {
+      "anchor_date": "2019-04-30",
+      "decimal_bug_corrected": false,
+      "manifest_sha256": "b64c1bd70a532866285c3d5ab1d5776738ccdf9df431f4a10760571685b17ba6",
+      "shares_out": 33545627500.0,
+      "source_count": 311,
+      "stored_derived_shares": 33545627500.0,
+      "ticker": "VESTL"
+    },
+    {
+      "anchor_date": "2019-05-14",
+      "decimal_bug_corrected": true,
+      "manifest_sha256": "ef60841c5392b3ae5ac57965b6ba4c9d65544662ccafc1a5e0c9c3c6f5aa4121",
+      "shares_out": 25437078200.0,
+      "source_count": 308,
+      "stored_derived_shares": 17445078200000.0,
+      "ticker": "CCOLA"
+    }
+  ]
+}

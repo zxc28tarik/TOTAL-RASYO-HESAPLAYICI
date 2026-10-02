@@ -1,0 +1,19 @@
+{
+  "case_a_honest_capture_timestamp": {
+    "accepted": false,
+    "error": "future source publication",
+    "published_at": "2026-09-14T09:23:04.864740+00:00"
+  },
+  "case_b_backdated_control": {
+    "accepted": true,
+    "error": null,
+    "published_at": "2023-07-31T18:10:00+03:00"
+  },
+  "contract": "W7A_EVIDENCE_DATING_GATE_V1",
+  "covering_window": "2021-10-31_2021-11-06",
+  "covering_window_response_sha256": "3d53e94319f56391cd0cc67aa2c6678b1272d09d51f21496fdedbe22374c44c5",
+  "cutoff": "2023-07-31T18:10:00+03:00",
+  "price_trade_date": "2023-07-31",
+  "shares_basis_date": "2021-11-04",
+  "target_ticker": "AKSEN"
+}

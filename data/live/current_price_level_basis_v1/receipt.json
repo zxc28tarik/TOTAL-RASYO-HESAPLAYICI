@@ -1,21 +1,25 @@
 {
   "adjusted_close_used_for_market_cap": false,
-  "analysis_at": "2026-09-08T21:46:40.718216+00:00",
+  "analysis_at": "2026-09-23T19:05:13.881173+00:00",
   "contract": "CURRENT_PRICE_LEVEL_BASIS_MATERIALIZATION_V1",
   "empty_same_day_action_interval_only": true,
   "legal_share_count_equated_to_nominal_try": false,
   "market_cap_formula": "raw_close * total_explicit_class_nominal_value_try / 1 TRY",
-  "materialized_market_cap_count": 305,
+  "materialized_market_cap_count": 500,
   "nominal_value_per_share_assumed": false,
   "outputs": {
-    "action_bundle_index.json": "8eeb9f01b92b93b2274e0d06600e36bf0785acac5f0deba1b2e03d2da5dae8ea",
-    "market_caps.csv": "1e35c921414cf65571f154b41956af0482d5a47d94abda06eb22967d647558aa"
+    "action_bundle_index.json": "74690d2cd7bd78d4fa0ba196d3ca55cfd66a0d9370f77fc43137f777be6a88ee",
+    "market_caps.csv": "6fc7f4decc91fde3a8c4a1021df144eff09b85910fe9ce02ca10a4a6c10c6125"
   },
   "production_action_bundle_loader_verified": true,
   "quote_unit_contract": "BORSA_PAY_PRICE_PER_1_TRY_NOMINAL_V1",
   "quote_unit_source_pdf_sha256": "9777f6d7e4b650c4f6af9f494bfbcabf4e3e9f3cc083ff2effb060cc27a196de",
-  "rejection_count": 19,
+  "rejection_count": 28,
   "rejections": [
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "ADGYO"
+    },
     {
       "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
       "ticker": "AGHOL"
@@ -27,6 +31,10 @@
     {
       "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
       "ticker": "AKYHO"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "ARDYZ"
     },
     {
       "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
@@ -54,7 +62,19 @@
     },
     {
       "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "EUREN"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "FORMT"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
       "ticker": "IEYHO"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "KAREL"
     },
     {
       "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
@@ -62,7 +82,15 @@
     },
     {
       "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "KLYPV"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
       "ticker": "KSTUR"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "KUVVA"
     },
     {
       "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
@@ -75,6 +103,10 @@
     {
       "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
       "ticker": "MERKO"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "MSGYO"
     },
     {
       "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
@@ -91,8 +123,12 @@
     {
       "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
       "ticker": "SRVGY"
+    },
+    {
+      "reason": "EXPLICIT_SHARE_COUNT_NOT_POSITIVE_INTEGER",
+      "ticker": "TRENJ"
     }
   ],
-  "share_candidate_count": 324,
+  "share_candidate_count": 528,
   "source_availability_basis": "KAP_RESPONSE_HTTP_DATE"
 }

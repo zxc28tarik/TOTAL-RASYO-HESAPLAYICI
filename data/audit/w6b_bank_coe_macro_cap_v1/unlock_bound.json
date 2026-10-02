@@ -1,0 +1,54 @@
+{
+  "bank_cells": 509,
+  "bank_months": 60,
+  "bank_tickers": [
+    "AKBNK",
+    "ALBRK",
+    "GARAN",
+    "HALKB",
+    "ISCTR",
+    "SKBNK",
+    "TSKB",
+    "VAKBN",
+    "YKBNK"
+  ],
+  "best_module_count_if_both_parameters_resolved": 4,
+  "contract": "W6B_BANK_COE_MACRO_CAP_AUDIT_V1",
+  "does_not_block_nonfin": true,
+  "module_count_distribution": {
+    "2": 26,
+    "3": 483
+  },
+  "module_missing_counts": {
+    "Ek1": 509,
+    "Ek4": 0,
+    "Ek9": 26,
+    "M1": 509,
+    "M2": 509,
+    "M3": 0
+  },
+  "module_present_counts": {
+    "Ek1": 0,
+    "Ek4": 509,
+    "Ek9": 483,
+    "M1": 0,
+    "M2": 0,
+    "M3": 509
+  },
+  "modules_required_for_a_total": 6,
+  "overlap_with_at_least_five_module_cells": 0,
+  "overlap_with_at_least_four_module_cells": 0,
+  "overlap_with_priority_cells": 0,
+  "priority_cells_total": 3017,
+  "residual_blockers": {
+    "core_diagnostic_reasons": {
+      "OWN_REPORT_STATEMENT_SCOPE_CONFLICT": 56,
+      "TECHNICAL_CORE_FAMILY_UNSUPPORTED_OR_CONFLICTING": 453
+    },
+    "core_diagnostic_status": {
+      "NO_CORE_DIAGNOSTICS": 509
+    },
+    "explanation": "M1 and Ek1 are missing in every BANK cell because the CORE diagnostic layer produced nothing for them. Resolving coe and macro_cap makes M2 computable and raises the best cell to four modules, still short of a six-module Total, so this package cannot unlock a Total score on its own."
+  },
+  "total_score_unlock_upper_bound": 0
+}

@@ -1,0 +1,69 @@
+{
+  "a_free_route_exists_but_is_unexecuted": {
+    "route": "official distribution/API enumeration",
+    "scope_required": "every publication window feeding the 60 cutoffs",
+    "what_it_still_would_not_yield": "proof that a deleted or never-linked version does not exist, which is exactly what Issue #24 requires",
+    "what_it_would_yield": "the correction markers for each window, bindable to the selected reports"
+  },
+  "blocked_reason": "SUPERSEDED_HISTORICAL_KAP_REPORT_VERSIONS_NOT_ENUMERATED",
+  "contract": "W10_P7_VERSION_ENUMERATION_AUDIT_V1",
+  "free_routes_exhausted_for_a_completeness_proof": true,
+  "paid_source_used": false,
+  "reopen_condition": "An official source that enumerates every version of a historical disclosure with a retention or completeness guarantee, or an equivalent immutable export that preserves superseded versions. Executing the query route across all windows narrows the gap and is worth doing, but on its own it cannot satisfy Issue #24's completeness criterion.",
+  "routes": [
+    {
+      "cost": "free, already in repository",
+      "detail": "The archive keeps only the surviving version, so supersession is invisible to any catalog derived from it. This route cannot enumerate versions even in principle.",
+      "evidence": {
+        "archive": "KAP_2022_Y.zip",
+        "archive_sha256": "841531a7c3a2918fbb6e51729c36862c252e80b811c875fafa07d78822894956",
+        "matching_members": [
+          "KORTS_1126845_2022_4.xls"
+        ],
+        "original_disclosure_in_bulk_archive": false
+      },
+      "route": "immutable historical KAP notification exports (the bulk archives)",
+      "status": "INSUFFICIENT_PROVEN"
+    },
+    {
+      "cost": "free, official endpoint, one request per publication window",
+      "detail": "The endpoint returned superseded disclosures for a window years before the capture date, so historical retention is demonstrated rather than hypothetical. What remains unproven is completeness: whether deleted disclosures, or windows further back, are returned at all.",
+      "evidence": {
+        "captured_at": "Sun, 06 Sep 2026 02:36:34 GMT",
+        "financial_report_rows": 423,
+        "http_status": 200,
+        "queried_window": "2023-03-01..2023-03-31",
+        "superseded_rows_returned": 9,
+        "url": "https://kap.org.tr/tr/api/disclosure/members/byCriteria"
+      },
+      "route": "official distribution/API enumeration (disclosure query by criteria)",
+      "status": "DEMONSTRATED_RETENTION_COMPLETENESS_UNPROVEN"
+    },
+    {
+      "cost": "free, one request per disclosure",
+      "detail": "The newer disclosure page links back to the one it corrects, which recovers a chain one hop at a time. It proves nothing about a version nobody linked to.",
+      "evidence": {
+        "newer_published_at": "2023-03-21T18:32:11+03:00",
+        "older_published_at": "2023-03-09T18:36:13+03:00",
+        "recovered_pair": {
+          "label": "Düzeltilmiş Bildirim",
+          "newer": "1126845",
+          "older": "1122417"
+        }
+      },
+      "route": "archived disclosure/version identifiers (per-disclosure correction links)",
+      "status": "WORKS_PER_DISCLOSURE_NO_GLOBAL_COMPLETENESS"
+    },
+    {
+      "cost": "free, already in repository",
+      "detail": "Publication timestamps are complete and point-in-time correct for every selected report, but a timestamp orders versions only once the versions are known.",
+      "evidence": {
+        "publication_timestamps_present": true,
+        "version_chain_present": false
+      },
+      "route": "publication/version timestamp chain",
+      "status": "TIMESTAMPS_COMPLETE_VERSION_CHAIN_ABSENT"
+    }
+  ],
+  "verdict": "BLOCKED"
+}

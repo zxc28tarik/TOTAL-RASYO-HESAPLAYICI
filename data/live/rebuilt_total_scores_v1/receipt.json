@@ -1,0 +1,59 @@
+{
+  "bands": {
+    "al_share": 0.1,
+    "izle_share": 0.25
+  },
+  "common_ticker_count": 372,
+  "contract": "REBUILT_LIVE_RANKING_V1",
+  "core_modules": [
+    "M1",
+    "M3",
+    "Ek4",
+    "Ek1",
+    "Ek9"
+  ],
+  "decision_counts": {
+    "AL": 50,
+    "IZLE": 74,
+    "UZAK": 370
+  },
+  "ek1_direction": "AS_DESIGNED_NOT_FLIPPED_DESPITE_NEGATIVE_R2_SIGN",
+  "ek9_direction": "NEGATED_VOLATILITY_AS_DESIGNED",
+  "m2_role": "OVERLAY_PUBLISHED_NOT_SCORED_UNVALIDATABLE_HISTORICALLY",
+  "market_asof_date": "2026-09-23",
+  "old_decision_counts": {
+    "AL": 2,
+    "IZLE": 44,
+    "UZAK": 326
+  },
+  "old_m3_share_pinned_at_zero": 0.44405594405594406,
+  "old_scored_count": 372,
+  "outputs": {
+    "ranking.jsonl": "b2fc267fa65a0264b035c72c21f02f48903c2070c1fcae54cae13f3741a3f96e"
+  },
+  "predictive_claim": "NONE_R2_FOUND_NO_DEFENSIBLE_FORWARD_SKILL",
+  "rank_spearman_with_old_on_common": 0.7316489322644283,
+  "raw_inputs_recovered_from_production_replays": [
+    "run_historical_pit_m3_replay.alpha_trailing",
+    "run_historical_pit_ek4_replay.excess_return_20d",
+    "run_historical_pit_ek9_replay.volatility"
+  ],
+  "scored_count": 494,
+  "scoring_layer": "src.analytics.rebuilt_total_score",
+  "source_sha256": {
+    "core": "c0821d79683f3ff366c5b13af857baf3539f14dc2ea0326f9659676a5e82ccf5",
+    "index_prices": "128506cc76f697780c81487b7abc624b5042b052821bd129f3df1b4b6d1e1cc3",
+    "market_receipt": "5d3b967590e4b140186c7e86559f2379b088a609658ed3780785eaa15b70cc06",
+    "routes": "dc56cc8b590b233b4ad363bad8f66ff6945440e4917d89f991d85c780774cdc4",
+    "stock_prices": "1bc6bd1815ea46bdd300fd71d0c00b0ab7440517c23962631d62f3a49d901465"
+  },
+  "top25_overlap_with_old": 12,
+  "veto": null,
+  "weights": {
+    "Ek1": 0.2,
+    "Ek4": 0.2,
+    "Ek9": 0.2,
+    "M1": 0.2,
+    "M3": 0.2
+  }
+}

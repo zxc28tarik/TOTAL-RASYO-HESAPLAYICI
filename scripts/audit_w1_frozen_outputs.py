@@ -16,11 +16,21 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.materialize_current_total_rasyo import materialize
+from scripts.materialize_w2_current_correction import (
+    POST_CORRECTION_REV, post_correction_bytes,
+)
 from src.analytics.historical_pit_ek9_replay import run_historical_pit_ek9_replay
 
 
 def digest(path):
     return sha256(path.read_bytes()).hexdigest()
+
+
+def stage_frozen(repo_relative: str, directory: Path) -> Path:
+    """Materialize a pinned live artifact so a Path-taking caller can read it."""
+    target = directory / Path(repo_relative).name
+    target.write_bytes(post_correction_bytes(repo_relative))
+    return target
 
 
 def run():
@@ -31,17 +41,29 @@ def run():
     changed, newline_only = [], []
     for p, item in live.items():
         frozen = correction_snapshot / p.removeprefix("data/live/")
-        candidate = frozen if frozen.exists() else ROOT / p
-        if digest(candidate) == item["sha256"]:
+        # Anything the W2 pre-correction snapshot does not carry is read from
+        # the pinned commit rather than data/live, which keeps re-capturing.
+        raw = frozen.read_bytes() if frozen.exists() else post_correction_bytes(p)
+        if sha256(raw).hexdigest() == item["sha256"]:
             continue
         canonical = subprocess.check_output(["git", "cat-file", "blob", item["git_blob"]], cwd=ROOT)
-        if candidate.read_bytes().replace(b"\r\n", b"\n") == canonical.replace(b"\r\n", b"\n"):
+        if raw.replace(b"\r\n", b"\n") == canonical.replace(b"\r\n", b"\n"):
             newline_only.append(p)
         else:
             changed.append(p)
     if changed:
         raise RuntimeError(f"frozen live artifacts changed: {changed}")
-    market = ROOT / "data/live/current_market_modules_v1"
+    with tempfile.TemporaryDirectory(prefix="rasyo-w1-market-") as market_dir:
+        market = Path(market_dir)
+        for name in ("receipt.json", "modules.csv", "stock_prices.csv.gz",
+                     "index_prices.csv.gz", "rejections.jsonl"):
+            stage_frozen(f"data/live/current_market_modules_v1/{name}", market)
+        return _verify_frozen(baseline_path, baseline, live, newline_only,
+                              correction_snapshot, market)
+
+
+def _verify_frozen(baseline_path, baseline, live, newline_only,
+                   correction_snapshot, market):
     receipt = json.loads((market / "receipt.json").read_text())
     modules = pd.read_csv(market / "modules.csv")
     stocks = pd.read_csv(market / "stock_prices.csv.gz")
@@ -63,10 +85,15 @@ def run():
         raise RuntimeError("current frozen Ek9 rejections changed")
     total_matches = {}
     with tempfile.TemporaryDirectory(prefix="rasyo-w1-totals-") as directory:
-        regenerated = Path(directory)
+        regenerated = Path(directory) / "total"
+        staged = Path(directory) / "inputs"
+        staged.mkdir()
         total_receipt = materialize(
             output_dir=regenerated,
             core_path=correction_snapshot / "current_core_modules_v1/modules.jsonl",
+            universe_path=stage_frozen("data/live/current_total_rasyo_v1/universe.csv", staged),
+            market_path=stage_frozen("data/live/current_market_modules_v1/modules.csv", staged),
+            m2_path=stage_frozen("data/live/current_nonfin_valuation_v1/m2.jsonl", staged),
         )
         for name in ("totals.jsonl", "ranking.jsonl", "rejections.jsonl"):
             original = correction_snapshot / "current_total_scores_v1" / name

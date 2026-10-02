@@ -1,0 +1,807 @@
+{
+  "blind_run": {
+    "last_commit": "3d2172054819f4d7c8a9a1b1749fef981259f9db 2026-09-25T16:58:36+00:00",
+    "modified_since_commit": false,
+    "script": "scripts/backtest_horizon_strategy.py"
+  },
+  "candidates_per_month": {
+    "2021-08": {
+      "al": 2,
+      "al_and_good_pb": 0,
+      "al_without_pb": 2,
+      "cohort": 16
+    },
+    "2021-09": {
+      "al": 2,
+      "al_and_good_pb": 1,
+      "al_without_pb": 0,
+      "cohort": 16
+    },
+    "2021-10": {
+      "al": 3,
+      "al_and_good_pb": 0,
+      "al_without_pb": 0,
+      "cohort": 21
+    },
+    "2021-11": {
+      "al": 3,
+      "al_and_good_pb": 1,
+      "al_without_pb": 1,
+      "cohort": 21
+    },
+    "2021-12": {
+      "al": 3,
+      "al_and_good_pb": 2,
+      "al_without_pb": 0,
+      "cohort": 21
+    },
+    "2022-01": {
+      "al": 2,
+      "al_and_good_pb": 0,
+      "al_without_pb": 1,
+      "cohort": 23
+    },
+    "2022-02": {
+      "al": 3,
+      "al_and_good_pb": 0,
+      "al_without_pb": 1,
+      "cohort": 23
+    },
+    "2022-03": {
+      "al": 3,
+      "al_and_good_pb": 1,
+      "al_without_pb": 0,
+      "cohort": 23
+    },
+    "2022-04": {
+      "al": 4,
+      "al_and_good_pb": 1,
+      "al_without_pb": 1,
+      "cohort": 32
+    },
+    "2022-05": {
+      "al": 4,
+      "al_and_good_pb": 1,
+      "al_without_pb": 0,
+      "cohort": 31
+    },
+    "2022-06": {
+      "al": 3,
+      "al_and_good_pb": 1,
+      "al_without_pb": 0,
+      "cohort": 30
+    },
+    "2022-07": {
+      "al": 3,
+      "al_and_good_pb": 0,
+      "al_without_pb": 1,
+      "cohort": 26
+    },
+    "2022-08": {
+      "al": 4,
+      "al_and_good_pb": 0,
+      "al_without_pb": 0,
+      "cohort": 27
+    },
+    "2022-09": {
+      "al": 3,
+      "al_and_good_pb": 1,
+      "al_without_pb": 1,
+      "cohort": 27
+    },
+    "2022-10": {
+      "al": 3,
+      "al_and_good_pb": 1,
+      "al_without_pb": 0,
+      "cohort": 29
+    },
+    "2022-11": {
+      "al": 3,
+      "al_and_good_pb": 1,
+      "al_without_pb": 1,
+      "cohort": 29
+    },
+    "2022-12": {
+      "al": 3,
+      "al_and_good_pb": 1,
+      "al_without_pb": 1,
+      "cohort": 29
+    },
+    "2023-01": {
+      "al": 3,
+      "al_and_good_pb": 3,
+      "al_without_pb": 0,
+      "cohort": 29
+    },
+    "2023-02": {
+      "al": 3,
+      "al_and_good_pb": 2,
+      "al_without_pb": 0,
+      "cohort": 29
+    },
+    "2023-03": {
+      "al": 3,
+      "al_and_good_pb": 2,
+      "al_without_pb": 0,
+      "cohort": 24
+    },
+    "2023-04": {
+      "al": 3,
+      "al_and_good_pb": 1,
+      "al_without_pb": 1,
+      "cohort": 25
+    },
+    "2023-05": {
+      "al": 3,
+      "al_and_good_pb": 2,
+      "al_without_pb": 0,
+      "cohort": 23
+    },
+    "2023-06": {
+      "al": 3,
+      "al_and_good_pb": 1,
+      "al_without_pb": 1,
+      "cohort": 23
+    },
+    "2023-07": {
+      "al": 3,
+      "al_and_good_pb": 2,
+      "al_without_pb": 1,
+      "cohort": 29
+    },
+    "2023-08": {
+      "al": 4,
+      "al_and_good_pb": 0,
+      "al_without_pb": 1,
+      "cohort": 35
+    },
+    "2023-09": {
+      "al": 8,
+      "al_and_good_pb": 4,
+      "al_without_pb": 1,
+      "cohort": 74
+    },
+    "2023-10": {
+      "al": 8,
+      "al_and_good_pb": 4,
+      "al_without_pb": 2,
+      "cohort": 71
+    },
+    "2023-11": {
+      "al": 8,
+      "al_and_good_pb": 2,
+      "al_without_pb": 2,
+      "cohort": 71
+    },
+    "2023-12": {
+      "al": 7,
+      "al_and_good_pb": 4,
+      "al_without_pb": 0,
+      "cohort": 70
+    },
+    "2024-01": {
+      "al": 8,
+      "al_and_good_pb": 5,
+      "al_without_pb": 0,
+      "cohort": 73
+    },
+    "2024-02": {
+      "al": 8,
+      "al_and_good_pb": 4,
+      "al_without_pb": 0,
+      "cohort": 73
+    },
+    "2024-03": {
+      "al": 8,
+      "al_and_good_pb": 4,
+      "al_without_pb": 2,
+      "cohort": 73
+    },
+    "2024-04": {
+      "al": 7,
+      "al_and_good_pb": 4,
+      "al_without_pb": 0,
+      "cohort": 70
+    },
+    "2024-05": {
+      "al": 3,
+      "al_and_good_pb": 2,
+      "al_without_pb": 0,
+      "cohort": 21
+    },
+    "2024-06": {
+      "al": 3,
+      "al_and_good_pb": 1,
+      "al_without_pb": 0,
+      "cohort": 21
+    },
+    "2024-07": {
+      "al": 3,
+      "al_and_good_pb": 2,
+      "al_without_pb": 0,
+      "cohort": 22
+    },
+    "2024-08": {
+      "al": 8,
+      "al_and_good_pb": 4,
+      "al_without_pb": 2,
+      "cohort": 71
+    },
+    "2024-09": {
+      "al": 7,
+      "al_and_good_pb": 5,
+      "al_without_pb": 0,
+      "cohort": 70
+    },
+    "2024-10": {
+      "al": 8,
+      "al_and_good_pb": 5,
+      "al_without_pb": 1,
+      "cohort": 72
+    },
+    "2024-11": {
+      "al": 8,
+      "al_and_good_pb": 3,
+      "al_without_pb": 3,
+      "cohort": 72
+    },
+    "2024-12": {
+      "al": 8,
+      "al_and_good_pb": 3,
+      "al_without_pb": 3,
+      "cohort": 74
+    },
+    "2025-01": {
+      "al": 8,
+      "al_and_good_pb": 4,
+      "al_without_pb": 0,
+      "cohort": 75
+    },
+    "2025-02": {
+      "al": 8,
+      "al_and_good_pb": 2,
+      "al_without_pb": 1,
+      "cohort": 75
+    },
+    "2025-03": {
+      "al": 8,
+      "al_and_good_pb": 4,
+      "al_without_pb": 0,
+      "cohort": 75
+    },
+    "2025-04": {
+      "al": 8,
+      "al_and_good_pb": 3,
+      "al_without_pb": 1,
+      "cohort": 72
+    },
+    "2025-05": {
+      "al": 8,
+      "al_and_good_pb": 3,
+      "al_without_pb": 0,
+      "cohort": 72
+    },
+    "2025-06": {
+      "al": 8,
+      "al_and_good_pb": 2,
+      "al_without_pb": 1,
+      "cohort": 72
+    },
+    "2025-07": {
+      "al": 8,
+      "al_and_good_pb": 3,
+      "al_without_pb": 0,
+      "cohort": 71
+    },
+    "2025-08": {
+      "al": 8,
+      "al_and_good_pb": 2,
+      "al_without_pb": 1,
+      "cohort": 72
+    },
+    "2025-09": {
+      "al": 8,
+      "al_and_good_pb": 3,
+      "al_without_pb": 2,
+      "cohort": 71
+    },
+    "2025-10": {
+      "al": 7,
+      "al_and_good_pb": 3,
+      "al_without_pb": 0,
+      "cohort": 69
+    },
+    "2025-11": {
+      "al": 7,
+      "al_and_good_pb": 3,
+      "al_without_pb": 0,
+      "cohort": 70
+    },
+    "2025-12": {
+      "al": 8,
+      "al_and_good_pb": 6,
+      "al_without_pb": 1,
+      "cohort": 71
+    },
+    "2026-01": {
+      "al": 7,
+      "al_and_good_pb": 2,
+      "al_without_pb": 2,
+      "cohort": 70
+    },
+    "2026-02": {
+      "al": 8,
+      "al_and_good_pb": 5,
+      "al_without_pb": 1,
+      "cohort": 71
+    },
+    "2026-03": {
+      "al": 8,
+      "al_and_good_pb": 3,
+      "al_without_pb": 3,
+      "cohort": 75
+    },
+    "2026-04": {
+      "al": 8,
+      "al_and_good_pb": 5,
+      "al_without_pb": 3,
+      "cohort": 74
+    },
+    "2026-05": {
+      "al": 8,
+      "al_and_good_pb": 4,
+      "al_without_pb": 1,
+      "cohort": 74
+    },
+    "2026-06": {
+      "al": 8,
+      "al_and_good_pb": 2,
+      "al_without_pb": 2,
+      "cohort": 75
+    },
+    "2026-07": {
+      "al": 8,
+      "al_and_good_pb": 1,
+      "al_without_pb": 1,
+      "cohort": 74
+    }
+  },
+  "contract": "BLIND_HORIZON_STRATEGY_V1",
+  "holdout_status": "fully consumed: 2024-08..2025-07 is used here for the first time",
+  "not_modelled": [
+    "XU100 is a price index while stock returns include dividends, so each stock trade's excess is flattered by roughly its dividend yield over the holding period",
+    "P/B uses CURRENT nominal capital; a rights issue after the signal overstates past P/B",
+    "a bonus issue small enough to stay inside the price-limit band is undetectable",
+    "scores are the production scores, computed on unrescaled prices",
+    "returns are nominal TL; inflation is not removed"
+  ],
+  "outputs": {
+    "trade_logs.json": "4c5c3f5d37e40cd1fb54b409e88318cf646ecaffd29f51f98750afa48f21e230"
+  },
+  "p4_reproduction": "3017/3017 banded M3/Ek4/Ek9 values reproduced exactly",
+  "phantom_moves_rescaled": [
+    {
+      "date": "2024-01-02",
+      "move": -0.9083,
+      "sessions": 1,
+      "ticker": "ADEL"
+    },
+    {
+      "date": "2025-04-28",
+      "move": -0.7485,
+      "sessions": 1,
+      "ticker": "BFREN"
+    },
+    {
+      "date": "2024-12-02",
+      "move": -0.7422,
+      "sessions": 1,
+      "ticker": "BSOKE"
+    },
+    {
+      "date": "2024-08-01",
+      "move": -0.9075,
+      "sessions": 1,
+      "ticker": "CCOLA"
+    },
+    {
+      "date": "2024-12-02",
+      "move": -0.6355,
+      "sessions": 1,
+      "ticker": "EUREN"
+    },
+    {
+      "date": "2022-10-12",
+      "move": 0.2933,
+      "sessions": 1,
+      "ticker": "HEKTS"
+    },
+    {
+      "date": "2024-09-09",
+      "move": -0.6485,
+      "sessions": 1,
+      "ticker": "HEKTS"
+    },
+    {
+      "date": "2026-06-02",
+      "move": -0.2218,
+      "sessions": 1,
+      "ticker": "IHLAS"
+    },
+    {
+      "date": "2025-12-01",
+      "move": -0.4856,
+      "sessions": 1,
+      "ticker": "KONTR"
+    },
+    {
+      "date": "2021-09-20",
+      "move": -0.2254,
+      "sessions": 1,
+      "ticker": "KRVGD"
+    },
+    {
+      "date": "2025-02-03",
+      "move": -0.6744,
+      "sessions": 1,
+      "ticker": "TUKAS"
+    }
+  ],
+  "reference_whole_cohort_equal_weight_gross": {
+    "gorulmemis_2021_08__2025_07": 5.372821296648452,
+    "gorulmus_2025_08__2026_07": 0.18453651228792722,
+    "tum_donem": 6.548839512166183
+  },
+  "results": {
+    "hedef_1_ay": {
+      "fees_paid": 0.46993792211827734,
+      "gorulmemis_2021_08__2025_07": {
+        "average_positions": 2.3263263263263263,
+        "average_stock_weight": 0.23361709568798317,
+        "excess_vs_xu100": -0.6602477812394056,
+        "from": "2021-08-02",
+        "max_drawdown": -0.25577050256915135,
+        "placebo": {
+          "mean_excess": -0.0021687649019019087,
+          "percentile_among_placebo": 0.565,
+          "placebo_mean_excess_median": -0.005018719288612814,
+          "placebo_p05": -0.0317497588360636,
+          "placebo_p95": 0.023543115624220786,
+          "trades": 79
+        },
+        "return": 6.01511163155327,
+        "to": "2025-07-31",
+        "trades": {
+          "exit_reasons": {
+            "HEDEF_SURE_DOLDU": 67,
+            "SKOR_ZAYIFLADI": 12
+          },
+          "hit_rate_vs_xu100": 0.379746835443038,
+          "mean_excess_vs_xu100": -0.0021687649019019087,
+          "mean_return": 0.03159284520821764,
+          "median_days_held": 34.0,
+          "median_excess_vs_xu100": -0.024027768955923845,
+          "trades": 79
+        },
+        "xu100_max_drawdown": -0.22860878561888276,
+        "xu100_return": 6.675359412792676
+      },
+      "gorulmus_2025_08__2026_07": {
+        "average_positions": 3.532258064516129,
+        "average_stock_weight": 0.35719618340451875,
+        "excess_vs_xu100": -0.021179077044364503,
+        "from": "2025-07-31",
+        "max_drawdown": -0.13885011905710176,
+        "placebo": {
+          "mean_excess": -0.004159118870288233,
+          "percentile_among_placebo": 0.5892,
+          "placebo_mean_excess_median": -0.012774900009312348,
+          "placebo_p05": -0.07274006873214464,
+          "placebo_p95": 0.07450989602430547,
+          "trades": 22
+        },
+        "return": 0.21615245815545348,
+        "to": "2026-07-30",
+        "trades": {
+          "exit_reasons": {
+            "ACIK_POZISYON": 2,
+            "HEDEF_SURE_DOLDU": 18,
+            "SKOR_ZAYIFLADI": 2
+          },
+          "hit_rate_vs_xu100": 0.3181818181818182,
+          "mean_excess_vs_xu100": -0.004159118870288233,
+          "mean_return": 0.04067405613467915,
+          "median_days_held": 33.0,
+          "median_excess_vs_xu100": -0.031075593835367232,
+          "trades": 22
+        },
+        "xu100_max_drawdown": -0.13014832057190995,
+        "xu100_return": 0.23733153519981798
+      },
+      "tum_donem": {
+        "average_positions": 2.566158781074579,
+        "average_stock_weight": 0.2581941716733086,
+        "excess_vs_xu100": -0.9655189904927113,
+        "from": "2021-08-02",
+        "max_drawdown": -0.25577050256915135,
+        "placebo": {
+          "mean_excess": -0.0026023073504613057,
+          "percentile_among_placebo": 0.5762,
+          "placebo_mean_excess_median": -0.005737107054294773,
+          "placebo_p05": -0.0318141255314487,
+          "placebo_p95": 0.023838644640931987,
+          "trades": 101
+        },
+        "return": 7.531445254948425,
+        "to": "2026-07-30",
+        "trades": {
+          "exit_reasons": {
+            "ACIK_POZISYON": 2,
+            "HEDEF_SURE_DOLDU": 85,
+            "SKOR_ZAYIFLADI": 14
+          },
+          "hit_rate_vs_xu100": 0.36633663366336633,
+          "mean_excess_vs_xu100": -0.0026023073504613057,
+          "mean_return": 0.0335709307565558,
+          "median_days_held": 33.0,
+          "median_excess_vs_xu100": -0.02422542890004331,
+          "trades": 101
+        },
+        "xu100_max_drawdown": -0.22860878561888276,
+        "xu100_return": 8.496964245441136
+      }
+    },
+    "hedef_3_ay": {
+      "fees_paid": 0.37327287947817966,
+      "gorulmemis_2021_08__2025_07": {
+        "average_positions": 4.02002002002002,
+        "average_stock_weight": 0.4078677124020608,
+        "excess_vs_xu100": -0.9419771030466455,
+        "from": "2021-08-02",
+        "max_drawdown": -0.27998751199456495,
+        "placebo": {
+          "mean_excess": -0.012639250121208137,
+          "percentile_among_placebo": 0.5568,
+          "placebo_mean_excess_median": -0.017281754511236827,
+          "placebo_p05": -0.060812928112546544,
+          "placebo_p95": 0.03562738768512177,
+          "trades": 67
+        },
+        "return": 5.73338230974603,
+        "to": "2025-07-31",
+        "trades": {
+          "exit_reasons": {
+            "HEDEF_SURE_DOLDU": 39,
+            "PDDD_PAHALANDI": 1,
+            "SKOR_ZAYIFLADI": 27
+          },
+          "hit_rate_vs_xu100": 0.43283582089552236,
+          "mean_excess_vs_xu100": -0.012639250121208137,
+          "mean_return": 0.07349789963516123,
+          "median_days_held": 91.0,
+          "median_excess_vs_xu100": -0.0379136742839743,
+          "trades": 67
+        },
+        "xu100_max_drawdown": -0.22860878561888276,
+        "xu100_return": 6.675359412792676
+      },
+      "gorulmus_2025_08__2026_07": {
+        "average_positions": 5.395161290322581,
+        "average_stock_weight": 0.547110251727503,
+        "excess_vs_xu100": -0.03771001037145738,
+        "from": "2025-07-31",
+        "max_drawdown": -0.1416388561142219,
+        "placebo": {
+          "mean_excess": -0.009774374357742048,
+          "percentile_among_placebo": 0.5638,
+          "placebo_mean_excess_median": -0.021088631411031237,
+          "placebo_p05": -0.12273473326771865,
+          "placebo_p95": 0.1445755638393328,
+          "trades": 17
+        },
+        "return": 0.1996215248283606,
+        "to": "2026-07-30",
+        "trades": {
+          "exit_reasons": {
+            "ACIK_POZISYON": 3,
+            "HEDEF_SURE_DOLDU": 12,
+            "SKOR_ZAYIFLADI": 2
+          },
+          "hit_rate_vs_xu100": 0.4117647058823529,
+          "mean_excess_vs_xu100": -0.009774374357742048,
+          "mean_return": 0.08080404585691175,
+          "median_days_held": 91.0,
+          "median_excess_vs_xu100": -0.046871361442204273,
+          "trades": 17
+        },
+        "xu100_max_drawdown": -0.13014832057190995,
+        "xu100_return": 0.23733153519981798
+      },
+      "tum_donem": {
+        "average_positions": 4.293504410585405,
+        "average_stock_weight": 0.4355598934387166,
+        "excess_vs_xu100": -1.419453891771294,
+        "from": "2021-08-02",
+        "max_drawdown": -0.27998751199456495,
+        "placebo": {
+          "mean_excess": -0.012059453835744765,
+          "percentile_among_placebo": 0.5572,
+          "placebo_mean_excess_median": -0.01614467676674987,
+          "placebo_p05": -0.059381704016841806,
+          "placebo_p95": 0.0383784643501539,
+          "trades": 84
+        },
+        "return": 7.077510353669842,
+        "to": "2026-07-30",
+        "trades": {
+          "exit_reasons": {
+            "ACIK_POZISYON": 3,
+            "HEDEF_SURE_DOLDU": 51,
+            "PDDD_PAHALANDI": 1,
+            "SKOR_ZAYIFLADI": 29
+          },
+          "hit_rate_vs_xu100": 0.42857142857142855,
+          "mean_excess_vs_xu100": -0.012059453835744765,
+          "mean_return": 0.0749765244657536,
+          "median_days_held": 91.0,
+          "median_excess_vs_xu100": -0.041412391668476156,
+          "trades": 84
+        },
+        "xu100_max_drawdown": -0.22860878561888276,
+        "xu100_return": 8.496964245441136
+      }
+    },
+    "hedef_6_ay": {
+      "fees_paid": 0.32026680435289684,
+      "gorulmemis_2021_08__2025_07": {
+        "average_positions": 5.128128128128128,
+        "average_stock_weight": 0.5177871658575223,
+        "excess_vs_xu100": -0.690635413208815,
+        "from": "2021-08-02",
+        "max_drawdown": -0.28230638003294295,
+        "placebo": {
+          "mean_excess": -0.00752209984155171,
+          "percentile_among_placebo": 0.6428,
+          "placebo_mean_excess_median": -0.024905839739666015,
+          "placebo_p05": -0.09131427703034178,
+          "placebo_p95": 0.07094356172149659,
+          "trades": 59
+        },
+        "return": 5.984723999583861,
+        "to": "2025-07-31",
+        "trades": {
+          "exit_reasons": {
+            "HEDEF_SURE_DOLDU": 20,
+            "PDDD_PAHALANDI": 1,
+            "SKOR_ZAYIFLADI": 38
+          },
+          "hit_rate_vs_xu100": 0.3898305084745763,
+          "mean_excess_vs_xu100": -0.00752209984155171,
+          "mean_return": 0.12394750674780752,
+          "median_days_held": 124.0,
+          "median_excess_vs_xu100": -0.04279876023567575,
+          "trades": 59
+        },
+        "xu100_max_drawdown": -0.22860878561888276,
+        "xu100_return": 6.675359412792676
+      },
+      "gorulmus_2025_08__2026_07": {
+        "average_positions": 6.419354838709677,
+        "average_stock_weight": 0.6495167467481802,
+        "excess_vs_xu100": -0.015195879652619482,
+        "from": "2025-07-31",
+        "max_drawdown": -0.13196606289518054,
+        "placebo": {
+          "mean_excess": -0.022610416715989044,
+          "percentile_among_placebo": 0.3996,
+          "placebo_mean_excess_median": 0.003253821845912245,
+          "placebo_p05": -0.13162044894831834,
+          "placebo_p95": 0.21091909924353347,
+          "trades": 13
+        },
+        "return": 0.2221356555471985,
+        "to": "2026-07-30",
+        "trades": {
+          "exit_reasons": {
+            "ACIK_POZISYON": 6,
+            "HEDEF_SURE_DOLDU": 2,
+            "SKOR_ZAYIFLADI": 5
+          },
+          "hit_rate_vs_xu100": 0.38461538461538464,
+          "mean_excess_vs_xu100": -0.022610416715989044,
+          "mean_return": 0.06689092904542904,
+          "median_days_held": 149.0,
+          "median_excess_vs_xu100": -0.08163909533053726,
+          "trades": 13
+        },
+        "xu100_max_drawdown": -0.13014832057190995,
+        "xu100_return": 0.23733153519981798
+      },
+      "tum_donem": {
+        "average_positions": 5.384923817161187,
+        "average_stock_weight": 0.5439851899640846,
+        "excess_vs_xu100": -0.9606840013934637,
+        "from": "2021-08-02",
+        "max_drawdown": -0.28230638003294295,
+        "placebo": {
+          "mean_excess": -0.010246379277214005,
+          "percentile_among_placebo": 0.5602,
+          "placebo_mean_excess_median": -0.016592776908681793,
+          "placebo_p05": -0.08020876165357307,
+          "placebo_p95": 0.06742064037680902,
+          "trades": 72
+        },
+        "return": 7.536280244047672,
+        "to": "2026-07-30",
+        "trades": {
+          "exit_reasons": {
+            "ACIK_POZISYON": 6,
+            "HEDEF_SURE_DOLDU": 22,
+            "PDDD_PAHALANDI": 1,
+            "SKOR_ZAYIFLADI": 43
+          },
+          "hit_rate_vs_xu100": 0.3888888888888889,
+          "mean_excess_vs_xu100": -0.010246379277214005,
+          "mean_return": 0.11364562466265585,
+          "median_days_held": 136.5,
+          "median_excess_vs_xu100": -0.047382899411465784,
+          "trades": 72
+        },
+        "xu100_max_drawdown": -0.22860878561888276,
+        "xu100_return": 8.496964245441136
+      }
+    }
+  },
+  "rules": {
+    "buy_if": "decision == AL (this month) and P/B > 0 and P/B percentile <= 0.50 (cheaper half), re-priced weekly",
+    "check_schedule": "every monthly signal day and the first session of every ISO week",
+    "cost_applies_to": "every stock trade and every XU100 sleeve trade",
+    "cost_per_side": 0.002,
+    "execution": "adj_close of the check session (total return incl. dividends)",
+    "horizons_months": [
+      1,
+      3,
+      6
+    ],
+    "idle_money": "held in XU100",
+    "max_positions": 10,
+    "pb": "close(previous session) * current nominal capital / PIT total equity",
+    "phantom_move_rule": "a close-to-close move beyond what k sessions of +/-10% limits around the prior weighted-average base allow -- up > 1.1^k/0.9 - 1 + 0.02, down < 0.9^k/1.1 - 1 - 0.02 -- is an unadjusted corporate action; earlier prices are rescaled as for a split. A closure longer than 5 calendar days counts its weekdays as sessions.",
+    "placebo_draws": 5000,
+    "placebo_seed": 20210802,
+    "priority_when_slots_are_short": "highest score_percentile first",
+    "score": "REBUILT_TOTAL_SCORE_V1: equal-weight rank of M1, M3, Ek4, Ek1, Ek9; AL = top 10%",
+    "seen_period": [
+      "2025-08-01",
+      "2026-07-31"
+    ],
+    "sell_if": [
+      "score_percentile <= 0.50 at a monthly refresh (thesis broken)",
+      "P/B percentile > 0.75 at any check (value case spent, take profit)",
+      "target horizon passed and the name no longer qualifies (still qualifying renews the clock)",
+      "no price for more than 10 sessions"
+    ],
+    "slot_size": "1/10 of portfolio value at purchase; positions are not re-trimmed",
+    "thin_session_rule": "a session on which under 90% of the names priced in the previous 10 sessions carry a price is dropped for strategy and benchmark alike",
+    "unseen_period": [
+      "2021-08-01",
+      "2025-07-31"
+    ],
+    "window_end": "2026-07-31",
+    "window_first_signal": "2021-08",
+    "window_last_signal": "2026-07"
+  },
+  "sessions_dropped_for_thin_stock_feed": [
+    "2024-04-09",
+    "2026-07-20",
+    "2026-07-31"
+  ],
+  "source_sha256": {
+    "core_diagnostics": "fcac7b48ba7ca45b2dc686e6405511575436f61e5371b5a9ed5434a9feb1722a",
+    "index": "32a740f7a7114e03c885d1ae75c8bacd081b5254b043521fd76ca5f8e34e786e",
+    "market_caps": "6fc7f4decc91fde3a8c4a1021df144eff09b85910fe9ce02ca10a4a6c10c6125",
+    "prices": "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141",
+    "routes": "f0c28c7babd018eb8994afdf4911a9d338dad43b291a1084a7acc47a3919c478",
+    "xu100": "3c56a4827ab1c41121ed773ba937aebc8bb5853a85f38497953d76aabf5dd4ac"
+  }
+}

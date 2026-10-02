@@ -1,0 +1,1419 @@
+{
+  "contract": "W8N_NO_M2_FIVE_MODULE_LEDGER_V1",
+  "months": [
+    {
+      "month": "2021-08",
+      "signal_date": "2021-08-02",
+      "contribution": 5651.8,
+      "cumulative_contribution": 5651.8,
+      "cash": 5651.8,
+      "holdings_value": 0.0,
+      "nav": 5651.8,
+      "position_count": 0,
+      "holdings": [],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 1398.0,
+      "xu100_close": 1399.699951171875,
+      "xu100_units": 4.042775393419171,
+      "xu100_nav": 5658.672520767671
+    },
+    {
+      "month": "2021-09",
+      "signal_date": "2021-09-01",
+      "contribution": 5651.8,
+      "cumulative_contribution": 11303.6,
+      "cash": 11303.6,
+      "holdings_value": 0.0,
+      "nav": 11303.6,
+      "position_count": 0,
+      "holdings": [],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 1475.5999755859375,
+      "xu100_close": 1474.0999755859375,
+      "xu100_units": 7.872946234778638,
+      "xu100_nav": 11605.509852476589
+    },
+    {
+      "month": "2021-10",
+      "signal_date": "2021-10-01",
+      "contribution": 5651.8,
+      "cumulative_contribution": 16955.4,
+      "cash": 16955.4,
+      "holdings_value": 0.0,
+      "nav": 16955.4,
+      "position_count": 0,
+      "holdings": [],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 1398.9000244140625,
+      "xu100_close": 1401.5,
+      "xu100_units": 11.913120587028928,
+      "xu100_nav": 16696.238502721044
+    },
+    {
+      "month": "2021-11",
+      "signal_date": "2021-11-01",
+      "contribution": 5651.8,
+      "cumulative_contribution": 22607.2,
+      "cash": 22607.2,
+      "holdings_value": 0.0,
+      "nav": 22607.2,
+      "position_count": 0,
+      "holdings": [],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 1522.300048828125,
+      "xu100_close": 1536.300048828125,
+      "xu100_units": 15.625792083263056,
+      "xu100_nav": 24005.90514049516
+    },
+    {
+      "month": "2021-12",
+      "signal_date": "2021-12-01",
+      "contribution": 5651.8,
+      "cumulative_contribution": 28259.0,
+      "cash": 28259.0,
+      "holdings_value": 0.0,
+      "nav": 28259.0,
+      "position_count": 0,
+      "holdings": [],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 1823.0999755859375,
+      "xu100_close": 1857.4000244140625,
+      "xu100_units": 18.7258963428682,
+      "xu100_nav": 34781.4803244186
+    },
+    {
+      "month": "2022-01",
+      "signal_date": "2022-01-03",
+      "contribution": 8506.8,
+      "cumulative_contribution": 36765.8,
+      "cash": 7.0402229309038376,
+      "holdings_value": 36934.08100318909,
+      "nav": 36941.12122611999,
+      "position_count": 1,
+      "holdings": [
+        "ALARK"
+      ],
+      "buys": [
+        "ALARK"
+      ],
+      "sells": [],
+      "xu100_open": 1871.300048828125,
+      "xu100_close": 1926.699951171875,
+      "xu100_units": 23.27182686070646,
+      "xu100_nav": 44837.827676203466
+    },
+    {
+      "month": "2022-02",
+      "signal_date": "2022-02-01",
+      "contribution": 8506.8,
+      "cumulative_contribution": 45272.600000000006,
+      "cash": 13.640048599238071,
+      "holdings_value": 64201.0,
+      "nav": 64214.640048599234,
+      "position_count": 1,
+      "holdings": [
+        "ALARK"
+      ],
+      "buys": [
+        "ALARK"
+      ],
+      "sells": [],
+      "xu100_open": 2014.0,
+      "xu100_close": 2015.4000244140625,
+      "xu100_units": 27.495660028531685,
+      "xu100_nav": 55414.75389278352
+    },
+    {
+      "month": "2022-03",
+      "signal_date": "2022-03-01",
+      "contribution": 8506.8,
+      "cumulative_contribution": 53779.40000000001,
+      "cash": 8520.440048599237,
+      "holdings_value": 62815.61051559448,
+      "nav": 71336.05056419372,
+      "position_count": 1,
+      "holdings": [
+        "ALARK"
+      ],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 1969.0999755859375,
+      "xu100_close": 1969.9000244140625,
+      "xu100_units": 31.815806341807964,
+      "xu100_nav": 62673.957689480594
+    },
+    {
+      "month": "2022-04",
+      "signal_date": "2022-04-01",
+      "contribution": 8506.8,
+      "cumulative_contribution": 62286.20000000001,
+      "cash": 99136.93747062683,
+      "holdings_value": 0.0,
+      "nav": 99136.93747062683,
+      "position_count": 0,
+      "holdings": [],
+      "buys": [],
+      "sells": [
+        "ALARK"
+      ],
+      "xu100_open": 2238.699951171875,
+      "xu100_close": 2251.699951171875,
+      "xu100_units": 35.61569028585639,
+      "xu100_nav": 80195.84807761545
+    },
+    {
+      "month": "2022-05",
+      "signal_date": "2022-05-05",
+      "contribution": 8506.8,
+      "cumulative_contribution": 70793.00000000001,
+      "cash": 2.2274746894836426,
+      "holdings_value": 106782.11549770832,
+      "nav": 106784.3429723978,
+      "position_count": 2,
+      "holdings": [
+        "GSDHO",
+        "QUAGR"
+      ],
+      "buys": [
+        "QUAGR",
+        "GSDHO"
+      ],
+      "sells": [],
+      "xu100_open": 2460.800048828125,
+      "xu100_close": 2466.300048828125,
+      "xu100_units": 39.072614794635996,
+      "xu100_nav": 96364.79177585327
+    },
+    {
+      "month": "2022-06",
+      "signal_date": "2022-06-01",
+      "contribution": 8506.8,
+      "cumulative_contribution": 79299.80000000002,
+      "cash": 2.252420711515697,
+      "holdings_value": 130599.36906838414,
+      "nav": 130601.62148909566,
+      "position_count": 3,
+      "holdings": [
+        "CANTE",
+        "GSDHO",
+        "QUAGR"
+      ],
+      "buys": [
+        "CANTE",
+        "QUAGR"
+      ],
+      "sells": [],
+      "xu100_open": 2554.300048828125,
+      "xu100_close": 2568.800048828125,
+      "xu100_units": 42.40299878922692,
+      "xu100_nav": 108924.82536022503
+    },
+    {
+      "month": "2022-07",
+      "signal_date": "2022-07-01",
+      "contribution": 11000.7,
+      "cumulative_contribution": 90300.50000000001,
+      "cash": 6.249078035347338,
+      "holdings_value": 134794.76376485825,
+      "nav": 134801.0128428936,
+      "position_count": 4,
+      "holdings": [
+        "BERA",
+        "CANTE",
+        "QUAGR",
+        "SNGYO"
+      ],
+      "buys": [
+        "BERA",
+        "SNGYO",
+        "QUAGR"
+      ],
+      "sells": [
+        "GSDHO"
+      ],
+      "xu100_open": 2408.60009765625,
+      "xu100_close": 2443.800048828125,
+      "xu100_units": 46.97025759267234,
+      "xu100_nav": 114785.91779844227
+    },
+    {
+      "month": "2022-08",
+      "signal_date": "2022-08-01",
+      "contribution": 11000.7,
+      "cumulative_contribution": 101301.20000000001,
+      "cash": 15.45818314551434,
+      "holdings_value": 156403.29762029648,
+      "nav": 156418.75580344198,
+      "position_count": 4,
+      "holdings": [
+        "CANTE",
+        "GWIND",
+        "ISGYO",
+        "QUAGR"
+      ],
+      "buys": [
+        "GWIND",
+        "ISGYO"
+      ],
+      "sells": [
+        "BERA",
+        "SNGYO"
+      ],
+      "xu100_open": 2600.300048828125,
+      "xu100_close": 2656.300048828125,
+      "xu100_units": 51.20080783434837,
+      "xu100_nav": 136004.708350419
+    },
+    {
+      "month": "2022-09",
+      "signal_date": "2022-09-01",
+      "contribution": 11000.7,
+      "cumulative_contribution": 112301.90000000001,
+      "cash": 10.183968591678422,
+      "holdings_value": 190062.18085956573,
+      "nav": 190072.3648281574,
+      "position_count": 2,
+      "holdings": [
+        "CANTE",
+        "GWIND"
+      ],
+      "buys": [
+        "GWIND"
+      ],
+      "sells": [
+        "ISGYO",
+        "QUAGR"
+      ],
+      "xu100_open": 3168.39990234375,
+      "xu100_close": 3142.699951171875,
+      "xu100_units": 54.67281273873638,
+      "xu100_nav": 171820.2459244559
+    },
+    {
+      "month": "2022-10",
+      "signal_date": "2022-10-03",
+      "contribution": 11000.7,
+      "cumulative_contribution": 123302.6,
+      "cash": 178267.4259235859,
+      "holdings_value": 14704.31101322174,
+      "nav": 192971.73693680763,
+      "position_count": 1,
+      "holdings": [
+        "CANTE"
+      ],
+      "buys": [],
+      "sells": [
+        "GWIND"
+      ],
+      "xu100_open": 3195.800048828125,
+      "xu100_close": 3392.10009765625,
+      "xu100_units": 58.11504937179291,
+      "xu100_nav": 197132.0646493565
+    },
+    {
+      "month": "2022-11",
+      "signal_date": "2022-11-01",
+      "contribution": 11000.7,
+      "cumulative_contribution": 134303.30000000002,
+      "cash": 189268.1259235859,
+      "holdings_value": 16853.40304851532,
+      "nav": 206121.52897210122,
+      "position_count": 1,
+      "holdings": [
+        "CANTE"
+      ],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 3987.39990234375,
+      "xu100_close": 4054.699951171875,
+      "xu100_units": 60.87391486545305,
+      "xu100_nav": 246825.45963259338
+    },
+    {
+      "month": "2022-12",
+      "signal_date": "2022-12-01",
+      "contribution": 11000.7,
+      "cumulative_contribution": 145304.00000000003,
+      "cash": 2.2910295963520184,
+      "holdings_value": 217233.04969120026,
+      "nav": 217235.3407207966,
+      "position_count": 2,
+      "holdings": [
+        "CANTE",
+        "GENIL"
+      ],
+      "buys": [
+        "GENIL"
+      ],
+      "sells": [],
+      "xu100_open": 5046.2998046875,
+      "xu100_close": 5046.2001953125,
+      "xu100_units": 63.05386857921803,
+      "xu100_nav": 318182.44393965875
+    },
+    {
+      "month": "2023-01",
+      "signal_date": "2023-01-02",
+      "contribution": 17013.6,
+      "cumulative_contribution": 162317.60000000003,
+      "cash": 17015.89102959635,
+      "holdings_value": 243693.79262351993,
+      "nav": 260709.68365311628,
+      "position_count": 2,
+      "holdings": [
+        "CANTE",
+        "GENIL"
+      ],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 5568.39990234375,
+      "xu100_close": 5661.10009765625,
+      "xu100_units": 66.10925258510434,
+      "xu100_nav": 374251.0962655159
+    },
+    {
+      "month": "2023-02",
+      "signal_date": "2023-02-01",
+      "contribution": 17013.6,
+      "cumulative_contribution": 179331.20000000004,
+      "cash": 34029.49102959635,
+      "holdings_value": 237563.22599315646,
+      "nav": 271592.7170227528,
+      "position_count": 2,
+      "holdings": [
+        "CANTE",
+        "GENIL"
+      ],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 4998.7998046875,
+      "xu100_close": 4713.39990234375,
+      "xu100_units": 69.51278956693065,
+      "xu100_nav": 327641.5755564126
+    },
+    {
+      "month": "2023-03",
+      "signal_date": "2023-03-01",
+      "contribution": 17013.6,
+      "cumulative_contribution": 196344.80000000005,
+      "cash": 51043.09102959635,
+      "holdings_value": 236696.25831604004,
+      "nav": 287739.3493456364,
+      "position_count": 2,
+      "holdings": [
+        "CANTE",
+        "GENIL"
+      ],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 5258.7001953125,
+      "xu100_close": 5322.7001953125,
+      "xu100_units": 72.7481137664668,
+      "xu100_nav": 387216.3993533888
+    },
+    {
+      "month": "2023-04",
+      "signal_date": "2023-04-03",
+      "contribution": 17013.6,
+      "cumulative_contribution": 213358.40000000005,
+      "cash": 280639.0829449177,
+      "holdings_value": 4963.2708501815805,
+      "nav": 285602.3537950993,
+      "position_count": 1,
+      "holdings": [
+        "CANTE"
+      ],
+      "buys": [],
+      "sells": [
+        "GENIL"
+      ],
+      "xu100_open": 4806.39990234375,
+      "xu100_close": 4839.5,
+      "xu100_units": 76.28789413133066,
+      "xu100_nav": 369195.2636485747
+    },
+    {
+      "month": "2023-05",
+      "signal_date": "2023-05-02",
+      "contribution": 17013.6,
+      "cumulative_contribution": 230372.00000000006,
+      "cash": 297652.6829449177,
+      "holdings_value": 4972.318441867828,
+      "nav": 302625.00138678553,
+      "position_count": 1,
+      "holdings": [
+        "CANTE"
+      ],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 4628.39990234375,
+      "xu100_close": 4506.2001953125,
+      "xu100_units": 79.96380813162794,
+      "xu100_nav": 360332.9278206731
+    },
+    {
+      "month": "2023-06",
+      "signal_date": "2023-06-01",
+      "contribution": 17013.6,
+      "cumulative_contribution": 247385.60000000006,
+      "cash": 17.038865327835083,
+      "holdings_value": 321637.6959834099,
+      "nav": 321654.7348487377,
+      "position_count": 2,
+      "holdings": [
+        "CANTE",
+        "GWIND"
+      ],
+      "buys": [
+        "GWIND"
+      ],
+      "sells": [],
+      "xu100_open": 4928.60009765625,
+      "xu100_close": 4959.7998046875,
+      "xu100_units": 83.41582283415791,
+      "xu100_nav": 413725.7818007035
+    },
+    {
+      "month": "2023-07",
+      "signal_date": "2023-07-03",
+      "contribution": 22804.64,
+      "cumulative_contribution": 270190.24000000005,
+      "cash": 19.998433961882256,
+      "holdings_value": 368443.43035125727,
+      "nav": 368463.42878521915,
+      "position_count": 1,
+      "holdings": [
+        "PENTA"
+      ],
+      "buys": [
+        "PENTA"
+      ],
+      "sells": [
+        "CANTE",
+        "GWIND"
+      ],
+      "xu100_open": 5867.2001953125,
+      "xu100_close": 6015.2998046875,
+      "xu100_units": 87.30262390466159,
+      "xu100_nav": 525151.4565224171
+    },
+    {
+      "month": "2023-08",
+      "signal_date": "2023-08-01",
+      "contribution": 22804.64,
+      "cumulative_contribution": 292994.88000000006,
+      "cash": 72.36458065989427,
+      "holdings_value": 374791.90198135376,
+      "nav": 374864.26656201365,
+      "position_count": 4,
+      "holdings": [
+        "AHGAZ",
+        "ALFAS",
+        "ASTOR",
+        "GSDHO"
+      ],
+      "buys": [
+        "ASTOR",
+        "ALFAS",
+        "GSDHO",
+        "AHGAZ"
+      ],
+      "sells": [
+        "PENTA"
+      ],
+      "xu100_open": 7209.60009765625,
+      "xu100_close": 7168.5,
+      "xu100_units": 90.46571751472375,
+      "xu100_nav": 648503.4960042972
+    },
+    {
+      "month": "2023-09",
+      "signal_date": "2023-09-01",
+      "contribution": 22804.64,
+      "cumulative_contribution": 315799.5200000001,
+      "cash": 4421.894951601047,
+      "holdings_value": 456154.8519515991,
+      "nav": 460576.74690320017,
+      "position_count": 6,
+      "holdings": [
+        "ALARK",
+        "ASTOR",
+        "BRSAN",
+        "KMPUR",
+        "KONYA",
+        "TTRAK"
+      ],
+      "buys": [
+        "TTRAK",
+        "KMPUR",
+        "BRSAN",
+        "KONYA",
+        "ALARK"
+      ],
+      "sells": [
+        "AHGAZ",
+        "ALFAS",
+        "GSDHO"
+      ],
+      "xu100_open": 7966.7001953125,
+      "xu100_close": 8056.10009765625,
+      "xu100_units": 93.32821258055012,
+      "xu100_nav": 751861.4224842531
+    },
+    {
+      "month": "2023-10",
+      "signal_date": "2023-10-02",
+      "contribution": 22804.64,
+      "cumulative_contribution": 338604.1600000001,
+      "cash": 47.11202565199346,
+      "holdings_value": 451682.2006587982,
+      "nav": 451729.3126844502,
+      "position_count": 5,
+      "holdings": [
+        "ALARK",
+        "CIMSA",
+        "KMPUR",
+        "OYAKC",
+        "TTRAK"
+      ],
+      "buys": [
+        "CIMSA",
+        "OYAKC"
+      ],
+      "sells": [
+        "ASTOR",
+        "BRSAN",
+        "KONYA"
+      ],
+      "xu100_open": 8374.599609375,
+      "xu100_close": 8487.0,
+      "xu100_units": 96.05128485429455,
+      "xu100_nav": 815187.2545583978
+    },
+    {
+      "month": "2023-11",
+      "signal_date": "2023-11-01",
+      "contribution": 22804.64,
+      "cumulative_contribution": 361408.8000000001,
+      "cash": 3924.2529564381402,
+      "holdings_value": 402838.18238067627,
+      "nav": 406762.4353371144,
+      "position_count": 6,
+      "holdings": [
+        "BRSAN",
+        "BUCIM",
+        "CIMSA",
+        "KMPUR",
+        "KONYA",
+        "OYAKC"
+      ],
+      "buys": [
+        "KONYA",
+        "BRSAN",
+        "BUCIM"
+      ],
+      "sells": [
+        "ALARK",
+        "TTRAK"
+      ],
+      "xu100_open": 7568.89990234375,
+      "xu100_close": 7528.60009765625,
+      "xu100_units": 99.06422468626913,
+      "xu100_nav": 745814.9316472864
+    },
+    {
+      "month": "2023-12",
+      "signal_date": "2023-12-01",
+      "contribution": 22804.64,
+      "cumulative_contribution": 384213.4400000001,
+      "cash": 415910.29984730727,
+      "holdings_value": 0.0,
+      "nav": 415910.29984730727,
+      "position_count": 0,
+      "holdings": [],
+      "buys": [],
+      "sells": [
+        "BRSAN",
+        "BUCIM",
+        "CIMSA",
+        "KMPUR",
+        "KONYA",
+        "OYAKC"
+      ],
+      "xu100_open": 8071.5,
+      "xu100_close": 8026.2998046875,
+      "xu100_units": 101.88955331167952,
+      "xu100_nav": 817796.10184523
+    },
+    {
+      "month": "2024-01",
+      "signal_date": "2024-01-02",
+      "contribution": 34004.24,
+      "cumulative_contribution": 418217.6800000001,
+      "cash": 449914.53984730726,
+      "holdings_value": 0.0,
+      "nav": 449914.53984730726,
+      "position_count": 0,
+      "holdings": [],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 7542.2998046875,
+      "xu100_close": 7624.2998046875,
+      "xu100_units": 106.39802431927147,
+      "xu100_nav": 811210.4360365573
+    },
+    {
+      "month": "2024-02",
+      "signal_date": "2024-02-01",
+      "contribution": 34004.24,
+      "cumulative_contribution": 452221.9200000001,
+      "cash": 483918.77984730725,
+      "holdings_value": 0.0,
+      "nav": 483918.77984730725,
+      "position_count": 0,
+      "holdings": [],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 8514.5,
+      "xu100_close": 8646.099609375,
+      "xu100_units": 110.3917103842195,
+      "xu100_nav": 954457.7240312382
+    },
+    {
+      "month": "2024-03",
+      "signal_date": "2024-03-01",
+      "contribution": 34004.24,
+      "cumulative_contribution": 486226.1600000001,
+      "cash": 517923.01984730724,
+      "holdings_value": 0.0,
+      "nav": 517923.01984730724,
+      "position_count": 0,
+      "holdings": [],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 9218.2998046875,
+      "xu100_close": 9097.2001953125,
+      "xu100_units": 114.08048605006503,
+      "xu100_nav": 1037813.0199759966
+    },
+    {
+      "month": "2024-04",
+      "signal_date": "2024-04-01",
+      "contribution": 34004.24,
+      "cumulative_contribution": 520230.4000000001,
+      "cash": 452.2598473072285,
+      "holdings_value": 525540.0,
+      "nav": 525992.2598473072,
+      "position_count": 1,
+      "holdings": [
+        "TTRAK"
+      ],
+      "buys": [
+        "TTRAK"
+      ],
+      "sells": [],
+      "xu100_open": 9234.5,
+      "xu100_close": 9157.5,
+      "xu100_units": 117.7627904520359,
+      "xu100_nav": 1078412.7535645189
+    },
+    {
+      "month": "2024-05",
+      "signal_date": "2024-05-02",
+      "contribution": 34004.24,
+      "cumulative_contribution": 554234.6400000001,
+      "cash": 34456.49984730723,
+      "holdings_value": 528960.0,
+      "nav": 563416.4998473072,
+      "position_count": 1,
+      "holdings": [
+        "TTRAK"
+      ],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 10097.400390625,
+      "xu100_close": 10208.7001953125,
+      "xu100_units": 121.13041367034182,
+      "xu100_nav": 1236584.0776947024
+    },
+    {
+      "month": "2024-06",
+      "signal_date": "2024-06-03",
+      "contribution": 34004.24,
+      "cumulative_contribution": 588238.8800000001,
+      "cash": 68460.73984730722,
+      "holdings_value": 563445.0,
+      "nav": 631905.7398473072,
+      "position_count": 1,
+      "holdings": [
+        "TTRAK"
+      ],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 10443.2001953125,
+      "xu100_close": 10556.7998046875,
+      "xu100_units": 124.386526678236,
+      "xu100_nav": 1313123.6605425582
+    },
+    {
+      "month": "2024-07",
+      "signal_date": "2024-07-01",
+      "contribution": 34004.24,
+      "cumulative_contribution": 622243.1200000001,
+      "cash": 102464.97984730723,
+      "holdings_value": 515850.0,
+      "nav": 618314.9798473072,
+      "position_count": 1,
+      "holdings": [
+        "TTRAK"
+      ],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 10714.099609375,
+      "xu100_close": 10343.2998046875,
+      "xu100_units": 127.56031087287292,
+      "xu100_nav": 1319394.5385372632
+    },
+    {
+      "month": "2024-08",
+      "signal_date": "2024-08-01",
+      "contribution": 34004.24,
+      "cumulative_contribution": 656247.3600000001,
+      "cash": 75.36882077215705,
+      "holdings_value": 565051.0875015259,
+      "nav": 565126.456322298,
+      "position_count": 3,
+      "holdings": [
+        "ENKAI",
+        "LMKDC",
+        "OYAKC"
+      ],
+      "buys": [
+        "LMKDC",
+        "OYAKC",
+        "ENKAI"
+      ],
+      "sells": [
+        "TTRAK"
+      ],
+      "xu100_open": 10752.0,
+      "xu100_close": 10798.099609375,
+      "xu100_units": 130.7229075990634,
+      "xu100_nav": 1411558.9774818108
+    },
+    {
+      "month": "2024-09",
+      "signal_date": "2024-09-02",
+      "contribution": 34004.24,
+      "cumulative_contribution": 690251.6000000001,
+      "cash": 1.1396173000102863,
+      "holdings_value": 562839.8634319305,
+      "nav": 562841.0030492306,
+      "position_count": 3,
+      "holdings": [
+        "ENERY",
+        "LMKDC",
+        "OYAKC"
+      ],
+      "buys": [
+        "ENERY"
+      ],
+      "sells": [
+        "ENKAI"
+      ],
+      "xu100_open": 9879.7998046875,
+      "xu100_close": 10110.2001953125,
+      "xu100_units": 134.16470203541084,
+      "xu100_nav": 1356431.996722454
+    },
+    {
+      "month": "2024-10",
+      "signal_date": "2024-10-01",
+      "contribution": 34004.24,
+      "cumulative_contribution": 724255.8400000001,
+      "cash": 437101.97358759877,
+      "holdings_value": 154087.92584609985,
+      "nav": 591189.8994336986,
+      "position_count": 1,
+      "holdings": [
+        "LMKDC"
+      ],
+      "buys": [],
+      "sells": [
+        "ENERY",
+        "OYAKC"
+      ],
+      "xu100_open": 9673.599609375,
+      "xu100_close": 9351.2001953125,
+      "xu100_units": 137.67986096002102,
+      "xu100_nav": 1287471.9426999465
+    },
+    {
+      "month": "2024-11",
+      "signal_date": "2024-11-01",
+      "contribution": 34004.24,
+      "cumulative_contribution": 758260.0800000001,
+      "cash": 0.6349819469032809,
+      "holdings_value": 658376.1028709412,
+      "nav": 658376.7378528881,
+      "position_count": 2,
+      "holdings": [
+        "EUPWR",
+        "LMKDC"
+      ],
+      "buys": [
+        "EUPWR"
+      ],
+      "sells": [],
+      "xu100_open": 8888.5,
+      "xu100_close": 8885.0,
+      "xu100_units": 141.5055053319623,
+      "xu100_nav": 1257276.414874485
+    },
+    {
+      "month": "2024-12",
+      "signal_date": "2024-12-02",
+      "contribution": 34004.24,
+      "cumulative_contribution": 792264.3200000001,
+      "cash": 104.15445048324182,
+      "holdings_value": 713492.408946991,
+      "nav": 713596.5633974742,
+      "position_count": 3,
+      "holdings": [
+        "ASTOR",
+        "EUPWR",
+        "RGYAS"
+      ],
+      "buys": [
+        "ASTOR",
+        "RGYAS"
+      ],
+      "sells": [
+        "LMKDC"
+      ],
+      "xu100_open": 9602.2998046875,
+      "xu100_close": 9681.099609375,
+      "xu100_units": 145.0467653104729,
+      "xu100_nav": 1404212.1829883265
+    },
+    {
+      "month": "2025-01",
+      "signal_date": "2025-01-02",
+      "contribution": 44209.34,
+      "cumulative_contribution": 836473.66,
+      "cash": 6.393856916343793,
+      "holdings_value": 761762.6735534668,
+      "nav": 761769.0674103831,
+      "position_count": 3,
+      "holdings": [
+        "ASTOR",
+        "EUPWR",
+        "RGYAS"
+      ],
+      "buys": [
+        "ASTOR"
+      ],
+      "sells": [],
+      "xu100_open": 9858.099609375,
+      "xu100_close": 9961.2998046875,
+      "xu100_units": 149.53133553716822,
+      "xu100_nav": 1489526.4634810549
+    },
+    {
+      "month": "2025-02",
+      "signal_date": "2025-02-03",
+      "contribution": 44209.34,
+      "cumulative_contribution": 880683.0,
+      "cash": 157.99929213515134,
+      "holdings_value": 852352.140089035,
+      "nav": 852510.1393811702,
+      "position_count": 5,
+      "holdings": [
+        "ASTOR",
+        "CVKMD",
+        "EUPWR",
+        "RGYAS",
+        "TCELL"
+      ],
+      "buys": [
+        "CVKMD",
+        "ASTOR",
+        "TCELL"
+      ],
+      "sells": [],
+      "xu100_open": 9918.400390625,
+      "xu100_close": 9774.400390625,
+      "xu100_units": 153.98864097543094,
+      "xu100_nav": 1505146.632502065
+    },
+    {
+      "month": "2025-03",
+      "signal_date": "2025-03-03",
+      "contribution": 44209.34,
+      "cumulative_contribution": 924892.34,
+      "cash": 18.04496535292128,
+      "holdings_value": 843709.7120132445,
+      "nav": 843727.7569785975,
+      "position_count": 5,
+      "holdings": [
+        "ASELS",
+        "ASTOR",
+        "CVKMD",
+        "RGYAS",
+        "TCELL"
+      ],
+      "buys": [
+        "ASELS"
+      ],
+      "sells": [
+        "EUPWR"
+      ],
+      "xu100_open": 9748.0,
+      "xu100_close": 9911.099609375,
+      "xu100_units": 158.5238625593456,
+      "xu100_nav": 1571145.7922885462
+    },
+    {
+      "month": "2025-04",
+      "signal_date": "2025-04-02",
+      "contribution": 44209.34,
+      "cumulative_contribution": 969101.6799999999,
+      "cash": 67.76677649497287,
+      "holdings_value": 982153.0052814484,
+      "nav": 982220.7720579433,
+      "position_count": 4,
+      "holdings": [
+        "CVKMD",
+        "DOAS",
+        "OYAKC",
+        "RGYAS"
+      ],
+      "buys": [
+        "DOAS",
+        "OYAKC"
+      ],
+      "sells": [
+        "ASELS",
+        "ASTOR",
+        "TCELL"
+      ],
+      "xu100_open": 9606.400390625,
+      "xu100_close": 9523.2998046875,
+      "xu100_units": 163.1259339078545,
+      "xu100_nav": 1553497.1745241366
+    },
+    {
+      "month": "2025-05",
+      "signal_date": "2025-05-02",
+      "contribution": 44209.34,
+      "cumulative_contribution": 1013311.0199999999,
+      "cash": 266.84296347622876,
+      "holdings_value": 896003.5194253922,
+      "nav": 896270.3623888684,
+      "position_count": 5,
+      "holdings": [
+        "ASELS",
+        "CVKMD",
+        "OBAMS",
+        "RGYAS",
+        "TABGD"
+      ],
+      "buys": [
+        "TABGD",
+        "ASELS",
+        "OBAMS"
+      ],
+      "sells": [
+        "DOAS",
+        "OYAKC"
+      ],
+      "xu100_open": 9121.0,
+      "xu100_close": 9167.599609375,
+      "xu100_units": 167.97291779120062,
+      "xu100_nav": 1539908.4555281897
+    },
+    {
+      "month": "2025-06",
+      "signal_date": "2025-06-02",
+      "contribution": 44209.34,
+      "cumulative_contribution": 1057520.3599999999,
+      "cash": 97.78652010916267,
+      "holdings_value": 865395.5293569565,
+      "nav": 865493.3158770656,
+      "position_count": 6,
+      "holdings": [
+        "AHGAZ",
+        "ENERY",
+        "KCAER",
+        "PASEU",
+        "RALYH",
+        "TTKOM"
+      ],
+      "buys": [
+        "AHGAZ",
+        "ENERY",
+        "PASEU",
+        "RALYH",
+        "KCAER",
+        "TTKOM"
+      ],
+      "sells": [
+        "ASELS",
+        "CVKMD",
+        "OBAMS",
+        "RGYAS",
+        "TABGD"
+      ],
+      "xu100_open": 9012.900390625,
+      "xu100_close": 9008.900390625,
+      "xu100_units": 172.8780357980506,
+      "xu100_nav": 1557441.0042315407
+    },
+    {
+      "month": "2025-07",
+      "signal_date": "2025-07-01",
+      "contribution": 44209.34,
+      "cumulative_contribution": 1101729.7,
+      "cash": 124.07940716741723,
+      "holdings_value": 990719.1040687561,
+      "nav": 990843.1834759235,
+      "position_count": 6,
+      "holdings": [
+        "AHGAZ",
+        "ENERY",
+        "KCAER",
+        "KUYAS",
+        "PASEU",
+        "TTKOM"
+      ],
+      "buys": [
+        "ENERY",
+        "KUYAS",
+        "PASEU"
+      ],
+      "sells": [
+        "RALYH"
+      ],
+      "xu100_open": 9973.0,
+      "xu100_close": 10080.400390625,
+      "xu100_units": 177.3109386357123,
+      "xu100_nav": 1787365.2550855195
+    },
+    {
+      "month": "2025-08",
+      "signal_date": "2025-08-01",
+      "contribution": 44209.34,
+      "cumulative_contribution": 1145939.04,
+      "cash": 11.329071270884015,
+      "holdings_value": 1119125.822221756,
+      "nav": 1119137.1512930267,
+      "position_count": 5,
+      "holdings": [
+        "AHGAZ",
+        "ENERY",
+        "GENIL",
+        "KCAER",
+        "PASEU"
+      ],
+      "buys": [
+        "ENERY",
+        "GENIL"
+      ],
+      "sells": [
+        "KUYAS",
+        "TTKOM"
+      ],
+      "xu100_open": 10755.099609375,
+      "xu100_close": 10747.0,
+      "xu100_units": 181.4214854093994,
+      "xu100_nav": 1949736.7036948153
+    },
+    {
+      "month": "2025-09",
+      "signal_date": "2025-09-01",
+      "contribution": 44209.34,
+      "cumulative_contribution": 1190148.3800000001,
+      "cash": 189.01185415883083,
+      "holdings_value": 1373600.3087759018,
+      "nav": 1373789.3206300605,
+      "position_count": 5,
+      "holdings": [
+        "AHGAZ",
+        "ENERY",
+        "MAGEN",
+        "PASEU",
+        "TABGD"
+      ],
+      "buys": [
+        "MAGEN",
+        "ENERY",
+        "TABGD"
+      ],
+      "sells": [
+        "GENIL",
+        "KCAER"
+      ],
+      "xu100_open": 11308.2001953125,
+      "xu100_close": 11280.0,
+      "xu100_units": 185.33097933738324,
+      "xu100_nav": 2090533.446925683
+    },
+    {
+      "month": "2025-10",
+      "signal_date": "2025-10-01",
+      "contribution": 44209.34,
+      "cumulative_contribution": 1234357.7200000002,
+      "cash": 508.3962877524609,
+      "holdings_value": 1335259.8043003082,
+      "nav": 1335768.2005880608,
+      "position_count": 6,
+      "holdings": [
+        "ASELS",
+        "CWENE",
+        "MAGEN",
+        "PASEU",
+        "TABGD",
+        "TUPRS"
+      ],
+      "buys": [
+        "TABGD",
+        "CWENE",
+        "TUPRS",
+        "ASELS"
+      ],
+      "sells": [
+        "AHGAZ",
+        "ENERY"
+      ],
+      "xu100_open": 10992.7998046875,
+      "xu100_close": 11220.2001953125,
+      "xu100_units": 189.35264267934173,
+      "xu100_nav": 2124574.5583736883
+    },
+    {
+      "month": "2025-11",
+      "signal_date": "2025-11-03",
+      "contribution": 44209.34,
+      "cumulative_contribution": 1278567.0600000003,
+      "cash": 525380.6717411673,
+      "holdings_value": 989625.8153114319,
+      "nav": 1515006.4870525992,
+      "position_count": 4,
+      "holdings": [
+        "ASELS",
+        "CWENE",
+        "PASEU",
+        "TUPRS"
+      ],
+      "buys": [],
+      "sells": [
+        "MAGEN",
+        "TABGD"
+      ],
+      "xu100_open": 11019.599609375,
+      "xu100_close": 11060.400390625,
+      "xu100_units": 193.36452528552903,
+      "xu100_nav": 2138689.071001083
+    },
+    {
+      "month": "2025-12",
+      "signal_date": "2025-12-01",
+      "contribution": 44209.34,
+      "cumulative_contribution": 1322776.4000000004,
+      "cash": 12.226956913014874,
+      "holdings_value": 1572417.275697708,
+      "nav": 1572429.502654621,
+      "position_count": 2,
+      "holdings": [
+        "OYAKC",
+        "TUPRS"
+      ],
+      "buys": [
+        "OYAKC"
+      ],
+      "sells": [
+        "ASELS",
+        "CWENE",
+        "PASEU"
+      ],
+      "xu100_open": 10898.099609375,
+      "xu100_close": 11116.5,
+      "xu100_units": 197.42113529870684,
+      "xu100_nav": 2194632.0505480748
+    },
+    {
+      "month": "2026-01",
+      "signal_date": "2026-01-02",
+      "contribution": 56151.0,
+      "cumulative_contribution": 1378927.4000000004,
+      "cash": 255054.22695691301,
+      "holdings_value": 1327444.1916275024,
+      "nav": 1582498.4185844155,
+      "position_count": 1,
+      "holdings": [
+        "OYAKC"
+      ],
+      "buys": [],
+      "sells": [
+        "TUPRS"
+      ],
+      "xu100_open": 11296.5,
+      "xu100_close": 11498.400390625,
+      "xu100_units": 202.39178992624636,
+      "xu100_nav": 2327181.836347244
+    },
+    {
+      "month": "2026-02",
+      "signal_date": "2026-02-02",
+      "contribution": 56151.0,
+      "cumulative_contribution": 1435078.4000000004,
+      "cash": 311205.226956913,
+      "holdings_value": 1500000.6215114594,
+      "nav": 1811205.8484683724,
+      "position_count": 1,
+      "holdings": [
+        "OYAKC"
+      ],
+      "buys": [],
+      "sells": [],
+      "xu100_open": 13598.400390625,
+      "xu100_close": 13621.0,
+      "xu100_units": 206.5210256000769,
+      "xu100_nav": 2813022.8896986474
+    },
+    {
+      "month": "2026-03",
+      "signal_date": "2026-03-02",
+      "contribution": 56151.0,
+      "cumulative_contribution": 1491229.4000000004,
+      "cash": 52.54091984941624,
+      "holdings_value": 1651395.9817504883,
+      "nav": 1651448.5226703377,
+      "position_count": 3,
+      "holdings": [
+        "TRALT",
+        "TRENJ",
+        "TRMET"
+      ],
+      "buys": [
+        "TRMET",
+        "TRALT",
+        "TRENJ"
+      ],
+      "sells": [
+        "OYAKC"
+      ],
+      "xu100_open": 12987.400390625,
+      "xu100_close": 13346.400390625,
+      "xu100_units": 210.84452362979292,
+      "xu100_nav": 2814015.4325338104
+    },
+    {
+      "month": "2026-04",
+      "signal_date": "2026-04-01",
+      "contribution": 56151.0,
+      "cumulative_contribution": 1547380.4000000004,
+      "cash": 189.2151408882346,
+      "holdings_value": 1328888.75,
+      "nav": 1329077.9651408882,
+      "position_count": 1,
+      "holdings": [
+        "TUPRS"
+      ],
+      "buys": [
+        "TUPRS"
+      ],
+      "sells": [
+        "TRALT",
+        "TRENJ",
+        "TRMET"
+      ],
+      "xu100_open": 12996.2001953125,
+      "xu100_close": 12937.900390625,
+      "xu100_units": 215.16509419319902,
+      "xu100_nav": 2783784.556211055
+    },
+    {
+      "month": "2026-05",
+      "signal_date": "2026-05-04",
+      "contribution": 56151.0,
+      "cumulative_contribution": 1603531.4000000004,
+      "cash": 6.7172351570407045,
+      "holdings_value": 1473821.9988365173,
+      "nav": 1473828.7160716744,
+      "position_count": 2,
+      "holdings": [
+        "CWENE",
+        "TUPRS"
+      ],
+      "buys": [
+        "CWENE"
+      ],
+      "sells": [],
+      "xu100_open": 14506.7998046875,
+      "xu100_close": 14369.599609375,
+      "xu100_units": 219.03576179432332,
+      "xu100_nav": 3147456.197118864
+    },
+    {
+      "month": "2026-06",
+      "signal_date": "2026-06-01",
+      "contribution": 56151.0,
+      "cumulative_contribution": 1659682.4000000004,
+      "cash": 39.472461292287335,
+      "holdings_value": 1348720.8913345337,
+      "nav": 1348760.363795826,
+      "position_count": 3,
+      "holdings": [
+        "CWENE",
+        "DOHOL",
+        "EUPWR"
+      ],
+      "buys": [
+        "EUPWR",
+        "DOHOL",
+        "CWENE"
+      ],
+      "sells": [
+        "TUPRS"
+      ],
+      "xu100_open": 13722.5,
+      "xu100_close": 13704.0,
+      "xu100_units": 223.12765467098575,
+      "xu100_nav": 3057741.3796111885
+    },
+    {
+      "month": "2026-07",
+      "signal_date": "2026-07-01",
+      "contribution": 56151.0,
+      "cumulative_contribution": 1715833.4000000004,
+      "cash": 1693.61554677214,
+      "holdings_value": 1404119.9101104736,
+      "nav": 1405813.525657246,
+      "position_count": 4,
+      "holdings": [
+        "CWENE",
+        "ENERY",
+        "EUPWR",
+        "ODINE"
+      ],
+      "buys": [
+        "ENERY",
+        "ODINE",
+        "EUPWR"
+      ],
+      "sells": [
+        "DOHOL"
+      ],
+      "xu100_open": 14110.5,
+      "xu100_close": 14350.599609375,
+      "xu100_units": 227.1070317306222,
+      "xu100_nav": 3259122.0808397825
+    }
+  ]
+}

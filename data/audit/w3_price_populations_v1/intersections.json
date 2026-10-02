@@ -1,0 +1,36 @@
+{
+  "containment": {
+    "EXECUTION_subset_of_STOCK_WINDOW": true,
+    "PRICE_MISSING_subset_of_EXECUTION": false,
+    "PRICE_MISSING_subset_of_STOCK_WINDOW": true,
+    "union_equals_STOCK_WINDOW": true
+  },
+  "contract": "W3_PRICE_POPULATION_RECONCILIATION_V1",
+  "differences": {
+    "EXECUTION_not_PRICE_MISSING_count": 12,
+    "EXECUTION_not_STOCK_WINDOW": [],
+    "PRICE_MISSING_not_EXECUTION": [
+      [
+        "2025-11-03",
+        "EFOR"
+      ]
+    ],
+    "STOCK_WINDOW_not_EXECUTION_count": 228
+  },
+  "join_key": "signal_date + ticker (the common cell identity of all three producers)",
+  "note": "The three populations answer different questions and keep different native keys. This report exists so they are never summed or substituted for one another.",
+  "pairwise_intersections": {
+    "EXECUTION&STOCK_WINDOW": 174,
+    "PRICE_MISSING&EXECUTION": 162,
+    "PRICE_MISSING&STOCK_WINDOW": 163,
+    "all_three": 162
+  },
+  "sizes": {
+    "EXACT_HISTORICAL_TICKER_EXECUTION_PRICE_MISSING": 174,
+    "PRICE_MISSING": 163,
+    "STOCK_WINDOW_PRICE_MISSING": 402,
+    "double_counted_by_naive_sum": 337,
+    "naive_sum": 739,
+    "union": 402
+  }
+}

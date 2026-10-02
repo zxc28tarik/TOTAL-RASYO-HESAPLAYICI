@@ -1,0 +1,173 @@
+{
+  "contract": "R0_PRE_REBUILD_MODEL_BASELINE_V1",
+  "evaluation_split": {
+    "holdout": [
+      "2024-08",
+      "2026-07"
+    ],
+    "holdout_read_here": false,
+    "in_sample": [
+      "2021-08",
+      "2024-07"
+    ]
+  },
+  "five_module_in_sample_forward": {
+    "forward_discrimination": {
+      "bottom_return_mean": -0.35378195521352584,
+      "bottom_score_mean": 33.595514255293565,
+      "extreme_n": 20,
+      "month_count": 36,
+      "row_count": 1280,
+      "spearman_monthly_mean": 0.026740840614936163,
+      "spearman_monthly_positive_share": 0.5555555555555556,
+      "spearman_pooled": 0.06792376506686423,
+      "top_minus_bottom_score_gap": 2.0404289098220474,
+      "top_return_mean": 0.6786410118005699,
+      "top_score_mean": 35.63594316511561,
+      "usable": true
+    },
+    "month_count": 36,
+    "note": "M2 carries a real score in 0 of 6000 historical cells, so the only model that can be scored forward over time is the five-module variant. Its weights are the production weights rescaled by 1/0.60.",
+    "row_count": 1280,
+    "scale_usage": {
+      "count": 1280,
+      "max": 91.38738850566277,
+      "median": 27.48227015844396,
+      "middle_80pct_band": 35.2529928189206,
+      "min": 6.171172130679672,
+      "observed_span": 85.2162163749831,
+      "observed_span_share_of_scale": 0.852162163749831,
+      "p10": 16.034462995614284,
+      "p90": 51.28745581453489,
+      "stdev": 14.2711574537165,
+      "usable": true
+    }
+  },
+  "generated_at": "2026-09-25T13:11:13.258999+00:00",
+  "pre_rebuild_parameters": {
+    "decision_bands": {
+      "AL": 0.7,
+      "IZLE": 0.55
+    },
+    "veto_factor": 0.6,
+    "veto_threshold": 5,
+    "weights": {
+      "ek1": 0.08,
+      "ek4": 0.16,
+      "ek9": 0.06,
+      "m1": 0.18,
+      "m2": 0.4,
+      "m3": 0.12
+    }
+  },
+  "purpose": "IMMUTABLE_PRE_REBUILD_MEASUREMENT_NOT_A_MODEL_CHANGE",
+  "six_module_live_snapshot": {
+    "as_of_company_count": 372,
+    "decision_counts": {
+      "AL": 2,
+      "IZLE": 44,
+      "UZAK": 326
+    },
+    "scale_usage": {
+      "count": 372,
+      "max": 71.14805782860977,
+      "median": 33.83362957765953,
+      "middle_80pct_band": 35.867404452398546,
+      "min": 10.445127781116128,
+      "observed_span": 60.70293004749364,
+      "observed_span_share_of_scale": 0.6070293004749364,
+      "p10": 21.29582698042541,
+      "p90": 57.163231432823956,
+      "stdev": 13.69409678025543,
+      "usable": true
+    },
+    "trailing_discrimination": {
+      "bottom_return_mean": -0.7743943726415667,
+      "bottom_score_mean": 32.150678496832015,
+      "extreme_n": 20,
+      "month_count": 0,
+      "row_count": 370,
+      "spearman_monthly_mean": null,
+      "spearman_monthly_positive_share": null,
+      "spearman_pooled": 0.17538173239967994,
+      "top_minus_bottom_score_gap": 1.6896670171283432,
+      "top_return_mean": 2.3550332008545234,
+      "top_score_mean": 33.84034551396036,
+      "usable": true
+    },
+    "veto": {
+      "base_score_separation": 0.04573933962831833,
+      "clear_base_score_mean": 0.48269983990576615,
+      "factor": 0.6,
+      "median_good_count": 4.5,
+      "population": 372,
+      "threshold": 5,
+      "threshold_minus_median": 0.5,
+      "top25_overlap_without_veto": 20,
+      "verdict": "THRESHOLD_AT_MEDIAN_PENALTY_IS_NOT_SELECTIVE",
+      "vetoed_base_score_mean": 0.4369605002774478,
+      "vetoed_count": 186,
+      "vetoed_share": 0.5
+    },
+    "weighted_contribution_decomposition": {
+      "extreme_n": 20,
+      "momentum_weighted_gap": 0.10654392690122996,
+      "net_weighted_gap": -0.03159787754402,
+      "net_weighted_gap_on_100_scale": -3.159787754402,
+      "per_module": {
+        "EK1": {
+          "bottom_mean": 0.20555555555555555,
+          "gap": 0.17777777777777776,
+          "top_mean": 0.3833333333333333,
+          "weight": 0.08,
+          "weighted_contribution": 0.014222222222222221
+        },
+        "EK4": {
+          "bottom_mean": 0.17149058088862784,
+          "gap": 0.22611031345956595,
+          "top_mean": 0.3976008943481938,
+          "weight": 0.16,
+          "weighted_contribution": 0.036177650153530555
+        },
+        "EK9": {
+          "bottom_mean": 0.3681553194918213,
+          "gap": -0.10970100501930635,
+          "top_mean": 0.25845431447251493,
+          "weight": 0.06,
+          "weighted_contribution": -0.006582060301158381
+        },
+        "M1": {
+          "bottom_mean": 0.4265276301895485,
+          "gap": 0.06049242337182914,
+          "top_mean": 0.4870200535613776,
+          "weight": 0.18,
+          "weighted_contribution": 0.010888636206929245
+        },
+        "M2": {
+          "bottom_mean": 0.6979331808201042,
+          "gap": -0.3916765064331076,
+          "top_mean": 0.30625667438699666,
+          "weight": 0.4,
+          "weighted_contribution": -0.15667060257324306
+        },
+        "M3": {
+          "bottom_mean": 0.007170474663074969,
+          "gap": 0.5863856395641618,
+          "top_mean": 0.5935561142272368,
+          "weight": 0.12,
+          "weighted_contribution": 0.07036627674769941
+        }
+      },
+      "row_count": 370,
+      "valuation_cancels_momentum_by": 1.4704789576461015,
+      "valuation_weighted_gap": -0.15667060257324306,
+      "verdict": "VALUATION_AXIS_INVERTS_THE_SCORE"
+    }
+  },
+  "source_sha256": {
+    "current_prices": "1bc6bd1815ea46bdd300fd71d0c00b0ab7440517c23962631d62f3a49d901465",
+    "current_ranking": "bece7afc0d4692344d55504fcf9a115c49204e49190a3779bca03e9f69488797",
+    "five_module_series": "2bb1bcd56a7827b19a565a298f0db5869eeae6e98bea3c346bb1cadfe6970bdf",
+    "historical_prices": "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141"
+  }
+}

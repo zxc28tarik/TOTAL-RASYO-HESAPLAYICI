@@ -1,0 +1,80 @@
+{
+  "blind_run": {
+    "last_commit": "82c47042bca90802e983f31cf6cbf231fa09bb22 2026-09-25T17:37:31+00:00",
+    "modified_since_commit": false,
+    "script": "scripts/backtest_trailing_hold.py"
+  },
+  "contract": "TRAILING_HOLD_VS_RANDOM_V1",
+  "not_modelled": [
+    "XU100 is a price index; stock returns include dividends",
+    "P/B uses current nominal capital; a later rights issue overstates past P/B",
+    "the 1.5-year window was already seen under earlier rules; these rules were fixed before this run",
+    "nominal TL, inflation not removed"
+  ],
+  "outputs": {
+    "trades.csv": "f77a4f1ec901c05f15c6ebf08659b9c75f59f99f8e7f2c4a15d23acc4f883a0e"
+  },
+  "phantom_moves_rescaled": 7,
+  "random_returns_quantiles": {
+    "0.0": 0.04268454100477714,
+    "0.1": 0.1762316983044019,
+    "0.25": 0.271764952330107,
+    "0.5": 0.3930529595252894,
+    "0.75": 0.5516786435624955,
+    "0.9": 0.6937062290426329,
+    "1.0": 1.3408410850790613
+  },
+  "result": {
+    "from": "2025-02-03",
+    "mean_trade_return": 0.12177773539703741,
+    "median_days_held": 117.0,
+    "random_mean_trade_return_median": 0.13035720500685052,
+    "random_median_return": 0.3930529595252894,
+    "random_p05": 0.13335896602135092,
+    "random_p95": 0.8002967891399788,
+    "random_share_beating_xu100": 0.573,
+    "random_trade_count_median": 22.0,
+    "strategy_max_drawdown": -0.1785133627978246,
+    "strategy_percentile_among_random": 0.309,
+    "strategy_return": 0.30427176018498847,
+    "strategy_trade_mean_percentile_among_random": 0.47,
+    "to": "2026-07-30",
+    "trades": 22,
+    "trades_closed": 15,
+    "trades_open_at_end": 7,
+    "xu100_max_drawdown": -0.17061151024158505,
+    "xu100_return": 0.3599709301221923
+  },
+  "rules": {
+    "buy_if": "decision == AL this month and P/B > 0 and P/B percentile <= 0.50, priced at the previous close",
+    "check": "every session",
+    "cost_per_side": 0.002,
+    "data_rules": "phantom-move rescaling and thin-session filter as in BLIND_HORIZON_STRATEGY_V1",
+    "idle_money": "held in XU100",
+    "max_positions": 10,
+    "no_rebuy_after_stop": "same signal month",
+    "priority": "highest score_percentile first",
+    "random_draws": 1000,
+    "random_seed": 20250203,
+    "random_twin": "buys on exactly the sessions the strategy bought, as many names as it bought (within its own free slots), drawn uniformly from the month's scored cohort excluding held and stopped-out names; same stop, same costs",
+    "sell_if": "previous close <= 0.80 * highest close since purchase (20% trailing stop); nothing else",
+    "slot_size": "1/10 of portfolio value at purchase",
+    "time_limit": null,
+    "trailing_stop": 0.2,
+    "window_end": "2026-07-31",
+    "window_first_signal": "2025-02",
+    "window_last_signal": "2026-07"
+  },
+  "sessions_dropped_for_thin_stock_feed": [
+    "2026-07-20",
+    "2026-07-31"
+  ],
+  "source_sha256": {
+    "core_diagnostics": "fcac7b48ba7ca45b2dc686e6405511575436f61e5371b5a9ed5434a9feb1722a",
+    "index": "32a740f7a7114e03c885d1ae75c8bacd081b5254b043521fd76ca5f8e34e786e",
+    "market_caps": "6fc7f4decc91fde3a8c4a1021df144eff09b85910fe9ce02ca10a4a6c10c6125",
+    "prices": "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141",
+    "routes": "f0c28c7babd018eb8994afdf4911a9d338dad43b291a1084a7acc47a3919c478",
+    "xu100": "3c56a4827ab1c41121ed773ba937aebc8bb5853a85f38497953d76aabf5dd4ac"
+  }
+}

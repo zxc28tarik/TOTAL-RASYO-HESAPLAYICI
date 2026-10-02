@@ -1,0 +1,96 @@
+{
+  "contract": "W7C_REAL_M2_SCORE_V1",
+  "results": [
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "BRSAN"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "CEMTS"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "QUAGR"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "TUKAS"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "KONYA"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "VESTL"
+    },
+    {
+      "case_a": {
+        "case": "cutoff_before_some_sources",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "case_c": {
+        "case": "tampered_future_dated_source",
+        "error": "future source publication",
+        "rejected": true
+      },
+      "ticker": "CCOLA"
+    }
+  ]
+}
