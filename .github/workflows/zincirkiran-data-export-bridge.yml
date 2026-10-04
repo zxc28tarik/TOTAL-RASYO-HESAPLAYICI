@@ -1,0 +1,42 @@
+name: Zincir Kiran Data Export Bridge
+
+on:
+  push:
+    branches: [zincirkiran/data-export-bridge-c8]
+  pull_request:
+    branches: [codex/astra-v24-finalize]
+    paths:
+      - '.github/workflows/zincirkiran-data-export-bridge.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify source files and hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum             data/backtest_sources/yahoo_resolved/historical_member_prices_resolved_2020-07_2026-08.csv.gz             data/backtest_sources/experimental_semantic_facts_v1/semantic_reports.jsonl.gz
+          test "$(sha256sum data/backtest_sources/yahoo_resolved/historical_member_prices_resolved_2020-07_2026-08.csv.gz | awk '{print $1}')" = "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141"
+          test "$(sha256sum data/backtest_sources/experimental_semantic_facts_v1/semantic_reports.jsonl.gz | awk '{print $1}')" = "07863ddbd78924ad276e7d0aeba7fa6eec9733477b4ca3c02ece285bcf1d9e7a"
+
+      - name: Upload market corpus
+        uses: actions/upload-artifact@v4
+        with:
+          name: zincirkiran-market-corpus
+          path: data/backtest_sources/yahoo_resolved/historical_member_prices_resolved_2020-07_2026-08.csv.gz
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload semantic corpus
+        uses: actions/upload-artifact@v4
+        with:
+          name: zincirkiran-semantic-primary
+          path: data/backtest_sources/experimental_semantic_facts_v1/semantic_reports.jsonl.gz
+          if-no-files-found: error
+          retention-days: 30
