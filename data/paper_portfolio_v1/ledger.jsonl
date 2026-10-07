@@ -12,3 +12,6 @@
 {"date": "2026-10-01", "event": "FILL", "order": "O0004", "price": 9.369999885559082, "qty": 798, "side": "BUY", "ticker": "AKSGY", "tl": 7492.21}
 {"date": "2026-10-01", "event": "FILL", "order": "O0005", "price": 101.9000015258789, "qty": 73, "side": "BUY", "ticker": "ALARK", "tl": 7453.58}
 {"date": "2026-10-01", "event": "FILL", "order": "AUTO", "price": 9.369999885559082, "qty": 10, "side": "BUY", "ticker": "AKSGY", "tl": 93.89, "why": "IDLE_CASH"}
+{"date": "2026-10-07", "event": "DIVIDEND", "per_share": 7.820111, "shares": 25, "ticker": "RGYAS", "tl": 195.5}
+{"date": "2026-10-07", "event": "FILL", "order": "AUTO", "price": 9.329999923706055, "qty": 10, "side": "BUY", "ticker": "AKSGY", "tl": 93.49, "why": "IDLE_CASH"}
+{"date": "2026-10-07", "event": "FILL", "order": "AUTO", "price": 104.0, "qty": 1, "side": "BUY", "ticker": "ALARK", "tl": 104.21, "why": "IDLE_CASH"}
