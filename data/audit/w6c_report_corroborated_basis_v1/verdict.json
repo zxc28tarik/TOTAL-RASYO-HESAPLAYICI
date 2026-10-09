@@ -1,0 +1,16 @@
+{
+  "contract": "W6C_REPORT_CORROBORATED_BASIS_V1",
+  "finding": "The issuer's own dated report chain narrows the anchor-to-cutoff gap for 648/3030 certified cells, but the gap after narrowing (median 534.0 days, optimistic reading) is still non-zero for essentially every cell. It has not reached zero at any cell measured here, so it does not by itself resolve W7-A's finding.",
+  "policy": {
+    "m2_materialized": false,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "status": "GAP_NARROWED_NOT_CLOSED",
+  "unresolved_methodology_choice": "Two readings of how far this narrows the gap are reported and neither is adopted here: using a corroborating report's own filing date (report_published_at) is optimistic -- it assumes a capital change would be disclosed promptly and separately rather than waiting for the next quarterly filing; using the report's period-end (report_period_end) is conservative -- the report only actually vouches for its own balance-sheet date. Picking between them is a modelling decision, not a data question, and is left open."
+}

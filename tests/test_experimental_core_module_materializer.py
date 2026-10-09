@@ -107,6 +107,24 @@ def test_verified_nonfinancial_route_can_supply_economic_family_but_xumal_cannot
     assert _dated_nonfin_family(routes,'AAA','2020-06-30') is None
 
 
+def test_route_may_declare_a_family_the_index_code_cannot_express():
+    # XUMAL covers holdings, REITs, banks and insurers alike, so the index code
+    # alone can never say which. A capture that knows the family from its own
+    # source may declare it, but only for families the core engine supports.
+    columns=['ticker','valid_from','valid_to','sector_index_code','source_id','historical_family']
+    routes=pd.DataFrame([
+        ['HLD','2025-01-01','','XUMAL','KAP','HOLDING'],
+        ['RET','2025-01-01','','XUMAL','KAP','GYO'],
+        ['BNK','2025-01-01','','XUMAL','KAP','BANK'],
+        ['IND','2025-01-01','','XUSIN','KAP',None],
+    ],columns=columns)
+    assert _dated_nonfin_family(routes,'HLD','2025-03-31') == 'HOLDING'
+    assert _dated_nonfin_family(routes,'RET','2025-03-31') == 'GYO'
+    assert _dated_nonfin_family(routes,'BNK','2025-03-31') is None
+    # A blank declaration falls back to the index-code rule.
+    assert _dated_nonfin_family(routes,'IND','2025-03-31') == 'NONFIN'
+
+
 def test_explicit_nonfin_family_and_technical_schema_reach_real_m1_ek1():
     reports = [report('T'+str(i), family='NONFIN', technical='NONFIN') for i in range(5)]
     result = build_core_modules(reports, CUTOFF, ['T'+str(i) for i in range(5)])

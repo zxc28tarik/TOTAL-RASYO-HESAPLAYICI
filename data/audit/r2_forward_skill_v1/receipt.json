@@ -1,0 +1,497 @@
+{
+  "conclusions": {
+    "no_module_has_defensible_forward_skill": true,
+    "structural_findings": {
+      "EK1": "NEGATIVE_AT_EVERY_HORIZON_AND_IT_ALSO_DRIVES_THE_VETO",
+      "EK4": "MIXED_SIGN_ACROSS_HORIZONS",
+      "EK9": "CONSISTENTLY_RIGHT_SIGNED_RISING_WITH_HORIZON_AND_WEIGHS_LEAST",
+      "M1": "FLAT_AT_EVERY_HORIZON_ITS_0.18_WEIGHT_IS_UNJUSTIFIED",
+      "M2": "UNTESTED_ABSENT_FROM_EVERY_HISTORICAL_CELL",
+      "M3": "RIGHT_SIGNED_BUT_DECAYS_TO_NOTHING_BEYOND_THREE_MONTHS"
+    },
+    "the_veto_is_backwards": "good_count drives Ek1, Ek1 is negative at every horizon, and the veto penalises low good_count -- so it cuts the companies that went on to do better.",
+    "weights_cannot_be_fitted_on_this_sample": true,
+    "what_would_change_this": [
+      "Widen the historical cross-section from about 100 names a month to the 572 the current line routes, which roughly halves standard errors.",
+      "Unblock historical M2, the only module carrying an economic thesis, which needs dated share counts."
+    ]
+  },
+  "contract": "R2_FORWARD_SKILL_AUDIT_V1",
+  "cross_section_per_month": "BIST100 historical union, about 100 names",
+  "evaluation_split_used": "IN_SAMPLE",
+  "generated_at": "2026-09-25T14:28:43.138786+00:00",
+  "grid": {
+    "Ek1": {
+      "12m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.20058838949191019,
+          "observations": 3,
+          "positive_share": 0.0,
+          "stdev": 0.04910608660971416,
+          "t_stat": -7.075075738975198
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.0790817161760577,
+          "observations": 36,
+          "positive_share": 0.3055555555555556,
+          "stdev": 0.1682442734155015,
+          "t_stat": -2.8202463443408243
+        }
+      },
+      "1m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.031396477420713914,
+          "observations": 36,
+          "positive_share": 0.4444444444444444,
+          "stdev": 0.22466410790882163,
+          "t_stat": -0.8384911425225775
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.031396477420713914,
+          "observations": 36,
+          "positive_share": 0.4444444444444444,
+          "stdev": 0.22466410790882163,
+          "t_stat": -0.8384911425225775
+        }
+      },
+      "3m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.032342508514658225,
+          "observations": 12,
+          "positive_share": 0.4166666666666667,
+          "stdev": 0.22813939990849263,
+          "t_stat": -0.4910933228901837
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.04251659531752764,
+          "observations": 36,
+          "positive_share": 0.3611111111111111,
+          "stdev": 0.18673192106317044,
+          "t_stat": -1.3661272826453008
+        }
+      },
+      "6m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.09987160804108967,
+          "observations": 6,
+          "positive_share": 0.16666666666666666,
+          "stdev": 0.1761093515178997,
+          "t_stat": -1.3891055607404614
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.0327204490621171,
+          "observations": 36,
+          "positive_share": 0.3611111111111111,
+          "stdev": 0.18558258692854554,
+          "t_stat": -1.0578723878242537
+        }
+      }
+    },
+    "Ek4": {
+      "12m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.14287545983995611,
+          "observations": 3,
+          "positive_share": 0.3333333333333333,
+          "stdev": 0.30606497076461264,
+          "t_stat": -0.808545829270649
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.0282783049164704,
+          "observations": 36,
+          "positive_share": 0.5555555555555556,
+          "stdev": 0.23020975347231168,
+          "t_stat": 0.7370227670185543
+        }
+      },
+      "1m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.002437253321276474,
+          "observations": 36,
+          "positive_share": 0.4722222222222222,
+          "stdev": 0.22486167394011558,
+          "t_stat": 0.06503340329821315
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.002437253321276474,
+          "observations": 36,
+          "positive_share": 0.4722222222222222,
+          "stdev": 0.22486167394011558,
+          "t_stat": 0.06503340329821315
+        }
+      },
+      "3m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.10505179823141292,
+          "observations": 12,
+          "positive_share": 0.75,
+          "stdev": 0.21346468478409325,
+          "t_stat": 1.7047789628276746
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.050474806798817655,
+          "observations": 36,
+          "positive_share": 0.5555555555555556,
+          "stdev": 0.19099080837996665,
+          "t_stat": 1.5856723334580758
+        }
+      },
+      "6m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.05992766616020931,
+          "observations": 6,
+          "positive_share": 0.8333333333333334,
+          "stdev": 0.22417853027388804,
+          "t_stat": 0.6548004547492805
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.05656806965958098,
+          "observations": 36,
+          "positive_share": 0.6388888888888888,
+          "stdev": 0.19620376547399232,
+          "t_stat": 1.7298771873084973
+        }
+      }
+    },
+    "Ek9": {
+      "12m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.22615217026981735,
+          "observations": 3,
+          "positive_share": 0.6666666666666666,
+          "stdev": 0.22892176197559946,
+          "t_stat": 1.7110957288151705
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.1829624500485384,
+          "observations": 36,
+          "positive_share": 0.8333333333333334,
+          "stdev": 0.19284879081348558,
+          "t_stat": 5.692411633282924
+        }
+      },
+      "1m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.08747952819630796,
+          "observations": 36,
+          "positive_share": 0.5833333333333334,
+          "stdev": 0.3020770117192264,
+          "t_stat": 1.7375607835584288
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.08747952819630796,
+          "observations": 36,
+          "positive_share": 0.5833333333333334,
+          "stdev": 0.3020770117192264,
+          "t_stat": 1.7375607835584288
+        }
+      },
+      "3m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.1469207918122366,
+          "observations": 12,
+          "positive_share": 0.6666666666666666,
+          "stdev": 0.2617091924754049,
+          "t_stat": 1.9447102617991416
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.174102834547408,
+          "observations": 36,
+          "positive_share": 0.6944444444444444,
+          "stdev": 0.2647358396698675,
+          "t_stat": 3.945884352443978
+        }
+      },
+      "6m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.18977170492069553,
+          "observations": 6,
+          "positive_share": 0.8333333333333334,
+          "stdev": 0.20128596821540085,
+          "t_stat": 2.3093703391002363
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.15955456715042315,
+          "observations": 36,
+          "positive_share": 0.7222222222222222,
+          "stdev": 0.24168548580390778,
+          "t_stat": 3.9610463148758104
+        }
+      }
+    },
+    "M1": {
+      "12m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.06271158035863918,
+          "observations": 3,
+          "positive_share": 0.6666666666666666,
+          "stdev": 0.11530610363633817,
+          "t_stat": 0.9420112203832248
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.008692552346008173,
+          "observations": 36,
+          "positive_share": 0.5277777777777778,
+          "stdev": 0.14575317656997286,
+          "t_stat": 0.3578331210572994
+        }
+      },
+      "1m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.006113673152521309,
+          "observations": 36,
+          "positive_share": 0.4722222222222222,
+          "stdev": 0.200982822665594,
+          "t_stat": 0.1825133035182882
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.006113673152521309,
+          "observations": 36,
+          "positive_share": 0.4722222222222222,
+          "stdev": 0.200982822665594,
+          "t_stat": 0.1825133035182882
+        }
+      },
+      "3m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.0034314968113905975,
+          "observations": 12,
+          "positive_share": 0.3333333333333333,
+          "stdev": 0.23523974462251454,
+          "t_stat": 0.05053165512381077
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.006259952822865233,
+          "observations": 36,
+          "positive_share": 0.4166666666666667,
+          "stdev": 0.1680707688197203,
+          "t_stat": -0.223475606144692
+        }
+      },
+      "6m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.034395793270032615,
+          "observations": 6,
+          "positive_share": 0.3333333333333333,
+          "stdev": 0.12011642278298978,
+          "t_stat": -0.7014206788529742
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.0031800888893276824,
+          "observations": 36,
+          "positive_share": 0.4444444444444444,
+          "stdev": 0.1536353619251621,
+          "t_stat": -0.12419363027413236
+        }
+      }
+    },
+    "M3": {
+      "12m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.024110557992933036,
+          "observations": 3,
+          "positive_share": 0.6666666666666666,
+          "stdev": 0.2035073290518347,
+          "t_stat": 0.2052049507856259
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.006099200142049974,
+          "observations": 36,
+          "positive_share": 0.5,
+          "stdev": 0.2070905012145246,
+          "t_stat": 0.1767111511038884
+        }
+      },
+      "1m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.031595971051645126,
+          "observations": 36,
+          "positive_share": 0.5277777777777778,
+          "stdev": 0.28147020778936055,
+          "t_stat": 0.6735200424896857
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.031595971051645126,
+          "observations": 36,
+          "positive_share": 0.5277777777777778,
+          "stdev": 0.28147020778936055,
+          "t_stat": 0.6735200424896857
+        }
+      },
+      "3m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.136750799333092,
+          "observations": 12,
+          "positive_share": 0.75,
+          "stdev": 0.20764643870670202,
+          "t_stat": 2.2813714879563363
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.08606404827376744,
+          "observations": 36,
+          "positive_share": 0.6944444444444444,
+          "stdev": 0.22622564161893205,
+          "t_stat": 2.282607249767173
+        }
+      },
+      "6m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.09861722606352112,
+          "observations": 6,
+          "positive_share": 0.8333333333333334,
+          "stdev": 0.22193120004865674,
+          "t_stat": 1.0884539156791124
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.054821676939842925,
+          "observations": 36,
+          "positive_share": 0.5833333333333334,
+          "stdev": 0.19993307719815503,
+          "t_stat": 1.6452008154361208
+        }
+      }
+    },
+    "total": {
+      "12m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": -0.0824977854389619,
+          "observations": 3,
+          "positive_share": 0.3333333333333333,
+          "stdev": 0.23498958424127409,
+          "t_stat": -0.60807101877965
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.0021739445784088535,
+          "observations": 36,
+          "positive_share": 0.6388888888888888,
+          "stdev": 0.2036448583735488,
+          "t_stat": 0.06405105228105945
+        }
+      },
+      "1m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.026740840614936163,
+          "observations": 36,
+          "positive_share": 0.5555555555555556,
+          "stdev": 0.21033764377086672,
+          "t_stat": 0.762797570673556
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.026740840614936163,
+          "observations": 36,
+          "positive_share": 0.5555555555555556,
+          "stdev": 0.21033764377086672,
+          "t_stat": 0.762797570673556
+        }
+      },
+      "3m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.11413658371893276,
+          "observations": 12,
+          "positive_share": 0.75,
+          "stdev": 0.16922560488644597,
+          "t_stat": 2.336411941162033
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.06902970021388123,
+          "observations": 36,
+          "positive_share": 0.5555555555555556,
+          "stdev": 0.19797085917451976,
+          "t_stat": 2.092117006564949
+        }
+      },
+      "6m": {
+        "non_overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.039045913417853156,
+          "observations": 6,
+          "positive_share": 0.6666666666666666,
+          "stdev": 0.22137422864777484,
+          "t_stat": 0.4320401927489346
+        },
+        "overlapping": {
+          "insufficient": false,
+          "mean_rho": 0.059609016582787465,
+          "observations": 36,
+          "positive_share": 0.6666666666666666,
+          "stdev": 0.17886478137979436,
+          "t_stat": 1.9995780988169845
+        }
+      }
+    }
+  },
+  "holdout_read_here": false,
+  "horizons_months": [
+    1,
+    3,
+    6,
+    12
+  ],
+  "in_sample_months": 36,
+  "in_sample_rows": 1280,
+  "multiple_testing": {
+    "cells_tested": 24,
+    "expected_false_positives_at_5pct": 1.2000000000000002,
+    "note": "Six scores across four horizons is 24 tests, so about one nominally significant result is expected from noise alone. The marginal hits found are consistent with that and no correction would leave them standing."
+  },
+  "overlap_caveat": "Overlapping windows make monthly observations dependent, which inflates t. At a 12-month horizon 36 monthly samples hold about 3 independent ones, so only the non_overlapping figures carry weight -- and at 6 and 12 months even those rest on 6 and 3 observations.",
+  "purpose": "MEASUREMENT_ONLY_NO_PARAMETER_WAS_FITTED",
+  "sign_consistency_across_horizons": {
+    "Ek1": "ALL_NEGATIVE",
+    "Ek4": "MIXED",
+    "Ek9": "ALL_POSITIVE",
+    "M1": "MIXED",
+    "M3": "ALL_POSITIVE",
+    "total": "MIXED"
+  },
+  "source_sha256": {
+    "prices": "b3413840f7516b2dd51611efa9139b28ddee1eb2d11d14dd418097138dd33141",
+    "series": "2bb1bcd56a7827b19a565a298f0db5869eeae6e98bea3c346bb1cadfe6970bdf"
+  }
+}

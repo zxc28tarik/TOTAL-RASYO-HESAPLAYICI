@@ -33,16 +33,39 @@ from src.ingest.kap_bulk_financial_export import parse_kap_bulk_export_report
 
 CONTRACT = "CURRENT_NONFIN_RELATIVE_VALUATION_V1"
 NONFIN_INDICES = frozenset({"XUSIN", "XUHIZ", "XUTEK"})
+# Peers are grouped by sector_index_code, so holdings and REITs admitted
+# here are valued against each other under XUMAL, never against industrials.
+SUPPORTED_ROUTE_FAMILIES = frozenset({"HOLDING", "GYO"})
+# The technical families the exact KAP derivation understands, i.e. the ones
+# an issuer's own facts may be tagged with. Mirrors SUPPORTED_FAMILIES in
+# src/ingest/kap_bulk_exact_semantic_mapping.py.
+TECHNICAL_FAMILIES = frozenset({"NONFIN", "HOLDING"})
 ARCHIVE_NAMES = (
     "KAP_2025_3A.zip", "KAP_2025_6A.zip", "KAP_2025_9A.zip",
     "KAP_2025_Y.zip", "KAP_2026_3A.zip", "KAP_2026_6A.zip",
 )
 DEFAULT_ARCHIVES = ROOT / "private/reconstructed_kap_archives"
 DEFAULT_BASIS = ROOT / "data/live/current_price_level_basis_v1"
-DEFAULT_ROUTES = ROOT / "data/backtest_sources/m3_source_package/sector_routes.csv.gz"
+DEFAULT_ROUTES = ROOT / "data/live/current_sector_routes_v1/sector_routes.csv.gz"
 DEFAULT_OUTPUT = ROOT / "data/live/current_nonfin_valuation_v1"
 DEFAULT_STOCK_PRICES = ROOT / "data/live/current_market_modules_v1/stock_prices.csv.gz"
-CONFIG = ROOT / "config/nonfin_valuation.kap_bulk_exact_v1.json"
+# The current full-BIST line carries its own config so the historical audits
+# (W2, W5, W7-B, W7-C) keep verifying against the config they were frozen
+# under. It differs from kap_bulk_exact_v1 in exactly one key --
+# minimum_coverage_weight, 0.5 -> 0.4 -- and a test pins that.
+#
+# Why 0.4: coverage weight is the summed weight of the multiples that are
+# usable, and PE (0.3) and EV/EBIT (0.3) are not "missing data" for a
+# loss-making issuer -- they are undefined, since a negative denominator
+# carries no valuation. Requiring 0.5 therefore required at least one
+# earnings-based multiple, which structurally excluded every loss-maker
+# whatever the quality of its balance sheet. 0.4 is exactly the PB+PS pair,
+# so the gate becomes "at least two independent, fully-peered multiples"
+# instead of "at least one earnings-based multiple". A single multiple (0.2)
+# still fails closed, and no weight, quantile, peer threshold or formula
+# moves, so every valuation that already scored keeps its exact score.
+CONFIG = ROOT / "config/nonfin_valuation.current_full_bist_v1.json"
+HISTORICAL_CONFIG = ROOT / "config/nonfin_valuation.kap_bulk_exact_v1.json"
 
 
 def _sha(path: Path) -> str:
@@ -119,7 +142,7 @@ def _previous_period_valuations(snapshots, financial_rows, config):
 
 
 def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
-                output_dir: Path) -> dict:
+                output_dir: Path, config_path: Path | None = None) -> dict:
     output_dir = output_dir.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     caps = pd.read_csv(basis_dir / "market_caps.csv", dtype={"ticker": str, "trade_date": str})
@@ -130,7 +153,9 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
     analysis_day = pd.Timestamp(analysis_at.date())
     active = routes.loc[
         routes.ticker.isin(caps.ticker)
-        & routes.sector_index_code.isin(NONFIN_INDICES)
+        & (routes.sector_index_code.isin(NONFIN_INDICES)
+           | (routes.historical_family.isin(SUPPORTED_ROUTE_FAMILIES)
+              if 'historical_family' in routes.columns else False))
         & routes.valid_from.le(analysis_day)
         & (routes.valid_to.isna() | routes.valid_to.gt(analysis_day))
     ].copy()
@@ -144,21 +169,40 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
         if entity in by_ticker:
             by_ticker[entity].append(report)
 
-    derivation = build_bulk_exact_company_derivation_config("NONFIN")
     financial_rows: list[dict] = []
     derivation_rejections: list[dict] = []
     cap_by_ticker = caps.set_index("ticker").to_dict("index")
     for ticker in sorted(tickers):
-        facts = []
-        for report in by_ticker[ticker]:
-            facts.extend(
-                _fact(raw) for raw in report.get("facts", [])
-                if raw.get("sector_family") == "NONFIN"
-                and raw.get("ticker") == ticker
-            )
+        # A holding files its statements under the HOLDING technical family, so
+        # selecting only NONFIN facts silently emptied the fact list for the
+        # largest issuers on the exchange and then crashed on max() of nothing.
+        # The technical family comes from the facts themselves and picks the
+        # derivation config, exactly as build_core_modules already does; the
+        # batch's own economic label stays NONFIN because this is the NONFIN
+        # relative-multiples batch (ALLOWED_ECONOMIC_TECHNICAL_PAIRS admits
+        # HOLDING economics through it).
+        raw_facts = [
+            raw for report in by_ticker[ticker] for raw in report.get("facts", [])
+            if raw.get("sector_family") in TECHNICAL_FAMILIES
+            and raw.get("ticker") == ticker
+        ]
+        technical = {raw["sector_family"] for raw in raw_facts}
+        if not technical:
+            derivation_rejections.append({
+                "ticker": ticker, "reason": "TECHNICAL_FAMILY_FACTS_ABSENT",
+            })
+            continue
+        if len(technical) != 1:
+            derivation_rejections.append({
+                "ticker": ticker, "reason": "TECHNICAL_FAMILY_CONFLICTING",
+                "families": sorted(technical),
+            })
+            continue
+        facts = [_fact(raw) for raw in raw_facts]
         try:
             quarters = derive_company_quarters(
-                facts, config=derivation, ticker=ticker, analysis_at=analysis_at,
+                facts, config=build_bulk_exact_company_derivation_config(next(iter(technical))),
+                ticker=ticker, analysis_at=analysis_at,
                 anchor_period_end=max(fact.period_end for fact in facts),
             )
         except (ValueError, TypeError) as exc:
@@ -207,7 +251,12 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
         )
     else:
         snapshots, snapshot_rejections = [], []
-    config = NonfinValuationConfig.from_json_file(CONFIG)
+    # Overridable so the coverage-gate relaxation can be isolated from a data
+    # refresh: running the same inputs under the frozen historical config is
+    # the control that shows the gate admits rows without moving any score.
+    # Resolved so a relative --config still records a repository-relative path.
+    config_path = (config_path or CONFIG).resolve()
+    config = NonfinValuationConfig.from_json_file(config_path)
     valuations = []
     for target in snapshots:
         peers = [
@@ -250,7 +299,18 @@ def materialize(*, archive_dir: Path, basis_dir: Path, routes_path: Path,
         ), encoding="utf-8")
     receipt = {
         "contract": CONTRACT, "analysis_at": analysis_at.isoformat(),
-        "peer_groups": sorted(NONFIN_INDICES), "route_source_sha256": _sha(routes_path),
+        # Report the cohorts the run actually valued against, not the three
+        # NONFIN index codes: routes that declare a supported family bring in
+        # XUMAL members whose peers are drawn from that same XUMAL cohort.
+        "peer_groups": sorted(set(peer_group_by_ticker.values())),
+        # Two configs now exist -- this line's and the frozen historical one --
+        # so the run must say which gate produced these counts.
+        "valuation_config_path": str(config_path.relative_to(ROOT)),
+        "valuation_config_sha256": _sha(config_path),
+        "minimum_coverage_weight": config.minimum_coverage_weight,
+        "multiple_weights": dict(config.multiple_weights),
+        "minimum_peer_count": config.minimum_peer_count,
+        "route_source_sha256": _sha(routes_path),
         "routed_candidate_counts_by_peer_group": {
             key: int(value) for key, value in active.sector_index_code.value_counts().sort_index().items()
         },
@@ -298,10 +358,12 @@ def main() -> None:
     parser.add_argument("--basis-dir", type=Path, default=DEFAULT_BASIS)
     parser.add_argument("--routes", type=Path, default=DEFAULT_ROUTES)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--config", type=Path, default=CONFIG)
     args = parser.parse_args()
     print(json.dumps(materialize(
         archive_dir=args.archive_dir, basis_dir=args.basis_dir,
         routes_path=args.routes, output_dir=args.output_dir,
+        config_path=args.config,
     ), ensure_ascii=False, indent=2))
 
 

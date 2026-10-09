@@ -1,0 +1,23 @@
+{
+  "code_changed": false,
+  "contract": "W4_EK4_PRICE_RETURN_CONTRACT_AUDIT_V1",
+  "description": "In the database pipeline a NULL sector_index_code silently becomes XU100, the cell still produces an Ek4 score, and nothing downstream records which index was used.",
+  "evidence": {
+    "ek4_result_columns_carry_no_sector": true,
+    "historical_replay_forbids_the_substitution": true,
+    "live_fallback_marker_present": true,
+    "live_fallback_site": "src/analytics/run_daily_pipeline.py::_compute_ek4_momentum",
+    "module_rejections_only_fire_on_missing_score": true
+  },
+  "finding": "LIVE_SECTOR_FALLBACK_NOT_VISIBLE_IN_PROVENANCE",
+  "production_reachability": {
+    "active_artifact_chain": "scripts/materialize_current_market_modules.py",
+    "active_chain_applies_xu100_fallback": false,
+    "active_chain_uses_dated_routes_and_fails_closed": true,
+    "conclusion": "NO_PRODUCTION_REACHABILITY_IN_ACTIVE_ARTIFACT_CHAIN",
+    "detail": "Every current Ek4 value in data/live/current_market_modules_v1 comes from the dated-route materializer, not from the database pipeline, so the fallback did not influence any active result. The database pipeline retains the fallback."
+  },
+  "reason_code_not_changed": "The ledger authorizes only the narrowest safe fix for a proven, reachable defect. This is a provenance-visibility gap on a path that produced none of the active results, so it is recorded with its reachability evidence instead of patched here.",
+  "reopen_condition": "Before any Ek4 value produced by run_daily_pipeline enters a Total Rasyo claim, the resolved sector_index_code must be persisted alongside the score, or the NULL route must become an explicit rejection.",
+  "severity": "RECORDED_NOT_FIXED"
+}

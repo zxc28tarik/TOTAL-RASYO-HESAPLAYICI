@@ -1,0 +1,55 @@
+{
+  "conclusion": "Neither route can supply the required peers at any of the 60 cutoffs, so the blocker is structural rather than specific to SMRTG 2023-08.",
+  "contract": "W5_SMRTG_HISTORICAL_M2_CANARY_VERIFICATION_V1",
+  "cutoffs": 60,
+  "gate_reachable_cutoffs": 0,
+  "implication_for_w6": "Historical NONFIN M2 coverage is bounded by the same cohort gate, so W6 cannot be sized from source coverage alone. This audit does not start W6.",
+  "question": "Is the peer gate reachable at all — at this cutoff, and anywhere in the 60-cutoff window?",
+  "route_a_safe_share_derivation": {
+    "detail": "No historical NONFIN cell in any cutoff carries a safe share derivation, so this route contributes no peer anywhere.",
+    "nonfin_candidate_cells": 4203,
+    "reachable": false,
+    "route": "SAFE_SHARE_DERIVATION_IN_CORE_ARTIFACT",
+    "safe_derivation_cells": 0,
+    "share_derivation_counts": {
+      "ISSUED_CAPITAL_OVER_NOMINAL": 4089,
+      "NULL": 114
+    }
+  },
+  "route_b_zero_interval_certification": {
+    "best_cutoff_certifiable": 1,
+    "certifiable_distribution": {
+      "0": 56,
+      "1": 4
+    },
+    "cutoffs_with_any": [
+      {
+        "cutoff_date": "2021-08-31",
+        "tickers": [
+          "ODAS"
+        ]
+      },
+      {
+        "cutoff_date": "2023-05-31",
+        "tickers": [
+          "CEMTS"
+        ]
+      },
+      {
+        "cutoff_date": "2023-07-31",
+        "tickers": [
+          "SMRTG"
+        ]
+      },
+      {
+        "cutoff_date": "2026-04-30",
+        "tickers": [
+          "ALARK"
+        ]
+      }
+    ],
+    "reachable": false,
+    "required_certifiable_per_cutoff": 6,
+    "route": "ZERO_INTERVAL_EXTERNAL_CERTIFICATION"
+  }
+}

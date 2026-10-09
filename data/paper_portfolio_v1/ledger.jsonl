@@ -1,0 +1,17 @@
+{"event": "ORDER", "id": "O0001", "side": "BUY", "ticker": "DEVA", "time": "2026-09-25T18:57:53+00:00", "tl": 5000.0, "why": "AL skor 96.0; PD/DD 0.62, sektor medyani 1.00 (%38 iskonto); son 3 ayda +%39, zirvenin %7 altinda: ucuzluk ile ivme birlikte. Dusen bicak degil."}
+{"event": "ORDER", "id": "O0002", "side": "BUY", "ticker": "AYGAZ", "time": "2026-09-25T18:57:54+00:00", "tl": 5000.0, "why": "AL skor 98.8; PD/DD 0.78, sektor medyani 1.00 (%22 iskonto); son 3 ayda +%43, zirvenin %11 altinda. Yuksek skor + makul iskonto + trend yukari."}
+{"event": "ORDER", "id": "O0003", "side": "BUY", "ticker": "RGYAS", "time": "2026-09-25T18:57:54+00:00", "tl": 5000.0, "why": "AL skor 98.4; PD/DD 0.39, sektor medyani 1.05 (%63 iskonto) - listenin en derin iskontolarindan; fiyat 3 aydir yatay, zirvenin %10 altinda, cokus yok."}
+{"date": "2026-09-28", "event": "CONTRIBUTION", "tl": 15000.0, "xu100_close": 12592.759765625}
+{"date": "2026-09-28", "event": "FILL", "order": "O0001", "price": 93.25, "qty": 53, "side": "BUY", "ticker": "DEVA", "tl": 4952.13}
+{"date": "2026-09-28", "event": "FILL", "order": "O0002", "price": 291.25, "qty": 17, "side": "BUY", "ticker": "AYGAZ", "tl": 4961.15}
+{"date": "2026-09-28", "event": "FILL", "order": "O0003", "price": 193.8000030517578, "qty": 25, "side": "BUY", "ticker": "RGYAS", "tl": 4854.69}
+{"date": "2026-09-28", "event": "FILL", "order": "AUTO", "price": 93.25, "qty": 2, "side": "BUY", "ticker": "DEVA", "tl": 186.87, "why": "IDLE_CASH"}
+{"event": "ORDER", "id": "O0004", "side": "BUY", "ticker": "AKSGY", "time": "2026-09-30T16:19:44+00:00", "tl": 7500.0, "why": "Ekim odemesinin yarisi. AL skor 94.7; PD/DD 0.43, sektor medyani 0.63 (%31 iskonto). Piyasa 3 seansta %7 duserken 20 gunde yalniz -%4.5, 3 ayda -%1; zirvenin %8 altinda. Ucuzluk ile goreli guc bir arada. Ucten bese cikmak dagilimi da artiriyor."}
+{"event": "ORDER", "id": "O0005", "side": "BUY", "ticker": "ALARK", "time": "2026-09-30T16:19:45+00:00", "tl": 7500.0, "why": "Ekim odemesinin diger yarisi. AL skor 96.8; PD/DD 0.45, sektor medyani 0.63 (%29 iskonto). 20 gunde -%10.6 dusus piyasayla ayni olcude; cokus degil, piyasa geri cekilmesi. Enerji/insaat holdingi, eldeki ilac/LPG/GYO sepetinden farkli bir sektor."}
+{"date": "2026-10-01", "event": "CONTRIBUTION", "tl": 15000.0, "xu100_close": 12249.0400390625}
+{"date": "2026-10-01", "event": "FILL", "order": "O0004", "price": 9.369999885559082, "qty": 798, "side": "BUY", "ticker": "AKSGY", "tl": 7492.21}
+{"date": "2026-10-01", "event": "FILL", "order": "O0005", "price": 101.9000015258789, "qty": 73, "side": "BUY", "ticker": "ALARK", "tl": 7453.58}
+{"date": "2026-10-01", "event": "FILL", "order": "AUTO", "price": 9.369999885559082, "qty": 10, "side": "BUY", "ticker": "AKSGY", "tl": 93.89, "why": "IDLE_CASH"}
+{"date": "2026-10-07", "event": "DIVIDEND", "per_share": 7.820111, "shares": 25, "ticker": "RGYAS", "tl": 195.5}
+{"date": "2026-10-07", "event": "FILL", "order": "AUTO", "price": 9.329999923706055, "qty": 10, "side": "BUY", "ticker": "AKSGY", "tl": 93.49, "why": "IDLE_CASH"}
+{"date": "2026-10-07", "event": "FILL", "order": "AUTO", "price": 104.0, "qty": 1, "side": "BUY", "ticker": "ALARK", "tl": 104.21, "why": "IDLE_CASH"}

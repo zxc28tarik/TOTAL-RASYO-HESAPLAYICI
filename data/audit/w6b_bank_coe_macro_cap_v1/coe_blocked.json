@@ -1,0 +1,31 @@
+{
+  "backfill_or_forward_knowledge_used": false,
+  "contract": "W6B_BANK_COE_MACRO_CAP_AUDIT_V1",
+  "covered_cells": 0,
+  "exhausted_free_routes": [
+    {
+      "outcome": "OFFICIAL_PAGE_REDIRECTS_HISTORICAL_DATA_TO_PAID_DATASTORE",
+      "route": "Borsa Istanbul historical index data",
+      "source": "https://www.borsaistanbul.com/endeksler/endeks-verileri"
+    },
+    {
+      "outcome": "OPEN_PLATFORM_EXISTS_BUT_NO_OFFICIAL_BANK_COE_SERIES_OR_VERSIONED_REPO_POLICY_FOUND",
+      "route": "TCMB EVDS open data platform",
+      "source": "https://evds3.tcmb.gov.tr/hakkinda"
+    },
+    {
+      "method": "CAPM_WITH_10Y_TL_BOND_RISK_FREE;BETA_USES_XU100_XBANK_AND_2Y_TL_BOND",
+      "outcome": "PAPER_STATES_ALL_MONTHLY_INPUTS_WERE_OBTAINED_FROM_BLOOMBERG_TERMINAL",
+      "route": "TCMB cost-of-equity working paper",
+      "source": "https://tcmb.gov.tr/wps/wcm/connect/8a9020a0-b752-4442-aca2-ec2a7aea5b7b/T%C3%BCrk%2BBankalar%C4%B1n%C4%B1n%2B%C3%96zkaynak%2BMaliyeti_Ahmet%2BDeryol.pdf"
+    }
+  ],
+  "parameter": "coe",
+  "reason_code": "COE_METHODOLOGY_UNVERSIONED_AND_INPUT_LINEAGE_INCOMPLETE",
+  "rejected_manual_value": 0.3705,
+  "reopen_condition": "A dated, versioned and freely obtainable cost-of-equity series (or its complete input lineage: risk-free curve, equity risk premium and bank beta, each with a publication timestamp at or before every cutoff) that can be replayed without a paid terminal.",
+  "repo_source_status": "MANUAL_DEMO_ONLY",
+  "status": "BLOCKED",
+  "usable_free_cutoff_dated_series_found": false,
+  "why_the_manual_value_is_not_usable": "It is a single undated demo constant. Applying one present-day number to sixty historical cutoffs would carry a current assumption into history, which the ledger forbids outright."
+}

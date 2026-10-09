@@ -1,0 +1,49 @@
+{
+  "contract": "W7B_SPK_BULLETIN_EVIDENCE_V1",
+  "cutoff": "2023-08-31T18:10:00+03:00",
+  "price_trade_date": "2023-08-31",
+  "tickers": [
+    {
+      "anchor_date": "2022-11-21",
+      "manifest_sha256": "bf3991fcfacadfbd2016c306abe48908ce9e552ad3aeb422f6bde94dcdf1bbde",
+      "shares_out": 46000000.0,
+      "source_count": 63,
+      "ticker": "ALFAS"
+    },
+    {
+      "anchor_date": "2022-06-08",
+      "manifest_sha256": "2e99471395442214cc8c73a38f566c824ae8ba87484202f8163a4bbcb75a2ad0",
+      "shares_out": 6000000000.0,
+      "source_count": 99,
+      "ticker": "ENKAI"
+    },
+    {
+      "anchor_date": "2023-04-12",
+      "manifest_sha256": "24b24ba8675331ce7b02bf350a5048024b09eb78d26723c1d70ca68d3255fbb5",
+      "shares_out": 460000000.0,
+      "source_count": 30,
+      "ticker": "GESAN"
+    },
+    {
+      "anchor_date": "2022-09-07",
+      "manifest_sha256": "d9c654017207f2358f18088affc1a33ffd0114003d38c156222766c6742a0759",
+      "shares_out": 200000000.0,
+      "source_count": 81,
+      "ticker": "KONTR"
+    },
+    {
+      "anchor_date": "2023-07-31",
+      "manifest_sha256": "ea4b1405517885ce8340021099213436515274242e9cd979d4e44ed649afbb50",
+      "shares_out": 605880000.0,
+      "source_count": 10,
+      "ticker": "SMRTG"
+    },
+    {
+      "anchor_date": "2023-06-15",
+      "manifest_sha256": "c4564e92a9ceab4a722acbf33051adb3cd538cd7d8e8f34404a9bbd3ff3352b2",
+      "shares_out": 500000000000.0,
+      "source_count": 18,
+      "ticker": "ZOREN"
+    }
+  ]
+}

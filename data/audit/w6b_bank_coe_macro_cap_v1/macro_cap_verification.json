@@ -1,0 +1,104 @@
+{
+  "checks": {
+    "arithmetic_recomputed_from_recorded_gdp_pairs": {
+      "mismatches": [],
+      "verified": true
+    },
+    "every_cell_exists_in_p3": {
+      "unknown": [],
+      "verified": true
+    },
+    "every_cell_is_a_bank_family_cell": {
+      "verified": true,
+      "violations": []
+    },
+    "latest_cutoff_eligible_vintage_selected": {
+      "verified": true,
+      "violations": []
+    },
+    "no_publication_after_cutoff": {
+      "verified": true,
+      "violations": []
+    }
+  },
+  "contract": "W6B_BANK_COE_MACRO_CAP_AUDIT_V1",
+  "covered_cells": 509,
+  "definition": "latest cutoff-eligible OVP last forecast nominal GDP / previous forecast nominal GDP - 1",
+  "parameter": "macro_cap",
+  "provenance_caveat": {
+    "consequence": "URL, publication date, size and SHA256 are recorded, so the chain is auditable against a re-download, but the PDFs are not in the repository and the byte level cannot be re-verified offline.",
+    "policy": "URL_AND_CAPTURE_SHA256_RECORDED;RAW_PDFS_REMOVED_TO_AVOID_92MB_GIT_BLOAT",
+    "raw_source_bytes_committed": false
+  },
+  "status": "RESOLVED_FROM_OFFICIAL_DATED_SOURCES",
+  "vintage_counts": {
+    "2021-2023": 18,
+    "2022-2024": 102,
+    "2023-2025": 108,
+    "2024-2026": 105,
+    "2025-2027": 96,
+    "2026-2028": 80
+  },
+  "vintages": [
+    {
+      "cells": 18,
+      "gdp_last_billion_try": 7021,
+      "gdp_previous_billion_try": 6310,
+      "ovp": "2021-2023",
+      "published_at": "2020-09-29T23:59:59+03:00",
+      "size_bytes": 46965270,
+      "source_sha256": "9c3db77e9b250c9a2a3864e5992cb3c88b25138e730594fa28f98ac8164b7ae4",
+      "source_url": "https://www.sbb.gov.tr/wp-content/uploads/2021/08/YeniEkonomiProgrami_OVP_2021-2023.pdf"
+    },
+    {
+      "cells": 102,
+      "gdp_last_billion_try": 10287,
+      "gdp_previous_billion_try": 9041,
+      "ovp": "2022-2024",
+      "published_at": "2021-09-05T23:59:59+03:00",
+      "size_bytes": 1761863,
+      "source_sha256": "b3e1560b31f02c042eda11941faa554a3bdff34325080517f051c1fb12395e02",
+      "source_url": "https://www.sbb.gov.tr/wp-content/uploads/2021/09/Orta-Vadeli-Program-2022-2024.pdf"
+    },
+    {
+      "cells": 108,
+      "gdp_last_billion_try": 27440,
+      "gdp_previous_billion_try": 23438,
+      "ovp": "2023-2025",
+      "published_at": "2022-09-04T23:59:59+03:00",
+      "size_bytes": 2088769,
+      "source_sha256": "311998cbc5764fed5d6a849357a1e9a0ebd84ae567d15dbb4147e6606e47f499",
+      "source_url": "https://www.sbb.gov.tr/wp-content/uploads/2022/09/Orta-Vadeli-Program-2023-2025.pdf"
+    },
+    {
+      "cells": 105,
+      "gdp_last_billion_try": 62997,
+      "gdp_previous_billion_try": 52942,
+      "ovp": "2024-2026",
+      "published_at": "2023-09-06T23:59:59+03:00",
+      "size_bytes": 3519367,
+      "source_sha256": "6d85f7be37d4f29fbcaff420429cd4c25b785e7139a8e827edf717f17b8a0abf",
+      "source_url": "https://www.sbb.gov.tr/wp-content/uploads/2023/09/Orta-Vadeli-Program_2024-2026.pdf"
+    },
+    {
+      "cells": 96,
+      "gdp_last_billion_try": 83132,
+      "gdp_previous_billion_try": 72915,
+      "ovp": "2025-2027",
+      "published_at": "2024-09-05T23:59:59+03:00",
+      "size_bytes": 6835237,
+      "source_sha256": "d94ad326abd556d0186b43cd779bc70404f432cbb632003c31e319c31988b1a8",
+      "source_url": "https://www.sbb.gov.tr/wp-content/uploads/2024/09/Orta-Vadeli-Program_2025-2027.pdf"
+    },
+    {
+      "cells": 80,
+      "gdp_last_billion_try": 101397,
+      "gdp_previous_billion_try": 89406,
+      "ovp": "2026-2028",
+      "published_at": "2025-09-07T23:59:59+03:00",
+      "size_bytes": 31171339,
+      "source_sha256": "4bb3bb9802926196e68cc00c21bc85aa3b76c3a3aa2a84def52617aea01c23f1",
+      "source_url": "https://www.sbb.gov.tr/wp-content/uploads/2025/09/Orta-Vadeli-Program-2026-2028.pdf"
+    }
+  ]
+}

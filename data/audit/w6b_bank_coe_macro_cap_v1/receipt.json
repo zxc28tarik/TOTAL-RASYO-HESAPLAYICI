@@ -1,0 +1,57 @@
+{
+  "command": "python scripts/audit_w6b_bank_coe_macro_cap.py --apply",
+  "commit": "c177a1db89d63369c2b2e7e6173a121e91445d04",
+  "contract": "W6B_BANK_COE_MACRO_CAP_RECEIPT_V1",
+  "coverage": {
+    "bank_cells": 509,
+    "cells_remaining_blocked": 509,
+    "coe_covered_cells": 0,
+    "coe_status": "BLOCKED",
+    "macro_cap_covered_cells": 509,
+    "macro_cap_status": "RESOLVED_FROM_OFFICIAL_DATED_SOURCES",
+    "overlap_with_priority_cells": 0,
+    "total_score_unlock_upper_bound": 0
+  },
+  "generated_at": "2026-09-13T22:40:10.629300+00:00",
+  "generator_sha256": "340cd8b9abd5ca88877e9d69f087f6c001adcf5779515d03c792cbf25fca34e6",
+  "hash_mode": "LF_CANONICAL_SHA256_V1",
+  "limitations": [
+    "macro_cap is verified against the recorded GDP pairs and publication dates; the OVP PDFs themselves are not in the repository, so byte-level replay needs a re-download.",
+    "coe stays BLOCKED: no free, dated, versioned series or complete input lineage exists.",
+    "Even with both parameters resolved no Total score unlocks; M1 and Ek1 are missing in all 509 cells because the CORE diagnostic layer produced nothing for the BANK family."
+  ],
+  "mutations_sha256": "895a2bb5282bebfebe6cb45dd67a37c8ff538fc56e7cc5e39b331571f9556ae0",
+  "output_sha256": {
+    "cells.jsonl": "f6c6ce210cf2053ef7d8cff9e69fc59937d750dfc69ab56cf31a37fc4b25e6a0",
+    "coe_blocked.json": "c893b6a5b1efbafdbe955d21e22eda6b23d0d016d2b7feefa299aab6c28936e4",
+    "macro_cap_verification.json": "0763d0a0420c8bc921f73ab579121f61ff1c11ad36172e419cd58dbde26d9f30",
+    "unlock_bound.json": "ee666b9d717326fb13c45091ee9e3240d0294e5fa5b6bd3e6dc722a17e8b593a"
+  },
+  "policy": {
+    "backfill_or_forward_knowledge_used": false,
+    "cells_repaired": 0,
+    "current_assumption_carried_to_history": false,
+    "model_changed": false,
+    "neutral_fill": false,
+    "peer_or_coverage_threshold_changed": false,
+    "production_code_changed": false,
+    "universe_changed": false,
+    "veto_changed": false,
+    "weights_changed": false
+  },
+  "profile": "EXPERIMENTAL_RISK_ACCEPTED_5Y",
+  "source_paths": {
+    "bank_free_input_research": "data/audit/bank_free_input_research_v1/receipt.json",
+    "bank_macro_cap_cells": "data/backtest_sources/bank_macro_cap_ovp_v1/bank_macro_cap_cells.jsonl.gz",
+    "bank_macro_cap_receipt": "data/backtest_sources/bank_macro_cap_ovp_v1/receipt.json",
+    "p3_cells": "data/audit/experimental_materialization_v3/p3_cells.jsonl.gz",
+    "p4_cells": "data/audit/experimental_materialization_v3/p4_cells.jsonl.gz"
+  },
+  "source_sha256": {
+    "bank_free_input_research": "1524550c23419cc42fb698eaad37b3a0cda5bbe3aa678445782f0a9ada076377",
+    "bank_macro_cap_cells": "b45046cc64a0f41a3f70d30b1b992f4790a9e8b4f86365ed03caa10f99ea8d7c",
+    "bank_macro_cap_receipt": "b725dc50bceb8ced54bb0c5ce8a6d3075e7fe5fb251bbafdffec891a4bafa885",
+    "p3_cells": "9fbcca69b55d4312d163c4e135d69ec1063cd44d619f29e27f55fd596da832fe",
+    "p4_cells": "c9a730b4b8dc50147fc6d6d2d9ed51b767a2fe697d75856e1bb2e9c55ddfc039"
+  }
+}

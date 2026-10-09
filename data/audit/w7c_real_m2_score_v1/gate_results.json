@@ -1,0 +1,68 @@
+{
+  "contract": "W7C_REAL_M2_SCORE_V1",
+  "results": [
+    {
+      "action_evidence_sha256": "75e2017fafaaa437b7e533bbacde2da8e359759064bd9063f9dbb20760e79605",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 4409842586517.334,
+      "normalized_shares_out": 14175000000.0,
+      "raw_close": 311.1000061035156,
+      "ticker": "BRSAN"
+    },
+    {
+      "action_evidence_sha256": "82adc604d8d5aac57ae05efa04688b72ba963f3efb1f8900da5ab96efc4dd29b",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 569999980926.5135,
+      "normalized_shares_out": 50000000000.0,
+      "raw_close": 11.399999618530272,
+      "ticker": "CEMTS"
+    },
+    {
+      "action_evidence_sha256": "ebb810b342274e34e4b40758437b7b9b9a85dda6ce2acdc76adabbb285db8576",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 19747200050.354004,
+      "normalized_shares_out": 2640000000.0,
+      "raw_close": 7.480000019073486,
+      "ticker": "QUAGR"
+    },
+    {
+      "action_evidence_sha256": "94037f221ffe0789820e5115bb211cb00436bfcdfb68a808fff9de1bedc93c70",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 1631319468767.1665,
+      "normalized_shares_out": 147231000000.0,
+      "raw_close": 11.079999923706056,
+      "ticker": "TUKAS"
+    },
+    {
+      "action_evidence_sha256": "ccdca8040228cbe07621bb80878cfd572a647e83488d19f125eba97e29512ceb",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 2134469156015.625,
+      "normalized_shares_out": 487344000.0,
+      "raw_close": 4379.7998046875,
+      "ticker": "KONYA"
+    },
+    {
+      "action_evidence_sha256": "b64c1bd70a532866285c3d5ab1d5776738ccdf9df431f4a10760571685b17ba6",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 2068087986561.5654,
+      "normalized_shares_out": 33545627500.0,
+      "raw_close": 61.650001525878906,
+      "ticker": "VESTL"
+    },
+    {
+      "action_evidence_sha256": "ef60841c5392b3ae5ac57965b6ba4c9d65544662ccafc1a5e0c9c3c6f5aa4121",
+      "error": null,
+      "gate_passed": true,
+      "market_cap": 8005048820051.209,
+      "normalized_shares_out": 25437078200.0,
+      "raw_close": 314.70001220703125,
+      "ticker": "CCOLA"
+    }
+  ]
+}

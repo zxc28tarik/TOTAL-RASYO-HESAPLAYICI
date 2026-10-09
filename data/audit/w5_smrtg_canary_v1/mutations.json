@@ -1,0 +1,180 @@
+{
+  "all_killed": true,
+  "auditor": "scripts/audit_w5_smrtg_canary.py",
+  "auditor_sha256": "5eadae89709a5f73cbd2f95c8a62b9e50719cf4a80af5c67801059298e16a317",
+  "contract": "W5_SMRTG_CANARY_MUTATION_AUDIT_V1",
+  "database_access": false,
+  "mutations_killed": 20,
+  "mutations_total": 20,
+  "network_access": false,
+  "results": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "name": "baseline",
+      "skipped": 0,
+      "status": "PASS",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 7,
+      "name": "share_action_gate_assumed_passed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 4,
+      "name": "post_cutoff_observation_admitted",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 3,
+      "name": "empty_interval_check_dropped",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "assumed_nominal_tolerated",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "nonempty_completeness_claim_ignored",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "recorded_basis_not_compared_against_latest_known",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "supersession_asserted_from_the_certificate_alone",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "profile_origin_forced_to_config",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "profile_version_ignored",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "prior_reproduction_gate_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "scan_no_longer_bound_to_the_production_helper",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "cohort_admission_rule_relaxed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "any_pre_cutoff_observation_treated_as_certifiable",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "gate_reachability_off_by_one",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "unsafe_derivation_cells_counted_as_safe",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "peer_shortfall_blocker_suppressed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "residual_share_blocker_ignored",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 2,
+      "name": "verdict_status_hardcoded_blocked",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "verdict_self_consistency_gate_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "name": "materialization_claim_gate_removed",
+      "skipped": 0,
+      "status": "KILLED",
+      "tests": 58
+    }
+  ]
+}

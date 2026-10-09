@@ -1,0 +1,236 @@
+{
+  "contract": "W5_SMRTG_HISTORICAL_M2_CANARY_VERIFICATION_V1",
+  "derivation_profile": {
+    "artifact_profile": "KAP_BULK_GENERAL_HOLDING_CORE_EXACT_V1",
+    "artifact_semantic_profile": "KAP_BULK_GENERAL_HOLDING_EXACT_LABEL_V1",
+    "artifact_version": 1,
+    "default_config": {
+      "blockers": [
+        "SOURCE_DERIVATION_PROFILE_MISMATCH:artifact=KAP_BULK_GENERAL_HOLDING_CORE_EXACT_V1@1;config=KAP_NONBANK_CORE_EXAMPLE@1",
+        "UNPROVEN_SHARE_DERIVATION:ISSUED_CAPITAL_OVER_NOMINAL"
+      ],
+      "compatible": false,
+      "path": "config/nonfin_valuation.relative_v1.json",
+      "profile": "KAP_NONBANK_CORE_EXAMPLE",
+      "version": 1
+    },
+    "detail": "The artifact is internally consistent; only the default valuation config named a different profile. A separate versioned config declares the artifact's own profile, so the mismatch is resolved by configuration, not by renaming the artifact or forcing the gate.",
+    "exact_config": {
+      "blockers": [
+        "UNPROVEN_SHARE_DERIVATION:ISSUED_CAPITAL_OVER_NOMINAL"
+      ],
+      "compatible": false,
+      "path": "config/nonfin_valuation.kap_bulk_exact_v1.json",
+      "profile": "KAP_BULK_GENERAL_HOLDING_CORE_EXACT_V1",
+      "version": 1
+    },
+    "forced_profile_rename_allowed": false,
+    "is_config": true,
+    "is_data_defect": false,
+    "is_routing_or_code_defect": false,
+    "origin": "CONFIG",
+    "residual_share_derivation_blocker": [
+      "UNPROVEN_SHARE_DERIVATION:ISSUED_CAPITAL_OVER_NOMINAL"
+    ],
+    "resolved": true
+  },
+  "knowledge_cutoff_at": "2023-07-31T18:10:00+03:00",
+  "month": "2023-08",
+  "peer_cohort": {
+    "financial_candidate_count": 75,
+    "minimum_peer_count": 5,
+    "peer_gate_passed": false,
+    "safe_peer_count": 0,
+    "safe_peer_tickers": [],
+    "safe_share_candidate_count": 1,
+    "safe_share_candidates": [
+      "SMRTG"
+    ],
+    "target_ticker": "SMRTG",
+    "unsafe_share_candidate_count": 74,
+    "unsafe_share_tickers": [
+      "AEFES",
+      "AKSEN",
+      "ALARK",
+      "ARCLK",
+      "ASELS",
+      "ASUZU",
+      "AYDEM",
+      "BAGFS",
+      "BERA",
+      "BIMAS",
+      "BIOEN",
+      "BRSAN",
+      "BRYAT",
+      "BUCIM",
+      "CANTE",
+      "CCOLA",
+      "CEMTS",
+      "CIMSA",
+      "DOAS",
+      "ECILC",
+      "ECZYT",
+      "EGEEN",
+      "ENJSA",
+      "ENKAI",
+      "EREGL",
+      "EUREN",
+      "GENIL",
+      "GESAN",
+      "GLYHO",
+      "GSDHO",
+      "GUBRF",
+      "GWIND",
+      "HEKTS",
+      "IPEKE",
+      "ISDMR",
+      "ISGYO",
+      "ISMEN",
+      "IZMDC",
+      "KARSN",
+      "KCAER",
+      "KMPUR",
+      "KONTR",
+      "KONYA",
+      "KORDS",
+      "KOZAA",
+      "KOZAL",
+      "KRDMD",
+      "KZBGY",
+      "MGROS",
+      "ODAS",
+      "OTKAR",
+      "OYAKC",
+      "PENTA",
+      "PETKM",
+      "PGSUS",
+      "PSGYO",
+      "QUAGR",
+      "SASA",
+      "SELEC",
+      "SNGYO",
+      "SOKM",
+      "TAVHL",
+      "THYAO",
+      "TKNSA",
+      "TOASO",
+      "TTKOM",
+      "TTRAK",
+      "TUKAS",
+      "TUPRS",
+      "ULKER",
+      "VESBE",
+      "VESTL",
+      "YYLGD",
+      "ZOREN"
+    ]
+  },
+  "prior_receipt_reproduced": true,
+  "share_basis_supersession": {
+    "artifact_share_derivation": "ISSUED_CAPITAL_OVER_NOMINAL",
+    "artifact_share_derivation_is_safe": false,
+    "artifact_shares_out": 306000000.0,
+    "bases_differ": true,
+    "certified_basis_supersedes_artifact": true,
+    "certified_over_artifact_ratio": 1.98,
+    "certified_shares_out": 605880000,
+    "checks": {
+      "market_cap_does_not_follow_the_artifact_basis": {
+        "verified": true
+      },
+      "market_cap_follows_the_certified_basis": {
+        "verified": true
+      },
+      "share_action_gate_passed": {
+        "verified": true
+      }
+    },
+    "detail": "The artifact's unsafe share route reports a stale pre-capital-increase count; the dated certification published before the cutoff supplies the point-in-time count and the recorded market cap follows it, so the unsafe route is superseded for this ticker only. Nothing here certifies any other ticker.",
+    "raw_close": 21.450000762939453,
+    "recorded_market_cap": 12996126462.249756
+  },
+  "share_certification": {
+    "certification_contract": "ZERO_INTERVAL_VERIFIED_SHARE_BASIS_V1",
+    "checks": {
+      "action_interval_is_empty": {
+        "detail": "the share state is published on the cutoff date itself, so the open-closed action interval has zero length and no corporate action can fall inside it",
+        "evidence": "EMPTY_OPEN_CLOSED_DATE_INTERVAL_(2023-07-31,2023-07-31]",
+        "verified": true
+      },
+      "latest_eligible_observation_selected": {
+        "evidence": "explicit class nominals divided by their per-share nominal",
+        "verified": true
+      },
+      "nominal_value_per_share_not_assumed": {
+        "evidence": "per-share nominal read from the KAP class table, not assumed",
+        "verified": true
+      },
+      "non_empty_action_completeness_not_claimed": {
+        "evidence": "the contract only ever certifies empty intervals",
+        "verified": true
+      },
+      "recorded_basis_is_pit_not_latest_known": {
+        "evidence": "the recorded share basis equals the point-in-time pick and differs from the latest observation in the file",
+        "excluded_as_post_cutoff": 1,
+        "verified": true
+      }
+    },
+    "excluded_as_post_cutoff": [
+      {
+        "at_or_before_cutoff": false,
+        "created_at": "2026-01-30T09:24:46",
+        "derived_shares": 1817640000.0,
+        "share_classes": 2
+      }
+    ],
+    "latest_known_observation": {
+      "at_or_before_cutoff": false,
+      "created_at": "2026-01-30T09:24:46",
+      "derived_shares": 1817640000.0,
+      "share_classes": 2
+    },
+    "look_ahead_would_change_the_share_basis": true,
+    "observations": [
+      {
+        "at_or_before_cutoff": true,
+        "created_at": "2022-03-25T17:21:27",
+        "derived_shares": 153000000.0,
+        "share_classes": 2
+      },
+      {
+        "at_or_before_cutoff": true,
+        "created_at": "2022-10-21T10:36:57",
+        "derived_shares": 306000000.0,
+        "share_classes": 2
+      },
+      {
+        "at_or_before_cutoff": true,
+        "created_at": "2023-07-31T17:49:42",
+        "derived_shares": 605880000.0,
+        "share_classes": 2
+      },
+      {
+        "at_or_before_cutoff": false,
+        "created_at": "2026-01-30T09:24:46",
+        "derived_shares": 1817640000.0,
+        "share_classes": 2
+      }
+    ],
+    "recorded_shares_out": 605880000,
+    "selected_observation": {
+      "at_or_before_cutoff": true,
+      "created_at": "2023-07-31T17:49:42",
+      "derived_shares": 605880000.0,
+      "share_classes": 2
+    },
+    "share_action_gate_passed": true,
+    "share_state_published_at": "2023-07-31T17:49:42+03:00",
+    "ticker": "SMRTG"
+  },
+  "thresholds": {
+    "minimum_peer_count": 5,
+    "note": "the ledger forbids relaxing the peer or coverage thresholds",
+    "relaxed": false
+  },
+  "ticker": "SMRTG"
+}
